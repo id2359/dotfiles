@@ -1,0 +1,49 @@
+(require 'cl)
+
+;; emacs root
+(setq emacs-root (expand-file-name "~/.emacs.d/"))
+
+(defvar load-paths '(
+		     "langs"
+		     "myutils"
+		     "themes"
+		     "work"
+		     "ProofGeneral/generic"))
+
+(loop for location in load-paths
+      do (add-to-list 'load-path (concat emacs-root location)))
+
+(require 'package)
+(setq package-archives '(
+			 ("melpa" . "http://melpa.milkbox.net/packages/")
+			 ("gnu" . "http://elpa.gnu.org/packages/")))
+
+(setq package-enable-at-startup nil)
+(package-initialize)
+
+(when (not package-archive-contents)
+  (package-refresh-contents))
+
+(defvar packages '(
+		   ))
+
+(defvar all-packages-installed t)
+(dolist (p packages)
+  (unless (package-installed-p p)
+    (setq all-packages-installed nil)))
+
+(unless all-packages-installed
+  (dolist (p packages)
+    (unless (package-installed-p p)
+      (package-install p))))
+
+
+
+;; settings
+		     
+;; Proof General
+(require 'proof-site)
+
+(require 'mysettings)
+
+
