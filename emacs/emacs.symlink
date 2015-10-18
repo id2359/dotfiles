@@ -5,6 +5,7 @@
 
 (defvar load-paths '(
 		     "langs"
+		     "settings"
 		     "myutils"
 		     "themes"
 		     "work"
