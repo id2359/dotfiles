@@ -5,7 +5,10 @@
 
 (defvar load-paths '(
 		     "langs"
+<<<<<<< HEAD
 		     "settings"
+=======
+>>>>>>> 0ae99806eb36e669c679595d265628822dc46a62
 		     "myutils"
 		     "themes"
 		     "work"
@@ -41,6 +44,15 @@
 
 
 ;; settings
+<<<<<<< HEAD
+=======
+
+;; octave
+
+(autoload 'octave-mode "octave-mod" nil t)
+(setq auto-mode-alist
+      (cons '("\\.m$" . octave-mode) auto-mode-alist))
+>>>>>>> 0ae99806eb36e669c679595d265628822dc46a62
 		     
 ;; Proof General
 (require 'proof-site)
