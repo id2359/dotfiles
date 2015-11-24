@@ -1,57 +1,88 @@
+" vimrc file for following the coding standards specified in PEP 7 & 8.
+"
+" To use this file, source it in your own personal .vimrc file (``source
+" <filename>``) or, if you don't have a .vimrc file, you can just symlink to it
+" (``ln -s <this file> ~/.vimrc``).  All options are protected by autocmds
+" (read below for an explanation of the command) so blind sourcing of this file
+" is safe and will not affect your settings for non-Python or non-C files.
+"
+"
+" All setting are protected by 'au' ('autocmd') statements.  Only files ending
+" in .py or .pyw will trigger the Python settings while files ending in *.c or
+" *.h will trigger the C settings.  This makes the file "safe" in terms of only
+" adjusting settings for Python and C files.
+"
+" Only basic settings needed to enforce the style guidelines are set.
+" Some suggested options are listed but commented out at the end of this file.
+
+" Number of spaces that a pre-existing tab is equal to.
+" For the amount of space used for a new tab use shiftwidth.
 set nocompatible
+source $VIMRUNTIME/mswin.vim
 behave mswin
 syntax on
 set tabstop=4
 set shiftwidth=4
+set smarttab
 set expandtab
 set softtabstop=4
-set hlsearch
-filetype plugin indent on
-set nowrap
 set autoindent
-" vundle config
-filetype off                  " required!
+color elflord 
+set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class 
+"remove whitespace at end of line before writing
+autocmd BufWritePre *.py normal m`:%s/\s\+$//e
+filetype plugin on
+set ofu=syntaxcomplete#Complete
+nmap <silent> <A-Up> :wincmd k<CR>
+nmap <silent> <A-Down> :wincmd j<CR>
+nmap <silent> <A-Left> :wincmd h<CR>
+nmap <silent> <A-Right> :wincmd l<CR>
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+" What to use for an indent.
+" This will affect Ctrl-T and 'autoindent'.
+" Python: 4 spaces
+" C: tabs (pre-existing files) or 4 spaces (new files)
+au BufRead,BufNewFile *.py,*pyw set shiftwidth=4
+au BufRead,BufNewFile *.py,*.pyw set expandtab
+au BufRead,BufNewFile Makefile* set noexpandtab
 
-" let Vundle manage Vundle
-" " required! 
-Bundle 'gmarik/vundle'
+au BufRead,BufNewFile *.clp set shiftwidth=4
+au BufRead,BufNewFile *.clp set expandtab
 
-"
-" " My bundles here:
-" "
-" " original repos on GitHub
+" Use the below highlight group when displaying bad whitespace is desired.
+highlight BadWhitespace ctermbg=red guibg=red
 
-" J language
-Bundle 'guersam/vim-j'
-Bundle 'davidhalter/jedi-vim'
-Bundle 'tpope/vim-fugitive'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-Bundle 'tpope/vim-rails.git'
-" " vim-scripts repos
-Bundle 'L9'
-Bundle 'FuzzyFinder'
-Bundle 'darkrobot'
+" Display tabs at the beginning of a line in Python mode as bad.
+au BufRead,BufNewFile *.py,*.pyw match BadWhitespace /^\t\+/
+" Make trailing whitespace be flagged as bad.
+au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
-" " non-GitHub repos
-" Bundle 'git://git.wincent.com/command-t.git'
-" " Git repos on your local machine (i.e. when working on your own plugin)
-" Bundle 'file:///Users/gmarik/path/to/plugin'
-" " ...
-"
-filetype plugin indent on     " required!
-" "
-" " Brief help
-" " :BundleList          - list configured bundles
-" " :BundleInstall(!)    - install (update) bundles
-" " :BundleSearch(!) foo - search (or refresh cache first) for foo
-" " :BundleClean(!)      - confirm (or auto-approve) removal of unused bundles
-" "
-" " see :h vundle for more details or wiki for FAQ
-" " NOTE: comments after Bundle commands are not allowed.
-"
-"
-color delek
+
+" Use UNIX (\n) line endings.
+" Only used for new files so as to not force existing files to change their
+" line endings.
+" Python: yes
+" C: yes
+au BufNewFile *.py,*.pyw,*.c,*.h set fileformat=unix
+
+
+" ----------------------------------------------------------------------------
+" The following section contains suggested settings.  While in no way required
+" to meet coding standards, they are helpful.
+
+" Set the default file encoding to UTF-8: ``set encoding=utf-8``
+
+" Puts a marker at the beginning of the file to differentiate between UTF and
+" UCS encoding (WARNING: can trick shells into thinking a text file is actually
+" a binary file when executing the text file): ``set bomb``
+
+" For full syntax highlighting:
+let python_highlight_all=1
+syntax on``
+
+" Automatically indent based on file type:
+filetype indent on
+" Keep indentation level from previous line:
+set autoindent
+
+" Folding based on indentation: ``set foldmethod=indent``
