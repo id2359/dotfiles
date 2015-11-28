@@ -1,10 +1,11 @@
 (require 'cl)
-
+;; test
 ;; emacs root
 (setq emacs-root (expand-file-name "~/.emacs.d/"))
 
 (defvar load-paths '(
 		     "langs"
+		     "settings"
 		     "myutils"
 		     "themes"
 		     "work"
@@ -57,3 +58,4 @@
 (require 'mysettings)
 
 
+(require 'rebol)
