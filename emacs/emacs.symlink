@@ -25,6 +25,8 @@
   (package-refresh-contents))
 
 (defvar packages '(
+                  cl
+		  color-theme
 		   ))
 
 (defvar all-packages-installed t)
@@ -49,6 +51,8 @@
 		     
 ;; Proof General
 (require 'proof-site)
+
+(require 'go-mode)
 
 (require 'mysettings)
 
