@@ -3,6 +3,8 @@
 ;; emacs root
 (setq emacs-root (expand-file-name "~/.emacs.d/"))
 
+(setq make-backup-files nil)
+
 (defvar load-paths '(
 		     "langs"
 		     "settings"
@@ -28,7 +30,12 @@
 (defvar packages '(
                   cl
 		  color-theme
-		   ))
+		  auto-complete
+		  projectile
+		  epc
+		  jedi
+		  neotree
+		  evil))
 
 (defvar all-packages-installed t)
 (dolist (p packages)
@@ -56,5 +63,7 @@
 
 (require 'mysettings)
 
-
 (require 'rebol)
+
+(require 'evil)
+(evil-mode 1)
