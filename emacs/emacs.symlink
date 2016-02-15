@@ -35,7 +35,7 @@
 		  epc
 		  jedi
 		  neotree
-		  evil))
+		  ))
 
 (defvar all-packages-installed t)
 (dolist (p packages)
@@ -64,6 +64,11 @@
 (require 'mysettings)
 
 (require 'rebol)
+
+
+;; install this manually
+
+(add-to-list 'load-path (concat emacs-root "evil"))
 
 (require 'evil)
 (evil-mode 1)

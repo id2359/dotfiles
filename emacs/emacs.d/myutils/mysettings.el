@@ -1,6 +1,6 @@
 (provide 'mysettings)
 (setq inhibit-startup-message t)
-
+(set-default 'truncate-lines t) 
 (require 'color-theme)
 (color-theme-initialize)
 (color-theme-calm-forest)
