@@ -3,6 +3,8 @@
 ;; emacs root
 (setq emacs-root (expand-file-name "~/.emacs.d/"))
 
+(setq make-backup-files nil)
+
 (defvar load-paths '(
 		     "langs"
 		     "settings"
@@ -28,7 +30,12 @@
 (defvar packages '(
                   cl
 		  color-theme
-		   ))
+		  auto-complete
+		  projectile
+		  epc
+		  jedi
+		  neotree
+		  ))
 
 (defvar all-packages-installed t)
 (dolist (p packages)
@@ -43,7 +50,6 @@
 
 
 ;; settings
-
 ;; octave
 
 (autoload 'octave-mode "octave-mod" nil t)
@@ -57,5 +63,12 @@
 
 (require 'mysettings)
 
-
 (require 'rebol)
+
+
+;; install this manually
+
+(add-to-list 'load-path (concat emacs-root "evil"))
+
+(require 'evil)
+(evil-mode 1)
