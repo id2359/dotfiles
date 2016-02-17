@@ -66,6 +66,9 @@
 
 (require 'mysettings)
 
+(require 'mykeybindings)
+
+
 (require 'rebol)
 
 
