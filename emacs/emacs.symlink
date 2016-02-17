@@ -62,6 +62,12 @@
 (setq auto-mode-alist
       (cons '("\\.m$" . octave-mode) auto-mode-alist))
 		     
+
+(autoload 'clips-mode "clips-mode" nil t)
+(setq auto-mode-alist
+     (cons '("\\.clp" . clips-mode) auto-mode-alist))
+
+
 ;; Proof General
 (require 'proof-site)
 (require 'tramp)
@@ -71,6 +77,7 @@
 (require 'mysettings)
 
 (require 'mykeybindings)
+
 
 
 (require 'rebol)
