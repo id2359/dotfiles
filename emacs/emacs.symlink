@@ -38,6 +38,9 @@
 		  jedi
 		  neotree
 		  magit
+		  tramp
+		  python-pep8
+		  python-pylint
 		  ))
 
 (defvar all-packages-installed t)
@@ -61,6 +64,7 @@
 		     
 ;; Proof General
 (require 'proof-site)
+(require 'tramp)
 
 (require 'go-mode)
 
