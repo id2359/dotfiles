@@ -72,17 +72,10 @@
 ;; Proof General
 (require 'proof-site)
 (require 'tramp)
-
 (require 'go-mode)
-
-(require 'mysettings)
-
-(require 'mykeybindings)
-
-
-
 (require 'rebol)
-
+(require 'mysettings)
+(require 'mykeybindings)
 
 ;; install this manually
 

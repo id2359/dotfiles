@@ -3,7 +3,11 @@
 (set-default 'truncate-lines t) 
 (require 'color-theme)
 (color-theme-initialize)
-(color-theme-calm-forest)
+;(color-theme-calm-forest)
+
+
+; try material ui theme
+(load-theme 'material t)
 
 (add-hook
  'after-init-hook
