@@ -41,6 +41,7 @@
 		  tramp
 		  python-pep8
 		  python-pylint
+		  material-theme
 		  ))
 
 (defvar all-packages-installed t)
