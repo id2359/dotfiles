@@ -38,6 +38,16 @@
     (add-hook 'python-mode-hook 'jedi:setup)
     (setq jedi:complete-on-dot t)
 
+
+    ;; J
+    (autoload 'j-mode "j-mode.el"  "Major mode for J." t)
+    (autoload 'j-shell "j-mode.el" "Run J from emacs." t)
+    (setq auto-mode-alist
+	  (cons '("\\.ij[rstp]" . j-mode) auto-mode-alist))
+
+    
+    
+
     ;; neotree
     (require 'neotree)
     (global-set-key [f8] 'neotree-toggle)

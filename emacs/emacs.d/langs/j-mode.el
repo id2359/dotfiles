@@ -172,7 +172,7 @@
   :group 'languages
   :prefix "j-")
 
-(defcustom j-path (expand-file-name "~/Downloads/j64-803/")
+(defcustom j-path (expand-file-name "~/j503a/")
   "*The path under which J is installed."
   :type '(directory)
   :group 'j)
