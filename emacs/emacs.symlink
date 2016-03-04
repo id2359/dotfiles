@@ -42,6 +42,7 @@
 		  python-pep8
 		  python-pylint
 		  material-theme
+		  tuareg
 		  ))
 
 (defvar all-packages-installed t)
