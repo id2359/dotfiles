@@ -75,6 +75,7 @@
 (require 'go-mode)
 (require 'rebol)
 (require 'mysettings)
+(require 'myutils)
 (require 'mykeybindings)
 
 ;; install this manually
