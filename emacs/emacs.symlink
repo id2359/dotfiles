@@ -34,6 +34,7 @@
 		  color-theme
 		  auto-complete
 		  projectile
+		  exec-path-from-shell
 		  epc
 		  jedi
 		  neotree
@@ -85,3 +86,10 @@
 
 (require 'evil)
 (evil-mode 1)
+
+
+
+(when (memq window-system '(mac ns))
+  (exec-path-from-shell-initialize))
+
+

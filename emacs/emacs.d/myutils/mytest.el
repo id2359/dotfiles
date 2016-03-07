@@ -1,5 +1,15 @@
-(defun goo ()
-    (insert "goo"))
+(setq data '((fred 23)
+	     (harry 100)))
 
-(provide 'myutils)
 
+(assoc 'fred data)
+
+
+(defmacro getkey (key data)
+  `(assoc (quote ,key) ,data))
+
+
+(getkey fred data)
+
+
+(getkey harry data)
