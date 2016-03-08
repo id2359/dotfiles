@@ -18,24 +18,19 @@
   (display-buffer buf)))
 
 
-
 (defun kill-buffers ()
   (interactive)
   (mapcar 'kill-buffer (buffer-list)))
-
 
 
 (defun kill-other-buffers ()
   (interactive)
   (mapcar 'kill-buffer (delq  (current-buffer) (buffer-list))))
 
-	
-  
 
-
-
-
-
-  
-
-
+(defun rdrf-search (s)
+  (interactive "sSearch term: ")
+  (let ((pattern (concat ".*" s ".*")))
+    (progn 
+     (grep-compute-defaults)
+     (rgrep  pattern "*.py" "~/src/rdrf"))))
