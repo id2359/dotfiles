@@ -44,6 +44,7 @@
 		  python-pylint
 		  material-theme
 		  tuareg
+		  gnu-apl-mode
 		  ))
 
 (defvar all-packages-installed t)
