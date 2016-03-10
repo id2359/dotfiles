@@ -6,6 +6,7 @@
 (global-set-key (kbd "C-<right>") 'next-buffer)
 (global-set-key (kbd "C-<f12>") 'kill-other-buffers)
 (global-set-key (kbd "C-<f11>") 'kill-buffers)
+(global-set-key (kbd "C-S-f") 'rdrf-search)
 
 
 (provide 'mykeybindings)
