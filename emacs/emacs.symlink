@@ -77,6 +77,7 @@
 (require 'tramp)
 (require 'go-mode)
 (require 'rebol)
+(require 'gnu-apl-mode)
 (require 'mysettings)
 (require 'myutils)
 (require 'mykeybindings)
