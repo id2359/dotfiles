@@ -49,7 +49,8 @@
     (global-set-key [f8] 'neotree-toggle)
 
     ;; yasnippet
-    ;;(require 'yasnippet)
-    ;;(yas-global-mode 1)
+    (require 'yasnippet)
+    (setq yas-snippet-dirs '("~/.emacs.d/snippets"))
+    (yas-global-mode 1)
     ))
 
