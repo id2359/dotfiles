@@ -1,0 +1,15 @@
+# -*- mode: snippet -*-
+# name: class 
+# key: ysclass
+# --
+coclass '${1:`(file-name-nondirectory
+		 (file-name-sans-extension (buffer-file-name)))`}'
+
+create =: 3 : 0
+
+)
+
+destroy =: codestroy
+
+)
+
