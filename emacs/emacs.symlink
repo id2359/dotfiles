@@ -61,6 +61,8 @@
 
 
 ;; settings
+
+
 ;; octave
 
 (autoload 'octave-mode "octave-mod" nil t)
@@ -94,7 +96,10 @@
 
 (when (memq window-system '(mac ns))
   (exec-path-from-shell-initialize))
-
+  
+(when (eq system-type 'darwin)
+  (require 'ls-lisp)
+  (setq ls-lisp-use-insert-directory-program nil))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
