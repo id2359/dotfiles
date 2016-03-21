@@ -2,6 +2,7 @@
 # name: verb
 # key: ysverb
 # --
-$1 := verb define
+$1 =:
+verb define
 $0
 )
