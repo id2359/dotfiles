@@ -95,6 +95,11 @@
 (when (memq window-system '(mac ns))
   (exec-path-from-shell-initialize))
 
+;; show full path to buffer
+ (setq frame-title-format
+      (list (format "%s %%S: %%j " (system-name))
+        '(buffer-file-name "%f" (dired-directory dired-directory "%b"))))
+
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
