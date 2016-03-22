@@ -61,6 +61,8 @@
 
 
 ;; settings
+
+
 ;; octave
 
 (autoload 'octave-mode "octave-mod" nil t)
@@ -95,11 +97,14 @@
 (when (memq window-system '(mac ns))
   (exec-path-from-shell-initialize))
 
-;; show full path to buffer
- (setq frame-title-format
+(setq frame-title-format
       (list (format "%s %%S: %%j " (system-name))
         '(buffer-file-name "%f" (dired-directory dired-directory "%b"))))
 
+  
+(when (eq system-type 'darwin)
+  (require 'ls-lisp)
+  (setq ls-lisp-use-insert-directory-program nil))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
