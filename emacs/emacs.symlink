@@ -46,6 +46,7 @@
 		  tuareg
 		  gnu-apl-mode
 		  yasnippet
+		  py-autopep8
 		  ))
 
 (defvar all-packages-installed t)
@@ -74,6 +75,9 @@
 (setq auto-mode-alist
      (cons '("\\.clp" . clips-mode) auto-mode-alist))
 
+;; autopep8 - not sure I want it always
+(require 'py-autopep8)
+;;(add-hook 'python-mode-hook 'py-autopep8-enable-on-save)
 
 ;; Proof General
 (require 'proof-site)
@@ -98,7 +102,7 @@
   (exec-path-from-shell-initialize))
 
 (setq frame-title-format
-      (list (format "%s %%S: %%j " (system-name))
+      (list (format "emacs %s %%S: %%j " (system-name))
         '(buffer-file-name "%f" (dired-directory dired-directory "%b"))))
 
   
