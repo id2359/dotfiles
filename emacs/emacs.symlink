@@ -110,6 +110,12 @@
   (require 'ls-lisp)
   (setq ls-lisp-use-insert-directory-program nil))
 
+(when (eq system-type 'darwin)
+  (add-to-list 'load-path "/Applications/Macaulay2-1.6/share/emacs/site-lisp")
+  (load "M2-init")
+  (global-set-key [f12] 'M2))
+  
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
