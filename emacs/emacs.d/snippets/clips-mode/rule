@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: rule
+# key: ysrule
+# --
+
+(defrule $1
+$0
+=>
+
+)
+
