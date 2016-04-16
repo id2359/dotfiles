@@ -47,6 +47,7 @@
 		  gnu-apl-mode
 		  yasnippet
 		  py-autopep8
+		  erc
 		  ))
 
 (defvar all-packages-installed t)
