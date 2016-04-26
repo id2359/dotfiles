@@ -48,6 +48,9 @@
 		  py-autopep8
 		  flycheck
 		  erc
+		  evil-leader
+		  paredit
+		  evil-paredit
 		  ))
 
 (defvar all-packages-installed t)
