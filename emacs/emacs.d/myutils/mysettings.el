@@ -48,6 +48,9 @@
     (require 'neotree)
     (global-set-key [f8] 'neotree-toggle)
 
+    ;; flycheck
+    (global-flycheck-mode)
+
     ;; yasnippet
     (require 'yasnippet)
     (setq yas-snippet-dirs '("~/.emacs.d/snippets"))
