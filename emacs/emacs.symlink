@@ -2,7 +2,6 @@
 ;; test
 ;; emacs root
 (setq emacs-root (expand-file-name "~/.emacs.d/"))
-
 (setq make-backup-files nil)
 
 (defvar load-paths '(
@@ -18,8 +17,8 @@
 
 (require 'package)
 (setq package-archives '(
+                         ("melpa" . "https://melpa.org/packages/")
 			 ("marmalade" . "http://marmalade-repo.org/packages/")
-			 ("melpa" . "http://melpa.milkbox.net/packages/")
 			 ("gnu" . "http://elpa.gnu.org/packages/")))
 
 
