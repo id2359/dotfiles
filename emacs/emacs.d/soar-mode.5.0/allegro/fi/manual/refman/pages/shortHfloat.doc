@@ -1,0 +1,66 @@
+
+                                                                 short-float
+
+
+    Type SPECIFIER
+    short-float  -  the data type comprising `short' floating-point numbers
+
+    USAGE
+    {short-float | (&Eshort-float [{low | (low)} [{high | (high)}]])}
+
+    DESCRIPTION
+    Specifies a data type consisting of short-format floating-point  numbers
+    between  LOW  and  HIGH.   Either  limit  is  considered exclusive if it
+    appears in a list by itself, otherwise it is considered inclusive.   The
+    limits should be specified as short-format floating-point numbers or may
+    be explicitly unspecified using *.  Frequently, implementations are less
+    restrictive in the numeric format of the limits.
+
+    The short-float type is the smallest precision subtype of float.  It  is
+    intended  that  numbers  of  this  type be precise to at least 4 decimal
+    places.  However, the COMMON LISP standard allows  considerable  freedom
+    in  the  implementation of floats.  It is possible that short-float will
+    be equivalent to single-float for example.  You may discover the details
+    of the implementation you are using with functions like float-precision,
+    which returns the number  of  digits  in  the  internal  representation.
+    Floating-point  numbers of this type may be expressed using the exponent
+    marker letters s or S.
+
+    EXAMPLES
+    (typep 0.4s1 '(short-float 0.0 1.0)) => t
+    (subtypep 'short-float 'float) => t t
+    ;;  The next result is implementation-dependent.
+    (float-precision 1.0s0) => 24
+
+    SEE ALSO
+    CLtL 2:16, CLtL 4:43, CLtL 4:49, about type specifiers, double-float,
+    float, float-precision, long-float, single-float, subtypep, type-of,
+    typep
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                     lambda-parameters-limit
+
+
+    CONSTANT
+    lambda-parameters-limit  -  maximum number of distinct lambda-list
+      parameters
+
+    DESCRIPTION
+    This constant evaluates to a positive integer representing the exclusive
+    upper bound on the number of distinct parameter names that may appear in
+    a single lambda list.  This value is implementation-dependent.  It  must
+    be at least 50.
+
+    EXAMPLES
+    ;;  This value is implementation-dependent:
+    lambda-parameters-limit => 16384
+
+    SEE ALSO
+    CLtL 5:66, about lambda lists, call-arguments-limit
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                           char-not-greaterp
+
+
+    FUNCTION
+    char-not-greaterp  -  test whether given characters are monotonically
+      nondecreasing, ignoring case and bits
+
+    USAGE
+    char-not-greaterp {char}+
+
+    DESCRIPTION
+    Returns true if each CHAR is less than or equal  to  the  next  argument
+    CHAR  specified  and  returns  nil otherwise.  char-not-greaterp ignores
+    case and any bits attributes and takes font attributes into  account  in
+    an  implementation-dependent way.  Each CHAR must be a character object.
+    The ordering on characters obeys alphabetic ordering within letters, and
+    numeric  ordering  within the digits 0 through 9.  Digits are not inter-
+    leaved with letters, but whether a digit is less than or greater than  a
+    letter  depends  on  the  implementation.   The  function char<= is like
+    char-not-greaterp except that it also checks case,  and  bits  and  font
+    attributes.
+
+    EXAMPLES
+    (char-not-greaterp #\b #\b) => t
+    (char-not-greaterp #\b #\c) => t
+    (char-not-greaterp #\c #\b) => nil
+    (char-not-greaterp #\b #\B) => t
+    (char-not-greaterp #\B #\b) => t
+    (char<= #\b #\B) => nil
+    (char-not-greaterp #\b) => t
+
+    ;;  The following result is implementation-dependent:
+    (char-not-greaterp #\a #\1) => nil
+
+    SEE ALSO
+    CLtL 13:239, char-code, char-equal, char-greaterp, char-lessp, char-
+    not-equal, char-not-lessp, char/=, char<=, eql
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

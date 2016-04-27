@@ -1,0 +1,66 @@
+
+                                                        *all-window-streams*
+
+
+    VARIABLE
+    *all-window-streams*  -  list of all window-streams known to this Lisp
+      session
+
+    DESCRIPTION
+    Bound to a list of all the window-streams which are currently  allocated
+    in this LISP environment.  Both :active and :inactive window-streams are
+    included in this this, but window-streams that  have  been  flushed  are
+    not.
+
+    EXAMPLES
+    ;;  In this example, when we initialize Common Windows, the only
+    ;;  window-stream is the prompt window:
+    (initialize-common-windows)
+    *all-window-streams* => (#<window-stream @ #xbd9469>)
+    ;;  The address will differ each run, of course, but we
+    ;;  know that is the prompt window because the same object
+    ;;  is the value of *PROMPT-WINDOW*:
+    *prompt-window* => #<window-stream @ #xbd9469>
+    ;;  When create another window-stream, it gets added to the
+    ;;  list.  Note that it is not active, so that is not a factor:
+    (setf *my-win* (make-window-stream :left 100 :bottom 100
+                                       :height 100 :width 100))
+      => #<window-stream @ #xbdd7e1>
+    *all-window-streams*
+      => (#<window-stream @ #xbd9469> #<window-stream @ #xbdd7e1>)
+    ;;  Now when we flush *MY-WIN*, it is taken off the list:
+    (flush *my-win*)
+    *all-window-streams* => (#<window-stream @ #xbd9469>)
+
+    SEE ALSO
+    make-window-stream
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

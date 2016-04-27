@@ -1,0 +1,66 @@
+
+                                                                        when
+
+
+    MACRO
+    when  -  evaluate forms when a condition is true
+
+    USAGE
+    when test {form}*
+
+    DESCRIPTION
+    Returns the values of the last FORM, if the form  TEST  evaluates  true,
+    otherwise  returns  nil.   If  the TEST is true, the forms are evaluated
+    sequentially as if in a progn.
+
+    The following identities hold:
+
+    (when test a b c) = (and test (progn a b c))
+    (when test a b c) = (cond (test a b c))
+    (when test a b c) = (if test (progn a b c) nil)
+    (when test a b c) = (unless (not test) a b c)
+
+    EXAMPLES
+    (setq x 1.5) => 1.5
+    (when (floatp x) (truncate x)) => 1 0.5s0
+    (when (rationalp x) (setq x (numerator x)) (* x x)) => nil
+    x => 1.5
+
+    (setq x 5/3) => 5/3
+    (when (floatp x) (truncate x)) => nil
+    (when (ratiop x) (setq x (numerator x)) (* x x)) => 25
+    x => 5
+
+    SEE ALSO
+    CLtL 7:115, and, cond, if, or, unless
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

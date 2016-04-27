@@ -1,0 +1,66 @@
+
+                                                            with-open-stream
+
+
+    MACRO
+    with-open-stream  -  open a stream, evaluate forms, and then close
+      stream
+
+    USAGE
+    with-open-stream (var stream) {declaration}* {form}*
+
+    DESCRIPTION
+    First binds the variable VAR to the value of STREAM, which must evaluate
+    to  a  stream,  then evaluates the FORMS, and finally closes the stream,
+    returning the values of the last FORM.  The FORMS are  evaluated  as  an
+    implicit  progn,  and  may  be  preceded by DECLARATIONS.  The stream is
+    closed whether or not exit from this macro is normal.  The opened stream
+    has  dynamic  extent insofar as its association with STREAM, even though
+    the stream itself has indefinite extent.
+
+    EXAMPLES
+    (with-open-stream (in (make-string-input-stream "a b c d"))
+      (do ((x (read in nil nil) (read in nil nil)) (rlist nil))
+          ((null x) rlist)
+        (push x rlist))))
+      => (d c b a)
+
+    SEE ALSO
+    CLtL 21:330, close, open, with-input-from-string, with-open-file, with-
+    output-to-string
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                                     complex
+
+
+    Type SPECIFIER
+    complex  -  the data type complex
+
+    Usage
+    {complex | (complex [TYPE])}
+
+    DESCRIPTION
+    Specifies a data type  consisting  of  complex  numbers  with  real  and
+    imaginary  parts of type TYPE, which may be explicitly unspecified using
+    *.  The specifier (complex *) is equivalent to complex.
+
+    The real and imaginary  parts  of  a  complex  number  are  rational  or
+    floating-point  numbers.   Either  both  parts  are rational or they are
+    floating-point numbers of the same format.  If originally  entered  with
+    different  types, they are converted according to the rules of floating-
+    point contagion.  As a special case, when the result of a computation is
+    a  number  of  the subtype (complex rational), and its imaginary part is
+    zero, the number is converted by the rule of complex canonicalization to
+    rational.
+
+    The printed representation of a complex number uses the #C syntax,  fol-
+    lowed by a list of the real and imaginary parts.
+
+    EXAMPLES
+    (type-of (complex 1.0 2.0)) => complex
+    (subtypep '(complex integer) '(complex rational)) => t t
+    (list
+     (coerce (+ #C(1 2) #C(3 -2)) '(complex rational))
+     (coerce (+ #C(1.0 2.0) #C(3.0 -2.0)) '(complex rational)))
+      => (4 #c(4.0 0.0))
+
+    SEE ALSO
+    CLtL 2:19, CLtL 4:43, about type specifiers, coerce, complex, double-
+    float, integer, long-float, rational, short-float, single-float,
+    subtypep, type-of, typep
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                                       catch
+
+
+    SPECIAL FORM
+    catch  -  execute forms while providing for dynamic exit
+
+    USAGE
+    catch tag {form}*
+
+    DESCRIPTION
+    Returns the values of  the  last  FORM,  unless  during  the  course  of
+    evaluating  the  forms  a  throw  to  a  tag which matches the catch tag
+    occurs.  In the latter case  the  values  specified  by  the  throw  are
+    returned.   In order for the TAG of a catch to match the tag of a throw,
+    the catch tag must be eq to the throw tag,  and  it  must  be  the  most
+    recent  such  catch  that matches.  The scope of a catch tag is dynamic.
+    (Compare this with block names, which have  lexical  scope.)  It  is  an
+    error  if a throw is done when there is no suitable catch ready to catch
+    it.
+
+    EXAMPLES
+    (defun catch-tester (x) (throw x 'done))
+    (catch 'foo (catch-tester 'foo) 'bar) => done
+
+    SEE ALSO
+    CLtL 7:139, block, return, return-from, throw, unwind-protect
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

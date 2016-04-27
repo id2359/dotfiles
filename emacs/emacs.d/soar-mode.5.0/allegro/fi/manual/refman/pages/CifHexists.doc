@@ -1,0 +1,132 @@
+
+                                                                  :if-exists
+
+
+    KEYWORD ARGUMENT
+    :if-exists  -  keyword argument to open and with-open-file specify ac-
+      tion to take if file to be opened exists
+
+    USAGE
+    :if-exists y-action
+
+    DESCRIPTION
+    Specifies  that  if  a  file  to  be  opened  for  output  by  open   or
+    with-open-file  exists,  then  the  action  given  by Y-ACTION should be
+    taken.  The file must be opened with a :direction of :output or  :io  in
+    order  for  this  argument  to  have  any  effect.   If nil is given for
+    Y-ACTION, no file or stream is created and nil is returned.  If the ver-
+    sion  component  of  the  file  to  be  opened is :newest, then Y-ACTION
+    defaults to :new-version, otherwise it defaults to :error.  The possible
+    values  for Y-ACTION are listed below.  The specific actions taken based
+    on the value of  this  keyword  argument  are  implementation-dependent.
+    Implementations  are  not required to support those values of this argu-
+    ment that do not make sense in a given  filesystem,  although  they  are
+    encouraged  to give some reasonable interpretation so that code will run
+    without error on different implementations.  (It can be argued  that  an
+    error rather than something ill defined is appropriate.)
+
+    :error
+    Signal an error.
+
+    :new-version
+    Create a new file with a larger version number, but the same name.   The
+    new  version  number  will  be larger than any existing file whose other
+    pathname components are identical to those of the specified file.  (Some
+    filesystems  do  not support versions.  In that case, the interpretation
+    of this value is particularly implementation-dependent.)
+
+    :rename
+    Rename the existing file, then create a new file with the old name.
+
+    :rename-and-delete
+    Rename the existing file and delete it without expunging it (if this  is
+    relevant to your system), then create a new file with old name.
+
+    :overwrite
+    Open the file for destructive modification.  Although the  file  pointer
+    initially points to the beginning of the file, the file is not truncated
+    to zero length upon opening.
+
+    :append
+    Open the file for destructive modification.  The file pointer  initially
+    points to the end of the file.
+
+    :supersede
+    Create a new file that replaces the existing  file.   If  possible,  the
+    replacement  is  delayed  so that if the stream is closed in abort mode,
+    the old contents will not be destroyed (see close).
+
+    nil
+    Create neither a file nor a stream, and just return nil.
+
+    EXAMPLES
+    (let* ((out (open "junk" :direction :output
+                      :if-exists :supersede))
+           (in (open "junk" :direction :input
+                     :if-does-not-exist :error)))
+      (prin1 "foo" out)
+      (prog2 (close out) (read in) (close in)))
+      => "foo"
+
+    SEE ALSO
+    CLtL 23:420, close, :direction, :element-type, :if-does-not-exist, open,
+    with-open-file
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                               :fill-pointer
+
+
+    KEYWORD ARGUMENT
+    :fill-pointer  -  specify a fill pointer for the result array in
+      make-array and adjust-array
+
+    USAGE
+    :fill-pointer pointer
+
+    DESCRIPTION
+    This  keyword  argument  may  be  used   with   either   make-array   or
+    adjust-array.   When  specified to make-array, the array that is created
+    will have a fill pointer.  When used with adjust-array, the fill pointer
+    of the array is adjusted.  The array must be one dimensional, that is, a
+    vector. The argument POINTER sets the value of the fill  pointer,  which
+    is the index of the first inactive element of the vector.  This argument
+    must be an integer greater than or equal to zero, and less than or equal
+    to  the  length  of  the  array.  Most  functions  that  operate on one-
+    dimensional arrays (for example, vector-push and vector-pop) operate  on
+    active elements only. The important exception is aref.
+
+    The argument POINTER may also be t, in which case the  fill  pointer  is
+    set to the length of the vector.
+
+    EXAMPLES
+    (setq A (make-array '(10) :adjustable t
+                        :initial-element 1
+                        :fill-pointer 5 )) => #(1 1 1 1 1)
+    ;;  The index cannot exceed the fill pointer in some functions.
+    (elt A 9) => ERROR
+    (aref A 9) =>  1
+    (length A) => 5
+    (map 'list 'identity A) => (1 1 1 1 1)
+
+    SEE ALSO
+    CLtL 17:288, :adjustable, adjust-array, :displaced-index-offset,
+    :displaced-to, :element-type, :initial-contents, :initial-element,
+    make-array
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

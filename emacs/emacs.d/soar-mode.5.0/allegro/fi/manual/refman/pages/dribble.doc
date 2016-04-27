@@ -1,0 +1,66 @@
+
+                                                                     dribble
+
+
+    FUNCTION
+    dribble  -  record an interactive COMMON LISP session in a file
+
+    Usage
+    dribble [PATHNAME]
+
+    DESCRIPTION
+    With an argument, subsequent interaction with the COMMON LISP system  is
+    recorded  in  the  file  specified by PATHNAME (which may be a pathname,
+    string, symbol, or stream).  Recording is stopped and the  the  file  is
+    closed  when  dribble is evaluated again with no argument.  What dribble
+    returns is implementation-dependent.
+
+    EXAMPLES
+    Here is how dribble works in one implementation:
+    <cl> (DRIBBLE "FOO")
+    dribbling to file "/usr/tech/dm/foo"
+    nil
+    <cl> (FORMAT T "HELLO")
+    hello
+    nil
+    <cl> (DRIBBLE)
+    Dribble file /usr/tech/dm/foo closed
+    <cl>
+
+    Now the file foo contains:
+
+    dribbling to file "/usr/tech/dm/foo" nil <cl> (format t  "hello")  hello
+    nil <cl> (dribble)
+
+    SEE ALSO
+    CLtL 25:443
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                                      random
+
+
+    FUNCTION
+    random  -  pseudorandom number generator
+
+    USAGE
+    random n [state]
+
+    SIDE EFFECTS
+    If  called  with  one  argument,  the  value  of  the  global   variable
+    *random-state*  is  changed.  If called with two arguments, the value of
+    the second argument, STATE, is changed.
+
+    DESCRIPTION
+    Returns a pseudorandom, non-negative number less than N, which must be a
+    positive  integer or floating-point number.  The number returned has the
+    same type as N.
+
+    If N is an integer, each integer from 0 to N-1  will  be  returned  with
+    approximate probability 1/N.  If N is a float, then the approximate pro-
+    bability that the returned value will be between the numbers F1  and  F2
+    where 0 <=F1<F2<N is (F2 - F1)/N.
+
+    We say `approximate' because the values are returned by  a  PSEUDORANDOM
+    number  generator.   All  caveats  applicable to the use of pseudorandom
+    numbers (and discussed in Knuth's ART OF COMPUTER PROGRAMMING,  Vol.  2,
+    for example) apply to random.
+
+    The global variable *random-state* holds the state of  the  pseudorandom
+    number  generator  and  affects  the choice of the next number.  You can
+    influence this choice by specifying a STATE, which must be an object  of
+    type random-state.  If STATE is specified, it is modified after the call
+    to random.  If STATE is not specified, it  defaults  to  *random-state*,
+    which is then modified after the call to random.
+
+    EXAMPLES
+    ;;  The returned values are illustrative only
+    ;;  since they are `random.'
+    (random 100) => 63
+    (random 1.0) => 0.8218915
+    (let ((state (make-random-state)))
+      (list (random 100) (random 100) (random 100)
+        (random 100 (setq *random-state* state))
+        (random 100) (random 100)))
+      => (64 40 2 64 40 2)
+
+    SEE ALSO
+    CLtL 12:228, make-random-state, random-state-p, *random-state*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

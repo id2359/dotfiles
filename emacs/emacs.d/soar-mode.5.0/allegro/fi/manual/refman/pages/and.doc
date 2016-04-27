@@ -1,0 +1,66 @@
+
+                                                                         and
+
+
+    Type SPECIFIER
+    and  -  specify the intersection of given data types
+
+    Usage
+    (and {TYPE}*)
+
+    DESCRIPTION
+    Specifies a data type consisting of those objects that are of each given
+    TYPE.  When an object is being checked by typep, the TYPES are processed
+    left to right until one is found that does not contain it, or the end of
+    the TYPES is reached.
+
+    EXAMPLES
+    (typep 2 '(and integer (satisfies evenp))) => t
+    (typep 3 '(and integer (satisfies evenp))) => nil
+
+    SEE ALSO
+    CLtL 4:44, about type specifiers, integer, not, or, satisfies, typep
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                window-stream-reshape-notify
+
+
+    FUNCTION
+    window-stream-reshape-notify  -  get the list of functions called by the
+      reshape-notify method
+
+    Usage
+    window-stream-reshape-notify STREAM
+
+    DESCRIPTION
+    Returns  the  list  of  functions  that  will   be   called   when   the
+    reshape-notify   method   for   the  window-stream  WSTREAM  is  called.
+    reshape-notify is called by the system when a common window is  reshaped
+    by  the  window manager, not by COMMON WINDOWS itself.  You do not (nor-
+    mally) call reshape-notify directly.
+
+    By default the list contains the single function  default-window-stream-
+    reshape-notify-method.   This  function does the work of updating COMMON
+    WINDOWS about the change in the window, so you should not remove it from
+    the list.
+
+    You can change this list by using modify-window-stream-method or replace
+    it  entirely  by  using  setf.   If  you  replace the list, be sure that
+    default-window-stream-reshape-notify-method.  is in the new  list.   You
+    can  restore  the list to its initial state with restore-default-window-
+    stream-method
+
+    EXAMPLES
+    (setf *my-win*
+      (make-window-stream :left 100 :bottom 100
+                          :width 200 :height 200
+                          :activate-p t :title "Just a Window"))
+
+    (defun my-after-reshape-notify (w)
+      (format t "Status of window is ~S ~%"
+              (window-stream-status w)))
+
+    ;;  The initial list returned contains one function.
+    (window-stream-reshape-notify  *my-win*)
+      => (default-window-stream-reshape-notify-method)
+
+    ;;  We add a new function.
+    (modify-window-stream-method *my-win* :reshape-notify
+                                 :after 'my-after-reshape-notify)
+    ;;  Now the list contains two functions.
+    (window-stream-reshape-notify  *my-win*)
+      => (default-window-stream-reshape-notify-method my-after-reshape-notify)
+
+    ;;  We restore the list to its initial state.
+    (restore-window-stream-method *my-win* :reshape-notify)
+    (window-stream-reshape-notify  *my-win*)
+      => (default-window-stream-reshape-notify-method)
+
+    SEE ALSO
+    reshape, reshape-notify, modify-window-stream-method, restore-window-
+    stream-method
+
+
+
+
+
+
+
+

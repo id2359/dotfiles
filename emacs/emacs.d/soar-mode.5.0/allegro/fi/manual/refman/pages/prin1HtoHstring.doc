@@ -1,0 +1,66 @@
+
+                                                             prin1-to-string
+
+
+    FUNCTION
+    prin1-to-string  -  output the printed representation of an object to a
+      string in such a way that it can be read back
+
+    Usage
+    prin1-to-string OBJECT
+
+    DESCRIPTION
+    Returns the string of characters that would  be  output  for  OBJECT  by
+    prin1.   prin1 outputs to stream characters that represent its argument.
+    This is usually done in such a way that the object may be read back with
+    read.
+
+    EXAMPLES
+    ;;  The following is in lower case, since *print-case*
+    ;;  is set to :downcase
+    (prin1-to-string 'test) => "test"
+
+    (prin1-to-string "test") => "\"test\""
+
+    SEE ALSO
+    CLtL 22:383, about printing, fresh-line, prin1, princ, princ-to-string,
+    print, terpri, write, write-to-string
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

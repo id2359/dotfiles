@@ -1,0 +1,19 @@
+#!/usr/local/bin/WolframScript -script
+(* Wolfram Script *)
+
+
+* generate "num" samples of a mixed distribution *) 
+num  = ToExpression[$ScriptCommandLine[[2]]];
+Print /@ RandomVariate[
+  MixtureDistribution[ 
+    {1, 2},
+    {NormalDistribution[1, 0.2],
+     NormalDistribution[3, 0.1]}
+  ], num,  WorkingPrecision -> 50]
+
+(* generate high-precision samples of a mixed distribution *)
+Print /@ RandomVariate[MixtureDistribution[
+    {1,2},
+    {NormalDistribution[1,2/10],
+     NormalDistribution[3,1/10]}],
+    10,  WorkingPrecision -> 50]

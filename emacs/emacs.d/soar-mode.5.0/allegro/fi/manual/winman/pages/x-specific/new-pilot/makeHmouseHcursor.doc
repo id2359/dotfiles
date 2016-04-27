@@ -1,0 +1,132 @@
+
+                                                           make-mouse-cursor
+
+
+    FUNCTION
+    make-mouse-cursor  -  create a mouse cursor
+
+    Usage
+    make-mouse-cursor {[:source-index S-INDEX] [:source-font S-FONT] |
+      [:source-bitmap S-BITMAP]} {[:mask-index M-INDEX] [:mask-font M-FONT]
+      | [:mask-bitmap M-BITMAP]} [:x-hotspot X-HOTSPOT] [:y-hotspot Y-
+      HOTSPOT] [:foreground-color FG-COLOR] [:background-color BG-COLOR]
+
+    DESCRIPTION
+    Returns a new mouse cursor.
+
+    Mouse cursors are constructed with two bitmaps, one describing the  cur-
+    sor  itself  and  one describing the mask.  (The cursor bitmap is called
+    the `source' bitmap.) The mask outlines the cursor, ensuring that it  is
+    visible  against  any  background.  Both bitmaps must have depth 1.  The
+    cursor will be in the foreground color (the value  of  the  :foreground-
+    color  argument, which defaults to black) where both the source and mask
+    bitmaps are one.  The cursor will be in the background color (the  value
+    of  the  :background-color argument, which defaults to white) everywhere
+    the source bitmap is 0 and the  mask  bitmap  is  1.   The  cursor  only
+    changes pixels on the screen where the mask bitmap is 1.
+
+    To define a mouse cursor, therefore, you need two bitmaps the same size.
+    (The height must lie between the values of *minimum-mouse-cursor-height*
+    and  *maximum-mouse-cursor-height*  and  the  width  must  lie   between
+    *minimum-mouse-cursor-width* and *maximum-mouse-cursor-width*.) You must
+    specify the exact bit in these bitmaps which will be the  hotspot,  that
+    is  the  true location of the cursor on the screen.  And you must decide
+    on the foreground and background colors.
+
+    There are two ways to specify these bitmaps.  You can construct your own
+    and  specify  them  and  give  them  as the values of :source-bitmap and
+    :mask-bitmap.  Or you can use predefined  bitmaps  available  in  the  X
+    server.   These predefined bitmaps are stored in a font in the X server.
+    The server font to use is specified with the :source-font and :mask-font
+    indices.   The default value for both of these arguments is the value of
+    *cursor-font*.  The value of these arguments  must  be  fonts,  such  as
+    returned by open-font or open-font-named.
+
+    You may examine the default font by entering xfd cursor
+
+    to the shell.  A window displaying predefined cursors will appear,  each
+    source  cursor followed immediately by its mask cursor.  Clicking middle
+    over a cursor causes the index to be printed at the bottom of  the  win-
+    dow.  If you are using this font, specify the index of the source as the
+    value of :source-index and the index of the mask (typically one greater)
+    as the value of mask-index.
+
+    The x and y hotspots are predefined for these cursors  (in  the  display
+    described  above, the cursors are displayed in a square with the hotspot
+    in the middle of the square), so you do not  specify  values  for  those
+    arguments  when  using  a  cursor from a font.  The foreground and back-
+    ground colors are specified as described above.
+
+    If you use your own bitmaps, specify them as the values of the  :source-
+    bitmap  and  :mask-bitmap  arguments.  You must also specify the hotspot
+    with the :x-hotspot and y-hotspot arguments.  The values of these  argu-
+    ments  should be integers, the first between 0 and the width of the bit-
+    map, the second between 0 and the height.  They specify the bit  in  the
+    bitmap  which  will  be the hotspot.  The lower left corner is specified
+    with both :x-hotspot and :y-hotspot 0.
+
+    EXAMPLES
+    (setq w (make-window-stream :activate-p t :title "My Window"))
+
+    (setf (window-stream-mouse-cursor w)
+      (make-mouse-cursor
+       :foreground-color black
+       :background-color white
+       :source-index 4
+       :mask-index 4
+       ))
+
+    SEE ALSO
+    active-region-mouse-cursor, flush-mouse-cursor, *cursor-font*, window-
+    stream-frame-mouse-cursor, window-stream-mouse-cursor
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

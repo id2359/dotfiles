@@ -1,0 +1,66 @@
+
+                                                                   copy-list
+
+
+    FUNCTION
+    copy-list  -  copy top-level structure of a list
+
+    USAGE
+    copy-list list
+
+    DESCRIPTION
+    Returns a new list containing a copy of the top-level structure of LIST,
+    which  must  be  a  cons.   This  means that successive cdrs of LIST are
+    copied and corresponding elements of both lists are eq.
+
+    EXAMPLES
+    (copy-list '(a b . c)) => (a b . c)
+    (setq x '((a) ((b)))) => ((a) ((b)))
+    (setq y (copy-list x)) => ((a) ((b)))
+    (eq x y) => nil
+    (eq (car x) (car y)) => t
+    (eq (caadr x) (caadr y)) => t
+
+    SEE ALSO
+    CLtL 15:268, copy-alist, copy-seq, copy-tree, eq
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

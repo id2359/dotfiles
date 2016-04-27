@@ -1,0 +1,66 @@
+
+                                                             math:row-matrix
+
+
+    FUNCTION
+    row-matrix  -  get the row matrix from a vector
+
+    USAGE
+    row-matrix vector [:displaced dp]
+
+    DESCRIPTION
+    Returns a row (1XN) matrix whose elements are the elements of the vector
+    VECTOR.   If  the  value  of  :displaced  keyword  argument  is nil (the
+    default), the matrix will copy the values in the vector but  the  vector
+    and  the  returned  matrix  will not share storage.  If the value of the
+    :displaced argument is non-nil, the matrix will be  displaced  into  the
+    vector.   The  difference  between  the  two cases is illustrated in the
+    examples below.
+
+    The element type (as  returned  by  array-element-type)  of  the  result
+    matrix is the same as the element type of the argument VECTOR.
+
+    EXAMPLES
+    ;;  We make a vector with MAKE-ARRAY.
+    ;;
+    (setq vec (make-array 6 :initial-contents '(1.0 2.0 3.0 4.0 5.0 6.0)
+                            :element-type 'single-float))
+      => #(1.0 2.0 3.0 4.0 5.0 6.0)
+    (setq mat1 (row-matrix vec))
+      => #2a((1.0 2.0 3.0 4.0 5.0 6.0))
+    (setq mat2 (row-matrix vec :displaced t))
+      => #2a((1.0 2.0 3.0 4.0 5.0 6.0))
+    ;;
+    ;;  Note that when we change the first entry of VEC, MAT1
+    ;;  is not affected but MAT2 (which was created with :DISPLACED
+    ;;  non-NIL) is changed.
+    ;;
+    (setf (aref vec 0) 11.1)
+    vec => #(11.1 2.0 3.0 4.0 5.0 6.0)
+    mat1 => #2a((1.0 2.0 3.0 4.0 5.0 6.0))
+    mat2 => #2a((11.1 2.0 3.0 4.0 5.0 6.0))
+
+    SEE ALSO
+    column, column-matrix, diagonal-matrix, make-matrix, row
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

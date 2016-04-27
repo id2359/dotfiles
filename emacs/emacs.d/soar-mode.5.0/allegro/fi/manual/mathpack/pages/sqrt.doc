@@ -1,0 +1,132 @@
+
+                                                                   math:sqrt
+
+
+    FUNCTION
+    sqrt  -  get the square root of a number or matrix
+
+    Usage
+    sqrt X
+
+    DESCRIPTION
+    This standard Common Lisp function has been modified to accept matrix as
+    well  as  scalar  arguments.   When  the  argument  is  a scalar (i.e. a
+    number), this function works just as when Allegro Matrix is not  loaded:
+    returning  the  square  root  of  the  specified value in an appropriate
+    numerical format.  When given a square matrix  whose  element  type  (as
+    returned  by  array-element-type)  is one of single-float, double-float,
+    (complex single-float), (complex double-float), the matrix which is  the
+    sqrt  of  the  matrix  X  is  returned.  The sqrt of a matrix is defined
+    below.  It is an error if X is not a number or a  matrix.   If  X  is  a
+    matrix,  it  is  an error if X is not square, if it has an array element
+    type other than the four listed above, or if its sqrt cannot  be  calcu-
+    lated for any reason (usually because the matrix cannot be inverted).
+
+    The sqrt (or any such function applied to a  matrix)  is  calculated  as
+    follows.   A transformation matrix T and its inverse , T-inv, are calcu-
+    lated such that T-inv*x*T is diagonal (that is, the  off  diagonal  ele-
+    ments  are  zero). T is the matrix of eigenvectors where the vectors are
+    the column of the matrix.  The function eigen-vectors returns  a  matrix
+    whose  rows  are  the  eigenvectors,  so  T is the result of (ntranspose
+    (eigen-vectors x)).  The diagonal elements  of  T-inv*x*T  are  replaced
+    with  their  sqrt  and  the modified diagonal matrix is retransformed by
+    multiplying on the left by T and on the right by T-inv.   Note  that  NO
+    checking  is  done  to  ensure  that the diagonalized matrix is actually
+    diagonal (that is, that the off-diagonal elements are  zero  to  machine
+    accuracy).   Only if the diagonalization process actually fails will any
+    error be signaled.  Note further that there may be more than one  possi-
+    ble  result  (because  of branch cuts, etc.), but only one value, calcu-
+    lated as described, is returned.
+
+    The returned matrix has the same floating-point format as the matrix  X,
+    but will always be complex.  (The internal calculations are done as com-
+    plex double-floats.  Even if X is a real matrix, the square root of  its
+    diagonalized counterpart may be complex.)
+
+    EXAMPLES
+    ;;  We only show SQRT applied to matrices here:
+    (setq mat (make-matrix '((1.0 2.0) (-3.0 4.0))))
+    (print-matrix mat) PRINTS
+      1.0  2.0
+      -3.0 4.0
+
+    ;;  SQRT will not work on a matrix whose element type is T:
+    (sqrt mat) => ERROR
+    ;;  The error message is:
+    ;;  Error: Non-float matrix to function computed by diagonalization
+
+    ;;  Now we set the element type of the matrix passed to SQRT:
+    (print-matrix (sqrt (single-float-matrix mat))) PRINTS
+      #c(1.2368598 2.220446e-16)   #c(0.59431875 -2.220446e-16)
+      #c(-0.8914781 0.0)           #c(2.1283379 -1.6653344e-16)
+    ;;  Note that the square root squared equals the original
+    ;;  matrix up to machine accuracy:
+    (print-matrix (let ((m1 (sqrt (single-float-matrix mat))))
+                    (* m1 m1))) PRINTS
+      #c(0.99999994 7.4722403e-16) #c(2.0 -7.142327e-16)
+      #c(-3.0 -4.9486974e-17)      #c(3.9999998 -5.10931e-16)
+
+    SEE ALSO
+    atan, cos, exp, expt log, sin
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

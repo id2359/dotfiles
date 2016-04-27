@@ -1,0 +1,66 @@
+
+                                            defstruct option :print-function
+
+
+    DEFSTRUCT OPTION
+    :print-function  -  specify how a structure should be printed
+
+    Usage
+    :print-function FUN
+
+    DESCRIPTION
+    This is a defstruct option that is  used  to  control  the  printing  of
+    structure  instances.   It may not be used if the :type option is speci-
+    fied.  The argument FUN must be a function in  a  form  suitable  as  an
+    argument  to  function.   When  the  function is called it will be given
+    three arguments: an instance of the structure, the stream to  which  the
+    output  will go, and the current printing depth.  The default structure-
+    printing function uses #S syntax.  The specified printing function  must
+    observe  print  control variables such as *print-level* (the depth argu-
+    ment indicates the current level) and *print-escape*.
+
+    EXAMPLES
+    (defstruct (fraction (:print-function
+                          (lambda (struct stream depth)
+                            (declare (ignore depth))
+                            (format stream "~D/~D"
+                                    (fraction-num struct)
+                                    (fraction-denom struct)))))
+      num denom) => fraction
+    (make-fraction :num 2 :denom 3) => 2/3
+
+    SEE ALSO
+    CLtL 19:314, defstruct, defstruct-option :conc-name, defstruct-option
+    :constructor, defstruct option :copier, defstruct option :include,
+    defstruct option :initial-offset, defstruct option :named, defstruct
+    option :predicate, defstruct option :type
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

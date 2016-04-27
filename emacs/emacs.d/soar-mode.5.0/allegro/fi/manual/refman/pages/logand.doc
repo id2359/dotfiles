@@ -1,0 +1,66 @@
+
+                                                                      logand
+
+
+    FUNCTION
+    logand  -  bitwise logical `and'
+
+    USAGE
+    logand {n}*
+
+    DESCRIPTION
+    Returns the bitwise logical `and' of its arguments, all of which must be
+    integers.   If  no  arguments  are specified, -1 is returned.  -1 is the
+    identity for this function.  All arguments and results  are  interpreted
+    as if represented in two's-complement notation.
+
+    EXAMPLES
+    (logand) => -1
+    (logand 1) => 1
+    (logand 1 3) => 1
+
+    (setf *print-base* 2
+          *print-radix* t)
+    (logand #b1100 #b1010) => #b1000
+
+    SEE ALSO
+    CLtL 12:221, boole, logandc1, logandc2, logbitp, logcount, logeqv,
+    logior, lognand, lognor, lognot, logorc1, logorc2, logtest, logxor
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

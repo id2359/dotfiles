@@ -1,0 +1,132 @@
+
+                                                         format directive ~|
+
+
+    FORMAT DIRECTIVE
+    ~|  -  print page separator character
+
+    USAGE
+    ~count|
+
+    DESCRIPTION
+    Prints COUNT (default 1) page separator characters, if possible.
+
+    EXAMPLES
+    (format t "The answer is on the next page.~%") => nil
+    (format t "~|Answer:  to get to the other side.~%") => nil
+    PRINTS
+    The answer is on the next page.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    Answer:  to get to the other side.
+
+    The results of this directive are implementation-dependent.
+
+    SEE ALSO
+    CLtL 22:397, format, format directive ~%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

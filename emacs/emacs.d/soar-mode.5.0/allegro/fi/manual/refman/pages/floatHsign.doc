@@ -1,0 +1,66 @@
+
+                                                                  float-sign
+
+
+    FUNCTION
+    float-sign  -  get the sign of a floating-point number
+
+    USAGE
+    float-sign float [other-float]
+
+    DESCRIPTION
+    Returns a floating-point number of the same sign and  format  as  FLOAT,
+    and  of  the  same  absolute  value  as  OTHER-FLOAT.   If  the argument
+    OTHER-FLOAT is not given, then it is assumed to be (float 1 FLOAT).  The
+    returned  value  distinguishes between positive and negative zero if the
+    implementation has distinct representations for these zeroes.
+
+    EXAMPLES
+    (float-sign -5.0 2.0) =>  -2.0
+    (float-sign -6.0 2.0d0) => -2.0d0
+    (float-sign -6.0) => -1.0
+    (float-sign 0.0) => 1.0
+
+    SEE ALSO
+    CLtL 12:218, decode-float, float-digits, float-precision, float-radix,
+    integer-decode-float, scale-float
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

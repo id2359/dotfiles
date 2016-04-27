@@ -1,0 +1,66 @@
+
+                                                                     bit-not
+
+
+    FUNCTION
+    bit-not  -  perform a bitwise logical `not' of the elements of an array
+
+    USAGE
+    bit-not bit-array [result-array]
+
+    SIDE EFFECTS
+    If RESULT-ARRAY is provided as  an  argument,  then  it  will  hold  the
+    results  of  the  logical  operation and thus be modified.  RESULT-ARRAY
+    must be a bit array of the same rank and dimensions as BIT-ARRAY.
+
+    DESCRIPTION
+    Returns an array whose elements are each the bitwise  logical  `not'  of
+    the  corresponding  element  of  BIT-ARRAY.   If  the  optional argument
+    RESULT-ARRAY is not provided, a new bit array is created  and  returned.
+    The logical `not' of a bit is 1 if and only if the bit is 0.
+
+    EXAMPLES
+    ;;  #* is the reader macro for bit vectors.
+    (setq bit-arr (make-array 2 :element-type 'bit))
+    (bit-not #*10 bit-arr) => #*01
+    bit-arr => #*01
+
+    SEE ALSO
+    CLtL 17:295, bit, bit-and, bit-andc1, bit-andc2, bit-eqv, bit-ior, bit-
+    nand, bit-nor, bit-orc1, bit-orc2, bit-xor, boole, lognot
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

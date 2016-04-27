@@ -1,0 +1,66 @@
+
+                                                                assoc-if-not
+
+
+    FUNCTION
+    assoc-if-not  -  retrieve the first key-datum pair from an a-list whose
+      key does not satisfy a predicate
+
+    USAGE
+    assoc-if-not pred a-list
+
+    DESCRIPTION
+    Returns the first pair (a cons or a dotted pair) in the association list
+    A-LIST  such  that  the  car  (the key) of the pair does NOT satisfy the
+    predicate function PRED.  Returns nil if there is no  such  pair.   PRED
+    must accept one argument.  This is a variant of assoc.
+
+    EXAMPLES
+    (setq x '((4 . a) (2 . b) (3 . c) (2 . d)))
+    (assoc-if-not #'numberp x) => nil
+    (assoc-if-not #'symbolp x) => (4 . a)
+    (assoc-if-not #'evenp x) => (3 . c)
+
+    SEE ALSO
+    CLtL 15:280, acons, assoc, assoc-if, rassoc, rassoc-if, rassoc-if-not
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

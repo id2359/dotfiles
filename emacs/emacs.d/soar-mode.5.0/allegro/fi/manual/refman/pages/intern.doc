@@ -1,0 +1,66 @@
+
+                                                                      intern
+
+
+    FUNCTION
+    intern  -  find an existing symbol or create and intern a new one
+
+    USAGE
+    intern string [package]
+
+    DESCRIPTION
+    Returns two values: a symbol and either nil or a keyword describing  the
+    status of the symbol.  The argument STRING is a string that names a sym-
+    bol.  The argument PACKAGE, which must be a package and defaults to  the
+    current package (the value of *package*), is searched for a symbol whose
+    print name is STRING.  If such a symbol is found, it is returned as  the
+    first   value,   and  the  second  value  is  :internal,  :external,  or
+    :inherited, as the symbol is internal, external, or  inherited.   If  no
+    such  symbol  is  found,  one  is created and installed in PACKAGE as an
+    internal symbol, and nil is returned as the second value.   (If  PACKAGE
+    is the keyword package, the symbol is made external by default.)
+
+    EXAMPLES
+    (find-symbol "FOOBAR") =>  nil nil
+    (intern "FOOBAR" ) => foobar nil
+    (intern "FOOBAR") => foobar :internal
+
+    SEE ALSO
+    CLtL 11:184, find-symbols, *package*, unintern
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

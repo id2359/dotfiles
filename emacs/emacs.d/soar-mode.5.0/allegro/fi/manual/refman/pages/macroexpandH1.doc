@@ -1,0 +1,66 @@
+
+                                                               macroexpand-1
+
+
+    FUNCTION
+    macroexpand-1  -  expand a macro-call form once
+
+    USAGE
+    macroexpand-1 form [env]
+
+    DESCRIPTION
+    Returns two values.  If FORM is a macro call, the  result  of  expanding
+    FORM  exactly once and t are returned.  If FORM is not a macro call, the
+    FORM itself and  nil  are  returned.   This  function  works  just  like
+    macroexpand, except that FORM is only expanded once.
+
+    The FORM can be a macro call only if it is a list, its car is a  symbol,
+    and  the symbol has a macro definition in the environment ENV.  The FORM
+    is not recursively macroexpanded.
+
+    The optional argument ENV specifies the environment within which FORM is
+    to be macroexpanded.  If not specified, it defaults to the null environ-
+    ment.  Only global macro definitions established  by  defmacro  will  be
+    considered  when  expanding  FORM.  If specified, it should be an object
+    such as that bound to the &environment parameter of a macro  definition.
+    In  fact,  the  principal use of the ENV argument is by a macro expander
+    function that itself expands other macros in its macro-call form  before
+    returning  its  own  expanded form.  A canonical example of where such a
+    macro might be used is a `code  walker,'  a  function  that  recursively
+    descends  a  form  to  analyze  its structure.  (A simple code walker is
+    defined in the examples for macroexpand.) The structure  of  the  object
+    bound  to the &environment parameter is implementation-dependent and not
+    intended for scrutiny.
+
+    The expansion is effected by calling the expansion interface hook  func-
+    tion  with  three  arguments:  the  macro  expansion  function (which is
+    returned by macro-function applied to the macro name), the FORM, and the
+    lexical environment ENV.  The expansion hook is a function whose name is
+    stored in the global variable *macroexpand-hook*.  A typical  value  for
+    the expansion hook function is funcall.
+
+    EXAMPLES
+    (defmacro m1 () '(m2)) => m1
+    (defmacro m2 () 2) => m2
+    (macroexpand-1 '(m1)) => (m2) t
+    (macroexpand '(m1)) => 2 t
+
+    SEE ALSO
+    CLtL 8:150, macro-function, macroexpand, *macroexpand-hook*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

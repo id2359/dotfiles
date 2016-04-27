@@ -1,0 +1,66 @@
+
+                                                                       equal
+
+
+    FUNCTION
+    equal  -  test whether objects are isomorphic
+
+    USAGE
+    equal x y
+
+    DESCRIPTION
+    Returns true if arguments X and Y are isomorphic.  (By  `isomorphic'  we
+    mean  that  the  arguments  denote  structurally  similar  objects  with
+    equivalent values.) Objects with the  same  printed  representation  are
+    isomorphic,  and  thus  equal,  with  the exceptions and additions noted
+    below.
+
+    Symbols are equal only if they are eq.  Numbers and characters  must  be
+    eql  to  be  equal.  Some objects that have components are equal if they
+    have the same type and their components are equal.  Such objects  cannot
+    be  circular.  Strings and and bit vectors are equal if their components
+    are equal (up to their fill pointers, if any).   As  for  other  arrays,
+    they  must  be  eq to be equal.  Pathnames are equal if their components
+    are equivalent, but the criteria which determine whether components  are
+    equivalent are implementation-dependent.
+
+    EXAMPLES
+    (equal 'a 'a) => t
+    (equal '(a b c) '(a b c)) => t
+    (equal "hello" "hello") => t
+    (equal "HELLO" "hello") => nil
+    (equal 2.0 2.0) => t
+    (setq ar1 (make-array 6 :initial-element 9 :fill-pointer 3))
+      => #(9 9 9)
+    (setq ar2 (make-array 3 :initial-element 9)) => #(9 9 9)
+    (equal ar1 ar2) => nil
+
+    SEE ALSO
+    CLtL 6:80, about equality, eq, eql, equalp
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

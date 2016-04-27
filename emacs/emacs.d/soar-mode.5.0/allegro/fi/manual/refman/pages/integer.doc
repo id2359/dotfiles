@@ -1,0 +1,66 @@
+
+                                                                     integer
+
+
+    Type SPECIFIER
+    integer  -  the data type comprising all integers
+
+    USAGE
+    {integer | (&Einteger [{low | (low)} [{high | (high)}]])}
+
+    DESCRIPTION
+    Specifies a data type consisting  of  integers  between  LOW  and  HIGH.
+    Either  limit is considered exclusive if it appears in a list by itself,
+    otherwise it is considered inclusive.  The limits should be specified as
+    integers  or  may  be  explicitly left unspecified using *.  Frequently,
+    implementations are less restrictive in the numeric format of  the  lim-
+    its.   The  type  specifiers  (integer  *  *)  and  (integer  *)  may be
+    abbreviated as integer.
+
+    Theoretically no limit exists on the size of an  integer.   There  is  a
+    subtype   of   integer,  called  fixnum  (see  most-positive-fixnum  and
+    most-negative-fixnum), that consists  of  small  integers  that  can  be
+    represented  more  economically than the subtype of non-fixnum integers,
+    called bignums.  The type specifier (integer 0 1) is equivalent  to  the
+    type  specifier  bit.   Other  subtypes of integer are specified by mod,
+    signed-byte, and unsigned-byte.
+
+    The printed representation of an  integer  includes  an  optional  radix
+    specifier  (either  #nR where n is the decimal value of the radix or one
+    of #b, #o, #x for radix two, eight, and sixteen, or  a  trailing  dot  (
+    #\.)  for decimal), a sign (required only if the number is negative) and
+    the digits with no spaces.  What characters qualify as digits depends on
+    the value of the radix.
+
+    EXAMPLES
+    (setq x '(#B111 #O10 #9R10 10)) => (7 8 9 10)
+    (mapcar #'type-of x) => (fixnum fixnum fixnum fixnum)
+    (mapcar #'(lambda (z) (typep z '(integer 8 (10)))) x)
+      => (nil t t nil)
+    (subtypep '(integer 10 (20)) 'integer) => t t
+
+    SEE ALSO
+    CLtL 2:12, CLtL 4:43, CLtL 4:48, about type specifiers, bignum, bit,
+    fixnum, mod, most-negative-fixnum, most-positive-fixnum, number,
+    *print-radix*, rational, signed-byte, subtypep, type-of, typep,
+    unsigned-byte
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                                    truncate
+
+
+    FUNCTION
+    truncate  -  truncate a number toward zero
+
+    USAGE
+    truncate number [divisor]
+
+    DESCRIPTION
+    Returns two values.  When only NUMBER is provided as  an  argument,  the
+    returned values are the result Q, of truncating NUMBER toward 0, and the
+    remainder R.  In this case, Q + R = NUMBER.  The result of truncating  a
+    number  toward  0 is the largest non-negative integer less than or equal
+    to a positive number and the smallest non-positive integer greater  than
+    or equal to a negative number.
+
+    When the optional argument DIVISOR is  also  given,  the  truncation  is
+    applied  to  the  quotient of NUMBER and DIVISOR.  The remainder is com-
+    puted in such a way that (Q * DIVISOR)  +  R  =  NUMBER.   In  the  two-
+    argument  case,  R  is  an  integer  if  both  arguments are integers, a
+    rational if they are both  rational,  and  a  floating-point  number  if
+    either argument is floating-point.
+
+    EXAMPLES
+    (truncate .99) => 0 0.99
+    (truncate 3 2) => 1 1
+    (truncate -1.5) => -1 -0.5
+
+    SEE ALSO
+    CLtL 12:215, ceiling, floor, round
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

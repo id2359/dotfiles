@@ -1,0 +1,66 @@
+
+                                                        math:diagonal-vector
+
+
+    FUNCTION
+    diagonal-vector  -  get a vector whose elements are the diagonal ele-
+      ments of a square matrix
+
+    USAGE
+    diagonal-vector matrix
+
+    DESCRIPTION
+    Returns a vector whose elements are the diagonal elements of the  square
+    matrix  MATRIX.   It  is an error if MATRIX is not a square matrix.  The
+    length of the returned vector will be the same as  either  dimension  of
+    MATRIX.  The element type of the returned vector will be the same as the
+    element type of MATRIX.
+
+    EXAMPLES
+    (setq mat1 (make-matrix '((1.0 2.0) (3.0 4.0)) 'single-float))
+      => #2a((1.0 2.0) (3.0 4.0))
+    (print-matrix mat1) PRINTS
+      1.0 2.0
+      3.0 4.0
+    (diagonal-vector mat1) => #(1.0 4.0)
+    (array-element-type (diagonal-vector mat1)) => single-float
+
+    ;;  Note that when the element type of the argument matrix
+    ;;  is not specified, the returned vector has element type T.
+    (setq mat2 (make-matrix '((5.0 7.0) (-6.0 -8.0))))
+      => #2a((5.0 7.0) (-6.0 -8.0))
+    (diagonal-vector mat2) => #(5.0 -8.0)
+    (array-element-type (diagonal-vector mat2)) => t
+
+    SEE ALSO
+    column, diagonal-matrix, row
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,132 @@
+
+                                                  window-stream-frame-button
+
+
+    FUNCTION
+    window-stream-frame-button  -  get the list of functions called by
+      frame-button method
+
+    Usage
+    window-stream-frame-button WSTREAM
+
+    DESCRIPTION
+    Returns the list of functions that will be called when the  frame-button
+    method  for the window-stream WSTREAM is called.  The operation of frame
+    button methods is affected  by  the  right  button  menu,  installed  on
+    window-streams  by  *make-window-stream-actions*  (so  long  as the list
+    bound to that variable includes add-right-button-menu).   If  the  right
+    button  menu  is  installed  on  a window, the various frame button down
+    methods call functions which effect the right buttom menu  functionality
+    (which,  despite  its name, affects all three buttons) and NONE of these
+    methods calls frame-button by default.  If the right button menu is  not
+    installed,  the  frame-button method is in the initial list of functions
+    called by the three frame-button-down  methods  (frame-left-button-down,
+    frame-middle-button-down,  and  frame-right-button-down).  (You are free
+    to add frame-button to any of the frame button  down  methods  when  the
+    right  button  menu  is  installed, of course, but you must do it expli-
+    citly.)
+
+    As with all mouse methods,  you  do  not  (normally)  call  this  method
+    directly.
+
+    Initially,     the     list     contains     the     single     function
+    window-stream-frame-button-method.   This  function  simply returns nil.
+    You can replace this list by using setf, or modify it by  using  modify-
+    window-stream-method.   Functions  you add to the list must accept three
+    arguments, a  window-stream,  a  mouse-state,  and  a  transition.   See
+    frame-button  for  details.  The function restore-default-window-stream-
+    method can be used to restore the list to its initial value.
+
+    EXAMPLES
+    ;;  We make a window without the right button menu.
+    (let ((*make-window-stream-actions* nil))
+      (setf *my-win*
+            (make-window-stream :left 100 :bottom 200
+                                :width 100 :height 100
+                                :activate-p t)))
+
+    (defun my-after-frame-button (wstream mouse-state event)
+      (declare (ignore event))
+          (format  *standard-output*
+                   "Position: ~S ~% "
+                   (mouse-state-position mouse-state)))
+
+    ;;  We get the initial list of functions called by FRAME-BUTTON.
+    (window-stream-frame-button *my-win*)
+      => (default-window-stream-frame-button-method)
+
+    ;;  We add a new function.  Note that if the right button
+    ;;  menu was installed on *MY-WIN*, modifying FRAME-BUTTON
+    ;;  would have no effect since the method would not be called.
+    (modify-window-stream-method *my-win* :frame-button
+                                  :after 'my-after-frame-button)
+
+    ;;  The list is now changed.
+    (window-stream-frame-button *my-win*)
+      => (default-window-stream-frame-button-method
+              my-after-frame-button)
+
+    ;;  We restore the list to its initial state.
+    (restore-window-stream-method *my-win* :frame-button)
+    (window-stream-frame-button *my-win*)
+      => (default-window-stream-frame-button-method)
+
+    SEE ALSO
+    frame-button, modify-window-stream-method, restore-default-window-
+    stream-method
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

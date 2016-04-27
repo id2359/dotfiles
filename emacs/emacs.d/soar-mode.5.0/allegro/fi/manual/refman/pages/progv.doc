@@ -1,0 +1,66 @@
+
+                                                                       progv
+
+
+    SPECIAL FORM
+    progv  -  evaluate a sequence of forms in the context of dynamic bind-
+      ings of variables determined at run-time
+
+    USAGE
+    progv syms vals {form}*
+
+    DESCRIPTION
+    This special form binds the symbols in the list SYMS to  the  values  in
+    the  list VALS.  Then the FORMS are executed sequentially and the values
+    of the last form are returned.  Values returned by the other  forms  are
+    discarded.   The  bindings  established  are dynamic and are undone when
+    progv returns.  progv evaluates its  first  two  arguments,  which  must
+    evaluate to lists, and uses the results to establish its bindings.
+
+    The power of this special form lies in the fact that the symbols  to  be
+    bound  (and, of course, the values) can be computed at run-time although
+    the bindings are dynamic.  In  other  similar  constructs  (for  example
+    let),  the  variables  which  are  bound  must be named when the code is
+    written (and the bindings are usually lexical). The lists  need  not  be
+    the  same  length.   If  VALS is longer than SYMS, the excess values are
+    discarded.  If SYMS is longer than VALS, the  extra  symbols  are  bound
+    with  no  value (as with makunbound).  That is, any outer dynamic values
+    of the extra symbols are  shadowed,  and  the  variables  are  initially
+    unbound in the progv form.
+
+    EXAMPLES
+    (setq x 4)
+    (defun foo (y) (+ x y))
+    ;;  Compare the behavior of LET and PROGV.
+    ;;  FOO sees the value of x bound in the PROGV
+    ;;  form but not the value bound in the LET form:
+    (progv '(x) '(1) (foo 2)) => 3
+    (let ((x 1)) (foo 2)) => 6
+    (let ((x 1))
+      (declare (special x))
+      (foo 2)) => 3
+    (setq lis1 '(x y) lis2 '(1 2)) => (1 2)
+    (progv lis1 lis2 (+ x (length lis1))) => 3
+
+    SEE ALSO
+    CLtL 7:112, let, let*, prog, prog*, progn
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

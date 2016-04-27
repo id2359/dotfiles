@@ -1,0 +1,66 @@
+
+                                                               *terminal-io*
+
+
+    VARIABLE
+    *terminal-io*  -  user console stream
+
+    USAGE
+    *terminal-io*
+
+    DESCRIPTION
+    Bound to a stream that reads from the user's keyboard and writes to  the
+    user's  display.   If you want to divert a stream that uses the console,
+    you are encouraged not to change  the  *terminal-io*  variable,  but  to
+    rebind one of the following synonym streams which are initially bound to
+    *terminal-io*:  *standard-input*,   *standard-output*,   *error-output*,
+    *debug-io*, *terminal-io*, and *trace-output*.
+
+    EXAMPLES
+    Evaluating the following code causes the integers 1 and 2 to be  written
+    to a file and the integer 3 to be printed on the user's display.
+
+    (with-open-file (*standard-output* "my-file"
+                                       :if-exists :overwrite
+                                       :if-does-not-exist :create
+                                       :direction :output)
+      (print 1)
+      (print 2 *standard-output*)
+      (print 3 *terminal-io*)
+      'finished) => finished
+
+    SEE ALSO
+    CLtL 21:328, *debug-io*, *error-output*, *standard-input*, *standard-
+    output*, streamp, *terminal-io*, *trace-output*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

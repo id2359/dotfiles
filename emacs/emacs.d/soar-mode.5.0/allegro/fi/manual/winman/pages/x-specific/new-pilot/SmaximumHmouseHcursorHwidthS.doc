@@ -1,0 +1,66 @@
+
+                                                *maximum-mouse-cursor-width*
+
+
+    VARIABLE
+    *maximum-mouse-cursor-width*  -  upper bound on the width of a mouse
+      cursor
+
+    DESCRIPTION
+    Bound to a number which is the maximum width for a mouse cursor  bitmap.
+    (Mouse cursors are defined with bitmaps.)
+
+    EXAMPLES
+    ;;  This value may be different in your version.
+    *maximum-mouse-cursor-width* => 1024
+
+    SEE ALSO
+    make-mouse-cursor, *maximum-mouse-cursor-height*, *minimum-mouse-
+    cursor-height*, *minimum-mouse-cursor-width*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

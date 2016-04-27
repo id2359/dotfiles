@@ -1,0 +1,66 @@
+
+                                                            find-all-symbols
+
+
+    FUNCTION
+    find-all-symbols  -  find all symbols in the entire Lisp system with a
+      specified print name
+
+    USAGE
+    find-all-symbols name
+
+    DESCRIPTION
+    Returns a list of symbols whose print  names  match  that  specified  by
+    NAME.   The argument NAME must be a string or a symbol.  If it is a sym-
+    bol, its print name is used as the string.  (Note that if  the  argument
+    is  a  symbol  that  does  not  exist in the current package, it will be
+    created by the reader and returned as part of the list.)  Every  package
+    in  the  entire  Lisp system is searched.  Any symbol SYM satisfying the
+    following test is returned.
+
+    (string= (symbol-name sym) (string name))
+
+    EXAMPLES
+    (find-all-symbols "FOO") => nil
+    (find-all-symbols :foo) => (:foo)
+    (find-all-symbols 'foo) => (foo :foo)
+    (find-all-symbols "FOO") => (foo :foo)
+
+    (find-all-symbols :equal) => (equal :equal)
+
+    SEE ALSO
+    CLtL 11:187, apropos, find-package
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

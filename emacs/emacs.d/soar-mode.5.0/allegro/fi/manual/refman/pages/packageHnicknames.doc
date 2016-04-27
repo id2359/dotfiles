@@ -1,0 +1,66 @@
+
+                                                           package-nicknames
+
+
+    FUNCTION
+    package-nicknames  -  get the list of nicknames of a package
+
+    USAGE
+    package-nicknames package
+
+    DESCRIPTION
+    Returns the list of nicknames that identify PACKAGE.  PACKAGE must be  a
+    package.
+
+    EXAMPLES
+    ;;  The printed representation of a package object
+    ;;  is implementation-dependent:
+    (or (find-package :geometry) (make-package :geometry))
+      => #<the GEOMETRY package, 0 internal, 0 external>
+    (rename-package (find-package :geometry) :geometry
+      '(:geo :space-math))
+      => #<the GEOMETRY package, 0 internal, 0 external>
+    (package-nicknames (find-package :geometry))
+      => ("SPACE-MATH" "GEO")
+
+    SEE ALSO
+    CLtL 11:184, find-package, make-package, package-name
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

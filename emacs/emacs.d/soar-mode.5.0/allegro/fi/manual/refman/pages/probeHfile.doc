@@ -1,0 +1,66 @@
+
+                                                                  probe-file
+
+
+    FUNCTION
+    probe-file  -  test whether a file exists, returning its true name
+
+    USAGE
+    probe-file file
+
+    DESCRIPTION
+    This function looks for a file denoted by FILE, returning its true  name
+    (in  the manner of truename) if it exists and returning nil if it cannot
+    be found.  FILE must be a pathname, string, or  stream.   This  function
+    will not return nil if FILE is a stream open to a file.
+
+    A similar effect is achieved when open is  called  with  :probe  as  the
+    value  of the :direction keyword argument.  Also note that the true name
+    of a file may be different from the namestring of its  pathname  because
+    of system-dependent translations and expansions of elements of the path-
+    name.
+
+    EXAMPLES
+    (progn
+      (with-open-file (out "junk" :direction :output
+                           :if-exists :supersede)
+        (prin1 'foo out))
+      (list
+       (null (probe-file "junk"))
+       (null (delete-file "junk"))
+       (null (probe-file "junk"))))
+      => (nil nil t)
+
+    SEE ALSO
+    CLtL 23:424, :direction, open, truename
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                            pathname-version
+
+
+    FUNCTION
+    pathname-version  -  get the version component of a pathname
+
+    USAGE
+    pathname-version path
+
+    DESCRIPTION
+    Returns the version component of PATH.  The version is one  of  the  six
+    components  of  a  pathname (the other five are device, directory, host,
+    name, and type).  PATH must be a pathname, string,  symbol,  or  stream.
+    If PATH is a stream, it must be, or have been, open to a file.
+
+    The version component of a pathname is implementation-dependent, but  is
+    always  an  integer  or  a  distinguished symbol.  If it is a number, it
+    corresponds to the  version  number  of  the  file.  (COMMON  LISP:  THE
+    LANGUAGE specifies that a numeric version component should be a positive
+    integer.  Some implementations permit nonpositive integers.)  The  value
+    indicates that the version component is missing, which may mean that the
+    host file system does not support multiple versions  of  a  file.   When
+    reading  a  file, :newest corresponds to the largest version number that
+    already exists for that file.  However, when  writing  a  file,  :newest
+    corresponds  to  a  version number greater than any already existing for
+    that file.  The only other version component for which meaning is speci-
+    fied  by the language is :wild.  It `matches' any version component when
+    used in directory-search operations such as that performed by directory.
+    Implementations  may  provide  other  symbols or nonpositive integers to
+    specify versions.  Symbols suggested are :oldest  (that  file  with  the
+    smallest  version  number),  :previous  (the one before the newest), and
+    :installed (the official version).
+
+    EXAMPLES
+    ;;  The following example refers to a file on a VMS file system.
+    (pathname-version "pleiades::sys$sysdisk:[sys0.sysexe]lisp.exe;0")
+      => :newest
+
+    SEE ALSO
+    CLtL 23:417, make-pathname, pathname, pathname-device, pathname-
+    directory, pathname-host, pathname-name, pathname-type
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                                      ignore
+
+
+    DECLARATION SPECIFIER
+    ignore  -  specify that the bindings of the named variables are never
+      used
+
+    USAGE
+    ignore {var}*
+
+    SIDE EFFECTS
+    The COMMON LISP system is advised that the binding of  each  VAR  should
+    never be used.
+
+    DESCRIPTION
+    This declaration provides advice to the COMMON LISP system.   This  form
+    is  only  valid  in  a  declaration  or  proclamation.   Compilers  will
+    generally warn of uses of  variables  that  have  been  declared  to  be
+    ignored,  as  well  as  variables that are never used that have NOT been
+    declared to be ignored.
+
+    This nonpervasive declaration affects only variable bindings established
+    by  the  enclosing form.  (There is no declaration to advise COMMON LISP
+    that one does not care whether a variable is used or not.)
+
+    EXAMPLES
+    (defun always-ten (x)
+      (declare (ignore x))
+      10)
+    (compile 'always-ten) => always-ten
+    (defun always-ten-too (x) 10)
+    ;;  The following compilation may very well
+    ;;  elicit a warning message indicating that
+    ;;  variable x is never used
+    (compile 'always-ten-too) => always-ten-too
+    (defun possibly-ten (x)
+      (declare (ignore x))
+      x)
+    ;;  The following compilation may very well
+    ;;  elicit a warning message indicating that
+    ;;  variable x was used even though it was
+    ;;  declared to be ignored
+    (compile 'possibly-ten) => possibly-ten
+
+    SEE ALSO
+    CLtL 9:160, declaration, declare, proclaim
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

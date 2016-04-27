@@ -1,0 +1,66 @@
+
+                                                                   satisfies
+
+
+    Type SPECIFIER
+    satisfies  -  specify a data type as the set of objects satisfying a
+      predicate
+
+    USAGE
+    (satisfies pred)
+
+    DESCRIPTION
+    Specifies a data type consisting of those  objects  that  satisfy  PRED,
+    which  must  be  a symbol. PRED must name a global function, one defined
+    with defun rather than flet or labels, that is a function of  one  argu-
+    ment  and  that  returns true or false depending on whether its argument
+    satisfies some condition.  Note that PRED may not be  a  lambda  expres-
+    sion.
+
+    EXAMPLES
+    (typep 2 '(and integer (satisfies evenp))) => t
+    (typep 3 '(and integer (satisfies evenp))) => nil
+
+    SEE ALSO
+    CLtL 4:43, about lambda, about type specifiers, typep
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

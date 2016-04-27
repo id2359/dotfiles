@@ -1,0 +1,66 @@
+
+                                                                      mapcon
+
+
+    FUNCTION
+    mapcon  -  map a function over successive tails of lists, destructively
+      concatenating the results
+
+    USAGE
+    mapcon fun {list}+
+
+    DESCRIPTION
+    Returns a list consisting of the results of applying FUN  to  successive
+    tails  of  the  lists  given  as  arguments.  Specifically, FUN is first
+    applied to the lists given as arguments, passed in  the  same  order  as
+    they  appear  in  the argument list.  Then FUN is applied to the cdrs of
+    all the argument lists, then the second cdrs, and so on until the end of
+    the  shortest  list is reached.  The remaining tails of any longer argu-
+    ment lists are ignored.  The value (only the first  value,  if  multiple
+    values are returned by FUN) returned by each call of FUN is stored until
+    all the calls are complete.  The returned value must be  a  list.   When
+    the  shortest  list is exhausted, the stored lists are concatenated into
+    one list with nconc and the resulting list is returned by  mapcon.   The
+    argument  FUN must be a function that accepts as many arguments as there
+    are lists.
+
+    This function differs from maplist only in the  way  that  the  returned
+    value  is  created.   maplist creates the list to be returned with list.
+    FUN may therefore return any Lisp object.  mapcon creates the list to be
+    returned  with  nconc,  and thus FUN may only return a list.  One conse-
+    quence of this difference is that mapcon may be used as a filter,  since
+    nil  values  returned  by  FUN will not appear in the result list.  Note
+    that nconc is  a  destructive  function,  which  may  modify  the  lists
+    returned by FUN.
+
+    EXAMPLES
+    (mapcon #'list
+            '(a b c) '(1 2 3) )
+      => ((a b c) (1 2 3) (b c) (2 3) (c) (3))
+    (mapcon #'(lambda (lis)
+                (and (evenp (length lis)) (list lis)))
+            '(1 2 3 4 5))
+      => ((2 3 4 5) (4 5))
+
+    ;;  Contrast with maplist called with the same arguments:
+    (maplist #'(lambda (lis) (and (evenp (length lis)) lis))
+             '(1 2 3 4 5))
+      => (nil (2 3 4 5) nil (4 5) nil)
+
+    ;;  The following is an identity:
+    (mapcon fun args ...)
+      = (apply #'nconc (maplist fun args ...))
+
+    SEE ALSO
+    CLtL 7:128, map, mapc, mapcan, mapcar, mapl, maplist
+
+
+
+
+
+
+
+
+
+
+

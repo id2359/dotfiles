@@ -1,0 +1,66 @@
+
+                                                         multiple-value-call
+
+
+    SPECIAL FORM
+    multiple-value-call  -  collect all values returned by a sequence of
+      forms and apply a function
+
+    USAGE
+    multiple-value-call fun {form}*
+
+    DESCRIPTION
+    This special form evaluates FUN and then  evaluates  each  FORM  sequen-
+    tially,  storing  all  returned values.  FUN must evaluate to a function
+    (specifically, an object suitable as the  first  argument  to  apply  or
+    funcall).   All  the stored values are then passed as distinct arguments
+    to the function.  multiple-value-call returns exactly what the  function
+    returns.
+
+    EXAMPLES
+    (multiple-value-call #'list
+      (floor 4.5) (floor 5.5)) => (4 0.5 5 0.5)
+    (multiple-value-call #'list
+      (floor 4.5) 'foo)  => (4 0.5 foo)
+
+    SEE ALSO
+    CLtL 7:135, apply, funcall, multiple-value-list, values, values-list
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

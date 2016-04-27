@@ -1,0 +1,66 @@
+
+                                                                       sleep
+
+
+    FUNCTION
+    sleep  -  suspend execution for a given number of seconds
+
+    Usage
+    sleep NSEC
+
+    DESCRIPTION
+    Returns nil after suspending execution for approximately NSEC seconds of
+    real time.  NSEC must be a non-negative, non-complex number.
+
+    EXAMPLES
+    (defun foo ()
+      (setq bt (multiple-value-list (get-decoded-time)))
+      (sleep 5)
+      (setq at (multiple-value-list (get-decoded-time)))
+      (values bt at))
+    (foo)
+      => (5 31 10 21 6 1987 6 t 8) (10 31 10 21 6 1987 6 t 8)
+
+    SEE ALSO
+    CLtL 25:447
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

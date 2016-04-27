@@ -1,0 +1,66 @@
+
+                                                                compile-file
+
+
+    FUNCTION
+    compile-file  -  compile a file containing COMMON LISP source code
+
+    Usage
+    compile-file INPUT-FILE [:output-file OUTPUT-FILE]
+
+    DESCRIPTION
+    This function returns nil.  The argument INPUT-FILE must specify a  file
+    containing  COMMON  LISP  source  forms.  It may be a pathname, a string
+    (namestring), a symbol (the print-name is used as the file  namestring),
+    or  a  stream  (the  file associated with the stream is used).  The file
+    specified is compiled, producing another file  containing  object  code.
+    The INPUT-FILE specification is merged with *default-pathname-defaults*.
+    The  default  conventions  for  the  output  file   specifications   are
+    implementation-dependent.   The name of the output file may be specified
+    explicitly by the OUTPUT-FILE keyword  argument,  which  is  subject  to
+    implementation-dependent   merging   with   appropriate  defaults.   The
+    object-code file that is produced may be  loaded  into  COMMON  LISP  by
+    using the load function.
+
+    EXAMPLES
+    ;;  Compile the file "foo.lsp".
+    (compile-file "foo.lsp")
+
+    ;;  Compile the file "bar.lsp",
+    ;;  specifying the name of the output file.
+    (compile-file "bar.lsp" :output-file "bar.fasl")
+
+    SEE ALSO
+    CLtL 25:439, compile, disassemble, load
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

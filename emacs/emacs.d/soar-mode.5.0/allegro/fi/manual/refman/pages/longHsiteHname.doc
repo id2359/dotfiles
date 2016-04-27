@@ -1,0 +1,66 @@
+
+                                                              long-site-name
+
+
+    FUNCTION
+    long-site-name  -  get the long name of the physical location of your
+      hardware
+
+    Usage
+    long-site-name
+
+    DESCRIPTION
+    Returns the string that identifies the longer version of the name of the
+    physical  location  of the machine on which you are running Common Lisp.
+    If the information is not available, nil is returned.  The exact  format
+    is implementation-dependent.
+
+    EXAMPLES
+    ;;  The following result is implementation-
+    ;;  and version-dependent.
+    (long-site-name) => "Franz Incorporated"
+
+    SEE ALSO
+    CLtL 25:448, short-site-name
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

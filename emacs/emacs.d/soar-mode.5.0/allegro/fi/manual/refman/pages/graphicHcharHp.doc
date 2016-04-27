@@ -1,0 +1,66 @@
+
+                                                              graphic-char-p
+
+
+    FUNCTION
+    graphic-char-p  -  test whether a character is a graphic character
+
+    USAGE
+    graphic-char-p char
+
+    DESCRIPTION
+    Returns true if CHAR, which must be a character  object,  is  a  graphic
+    (printing)  character,  and false otherwise.  The set of graphic charac-
+    ters consists of any character of type  standard-char  except  #\Newline
+    (but including #\Space).  Any character whose bits component is non-zero
+    is not considered a graphic character.  All graphic characters print  as
+    a single glyph.
+
+    EXAMPLES
+    (graphic-char-p #\a) => t
+    (graphic-char-p #\Newline) => nil
+    (graphic-char-p #\Tab) => nil
+    (graphic-char-p #\Space) => t
+
+    SEE ALSO
+    CLtL 13:234, alpha-char-p, alphanumericp, both-case-p, digit-char-p,
+    lower-case-p, standard-char-p, string-char-p, upper-case-p
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

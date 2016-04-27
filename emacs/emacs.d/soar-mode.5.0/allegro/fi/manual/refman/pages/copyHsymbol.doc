@@ -1,0 +1,66 @@
+
+                                                                 copy-symbol
+
+
+    FUNCTION
+    copy-symbol  -  create a new uninterned symbol
+
+    USAGE
+    copy-symbol sym [copy-props]
+
+    DESCRIPTION
+    Returns a new uninterned symbol with the same print  name  as  SYM.   If
+    COPY-PROPS is non-nil, then the initial value and function definition of
+    the new symbol will be the same as those of SYM, and the  property  list
+    of  SYM  will  be  copied to the new symbol's property list as well.  If
+    COPY-PROPS is nil, or not specified, however, the new symbol is unbound,
+    undefined, and has an empty property-list.
+
+    EXAMPLES
+    (setf (get 'bob 'age) 15) => 15
+    (setq stranger (copy-symbol 'bob t)) => #:bob
+    (get 'bob 'age) => 15
+    (get stranger 'age) => 15
+    (eq stranger 'bob) => nil
+    (symbol-name stranger) => "bob"
+
+    SEE ALSO
+    CLtL 10:169, make-symbol
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

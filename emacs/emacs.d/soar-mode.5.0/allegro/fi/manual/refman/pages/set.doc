@@ -1,0 +1,66 @@
+
+                                                                         set
+
+
+    FUNCTION
+    set  -  unquoted assignment statement
+
+    USAGE
+    set sym val
+
+    SIDE EFFECTS
+    The value of the special symbol named by SYM is set to the value of VAL.
+
+    DESCRIPTION
+    Returns VAL, but set is principally used  for  its  side  effects.   set
+    differs  from  setq in that it evaluates its first argument.  set cannot
+    change the value of a lexically-bound variable.  This  function  changes
+    the  current  dynamic binding of a special variable, or the global value
+    if there is no binding.
+
+    EXAMPLES
+    (set 'foo '(a b c)) => (a b c)
+    foo => (a b c)
+    (setq a '(x y z)) => (x y z)
+    (set (car a) 10) => 10
+    x => 10
+
+    SEE ALSO
+    CLtL 7:92, progv, setf, setq
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

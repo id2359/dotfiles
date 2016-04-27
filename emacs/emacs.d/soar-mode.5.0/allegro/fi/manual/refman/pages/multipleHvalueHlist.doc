@@ -1,0 +1,66 @@
+
+                                                         multiple-value-list
+
+
+    MACRO
+    multiple-value-list  -  collect multiple values returned by a form into
+      a list
+
+    USAGE
+    multiple-value-list form
+
+    DESCRIPTION
+    This macro collects the values returned by evaluating FORM into  a  list
+    and  returns  the  list.  This macro is the inverse of values-list.  The
+    following identity holds:
+
+    (multiple-value-list FORM) = (multiple-value-call #'list FORM)
+
+    EXAMPLES
+    (multiple-value-list (truncate 1.2)) => (1 .2)
+    (multiple-value-list (+ 1 2)) => (3)
+    (multiple-value-list (values)) => nil
+
+    SEE ALSO
+    CLtL 7:135, multiple-value-bind, multiple-value-call, multiple-value-
+    prog1, multiple-value-setq, values, values-list
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

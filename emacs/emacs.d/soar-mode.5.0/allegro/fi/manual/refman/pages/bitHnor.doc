@@ -1,0 +1,66 @@
+
+                                                                     bit-nor
+
+
+    FUNCTION
+    bit-nor  -  perform a bitwise logical `nor' on two bit arrays
+
+    USAGE
+    bit-nor bit-array1 bit-array2 [result-array]
+
+    SIDE EFFECTS
+    If RESULT-ARRAY is provided as  an  argument,  then  it  will  hold  the
+    results  of  the  logical  operation and thus be modified.  RESULT-ARRAY
+    must be a bit array of the same rank and dimensions  as  the  other  two
+    arguments.
+
+    DESCRIPTION
+    Returns the bitwise logical `nor' of BIT-ARRAY1  and  BIT-ARRAY2,  which
+    must  both be bit arrays of the same rank and dimensions.  The result is
+    produced by performing the operation on corresponding  elements  of  the
+    two  arrays.   If  the optional argument RESULT-ARRAY is not provided, a
+    new bit array is created and returned.  The logical `nor' (negated logi-
+    cal `or') of two bits is 1 if and only if both bits are 0.
+
+    EXAMPLES
+    ;;  #* is the reader macro for bit vectors.
+    (setq bit-arr (make-array 4 :element-type 'bit))
+    (bit-nor #*1100 #*1010 bit-arr) => #*0001
+    bit-arr => #*0001
+
+    SEE ALSO
+    CLtL 17:294, bit, bit-and, bit-andc1, bit-andc2, bit-eqv, bit-ior, bit-
+    nand, bit-orc1, bit-orc2, bit-xor, boole, lognor
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                            array-dimensions
+
+
+    FUNCTION
+    array-dimensions  -  get the dimensions of an array
+
+    USAGE
+    array-dimensions array
+
+    DESCRIPTION
+    Returns a list of the  dimensions  of  ARRAY.   For  vectors  with  fill
+    pointers,  this  function  returns  the total length of the vector (in a
+    single element list), including inactive elements.
+
+    EXAMPLES
+    (array-dimensions (make-array '(2 3))) => (2 3)
+    (array-dimension (make-array 10 :fill-pointer 5)) => (10)
+
+    SEE ALSO
+    CLtL 17:292, array-dimension, array-rank, array-total-size, make-array
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

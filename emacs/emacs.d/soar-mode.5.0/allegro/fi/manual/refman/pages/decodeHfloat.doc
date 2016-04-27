@@ -1,0 +1,66 @@
+
+                                                                decode-float
+
+
+    FUNCTION
+    decode-float  -  access internal representation of a floating-point
+      number
+
+    USAGE
+    decode-float float
+
+    DESCRIPTION
+    Returns three values: SIGNIFICAND, EXPONENT, and SIGN.  These values are
+    computed  as follows.  Let R be the radix of the internal floating-point
+    representation.  The SIGNIFICAND and the EXPONENT are computed by  find-
+    ing the integer exponent to R so that the quotient of FLOAT and R raised
+    to that exponent is between 1/R (inclusive)  and  1  (exclusive).   Then
+    EXPONENT,   the   second  value  returned,  is  the  exponent  used  and
+    SIGNIFICAND, the first value returned, is the quotient of  FLOAT  and  R
+    raised  to  EXPONENT.  SIGN, the third value returned, has the same sign
+    and format as FLOAT and has absolute value 1.
+
+    FLOAT must be a real, floating-point number. SIGNIFICAND and  SIGN  have
+    the  same  format  as FLOAT.  EXPONENT is an integer.  If FLOAT is zero,
+    EXPONENT may be  any  integer  (depending  on  the  implementation)  and
+    SIGNIFICAND will be positive zero, again in the same format as FLOAT.
+
+    EXAMPLES
+    (decode-float 8.0) => 0.5 4 1.0
+    (decode-float -8.0) => 0.5 4 -1.0
+    (decode-float 0.125d0) => 0.5d0 -2 1.0d0
+
+    SEE ALSO
+    CLtL 12:218, float-digits, float-precision, float-radix, float-sign,
+    integer-decode-float, scale-float
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

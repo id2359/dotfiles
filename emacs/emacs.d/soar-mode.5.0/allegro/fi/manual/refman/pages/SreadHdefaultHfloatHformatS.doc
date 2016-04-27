@@ -1,0 +1,66 @@
+
+                                                 *read-default-float-format*
+
+
+    VARIABLE
+    *read-default-float-format*  -  specify the type that will be assumed
+      when reading floating-point numbers
+
+    DESCRIPTION
+    Evaluates to a type specifier indicating the default float format.  This
+    variable  determines  the  format of floating-point numbers read without
+    exponent markers or read with either e or  E  as  the  exponent  marker.
+    This  variable also determines the exponent marker that the printer uses
+    when printing floating-point numbers.  If the floating-point  number  to
+    be  printed  has  the  same  format as the value of this variable, it is
+    printed with an e or E exponent marker..
+
+    The initial value of this variable is the  symbol  single-float.   Other
+    allowable   values   are  the  symbols  short-float,  double-float,  and
+    long-float.
+
+    EXAMPLES
+    ;;  Note that if a number is not of the default format, its exponent
+    ;;  marker is preserved by the printer.  Whether the default
+    ;;  exponent marker is preserved is implementation-dependent.
+    *read-default-float-format* => single-float
+    5.0d0 => 5.0d0
+    5.0f0 => 5.0
+    5.0e0 => 5.0
+
+    (setq *read-default-float-format* 'double-float)
+    5.0d0 => 5.0
+    5.0f0 => 5.0f0
+    5.0e0 => 5.0
+
+    SEE ALSO
+    CLtL 22:375, about reading, read
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

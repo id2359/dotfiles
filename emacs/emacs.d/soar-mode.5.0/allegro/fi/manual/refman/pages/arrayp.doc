@@ -1,0 +1,66 @@
+
+                                                                      arrayp
+
+
+    FUNCTION
+    arrayp  -  test whether an object is an array
+
+    USAGE
+    arrayp object
+
+    DESCRIPTION
+    Returns true if OBJECT is an array, and false otherwise.  The  following
+    identity holds:
+
+    (arrayp x) = (typep x 'array)
+
+    EXAMPLES
+    (arrayp '#(a b c)) => t
+    (arrayp '(a b c)) => nil
+    (arrayp "(a b c)") => t
+    (arrayp (make-array '(2 2))) => t
+
+    SEE ALSO
+    CLtL 6:76, about type specifiers, make-array, vectorp
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

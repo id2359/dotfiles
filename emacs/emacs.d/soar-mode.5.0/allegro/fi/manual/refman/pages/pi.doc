@@ -1,0 +1,66 @@
+
+                                                                          pi
+
+
+    CONSTANT
+    pi  -  approximation to pi in long floating-point format
+
+    DESCRIPTION
+    Returns the best approximation  of  J  in  long  floating-point  format.
+    Approximations  of  J in other precisions may be produced using float or
+    coerce.  (Note that an implementation is free to collapse  two  or  more
+    floating-point  formats  into  one.   In  the  example,  long-float  and
+    double-float are collapsed, so the value is printed as a double-float.)
+
+    EXAMPLES
+    ;;  Implementation-dependency: PI is a double-float.
+    pi => 3.141592653589793d0
+    (float pi 4.0s0) => 3.1415927s0
+
+    SEE ALSO
+    CLtL 12:209, about numeric constants
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

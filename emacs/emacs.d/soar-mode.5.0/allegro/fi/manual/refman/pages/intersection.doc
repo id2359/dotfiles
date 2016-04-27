@@ -1,0 +1,66 @@
+
+                                                                intersection
+
+
+    FUNCTION
+    intersection  -  create a new list of elements common to two lists
+
+    USAGE
+    intersection list1 list2 [{:test | :test-not} pred] [:key keyfnc]
+
+    DESCRIPTION
+    Returns a list containing the elements common to both  the  lists  LIST1
+    and  LIST2.  This function treats lists as sets.  Precisely, all ordered
+    pairs (E1, E2), E1 from LIST1 and E2 from LIST2, are examined.   If  the
+    elements  of the ordered pair are eql, one element is selected to appear
+    in the returned list.  If either list contains duplicate (eql) elements,
+    the  returned  list  may or may not contain both elements.  The order of
+    the elements in the returned list is not defined.
+
+    A test predicate other than eql may be used by specifying  PRED  as  the
+    value  of either the :test or the :test-not keyword argument.  PRED must
+    be a function that accepts two arguments (an element from LIST1  and  an
+    element  from  LIST2  passed  in  that  order).  If PRED is the value of
+    :test, the elements match if PRED returns true.  If PRED is the value of
+    :test-not,  the elements match if PRED returns false.  It is an error to
+    supply both :test and :test-not keyword arguments.
+
+    If the keyword argument :key is specified and its value  KEYFNC  is  not
+    nil,  KEYFNC  must  be a function that accepts one argument.  It will be
+    applied to each element of both argument lists before the  elements  are
+    tested.   When  unspecified or nil, it effectively defaults to the func-
+    tion identity.
+
+    EXAMPLES
+    ;;  Different implementations may return lists with
+    ;;  different ordering of elements.
+    (intersection '(1 2 3) '(4 5 6)) => nil
+    (intersection '(1 2 3) '(2 3 4)) => (3 2)
+    (intersection '(1 2 3 3) '(2 3 4)) => (3 3 2)
+    (intersection '((a 1) (b 2)) '((b 3) (c 4)) :key #'car) => ((b 2))
+    (intersection '(3 4) '(1 2) :test #'<) => nil
+    (intersection '(3 4) '(1 2) :test #'>) => (4 3)
+
+    SEE ALSO
+    CLtL 15:277, :key, nintersection, set-difference, set-exclusive-or,
+    subsetp, union
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

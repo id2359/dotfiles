@@ -1,0 +1,66 @@
+
+                                                                  draw-point
+
+
+    FUNCTION
+    draw-point  -  draw a point on a graphic stream
+
+    Usage
+    draw-point GR-STREAM POSITION [:brush-width BRUSH-WIDTH] [:operation
+      OPERATION] [:color COLOR]
+
+    SIDE EFFECTS
+    A point is drawn on the graphic stream GR-STREAM at POSITION, which must
+    be  a  position.  The position is given with respect to the extent coor-
+    dinate system of GR-STREAM.
+
+    DESCRIPTION
+    Returns nil.  For a function which passes the coordinates unbundled into
+    their x and y components, see draw-point-xy.
+
+    The keyword argument :brush-width is the width, in pixels, of the  point
+    that  is  drawn.   This argument defaults to the value of window-stream-
+    brush-width applied to GR-STREAM.  The  default  value  is  The  keyword
+    argument  :operation  specifies  the boolean operation that will be used
+    when the bits from the drawing operation are combined with the  bits  on
+    the  graphic  stream.   This  argument  defaults to the value of window-
+    stream-operation applied to GR-STREAM.  All the sixteen standard boolean
+    operations  of  COMMON LISP are supported.  The keyword argument :color,
+    specifies the drawing color, and  defaults  to  the  value  returned  by
+    window-stream-foreground-color applied to GR-STREAM.
+
+    The argument GR-STREAM may be either a window-stream  or  bitmap-stream.
+    These  are  the  only  two types of graphic streams, with the difference
+    between them being that  bitmap-streams  must  be  bitblted  to  window-
+    streams.
+
+    The function window-stream-draw-point returns the list of functions that
+    this  method  calls.  You can change this list by using setf and window-
+    stream-draw-point or  by  using  modify-window-stream-method.   You  can
+    restore  the  list  to  its original default state with restore-default-
+    window-stream-method.
+
+    The draw-point method returns what is returned by the last  function  in
+    the  list  of  functions called by the method. If this list has not been
+    changed from its initial value, draw-point returns nil.
+
+    EXAMPLES
+    (setf *my-win*
+          (make-window-stream
+           :left 100
+           :bottom 300
+           :width 300
+           :height 300
+           :activate-p t))
+    ;;  We draw a point in the center of the output region.
+    (draw-point *my-win*
+                (make-position :x 150 :y 150)
+                :brush-width 2
+                )
+
+    SEE ALSO
+    draw-circle, draw-circle-xy, draw-filled-circle, draw-filled-circle-xy,
+    draw-filled-rectangle, draw-filled-rectangle-xy, draw-line, draw-line-
+    xy, draw-lines, draw-points, draw-rectangle, draw-rectangle-xy, draw-to,
+    draw-to-xy, modify-window-stream-method, restore-default-window-stream-
+    method

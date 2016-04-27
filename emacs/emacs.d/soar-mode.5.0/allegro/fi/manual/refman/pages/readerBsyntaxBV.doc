@@ -1,0 +1,66 @@
+
+                                                             reader syntax |
+
+
+    READER SYNTAX
+    |  -  quote delimited characters
+
+    Usage
+    |...|
+
+    DESCRIPTION
+    When the  reader  reads  the  multiple-escape  character  ``|'',  it  is
+    discarded,  and the reader continues to accumulate succeeding characters
+    for the current token, but it treats all characters as constituent char-
+    acters  except the single-escape character ``\'' and the multiple-escape
+    character ``|''.  If the single-escape character ``\'' is  read,  it  is
+    discarded,  and the next character is accumulated.  If a multiple-escape
+    character ``|'' is read, it is discarded, and normal character syntax is
+    again observed by the reader.
+
+    This character is not a macro character.  Processing of  multiple-escape
+    characters  is  built into the COMMON LISP reader.  Note that ``|'' does
+    not terminate a token.
+
+    EXAMPLES
+    (read-from-string "a|(b c)|") => |A(b c)| 8
+    (read-from-string "a|b |c") => |Ab C| 6
+
+    'a|(b c)| => |A(b c)|
+    'a|b |c => |Ab C|
+
+    SEE ALSO
+    CLtL 22:337, reader syntax \, about printing, about reading, set-
+    syntax-from-char
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

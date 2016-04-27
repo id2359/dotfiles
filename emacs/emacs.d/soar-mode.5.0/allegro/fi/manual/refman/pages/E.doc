@@ -1,0 +1,66 @@
+
+                                                                           =
+
+
+    FUNCTION
+    =  -  test whether numbers are all the same
+
+    USAGE
+    = {n}+
+
+    DESCRIPTION
+    Returns true if all of the argument numbers are equal, and false  other-
+    wise.   It  is  an  error  if any of the arguments are not numbers. This
+    function automatically performs required coercions when arguments are of
+    different  types.   This  function  always returns true when it is given
+    only one argument.
+
+    EXAMPLES
+    (= 4 4) => t
+    (= 4 4.0 #C(4 0)) => t
+    (= 4 5) => nil
+    (= 0.0 -0.0) => t
+
+    SEE ALSO
+    CLtL 12:196, /=, <, >, <=, >=
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

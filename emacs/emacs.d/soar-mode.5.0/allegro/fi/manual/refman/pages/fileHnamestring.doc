@@ -1,0 +1,66 @@
+
+                                                             file-namestring
+
+
+    FUNCTION
+    file-namestring  -  return the name, type, and version components of a
+      pathname as a string
+
+    USAGE
+    file-namestring pathname
+
+    DESCRIPTION
+    Returns a string representing the name, type, and version components  of
+    PATHNAME,  which  must  be  a  pathname,  string, symbol, or stream.  If
+    PATHNAME is a stream, it must be or have been open to a file.
+
+    Not all the pathname components listed above may be present in any given
+    implementation.  It may not necessarily be possible to construct a valid
+    namestring by concatenating  the  values  returned  by  host-namestring,
+    directory-namestring, and file-namestring on a given pathname.
+
+    EXAMPLES
+    ;;  The result is implementation-dependent:
+    (file-namestring (make-pathname :host "franz"
+                                    :directory "/etc"
+                                    :name "foo" :type "l"))
+      => "foo.l"
+
+    SEE ALSO
+    CLtL 23:417, directory-namestring, enough-namestring, host-namestring,
+    namestring
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

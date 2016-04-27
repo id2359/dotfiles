@@ -1,0 +1,66 @@
+
+                                                         format directive ~C
+
+
+    FORMAT DIRECTIVE
+    ~C  -  print character
+
+    USAGE
+    ~[:][@]C
+
+    DESCRIPTION
+    Prints the next format argument, which should be a character object,  in
+    an implementation-dependent way according to the modifiers.
+
+    ~C   Prints in a short format `culturally compatible' with the implemen-
+         tation environment.
+
+    ~:C  Prints in a pretty format, spelling out names of control  bits  and
+         nonprinting characters.
+
+    ~@C  Prints using the ``#\'' notation understood by read.
+
+    ~:@C Prints just as ~:C but may add information on generating the  char-
+         acter object from the keyboard in use.
+
+    EXAMPLES
+    (format nil "~C ~:C ~@C" #\c-m-X #\c-m-X #\c-m-X)
+      => "C-M-X Control-Meta-X #\Control-Meta-X"
+    (format nil "Enter ~:@C now." #\control-meta-X)
+      => "Enter Control-Meta-X now."
+
+    SEE ALSO
+    CLtL 22:389, format, read
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

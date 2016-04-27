@@ -1,0 +1,132 @@
+
+                                                  read-preserving-whitespace
+
+
+    FUNCTION
+    read-preserving-whitespace  -  read without discarding whitespace char-
+      acters
+
+    Usage
+    read-preserving-whitespace [IN-STREAM [EOF-ERROR-P [EOF-VALUE
+      [RECURSIVE-P]]]]
+
+    DESCRIPTION
+    Returns the COMMON LISP object that is read.  this function  is  similar
+    to  read, differing only in that read will read (and discard) whitespace
+    characters after the object read while  read-preserving-whitespace  will
+    NOT  read  and discard whitespace characters following the object.  Note
+    that this difference only applies when the RECURSIVE-P argument  is  nil
+    (see  below  for  a  discussion  of that argument).  When RECURSIVE-P is
+    non-nil,   read   and   read-preserving-whitespace   are    functionally
+    equivalent.
+
+    In most cases there is no reason to preserve  whitespace.  It  would  be
+    useful,  for  example,  when a character is used to delimit objects, but
+    has a different interpretation depending on whether it is at the  begin-
+    ning or in the middle of a collection of objects.  The whitespace serves
+    as the delimiter between two sets of delimited objects, and you may wish
+    to ensure this whitespace is not read and discarded.
+
+    The value of INPUT-STREAM must be a stream.  If it is not specified,  or
+    is specified as nil, the value of INPUT-STREAM is the value of the vari-
+    able *standard-input*.  If the argument INPUT-STREAM is specified as  t,
+    the value of INPUT-STREAM is the value of the variable *terminal-io*.
+
+    The argument EOF-ERROR-P controls what  happens  when  the  end  of  the
+    INPUT-STREAM  is reached.  (If the stream is open to a file, the end-of-
+    file is the end of the stream.  If the stream is reading from a  string,
+    the  end  of  the  string  is  the  end  of  the stream.  The concept is
+    straightforwardly extended to specialized streams.) If the value of  the
+    argument  is  t,  the  default,  an error is signalled.  However, if the
+    value of the argument is nil, then in most situations an  error  is  not
+    signalled.  Instead,  the read function terminates and returns the value
+    of EOF-VALUE.  EOF-VALUE defaults to nil.  The function read always sig-
+    nals  an  error  if  the end of the stream is reached when a COMMON LISP
+    object is partially but not completely read.
+
+    The argument RECURSIVE-P indicates whether or not this  is  a  recursive
+    call  to read.  Whether a call to read is recursive need to be known for
+    three reasons.  First, referents #N= for the  syntactic  forms  #N#  are
+    unique  to  the outermost expression being read.  Second, whether or not
+    to preserve whitespace is a  property  of  the  outermost  call  to  the
+    reader,  either read or read-preserving-whitespace.  Third, encountering
+    the end of a stream has a different meaning in a recursive call than  in
+    a  top-level  call, since encountering the end of a stream in the middle
+    of a printed representation is ALWAYS and error.
+
+    When the value of *read-suppress* is non-nil, the customary behavior  of
+    read-preserving-whitespace     is     changed     drastically.      (See
+    *read-suppress*.)
+
+    EXAMPLES
+    ;;  This example illustrates the difference between READ and
+    ;;  READ-PRESERVING-WHITESPACE.  Otherwise, the functions are
+    ;;  very similar.  See the examples to READ for more for
+    ;;  illustrations of more complex uses.
+
+    (setq in (make-input-string-stream "foo bar"))
+    (read in) => foo
+    (read-line in) => "bar"
+    (close in)
+
+    (setq in (make-input-string-stream "foo bar"))
+    (read-preserving-whitespace in) => foo
+    (read-line in) => " bar"
+    (close in)
+
+    SEE ALSO
+    CLtL 22:376, about reading, read, read-delimited-list
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

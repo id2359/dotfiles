@@ -1,0 +1,132 @@
+
+                                                           math:ndeterminant
+
+
+    FUNCTION
+    ndeterminant  -  destructively get the determinant of a square matrix
+
+    USAGE
+    ndeterminant matrix
+
+    DESCRIPTION
+    Returns as multiple values the determinant of MATRIX and its  reciprocal
+    condition  number,  which  is defined below.  MATRIX is modified by this
+    function.  MATRIX  must  be  a  square  matrix  whose  element-type  (as
+    returned  by  array-element-type)  is one of single-float, double-float,
+    (complex single-float), or (complex double-float).  (Generally, the type
+    should  be specified when the matrix is created, either with make-matrix
+    or make-array.  Matrices returned by the functions  single-float-matrix,
+    double-float-matrix,           complex-single-float-matrix,           or
+    complex-double-float-matrix also have element types appropriate for this
+    function.)  It  is an error if MATRIX is not square or does not have its
+    element type listed above.  (Note that even if all elements are in  fact
+    of  a  single,  appropriate type, this function will not work unless the
+    element type is also correct).  This function destructively modifies its
+    argument.  The related function determinant does not modify its argument
+    while calculating its determinant.
+
+    About half the work in calculating the determinant of a matrix  is  also
+    necessary  in  calculating its inverse.  If you also need the inverse of
+    MATRIX, we suggest that you call the function  ndeterminant-and-inverse,
+    rather than inverse and this function individually.
+
+    The RECIPROCAL CONDITION NUMBER is described in detail in section 1.4 of
+    the  LINPACK  USERS'  GUIDE.  Briefly, there is a way to modify the ele-
+    ments of the matrix by amounts less than the reciprocal condition number
+    so  that  the  changed matrix is singular.  Therefore, if this number is
+    smaller than the accuracy of the elements of your matrix,  some  results
+    are  numerically  meaningless  since  the  matrix  cannot be numerically
+    distinguished from a singular matrix.  If this value is  less  than  the
+    Common  Lisp  constant  single-float-epsilon, if the matrix elements are
+    single floats, or  double-float-epsilon,  if  the  elements  are  double
+    floats,  attempts to calculate either the inverse or the eigen values or
+    vectors will fail.  The determinant of a matrix singular to machine pre-
+    cision  is assumed to be zero.  That value is returned regardless of the
+    values of the elements of the matrix.
+
+    EXAMPLES
+    (print-matrix
+      (setq r-mat (make-matrix '((2.0 3.0) (5.0 8.0))
+                                'single-float))) PRINTS
+      2.0 3.0
+      5.0 8.0
+    (ndeterminant r-mat) => 1.0000005 0.0081448
+    ;;  The true value is 1.0.  5.0s-7 is within machine accuracy.
+    ;;  The value of R-MAT is now changed:
+    (print-matrix r-mat) PRINTS
+      3.0        -0.6666667
+      8.0        -0.3333335
+
+    ;;  In the following, we do not specify the element type
+    ;;  and we get an error when we apply determinant:
+    (print-matrix
+      (setq m-mat (make-matrix '((-3.0 4.0) (-5.0 7.0))))) PRINTS
+      -3.0 4.0
+      -5.0 7.0
+    (ndeterminant m-mat) => ERROR
+    ;;  The error message is:
+    ;;  Error: Can't take determinant of anything
+    ;;  except a floating-point matrix
+    ;;  NDETERMINANT will work if we first apply SINGLE-FLOAT-MATRIX:
+    (ndeterminant (single-float-matrix m-mat)) =>
+      -1.0
+      0.008558559
+
+    SEE ALSO
+    determinant, determinant-and-inverse, inverse, ninverse, ndeterminant-
+    and-inverse
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

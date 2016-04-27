@@ -1,0 +1,132 @@
+
+                                                                       write
+
+
+    FUNCTION
+    write  -  write the printed representation of an object to a stream
+
+    Usage
+    write OBJECT [:stream STREAM] [:escape ESCAPE] [:radix RADIX]
+      [:base BASE] [:circle CIRCLE] [:pretty PRETTY] [:level LEVEL]
+      [:length LENGTH] [:case CASE] [:gensym GENSYM] [:array ARRAY]
+
+    SIDE EFFECTS
+    The printed representation of OBJECT is written to the output stream.
+
+    DESCRIPTION
+    Returns the argument OBJECT, but this function  is  used  for  its  side
+    effects.  Each of the keyword arguments corresponds to a global variable
+    used for controlling stream output, and each keyword  argument  defaults
+    to the current value of the corresponding global variable.  For example,
+    the  keyword  argument  :escape  corresponds  to  the  global   variable
+    *print-escape*.
+
+    The argument STREAM may be a stream, t, or nil (the default).  If STREAM
+    is  nil, the printed representation of OBJECT is written to the value of
+    *standard-output*.  If STREAM is t, the printed representation of OBJECT
+    is written to the value of *terminal-io*.
+
+    EXAMPLES
+    (with-open-file (out "junk" :direction :output
+                         :if-exists :supersede)
+      (with-open-file (in "junk")
+        (write '(this is a test) :stream out)
+        (finish-output out)
+        (read in))) => (this is a test)
+
+    (let ((*print-escape* t))
+      (declare (special *print-escape*))
+      (write (list #\x "howdy")))
+      PRINTS (#\x "howdy")
+      => (#\x "howdy")
+    (write (list #\x "howdy") :escape t)
+      PRINTS (#\x "howdy")
+      => (#\x "howdy")
+
+    (let ((*print-escape* nil))
+      (declare (special *print-escape*))
+      (write (list #\x "howdy")))
+      PRINTS (x howdy)
+      => (#\x "howdy")
+    (write (list #\x "howdy") :escape nil)
+      PRINTS (x howdy)
+      => (#\x "howdy")
+
+    (write 5 :radix t :base 2)
+      PRINTS #b101
+      => 5
+    (write 10 :radix t :base 10)
+      PRINTS 10.
+      => 10
+    (write 10 :radix nil :base 10)
+      PRINTS 10
+      => 10
+
+
+
+    (defun test () '(this is the test))
+    ;; The following printed form is implementation-dependent.
+    (write (function test) :pretty t)
+      PRINTS (lambda ()
+               (block test
+                 '(this is the test)))
+      => (lambda nil (block test '(this is the test)))
+    (write (function test) :pretty nil)
+      PRINTS (lambda nil (block test '(this is the test)))
+      => (lambda nil (block test '(this is the test)))
+
+    (setq nester '(alpha (a1 (a11 (a111 a112) a12) a2) beta))
+      => (alpha (a1 (a11 (a111 a112) a12) a2) beta)
+    (write nester :level 1)
+      PRINTS (alpha # beta)
+      => (alpha (a1 (a11 (a111 a112) a12) a2) beta)
+    (setq lengthy '(alpha (a1 (a11 (a111 a112) a12) a2) beta))
+      => (alpha (a1 (a11 (a111 a112) a12) a2) beta)
+    (write lengthy :length 1)
+      PRINTS (alpha ...)
+      => (alpha (a1 (a11 (a111 a112) a12) a2) beta)
+
+    (write 'foo :case :upcase)
+      PRINTS FOO
+      => foo
+    (write (gensym) :gensym nil)
+      PRINTS g38
+      => #:g38
+    (write (gensym) :gensym t)
+      PRINTS #:g39
+      => #:g39
+    (write (make-array '(2 3) :initial-contents '((a b c)(d e f)))
+           :array t)
+      PRINTS #2a((a b c) (d e f))
+      => #2a((a b c) (d e f))
+    ;; The following printed form is implementation-dependent.
+    (write (make-array '(2 3) :initial-contents '((a b c)(d e f)))
+           :array nil)
+      PRINTS #<Array, rank 2 @ #x3167c1>
+      => #2a((a b c) (d e f))
+    (let ((old '(a b c)))
+      (setf (cddr old) old)
+      (write old :circle t))
+      PRINTS #1=(a b . #1#)
+      => (a b a b a b a b a b a b ...
+
+    SEE ALSO
+    CLtL 22:382, *print-array*, *print-base*, *print-case*, *print-circle*,
+    *print-escape*, *print-gensym*, *print-length*, *print-level*, *print-
+    pretty*, *print-radix*, prin1, prin1-to-string, princ, princ-to-string,
+    print, write-byte, write-char, write-line, write-string, write-to-string
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

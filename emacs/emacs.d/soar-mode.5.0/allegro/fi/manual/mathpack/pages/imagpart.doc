@@ -1,0 +1,66 @@
+
+                                                               math:imagpart
+
+
+    FUNCTION
+    imagpart  -  get the imaginary part of a number, matrix, or vector
+
+    Usage
+    imagpart X
+
+    DESCRIPTION
+    This standard Common Lisp function has been modified  to  accept  matrix
+    and  vector  as well as scalar arguments.  When the argument is a scalar
+    (i.e. a number), this function works just as when Allegro Matrix is  not
+    loaded: returning the imaginary part of its argument.  When the argument
+    is a vector or a matrix, a new vector or matrix is returned each element
+    of which is the imaginary part of the corresponding element of the argu-
+    ment vector or matrix.
+
+    Recall that the complex number is a number of the form a+bi, where a and
+    b  are  real  numbers.  The imaginary part of such a number is b.  (Note
+    that the imaginary part is a real number.) The imaginary part of a  real
+    number is zero (in the correct numeric format).
+
+    EXAMPLES
+    ;;  Our examples deal with matrices and vectors only.
+    (setq mat (make-matrix '((1.0 #c(1.0 2.0)) (#c(3.0 -4.0) 7.0))))
+    (print-matrix mat) PRINTS
+      1.0          #c(1.0 2.0)
+      #c(3.0 -4.0) 7.0
+    (setq mat1 (imagpart mat))
+    (print-matrix mat1) PRINTS
+      0.0  2.0
+      -4.0 0.0
+    (setq vec (make-array 2 :initial-contents
+                             '(#c(1.0 1.0) #c(2.0 -2.0))))
+      => #(#c(1.0 1.0) #c(2.0 -2.0))
+    (imagpart vec) => #(1.0 -2.0)
+
+    SEE ALSO
+    conjugate, realpart
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

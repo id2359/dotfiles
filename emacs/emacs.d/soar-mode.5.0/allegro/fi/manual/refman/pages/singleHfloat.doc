@@ -1,0 +1,66 @@
+
+                                                                single-float
+
+
+    Type SPECIFIER
+    single-float  -  the data type comprising `single' floating-point
+      numbers
+
+    USAGE
+    {single-float | (&Esingle-float [{low | (low)} [{high | (high)}]])}
+
+    DESCRIPTION
+    Specifies a data type consisting of single-format floating-point numbers
+    between  LOW  and  HIGH.   Either  limit  is  considered exclusive if it
+    appears in a list by itself, otherwise it is considered inclusive.   The
+    limits  should  be  specified as single format floating-point numbers or
+    may be explicitly unspecified using *.  Frequently, implementations  are
+    less restrictive in the numeric format of the limits.
+
+    The single-float type is the second smallest precision subtype of float.
+    It  is  intended  that  numbers  of  this  type be precise to at least 7
+    decimal places.  However, the COMMON LISP standard  allows  considerable
+    freedom   in   the  implementation  of  floats.   It  is  possible  that
+    single-float will be equivalent to short-float  for  example.   You  may
+    discover  the details of the implementation you are using with functions
+    like float-precision, which returns the number of digits in the internal
+    representation.   Floating-point  numbers  of this type may be expressed
+    using the exponent marker f or F.
+
+    EXAMPLES
+    (typep 0.4f1 '(single-float 0.0 1.0)) => t
+    (subtypep 'single-float 'float) => t t
+    ;; The next result is implementation-dependent.
+    (float-precision 2.0f0) => 24
+
+    SEE ALSO
+    CLtL 2:16, CLtL 4:43, CLtL 4:49, about type specifiers, double-float,
+    float, float-precision, long-float, short-float, subtypep, type-of,
+    typep
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

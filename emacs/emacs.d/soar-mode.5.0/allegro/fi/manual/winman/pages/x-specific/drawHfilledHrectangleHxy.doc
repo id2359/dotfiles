@@ -1,0 +1,132 @@
+
+                                                    draw-filled-rectangle-xy
+
+
+    FUNCTION
+    draw-filled-rectangle-xy  -  draw a filled rectangle on a graphic stream
+
+    Usage
+    draw-filled-rectangle-xy GR-STREAM X Y WIDTH HEIGHT [:color COLOR]
+      [:operation OPERATION]
+
+    SIDE EFFECTS
+    A filled rectangle of dimensions  WIDTH  and  HEIGHT  is  drawn  on  the
+    graphic  stream  GR-STREAM, with the lower left-hand corner at the posi-
+    tion determined by X and Y.
+
+    The following description applies to which edges of the figure  actually
+    get drawn: If the interior of the rectangle lies to the left of the edge
+    then this edge will not be drawn. A horizontal edge which lies above the
+    interior  of  the  rectangle  rectangle will not be drawn.  Vertices are
+    only drawn when both adjacent edges are drawn.   Leaving  edges  out  in
+    this  way  allows a window to be tiled with the rectangle without double
+    covering of edges.
+
+    DESCRIPTION
+    Returns nil.  The arguments WIDTH and HEIGHT must be integers. The argu-
+    ments  X  and  Y  determine the x and y coordinates of a POSITION in the
+    extent coordinate system of GR-STREAM.  For a function which passes  the
+    position  data  structure directly, instead of its components, see draw-
+    filled-rectangle.
+
+    The keyword argument :operation specifies  the  boolean  operation  that
+    will  be used when the bits from the drawing operation are combined with
+    the bits on the graphic stream.  This argument defaults to the value  of
+    window-stream-operation  applied to GR-STREAM.  All the sixteen standard
+    boolean operations of COMMON LISP are supported.  The  keyword  argument
+    :color,  specifies  the  drawing  color,  and if not specified, uses the
+    color returned by window-stream-foreground-color.
+
+    The argument GR-STREAM may be either a window-stream  or  bitmap-stream.
+    These  are  the  only  two types of graphic streams, with the difference
+    between them being that  bitmap-streams  must  be  bitblted  to  window-
+    streams.
+
+    The function window-stream-draw-filled-rectangle-xy returns the list  of
+    functions  that  this  method  calls.  You can change this list by using
+    setf and  window-stream-draw-filled-rectangle-xy  or  by  using  modify-
+    window-stream-method.   You can restore the list to its original default
+    state with restore-default-window-stream-method.
+
+    The draw-filled-rectangle-xy method returns what is returned by the last
+    function in the list of functions called by the method. If this list has
+    not  been  changed  from  its  initial  value,  draw-filled-rectangle-xy
+    returns nil.
+
+    EXAMPLES
+    (setf *my-win*
+          (make-window-stream
+           :left 100
+           :bottom 300
+           :width 300
+           :height 300
+           :activate-p t))
+
+    (draw-filled-rectangle-xy *my-win*
+                           150  150
+                           50 100)
+
+
+    SEE ALSO
+    draw-circle, draw-circle-xy, draw-filled-circle, draw-filled-circle-xy,
+    draw-filled-rectangle, draw-line, draw-line-xy, draw-lines, draw-point,
+    draw-point-xy, draw-points, draw-rectangle, draw-rectangle-xy, draw-to,
+    draw-to-xy, modify-window-stream-method, restore-default-window-stream-
+    method
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

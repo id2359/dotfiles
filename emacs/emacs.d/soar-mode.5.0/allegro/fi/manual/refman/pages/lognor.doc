@@ -1,0 +1,66 @@
+
+                                                                      lognor
+
+
+    FUNCTION
+    lognor  -  bitwise logical `nor'
+
+    USAGE
+    lognor n1 n2
+
+    DESCRIPTION
+    Returns the bitwise logical `nor' of N1 and N2, both of  which  must  be
+    integers.   Arguments  and  results are interpreted as if represented in
+    two's-complement notation.  The following identity holds:
+
+    (lognor x y) = (lognot (logior x y))
+
+    EXAMPLES
+    (lognor -1 -5) => 0
+
+    (setf *print-base* 2
+          *print-radix* t)
+    ;;  (Since bitwise logical operations interpret integers as
+    ;;  half-infinite, the result is negative, which in two's-
+    ;;  complement representation has an infinite string of 1's
+    ;;  to the right, that is toward higher-order bits.  The
+    ;;  number #b-1111 would be represented in two's-complement
+    ;;  as ...111110001.)
+    (lognor #b1100 #b1010) => #b-1111
+    (ldb (byte 4 0) #b-1111) => #b1
+    (logbitp 100 #b-1111) => t
+
+    SEE ALSO
+    CLtL 12:221, boole, logand, logandc1, logandc2, logbitp, logcount,
+    logeqv, logior, lognand, lognot, logorc1, logorc2, logtest, logxor
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

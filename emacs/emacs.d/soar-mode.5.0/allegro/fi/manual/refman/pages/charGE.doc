@@ -1,0 +1,66 @@
+
+                                                                      char>=
+
+
+    FUNCTION
+    char>=  -  test whether given characters are nonincreasing
+
+    USAGE
+    char>= {char}+
+
+    DESCRIPTION
+    Returns true if each argument CHAR is greater than or equal to the  next
+    argument CHAR specified, and false otherwise.  Each CHAR must be a char-
+    acter object.  The ordering  on  characters  obeys  alphabetic  ordering
+    within  uppercase and lowercase letters, and numeric ordering within the
+    digits 0 through 9.  Digits are not interleaved  with  letters  nor  are
+    uppercase  letters  interleaved with lowercase, but whether uppercase is
+    greater or less than lowercase and whether digits are  greater  or  less
+    than  letters  depends on the implementation.  The ordering by char>= of
+    two characters that differ only in their code attributes  is  consistent
+    with  numerical  ordering  by  >=  on their code attributes (returned by
+    char-code).  The ordering of characters by char>=  for  characters  that
+    differ  in bits or font attributes is implementation-dependent.  Such an
+    ordering is not necessarily identical to the ordering of values returned
+    by  char-int  of  the  characters.   The function char-not-lessp is like
+    char>= except that it ignores case, and bits and fonts attributes.
+
+    EXAMPLES
+    (char>= #\b #\b) => t
+    (char>= #\b #\c) => nil
+    (char>= #\b) => t
+    (char>= #\c #\b #\a) => t
+    (char>= #\b #\a #\a) => nil
+
+    ;;  The following results are implementation-dependent:
+    (char>= #\a #\A) => t
+    (char>= #\2 #\a) => nil
+
+    SEE ALSO
+    CLtL 13:237, char/=, char-code, char-int, char-not-lessp, char=, char>,
+    char<, char<=, eq, eql
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                          long-float-epsilon
+
+
+    CONSTANT
+    long-float-epsilon  -  smallest distinguishable long-float increment
+
+    DESCRIPTION
+    Returns the value of the smallest positive long-float number that can be
+    added  to  1  to  produce  a  value  distinct from 1.  The value of this
+    constant is implementation-dependent.
+
+    EXAMPLES
+    ;;  The returned value is implementation-dependent.
+    long-float-epsilon => 2.220446049250313d-16
+
+    SEE ALSO
+    CLtL 12:232, about numeric constants, double-float-epsilon, double-
+    float-negative-epsilon, long-float-negative-epsilon, short-float-
+    epsilon, short-float-negative-epsilon, single-float-epsilon, single-
+    float-negative-epsilon
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

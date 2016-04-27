@@ -1,0 +1,66 @@
+
+                                                              about equality
+
+
+    NOTES
+    about equality  -  comparison of eq, eql, equal, and equalp
+
+    DESCRIPTION
+    There are four predicates for testing  equality  between  any  two  LISP
+    objects.   From  the  least likely to consider objects equal to the most
+    likely, they are eq, eql, equal, and equalp.  Other  predicates  testing
+    for   equality   between  specific  kinds  of  objects  (=,  tree-equal,
+    string-equal, etc.), are not discussed here.  Each of  the  four  predi-
+    cates  takes  two  arguments, here called X and Y.  They may be any LISP
+    objects.
+
+    eq returns true if X and  Y  are  implementationally  identical  objects
+    (which usually means they refer to the same memory address).
+
+    eql returns true if X and Y are eq, if  they  are  two  equal  numerical
+    values  of the same type, or two characters that are the same.  (In some
+    implementations, either equal numbers or the same characters or both may
+    also be eq.)
+
+    equal returns true if X and Y  are  eql  or  if  they  are  structurally
+    similar.  Composite objects are equal if they are conses with equal cars
+    and cdrs, bit-vectors or strings whose elements are equal, or  pathnames
+    whose components are equivalent (in an implementation-dependent sense).
+
+    equalp returns true if X and Y are equal, if X and Y are the same  char-
+    acters  (ignoring  case  and bits attributes and considering fonts in an
+    implementation-dependent way), if they are numbers with the  same  value
+    but  not  necessarily of the same type, or if they are composite objects
+    with equalp elements.
+
+    EXAMPLES
+    Here is a table showing the results of  calling  these  four  predicates
+    with the same pair of arguments.  Entries in the table having both t and
+    nil values are implementation-dependent.
+
+           Arguments                  Predicates
+         X          Y           EQ    EQL   EQUAL  EQUALP
+      -------    -------     ------------------------------
+         'a         'b         nil    nil    nil    nil
+         'a         'a          t      t      t      t
+         2          2         t/nil    t      t      t
+         2         2.0         nil    nil    nil     t
+        2.0        2.0        t/nil    t      t      t
+      #c(-2 5)   #c(-2 5)     t/nil    t      t      t
+      #c(-2 5) #c(-2.0 5.0)    nil    nil    nil     t
+      '(a . b)   '(a . b)     t/nil  t/nil    t      t
+        #\B        #\B        t/nil    t      t      t
+        #\B        #\b         nil    nil    nil     t
+      "Franz"    "Franz"      t/nil  t/nil    t      t
+      "Franz"    "franz"       nil    nil    nil     t
+    (cons 'a 'b)(cons 'a 'b)    nil    nil     t      t
+
+    SEE ALSO
+    CLtL 6:77-81, eq, eql, equal, equalp
+
+
+
+
+
+
+

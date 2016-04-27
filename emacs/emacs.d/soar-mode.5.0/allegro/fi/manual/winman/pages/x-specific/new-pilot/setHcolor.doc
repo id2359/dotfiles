@@ -1,0 +1,132 @@
+
+                                                                   set-color
+
+
+    FUNCTION
+    set-color  -  change the fields of a color
+
+    Usage
+    set-color COLOR {[:red RED] [:green GREEN] [:blue BLUE] | [:hue HUE]
+      [:saturation SATURATION] [:brightness BRIGHTNESS] | [:level LEVEL] |
+      [:name NAME] | [:from-color FROM-COLOR]}
+
+    DESCRIPTION
+    Returns COLOR after modifying it so its color values are as described by
+    the arguments.  The arguments to this function are the same and have the
+    same effect as the same arguments to  make-color,  except  there  is  no
+    :read-only  keyword  argument.   COLOR must be a read-write color and it
+    will still be read-write when set-color returns.
+
+    All colors are stored as mixtures or  red,  green,  and  blue  (the  rgb
+    representation), but you may redefine COLOR in five different ways.
+
+    (1) You may specify values (from 0.0 to 1.0  inclusive)  for  the  :red,
+    green, and blue keyword arguments.
+
+    (2) You may specify values (again, form 0.0 to 1.0  inclusive)  for  the
+    :hue,  :saturation,  and  :brightness.   Hue, saturation, and brightness
+    (hsb) are another way to specify colors.  COMMON  WINDOWS  will  convert
+    the hsb values to rgb values automatically.
+
+    (3)You may specify a value (from 0.0 to 1.0 inclusive)  for  the  :level
+    argument.   this  specifies  a level of gray from white to black.  Grays
+    are colors with equal level of red, green, and blue.  White is all 1.0's
+    and black is all 0.0's.
+
+    (4) You may specify a string naming a color in the list of predefined  X
+    colors  as  the  value  of the :name argument.  The list is found in the
+    file RGB.TXT located in the X11 library.  Any name from the file may  be
+    used.  The names are English names for colors.  This method is very use-
+    ful if you do not know how to mix colors.
+
+    (5) You may specify an existing color as the value  of  the  :from-color
+    argument.  The red, green, and blue values of the existing color will be
+    copied exactly in the new color.  (Among the reasons to copy a color  is
+    to have a read-write copy of a read-only color, or to have a color equal
+    at first to another but later changed.)
+
+    You may not use arguments from more than one mode of specifying  colors;
+    for example, you may not specify a value for :hue and for :green.  It is
+    an error and the results are undefined if you do mix arguments.
+
+    If you use rgb or hsb to define colors, the values of unspecified  argu-
+    ment defaults to 0.0.  Thus if you specify :red 0.2 and :blue 0.7 and do
+    not specify a value for :green, the :green value will be 0.0.
+
+    If COLOR is already installed in a colormap, it will stay  installed  in
+    the  same  location  in  the same colormap when set-color returns.  (The
+    values  stored  in  the  colormap  will  be  changed.)   If   COLOR   is
+    uninstalled, it will still be uninstalled when set-color returns.
+
+    It is an error to apply set-color to a read-only color.
+
+    EXAMPLES
+    ;;  We define a color and use SET-COLOR to change it.
+    (setq c1 (make-color :red 0.5 :green 0.2 :blue 0.1))
+
+    ;;  With rgb arguments:
+    (set-color c1 :red 1.0 :blue 0.5 :green 0.1)
+    ;;  With hsb arguments (:BRIGHTNESS will default to 0.0):
+    (set-color c1 :hue 1.0 :saturation 0.5)
+    ;;  With :NAME:
+    (set-color c1 :name "orange")
+    ;;  With :FROM-COLOR:
+    (set-color c1 :from-color blue)
+    ;;  With :LEVEL:
+    (set-color c1 :level 0.5)
+
+    ;;  In the next example, we show how to use SET-COLOR in
+    ;;  a loop to get an animation effect.
+    (setf *my-win*
+      (make-window-stream :left 100 :bottom 100
+                          :width 200 :height 200
+                          :activate-p t :title "Just a Window"))
+
+    (setq my-color (make-color :red 1.0 :green 0.0 :blue 1.0))
+
+    (draw-filled-circle *my-win* (make-position :x 75 :y  75) 50
+                        :color  my-color)
+    ;;  The following code gradually changes the color of the circle
+    ;;  from purple to blue, by decreasing the value of :RED by .01,
+    ;;  each cycle of the loop.  Note we must specify 1.0 for the
+    ;;  value of :BLUE in each call to SET-COLOR.
+    (let ((r (color-red my-color)))
+      (dotimes (i 100) (sleep 1)
+               (setq r (color-red my-color))
+               (set-color my-color :blue 1.0 :red (- r .01))))
+
+    ;;  It is an error to apply SET-COLOR to a read-only color,
+    ;;  such as one of the eight predefined colors.
+    (set-color blue :name "orange") => ERROR
+    ;;  The error message is: Error: color is read-only: ....
+
+    SEE ALSO
+    make-color, install-color, swap-colors
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

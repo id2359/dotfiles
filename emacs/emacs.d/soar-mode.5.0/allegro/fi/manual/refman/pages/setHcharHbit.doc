@@ -1,0 +1,66 @@
+
+                                                                set-char-bit
+
+
+    FUNCTION
+    set-char-bit  -  return a character with a specific control bit set or
+      clear
+
+    USAGE
+    set-char-bit char bit flag
+
+    DESCRIPTION
+    Returns a character that is the same as CHAR, except that the named  BIT
+    will be set if FLAG is non-nil, or cleared if FLAG is nil.
+
+    The behavior of this function is implementation-dependent since  on  the
+    one hand, implementations are not required to support the bits attribute
+    of characters and, on the other  hand,   may  support  more  than  four.
+    Further,  an  implementation  may  choose  different names for supported
+    bits.  The customary names for character bits of weights 1, 2, 4, and  8
+    are :control, :meta, :super, and :hyper, respectively.  If the named bit
+    is supported, this function works as described.  If it is not supported,
+    the  behavior  is  not  specified,  but the bit will not be set and most
+    likely an error will be signalled.
+
+    As an alternative to this function, one may use setf with char-bit, sub-
+    ject  to  the same restrictions, noting that the character object stored
+    in the argument to char-bit will be modified.
+
+    EXAMPLES
+    (set-char-bit #\A :control t) => #\control-\A
+    (set-char-bit #\Control-\A :control nil) => #\A
+    (set-char-bit #\Control-\x :meta t) => #\control-meta-\x
+    (set-char-bit #\Meta-\x :meta t) => #\meta-\x
+
+    SEE ALSO
+    CLtL 13:244, char-bit, char-bits, char-control-bit, char-hyper-bit,
+    char-meta-bit, char-super-bit
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

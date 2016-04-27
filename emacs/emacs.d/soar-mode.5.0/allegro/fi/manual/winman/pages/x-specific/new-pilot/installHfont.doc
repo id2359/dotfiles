@@ -1,0 +1,66 @@
+
+                                                                install-font
+
+
+    FUNCTION
+    install-font  -  put a font description into the font-lookup table
+
+    Usage
+    install-font FAMILY SLANT SIZE SERVER-NAME [:pixel-size PIXEL-SIZE]
+      [:weight WEIGHT]
+
+    SIDE EFFECTS
+
+
+    DESCRIPTION
+    The font which
+      ;; family is a value (e.g. :times) or a list of synonyms
+      ;; face is a value (e.g. :roman) or a list of synonyms
+      ;; size is the point size the font was  designed  for  or  a  list  of
+    synonyms,
+      ;;  the first of which is a number (e.g. (7 :small :tiny))
+      ;; pixel size optional
+
+    EXAMPLES
+    (install-font :times :roman 8 "frigg")
+
+    SEE ALSO
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                               byte-position
+
+
+    FUNCTION
+    byte-position  -  get the position from a byte specifier
+
+    USAGE
+    byte-position bytespec
+
+    DESCRIPTION
+    Returns an integer representing  the  position  component  of  the  byte
+    specifier BYTESPEC.  The following identity holds:
+
+    (byte-position (byte s p)) = p
+
+    EXAMPLES
+    (byte-position (byte 4 1)) => 1
+    (byte-position (byte 6 2)) => 2
+
+    SEE ALSO
+    CLtL 12:226, byte, byte-size, deposit-field, dpb, ldb, ldb-test, mask-
+    field
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

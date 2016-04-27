@@ -1,0 +1,66 @@
+
+                                                                          **
+
+
+    VARIABLE
+    **  -  the first value returned from ++
+
+    USAGE
+    &EStar&EStar
+
+    DESCRIPTION
+    The value of ** is the first value returned from the evaluation  of  the
+    form  in ++.  This variable is not updated if the evaluation is aborted.
+    If no values are returned, ** is nil.  If multiple values were returned,
+    then  ** contains only the first one.  (If the printing of the values is
+    aborted, ** will already have been updated.) This  variable  exists  for
+    the  convenience  of  the  user  when interacting with a COMMON LISP top
+    level.
+
+    EXAMPLES
+    <cl> (EXPT PI 2)
+    9.869604401089358d0
+    <cl> (SETQ FOO "FILLER")
+    "Filler"
+    <cl> (FORMAT NIL "THE VALUE OF PI SQUARED IS ROUGHLY ~D" (ROUND **))
+    "The value of pi squared is roughly 10"
+    <cl> (SETQ X 3)
+    3
+    <cl> (SETQ Y 4)
+    4
+    <cl>
+
+    SEE ALSO
+    CLtL 20:5, ***, *, +++, ++, +, ///, //, /, -
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

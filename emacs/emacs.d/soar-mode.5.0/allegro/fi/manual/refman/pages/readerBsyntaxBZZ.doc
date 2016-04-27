@@ -1,0 +1,66 @@
+
+                                                             reader syntax "
+
+
+    READER SYNTAX
+    "  -  representation of a simple string
+
+    Usage
+    "..."
+
+    DESCRIPTION
+    Reads as a simple string.
+
+    When the reader reads the character ``"'',  it  is  discarded,  and  the
+    reader begins to accumulate succeeding characters for a (simple) string.
+    If the escape character ``\'' is read, it is  discarded,  and  the  next
+    character  is  accumulated, even if it is a ``"''.  If the string delim-
+    iter ``"'' is read, it is discarded, accumulation stops, and the  resul-
+    tant string of accumulated characters is returned.
+
+    Strings are self-evaluating objects.
+
+    EXAMPLES
+    (read-from-string "\"\\\"string\\\" in a string\"")
+      => "\"string\" in a string" 24
+
+    (princ "\"string\" in a string")
+      PRINTS "string" in a string
+
+    SEE ALSO
+    CLtL 22:347, about printing, about reading, reader syntax \, string
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

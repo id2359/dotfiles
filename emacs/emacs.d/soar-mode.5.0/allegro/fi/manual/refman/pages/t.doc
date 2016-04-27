@@ -1,0 +1,66 @@
+
+                                                                           t
+
+
+    Type SPECIFIER
+    t  -  the data type comprising all objects
+
+    Usage
+    t
+
+    DESCRIPTION
+    Specifies the data type consisting of all objects.
+
+    EXAMPLES
+    (typep 'x 't) => t
+    (subtypep 'array 't) => t t
+
+    SEE ALSO
+    CLtL 2:33, CLtL 4:43, about type specifiers, nil, subtypep, typep
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

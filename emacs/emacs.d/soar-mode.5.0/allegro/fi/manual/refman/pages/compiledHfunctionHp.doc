@@ -1,0 +1,66 @@
+
+                                                         compiled-function-p
+
+
+    FUNCTION
+    compiled-function-p  -  test whether an object is a compiled-code object
+
+    USAGE
+    compiled-function-p object
+
+    DESCRIPTION
+    Returns true if OBJECT is a  compiled-code  object,  such  as  might  be
+    returned by compile or symbol-function, and false otherwise.
+
+    The following identity holds:
+
+    (compiled-function-p x) = (typep x 'compiled-function)
+
+    EXAMPLES
+    (compiled-function-p 'car) => nil
+    (compiled-function-p (compile nil '(lambda (x) (+ x 1)))) => t
+    (defun foo () 'bar) => foo
+    (compiled-function-p (symbol-function 'foo)) => nil
+    (compile 'foo) => foo
+    (compiled-function-p (symbol-function 'foo)) => t
+
+    SEE ALSO
+    CLtL 6:76, about type specifiers compile, defun, symbol-function,
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

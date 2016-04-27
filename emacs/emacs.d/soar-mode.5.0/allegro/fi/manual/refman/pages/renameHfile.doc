@@ -1,0 +1,66 @@
+
+                                                                 rename-file
+
+
+    FUNCTION
+    rename-file  -  change the name of a file
+
+    USAGE
+    rename-file old-name new-name
+
+    SIDE EFFECTS
+    The file identified by OLD-NAME is renamed.
+
+    DESCRIPTION
+    Changes the name of the file OLD-NAME to  NEW-NAME,  and  returns  three
+    values:    the   result   of   merging   NEW-NAME  with  OLD-NAME  using
+    merge-pathnames, the truename  of  OLD-NAME  before  renaming,  and  the
+    truename of the new file after renaming.  The argument OLD-NAME must  be
+    a pathname, string, or stream, while the argument  NEW-NAME  must  be  a
+    pathname or a string.  Neither may contain a :wild component.
+
+    EXAMPLES
+    (with-open-file (out "junk" :direction :output
+                         :if-exists :supersede)
+      (prin1 "my name is junk" out))
+    ;;  The printed representation of pathnames
+    ;;  is implementation-dependent.
+    (multiple-value-list (rename-file "junk" "stuff"))
+      => (#p"/usr/dm/stuff" #p"/usr/dm/junk" #p("/usr/dm/stuff")
+    (with-open-file (in "stuff" :direction :input)
+        (read in)) => "my name is junk"
+    (null (probe-file "junk")) => t
+
+    SEE ALSO
+    CLtL 23:423, delete-file, merge-pathnames, probe-file, truename, with-
+    open-file
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                                   etypecase
+
+
+    MACRO
+    etypecase  -  exhaustive type discriminator
+
+    USAGE
+    etypecase keyform {(type {form}*)}*
+
+    SIDE EFFECTS
+    If no TYPE matches the type of KEYFORM,  an  error  is  signalled.   The
+    error cannot be continued from.
+
+    DESCRIPTION
+    Returns the values of the last FORM  of  the  first  clause  whose  TYPE
+    matched the type of KEYFORM.
+
+    This function is similar to typecase,  except  that  no  explicit  t  or
+    otherwise  clause  is  permitted. The argument KEYFORM is evaluated, and
+    then the car of each clause is examined  in  order.   If  the  value  of
+    KEYFORM  is  of  type TYPE, then the consequents of that clause are exe-
+    cuted as an implicit progn.  (nil is  returned  if  there  are  no  con-
+    sequents.) Clauses following the evaluated clause are not evaluated.
+
+    EXAMPLES
+    (defun fact (n)
+      (etypecase n (integer (fact1 n))
+                 (float (fact1 (truncate n)))
+                 (complex (fact1 (abs n)))))
+    (defun fact1 (n) (cond ((= n 0) 1)(t (* n (fact1 (1- n))))))
+    (fact 10) => 3628800
+    (fact #c(6.0 8.0)) => 3628800.0
+    ;;  The exact error message is implementation-dependent.
+    (fact '(a b)) => ERROR
+      PRINTS Error: (a b) fell through etypecase expression.
+        Wanted one of (integer float complex).
+
+    SEE ALSO
+    CLtL 24:435, check-type, ctypecase, typecase
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

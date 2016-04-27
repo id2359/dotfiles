@@ -1,0 +1,132 @@
+
+                                                                   defstruct
+
+
+    MACRO
+    defstruct  -  define a new data type, a structure with named elements
+
+    Usage
+    defstruct {NAME | (NAME {OPTION}*)} [DOC-STRING] {SLOT-DESCRIPTION}+
+
+    SIDE EFFECTS
+    The argument NAME becomes a data type which is described by the rest  of
+    the  arguments  to  defstruct.  In addition, various auxiliary functions
+    are automatically created, including an access function  that  retrieves
+    the  value  of  each  named  element (called a SLOT) of the structure, a
+    predicate which can be used to test whether a given object  is  of  this
+    type,  a  constructor  function for creating new instances of this type,
+    and a copier function for creating copies of objects that  are  of  this
+    type.
+
+    DESCRIPTION
+    Returns NAME.  Each OPTION may be a keyword or a list of a  keyword  and
+    its   arguments.   The  valid  keywords  are  :conc-name,  :constructor,
+    :copier,  :predicate,  :include,  :print-function,  :type,  :named,  and
+    :initial-offset.   These  are  described  in  detail in their own manual
+    entries, which immediately follow this  entry.   The  optional  argument
+    DOC-STRING  is a string which documents the structure.  It is accessible
+    with  the  function  documentation  and  has  the   documentation   type
+    structure.
+
+    Each argument SLOT-DESCRIPTION is either a symbol, in which case  it  is
+    the  name  of  the slot, or it is a list.  In the latter case, the first
+    element of the list is the slot-name symbol and the second  element,  if
+    present, is the default value (which itself defaults to nil in all cases
+    if unspecified).  Any elements beyond the second are slot options.  Note
+    that  to  specify  any  slot option, the default value must be specified
+    explicitly.  Each slot option is a pair of elements, a keyword  and  its
+    argument.   Valid  keywords  are  :type and :read-only.  The argument of
+    :type must be a valid type specifier.  It specifies the type of the con-
+    tents  of the slot, and, thus the result type of the associated accessor
+    function.  Note that the argument is not evaluated.  (Even if a type  is
+    specified,  an implementation need not check that the initial value or a
+    later stored value is of that type.)  The argument to :read-only is also
+    not  evaluated.   If  it  is  anything  other than nil, the slot will be
+    read-only: its initial value cannot be changed.
+
+    When you create a new data type  using  defstruct,  the  system  creates
+    slot-accessor  functions  for  the  various slots of the structure.  The
+    default name for a slot-accessor function is formed by concatenating the
+    name  of structure, a hyphen, and the name of the slot.  You can use the
+    defstruct option :conc-name, however, if  you  want  to  alter  the  way
+    slot-accessor functions for the structure are named.
+
+    A constructor function is also created when you create a new type  using
+    defstruct.   You  can  then  use  the constructor function to create new
+    instances of the type. The name of the  constructor  function  is  make-
+    NAME.   If  you  want  to alter the way the system names the constructor
+    function, use the defstruct option :constructor.
+
+    Similarly, the system creates a copier function called copy-NAME.   This
+    function can be used to create copies of the structure that do not share
+    the same storage.  If you want to alter the way  the  system  names  the
+    copier function, use the defstruct option :copier.
+
+    The system also creates a predicate called NAME-p, that you can used  to
+    test  that  an  object  is  an instance of the new type.  Again, you can
+    change the naming convention for the predicate by  using  the  defstruct
+    option :predicate.
+
+    Objects created with defstruct use #S syntax for reading  and  printing.
+    The  #S syntax represents objects in the form #S(NAME SLOT1 VALUE1 SLOT2
+    VALUE2 ... ).
+
+    Function-call forms involving the slot-accessor functions are  automati-
+    cally  associated  with  setf  methods.   You  can therefore use setf to
+    change the values of any of the slots in the new structure.   The  first
+    argument  to  setf will be a call to one of the slot-accessor functions,
+    and the second argument will be the new value.
+
+    EXAMPLES
+    (defstruct newborn
+      (pounds :type integer)
+      (ounces :type integer)
+      sex) => newborn
+    (setq freddy
+      (make-newborn :pounds 7 :ounces 6 :sex 'm))
+      => #s(newborn :pounds 7 :ounces 6 :sex m)
+    (newborn-pounds freddy) => 7
+    (newborn-p '#s(newborn :pounds 10 :ounces 6 :sex 'f)) => t
+    (let ((twin-of-fred (copy-newborn freddy)))
+      (setf (newborn-ounces twin-of-fred ) 11)
+      (newborn-ounces twin-of-fred)) => 11
+
+    (defstruct book
+      title
+      (purpose "To read" :read-only t)) => book
+    (setq my-book (make-book :title "War and Peace" ))
+      => #s(book :title "War and Peace" :purpose "To read")
+    (setf (book-title my-book)
+      "Peace and War") => "Peace and War"
+    (setf (book-purpose my-book) "Keeping notes") => ERROR
+    ;;  Book-purpose is read only.
+
+    SEE ALSO
+    CLtL 19:305, defstruct option :conc-name, defstruct option :constructor,
+    defstruct option :copier, defstruct option :include, defstruct option
+    :initial-offset, defstruct option :named, defstruct option :predicate,
+    defstruct option :print-function, defstruct option :read-only, defstruct
+    option :type, defun, setf
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

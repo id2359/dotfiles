@@ -1,0 +1,66 @@
+
+                                                                 read-bitmap
+
+
+    FUNCTION
+    read-bitmap  -  read a bitmap saved in a file
+
+    Usage
+    read-bitmap FILE [:format FOR]
+
+    DESCRIPTION
+    Reads a bitmap from the file FILE.  The value of  the  keyword  argument
+    :format  specifies  the format that you are assuming for the bitmap.  In
+    this implementation, the only allowed value is also the default: :x11.
+
+    There are two bitmap formats allowed in COMMON  WINDOWS:  :x11  and  :ic
+    (for  Intellicorp,  the  company  which first defined the COMMON WINDOWS
+    specification).  A bitmaps is a LISP structure, but it can be  converted
+    to  LISP  list  with  the  function  bitmap-to-expr.  Such a list can be
+    coverted back to a bitmap with expr-to-bitmap.  The list is the :ic for-
+    mat.   Bitmaps can be saved to a file in either the :ic or the :x11 for-
+    mat with save-bitmap.  Files containing bitmaps  stored  in  :ic  format
+    should  be  read  back  into  LISP  with load.  Files containing bitmaps
+    stored in :x11 format should be read back into LISP with read-bitmap.
+
+    Other X11 bitmap files (not written by LISP) can be read with this func-
+    tion  as well.  We recommend using the :x11 format except where compati-
+    bility requires you use the :ic format.
+
+    EXAMPLES
+    ;; make a blank bitmap, 50 pixels by 50 pixels
+    (setf *my-bitmap*
+           (make-bitmap :width 50 :height 50))
+               ;; make a diagonal line across *my-bitmap*
+    (dotimes (i 50)
+              (setf (bitmap-bit *my-bitmap* i i) 1))
+
+    ;; save the bitmap
+
+    (save-bitmap '*my-bitmap* "bitmcollection"
+                 :if-exists :supersede
+                 :package (find-package :user)
+                 :format :x11)
+
+    ;;  You need not specify a value for :FORMAT in the next form.
+    (read-bitmap "bitmcollection" :format :x11)
+
+    SEE ALSO
+    bitmap-to-expr, expr-to-bitmap, make-bitmap, save-bitmap
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

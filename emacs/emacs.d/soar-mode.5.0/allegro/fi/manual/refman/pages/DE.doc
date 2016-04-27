@@ -1,0 +1,66 @@
+
+                                                                          /=
+
+
+    FUNCTION
+    /=  -  test whether given numbers are all different
+
+    USAGE
+    /= {n}+
+
+    DESCRIPTION
+    Returns true if all the argument numbers are different, and false other-
+    wise.   It  is  an  error if any of the arguments are not numbers.  This
+    function automatically performs required coercions when arguments are of
+    different types.
+
+    EXAMPLES
+    (/= 4 4) => nil
+    (/= 4 4.0) => nil
+    (/= 4 #c(4 3)) => t
+
+    SEE ALSO
+    CLtL 12:196, =, <, >, <=, >=
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

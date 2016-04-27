@@ -1,0 +1,132 @@
+
+                                                         read-delimited-list
+
+
+    FUNCTION
+    read-delimited-list  -  read objects from a stream until a specified
+      character is encountered
+
+    Usage
+    read-delimited-list CHAR [INPUT-STREAM [RECURSIVE-P]]
+
+    SIDE EFFECTS
+    Positions the stream pointer at the next position after CHAR.  The  next
+    input operation will read the next object from the stream.
+
+    DESCRIPTION
+    Returns a list constructed out of the objects that are read.  This func-
+    tion  repeatedly  reads  objects  until  it,  while looking for the next
+    object, encounters CHAR.  More precisely, at  each  step  this  function
+    looks  for the next non-whitespace character and peeks at that character
+    as if using peek-char.  If the character is CHAR then  it  is  read  and
+    discarded  and  read-delimited-list returns the list it has created.  If
+    it is not CHAR, but a constituent character (part of the  representation
+    of  an object) or an escape character, the next object is read with read
+    and the object is added to the list.  Note that if CHAR is part  of  the
+    representation  of  the object being read, it is not handled in any spe-
+    cial way.  If the next character is a macro character, the corresponding
+    macro  function  is  called and any value returned is added to the list.
+    After the new item has been added to the list, the process repeats, with
+    whitespace  being  ignored  and  the next non-whitespace character being
+    peeked at.
+
+    The value of INPUT-STREAM must be a stream.  If it is not specified,  or
+    is specified as nil, the value of INPUT-STREAM is the value of the vari-
+    able *standard-input*.  If the argument INPUT-STREAM is specified as  t,
+    the value of INPUT-STREAM is the value of the variable *terminal-io*.
+
+    The argument RECURSIVE-P indicates whether or not this  is  a  recursive
+    call  to  read-delimited-list.  Whether a call to read is recursive need
+    to be known for three reasons.  First, referents #N= for  the  syntactic
+    forms  #N#  are  unique to the outermost expression being read.  Second,
+    whether or not to preserve whitespace is a  property  of  the  outermost
+    call  to  the reader, either read or read-preserving-whitespace.  Third,
+    encountering the end of a stream has a different meaning in a  recursive
+    call than in a top-level call, since encountering the end of a stream in
+    the middle of a printed representation is ALWAYS and error.
+
+    Note that there is no EOF-ERROR-P value, as found in other reading func-
+    tions.   It  is  always  an  error  to  reach  the  end of a stream with
+    read-delimited-list without encountering CHAR delimiting what is  to  be
+    read.
+
+    This function is useful for defining new  macro  characters.   For  that
+    purpose,  it  is  convenient if CHAR is a terminating macro character so
+    that it will delimit tokens.  But this function itself in no way  alters
+    the  readtable  or any other aspect of CHAR.  All that is your responsi-
+    bility.
+
+    EXAMPLES
+    ;;  Note that the first #\m is ignored since it
+    ;;  is embedded in the symbol name `time'.
+    (setq in (make-string-input-stream
+      "now is the time for all good men"))
+    (read-delimited-list #\m in) => (now is the time for all good)
+    (read in) => en
+
+    ;;  For a more serious example, suppose we want the
+    ;;  expression `[number number ...]' to read as the arithmetic
+    ;;  mean of the numbers.  The following will do that.
+    (defun aver-reader (stream char arg)
+      (declare (ignore char arg))
+      (let ((lis (read-delimited-list #\] stream t)))
+        (/ (reduce #'+ lis) (length lis))))
+    (set-dispatch-macro-character #\# #\[ #'aver-reader)
+    #[1 2 3 ] => 2
+    ;;  Note the space after the `3'.  Without it, `3]' is taken
+    ;;  to be a symbol and READ-DELIMITED-LIST does not
+    ;;  see the `]'.  Evaluating the following corrects that.
+    (set-macro-character #\] (get-macro-character #\) nil))
+    #[4.1 5.3 20.6] => 10.0
+
+    SEE ALSO
+    CLtL 22:377, about reading, peek-char, read, read-byte, read-char,
+    read-char-no-hang, read-from-string, read-line, read-preserving-
+    whitespace,
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

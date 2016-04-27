@@ -1,0 +1,66 @@
+
+                                                                 *read-base*
+
+
+    VARIABLE
+    *read-base*  -  the radix in which integers and ratios are read
+
+    USAGE
+    *read-base*
+
+    DESCRIPTION
+    Bound to the integer that is the current radix  in  which  integers  and
+    ratios are read.  The allowable values are from 2 to 36, inclusive.
+
+    EXAMPLES
+    ;;  Assume the value of *PRINT-BASE* is ten.
+    *read-base* => 10
+    (setq *read-base* 12)
+    12 => 14
+
+    SEE ALSO
+    CLtL 22:344, *print-base*, read
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

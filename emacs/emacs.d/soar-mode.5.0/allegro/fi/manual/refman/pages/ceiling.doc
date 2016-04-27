@@ -1,0 +1,66 @@
+
+                                                                     ceiling
+
+
+    FUNCTION
+    ceiling  -  truncate a number toward positive infinity
+
+    USAGE
+    ceiling number [divisor]
+
+    DESCRIPTION
+    Returns two values: the result, Q, of truncating the quotient of  NUMBER
+    and  DIVISOR  towards positive infinity, and the remainder, R.  In other
+    words, the smallest integer greater than or equal  to  the  quotient  of
+    NUMBER and DIVISOR is returned, along with the difference between NUMBER
+    and the product of Q and DIVISOR.  DIVISOR defaults to 1, so if  DIVISOR
+    is  not  provided,  the  first  returned  value  is the smallest integer
+    greater than or equal to NUMBER.   The  following  formula  relates  the
+    arguments to the results: (Q * DIVISOR) + R = NUMBER.  If DIVISOR is not
+    specified, Q + R = NUMBER.  The remainder R is an integer if both  argu-
+    ments  are  integers,  a  rational  if  they  are  both  rational, and a
+    floating-point number if either argument is a floating-point number.
+
+    EXAMPLES
+    (ceiling .875) => 1 -0.125
+    (ceiling -1.5) => -1 -0.5
+    (ceiling 3 2) => 2 -1
+    (ceiling 1.0 2.0) => 1 -1.0
+    (ceiling 1.0 -2.0) => 0 1.0
+    (ceiling -1.0 2.0) => 0 -1.0
+    (ceiling -1.0 -2.0)  => 1 1.0
+
+    SEE ALSO
+    CLtL 12:215, multiple-values, fceiling, floor, round, truncate
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

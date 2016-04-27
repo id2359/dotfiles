@@ -1,0 +1,66 @@
+
+                                                                        room
+
+
+    FUNCTION
+    room  -  print information about internal storage
+
+    Usage
+    room [VERBOSE]
+
+    DESCRIPTION
+    The returned value is unspecified, but this function  is  used  for  its
+    side effects.  When called, room prints to *standard-output* information
+    about the state of the internal storage and how  it  is  being  managed.
+    VERBOSE  may be nil, t, or unspecified.  (An implementation may take any
+    non-NIL value to be equivalent to t or  it  may  do  different  specific
+    things  for  different  non-nil  values.)  In any case, a value of t for
+    VERBOSE causes the most information to be printed, nil the least, and no
+    value  specified  an  intermediate amount.  The information provided and
+    its format are implementation dependent.  Its purpose is to provide data
+    that may be helpful in tuning a program (or tuning implementation param-
+    eters when presented with a program) for optimal performance and  memory
+    usage.
+
+    EXAMPLES
+    ;;  In the implementation used for the examples in
+    ;;  this book, ROOM prints as follows.  The information may
+    ;;  be very different in other implementations, since memory
+    ;;  management schemes differ considerably.  In this example,
+    ;;  memory is divided into new and tenured spaces, holding
+    ;;  newly created and long-lived objects, respectively.
+
+    (room) PRINTS
+    space      cons       symbols      roots        other bytes
+           (free:used)  (free:used) (free:used)     (free:used)
+    New     2239:12013    143:365    1533:500      242336:222560
+    Tenured  357:52631    332:9160     -----       598616:842888
+    Tenured    0:0          0:0        -----      1048496:0
+    Tot Ten  357:52631    332:9160     -----      1647112:842888
+
+    SEE ALSO
+    CLtL 25:442
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

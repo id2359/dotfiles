@@ -1,0 +1,66 @@
+
+                                                              nstring-upcase
+
+
+    FUNCTION
+    nstring-upcase  -  convert string to uppercase (destructive)
+
+    USAGE
+    nstring-upcase string [:start sn] [:end en]
+
+    SIDE EFFECTS
+    The argument STRING is changed.
+
+    DESCRIPTION
+    Returns STRING after modifying it as string-upcase would given the  same
+    arguments.  In the returned string all lowercase letters are replaced by
+    the corresponding uppercase letters.  The  characters  of  the  returned
+    string are produced by applying char-upcase to the characters of STRING.
+
+    To operate on a substring of STRING, specify values for the  :start  and
+    :end  keyword  arguments.  The :start keyword indicates the index of the
+    first character of the substring to modify.  Its value defaults to  zero
+    (the  first  character  of STRING).  The :end keyword specifies an index
+    one greater than the index of the last character to examine. A value  of
+    nil is equivalent to the default, the length of the string.
+
+    Regardless of the values of SN and EN, the length of the returned string
+    is  the  same  as  the  length of STRING.  The argument STRING must be a
+    string.  It cannot be a symbol.
+
+    EXAMPLES
+    (setq s "panIC")
+    (nstring-upcase s) => "PANIC"
+    s => "PANIC"
+    (nstring-upcase "Are you sure it's man-made?")
+      => "ARE YOU SURE IT'S MAN-MADE?"
+    (nstring-upcase "Are you sure it's man-made?"
+      :start 8 :end 17) => "Are you SURE IT'S man-made?"
+
+    SEE ALSO
+    CLtL 18:304, char-downcase, char-upcase, :end, nstring-capitalize,
+    nstring-downcase, :start, string-upcase
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

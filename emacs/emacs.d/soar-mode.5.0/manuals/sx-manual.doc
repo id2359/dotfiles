@@ -1,0 +1,1126 @@
+
+                     SX: A Graphical Display and Interface
+                             for Soar in X Windows
+
+            For SX release 5.4, accompanying Soar 5.2.2 and higher
+
+                                  *                       **
+                   Frank E. Ritter  and Thomas F. McGinnis  
+
+                       ritter@cs.cmu.edu tfm@cs.cmu.edu
+
+                                 February 1992
+
+
+
+
+
+
+                            *
+                             Psychology Department
+                         **
+                           School of Computer Science
+                          Carnegie Mellon University
+                           Pittsburgh, PA 15213-3890
+                                   Abstract
+
+This  document  provides  an  overview  of  the  Developmental  Soar  Interface
+(D.S.I.).  It serves as a manual of how to load, run, and use  the  Soar  in  X
+graphic  display window and Soar Command Interpreter modules of the D.S.I.  The
+SX display provides a graphic depiction of the  dynamic  structure  of  running
+Soar  models.  It includes a preliminary tool for depicting static descriptions
+of Soar programs.  It is driven by a pop-up menu and dialog boxes.   Users  can
+click  on  Soar  objects  to  examine  them.    The  accompanying  Soar Command
+Interpreter accepts keyword and single-character commands to  run  and  examine
+Soar.
+
+
+
+                Copyright (C) 1992  F. E. Ritter & T. McGinnis
+
+
+
+
+  This work was sponsored in part by a training grant from the Air Force Office
+of  Scientific  Research,  Bolling  AFB,  DC;  and  in  part  by  the  Avionics
+Laboratory,  Wright  Research  and  Development  Center,  Aeronautical  Systems
+Division (AFSC), U. S. Air Force, Wright-Patterson  AFB,  OH  45433-6543  under
+Contract F33615-90-C-1465, Arpa Order No. 7597.
+
+  The views and conclusions contained in this document are those of the authors
+and should not be interpreted as representing  the  official  policies,  either
+expressed or implied, of the U.S. Government.
+
+
+                              Distribution Notes
+
+  Separate  documents  are  available  for  the  companion  pieces  of software
+mentioned here,  soar-mode  and  taql-mode,  which  modify  GNU-Emacs  to  more
+directly  support  programming  in  Soar though a structured editor with useful
+commands such as automatic production loading and match set displays.
+
+  The Developmental Soar Interface is placed in the public  domain.    You  are
+free  to  copy it as you wish.  The Developmental Soar Interface and all of its
+parts: Soar in X (SX), taql-mode, and soar-mode, (like Soar  itself)  are  made
+available  AS  IS,  and Carnegie Mellon University, the University of Michigan,
+and its developers, make no warranty about the  software  or  its  performance.
+Please contact soar-bugs@cs.cmu.edu for more information or to report problems.
+
+  Some of the supporting software comes with different copyright conditions. In
+particular, you should note that SX uses a graphical user interface tool called
+Garnet.    While the extensions and modifications to Garnet and the SX displays
+themselves  are  in  the  public  domain,  Garnet  requires  a  site   license;
+information is available from garnet@cs.cmu.edu.  Also, soar-mode and taql-mode
+use several utility  programs  that  are  protected  under  the  Free  Software
+Foundation's Copyleft agreement.
+1. New concepts on the PSCM level and beyond
+
+
+
+1.1. Design Principles
+
+  The  Developmental Soar Interface (D.S.I.) adds several new concepts to Soar:
+the idea of interlocking tools, problem space  statistics,  a  macrocycle,  and
+hooks.    In  addition  to  these  new concepts there are three principles that
+guided the design of the interface and that can serve as  heuristics  for  your
+explorations in using it:
+
+
+   - Menu  driven  for  novices,  keystrokes for experts -- Each component
+     (graphic display,  soar-mode,  taql-mode)  can  be  menu  driven  and
+     keystroke  driven.   Menus lay the commands out for you, you need not
+     memorize them.  Each menu  also  displays  the  equivalent  keystroke
+     shortcuts.   If you don't know how to do something, you can check the
+     menus.  The graphic display menu is available by clicking the  middle
+     mouse  button,  and then selecting an item with any mouse button.  In
+     soar- and taql-modes, Control-C Control-M (^c^m) will bring up a menu
+     of  commands  and  sub-menus.  Their  items can be selected by typing
+     their first letter.  Further explanations and key binding information
+     can be obtained by typing a ? or SPC.  After the command is executed,
+     the keybinding is echoed in the message area.
+
+   - Synonyms -- The D.S.I. has been designed  to  accept  multiple  entry
+     points  and  names  for commands.  Many commands can be executed in a
+     variety of windows, with a variety of names.  You can choose the  way
+     that  best suits you, and the work that you are currently doing.  For
+     example, you can init-soar  by  typing  to  the  command  interpreter
+     ":init",  "init"  (as  long  as  the  variable  init  is unbound), or
+     (init-soar), by selecting init-soar on  the  graphic  display  pop-up
+     menu,  by  typing  "i"  on  the  graphic display window itself, or by
+     typing in Emacs, ESC-x init-soar.
+
+   - Consistent -- Each command across the multiple possible entry  points
+     is  consistent:  they  share the same name, or when appropriate, they
+     use (so far) single letter abbreviations.  While several toolkits are
+     used, only one designer has integrated them, so while perhaps screwy,
+     a method to the madness should also be observable.
+
+1.2. Interlocking Tools
+
+
+  In the D.S.I., while each of the tools can stand alone, they also know  about
+the  others,  and  can interact appropriately with them.  For example, commands
+executed from the menu on the graphic display window  can  request  buffers  to
+appear in Emacs.  (In the best of all possible worlds, if the other tool is not
+present, something appropriate still happens.) Similarly, commands in GNU-Emacs
+soar-mode  can  run  commands in Soar directly.  In each tool and across tools,
+some care has been taken to provide multiple  entry  points.    That  is,  each
+command  is  available  in  each tool and often in a variety of appropriate and
+similar ways.  For example,  there  are  several  ways  to  run  the  init-soar
+command;  one  can  type  (init-soar),  :init,  or  init  to  the  Soar Command
+Interpreter, choose Init on the graphic display menu, or type  an  "i"  on  the
+graphic display window.  Help is provided with each tool to facilitate learning
+the other entry points.  For example,  the  graphic  menu  item  for  init-soar
+includes  a  listing  of  the  other  expressions  of this command in the other
+modules.
+
+  This interlocking functionality is not fully exploited currently; it will  be
+developed in further work, and can be used by users interested in extending the
+interface.
+
+1.3. PSCM Level Statistics
+
+
+  Previously, Soar statistics did not include many statistics  on  the  problem
+space  level.    These  are  now  tabulated,  and  are available by calling the
+function pscm-stats, and by  observation  in  various  displays,  such  as  the
+"Previously  fired operators" in each problem space.  The internal counters are
+reinitialized with (reset-pscm-stats) (also called by (restart-soar)).
+
+1.4. Macrocycles
+
+
+  Often users will want to run more than 1 decision cycle  at  a  time  and  to
+specify  how  long  to  run  in terms other than decision cycles, such as for 3
+operator applications.  The macrocycle command has been created to support this
+desire.  The macrocycle command also supports the graphic displays:  after each
+macrocycle the object examination windows are automatically updated.  The  main
+display is always updated.
+
+  There  are 3 macrocycle parameters: what to run, how many of them to run, and
+as protection against infinite loops, the maximum  number  of  decision  cycles
+allowed  per  attempt.    There are currently seven macrocycles types.  Two are
+familiar, decision and elaboration.  Macrocycles based on  these  types  merely
+run  N cycles of the appropriate type.  The remaining ones are based on problem
+space objects: goal, problem-space, state, operator  and  chunk.    Macrocycles
+based  on  these count the number of selections of these types.  For example, a
+macrocycle "2:operator"  would  run  until  two  operators  had  been  selected
+(without  regard to which problem space(s) they were in).  The final parameter,
+macrocycle-max-dc, limits how many decision cycles allowed per macrocycle.   If
+this  value  is  exceeded,  the macrocycle will simply (and cleanly) stop.  For
+example, a macrocycle-max-dc of 2 would often stop prematurely a macrocycle  of
+2 goals.
+
+  Macrocycles  can be initiated in many ways.  The macrocycle parameters can be
+set by choosing "Set macrocycle parameters" from the main graphic display menu,
+or  by  calling  in the Soar Command Interpreter the function (set-macrocycle).
+In the Soar Command  Interpreter,  typing  ":m",  "m",  or  "(m)"  will  run  1
+macrocycle.    In the graphic display, typing "m", "M", or <space> will run it.
+You can also run a macrocycle from the main graphic display menu. Shortcuts are
+provided to run ahead to the next goal, problem-space, state and operator.  The
+graphic display and the new command interpreter accept the letters g, p, s  and
+o as commands to run ahead to the next goal, problem-space, state and operator.
+
+1.5. Hooks
+
+
+  The  D.S.I.  supports  three  new hooks.  (A hook is a place to hang either a
+function,  or  a  list  of  functions,  that  get  executed  after  a  specific
+corresponding  event occurs.)  These hooks are called after Soar is initialized
+(init-soar-hook), after a decision cycle is run (after-dc-hook),  and  after  a
+macrocycle  has  been  run  (after-macrocycle-hook).    They are implemented as
+Common Lisp variables, so you can put functions or lambda expressions  on  them
+just as you would add to any list.
+
+  For example:
+
+    (setf init-soar-hook
+          (push 'soarresetsyntax init-soar-hook))
+
+  There  is  not a hook provided to run after each elaboration cycle because it
+is already available from Soar-IO:
+
+
+    (set-input-mapping (your-function))
+2. The SX graphic display
+
+
+  The SX graphic display makes visual representations of Soar real in  a  sense
+not  available  before,  actual  triangles get drawn for each and every problem
+space (unless you hide them, which you can do), circles for operators,  and  so
+on.    While  our  initial  hope  and  perhaps your first reaction is that this
+standardizes the visual representation of Soar, this is  not  the  case.    You
+should  not  view  the  current  display  a canonical, but as an approximation.
+Further work and your suggestions will shape it, as well as  its  own  inherent
+successes and failures.
+
+  You  can  iconify  and and change the size of all SX windows with your window
+manager.  However, you must not delete any windows with your window manager. If
+you do so, you will have to restart SX.
+
+2.1. Symbology
+
+
+  Selected  context item.  The context element last added to the stack, such as
+a state or problem space, is treated as the "selected" context element  and  is
+shaded.   Clicking on a context element that is not the latest one added (i.e.,
+not "selected") will select it and display its name.  When Soar is running, the
+graphic  window  will  scroll  to  make  the selected context object visible if
+auto-scroll is set to t.  It can be set either with the "DSI & Soar parameters"
+dialog  box  or by the code as shown in the default .sx-init.lisp file included
+as an appendix. There is a small performance penalty to use this.
+
+  A window displaying the selected item  can  be  created  by  typing  "e"  for
+examine  on the display (also :e or e in the Command Interpreter), by selecting
+the "Examine selected item" option on the pop-up menu, or by double-clicking on
+the desired object[The sensitivity of the system to click speed can be adjusted
+by setting the variable double-click-time (default: 1 s).   Its  value  is  the
+maximum  time  difference  in  ms  between  the two clicks of a double-click.].
+Items in bold text in these windows can be  clicked  on  themselves  to  create
+further  examination  windows.  The traced attribute values that would normally
+be displayed in a trace are displayed as the objects name when it  is  created,
+and used as the window title when the object is examined.  They are not updated
+after they have been displayed.
+
+  Examination windows contents are always updated after every macrocycle and by
+default  every  decision cycle and elaboration cycle.  They can also be updated
+by calling update or up in the SCI.  There is no such thing as a  free  update,
+so if a user wishes to update less often, they can do two things. For the short
+term they  can  de-select  "Always  update  windows"  from  the  DSI  and  Soar
+parameters dialog box.(When this is not selected, the displays are updated only
+every decision cycle, not after elaboration cycles.) For a long term change put
+(set-update-always nil) in your .sx-init.lisp file.
+
+  Modifying   the   graphic   display's  behavior.   Use  the  menu  item  "Set
+parameters."  Selecting this will create a dialog box where  you  can  set  the
+behavior of PSCM object's names, the Soar watch level, and a few other items of
+interest. It will be added to as the D.S.I. develops.
+
+  Goals.  Goals are displayed as large circles.    Their  id  is  displayed  by
+default.    Their  type  (impasse  and  attribute, e.g.  operator no-change) is
+displayed on their creation.   This  gets  smaller  when  a  problem  space  is
+selected to make room for the triangle (this is not perfect, but looks ok until
+we find a better answer).
+
+  Problem spaces.  Problem spaces are displayed as triangles.  Their names  are
+displayed  on  their  upper  left  hand  corners.    Any  traced attributes are
+displayed after the name separated by a colon.  Two mouse actions are important
+to  problem spaces.  A single left-down click will grab a visible problem space
+and allow you to move it until you let up.  This click also selects the problem
+space  as the selected item.  A double left click will select the problem space
+and then create an examiner window of the problem space.    The  bold  text  in
+these  windows  can  be  moused to create further examination windows of goals,
+operators, and states, and of their substructures.
+
+  Problem space positions  can  be  initialized  before  a  run  by  explicitly
+creating them.  This can be done with functions put in your .sx-init.lisp file.
+See the default.sx-init.lisp file in the SX directory for code you can cut  and
+paste,  which  is  also  "Appendix  I" in this manual (hardcopy or on-line).  A
+configuration can be saved with the menu command "Write a  file  of  PSs  out",
+found under the submenu of "Build static items".
+
+  Most  often  it  is desirable for problem spaces to stay in the same place on
+the screen across and during runs.  This is be done by "anchoring"  them.  This
+means  that  they  will  appear  in  the same place each time they are entered.
+Anchored problem spaces are indicated by an asterisk (*) on their  bottom  left
+corner.    However,  this  can be overridden at explicit problem space creation
+time in your .sx-init.lisp by using the keyword :anchored nil when  you  create
+them,  or  later  by  clicking  on the anchored button available in the problem
+space's display window.  The default behavior for anchoring problem  spaces  is
+set by changing the *default-ps-anchored* variable to t or nil.  You can set it
+in your .sx-init.lisp file, or later by setting it by hand; for example:
+
+    ;; indicate default anchoring
+    (setf *default-ps-anchored* nil)
+
+  If you want to hide the "*" when giving a demo or shooting a video,  you  can
+do  so  by calling the function sx::hide-anchors, giving it an argument of t or
+nil, to hide or unhide the anchors.  They will stay hidden until you  call  the
+function with a t argument, or take a snapshot.
+
+  If  there  are  two  copies  of  the  same  problem  space on the screen, one
+ephemeral and one anchored, chunks will appear in the anchored  space.    If  a
+chunk  references  two  problem spaces, it will be arbitrarily placed on one of
+them.
+
+  If you want a problem space to be invisible, you are probably  attempting  to
+do something on the sly, but we attempt to support you.  It is not easy to hide
+something as big as a PS, but you can do so if you plan ahead.  You must create
+it  and  make it invisible before you run, by modifying the following code, and
+putting it in your .sx-init.lisp file.  If a visible problem space is called by
+a  hidden  one  I  don't  know  what  would happen, nor could I think of how to
+honestly  display  it.    If  you  select  operators  in   that   space,   they
+appearsomewhere on the screen.  We therefore suggest that you avoid this hack.
+
+     (in-package "SX")
+     (s-value (create-problem-space nil nil  'exhaustion)
+              :anchored t)
+     (s-value sx::exhaustion :invisible t)
+     (in-package "USER")
+
+  States.   States  are  displayed  as squares.  Their name is not displayed by
+default.
+
+  Operators.  Operators  are  displayed  as  small  circles.    Their  name  is
+displayed by default.
+
+  Chunks.   Chunks are displayed as a dark black box on the decision cycle that
+they are created, and later as a hollow box.  When chunks fire,  they  explode,
+and  will  beep  if  chunk-beep-on-fire  is t.  They can also be set to display
+their id when they fire or are created (this is turned off  by  default).    In
+order  to make it clear which chunks fired, the explosion overlay remains until
+the beginning of the next decision cycle.  Similarly, chunks remain dark  after
+their creation until the beginning of the next decision cycle.
+
+  Loading  chunks.   If  you  want  to load productions into Soar and have them
+appear as chunks, you need to do, in order, three things:
+
+
+   1. Soar (and SX) expects to see chunk id's on  the  *chunks*  variable.
+      You can setf or append to it.
+
+   2. Calling  the  function initialize-chunks will then create bricks for
+      the production names on *chunks*, and it will also  ptrace  them  so
+      that when they fire the chunks will explode.
+
+2.2. Pop-up menu commands
+
+  The  graphic  display  window's  pop-up  menu can be selected by clicking the
+middle mouse button.(By default the menu will stay up until it is iconified  or
+exited.  If  "Menus  be static" is de-selected on the "DSI and Soar parameters"
+dialog box, the menu will disappear after selection.) Once displayed, the  menu
+items  can  be  selected  with  any mouse button. Each item consists of a "menu
+label" followed by the character equivalent(s) (if any) available by typing  on
+the  graphic  window, or typed to the command interpreter. If multiple commands
+are available, they are separated by a "|" between types and by commas within a
+type.  For example, the item for macrocycle:
+
+
+Macrocycle   m,SPC|:m,(m)
+
+
+indicates  that  the  macrocycle  can  be  run  by typing "m" or a space to the
+graphic window, or by typing ":m"(Users  can  also  just  type  "m";  the  Soar
+Command  Interpreter also accepts the symbol without the colon on the front, as
+long as the uncolonized symbol does not have a value.) or  "(m)"  to  the  Soar
+Command Interpreter.
+
+
+   - 1  Decision     d | N, :d -- Run one decision cycle.  N is any number
+     typed into the command interpreter (e.g., 1 or 23).
+
+   - 1 Elaboration    r | :r -- Run one elaboration cycle.
+
+   - Set Macrocycle    |(set-macrocycle) -- This provides a dialog box for
+     setting  the  macrocycles  parameters  of  macrocycle type, number of
+     repetitions, and maximum number of decision cycles  before  a  forced
+     break.
+
+   - Macrocycle     m SPC | :m, (m) -- Run one macrocycle.  After running,
+     update any display windows open.  See above  section  on  macrocycles
+     for more details.
+
+   - Run  Continuously  |(d) -- Run (d).  Can be stopped by typing <CR> to
+     either the SCI or the SX graphic display.
+
+   - "--------------" -- Separator.  Nothing happens if this is clicked.
+
+   - Examine selected item    e |:e -- Create an examination window on the
+     selected (shaded) object.  Items in bold text in these windows can be
+     clicked on themselves to create further examination windows.
+
+   - Init Soar    i |:init -- Call init-soar.
+
+   - Continuous Match set    |:cms -- Provide a continuous description  of
+     the production match set.  MS is run and the the results are put in a
+     popup Emacs buffer after each macrocycle.
+
+   - Set parameters -- Pops up a dialog box to let you  set  various  Soar
+     and graphic display parameters.
+
+   - Set  learning     |(learn)  --  Pops  up  a dialog box to let you set
+     learning parameters.
+
+   - Write N1 trace -- Writes out information for  Paul  Newell's  graphic
+     display (only available in non-release versions of SX).
+
+   - Take  snapshot  of  screen       |:snap  -- Take a snapshot of the SX
+     display window and offer to print it.  The  following  variables  are
+     used  when  taking  the  snapshot.    They  can  be set in the user's
+     .sx-init.lisp file.  Their default values are shown below.
+
+         ;; Command to print the file on the local
+         ;; printer. CMU Psych uses "laser", or goes
+         ;; to Wean to pick it up.
+         (setf snap-print-command "lpr")
+
+         ;; Default directory to dump stuff into.
+         ;; Can be changed in dialog box during snapshot.
+         (setf snap-directory "/tmp/")
+
+         ;; Default name of file to dump into.
+         ;; Can be changed in dialog box during snapshot.
+         (setf snap-file "sx-dump")
+
+
+
+   - Load TAQL    |(load-taql) -- Do what needs to be done to load TAQL.
+
+   - Static  display  sub-menu  --  Provides  a  set   of   commands   for
+     manipulating  the  graphic display as a static view of Soar's problem
+     spaces.  It includes commands to:
+
+        * Create a problem space icon,
+
+        * Indicate calling order  by  connecting  it  to  another  problem
+          space,
+
+        * Remove connections between problem spaces,
+
+        * Write  out  a  file  that  when  loaded in a fresh SX image will
+          recreate the current problem space configuration.
+
+   - Help -- Provides a short list of directions of how to get more help.
+
+   - Exit menu -- Hide the menu.
+
+2.3. Miscellaneous commands
+
+
+  These miscellaneous commands are used  internally  in  the  graphic  display.
+Some  of  them are useful for putting on hooks, or for building tools to put on
+hooks.
+
+  (defun attribute-value symbol attribute).  Returns the value of ATTRIBUTE for
+SYMBOL.
+
+  (defun   context-object-attribute-value-pairs   symbol).   This  returns  the
+attribute values pairs for the PSCM object SYMBOL.
+
+  (defun decision-cycle-count) & (defun  elaboration-cycle-count).  Return  the
+appropriate count.
+
+  (defun  find-chunk-ps chunk-name).  Finds the first problem space that occurs
+in CHUNK-NAME's conditions.  If a  problem  space  is  not  accessible  in  the
+chunk's conditions, it returns the top-level problem space.
+
+  (defun  get-wmparts  object).  Returns a list of strings corresponding to the
+WME's of OBJECT.  If OBJECT is not provided, the soar:top-goal is used.
+
+  (defun load-taql).  Does whatever is necessary to load TAQL on  your  system.
+In general, it loads load.lisp out of the TAQL directory indicated by the value
+of soar:taql-home-directory.  Your site administrator will set  this,  and  you
+can reset it in your .soar-init.lisp file, or in your .sx-init.lisp file.
+
+  (defun  soar-read-n  header  &optional (min 0) (max 100)).  Reads a number in
+between MIN and MAX using HEADER to prompt the user.
+3. The new Soar Command Interpreter
+
+
+  The SX display must be run with the new Soar Command  Interpreter.    (It  is
+just  another  lisp read-eval-print loop, or REPL.)  In addition to providing a
+better command interpreter and one tailored to Soar, there is a more  important
+reason  for  using it.  User input (such as mouse clicks) may generate X window
+events that influence the SX windows, even if they are not directed at  the  it
+(such  as  covering  or  uncovering an overlapping window). All of these events
+have to be handled by SX.  This happens in the hidden parts of the Soar Command
+Interpreter.  While some of the features of the top level Lisp REPL provided by
+the vendor may be lost (but they can be readily added  back  by  extending  the
+SCI),  several  more  powerful ones are gained.  In addition to handling window
+events, the Soar Command Interpreter provides a prompt and commands more useful
+to Soar developers.
+
+3.1. The prompt
+
+
+  The  prompt  of  the  Soar  Command  Interpreter consists of 3 fields: a Soar
+Command Interpreter title ("sci"), characters  indicating  the  current  reader
+syntax,  and  the current package.  The read table in Soar interprets commas as
+preference syntax; Lisp normally interprets  them  as  part  of  the  backquote
+macro.    In  the  prompt, "ls" indicates that the Lisp interpretation is used,
+while "ss" indicates that the Soar syntax is used.   For  example,  the  prompt
+"<SCI  ls:user>"  indicates  that you are running the Soar Command Interpreter,
+the reader is set to Lisp syntax, and the current package is the user  package.
+This     prompt     is    easily    changed    by    setting    the    variable
+opal:grepl-prompt-function to the function you wish to print your prompt.
+
+3.2. Action keywords
+
+
+  Action keywords, which specify an action for the interpreter or Soar to take,
+begin with a colon (:), and sometimes take an argument, such as a file to load.
+All these words are also accepted without the colon unless they have been given
+a  value  (i.e.,  bound in Lisp).  In that case, the value is returned instead.
+The following action keywords are currently supported:
+
+   - any number N -- Runs Soar N macrocycles, i.e. (m N).
+
+   - :ts, :c & :comma -- Toggles the comma syntax reading between Soar and
+     Lisp syntax.
+
+   - :cgd  -- Calls create-graphic-display.  This often useful when the SX
+     display gets wedged.  It must often be called twice to  really  clear
+     things out.
+
+   - :?  &  :help  --  Prints  out a help message listing the keywords and
+     their effects.
+
+   - :exit & :quit -- Exits the Soar Command Interpreter cleanly,  leaving
+     you in Lisp.
+
+   - :e  or  e  -- Pops up an examination window on the currently selected
+     PSCM level object.  Items in  bold  text  in  these  windows  can  be
+     clicked on themselves to create further examination windows.
+
+   - :m  or m -- Runs 1 macrocycle.  The default value for a macrocycle is
+     1 decision cycle.  Any open windows on PSCM items  are  updated  each
+     macrocycle.
+
+   - :pack  --  Sets  the  Lisp  package  to the name of the package it is
+     given.  The name be  a  string,  quoted  or  unquoted  symbol,  or  a
+     keyword.
+
+   - :redo -- Redoes the last successful command.
+
+   - :snap  --  Sets  up  taking a snapshot.  It will query you for a file
+     name, delete the old file if necessary, take a snapshot, and then ask
+     you  if  you  would  like to print it.  The graphic version pops up a
+     dialog box to get the file  name  (the  non-graphic  version  accepts
+     three types of file names: a <CR> will give you the default, a number
+     will create that numbered version of the default name,  and  anything
+     will  be  used  as  a new file name.)  Before you take the picture, a
+     title is put up on the graphical display.  The  printing  command  is
+     set  to  "lpr"  as  a  default  value.    This  can  be  set  in your
+     .soar-init.lisp  file,  for  example,   (setf   sx:snap-print-command
+     "csprint").
+
+     You  can  see  what came out with preview, a program at CMU at least,
+     for displaying postscript output on your screen.
+
+     If you aren't at  CMU  you  might  try  one  of  the  following  (all
+     available   via  anonymous  ftp  at  uunet.uu.net  in  the  X/contrib
+     directory.)
+             pageview
+             xdvi
+             texx
+             xtex
+   - :update or :up -- Updates all windows, including examiner windows  as
+     best it can.
+
+   - anything else -- Gets read, evaluated, and printed.
+
+3.3. Changes to Soar's textual trace
+
+  Consider  the  line  of  trace  shown  below  representing a composite of all
+possible lines.
+
+      23 ==> G: g234 ((val1) (val2) name)
+    24 P: p355 (do-demo)
+
+In addition to moving the name out in front, the DSI offers 5  parameters  that
+change the trace.
+
+   1. pgs-real-tab  will  insert a real tab between the DC counter and the
+      rest of the line when it is set to t (default nil).  By default Soar
+      inserts up to 4 spaces to create a filled "tab".
+
+   2. pgs-show-spaces  will  put  a  "." in the indentation for each level
+      down you are in the calling hierarchy when it is set to  t  (default
+      is nil).  The default behavior is to just put spaces.
+
+   3. pgs-tab-size determines how many space to indent for each level down
+      in the goal stack you are.  The default is 3.
+
+   4. pgs-goal-leader is the leading string  inserted  in  front  of  each
+      goal.  The default is "==>".  If pgs-tab-size is set to 2 or 1, this
+      should be made correspondingly shorter.
+
+   5. pgs-pscm-id if t (the default) indicates that the id of  the  object
+      should  be  included  in  the trace.  If there is no name, the id is
+      always used as the name.
+
+  If all the paramters were changed, the following trace could result:
+
+      23<TAB> . . => G: g234 ((val1) (val2) name) 24<TAB> . . .  P: do-demo
+    ()
+4. Getting help
+
+4.1. On-line help & manuals
+
+
+  Help is provided in several places:
+
+   - If  you  get  lost,  you  can  select  HELP on the pop-up menu on the
+     graphic display, and it will direct you to more detailed help.
+
+   - Each of the Emacs modes has menu items (under ^c^m)  that  will  lead
+     you  to  complete on-line documentation for Soar, TAQL, and the modes
+     themselves.
+
+   - You can get help on TAQL constructs and Soar commands by typing C-c D
+     when  in  Emacs.    Other  ways  to find out more information about a
+     particular command are available from their manuals.
+
+   - Postscript and text versions of the manuals for each of the parts  of
+     the D.S.I. (this D.S.I./SX manual, soar-mode, and taql-mode) are also
+     available in the distribution directory.  These can  be  printed  out
+     locally and cherished.  You can find this directory by looking at the
+     on-line version and noting its directory.
+
+4.2. Getting Unstuck
+
+
+  Getting  out  of  trouble.   The  graphic  display  window  is  still   under
+development,  and  may  produce  unusual  output,  or  may  stop in its tracks,
+slamming you into the passenger compartment.  But it is  now  tending  to  fail
+safe, although messy.  For example, excising single chunks shouldn't do you any
+harm, but might not remove them from the screen.
+
+  There are a series of actions you can take to rein it back in.  In any  case,
+you  must  not  delete  the  graphic display or any SX windows with your window
+manager.  If you do this, you will have to restart Soar.  In  increasing  order
+of power, danger, and inconvenience some safe fixes are:
+
+
+   1. Popping  out  of the break will often work, and just means you can't
+      do what you tried then.  For example, pscm-stats used to break  when
+      it  was  called before Soar had run a decision cycle.  After that it
+      worked fine.
+
+   2. "(init-soar)"  will  solve  most  problems  without  destroying  the
+      graphic display window, so you should first attempt to use it.
+
+   3. ":cgd"  or  (sx:create-graphic-display) will sometimes work and will
+      sometimes cause an error.  Sticky problems  may  require  destroying
+      the window and creating it twice.  (The first window destruction may
+      cause an error that you have to pop around, :pop  in  Allegro  based
+      Soar,  and  :d? in Lucid based Soar.)  The graphic representation of
+      problem-spaces created via the static display  and  chunks  will  be
+      lost.    Problem  spaces can be recreated by reloading the code that
+      defines them, and chunks added back with initialize-chunks.
+
+   4. ":sxl graphic-display" will reload the whole  graphic-display  file,
+      and  should  cleanup  any  mess.  You will loose track of all chunks
+      unless you include them as you would new chunks (see  the  following
+      section  on  loading  chunk  files)  and the SX display may run more
+      slowly.
+
+   5. Simply closing the window, or turning off the graphic  display  with
+      the  "Set  Parameters"  dialog  box,  or typing "(setf soar:graphic-
+      trace? nil)", will often let you continue running.  You do of course
+      lose the use of the display....
+
+   6. The  functions  (user:quit-sx)  and  (user:sx-quit) when called will
+      quit the command interpreter.  They are handy, for example, when the
+      SX  display  comes up and has trouble catching the X server for some
+      reason, and puts you in a break.  In this case, eachtime  you  break
+      out,  the  SX display tries to connect again, and as it gets another
+      error, throws you into another break.
+
+4.3. Known Bugs
+
+
+  The graphic display was developed on a Dec  PMax  with  Allegro  Common  Lisp
+running  under  the  Mach operating system with X11R4.  It is only dependent on
+having X11R4, a Common Lisp, CLX (Common Lisp in  X).  It  is  designed  to  be
+independent  of machine type, operating system, and Common Lisp implementation.
+We are upon occasion surprised when porting to another combination.  You should
+budget some time for unexpected problems when porting it to a new combination.
+
+  In the Graphic display.
+
+  **  There  are  certain  PSCM level sequences that are not often seen in Soar
+programs that are not correctly handled by SX.  Two state selections in  a  row
+would be a typical example.
+
+  **  Setting  TAQL Verbose doesn't completely work on the status menu.  It can
+set and unset taql-verbose, but there is not a hook within TAQL to note changes
+in  the  dialog  box  if they are done in load files or by hand with a function
+call.
+
+  ** You have to work in the USER package for the WM walker to  run  correctly.
+(That  is  not  to  say that you can not have code in other packages, just that
+when you WM walk, you have to have the current package set to  USER.    If  you
+don't  know  what  a  package  is,  you are probably safe.  You can find out by
+typing "*package*".)
+
+  Interactions with soar-mode.  None known.
+
+  Interactions with taql-mode.  None known.
+
+  Common Lisp and Soar.
+
+  SX was initially designed with Allegro Common Lisp v3.1.  If you  compile  it
+with  another  Lisp,  error  messages may appear indicating extensions that are
+necessary, or changes in functionality.   Any  problems  should  of  course  be
+forwarded to soar-bugs@cs.cmu.edu.
+5. Loading and running the Graphic Display
+
+
+
+
+5.1. Required information
+
+
+  Loading  the  SX Graphic Display.  The graphic display should be available at
+your site as a slightly (!) larger Soar image.  It will will not  include  TAQL
+and may not include the latest patches.  Because it may move around in the Soar
+file  hierarchy  and   shake   uncontrollably,   you   should   contact   soar-
+bugs@cs.cmu.edu or your local site maintainer to get its current location.
+
+  Your .login file.
+
+  It  would  be  wise to put the following commands in your .login.  They allow
+your Soar image to get big.  With SX it will be even bigger than it normally is
+(~17 Meg + your code).
+
+                    limit datasize unlimited
+                    limit stacksize unlimited
+
+  Running  on  another  machine.   If  you are running Soar+sx image on another
+machine, before starting up or loading, you should type  to  a  shell  on  your
+display machine:
+
+    xhost othermachine.name.etc
+
+  Similarly,  on the machine you are telnetted to you should set the display to
+be your machine:(Pmaxen, at least at CMU,  appear  to  prefer  not  having  the
+trailing ".0".)
+
+    setenv DISPLAY plateo.soar.cs.cmu.edu:0.0
+
+5.2. Optional information
+
+
+  Optimizing  speed.   You may find it worth your while to put a copy of the SX
+image on your local disk to get a performance boost  (one  user  reports  a  2x
+speed  up  in load time by having it locally).  You will also get a speed up if
+you turn auto-scrolling off with (set-auto-scroll nil),  and  only  update  the
+examiner windows every decision cycle by calling (set-always-update nil).
+
+  Init  files.   The  last  thing  SX  does  as  it  is  started  up is to load
+initialization files in order for
+
+   - your  lisp  (with  a  Lisp  dependent  name,   e.g,   Allegro   loads
+     .clinit.cl),
+
+   - Soar (.soar-init.lisp), and
+
+   - the SX portion of the D.S.I. (.sx-init.lisp).
+
+  These  files  are  loaded  from  what  lisp  sees as your home directory.  On
+certain machines (e.g., the Pmaxen at CMU), this is your directory on the local
+machine  even  if you set your home directory to another machine or remote file
+service.  This is quickly solved by having each local machine file point  to  a
+common file, such as one on afs.
+
+  In  your  SX  initialization file you may set or reset the various parameters
+that control it.  The .sx-init.lisp file in the release directory (Appendix  I)
+contains  a  list of these along with documentation strings.  You can just copy
+this into your home directory, or include it in your own file and edit it.
+
+  Your .cshrc file.  These above commands are well suited for creating  aliases
+for in your .cshrc file, and forgetting.  For examples, see the cshrc-additions
+file in the SX distribution directory.  Similarly, if you put these commands in
+your .xinitrc file, they will be executed each time you start up X.
+
+  Performance cost.
+
+  The  SX  display  is  large  more  than slow, so it ends up being mostly disk
+(virtual memory) bound rather than CPU bound.  Available memory ends  up  being
+more  important  than processor speed.  Running on a 3100 with 20 Meg of memory
+there is currently a relative slow down between SX and a plain  Soar  of  6.1x,
+but  only a relative slow down of 1.8x with 24 Meg of memory.  On machines with
+32 M, there is only a 1.4x slow down.  This is with relatively unoptimized code
+(e.g., no function timing done yet), and most of the remaining development will
+be outside of the display loop (e.g., creating new examination displays), so we
+expect  this  time  decrement  to  remain  constant,  or decrease slightly.  We
+probably can't get this number under 1.
+
+  We suggest using TWM as your window manager.  It takes up  less  memory  than
+other  managers,  such  as  mwm.    SoarX  should  work correctly on all window
+managers, although slower under some than under others.
+
+5.3. Common strategies
+
+
+  We anticipate that the following actions will prove useful and be used often:
+
+   - Typing spaces ahead.    The  graphic  display  will  accept  multiple
+     keystrokes  (in  order),  so  you  may  type 4 spaces to move ahead 4
+     macrocycles (e.g., at 2 operator applications  apiece),  or  you  may
+     type 5 r's to move 5 elaboration cycles ahead.
+
+   - Opening  an  examiner  window for watching WM.  The windows are smart
+     about how the are updated, so you can open up a  examiner  window  on
+     the  top  level  state and watch how Soar-IO modifies it.  Similarly,
+     you could open up a window on  just  the  important  structure  being
+     passed  back  and  forth.    If the WM in an examiner is removed from
+     memory, the window stops displaying it.   If  a  context  element  is
+     deselected, a bar is put across it.
+
+   - It is often convenient to run Soar and the SX windows on one machine,
+     and display them on another.
+6. Installing the SX displays at a Remote Site
+
+
+  To install SoarX at a remote site:
+
+
+   1. Starting in your local directory where you want to  install  the  SX
+      display  code  (e.g.,  /tOSU/soar/sx/5.3), open an FTP connection to
+      Centro.soar.cs.cmu.edu [128.2.242.245]. Login as "anonymous",  using
+      your address as passwd (e.g., "user@machine.site.edu").
+
+   2. Change to the directory /afs/cs.cmu.edu/project/soar/5.2/2/public
+      (cd  /afs/cs.cmu.edu/project/soar/5.2/2/public). NB: You will not be
+      able to cd to any directory between /afs and .../public.
+
+   3. Set file type to binary (binary).
+
+   4. Retrieve the file all-sx.5.3.1.tar.Z (retrieve  all-sx.5.3.1.tar.Z).
+      Close the FTP connection (quit).  This file is approximately .5 meg.
+      The final uncompressed, untared, compiled distribution will come  to
+      approximately  9  meg  plus  an  image,  which  runs about 17 M on a
+      pmaxen.
+
+   5. Uncompress it (uncompress all-sx.5.3.1.tar.Z) and untar it  (tar  xf
+      all-sx.5.3.1.tar).    You  should find the following five lisp files
+      and four bitmap files:  build-sx.lisp,  g1.lisp,  g2.lisp,  g3.lisp,
+      all-sx.lisp,     garnet.cursor,    hourglass.cursor,    garnet.mask,
+      hourglass.mask.  You will also get  an  example  .sx-init.lisp  file
+      called  default.sx-init.lisp, examples of things you can put in your
+      .cshrc in dsi-cshrc-additions, postscript and doc versions  of  this
+      manual, and a checkout script.
+
+   6. After  the  D.S.I.  files  have  been installed at a local site, the
+      variables at the front of build-sx.lisp need to be modified for your
+      local site.
+
+   7. Load  build-sx.lisp  into  a running Soar.  (It probably isn't worth
+      compiling itself).
+
+   8. Note that the compiled versions of the files (and  the  images  made
+      with  them  are  dependent  on  the  operating system, lisp version,
+      machine type,  and  display  surface  (e.g.,  Sun  console  or  Pmax
+      console).    If  you  are  compiling at a site with only one machine
+      type, then you need  not  move  the  compiled  files  or  images  to
+      subdirectories.  If you have multiple machine types at your site, we
+      suggest putting the compiled files and images in subdirectories such
+      as {machine}/{os}/{lisp-version}/{display-surface}.
+
+   9. You  will  build  the Soar+sx image by calling (build-sx).  It loads
+      and then compiles in order: g1, g2, g3, and all-sx.  Compile time on
+      a Dec Pmax 5000 is under 1 hour.
+
+  10. The loads of the uncompiled files will slow it down.  Eventually, it
+      will be faster for you to restart Soar,  and  call  it  again:  It's
+      smart about write dates.  Build-sx only recompiles what it needs to.
+      When it loads compiled files on the 2nd or  3rd  go-round,  it  runs
+      much faster.
+
+  11. We hope the compile will not generate any warnings.  They are solely
+      in the Garnet code and reference kr:method and values that  are  not
+      used.  A complete list is included as compiler-warnings.txt.  If you
+      see additional ones, please let us know, even if it appears  to  run
+      successfully.
+
+  12. If you would like to build an image (which is probably a smart thing
+      to do), you can only do so by calling the function (dump-sx),  which
+      will prompt you for a file name to put the image in.
+
+  13. You  should  put  the  dsi-manual  files  in  the  soar-mode/manuals
+      directory.
+
+  14. You may check  out  the  installation  and  receive  a  tutorial  by
+      following the script in checkout.script.
+I. Example .sx-init.lisp file
+
+
+;;;; -*- Mode: Lisp -*-
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;
+;;;; File            : default.sx-init.lisp
+;;;; Author          : Frank Ritter
+;;;; Created On      : Thu Aug 23 13:01:27 1990
+;;;; Last Modified By: Frank Ritter
+;;;; Last Modified On: Fri Mar 20 16:19:00 1992
+;;;; Update Count    : 104
+;;;; Soar Version    : 5.2.2
+;;;; Taql Version    : 3.1.4
+;;;;
+;;;; PURPOSE
+;;;;    Example init code either put in .sx-init.lisp, or loaded from
+;;;; there.  Currently also used in the scs25 NL-soar demo.  None of this
+;;;; should bomb, but not all the variables are necessarily used at this time
+;;;; or in your system.
+;;;;
+;;;; TABLE OF CONTENTS
+;;;;    I.      User setable variables
+;;;;    II.     Problem-space creation
+;;;;    III.    Some code for running demos
+;;;;
+;;;; Copyright 1990, Frank Ritter.
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; necessary if you don't preface variable and command names with sx:
+;; otherwise all variables in this file are sx:
+(eval-when (eval load compile)
+  (in-package "SX"))
+
+;;;
+;;;     I.      Some user setable variables
+;;;
+;;; Remove the comments around the ones you want to change, and set their
+;;; new values as indicated by the comments.
+
+;; When T (default nil), chunks beep when they fire.
+;; (setq sx:chunk-beep-on-fire nil)
+
+;; If t (default is nil), user is assumed to know how to use static menu,
+;; and is not prompted with what to do each time.
+;; (setf static-menu-expert nil)
+
+;;; default locations of problem-spaces
+;; (setq sx:*ps-locations*
+;;       '( (65 . 85)
+;;          (65 . 210)
+;;          (65 . 335)
+;;          (65 . 460)
+;;          (65 . 585)
+;;          (65 . 710)
+;;          (65 . 835)
+;;       (300 . 85)
+;;       (325 . 210)
+;;       (325 . 335)
+;;       (325 . 460)
+;;       (325 . 585)
+;;       (325 . 710)
+;;         (325 . 835)  ))
+;; this is also necessary if you change the initial-goal-location:
+;; (setq sx:initial-goal-location (first sx:*ps-locations*))
+
+
+;;; user variables for setting up snapshots
+;; (setf sx:snap-print-command "lpr")
+;; (setf sx:snap-dump-directory "/tmp/")
+;; (setf sx:snap-dump-file "sx-dump")
+
+;; Directory to put dumped file of static PS's in.
+;; (setq sx:static-dump-directory "/tmp/")
+
+;; Operators to never display, or to display just once
+;; (setf sx:*show-never-op-names* nil)
+;; (setf sx:*show-never-ps-names* nil)
+;; (setf sx:*show-once-op-names* nil)
+
+;; (push "wait"  sx:*show-once-op-names*)
+;; (push "wait"  sx:*show-never-ps-names*)
+
+;; Set the auto-scroll whenever you wish
+;; (set-auto-scroll t)
+
+;; Set the always-update whenever you wish
+;; (set-always-update t)
+
+;; Max time in ms for a double click
+;; (setf sx:double-click-time 1000)
+
+;; Should problem spaces come up anchored by default (initially nil)
+;; (setf sx:*default-ps-anchored* nil)
+
+;; Show goals' ids
+;;(setq sx:default-goal-id-visible nil)
+
+;; Show problem spaces' ids
+;(setq sx:default-problem-space-id-visible t)
+
+;; Show state's ids
+;(setq sx:default-state-id-visible nil)
+
+;; Show chunk's ids when they fire or are created
+;(setq sx:default-chunk-id-visible nil)
+
+;; Show operator's ids (t is default)
+;(setq sx:default-operator-id-visible t)
+
+;; Uses more memory but prettier (nil is default)
+;(setf sx:double-buffer-windows-p nil)
+
+;; MODIFYING THE TRACE
+;; You can make the trace get smaller by (1) setting tab-size to 2
+;; (or even 1), and making the goal-leader correspodingly smaller.
+;; (2) Setting pgs-real-tab to t has the trace move over a tab after printing
+;; out the dc, rather than to col 4 (what soar does now).  (3) you can not
+;; printout the pscm object's ids by setting pgs-pscm-id to nil.
+;;
+;; (setq pgs-tab-size 3)
+;; (setq pgs-goal-leader "==>")
+;; (setq pgs-real-tab nil)
+;; (setq pgs-pscm-id t)
+
+
+;; Make the menus disappear after selection (nil is default)
+;; can only be set in init file this way; otherwise must be done via menu
+;(setf sx:menus-disappear-after-selection nil)
+
+;; make some new commands for the DSI command interpreter
+;(setq opal:*grepl-conditions*
+;      (append  '(
+;  ((opal:grepl-test :sx sx)
+;   ":sx, :user, :soar will set the package to the keyword (or symbol)."
+;   (in-package "SX"))
+;  ((opal:grepl-test :soar soar)
+;   nil
+;   (in-package "SOAR"))
+;  ((opal:grepl-test :user user)
+;   nil
+;   (in-package "USER"))
+;   )
+;               opal::*grepl-conditions*))
+
+;; GC PARAMETERS
+;; It is not clear to us at this point that changing your GC parameters
+;; is worth while for relatively small images.  The SX image, despite its
+;; apparent size, does not appear to be aided by such changes.
+
+
+;;;
+;;;     II.     Example problem-space creation
+;;;
+;;;  Normal users would be well served to comment this out...
+
+;(defun create-nl-demo-problem-spaces nil
+;  "Create the problem-spaces for the CMU SCS-25 demo"
+;  ;; this gets called in demo-load.lisp when you are running nl-soar
+;  (interactive-create-problem-space 'top-ps nil
+;           :anchored t)
+;  (interactive-create-problem-space comprehension 'nil
+;           :anchored t)
+;  (interactive-create-problem-space 'language nil
+;           :anchored t)
+;  (interactive-create-problem-space 'link nil
+;           :anchored t)
+;  (interactive-create-problem-space 'constraint-check nil
+;           :anchored t)
+;  (interactive-create-problem-space 'referent nil
+;           :anchored t)
+;  (interactive-create-problem-space 'exhaustion nil
+;           :anchored t)
+;  (s-value sx::exhaustion :invisible t)
+; )
+
+;;;
+;;;     III.    Some code for running demos
+;;;
+
+;(in-package "USER")
+;
+;(defun redemo ()
+; (init-soar)
+; (excise-chunks)
+; (d 1))
+
+;; export them in case you're in the sx package
+
+;(in-package "SX")
+
+;(defun run-demo () (user::run-demo))
+;(defun reinit () (user::reinit))
+                               Table of Contents
+
+1. New concepts on the PSCM level and beyond                                  1
+
+   1.1. Design Principles                                                     1
+   1.2. Interlocking Tools                                                    1
+   1.3. PSCM Level Statistics                                                 1
+   1.4. Macrocycles                                                           1
+   1.5. Hooks                                                                 1
+
+2. The SX graphic display                                                     2
+
+   2.1. Symbology                                                             2
+   2.2. Pop-up menu commands                                                  2
+   2.3. Miscellaneous commands                                                3
+
+3. The new Soar Command Interpreter                                           4
+
+   3.1. The prompt                                                            4
+   3.2. Action keywords                                                       4
+   3.3. Changes to Soar's textual trace                                       4
+
+4. Getting help                                                               5
+
+   4.1. On-line help & manuals                                                5
+   4.2. Getting Unstuck                                                       5
+   4.3. Known Bugs                                                            5
+
+5. Loading and running the Graphic Display                                    6
+
+   5.1. Required information                                                  6
+   5.2. Optional information                                                  6
+   5.3. Common strategies                                                     6
+
+6. Installing the SX displays at a Remote Site                                7
+
+I. Example .sx-init.lisp file                                                 8

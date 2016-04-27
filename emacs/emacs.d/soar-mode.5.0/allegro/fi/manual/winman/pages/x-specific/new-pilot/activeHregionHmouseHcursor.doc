@@ -1,0 +1,66 @@
+
+                                                  active-region-mouse-cursor
+
+
+    FUNCTION
+    active-region-mouse-cursor  -  the mouse cursor associated with an
+      active-region
+
+    Usage
+    active-region-mouse-cursor ACTIVE-REGION
+
+    DESCRIPTION
+    Returns  the  mouse   cursor   associated   with   the   active   region
+    ACTIVE-REGION.  This is the mouse cursor that will be displayed when the
+    cursor is moved into this region.  The default value is the same  cursor
+    as returned by window-stream-mouse-cursor.
+
+    EXAMPLES
+    (setf *my-win*
+              (make-window-stream :left 100 :bottom 200
+                                  :width 100 :height 100
+                                  :activate-p t))
+    ;; put an active-region in it
+    (setf *my-active*
+              (make-active-region
+               :left 0 :bottom 0 :width 50 :height 50
+               :parent *my-win*
+               :activate-p t
+               ))
+
+    (eq (window-stream-mouse-cursor *my-win*)
+        (active-region-mouse-cursor *my-active*)) => t
+
+    (setf (active-region-mouse-cursor *my-active*) *mouse-cursor-+*)
+    ;; Now whenever you move the mouse cursor into the active region, the
+    ;; cursor will change to a `+'.
+
+    SEE ALSO
+    flush-mouse-cursor, make-mouse-cursor, mouse-cursor-bitblt-operation
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

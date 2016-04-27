@@ -1,0 +1,66 @@
+
+                                                                     require
+
+
+    FUNCTION
+    require  -  load a module if it is not already loaded
+
+    USAGE
+    require module-name [pathnames]
+
+    DESCRIPTION
+    the argument MODULE-NAME, which can be a string or a  symbol  (in  which
+    case  the  print name of the symbol is used), should be the name of some
+    LISP subsystem not available by default in the version of LISP  you  are
+    running.  require checks to see if it has been loaded into LISP by look-
+    ing for it on the list which is the value of  *modules*.   The  test  is
+    case-sensitive.   If  the  module  name  is  not  on the *modules* list,
+    require loads it into LISP.  If PATHNAMES is present as a  single  path-
+    name  or  a  list  of  pathnames, it loads those files in order.  If the
+    argument PATHNAMES is not present, require  attempts  to  determine  (in
+    some  system-dependent fashion) which files should be loaded.  The value
+    returned by require is implementation-dependent.
+
+    EXAMPLES
+    ;;  Look for and load Euclid module if it not found on *MODULES*.
+    (require "Euclid")
+
+    SEE ALSO
+    CLtL 11:188, *modules*, provide
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

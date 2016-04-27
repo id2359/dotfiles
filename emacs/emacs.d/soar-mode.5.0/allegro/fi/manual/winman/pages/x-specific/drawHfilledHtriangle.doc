@@ -1,0 +1,66 @@
+
+                                                        draw-filled-triangle
+
+
+    FUNCTION
+    draw-filled-triangle  -  draw a filled triangle on a graphic stream
+
+    Usage
+    draw-filled-triangle GR-STREAM POS1 POS2 POS3 [:color COLOR] [:operation
+      OPERATION]
+
+    SIDE EFFECTS
+    A filled triangle, determined by the given positions, is  drawn  on  the
+    graphic  stream  GR-STREAM.   which  must be either a window-stream or a
+    bitmap-stream.  The three  vertices  of  the  triangle  are  the  points
+    (X1,Y1),  (X2,Y2),  (X3,Y3)  which  are  the :x and :y components of the
+    positions POS1, POS2, and POS3.  The triangle is filled with  the  color
+    specified  by  the  value  of  the :color keyword argument, or the value
+    returned by window-stream-foreground-color.
+
+    Not all edges of a filled triangle are drawn.  (Thus a  filled  triangle
+    is  NOT  just  an  ordinary  triangle filled in.) If the interior of the
+    triangle lies to the left of the edge, the edge will  not  be  drawn.  A
+    horizontal  edge which lies above the interior of the triangle rectangle
+    will not be drawn.  Vertices are only drawn when both adjacent edges are
+    drawn.   Leaving  edges out in this way allows a window to be tiled with
+    the triangle without double covering of edges.
+
+    DESCRIPTION
+    Returns nil.  The arguments POS1, POS2, and POS3 must all be  positions.
+    All  coordinates  are  give  respect  to the extent coordinate system of
+    GR-STREAM.  For a function which specifies the coordinates of the trian-
+    gle in terms of coordinate values, use draw-filled-triangle-xy.  for
+
+    The keyword argument :operation specifies  the  boolean  operation  that
+    will  be used when the bits from the drawing operation are combined with
+    the bits on the graphic stream.  This argument defaults to the value  of
+    window-stream-operation  applied to GR-STREAM.  All the sixteen standard
+    boolean operations of COMMON LISP are supported.  The  keyword  argument
+    :color,  specifies  the  drawing  color,  and if not specified, uses the
+    color returned by window-stream-foreground-color.
+
+    The argument GR-STREAM may be either a window-stream  or  bitmap-stream.
+    These  are  the  only  two types of graphic streams, with the difference
+    between them being that  bitmap-streams  must  be  bitblted  to  window-
+    streams.
+
+    Note that draw-filled-triangle, and  all  the  related  triangle-drawing
+    functions,  are  not methods.  This makes them different from all of the
+    other drawing functions, which are  currently  implemented  as  methods.
+    The draw-triangle family CANNOT be customized for each graphics stream.
+
+    EXAMPLES
+    (setf *my-win*
+            (make-window-stream :left 100 :bottom 100
+            :width 200 :height 200
+            :activate-p t :title "Just a Window"))
+
+    (draw-filled-triangle *my-win*
+                          (make-position :x 10 :y 10)
+                          (make-position :x 100 :y 100)
+                          (make-position :x 25 :y 75))
+
+    SEE ALSO
+    draw-circle, draw-circle-xy, draw-filled-circle, draw-filled-rectangle,
+    draw-filled-rectangle-xy, draw-filled-triangle-xy, draw-line, draw-

@@ -1,0 +1,66 @@
+
+                                                            reader syntax #r
+
+
+    READER SYNTAX
+    #r  -  representation of a rational number in a specified radix
+
+    Usage
+    #NR...
+
+    DESCRIPTION
+    Reads as a rational number expressed in the radix specified by N.
+
+    When the reader reads the dispatch-macro character ``#'', followed by  a
+    nonempty  unsigned  DECIMAL  digit  string,  followed by ``r'' or ``R'',
+    these characters are discarded  and  the  next  token  is  read  as  the
+    representation of a rational number.  The radix of the representation is
+    that specified by the decimal digit  string,  which  is  required.   The
+    ``#r''  syntactic  form  reads as the rational number represented by the
+    token.
+
+    While N may be 2, 8, or 16, specific reader macros exist for these  com-
+    mon  radixes.   Decimal  integers  may  be  read with a trailing decimal
+    point; decimal rationals require the radix specifier #10r if *read-base*
+    is not 10.  Floating-point numbers are always read in decimal.
+
+    Rational numbers are self-evaluating objects.  (In fact all numbers  are
+    self-evaluating.)
+
+    EXAMPLES
+    #32r40/M0 => 2/11
+    #36rlaugh => 35777969
+
+    (setf *read-base* 20.)
+    #32r40/M0 => 2/11
+
+    (setf *print-base* 36.)
+    #32r40/M0 => 2/b
+    10. => a
+    10 => k
+
+    (setf *read-base* 36.)
+    (|SETF| |*PRINT-BASE*| 36.)
+    fudge/gelato => 7x6q7/87aneu
+
+    SEE ALSO
+    CLtL 22:356, about printing, about reading, reader syntax #b, reader
+    syntax #o, reader syntax #x
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

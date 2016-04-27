@@ -1,0 +1,132 @@
+
+                                                                        read
+
+
+    FUNCTION
+    read  -  read printed representation of an object from a stream
+
+    Usage
+    read [INPUT-STREAM [EOF-ERROR-P [EOF-VALUE [RECURSIVE-P]]]]
+
+    SIDE EFFECTS
+    The stream pointer is advanced beyond the object.  The next input opera-
+    tion will read the next object from the stream.
+
+    DESCRIPTION
+    Returns the COMMON LISP object that is created as a  result  of  reading
+    its printed representation from the stream INPUT-STREAM.
+
+    The value of INPUT-STREAM must be a stream.  If it is not specified,  or
+    is specified as nil, the value of INPUT-STREAM is the value of the vari-
+    able *standard-input*.  If the argument INPUT-STREAM is specified as  t,
+    the value of INPUT-STREAM is the value of the variable *terminal-io*.
+
+    The argument EOF-ERROR-P controls what  happens  when  the  end  of  the
+    INPUT-STREAM  is reached.  (If the stream is open to a file, the end-of-
+    file is the end of the stream.  If the stream is reading from a  string,
+    the  end  of  the  string  is  the  end  of  the stream.  The concept is
+    straightforwardly extended to specialized streams.) If the value of  the
+    argument  is  t,  the  default,  an error is signalled.  However, if the
+    value of the argument is nil, then in most situations an  error  is  not
+    signalled.   Instead, the read function terminates and returns the value
+    of EOF-VALUE.  EOF-VALUE defaults to nil.  The function read always sig-
+    nals  an  error  if  the end of the stream is reached when a COMMON LISP
+    object is partially but not completely read.
+
+    The argument RECURSIVE-P indicates whether or not this  is  a  recursive
+    call to read.  Whether a call to read is recursive needs to be known for
+    three reasons.  First, referents #N= for the  syntactic  forms  #N#  are
+    unique  to  the outermost expression being read.  Second, whether or not
+    to preserve whitespace is a  property  of  the  outermost  call  to  the
+    reader,  either read or read-preserving-whitespace.  Third, encountering
+    the end of a stream has a different meaning in a recursive call than  in
+    a  top-level  call, since encountering the end of a stream in the middle
+    of a printed representation is ALWAYS an error.
+
+    When the value of *read-suppress* is non-nil, the customary behavior  of
+    read  is  changed  drastically.   (See *read-suppress* for more informa-
+    tion.)
+
+    EXAMPLES
+    ;;  For clarity, these examples use string streams rather
+    ;;  than streams open to files.  The operation and behavior
+    ;;  are essentially the same.
+
+    (setf in (make-string-input-stream "foo bar #*01101 #o12"))
+    (read in) => foo
+    (read in) => foo
+    (read in) => #*01101
+    (read in) => 10
+    ;;  We have reached the end of the stream, so the next
+    ;;  simple READ signals an error.
+    (read in) => ERROR
+    ;;  But READ with EOF-ERROR-P specified as NIL blocks the error.
+    (read in nil 'done) => done
+
+
+    ;;  Not all printed representations can be read.  In most
+    ;;  implementations, the printed representations of
+    ;;  readtables are unreadable.
+
+    (setf str (write-to-string *readtable*)) => "#<readtable @ #x3a1241>"
+    (read (make-string-input-stream str)) => ERROR
+
+    ;;  An error is signalled when an READ finds an incomplete
+    ;;  representation of a Lisp object.  But note that part of
+    ;;  what you wanted may be a complete (but different) object.
+
+    (read (make-string-input-stream "(1 2 ") nil 'done)) => ERROR
+    (setf in (make-string-input-stream "8/3 9/"))
+    (setf x (read in)) => 8/3
+    (ratiop x) => t
+    (setf x (read in)) => 9/
+    ;;  9/ is a valid symbol name.  If you meant it to be a ratio but
+    ;;  forgot the denominator, you will get an error later.
+    (ratiop x) => nil
+
+    ;;  A common use of READ is as part of the function definition
+    ;;  of dispatch macro characters.  Note that the recursive-p
+    ;;  argument should be non-NIL in these cases since the call
+    ;;  to READ will be embedded within another call.  In the
+    ;;  following, we define #v to read as the sine of what follows.
+
+    (defun sinify (stream char arg) (declare (ignore char arg))
+      (sin (eval (read stream t nil t))))
+    (compile 'sinify)
+    (set-dispatch-macro-character #\# #\v #'sinify)
+    #v1.0 => 0.84147096
+    #v0.0d0 => 0.0d0
+    ;;  Note the EVAL in the definition of SINIFY.  It allows forms
+    ;;  to follow the #v.  Without the EVAL, SIN would see symbols
+    ;;  and lists rather than their values.
+    #vpi => 0.0do
+    (expt #v(/ pi 4) 2) => 0.5d0
+
+    SEE ALSO
+    CLtL 22:375, about reading, clear-input, listen, parse-integer, peek-
+    char, read-byte, read-char, read-char-no-hang, read-delimited-list,
+    read-from-string, read-line, read-preserving-whitespace, *read-default-
+    float-format*, *read-suppress*, *standard-input*, *terminal-io*,
+    unread-char
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

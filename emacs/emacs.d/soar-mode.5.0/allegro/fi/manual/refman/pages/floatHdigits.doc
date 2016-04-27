@@ -1,0 +1,66 @@
+
+                                                                float-digits
+
+
+    FUNCTION
+    float-digits  -  get the number of digits used in the representation of
+      a floating-point number
+
+    USAGE
+    float-digits float
+
+    DESCRIPTION
+    This function  returns  the  number  of  digits  used  in  the  internal
+    representation of the floating-point number FLOAT.  The digits are taken
+    to be in the radix of the representation (returned by float-radix).  Any
+    implicit digits (especially a hidden bit) are included.
+
+    Compare this function to float-precision, which returns  the  number  of
+    significant  digits  in  a  floating-point  representation.   The values
+    returned by float-precision and float-digits are identical for  nonzero,
+    normalized, floating-point numbers.
+
+    The value returned by float-digits is implementation-dependent.
+
+    EXAMPLES
+    ;;  The values are implementation-dependent.
+    (float-digits 1.0) =>  24
+    (float-digits 10.0) => 24
+    (float-digits 10.0d0) => 53
+    (float-digits 0.0) => 24
+
+    SEE ALSO
+    CLtL 12:218, decode-float, float-precision, float-radix, float-sign,
+    integer-decode-float, scale-float
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

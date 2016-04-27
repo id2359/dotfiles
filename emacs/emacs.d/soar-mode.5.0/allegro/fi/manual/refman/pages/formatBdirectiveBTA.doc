@@ -1,0 +1,66 @@
+
+                                                         format directive ~&
+
+
+    FORMAT DIRECTIVE
+    ~&  -  print newline character if not already on new line
+
+    USAGE
+    ~count&
+
+    DESCRIPTION
+    Prints a newline unless it is known that the output  stream  is  already
+    positioned  at  the  beginning  of  a  line (using fresh-line), and then
+    prints COUNT - 1 newlines.  The default for COUNT is 1.  Printing a new-
+    line means printing a #\newline character.
+
+    EXAMPLES
+    (let ()
+      (format t "Hello world.~%")
+      (format t "~%Good~%")
+      (format t "~&Bye.~%")) => nil
+    PRINTS
+    Hello world.
+    Good
+    Bye.
+
+    The results of this directive are implementation-dependent.
+
+    SEE ALSO
+    CLtL 22:397, format, format directive ~%, fresh-line
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

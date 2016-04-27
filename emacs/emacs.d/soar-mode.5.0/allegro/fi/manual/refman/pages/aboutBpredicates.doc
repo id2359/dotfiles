@@ -1,0 +1,66 @@
+
+                                                            about predicates
+
+
+    NOTES
+    about predicates  -  introduction to predicates
+
+    DESCRIPTION
+    Predicates are functions that return either nil or some  non-nil  value,
+    corresponding  to  whether  a  condition is FALSE or TRUE, respectively.
+    Often the non-nil value returned by a predicate may  be  useful  in  the
+    next computation.  When there is no particularly useful non-nil value to
+    return, most predicates return the constant symbol t.
+
+    Predicate names usually consist of a base name followed by -p or just p.
+    The  rules  governing  hyphenation  of predicate names call for a hyphen
+    before the letter p when there is already a hyphen  in  the  base  name.
+    For  example, integer is the base name for integerp, while bit-vector is
+    the base name for bit-vector-p.  To account  for  a  predicate  such  as
+    string-lessp, note that prepending a qualifier and a hyphen to an exist-
+    ing predicate (such as the lessp predicate used in  another  dialect  of
+    LISP) does not change the hyphenation before the final p.
+
+    There are many predicates whose names do not end in p at  all,  however:
+    atom, not, >, and eql to name just a few.  Other functions which may not
+    be thought of primarily as predicates may serve as predicates.  Examples
+    include member and find.
+
+    EXAMPLES
+    Here are examples involving three of the many different predicates.
+
+    (numberp 3) => t
+    (numberp 'a) => nil
+    (member 'e '(a b c d)) => nil
+    (member 'b '(a b c d)) => (b c d)
+    (atom '(a . b)) => nil
+    (atom 10) => t
+
+    SEE ALSO
+    CLtL 6:71
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                                 *applyhook*
+
+
+    VARIABLE
+    *applyhook*  -  hook function to change evaluation behavior
+
+    DESCRIPTION
+    Bound to the current function application hook function, or nil,  if  no
+    applyhook  function is currently active.  The purpose of this hook func-
+    tion is to replace the normal  function  application  procedure,  as  in
+    tracing and profiling.  This function will be called whenever a function
+    is about to be applied to a list of arguments.  Whatever else  it  does,
+    it  is  responsible for returning the result of the evaluation.  It must
+    be a function of three arguments, a function, a list of  arguments,  and
+    an environment.  The environment is a parameter that describes the lexi-
+    cal environment. and defaults to the null lexical environment.
+
+    As is the case with *evalhook*, the variable *applyhook* is bound to nil
+    in  the  environment which surrounds the hook function, so that the hook
+    function will not be called recursively on subforms.
+
+    EXAMPLES
+    (defvar *level* 0)
+    (defun my-trace (form)
+      (let ((*applyhook* 'my-apply-hook-fun))
+        (eval form)))
+    ;;  We compile MY-TRACE so that the EVAL form in the LAMBDA
+    ;;  expression is not interpreted and thus not traced.
+    (compile 'my-trace)
+    (defun my-apply-hook-fun (fun args &optional evalfn applyfn env)
+      (let (val (*level* (+ *level* 3)))
+        (format *trace-output* "~%~V@T==>~S" *level* fun)
+        (setq val
+              (applyhook fun args nil #'my-apply-hook-fun env))
+        (format *trace-output* "~%~V@T~S"  *level* val )
+        val))
+    (my-trace '(car (cadr '(a (b c) d)))) => b
+      PRINTS
+    ==>#<Function cdr @ #x3d22a9>
+       (b c)
+       ==>#<Function cadr @ #x3a5441>
+       b
+
+    SEE ALSO
+    CLtL 20:322, apply, applyhook, *evalhook*, eval, evalhook
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

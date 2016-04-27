@@ -1,0 +1,66 @@
+
+                                                                      logior
+
+
+    FUNCTION
+    logior  -  bitwise logical `inclusive or'
+
+    USAGE
+    logior {n}*
+
+    DESCRIPTION
+    Returns the bitwise logical `inclusive or'  of  its  arguments,  all  of
+    which  must  be integers.  If no arguments are specified, 0 is returned.
+    0 is the identity for this function.  Arguments and results  are  inter-
+    preted as if represented in two's-complement notation.
+
+    EXAMPLES
+    (logior) => 0
+    (logior 1) => 1
+    (logior 1 3) => 3
+
+    (setf *print-base* 2
+          *print-radix* t)
+    (boole boole-ior #b1100 #b1010) => #b1110
+
+    SEE ALSO
+    CLtL 12:221, boole, logand, logandc1, logandc2, logbitp, logcount,
+    logeqv, lognand, lognor, lognot, logorc1, logorc2, logtest, logxor
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

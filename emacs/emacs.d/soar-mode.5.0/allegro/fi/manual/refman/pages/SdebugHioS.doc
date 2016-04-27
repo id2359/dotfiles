@@ -1,0 +1,66 @@
+
+                                                                  *debug-io*
+
+
+    VARIABLE
+    *debug-io*  -  interactive debugging stream
+
+    USAGE
+    *debug-io*
+
+    DESCRIPTION
+    Bound to a stream used for interactive debugging purposes.
+
+    EXAMPLES
+    ;;  Most implementations bind the interactive debugging
+    ;;  stream to the terminal.
+    *debug-io* => #<synonym stream for *TERMINAL-IO* @ #x5104c1>
+    *terminal-io* => #<buffered terminal stream @ #x1bf031>
+
+    SEE ALSO
+    CLtL 21:328, *error-output*, *query-io*, *standard-output*, *terminal-
+    io*, *trace-output*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

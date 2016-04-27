@@ -1,0 +1,66 @@
+
+                                                      with-input-from-string
+
+
+    MACRO
+    with-input-from-string  -  open string input stream, evaluate forms, and
+      then close stream
+
+    USAGE
+    with-input-from-string (var string [:index place] [:start sn] [:end en])
+      {declarations}* {form}*
+
+    DESCRIPTION
+    First binds the variable VAR to a new input  stream  (created  for  this
+    purpose)  that  reads  characters from STRING, then evaluates the FORMS,
+    and finally closes the stream, returning the values of the last  of  the
+    FORMS.   The  FORMS  are  evaluated  in  an  implicit  progn, and may be
+    preceded by DECLARATIONS.  The stream is closed whether or not exit from
+    this  macro  is  normal.  The input stream has dynamic extent insofar as
+    its association with STRING, and therefore should be thought of as  hav-
+    ing dynamic rather than indefinite extent. However, a stream , like most
+    COMMON LISP objects, does have indefinite extent.  It continues to exist
+    as  long  as  it  can  still  be  referenced.  STRING must evaluate to a
+    string.
+
+    If you specify the keyword :index followed  by  a  generalized  variable
+    form  PLACE  that is acceptable to setf, then after normal exit (but not
+    before), the location given by PLACE will contain the  position  of  the
+    first  character  not read or the length of STRING if the last character
+    in STRING is read.
+
+    To operate on a substring of STRING, specify the :start and :end keyword
+    arguments.  The :start keyword argument indicates the index of the first
+    character of STRING to read.  It defaults  to  zero  (the  beginning  of
+    STRING).   The :end keyword argument specifies an index one greater than
+    the index of the last character to examine. A value of nil is equivalent
+    to the default, the length of STRING.
+
+    The values of the :index and :start arguments may both be the same vari-
+    able,  that  itself  is  used  by some surrounding loop which repeatedly
+    refers to STRING.
+
+    EXAMPLES
+    (let (next)
+      (list
+       (with-input-from-string (in "a b c d" :index next :start 3)
+         (do ((x (read in nil nil) (read in nil nil)) (rlist nil))
+             ((null x)  rlist)
+           (setq rlist (cons x rlist))))
+       next ))
+      => ((d c) 7)
+
+    SEE ALSO
+    CLtL 21:330, close, open, make-string-input-stream, with-open-file,
+    with-output-to-string
+
+
+
+
+
+
+
+
+
+
+

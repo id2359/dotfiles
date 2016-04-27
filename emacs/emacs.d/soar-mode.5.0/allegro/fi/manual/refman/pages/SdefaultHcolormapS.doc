@@ -1,0 +1,108 @@
+
+
+
+                                            *default-colormap*
+
+       
+
+       *default-colormap*
+       
+
+
+       VARIABLE
+       *default-colormap*  -  the colormap containing the
+         standard colors
+
+       DESCRIPTION
+       Evaluates to the colormap that  is  automatically  pro-
+       vided  by  the  system.   This  colormap contains eight
+       colors.  The following variables point to the  elements
+       of  the  color array associated with the default color-
+       map:
+               black
+               white
+               red
+               green
+               blue
+               yellow
+               purple
+               turquoise
+
+       The actual colors are defined by  the  variable  names.
+       You  can provide any of the above symbols anywhere that
+       a color value is called for, say to the various drawing
+       functions  that  take a color argument.  Alternatively,
+       you can access them in *default-colormap*,  as  in  the
+       example below.
+
+       All eight colors in the default colormap are read-only.
+       You cannot replace the truecolor values of any color in
+       the default colormap.
+
+       EXAMPLES
+       (setf *my-win*
+               (make-window-stream :left 100 :bottom 100
+               :width 200 :height 200
+               :activate-p t :title "Just a Window"))
+       (setf standard-colors
+
+       Reference Manual                                      1
+
+
+
+
+
+
+
+
+       *default-colormap*
+
+         (colormap-colors *default-colormap*))
+       (dotimes (i (length standard-colors))
+         (draw-filled-circle-xy *my-win*
+                                (+ 50 (* i 10))
+                                (+ 50 (* i 10))
+                                20 :color (aref  standard-colors i)))
+
+       SEE ALSO
+       create-colormap, colormap-size, colormap-color, color-
+       true, color-p, colormap-p, *default-colormap-size*,
+       truecolor-p, make-truecolor, truecolor-red, truecolor-
+       blue, truecolor-green, truecolor-hue, truecolor-
+       saturation, truecolor-brightness, truecolor-level,
+       *color-support*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+       2                                           Common Lisp
+
+
+
+
+

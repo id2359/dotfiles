@@ -1,0 +1,66 @@
+
+                                                              rename-package
+
+
+    FUNCTION
+    rename-package  -  change the name of a package
+
+    USAGE
+    rename-package package new-name [new-nicknames]
+
+    SIDE EFFECTS
+    The package identified by PACKAGE is renamed.
+
+    DESCRIPTION
+    Returns the new name after replacing the old package name and all of its
+    nicknames with NEW-NAME and NEW-NICKNAMES.  The argument PACKAGE must be
+    a package.  The argument NEW-NAME must either be a string  or  a  symbol
+    (in  which  case  the  symbol's  print name will be used).  Finally, the
+    argument NEW-NICKNAMES, which defaults to nil, must be a list of strings
+    or symbols.  These will denote aliases for the newly named package.
+
+    EXAMPLES
+    (setq *pack* (or (find-package :geometry)
+                     (make-package :geometry)))
+    (rename-package *pack* :geology)
+    (package-name *pack* ) => GEOLOGY
+
+    ;; We forgot to specify the nickname.
+    (rename-package (find-package :geology) :geology '(rocks))
+    (package-nicknames (find-package :geology)) => ("ROCKS")
+
+    SEE ALSO
+    CLtL 11:184, find-package, make-package, package-name, package-nicknames
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

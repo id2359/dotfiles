@@ -1,0 +1,66 @@
+
+                                                                 string-trim
+
+
+    FUNCTION
+    string-trim  -  strip characters from the beginning and end of a string
+
+    USAGE
+    string-trim char-bag string
+
+    DESCRIPTION
+    Returns a substring of the string specified by STRING that has had every
+    character  in  CHAR-BAG removed from the beginning and end.  STRING must
+    be a string or a symbol.  If STRING is a symbol, its print name is  used
+    as the string.  The CHAR-BAG argument may be any sequence of characters.
+    Characters are trimmed from the beginning and from  the  end  of  STRING
+    until the first character not in CHAR-BAG is found.
+
+    Unless no characters are removed, the resulting string  does  not  share
+    any  storage  with  the argument STRING; it is freshly allocated.  If no
+    characters are removed, a copy of STRING may be returned.
+
+    EXAMPLES
+    (string-trim '(#\Tab #\Space #\Newline 'p #\w) " what's up
+            ")
+      => "hat's up"
+    (string-trim "," ",,,,3,4,,,,9,,5,,")
+      => "3,4,,,,9,,5"
+    (string-trim "[()]" "{1 2 3}") => "{1 2 3}"
+
+    SEE ALSO
+    CLtL 18:302, string-left-trim, string-right-trim
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

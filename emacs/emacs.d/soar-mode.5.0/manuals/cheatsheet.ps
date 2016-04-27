@@ -1,0 +1,261 @@
+%!PS-Adobe-2.0
+%%Title: cheatsheet.mss
+%%DocumentFonts: (atend)
+%%Creator: Thomas McGinnis and Scribe 7(1700)
+%%CreationDate: 3 December 1992 15:43
+%%Pages: (atend)
+%%EndComments
+% PostScript Prelude for Scribe.
+/BS {/SV save def 0.0 792.0 translate .01 -.01 scale} bind def
+/ES {showpage SV restore} bind def
+/SC {setrgbcolor} bind def
+/FMTX matrix def
+/RDF {WFT SLT 0.0 eq 
+  {SSZ 0.0 0.0 SSZ neg 0.0 0.0 FMTX astore}
+  {SSZ 0.0 SLT neg sin SLT cos div SSZ mul SSZ neg 0.0 0.0 FMTX astore}
+  ifelse makefont setfont} bind def
+/SLT 0.0 def
+/SI { /SLT exch cvr def RDF} bind def
+/WFT /Courier findfont def
+/SF { /WFT exch findfont def RDF} bind def
+/SSZ 1000.0 def
+/SS { /SSZ exch 100.0 mul def RDF} bind def
+/AF { /WFT exch findfont def /SSZ exch 100.0 mul def RDF} bind def
+/MT /moveto load def
+/XM {currentpoint exch pop moveto} bind def
+/UL {gsave newpath moveto dup 2.0 div 0.0 exch rmoveto
+   setlinewidth 0.0 rlineto stroke grestore} bind def
+/LH {gsave newpath moveto setlinewidth
+   0.0 rlineto
+   gsave stroke grestore} bind def
+/LV {gsave newpath moveto setlinewidth
+   0.0 exch rlineto
+   gsave stroke grestore} bind def
+/BX {gsave newpath moveto setlinewidth
+   exch
+   dup 0.0 rlineto
+   exch 0.0 exch neg rlineto
+   neg 0.0 rlineto
+   closepath
+   gsave stroke grestore} bind def
+/BX1 {grestore} bind def
+/BX2 {setlinewidth 1 setgray stroke grestore} bind def
+/PB {/PV save def newpath translate
+    100.0 -100.0 scale pop /showpage {} def} bind def
+/PE {PV restore} bind def
+/GB {/PV save def newpath translate rotate
+    div dup scale 100.0 -100.0 scale /showpage {} def} bind def
+/GE {PV restore} bind def
+/FB {dict dup /FontMapDict exch def begin} bind def
+/FM {cvn exch cvn exch def} bind def
+/FE {end /original-findfont /findfont load def  /findfont
+   {dup FontMapDict exch known{FontMapDict exch get} if
+   original-findfont} def} bind def
+/BC {gsave moveto dup 0 exch rlineto exch 0 rlineto neg 0 exch rlineto closepath clip} bind def
+/EC /grestore load def
+/SH /show load def
+/MX {exch show 0.0 rmoveto} bind def
+/W {0 32 4 -1 roll widthshow} bind def
+/WX {0 32 5 -1 roll widthshow 0.0 rmoveto} bind def
+/RC {100.0 -100.0 scale
+612.0 0.0 translate
+-90.0 rotate
+.01 -.01 scale} bind def
+/URC {100.0 -100.0 scale
+90.0 rotate
+-612.0 0.0 translate
+.01 -.01 scale} bind def
+/RCC {100.0 -100.0 scale
+0.0 -792.0 translate 90.0 rotate
+.01 -.01 scale} bind def
+/URCC {100.0 -100.0 scale
+-90.0 rotate 0.0 792.0 translate
+.01 -.01 scale} bind def
+%%EndProlog
+%%Page: 1 1
+BS
+0 SI
+11 /Times-Bold AF
+21463 5057 MT
+(Keyboard commands for running Soar)SH
+18274 50 21463 5257 UL
+/Courier-Bold SF
+6480 8379 MT
+(Operations on productions and regions:)SH
+25080 50 6480 8579 UL
+7140 9603 MT
+(Load production)
+SH( C-c)
+6600 W( e)SH
+7140 10827 MT
+(Load production)SH
+8460 12051 MT
+(and go to Soar)
+SH( C-c)
+5940 W( C-e)SH
+7140 13275 MT
+(Smatches a production)
+SH( C-c)
+2640 W( m)SH
+7140 14499 MT
+(Excise a production)
+SH( C-c)
+3960 W( x)SH
+7140 15723 MT
+(Print a Soar object)SH
+8460 16947 MT
+(or production)
+SH( C-c)
+6600 W( p)SH
+7140 19395 MT
+(Load region)
+SH( C-c)
+9240 W( r)SH
+7140 20619 MT
+(Load region)SH
+8460 21843 MT
+(and go to Soar)
+SH( C-c)
+5940 W( C-r)SH
+7140 23067 MT
+(Load file into Soar)
+SH( C-c)
+3960 W( l)SH
+6480 25515 MT
+(Movement commands:)SH
+11880 50 6480 25715 UL
+7140 26739 MT
+(Beginning of prod.)
+SH( ESC)
+4620 W( C-a)SH
+7140 27963 MT
+(End of prod.)
+SH( ESC)
+8580 W( C-e)SH
+7140 29187 MT
+(Zwitch to Soar)
+SH( C-c)
+7260 W( C-z  \050with arg, goes to end\051)SH
+24300 30411 MT
+(C-c b)
+SH( \050toggle)
+1980 W( between buffers\051)SH
+6480 32859 MT
+(Running commands:)SH
+11220 50 6480 33059 UL
+7140 34083 MT
+(Start up a Soar process)
+SH( ESC-x)
+1320 W( soar)SH
+7140 35307 MT
+(Interupt Soar)
+SH( C-c)
+7920 W( C-c)SH
+7140 36531 MT
+(Pop out of single break)
+SH( C-d)1320 W
+7140 38979 MT
+(Send \050d)SH
+/Times-Italic SF
+12420 XM
+(arg)SH
+/Courier-Bold SF
+(\051 to Soar)
+SH( C-c)
+3960 W( .)SH
+7140 40203 MT
+(Send \050run)SH
+/Times-Italic SF
+13740 XM
+(arg)SH
+/Courier-Bold SF
+(\051 to Soar)
+SH( C-c)
+2640 W( ,)SH
+/Times-Roman SF
+6480 42182 MT
+(The two preceeding commands both use the same default arg.  It is initially 1, that is: \050d)
+31 W( 1\051 and \050run 1\051.  It is)30 W
+6480 43468 MT
+(updated after each use.  An arg of 0 \050e.g., C-u 0 C-c .\051 resets the default to nil \050i.e., \050d\051 and \050run\051\051.)SH
+/Courier-Bold SF
+6480 45916 MT
+(TAQL Construct commands:)SH
+15840 50 6480 46116 UL
+7140 47140 MT
+(Insert TC template)
+SH( C-c)
+4620 W( C-t)SH
+7140 48364 MT
+(Expand TC template)
+SH( ESC-e)4620 W
+7140 49588 MT
+(Expand TC template)
+SH( C-u)
+4620 W( ESC-e)SH
+7800 50812 MT
+(\050just surrounding)SH
+8460 52036 MT
+(sub-clause\051)SH
+7140 53260 MT
+(Add new sub-clause)
+SH( C-c)
+4620 W( C-a)SH
+7140 54484 MT
+(Fixup a TC)
+SH( C-c)
+9900 W( C-f)
+SH( \050reindent,)
+1980 W( etc.\051)SH
+6480 56932 MT
+(General editing commands:)SH
+16500 50 6480 57132 UL
+7140 58156 MT
+(Undo C-/)
+13860 W( \050repeatable\051)3960 W
+7140 59380 MT
+(Autocomplete words)
+SH( ESC-/)
+4620 W( \050everywhere\051)2640 W
+24300 60604 MT
+(TAB \050During)
+3960 W( TC expansions\051)SH
+7140 61828 MT
+(Insert date stamp)
+SH( C-c)
+5280 W( C-d)SH
+6480 63052 MT
+(Help functions:)SH
+9900 50 6480 63252 UL
+7140 64276 MT
+(Get a menu of commands)
+SH( C-c)
+1980 W( C-m)SH
+7140 65500 MT
+(Find unbalanced \050\051's)
+SH( C-c)
+3300 W( \051)SH
+7140 66724 MT
+(Get documentation on)SH
+9780 67948 MT
+(a function or TC)
+SH( C-c)
+3300 W( d)SH
+7140 69172 MT
+(Abort any command)
+SH( C-g)5280 W
+7140 70396 MT
+(Simple taql-mode help)
+SH( C-h)
+2640 W( f taql-mode)SH
+7140 71620 MT
+(Documentation C-c)
+7920 W( C-m d  \050popup menu, then Docs\051)SH
+7140 72844 MT
+(List of keybindings)
+SH( C-h)
+3960 W( m)SH
+ES
+%%Trailer
+%%Pages: 1
+%%DocumentFonts: Times-Roman Times-Bold Courier-Bold Times-Italic

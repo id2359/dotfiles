@@ -1,0 +1,66 @@
+
+                                                                     numberp
+
+
+    FUNCTION
+    numberp  -  test whether an object is any kind of number
+
+    USAGE
+    numberp object
+
+    DESCRIPTION
+    Returns true if OBJECT is any kind of number, and false otherwise.   The
+    following identity holds:
+
+    (numberp x) = (typep x 'integer)
+
+    EXAMPLES
+    (numberp 6) => t
+    (numberp 8.9D0) => t
+    (numberp (coerce 3.2s0 'complex)) => t
+    (numberp '(1)) => nil
+
+    SEE ALSO
+    CLtL 6:74, about type specifiers
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

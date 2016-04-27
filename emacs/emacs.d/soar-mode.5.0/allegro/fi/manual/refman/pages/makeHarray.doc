@@ -1,0 +1,132 @@
+
+                                                                  make-array
+
+
+    FUNCTION
+    make-array  -  create an array
+
+    USAGE
+    make-array dims {:adjustable adj] [:element-type et] [:fill-pointer fp]
+      {[:initial-element ie] | [:initial-contents ic] | [:displaced-to dt
+      [:displaced-index-offset dio]]}
+
+    DESCRIPTION
+    Returns an array with dimensions specified by DIMS, which is a  list  of
+    integers  giving  the  size  of  each dimension of the array or a single
+    integer giving the size of a one-dimensional array.  (The value  may  be
+    nil,  in  which  case  a  zero-dimensional  array  is  created.  A zero-
+    dimensional array has one element.  Also, if  any  dimension  is  0,  an
+    array  with no elements is created.) Each dimension must be smaller than
+    array-dimension-limit, and the number of dimensions must be smaller than
+    array-rank-limit.   The  product  of  the dimensions (that is, the total
+    number of elements) must be smaller than array-total-size-limit.
+
+    The keyword argument  :adjustable,  if  specified  non-nil,  causes  the
+    resulting  array  to  be  adjustable.  This means that it may be resized
+    dynamically.  (The resized array must have the same number of dimensions
+    but  their  sizes  may be changed.) If an array is adjustable, it can be
+    adjusted by using adjust-array.
+
+    Every other keyword argument to  make-array  is  described  in  its  own
+    manual  entry.   Briefly, here is some information about them.  As indi-
+    cated  by  the   notation   above,   only   one   of   :initial-element,
+    :initial-contents,     and    :displaced-to    may    be    used,    and
+    :displaced-index-offset may only be used if :displaced-to is used.
+
+    Arrays in Common Lisp are stored in ROW-MAJOR order. Thus, if A is  a  2
+    by  2 array, the elements are stored in the order (A 0 0), (A 0 1), (A 1
+    0), (A 1 1).  Using this fact, we can efficiently map between arrays  of
+    different   dimensions   and   different   ranks.    See  the  entry  on
+    :displaced-to for an example.  Here,  the  `rank'  (also  called  dimen-
+    sionality) of an array is the number of `dimensions' it has, so an array
+    of points in 3-space would have rank 3.  A  `dimension' gives  the  max-
+    imum  allowable index along a given axis in the array. Note that Fortran
+    stores arrays in column-major order, while C  is  like  COMMON  LISP  in
+    using  row-major order.  C and COMMON LISP are also similar in that they
+    use 0 as the indexing origin, unlike Fortran, which uses 1 by default.
+
+    A SIMPLE array is one which  was  defined  with  the  keyword  arguments
+    :adjustable,  :fill-pointer, and :displaced-to all unspecified or speci-
+    fied as nil.  Certain functions (such as  svref)  only  work  on  simple
+    arrays, but the real importance of a simple array is that some implemen-
+    tations handle them more efficiently than general arrays.
+
+    EXAMPLES
+    ;;  This first array has two rows and three columns.
+    (make-array '(2 3) :initial-contents '((a b c) (1 2 3)))
+      => #2a((a b c) (1 2 3))
+    (make-array '(2 2) :initial-element 'a)
+      => #2a((a a) (a a))
+    (let (A B)
+      (setq A (make-array '(2 3)
+                 :initial-contents '((a b c)  (1 2 3))))
+      (setq B (make-array '(2) :displaced-to A))
+      (values A B)) => #2a((a b c) (1 2 3)) #(a b)
+
+
+    (let (A B)
+      (setq A (make-array '(2 3)
+                 :initial-contents '((a b c) (1 2 3))))
+      (setq B (make-array '(2)
+                 :displaced-to A
+                 :displaced-index-offset 3 ))
+      (values A B)) => #2a((a b c) (1 2 3)) #(1 2)
+
+    SEE ALSO
+    CLtL 17:286, :adjustable, adjust-array, adjustable-array-p, aref,
+    array-dimension, array-dimensions, array-element-type, array-in-bounds,
+    array-rank, array-row-major-index, array-total-size, :displaced-index-
+    offset, :displaced-to, :element-type, :fill-pointer, :initial-contents,
+    :initial-element, svref, vector
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

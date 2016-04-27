@@ -1,0 +1,66 @@
+
+                                                                     symbolp
+
+
+    FUNCTION
+    symbolp  -  test whether an object is a symbol
+
+    USAGE
+    symbolp object
+
+    DESCRIPTION
+    Returns true if OBJECT is a symbol, and false otherwise.  The  following
+    identity holds:
+
+    (symbolp x) = (typep x 'symbol)
+
+    EXAMPLES
+    (setq x 5) => 5
+    (symbolp x) => nil
+    (symbolp 'x) => t
+    (symbolp '(x)) => nil
+
+    SEE ALSO
+    CLtL 6:73, make-symbol
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

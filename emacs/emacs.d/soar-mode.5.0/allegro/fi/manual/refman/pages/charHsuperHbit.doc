@@ -1,0 +1,66 @@
+
+                                                              char-super-bit
+
+
+    CONSTANT
+    char-super-bit  -  weight of the super bit of characters
+
+    DESCRIPTION
+    Evaluates to the integer weight assigned to the super bit  of  the  bits
+    attribute  of character objects.  An implementation need not support the
+    super bit.  If it does, the value of this constant is  4.   If  it  does
+    not, the value is 0.
+
+    EXAMPLES
+    ;;  The following result is implementation-dependent:
+    char-super-bit => 4
+
+    SEE ALSO
+    CLtL 13:243, char-bit, char-bits, char-control-bit, char-hyper-bit,
+    char-meta-bit, set-char-bit
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,132 @@
+
+                                                            parse-namestring
+
+
+    FUNCTION
+    parse-namestring  -  convert a string, symbol, stream, or pathname into
+      a pathname
+
+    USAGE
+    parse-namestring object [host [defaults] [:start start] [:end end]
+      [:junk-allowed junk-allowed]]
+
+    DESCRIPTION
+    Returns two values: a pathname or nil, and an  integer.   This  function
+    derives  a  pathname  from  the  first  argument,  OBJECT.   The precise
+    behavior of this function depends on the type of OBJECT, which may be  a
+    string, a symbol, a pathname, or a stream that is or was open to a file.
+
+    When OBJECT is a string, it is parsed for a file specification (a  name-
+    string),  which  will be converted into a pathname.  If OBJECT is a sym-
+    bol, the symbol's print name is used as the string to parse.  If  OBJECT
+    is  a  pathname,  no  parsing is done.  If OBJECT is a stream associated
+    with a file, the object representing the  associated  file  is  used  as
+    OBJECT.   (What  this  object is will be implementation-dependent.  This
+    may already be a pathname or it might be a  string,  for  example.)  The
+    pathname  that  results  from the processing of OBJECT may be subject to
+    host-name validation and a certain defaulting mechanism described below.
+
+    The HOST argument must be either nil or a  valid  host  component  of  a
+    pathname  in  the implementation.  The DEFAULTS argument must be a path-
+    name.  If DEFAULTS  is  not  supplied,  it  defaults  to  the  value  of
+    *default-pathname-defaults*.   If  HOST  is not supplied, it defaults to
+    the host component of DEFAULTS, once it has been determined.  These  two
+    arguments  are  primarily intended for implementations that support more
+    than one filesystem, where the host component may be necessary to deter-
+    mine the appropriate file-name syntax for parsing the namestring.
+
+    The :start and :end keyword arguments specify the substring to be parsed
+    when  processing  of  OBJECT results in a string.  The value of START is
+    the index of the first character in the  string  to  be  examined.   The
+    value of END is the index one greater than the index of the last charac-
+    ter in the string to examine.  It may also be nil to indicate  the  last
+    character of the string, which is equivalent to specifying the length of
+    the string.  The default values cause the entire string  to  be  parsed:
+    START is zero and END is the length of the string.
+
+    When the :junk-allowed keyword argument is supplied and non-nil, nil  is
+    returned  if  a  string  does not contain a valid file namestring.  When
+    JUNK-ALLOWED is nil, however, an error is signalled if a string contains
+    no  valid file namestring.  Depending upon the implementation and possi-
+    bly upon the file-naming convention by which a string is  being  parsed,
+    whitespace  may  be permitted either before or after a valid namestring,
+    but the string parsed must otherwise consist entirely of  a  valid  file
+    namestring.   The value of JUNK-ALLOWED defaults to nil, that is parsing
+    errors are signalled.
+
+    When a string is parsed, the second value returned  by  parse-namestring
+    is  one  greater  than the index of the last valid character parsed.  If
+    JUNK-ALLOWED is nil, the second value is always equal to  the  value  of
+    END.   If a string is not parsed, such as when OBJECT is already a path-
+    name, the second returned value is equal to the value of START.
+
+    If an empty string is parsed, a pathname is produced with all components
+    nil  except  the  host  component.   (This is only what COMMON LISP: THE
+    LANGUAGE specifies.  Presumably the host component is the  same  as  the
+    value of HOST.)
+
+    Once a pathname has been obtained, it is subject to  limited  defaulting
+    and  validation.   If the HOST argument is explicitly specified and non-
+    nil, and the pathname contains a host component that  explicitly  speci-
+    fies  a host, the specified hosts must be the same.  Otherwise, an error
+    is signalled.  If the pathname contains a host component that explicitly
+    specifies  a host and a device component that does not specify a device,
+    a standard default device for the host may be supplied for the  returned
+    pathname.  Whether this is done depends on the implementation and possi-
+    bly on the filesystem of the specified host.
+
+    EXAMPLES
+    ;;  These results are all implementation-dependent.
+
+    (multiple-value-bind (p n)
+        (parse-namestring '|foo|)
+      (list (pathname-name p) n))
+      => ("foo" 3)
+
+    (multiple-value-bind (p n)
+        (parse-namestring
+         "pleiades::sys$sysdisk:[sys0.sysexe]lisp.exe;0"
+         "franz" nil :start 10)
+      (values (file-namestring p) (host-namestring p) n))
+      => "LISP.EXE;0" "FRANZ" 45
+
+    SEE ALSO
+    CLtL 23:414, *default-pathname-defaults*, namestring, pathname
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

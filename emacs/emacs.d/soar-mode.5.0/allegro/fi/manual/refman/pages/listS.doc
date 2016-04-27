@@ -1,0 +1,66 @@
+
+                                                                       list*
+
+
+    FUNCTION
+    list*  -  make a dotted list out of the arguments
+
+    USAGE
+    list* {elements}+
+
+    DESCRIPTION
+    Returns a new dotted list made up of the ELEMENTS  given  as  arguments.
+    The  last argument becomes the cdr of the last cons cell created.  There
+    must be at least one argument.  ELEMENTS may be any Lisp  objects.   The
+    following identity holds.
+
+    (list* x) = x
+
+
+    EXAMPLES
+    (list* 'a 'b 'c) => (a b . c)
+    (list* 'a 'b '(c d)) => (a b c d)
+
+    SEE ALSO
+    CLtL 15:267, append, list
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

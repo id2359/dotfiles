@@ -1,0 +1,66 @@
+
+                                                                  *features*
+
+
+    VARIABLE
+    *features*  -  bound to the list of symbols identifying the features
+      available in your implementation
+
+    Usage
+    *features*
+
+    DESCRIPTION
+    The value of this special variable is  a  list  of  symbols  identifying
+    features of the implementation.
+
+    The exact type of symbols used is  implementation-dependent.   A  common
+    choice  (illustrated  in  the examples) is to name a feature with a key-
+    word.
+
+    The reader macros #+ and #- use the value of this variable.
+
+    EXAMPLES
+    ;;  The following example is implementation-  and version-dependent:
+    (push :cox *features*)
+    (quote (#+:cox charley #-:cox fred)) => (charley)
+
+    SEE ALSO
+    CLtL 25:448, reader syntax #+, reader syntax #-
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

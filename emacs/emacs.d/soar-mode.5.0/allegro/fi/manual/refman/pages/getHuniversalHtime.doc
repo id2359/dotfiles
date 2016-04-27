@@ -1,0 +1,66 @@
+
+                                                          get-universal-time
+
+
+    FUNCTION
+    get-universal-time  -  get current time in Universal Time format
+
+    Usage
+    get-universal-time
+
+    DESCRIPTION
+    Returns the current time in the single-integer format  called  Universal
+    Time.   The  units are seconds.  Universal Time is the number of seconds
+    since midnight of January 1, 1900, Greenwich Mean Time.  This  value  is
+    based  on  every day having 86400 seconds.  (Thus, the occasional second
+    adjustments by astronomers recognized by international time  authorities
+    are  ignored.) Because Universal Time in COMMON LISP is represented as a
+    non-negative integer, times before midnight of  January  1,  1900  (GMT)
+    cannot  be  represented. Note that in many implementations, the returned
+    value is a bignum.
+
+    EXAMPLES
+    ;;  The number you get will be larger, of course.
+    ;;  The returned value represents 4:51:21 pm, June 16, 1987,
+    ;;  in California (Pacific Daylight Time).
+    (get-universal-time) => 2759874681
+
+    SEE ALSO
+    CLtL 25:445, decode-universal-time, get-decoded-time
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

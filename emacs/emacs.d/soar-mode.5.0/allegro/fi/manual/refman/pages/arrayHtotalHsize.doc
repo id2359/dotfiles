@@ -1,0 +1,66 @@
+
+                                                            array-total-size
+
+
+    FUNCTION
+    array-total-size  -  gets the total number of elements in an array
+
+    USAGE
+    array-total-size array
+
+    DESCRIPTION
+    Returns the product of the dimensions, which is the total  size  of  the
+    array.  The total size of a zero-dimensional array is one, and the total
+    size of a one-dimensional array  is  determined  by  ignoring  the  fill
+    pointer,  so that both active and inactive elements are counted.  If any
+    dimension of an array is zero, array-total-size returns 0.  The function
+    array-total-size returns 1 for arrays with no elements.
+
+    EXAMPLES
+    (array-total-size (make-array nil)) => 1
+    (array-total-size (make-array '(3 4))) => 12
+    (array-total-size (make-array '(15) :fill-pointer 12)) => 15
+    (array-total-size (make-array '(5 8 0))) => 0
+
+    SEE ALSO
+    CLtL 17:292, array-dimension, array-dimensions, array-element-type,
+    array-rank, array-total-size, make-array
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

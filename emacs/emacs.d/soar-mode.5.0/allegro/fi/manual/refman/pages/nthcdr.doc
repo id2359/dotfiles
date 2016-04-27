@@ -1,0 +1,66 @@
+
+                                                                      nthcdr
+
+
+    FUNCTION
+    nthcdr  -  get result of N cdrs on a list
+
+    USAGE
+    nthcdr n list
+
+    DESCRIPTION
+    Returns the result of doing N cdr operations on  LIST.   N  must  be  an
+    integer greater than or equal to zero.  If N is 0, the list is returned.
+    If N is greater than or  equal  to  the  length  of  the  list,  nil  is
+    returned.
+
+    EXAMPLES
+    (nthcdr 2 '(w x y z)) => (y z)
+    (nthcdr 5 '(a b)) => nil
+    (nthcdr 0 '(a b)) => (a b)
+    (car (nthcdr n x)) = (nth n x)
+
+    SEE ALSO
+    CLtL 15:267, cdr, last, nth
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

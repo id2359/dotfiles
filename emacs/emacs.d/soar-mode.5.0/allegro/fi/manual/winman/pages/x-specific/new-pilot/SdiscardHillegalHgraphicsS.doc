@@ -1,0 +1,66 @@
+
+                                                  *discard-illegal-graphics*
+
+
+    VARIABLE
+    *discard-illegal-graphics*  -  flag to tell X to ignore out-of-bounds
+      graphics operations
+
+    DESCRIPTION
+    In theory, you should be able to specify any point in the  extent  to  a
+    drawing  routine, so long as the x and y coordinates are less than most-
+    positive-fixnum.  In practice, very large numbers sometimes confuse  the
+    server and generate an error. (The error may come, for example, when the
+    server tries to store the value as a 16 bit integer.  Such values can be
+    no  larger  than around 64,000.) This global variable is bound to a flag
+    that, if true, tells  COMMON  WINDOWS  (and  the  server)  will  try  to
+    suppress errors caused by locations that are out of bounds.  If the flag
+    is false (nil) errors may be generated.
+
+    We cannot guarantee that all such errors will be suppressed  by  setting
+    this  flag to true.  Most, however, should be suppressed.  (We do recom-
+    mend NOT trying to write graphics that are way out of bounds as a better
+    solution, of course.)
+
+    The initial value of this variable is nil.
+
+    EXAMPLES
+    <cl>  *DISCARD-ILLEGAL-GRAPHICS*
+    nil
+    <cl> (SETQ W (MAKE-WINDOW-STREAM :ACTIVATE-P T))
+    #<window stream @ #x709cc1>
+    <cl> (DRAW-POINT-XY W 100000 100000)
+    Error: the value of x-common-windows::object is 100000, ...
+    Restart actions (select using :continue):
+     0: supply a new value of x-common-windows::object.
+    [1] <cl> :RESET
+    <cl> (SETQ *DISCARD-ILLEGAL-GRAPHICS* T)
+    t
+    <cl> (DRAW-POINT-XY W 100000 100000)
+    nil
+    <cl>
+
+    SEE ALSO
+    draw-point
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

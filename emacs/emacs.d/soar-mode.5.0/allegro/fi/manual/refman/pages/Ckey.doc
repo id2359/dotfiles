@@ -1,0 +1,66 @@
+
+                                                                        :key
+
+
+    KEYWORD ARGUMENT
+    :key  -  specifies a function to be applied to elements of a sequence
+
+    Usage
+    :key KEYFN
+
+    DESCRIPTION
+    The :key keyword argument is used with many sequence and list  manipula-
+    tion  functions  that  apply  some  sort  of  test  to the elements of a
+    sequence or list and take action based on the result of the test.
+
+    The functions that take a :key keyword argument are listed  in  the  See
+    Also  section at the end of this entry.  The meaning of :key is the same
+    in almost every case.  The key function KEYFN must accept one  argument.
+    The  key function is always applied to each element of every sequence or
+    list argument before that element is used.  In two  cases,  (adjoin  and
+    pushnew),  both of which add an item if it is not already there, the key
+    function is applied to the ITEM argument as well, before it is  compared
+    with  any elements.  The theory is that since the item may end up on the
+    list (both work on lists, not sequences), it should be of the same  form
+    as the other elements of the list.
+
+    The default value for KEYFN is effectively the function identity,  which
+    always  returns  its  argument.  The value nil may also be specified for
+    KEYFN, in which case no key function is used.  Specifying no  key  func-
+    tion  or  specifying  identity  as  the  key  function  are functionally
+    indistinguishable.
+
+    The function KEYFN typically extracts some part of a more  complex  data
+    structure.   Examples of such key functions are car and nth.  But as the
+    third example below shows, other functions can be used to achieve  quite
+    different ends.
+
+    EXAMPLES
+    (let ((seq '((bill 5) (mike 6) (mary 12))))
+      (find-if #'evenp seq :key #'cadr)) => (mike 6)
+    (adjoin '(Jones 88) '((Smith 87) (Green 86)) :key #'car)
+      => ((Jones 88) (Smith 87) (Green 87))
+    (delete 8 '(-10 3 -6 22 -23) :key #'abs :test #'>)
+      => (-10 22 -23)
+
+    SEE ALSO
+    CLtL 14:246, adjoin, assoc, count, count-if, count-if-not, delete,
+    delete-duplicates, delete-if, delete-if-not, find, find-if, find-if-not,
+    intersection, member, member-if, member-if-not, merge, mismatch,
+    nintersection, nset-difference, nset-exclusive-or, nsublis, nsubst,
+    nsubst-if, nsubst-if-not, nsubstitute, nsubstitute-if, nsubstitute-if-
+    not, nunion, position, position-if, position-if-not, pushnew, rassoc,
+    remove, remove-duplicates, remove-if, remove-if-not, search, set-
+    difference, set-exclusive-or, sort, stable-sort, sublis, subsetp, subst,
+    subst-if, subst-if-not, substitute, substitute-if, substitute-if-not,
+    union
+
+
+
+
+
+
+
+
+
+

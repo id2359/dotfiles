@@ -1,0 +1,66 @@
+
+                                                                *print-case*
+
+
+    VARIABLE
+    *print-case*  -  variable that determines the case in which symbol names
+      are printed
+
+    DESCRIPTION
+    Evaluates to a keyword indicating how symbol names  should  be  printed.
+    The  three choices are :upcase, :downcase, and :capitalize.  Print names
+    of symbols are normally converted to uppercase when they are first read.
+    This  variable  controls how uppercase characters in print names will be
+    printed.  In :upcase mode, uppercase characters are  printed  in  upper-
+    case.  In :downcase mode, uppercase characters are printed in lowercase.
+    In :capitalize mode, uppercase characters are printed in uppercase  when
+    they  occur  at  the  beginning of words and in lowercase elsewhere.  In
+    this context, a `word' is defined to  be  a  substring  of  alphanumeric
+    characters delimited at either end by a nonalphanumeric or by the begin-
+    ning or the end of the string that is the print name of the symbol.
+
+    Note that lowercase characters in the internal print name  of  a  symbol
+    are always printed in lowercase and are preceeded by an escape character
+    if the value of *print-escape* is true.
+
+    The initial value of the variable is :upcase.
+
+    EXAMPLES
+    *print-case* => :upper
+    (let ((*print-case* :upcase))
+      (write-to-string 'FOO)) => "FOO"
+    (let ((*print-case* :downcase))
+      (write-to-string 'FOO)) => "foo"
+    (let ((*print-case* :capitalize))
+      (write-to-string 'FOO.BAR)) => "Foo.Bar"
+
+    SEE ALSO
+    CLtL 22:372, about printing, *print-array*, *print-base*, *print-
+    circle*, *print-escape*, *print-gensym*, *print-length*, *print-level*,
+    *print-pretty*, *print-radix*, symbol
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

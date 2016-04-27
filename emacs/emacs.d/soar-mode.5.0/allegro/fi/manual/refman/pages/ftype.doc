@@ -1,0 +1,66 @@
+
+                                                                       ftype
+
+
+    DECLARATION SPECIFIER
+    ftype  -  specify the type of a function
+
+    USAGE
+    ftype fun-type {fun-name}*
+
+    SIDE EFFECTS
+    The COMMON LISP system is advised that each FUN-NAME  is  of  the  func-
+    tional type FUN-TYPE.
+
+    DESCRIPTION
+    This specifier declares each FUN-NAME to be associated with  a  function
+    of type FUN-TYPE.  Functional types, i.e. subtypes of the type function,
+    can be specialized by specifying  their  argument  lists  and  parameter
+    types  and their returned value types.  The general form of a functional
+    type specifier is
+
+    (FUNCTION ({ARG-TYPE-OR-KEYWORD}*) VALUE-TYPE)
+
+    where ARG-TYPE-OR-KEYWORD is either a type of an argument of one of  the
+    lambda-list  keywords  &optional,  &rest,  &key,  and &allow-other-keys.
+    &key arguments must be typed by specifying a list of keyword  and  type.
+    The  type  of an &rest applies to the types of the arguments to which an
+    &rest parameter is bound.  The VALUE-TYPE may be a values type-specifier
+    to denote the types of multiple values.
+
+    The ftype  declaration  observes  the  rules  of  lexical  scoping.   If
+    FUN-NAME  has  a  lexically  apparent  functional  definition, the ftype
+    declaration applies to the apparent local definition.
+
+    EXAMPLES
+    (defun adder (x y)
+      (declare (ftype (function (integer integer) integer) +))
+      (+  x y)) => adder
+    (defun even-floor (num)
+      (declare (ftype (function (integer) integer integer) floor))
+      (floor num))
+    (even-floor 2) => 2 0
+
+    SEE ALSO
+    CLtL 9:158, about declarations, about type specifiers, declare,
+    function, type
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

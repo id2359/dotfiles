@@ -1,0 +1,66 @@
+
+                                                          pathname-directory
+
+
+    FUNCTION
+    pathname-directory  -  get the directory component of a pathname
+
+    USAGE
+    pathname-directory path
+
+    DESCRIPTION
+    Returns the directory component of PATH.  The directory is  one  of  the
+    six  components  of  a  pathname (the other five are device, host, name,
+    type, and version).  PATH must be a pathname, string, symbol, or stream.
+    (If PATH is a stream, it must be, or have been, open to a file.)
+
+    The directory component of a pathname is  implementation-dependent,  but
+    may  be  either  nil  or  :wild.   nil  indicates  that the directory is
+    unspecified; :wild is a directory component that `matches' any directory
+    when  the pathname it appears in is used in a directory-search operation
+    such as that performed by directory.
+
+    EXAMPLES
+    ;;  The following example refers to a file on a VMS file system.
+    (pathname-directory "pleiades::sys$sysdisk:[sys0.sysexe]lisp.exe;0")
+      => ("SYS0" "SYSEXE")
+
+    SEE ALSO
+    CLtL 23:417, make-pathname, pathname, pathname-device, pathname-host,
+    pathname-name, pathname-type, pathname-version
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

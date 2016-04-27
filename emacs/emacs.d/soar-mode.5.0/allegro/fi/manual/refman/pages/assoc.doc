@@ -1,0 +1,66 @@
+
+                                                                       assoc
+
+
+    FUNCTION
+    assoc  -  retrieve the first matching key-datum pair from an a-list
+
+    USAGE
+    assoc item a-list [{:test | :test-not} pred] [:key keyfnc]
+
+    DESCRIPTION
+    Returns the first pair (a cons or a dotted pair) in the association list
+    A-LIST  such that ITEM is eql to the car (the key) of the pair.  Returns
+    nil if there is no such pair.
+
+    A test predicate other than eql may be used by specifying  PRED  as  the
+    value  of either the :test or the :test-not keyword argument.  PRED must
+    be a function that accepts two arguments (ITEM and the key of a pair  in
+    ALIST,  passed  in that order).  If PRED is the value of :test, ITEM and
+    the key match if PRED returns true.  If PRED is the value of  :test-not,
+    ITEM  and the key match if PRED returns false.  It is an error to supply
+    both :test and :test-not keyword arguments.
+
+    If the keyword argument :key is specified and its value  KEYFNC  is  not
+    nil,  KEYFNC  must  be a function that accepts one argument.  It will be
+    applied to key of a pair before it is tested.  When unspecified or  nil,
+    it effectively defaults to the function identity.
+
+    The reader should note that the form (assoc ITEM A-LIST :test PRED) does
+    the  same  thing  as  the  form (find ITEM A-LIST :test PRED :key #'car)
+    except in the case where ITEM is nil and nil  is  a  member  of  A-LIST.
+    Then,  if  find encounters the nil entry first, it will return it (since
+    the car of nil is nil) while assoc will ignore the nil  entry  and  con-
+    tinue to search for an actual pair whose car is nil.
+
+    EXAMPLES
+    (setq x '((4 . a) (2 . b) (3 . c) (2 . d) nil (nil . 8)))
+    (assoc '3 x) => (3 . c)
+    (assoc '2 x) => (2 . b)
+    (assoc '5 x) => nil
+    (assoc '3 x :test #'>) => (2 . b)
+    (assoc nil x) => (nil . 8)
+    (rplacd (assoc '4 x) 'e) => (4 . e)
+    x => ((4 . e) (2 . b) (3 . c) (2 . d))
+    (assoc 'c '((a 4 5) (b 7 6) (c 2 2)))
+      => (c 2 2)
+
+    SEE ALSO
+    CLtL 15:280, acons, assoc-if, assoc-if-not, find, :key, rassoc
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

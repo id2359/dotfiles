@@ -1,0 +1,66 @@
+
+                                                             simple-vector-p
+
+
+    FUNCTION
+    simple-vector-p  -  test whether an object is a simple general vector
+
+    USAGE
+    simple-vector-p object
+
+    DESCRIPTION
+    Returns true if OBJECT is a simple general vector, and false otherwise.
+
+    The type simple-vector is identical to the type  (simple-array  t  (*)),
+    NOT  to  the  type (simple-array * (*)).  This is why the second example
+    below is false, since a simple string (created by  the  reader  when  it
+    encounters  a  sequence of characters delimited by #\") is a specialized
+    array that holds string-char objects, not a general array holding  char-
+    acters.   (All  COMMON LISP implementations are required to provide spe-
+    cialized arrays for strings and bit vectors.)
+
+    The following identities hold:
+
+    simple-vector = (simple-array t (*))
+    (simple-vector-p x) = (typep x 'simple-vector)
+
+    EXAMPLES
+    (simple-vector-p '#(a b c)) => t
+    (simple-vector-p "a b c") => nil
+
+    SEE ALSO
+    CLtL 6:75, about type specifiers, make-array, vector
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                          :if-does-not-exist
+
+
+    KEYWORD ARGUMENT
+    :if-does-not-exist  -  keyword argument to open and with-open-file to
+      specify action to take if file to be opened does not exist
+
+    USAGE
+    :if-does-not-exist n-action
+
+    DESCRIPTION
+    Specifies  that  if  a  file  to  be  opened  for  output  by  open   or
+    with-open-file  does not exist, then the action given by N-ACTION should
+    be taken.  The possible values and  defaults  for  N-ACTION  are  listed
+    below.   The  specific  actions taken based on the value of this keyword
+    argument are implementation-dependent.
+
+    :error
+    Signal an error.  This is  the  default  if  you  specified  :input  for
+    :direction, or :overwrite or :append for :if-exists.
+
+    :create
+    Create a new (empty) file, and then open it.  This is the default if you
+    specified  :output or :io for :direction, and anything but :overwrite or
+    :append for :if-exists.
+
+    nil
+    Create neither a file nor a stream, and just return nil.   This  is  the
+    default if you specified :probe for :direction.
+
+    EXAMPLES
+    (let* ((out (open "junk" :direction :output
+                      :if-exists :supersede))
+           (in (open "junk" :direction :input
+                     :if-does-not-exist :error)))
+      (prin1 "foo" out)
+      (prog2 (close out) (read in) (close in)))
+      => "foo"
+
+    SEE ALSO
+    CLtL 23:421, close, :direction, :element-type, :if-exists, open, with-
+    open-file
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

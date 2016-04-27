@@ -1,0 +1,66 @@
+
+                                                                     remprop
+
+
+    FUNCTION
+    remprop  -  change the property list associated with a symbol by remov-
+      ing a property entry from it (destructive)
+
+    USAGE
+    remprop symbol indicator
+
+    SIDE EFFECTS
+    The property list is changed in the process of removing an indicator and
+    its value.
+
+    DESCRIPTION
+    Returns a non-nil value if it finds a property with an indicator  eq  to
+    INDICATOR  in  the  property  list  of SYMBOL, and removes that property
+    indicator and value from the property list.   If  no  such  property  is
+    found, remprop returns nil.
+
+    EXAMPLES
+    (setf (symbol-plist 'art)
+      '(name art age 35 weight 165)) => (name art age 35 weight 165)
+    (remprop 'art 'age) => t
+    (symbol-plist 'art) => (name art weight 165)
+
+    SEE ALSO
+    CLtL 10:166, get, get-properties, getf, remf, symbol-plist
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

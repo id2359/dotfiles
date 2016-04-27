@@ -1,0 +1,666 @@
+
+                                                                       :test
+
+
+    KEYWORD ARGUMENT
+    :test  -  specifies the predicate used to compare sequence elements
+
+    Usage
+    :test PREDICATE
+
+    DESCRIPTION
+    This keyword argument is used with many sequence and  list  manipulation
+    functions  that  compare  elements  as the basis for action.  With those
+    functions, it works as described in this entry.  Its  value  must  be  a
+    predicate  that  accepts  two arguments.  (There is also a :test keyword
+    argument to make-hash-table with a somewhat different meaning from  that
+    in sequence and list functions.  See below.)
+
+    The action of the sequence or list function that uses :test depends on a
+    generalization  of  the  idea of matching.  Action is taken depending on
+    whether two items match.   The  items  might  be  an  element  from  one
+    sequence  and  an element from another (mismatch), two elements from the
+    same sequence (delete-duplicates), or an element  from  a  sequence  and
+    another  argument  to  the function (count).  The two items match if the
+    predicate given as the value of :test returns true when applied  to  the
+    items.   If  no  value  is  specified for :test, the value specified for
+    :test-not is used as the matching predicate.  If neither argument has  a
+    specified value, eql is used with items matching if eql returns true.
+
+    Although we talk of matching values, the value of :test need  not  imply
+    equality in any sense.  An example below shows an element being added to
+    a list only if it is larger than all the current elements.
+
+    If a sequence or list function accepts a :test argument,  it  will  also
+    accept  a  :test-not argument.  These keyword arguments are related, and
+    (unusually for keyword arguments) only one may be used.  It is an  error
+    if  both :test and :test-not arguments appear in the same function call.
+    The difference between the two arguments is that two items match if  the
+    value  of  :test  applied to them returns true, while two items match if
+    the value of :test-not applied to them returns false.   Therefore  :test
+    #'>  is  equivalent  to :test-not #'<= and a pair of items that does not
+    match when a predicate is the value of :test will match  when  the  same
+    predicate is the value of :test-not, and vice versa.  As was said above,
+    eql is the default predicate.  It is taken as the value of :test.
+
+    Since the predicate need not be an equality predicate (where  the  order
+    of  the arguments does not matter), it is important to know the order of
+    arguments to the predicate.  The rule is that the arguments  are  passed
+    in  the  order  in  which they (or the larger structure containing them)
+    appear in the argument list to the sequence  or  list  function.   Thus,
+    find  takes  arguments  ITEM SEQUENCE in that order.  The predicate that
+    sees if ITEM matches an element of the sequence is passed  ITEM  as  the
+    first  argument  and the sequence element as the second element.  If the
+    arguments passed to the predicate are from the same  sequence  (as  with
+    delete-duplicates),  the  elements  are passed in the same order as they
+    appear in the sequence.  This is true  even  if  the  :from-end  keyword
+    argument is non-nil.
+
+    Elements of lists and sequences may need preprocessing before  they  can
+    be  compared.   the  preprocessing is done with the function that is the
+    value of the :key keyword argument.  It is the result of  applying  that
+    function  to  the sequence or list elements that is passed to the predi-
+    cate.  The ITEM argument provided with those functions  comparing  some-
+    thing  with  sequence  or  list elements as the basis for action (as for
+    example with find, count, and delete) does not  have  the  key  function
+    applied  to  it  before  testing.  (There are two exceptions: adjoin and
+    pushnew.)
+
+    A function that has a :test keyword argument (but not a :test-not  argu-
+    ment)  is  make-hash-table.   The use is similar (to specify a predicate
+    that defines when things, in this case hash-table  entry  keys,  match).
+    Unlike  the  case  with sequence and list functions, however, only a few
+    values are allowed: eq, eql, and equal,  or  their  associated  function
+    objects.  See the entry on make-hash-table for more information.
+
+    EXAMPLES
+    (adjoin 10 '(1 2 3 4 5) :test #'<) => (10 1 2 3 4 5)
+    (adjoin 10 '(1 2 3 4 5) :test-not #'>=)
+       => (10 1 2 3 4 5)
+    (adjoin 10 '(1 2 3 4 5) :test #'>) => (1 2 3 4 5)
+
+    SEE ALSO
+    CLtL 14:246, adjoin, assoc, count, delete, delete-duplicates, fill,
+    find, intersection, :key, make-hash-table, member, mismatch,
+    nintersection, nset-difference, nset-exclusive-or, nsublis, nsubst,
+    nsubstitute, nunion, position, rassoc, remove, remove-duplicates,
+    search, set-difference, set-exclusive-or, sublis, subst, substitute,
+    :test-not, tree-equal, union
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                                         pop
+
+
+    MACRO
+    pop  -  pop an object from the front of a list (destructive)
+
+    USAGE
+    pop place
+
+    SIDE EFFECTS
+    The value stored in PLACE is changed.
+
+    DESCRIPTION
+    Returns the car of the contents of the generalized variable PLACE.   The
+    cdr  of  the  contents  is stored back into PLACE as a side effect.  The
+    form PLACE may be any generalized variable acceptable to setf,  as  long
+    as  it  contains a list.  The form (pop PLACE) is similar to (prog1 (car
+    PLACE) (setf PLACE (cdr PLACE))) but the pop form  only  evaluates  sub-
+    forms of PLACE once and also may be more efficient.
+
+    EXAMPLES
+    (setq z '(2 3 4)) => (2 3 4)
+    (pop z) => 2
+    z => (3 4)
+
+    SEE ALSO
+    CLtL 15:271, push, pushnew, setf
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

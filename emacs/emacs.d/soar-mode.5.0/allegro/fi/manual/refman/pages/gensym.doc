@@ -1,0 +1,66 @@
+
+                                                                      gensym
+
+
+    FUNCTION
+    gensym  -  create a new uninterned symbol
+
+    USAGE
+    gensym [option]
+
+    DESCRIPTION
+    Returns a new UNINTERNED symbol.  The symbol's print name consists of  a
+    prefix  followed by the decimal representation of the value of an inter-
+    nal counter.  The new symbol created is guaranteed to be unique, but its
+    print  name  may not be unique.  This function is usually used to create
+    temporary symbols that will not conflict with any existing symbols.   In
+    LISP lingo, symbols created by this function are called GENSYMS.
+
+    If OPTION is supplied, it must be either a string or an integer  greater
+    than  or  equal to zero.  If it is an integer, the value of the internal
+    counter is set to the integer, and this value is used  to  generate  the
+    new  symbol's  print name.  Subsequent calls to gensym use the new value
+    of the internal counter.  If OPTION is not supplied or is a string,  the
+    internal counter is incremented by one before it is used to generate the
+    symbol's print name.  The value of the  counter  is  always  an  integer
+    greater than or equal to zero.
+
+    If OPTION is supplied and is a string, the prefix is set to  its  value.
+    This  prefix  is  used for this and all subsequent calls to gensym until
+    the prefix is changed again.  The initial prefix is the string "G".
+
+    Uninterned symbols are usually  printed  with  the  reader-macro  syntax
+    ``#:''.
+
+    This function differs from the related function gentemp in several ways.
+    The  symbol-name  prefix  is  remembered  across  calls: once set with a
+    string-valued OPTION, it is used for subsequent calls.  It  is  possible
+    to change the value of the internal counter.  And this function does not
+    intern the symbol it creates.  (Because of this, it need  not  guarantee
+    the uniqueness of the print names of the symbols it creates.)
+
+    EXAMPLES
+    ;;  We assume the following calls are consecutive calls and
+    ;;  the prefix has not been changed previous to the first
+    ;;  call.  The counter value of the first call is likely to
+    ;;  be different from what is shown.
+    (gensym) => #:g7
+    (gensym 24) => #:g24
+    (gensym "FOO-") => #:foo-25
+    (gensym) => #:foo-26
+    (gensym 37) => #:foo-37
+    (gensym "BAR") => #:bar38
+
+    ;;  The following shows how GENSYM might be used in an
+    ;;  implementation of the macro LOOP.  A gensym is called
+    ;;  for because the TAG might otherwise conflict with a
+    ;;  user-defined symbol.
+    (defmacro loop (&body body)
+      (let ((tag (gensym)))
+        `(block nil (tagbody ,tag ,@body (go ,tag)))))
+    (macroexpand '(loop (return 10)))
+      => (block nil (tagbody #:bar39 (return 10) (go #:bar39))) t
+
+    SEE ALSO
+    CLtL 10:169, find-symbol, gentemp, intern
+

@@ -1,0 +1,66 @@
+
+                                                             princ-to-string
+
+
+    FUNCTION
+    princ-to-string  -  output a representation of an object, without escape
+      characters, to a string
+
+    Usage
+    princ-to-string OBJECT
+
+    DESCRIPTION
+    Returns the string of characters that would  be  output  for  OBJECT  by
+    princ.   princ-to-string  differs from prin1-to-string in that no escape
+    characters are output.
+
+    EXAMPLES
+    (princ-to-string "test") => "test"
+    ;;  The following is in lower case, since *print-case*
+    ;;  is set to :downcase
+    (princ-to-string 'test) => "test"
+    (princ-to-string #\x) => "x"
+
+    SEE ALSO
+    CLtL 22:383, *print-escape*, prin1, prin1-to-string, princ, print,
+    write, write-line, write-string, write-to-string
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                                math:matrixp
+
+
+    FUNCTION
+    matrixp  -  test whether an object is a matrix
+
+    Usage
+    matrixp OBJECT
+
+    DESCRIPTION
+    Returns t if OBJECT is a  matrix  and  nil  otherwise.   A  `matrix'  in
+    Allegro  Matrix  is  a two dimensional array with numerical elements.  A
+    `vector' is a one dimensional array with numerical elements.   A  vector
+    is  NOT  a matrix.  Note that this function does NOT check that the con-
+    tents of the matrix are numeric objects.  (Doing so would  significantly
+    slow the execution of this function.)
+
+    EXAMPLES
+    ;;  You can define matrices in several ways.  Here are two.
+    (setq mat1 (make-matrix '((1.0 2.0 3.0) (4.0 5.0 6.0))
+                            'single-float))
+    (setq mat2 (make-array '(1 2) :initial-contents '((1.0 2.0))))
+    (matrixp mat1) => t
+    (matrixp mat2) => t
+    ;;  A vector is not a matrix:
+    (matrixp (make-array 3 :initial-contents '(1.0 2.0 3.0))) => nil
+    ;;  Nor is a 2x2x2 array:
+    (matrixp (make-array '(2 2 2) :initial-contents
+                         '(((1 1) (1 1)) ((1 1) (1 1))))) => nil
+    ;;  But a 2 dimensional array with non numeric elements will
+    ;;  satisfy MATRIXP even though it is not a true matrix.
+    (matrixp (make-array '(1 2) :initial-contents '((not numbers)))) => t
+
+    SEE ALSO
+    make-matrix
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

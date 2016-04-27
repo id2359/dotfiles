@@ -1,0 +1,66 @@
+
+                                                                adjust-array
+
+
+    FUNCTION
+    adjust-array  -  adjust an array to new dimensions (destructive)
+
+    USAGE
+    adjust-array array dims [:element-type et] [:initial-element ie]
+      [:initial-contents ic] [:fill-pointer fp] [:displaced-to dt]
+      [:displaced-index-offset dio]
+
+    SIDE EFFECTS
+    The argument ARRAY is modified so as to conform to  the  new  specifica-
+    tions.   (It  is  possible that a new array is created and ARRAY is dis-
+    placed into the new array.)
+
+    DESCRIPTION
+    Returns an array of the same type and rank as ARRAY  that  reflects  the
+    modifications called for in the arguments.  In particular, the new array
+    has dimensions as specified by DIMS, which is a list of integers  giving
+    the size of each dimension of the array.  The number of these dimensions
+    must equal the rank of ARRAY.  The arguments to adjust-array are similar
+    to those of make-array.  As with make-array, each member of DIMS must be
+    smaller than array-dimension-limit, and the number of dimensions must be
+    smaller than array-rank-limit.  The product of the elements of DIMS must
+    be smaller than array-total-size-limit.  It is an error if ARRAY was not
+    created with the :adjustable option to make-array.
+
+    The keyword arguments to adjust-array correspond to the  same  arguments
+    to  make-array,  and  each  is  fully described in its own manual entry.
+    Briefly, the :element-type argument must be a type that could have  been
+    specified  when  the array was created.  Using this argument serves as a
+    check only since  an  error  is  signalled  if  the  type  specified  is
+    inappropriate.    :initial-element   may   only   be   used  if  neither
+    :initial-contents not :displaced-to  are.   Only  elements  not  in  the
+    bounds   of   the   original   ARRAY   are  set  to  the  value  of  the
+    :initial-element argument.  The other elements keep  their  values  from
+    ARRAY.   (If this argument is not specified, the values of out-of-bounds
+    elements are undefined.) The :fill-pointer argument specifies  the  fill
+    pointer  and  may  only be used if the original ARRAY (which, of course,
+    must be a vector) had a fill pointer.  If either  the  :initial-contents
+    or  :displaced-to arguments are used (only one may be), they specify the
+    values of the elements, overwriting the  values  inherited  from  ARRAY.
+    The  :displaced-index-offset  argument  has  the  same  meaning  as  for
+    make-array.  It can only be used when :displaced-to is and it  specifies
+    the index in the array displaced into where the adjusted array starts.
+
+    EXAMPLES
+    (let ((A (make-array '(2 3)
+                         :adjustable t
+                         :initial-contents
+                         '((a b c)(1 2 3)))))
+      (adjust-array A '(3 3)) A)
+       => #2a((a b c) (1 2 3) (nil nil nil))
+
+    SEE ALSO
+    CLtL 17:297, adjustable-array-p, array-dimension, array-dimensions,
+    array-element-type, array-in-bounds, array-rank, array-total-size,
+    :displaced-index-offset, :displaced-to, :element-type, :fill-pointer,
+    :initial-contents, :initial-element, make-array
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                             standard-char-p
+
+
+    FUNCTION
+    standard-char-p  -  test whether a character object is a standard char-
+      acter
+
+    USAGE
+    standard-char-p char
+
+    DESCRIPTION
+    Returns true if CHAR is an object of type standard-char, and false  oth-
+    erwise.  The argument CHAR must be an object of type character.
+
+    The standard characters are those that must be supported in  any  imple-
+    mentation  of  Common  Lisp, and are objects of type standard-char.  The
+    standard characters are the 94 usual printing characters plus  #\Newline
+    and  #\space.   Also, to be a standard character, a character's bits and
+    font attributes must  be  zero.   (The  characters  are  listed  in  the
+    standard-char entry which immediately precedes this entry.)
+
+    EXAMPLES
+    (standard-char-p #\a) => t
+    (standard-char-p #\Newline) => t
+    (standard-char-p #\Tab) => nil
+    (standard-char-p #\Control-X) => nil
+
+    SEE ALSO
+    CLtL 13:234, about type specifiers, alphanumericp, graphic-char-p,
+    standard-char, string-char-p
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

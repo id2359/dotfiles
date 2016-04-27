@@ -1,0 +1,66 @@
+
+                                                              random-state-p
+
+
+    FUNCTION
+    random-state-p  -  test whether an object is a random-state
+
+    USAGE
+    random-state-p object
+
+    DESCRIPTION
+    Returns true if OBJECT is of type random-state, and false otherwise.   A
+    random-state  encodes  the  state of the random-number generator used by
+    random.  random called with the same first  and  second  arguments  will
+    always return the same value.  New random-state objects are created with
+    make-random-state.  The following identity holds:
+
+    (random-state-p x) = (typep x 'random-state)
+
+    EXAMPLES
+    (random-state-p *random-state*) => t
+    (random-state-p (random 100)) => nil
+    (random-state-p (make-random-state t)) => t
+
+    SEE ALSO
+    CLtL 12:331, make-random-state, random, *random-state*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

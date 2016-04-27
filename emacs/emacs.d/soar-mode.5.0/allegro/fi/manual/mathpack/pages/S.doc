@@ -1,0 +1,132 @@
+
+                                                                      math:*
+
+
+    FUNCTION
+    *  -  get the product of matrices, vectors, and numbers
+
+    Usage
+    * ARGS*
+
+    DESCRIPTION
+    This standard Common Lisp function has been modified  to  accept  matrix
+    and  vector  as  well  as  scalar arguments.  When all the arguments are
+    scalars (i.e. a numbers), this  function  works  just  as  when  Allegro
+    Matrix  is  not  loaded: returning the product of the arguments.  When a
+    vector or matrices are included in the  arguments  ARGS,  the  following
+    rules  apply.   The arguments are processed left to right, with the pro-
+    duct of the already processed arguments being multiplied on the right by
+    the  next unprocessed argument.  The following chart shows the result of
+    multiplying different argument types:
+
+    Left Argument            Right Argument               Result
+    number                      number                    number
+    number                      vector                    vector
+    vector                      number                    vector
+    number                      matrix                    matrix
+    matrix                      number                    matrix
+    NxM matrix             Length M vector           Length N vector
+    Length M vector           MxN matrix             Length N vector
+    MxK matrix                KxN matrix                MxN matrix
+
+    When a number is multiplied by a matrix or vector, all the  elements  of
+    the  matrix  or  vector are multiplied by the number.  It is an error if
+    any dimension of matrix or vector arguments  is  inappropriate  for  the
+    calculation.   When a vector is multiplied by a matrix, it is treated as
+    a column matrix (if the vector is on the right) and as a row matrix  (if
+    the  vector is on the left), with the result being transformed back into
+    a vector.  The product of two matrices follows standard matrix multipli-
+    cation rules.  It is an error to try to multiply two vectors.
+
+    EXAMPLES
+    ;;  We define several matrices and a vector:
+    (setq mat1 (make-matrix '((1.0 2.0) (-3.0 4.0))))
+    (print-matrix mat1) PRINTS
+      1.0  2.0
+      -3.0 4.0
+    (setq mat2 (make-matrix '((-5.0 7.0) (0.0 1.0) (-1.0 -2.0))))
+    (print-matrix mat2) PRINTS
+      -5.0 7.0
+      0.0  1.0
+      -1.0 -2.0
+    (setq vec (make-array 2 :initial-contents '(-10.0 +10.0)))
+      => #(-10.0 10.0)
+    (print-matrix (* 4.0 mat1)) PRINTS
+      4.0   8.0
+      -12.0 16.0
+    ;;  Scalars can be multiplied on either side with the same result:
+    (print-matrix (* mat1 4.0)) PRINTS
+      4.0   8.0
+      -12.0 16.0
+    ;;  The dimensions of matrices multiplied together must match:
+    (* mat1 mat2) => ERROR
+    ;;  The error message is:
+    ;;  Error: Attempt to multiply non-conformal matrices
+
+    (print-matrix (* mat2 mat1)) PRINTS
+      -26.0 18.0
+      -3.0  4.0
+      5.0   -10.0
+    ;;  You can mix matrices and scalars among the arguments:
+    (print-matrix (* 2 mat2 5 mat1 10)) PRINTS
+      -2600.0 1800.0
+      -300.0  400.0
+      500.0   -1000.0
+    ;;  Here is a vector times a scalar:
+    (* vec 10)
+      => #(-100.0 100.0)
+    ;;  As with matrices, the dimensions of a vector times a
+    ;;  matrix must match:
+    (* vec mat2) => ERROR
+    ;;  The error message is:
+    ;;  Error: Cannot multiply vector by matrix: non-matching dimensions
+    ;;
+    ;;  Multiplying the other way works.  Note the result is a
+    ;;  vector:
+    (* mat2 vec) => #(120.0 10.0 -10.0)
+    ;;  The arguments may contain matrices, scalars, and one vector:
+    (* 10 mat2 5 mat1 2 vec) => #(44000.0 7000.0 -15000.0)
+    ;;  But you cannot multiply two vectors:
+    (* vec vec) => ERROR
+    ;;  The error message is:
+    ;;  Error: * can't multiply 2 vectors; Try dot-product or vector-product
+    ;;
+    ;;  Indeed, at most one vector may appear in the argument list.
+
+    SEE ALSO
+    dot-product, vector-product, +, -
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                                       ecase
+
+
+    MACRO
+    ecase  -  exhaustive case statement
+
+    USAGE
+    ecase keyform {({({key}*) | key} {form}*)}*
+
+    SIDE EFFECTS
+    An error is signalled if KEYFORM does not evaluate to a key that matches
+    one of the clauses.  Just as with case, the first element of each clause
+    is either a single form a list of forms.  The matching  process  is  the
+    same  as  for case, except that if no matches are found, the system sig-
+    nals an error.
+
+    DESCRIPTION
+    Returns the values from the evaluation of the last  FORM  of  the  first
+    clause  with  a  key that matches the result of evaluating KEYFORM.  The
+    matching process will be described below.
+
+    This is a variant of  case  that  signals  an  error  if  no  clause  is
+    selected.   Thus  this  macro  implements  an exhaustive case construct.
+    Unlike case, however, neither t nor otherwise are  acceptable  as  keys.
+    If  a successful match is found for a clause, each FORM in the clause is
+    evaluated in sequence and values from the last one are returned.
+
+    This is how the matching proceeds.  First KEYFORM is evaluated, and  its
+    value  is  matched against the keys of each clause in turn.  A clause is
+    either headed by a single atomic key or a list of keys,  but  in  either
+    case,  the  keys are not evaluated. When a clause is headed by a list of
+    keys, a match is successful if the value of KEYFORM is eql to any key in
+    the  list.  When a clause is headed by a single key, a match is success-
+    ful if that key is eql to the value of KEYFORM.
+
+    It is an error for a key to appear in the key  list  of  more  than  one
+    clause, so the order of the clauses is unimportant.  A clause should not
+    be headed by nil as a single key. nil will be interpreted as  the  empty
+    list,  and  the  matching will always fail.  To match the key value nil,
+    use the key list (nil).
+
+    EXAMPLES
+    (setq x 'english)
+    (ecase x
+      (english 'yes)
+      (russian 'da)
+      (french 'oui)) => yes
+    (setq x 'english)
+    ;;  Since x is not one of the choices, an error is signalled:
+    (ecase x
+      (spanish 'si)
+      (russian 'da)
+      (french 'oui)) => ERROR
+
+    SEE ALSO
+    CLtL 24:436, case, ccase, ctypecase, etypecase, typecase
+
+
+
+
+
+
+
+
+

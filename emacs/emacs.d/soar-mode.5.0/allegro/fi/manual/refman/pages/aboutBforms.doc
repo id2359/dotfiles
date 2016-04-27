@@ -1,0 +1,132 @@
+
+                                                                 about forms
+
+
+    NOTES
+    about forms  -  the structural basis of COMMON LISP programming
+
+    DESCRIPTION
+    All COMMON LISP programs are represented by COMMON LISP data objects.  A
+    data  object that is meant to be evaluated is called a FORM.  Evaluation
+    of COMMON LISP forms (programs) is done with the  eval  function.   eval
+    may  be  called  explicitly,  but this is rarely done.  Instead, eval is
+    usually implicitly called to evaluate top-level forms.
+
+    Evaluation of a form generally produces a VALUE, which  is  some  COMMON
+    LISP object.  In the examples appearing in this manual, the symbol => is
+    used between a form and its value.  Therefore, (+ 2 3)  =>  5  indicates
+    that  the  form  (+ 2 3) evaluates to 5.  Forms may actually return zero
+    values or several values (see values), but typically only one  value  is
+    returned.   Some  forms  do not return at all.  Either they result in an
+    infinite loop (usually an error but it can be intentional) or some  non-
+    local  exit, from a throw or a break, transfers control right out of the
+    form.  If a form returns more than one value (that is, it returns multi-
+    ple values), only the first value is used by the calling form unless one
+    of the functions  for  handling  multiple  values  (multiple-value-bind,
+    multiple-value-setq,  etc.)  are  used.  Evaluation of forms takes place
+    within an execution context (see about scope and extent)  and  may  have
+    side effects.
+
+    There are three kinds of forms:   self-evaluating  forms,  symbols,  and
+    lists.
+
+    A self-evaluating form simply evaluates to itself, for example, 5 =>  5.
+    Numbers,  characters,  strings,  and bit-vectors are all self-evaluating
+    forms.  Certain reserved symbols evaluate to themselves.  The empty list
+    (), which stands for Boolean false and is usually written as nil, always
+    has the value nil.  The constant  t,  which  stands  for  Boolean  true,
+    always  has the value t.  Symbols beginning with a colon (``:''), called
+    keywords (see about keywords), are also reserved and evaluate  to  them-
+    selves.   These  are  all  the self-evaluating forms specified in COMMON
+    LISP: THE LANGUAGE.  Some implementations also  make  all  vectors  (not
+    just  bit-vectors  and  strings)  self-evaluating.  Others also make all
+    arrays self-evaluating.  While including arrays  and  vectors  with  the
+    self-evaluating  forms  is  a  consistent  extension of COMMON LISP, you
+    should not depend on it if you want to write portable code.
+
+    Symbols are used, among other things (see symbol),  to  name  variables.
+    When  a  symbol  is  evaluated,  the value of the variable it denotes is
+    returned.  It is important to realize that the  variable  denoted  by  a
+    symbol  depends  on the context in which the evaluation takes place.  At
+    the top level, typing a symbol name causes the value of the global vari-
+    able  associated  with  the  symbol  to  be  returned.   If  a symbol is
+    evaluated within, say, a let form or within a function definition  where
+    it  denotes  one  of  the formal parameters, a value of a local variable
+    temporarily bound to the symbol is returned.  See the entry about  scope
+    and extent for more information.
+
+    The third type of form is a list.  Not all lists can be evaluated.  Only
+    the  following three kinds (called list forms) can be evaluated: special
+    forms, macro calls, and function calls.
+
+    A list form is a special form if its first element belongs to  a  prede-
+    fined  set  of  symbols  (see about special forms) that is fixed for all
+    implementations of COMMON LISP (there is no way for the user  to  define
+    more).   Special  forms  are  used  mainly for environmental and control
+    constructs.  For example, the let special form allows you to  execute  a
+    sequence  of  forms  within the context of a given set of variable bind-
+    ings.
+
+    If the first element of a list form does not identify  a  special  form,
+    then  it  may name a macro or function, in which case the remaining list
+    elements become available to it as  arguments.   A  macro  call  may  be
+    thought  of as a kind of function call that first produces an intermedi-
+    ate form, without evaluating its arguments,  through  a  process  called
+    MACRO EXPANSION (see macroexpand).  This form is then evaluated in place
+    of the macro call.  For example, the macro call  (push  x  stack)  might
+    expand  into the special form (setq stack (cons x stack)), and the value
+    of this form is then returned as the value of the macro call.   You  may
+    define new macros using defmacro.
+
+    If the first element of a list form identifies neither  a  special  form
+    nor  a macro call, it is assumed to identify a function call; if no such
+    function exists an error is signalled.  A function call is evaluated  by
+    first  evaluating each of the remaining list elements as separate forms,
+    and then passing the resulting values to the function as arguments.  For
+    example, in evaluating the function call
+
+    (+ (* 3 3) (* 4 4))
+
+    the arguments to + are first obtained by computing
+
+    (* 3 3) => 9
+
+    and
+
+    (* 4 4) => 16
+
+    The + function is then applied to them, with the result that
+
+    (+ (* 3 3) (* 4 4)) => 25
+
+    You may define new functions using defun, which associates a symbol with
+    a function definition (unrelated to the symbol's value).  The first ele-
+    ment of a function call list form need not be a symbol.  Instead, it may
+    be a LAMBDA-EXPRESSION (see about lambda).
+
+    EXAMPLES
+    100 => 100
+    (* 2 50) => 100
+    (truncate 2.5) => 2 0.5
+    (setq x 'y) => y
+    (setq y 44) => 44
+    'x => x
+    x => y
+    y => 44
+    () => nil
+    nil => nil
+
+    SEE ALSO
+    CLtL 5:57, about keywords, about lambda, about scope and extent, about
+    special forms, about type specifiers, defmacro, defun, eval,
+    macroexpand, symbol
+
+
+
+
+
+
+
+
+
+

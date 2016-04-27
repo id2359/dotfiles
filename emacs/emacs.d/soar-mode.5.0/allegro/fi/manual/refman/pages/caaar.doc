@@ -1,0 +1,66 @@
+
+                                                                       caaar
+
+
+    FUNCTION
+    caaar  -  get the CAAAR of a list
+
+    USAGE
+    caaar list
+
+    DESCRIPTION
+    This is a composition of the car function:
+
+    (caaar lis) = (car (car (car lis)))
+
+    The argument LIST must be of type list.
+
+    EXAMPLES
+    (caaar '((((a b) c) d) e)) => (a b)
+
+    SEE ALSO
+    CLtL 15:262, car, cdr
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

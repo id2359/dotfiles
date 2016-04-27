@@ -1,0 +1,66 @@
+
+                                                   math:nconjugate-transpose
+
+
+    FUNCTION
+    nconjugate-transpose  -  destructively replace a square matrix with its
+      conjugate transpose
+
+    USAGE
+    nconjugate-transpose matrix
+
+    DESCRIPTION
+    Returns MATRIX after replacing each entry with its complex conjugate and
+    then  transposing  it.   Recall  that the complex conjugate of a a+bi is
+    a-bi.  If the elements of MATRIX are real, this function  is  equivalent
+    to  ntranspose.   The  function conjugate-transpose is a non-destructive
+    version of this function.
+
+    It is an error if MATRIX is not a square matrix.  The  related  function
+    conjugate-transpose works on general matrices.
+
+    EXAMPLES
+    (setq mat1 (make-matrix '((#c(1.0 2.0) #c(1.3 -4.6))
+                              (#c(-2.0 1.7) #c(-6.4 -5.5)))))
+
+    (print-matrix mat1) PRINTS
+       #c(1.0 2.0)   #c(1.3 -4.6)
+       #c(-2.0 1.7)  #c(-6.4 -5.5)
+    (print-matrix (nconjugate-transpose mat1)) PRINTS
+       #c(1.0 -2.0)  #c(-2.0 -1.7)
+       #c(1.3 4.6)   #c(-6.4 5.5)
+    ;;  MAT1 is now changed:
+    (print-matrix mat1) PRINTS
+       #c(1.0 -2.0)  #c(-2.0 -1.7)
+       #c(1.3 4.6)   #c(-6.4 5.5)
+
+    (setq mat2 (make-matrix '((1.0 1.3) (2.2 4.6))))
+    (print-matrix mat2) PRINTS
+       1.0 1.3
+       2.2 4.6
+    (print-matrix (nconjugate-transpose mat2)) PRINTS
+       1.0 2.2
+       1.3 4.6
+    ;;  MAT2 is now changed:
+    (print-matrix mat2) PRINTS
+       1.0 2.2
+       1.3 4.6
+
+    ;;  NCONJUGATE-TRANSPOSE only works on square matrices.
+    ;;  CONJUGATE-TRANSPOSE works on any matrix.
+    (setq mat3 (make-matrix '((1 #c(5.0 2.0) 1/2 3.0))))
+    (print-matrix mat3) PRINTS
+       1           #c(5.0 2.0) 1/2         3.0
+    (nconjugate-transpose mat3) => ERROR
+    ;;  The error message is:
+    ;;  Error: Argument to nconjugate-transpose
+    ;;  must be a square matrix
+    (print-matrix (conjugate-transpose mat3)) PRINTS
+       1
+       #c(5.0 -2.0)
+       1/2
+       3.0
+
+    SEE ALSO
+    conjugate, conjugate-transpose, nconjugate, ntranspose, transpose
+

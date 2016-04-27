@@ -1,0 +1,66 @@
+
+                                                           disable-gc-cursor
+
+
+    FUNCTION
+    disable-gc-cursor  -  turn off the gc-cursor
+
+    Usage
+    disable-gc-cursor
+
+    SIDE EFFECTS
+    The gc-cursor will NOT be displayed when the  a  garbage  collection  is
+    taking place.
+
+    DESCRIPTION
+    Returns an integer (whose value is  undetermined  and  has  no  signifi-
+    cance), but this function is called for its side effects.  The gc-cursor
+    (which, when enabled, is displayed when LISP is garbage  collecting)  is
+    disabled.   After this function returns, the cursor will not change dur-
+    ing a gc.
+
+    The function enable-gc-cursor turns on the gc-cursor.  The gc-cursor can
+    also be enabled with initialize-common-windows.
+
+    EXAMPLES
+    ;; Turn on the gc-cursor.
+    (enable-gc-cursor)
+    ;;  Force a gc.  The hourglass cursor will be
+    ;;  displayed during the gc.
+    (gc t)
+    ;; Turn off the gc-cursor.
+    (disable-gc-cursor)
+
+    SEE ALSO
+    enable-gc-cursor, initialize-common-windows
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

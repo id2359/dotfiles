@@ -1,0 +1,66 @@
+
+                                                                 scale-float
+
+
+    FUNCTION
+    scale-float  -  scale a floating-point number in its representational
+      radix
+
+    USAGE
+    scale-float float power
+
+    DESCRIPTION
+    Returns a floating-point number that is scaled by  its  representational
+    radix raised to an integral power.  Specifically, let radix be the radix
+    of the internal representation  of  FLOAT,  (the  value  of  float-radix
+    applied to FLOAT).  Then scale-float returns the value of
+
+    (* float (expt (float radix float) power))
+
+    The argument POWER must be an integer, and FLOAT  must  be  a  floating-
+    point number.
+
+    Alternatively, we can say that if decode-float has  been  applied  to  a
+    number  X, then scale-float applied to the first two returned values and
+    multiplied by the third (to obtain the correct sign), returns  a  number
+    numerically identical to X.
+
+    (multiple-value-bind (significand exponent sign)
+        (decode-float x)
+      (* (scale-float significant exponent) sign))
+      = x
+
+    (Note that scale-float does not require its first argument to be a  nor-
+    malized significand, although that is always what decode-float returns.)
+
+    EXAMPLES
+    (scale-float 2.3  4) => 36.8
+    ;;  The values of DECODE-FLOAT depend on the radix used
+    ;;  for internal floating-point representation by an
+    ;;  implementation.
+    (decode-float -13.4) => 0.8375 4 -1.0
+    ;;  But, given the values, the following holds:
+    (* (scale-float 0.8375 4) -1.0) => 13.4
+
+    SEE ALSO
+    CLtL 12:218, decode-float, float-digits, float-precision, float-radix,
+    float-sign, integer-decode-float
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

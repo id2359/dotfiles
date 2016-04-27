@@ -1,0 +1,66 @@
+
+                                                         format directive ~[
+
+
+    FORMAT DIRECTIVE
+    ~[  -  process control string conditionally depending on argument
+
+    USAGE
+    ~count[:][@]&EOBRKclause0~;clause1~;...~[:];clausen~&ECBRK
+
+    DESCRIPTION
+    Selects a clause depending on the next format argument and the ``:'' and
+    ``@'' modifiers given, and then processes it as a format control string.
+    A clause is one of a set of strings separated by ``~;''  and  ending  in
+    ``~]''.  The first clause is numbered zero.
+
+    If no modifiers are given, the argument should be an integer  specifying
+    which  clause  to  select unless COUNT is specified.  In that case COUNT
+    selects the clause (usually by specifying it with ``#''), and  no  argu-
+    ment  is  used.   If the argument or COUNT is out of range, no clause is
+    selected unless the last clause is preceded by a ``~:;''  separator,  in
+    which case it is selected as the default clause.
+
+    If ``~:['' starts the directive, there should be  exactly  two  clauses.
+    The  first  clause  is  selected  if  the argument is nil, otherwise the
+    second is selected.
+
+    If ``~@['' starts the directive, there should be only one clause.  It is
+    selected  only if the argument is non-nil, and in this case the argument
+    is not used up.  If the argument is nil, the clause is not processed and
+    the  argument is used up.  Normally such a clause uses exactly one argu-
+    ment which it can expect to be non-nil.
+
+    This directive must nest properly with respect to other  format  control
+    structure  directives.   The  ``~^''  directive may be used to terminate
+    processing prematurely.
+
+    EXAMPLES
+    (format nil "~@[length is ~D ~]~@[depth is ~D ~]" nil 13)
+      => "depth is 13 "
+    (format nil "~:[no data~;total is ~D~]" nil)
+      => "no data"
+    (setq sandwich "Inside - ~#[nothing~; ~A~; ~A and ~A~:;~
+      ~@{~#[~; and~] ~A~^,~}~]." x nil) => nil
+    (format nil sandwich)
+      => "Inside - nothing."
+    (format nil sandwich "bacon" "lettuce")
+      => "Inside -  bacon and lettuce."
+    (format nil sandwich "bacon" "lettuce" "tomato")
+      => "Inside -  bacon, lettuce, and tomato."
+
+    SEE ALSO
+    CLtL 22:402, format, format directive ~A, format directive ~D, format
+    directive ~<newline>, format directive ~^, format directive ~{
+
+
+
+
+
+
+
+
+
+
+
+

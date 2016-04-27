@@ -1,0 +1,132 @@
+
+                                                               :element-type
+
+
+    KEYWORD ARGUMENT
+    :element-type  -  keyword argument for open and with-open-file which
+      specifies the data type to be transferred on a stream
+
+    Usage
+    :element-type TYPE
+
+    DESCRIPTION
+    (Note that :element-type is also a keyword argument for  make-array  and
+    adjust-array,  with an entirely different interpretation.  The entry for
+    it precedes this one.) When used with open or with-open-file,  specifies
+    the  type of data to be read from, or written to, a stream to be created
+    by open or with-open-file.  The unit of transaction for the stream has a
+    type  given  by  TYPE,  which  may be any finite subtype of character or
+    integer.  If :default is given for TYPE, a suitable type is chosen based
+    on  the  file  that  is  opened,  and  may be determined later using the
+    stream-element-type function on the stream.   The  possible  values  for
+    TYPE are listed below, with string-char being the default.
+
+    string-char
+    The transaction unit will be a string character.  You may use  read-char
+    and write-char on the stream.
+
+    (unsigned-byte N)
+    The transaction unit will be a non-negative integer N  bits  wide.   You
+    may use read-byte and write-byte on the stream.
+
+    unsigned-byte
+    The transaction unit will be a non-negative integer of a size determined
+    by the file system.  You may use read-byte and write-byte on the stream.
+
+    (signed-byte N)
+    The transaction unit will be a signed integer that can be represented in
+    two's  complement  form in N bits.  You may use read-byte and write-byte
+    on the stream.
+
+    signed-byte
+    The transaction unit will be a signed byte of a size determined  by  the
+    file system.  You may use read-byte and write-byte on the stream.
+
+    character
+    The transaction unit will be any character.  You may use  read-char  and
+    write-char on the stream.
+
+    bit
+    The transaction unit will be a bit, which may assume the values 0 or  1.
+    You may use read-byte and write-byte on the stream.
+
+    (mod N)
+    The transaction unit will be a non-negative integer less  than  N.   You
+    may use read-byte and write-byte on the stream.
+
+    :default
+    The transaction unit will be determined by the file  system.   The  type
+    may be discovered by calling stream-element-type.
+
+    EXAMPLES
+    (let* ((out (open "junk" :direction :output :if-exists :supersede
+                     :element-type '(unsigned-byte 8)))
+          (in (open "junk" :direction :input
+                    :element-type '(unsigned-byte 8))))
+      (write-byte #b10010101 out) (write-byte #b11101001 out)
+      (prog2
+        (close out)
+        (format nil "~8B" (read-byte in))
+        (close in)))
+        => "10010101"
+
+    SEE ALSO
+    CLtL 23:419, :direction, :if-does-not-exist, :if-exists, open, stream-
+    element-type, with-open-file
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

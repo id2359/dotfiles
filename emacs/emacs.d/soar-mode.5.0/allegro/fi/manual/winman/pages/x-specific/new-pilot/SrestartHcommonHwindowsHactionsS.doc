@@ -1,0 +1,66 @@
+
+                                            *restart-common-windows-actions*
+
+
+    VARIABLE
+    *restart-common-windows-actions*  -  list of functions called by
+      restart-common-windows
+
+    DESCRIPTION
+    Bound to the list of functions that are called, in order, when  restart-
+    common-windows  is  called.   (Actually,  the  list contains the symbols
+    which denote the functions, not the function  objects  themselves.)  The
+    functions  are  called  with  the  arguments  passed  to restart-common-
+    windows.
+
+    The initial value of this variable is the  list  containing  the  single
+    function default-restart-common-windows.  This function does the work of
+    restarting COMMON WINDOWS so it MUST be in the  list.   You  should  add
+    other  functions  with push or append and remove them with remove.  (You
+    may replace the entire list, of  course,  so  long  as  default-restart-
+    common-windows is included.)
+
+    EXAMPLES
+    ;;  The default value of the list:
+    *restart-common-windows-actions* => (default-restart-common-windows)
+    ;;  We define another function and add it to the list:
+    (defun my-res (&rest args) (declare (ignore args))
+      (format t "Restarting Common Windows Now.~%"))
+    (push 'my-res *restart-common-windows-actions*)
+    *restart-common-windows-actions*
+      => (my-res default-restart-common-windows)
+
+    SEE ALSO
+    *initialize-common-windows-actions*, *kill-common-windows-actions*,
+    *make-window-stream-actions*, restart-common-windows
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

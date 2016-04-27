@@ -1,0 +1,66 @@
+
+                                                                       asinh
+
+
+    FUNCTION
+    asinh  -  get the hyperbolic arc sine of a number
+
+    USAGE
+    asinh number
+
+    DESCRIPTION
+    Returns the hyperbolic arc sine of NUMBER.
+
+    There are two portions to the branch cut for asinh.  One lies along  the
+    positive  imaginary  axis  from i (inclusive) to positive infinity, con-
+    tinuous with the first quadrant, and the other lies along  the  negative
+    imaginary axis from -i (inclusive) to negative infinity, continuous with
+    the third quadrant.  The range consists of points in the  complex  plane
+    whose  real  part  is between -J/2  (including the end point if the real
+    part is non-positive), and J/2 (including the end point if the real part
+    is non-negative).
+
+    EXAMPLES
+    (asinh 0) => 0.0
+    (asinh 1) => 0.8813736
+
+    SEE ALSO
+    CLtL 12:209, acosh, atanh, cosh, sinh, tanh
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

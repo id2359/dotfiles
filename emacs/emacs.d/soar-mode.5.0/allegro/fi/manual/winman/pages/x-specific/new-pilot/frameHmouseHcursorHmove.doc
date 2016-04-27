@@ -1,0 +1,132 @@
+
+                                                     frame-mouse-cursor-move
+
+
+    METHOD
+    frame-mouse-cursor-move  -  respond to a mouse-cursor-move event in the
+      frame
+
+    Usage
+    frame-mouse-cursor-move WSTREAM MOUSE-STATE [TRANSITION]
+
+    DESCRIPTION
+    The system calls this method whenever the mouse cursor moves within  the
+    frame  of  WSTREAM,  which must be a window-stream for which move events
+    have been enabled.  The frame consists of  the  borders  and  the  title
+    region.   Such  an occurrence is called a `cursor-move' or `move' event,
+    as well as `mouse-cursor-move' event.  You do not (normally)  call  this
+    method  directly.   Instead,  you  add your own functions to the list of
+    functions called by this method.  Those functions  must  have  the  same
+    lambda  list (that is, take the same arguments in the same order) as the
+    method itself.
+
+    It would be computationally very expensive to monitor mouse-move  events
+    for  every  window-stream  and  active-region.   Thus no move events are
+    generated for WSTREAM  unless  the  function  control-mouse-cursor-move-
+    events  has  been  applied  to WSTREAM.  See the description of control-
+    mouse-cursor-move-events for complete details.  That function allows you
+    to enable and disable catching of cursor move events, and further allows
+    you to specify whether you want to catch all such events or only a  sub-
+    set.
+
+    Assuming control-mouse-cursor-move-events has been called so  that  move
+    events  are  caught,  an  event will be generated and this method called
+    when the cursor moves in the frame of WSTREAM.  Thus,  the  first  event
+    will be generated soon (VERY soon) after the cursor enters the frame.
+
+    The  argument  MOUSE-STATE  is  a  mouse-state  and  the  the   argument
+    TRANSITION   is   an  integer  representing  a  mouse  event.   For  the
+    frame-mouse-cursor-move method, the value of the TRANSITION argument  is
+    the  value  of  the constant *mouse-cursor-move-event*.  The MOUSE-STATE
+    argument records the mouse state when  the  move  event  occurred.   The
+    position  component  of  MOUSE-STATE  is  the  position of the mouse, in
+    extent coordinates of OBJECT, at  the  time  the  event  occurred.   The
+    button-state component tells you what mouse and special keyboard buttons
+    were down when the even occurred.  Functions you  add  to  the  list  of
+    functions  called  by the method should use the information in the argu-
+    ments as necessary to achieve the desired result.
+
+    The TRANSITION argument is useful only when you  are  writing  functions
+    that  will be added to several different kinds of methods (mouse-cursor-
+    move, mouse-cursor-out, left-button-down, and so on).  Obviously, if you
+    are  writing  a  function  that  will  only  be  added  to  the list for
+    frame-mouse-cursor-move, you do not need to look at the TRANSITION argu-
+    ment  to  know that it was a mouse-cursor-move event that happened.  You
+    must allow for the TRANSITION argument in any function that you  add  to
+    the  method  since that function will be called by the system with three
+    arguments.  If you call this method  directly,  however,  (not  a  usual
+    thing, but certainly permitted), you need not specify the third argument
+    since it is optional.
+
+    When the mouse cursor moves in WSTREAM, the system  calls  this  method,
+    which  in  turn  calls all the functions, in order, in the list of func-
+    tions returned by window-stream-frame-mouse-cursor-move.  Initially, the
+    list  contains  the  single  function default-window-stream-frame-mouse-
+    cursor-move-method, which is a null function  (its  only  action  is  to
+    return  nil), so no action results from a mouse-cursor-move event on the
+    frame unless you modify the method.  You add  functions  to  and  remove
+    them  from  the  list  with  modify-window-stream-method.   You can also
+    replace the entire list by using setf and  the  function  window-stream-
+    frame-mouse-cursor-move.   You can restore the list to its initial state
+    (that is, to do nothing) with restore-default-window-stream-method.
+
+    The frame-mouse-cursor-move method returns what is returned by the  last
+    function  in  the  list of functions called by the method.  If this list
+    has not been changed from  its  initial  value,  frame-mouse-cursor-move
+    returns nil.
+
+    EXAMPLES
+    ;;  We define a frame-mouse-cursor-move-method and a window.
+    (defun my-frame-mouse-cursor-move (wstream mouse-state event)
+      (declare (ignore event))
+      (format wstream "Cursor is now in. ~%"))
+
+    (setf *my-win*
+          (make-window-stream :title "My Window"
+           :left 100 :bottom 100
+           :width 200 :height 200
+           :activate-p  t))
+
+    ;;  We check the list of functions called by the
+    ;;  FRAME-MOUSE-CURSOR-MOVE method.
+    (window-stream-frame-mouse-cursor-move *my-win*)
+      => (default-window-stream-frame-mouse-cursor-move-method)
+
+    ;;  We enable catching of move events and hang the new
+    ;;  function on the method.
+    (control-mouse-cursor-move-events *my-win* :pointer-motion t)
+    (modify-window-stream-method *my-win* :frame-mouse-cursor-move
+                                 :after 'my-frame-mouse-cursor-move)
+    ;;  We the list of functions called is now modified.
+    (window-stream-frame-mouse-cursor-move *my-win*)
+      => (default-window-stream-frame-mouse-cursor-move-method
+           my-frame-mouse-cursor-move)
+
+    SEE ALSO
+    control-mouse-cursor-move-events, frame-left-button-down, frame-left-
+    button-up, frame-middle-button-down, frame-middle-button-up, frame-
+    mouse-cursor-in, frame-mouse-cursor-out, frame-right-button-down,
+    frame-right-button-up, window-stream-mouse-cursor-move
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

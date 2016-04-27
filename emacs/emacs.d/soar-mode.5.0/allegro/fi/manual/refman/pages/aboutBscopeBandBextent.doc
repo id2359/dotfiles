@@ -1,0 +1,462 @@
+
+                                                      about scope and extent
+
+
+    NOTES
+    about scope and extent  -  scope of reference in COMMON LISP
+
+    DESCRIPTION
+    The rules of scoping describe how textual representations  (expressions)
+    in  a  LISP  program are associated with the computational entities that
+    they represent when the program actually runs.   The  rules  of  scoping
+    tell us how to resolve references to objects.  Perhaps the most familiar
+    association between  expressions  and  computational  entities  is  that
+    between  symbols and the values they represent.  A more esoteric example
+    is the association between catch frames and catch tags.  When an expres-
+    sion  appears  in a LISP program, scoping rules unambiguously-though not
+    necessarily straightforwardly-determine the  entity  with  which  it  is
+    associated.
+
+    For those already familiar with other LISP dialects, we briefly describe
+    the scoping rules for COMMON LISP.  We discuss these rules more fully in
+    the remainder of this article.  Associations in COMMON LISP are normally
+    lexically   scoped.    In  particular,  associations  between  variables
+    (represented by symbols) and their values are constrained  to  the  form
+    within  which  those associations are established (such as let).  (Vari-
+    ables may be declared special to  force  dynamic  scoping  of  bindings,
+    which  is  sometimes called fluid binding.) Associations between symbols
+    and their function or macro definitions (in the forms flet, labels,  and
+    macrolet)  are  lexically  scoped.   Catch  frames  have  dynamic scope.
+    tagbody labels and blocks have lexical scope.  The function special form
+    will  generate closures implicitly in order to obey the rules of lexical
+    scoping.  (It is not possible to close over special bindings.)
+
+    There are several concepts that must be defined to describe  scoping  in
+    LISP  with  precision.   These  are  SCOPE, EXTENT, ENTITIES, VARIABLES,
+    VALUES, BINDINGS, and SHADOWING.  An ENTITY is defined for the  conveni-
+    ence  of this discussion as any computational object in LISP to which an
+    expression may have a valid association.  An entity may be  any  one  of
+    the  following  things:  a LISP datum, catch frames, tagbody labels that
+    may be targets of go, and blocks  that  may  be  targets  of  return  or
+    return-from.   Examples of LISP data are symbols, function objects (such
+    as returned by the function special form), numbers, and  arrays.   Catch
+    frames are established by the catch special form and serve as targets of
+    throw for non-local transfer of control.  Labels that serve  as  targets
+    of go may be denoted by symbols or integers.  Blocks are denoted by sym-
+    bols.
+
+    Scoping rules rely on the two distinct concepts of SCOPE and  EXTENT  to
+    resolve  references.   SCOPE  is the spatial domain (speaking of program
+    text) within which a certain expression has a specified association with
+    an  entity.   EXTENT  is the time domain (speaking of a running program)
+    within which an association is valid. EXTENT is also  used  to  describe
+    the lifetime of entities independent of any associations.
+
+    A VARIABLE in LISP is an expression that  denotes  a  location  where  a
+    VALUE  may  be  stored.   A VALUE is any LISP datum.  (In a purely func-
+    tional language where variables are always lambda-bound, variables  sim-
+    ply  name  values.   One need not introduce the concept of location of a
+    value.  In COMMON LISP, however, the presence of destructive  assignment
+    compels us to use a model in which variables name locations where values
+    can be stored, since values associated with  variables  can  be  changed
+    without  creating  a new binding.) In LISP, variables are represented by
+    symbols.  When a symbol is evaluated,  the  value  of  the  variable  it
+    represents  is  returned.   It is very important to realize that symbols
+    are also a basic type of LISP datum, and they have  properties  indepen-
+    dent  of  their use in designating variables, whereas in most other pro-
+    gramming languages a variable is denoted by an identifier that is  mean-
+    ingful  only  in  identifying the location of a value.  In particular, a
+    symbol has a name, a value, a function  or  macro  definition  (but  not
+    both),  a  property  list, and a home package.  Of these attributes of a
+    symbol, one cannot speak of the  value  or  of  the  function  or  macro
+    definition  without specifying the context in which the symbol is inter-
+    preted.  The symbol name, property list, and  home  package  are  global
+    attributes and not affected by context.
+
+    A symbol is a composite data structure consisting of cells for at  least
+    the property list, print name, and home package.  The underlying mechan-
+    ics  of  establishing  and  resolving  symbol  values  and  bindings  is
+    implementation-dependent,  and  a  symbol  may  in  fact have other com-
+    ponents.  Setting aside the package system and  disallowing  duplicitous
+    modification  of  symbol name cells, there is only one symbol associated
+    with a given name.  It is the name that maps a textual string of charac-
+    ters to a symbol.  (This mapping happens in the COMMON LISP reader.)  It
+    is the symbol that is mapped to a  value  or  to  a  function  or  macro
+    definition  when  it is evaluated or used in some context.  Depending on
+    the implementation, and depending on whether a  program  is  run  inter-
+    pretively or as compiled code, the value of a variable may have no asso-
+    ciation with a symbol object.  In particular, the (accessible) value  of
+    a  variable  may not be stored in the corresponding symbol's value cell,
+    if in a given implementation a symbol has a value cell.  The  considera-
+    tion of where a value of a variable is stored does not affect the seman-
+    tics of programs, but it is useful in understanding some of the concepts
+    of scoping.
+
+    The term BINDING and its derivative terms BOUND and  UNBOUND  are  some-
+    times  loosely  applied.   For  this  discussion, we define and use them
+    strictly.  A BINDING is an association between a variable and a value or
+    between  a variable and no value, and it is one that potentially SHADOWS
+    an association between the variable and a possibly different value.   To
+    SHADOW an association means to replace, within some scope or extent, one
+    association with another.  When the scope of the  shadowing  association
+    is  left  or when its extent is exhausted, the association that had been
+    replaced is once again valid.  It is as if the new association sits atop
+    the  old  one,  casting  a  shadow  that  blocks  the  old association's
+    validity.  When the new association is dissolved, the old one  is  still
+    there beneath it and becomes valid again.  (In some implementations, the
+    internal mechanism may in fact reflect this metaphor.)  To say  a  vari-
+    able  is  associated  with no value means that the value associated with
+    the variable is explicitly undefined.  In addition  to  the  association
+    between  variables  and  values,  binding  also encompasses associations
+    between symbols and function or  macro  definitions.   Using  the  flet,
+    labels,  or macrolet forms, it is possible in COMMON LISP to shadow such
+    associations.  We may distinguish these associations by using the  terms
+    VARIABLE BINDING and FUNCTION BINDING.
+
+    A value may be associated with a variable in two ways:  the  association
+    may be established by a binding, or it may be a `global' association.  A
+    value not established by a binding is the global value of a symbol, usu-
+    ally  stored  in  the  value cell of the symbol object if it has a value
+    cell in a given implementation.  Such a symbol interpreted as a variable
+    is  called  a  global  variable.   Such  a  variable can only be special
+    (defined below).  The global value of a variable is visible  outside  of
+    any bindings of that (special) variable.  One way to model global values
+    and bound values in a consistent framework is to postulate an  outermost
+    or top-level binding environment in which all global variables are bound
+    to their corresponding global values.
+
+    The terms BINDING OF A VARIABLE and VALUE OF A VARIABLE are  often  used
+    interchangeably  to refer to a value associated with a variable, whether
+    the association is by a binding or one between a global value and a glo-
+    bal  variable.   A  more  meticulous  usage  has  the  term BINDING OF A
+    VARIABLE meaning the value associated with a variable by a binding,  and
+    contrasting with the VALUE OF A VARIABLE, meaning the global value asso-
+    ciated with a global variable.  Because in this discussion the  distinc-
+    tion  between these two types of values is often important, we adopt the
+    more exacting definitions of these two terms.
+
+    The adjective UNBOUND is used to describe a variable that has no binding
+    (but it may have a global value).  (An unbound variable may have a value
+    if it is a global variable.)  The adjective BOUND describes  a  variable
+    that  has  a binding (but it may have no global value).  A variable that
+    is BOUND may nonetheless have an undefined value for that  binding.   (A
+    common  undisciplined  usage  of  UNBOUND and BOUND applies them to both
+    global values and values established by bindings.  In such usage, saying
+    a  variable  is unbound means that it neither has a binding nor a global
+    value.) Consider the code below to be the entire LISP world.
+
+    (defvar *global* #\A)
+
+    (let ((*global* #\B))
+      (values (prog1 *global* (makunbound '*global*))
+              (boundp '*global*))) => #\B nil
+
+    *global* => #\A
+
+    The variable *global* is a global variable, implicitly declared  special
+    by  the defvar form.  It has a global value equal to the uppercase char-
+    acter object #\A.  The let form binds a special  variable  *global*  and
+    shadows  the  global value of the variable.  The binding of the variable
+    in the let is initially #\B.  The makunbound function makes its  binding
+    undefined, so the subsequent application of the predicate boundp returns
+    nil.  Only its binding is made undefined.  Once outside of all bindings,
+    *global*  still  has the (global) value #\A.  Slightly different is this
+    world.
+
+    (defvar *g* 10)
+
+    (let ((var 20))
+      (values *g* var)) => 10 20
+
+    In the strictest sense, the variable *g* in the let form has no  binding
+    but it has a value, its global one.  The variable var on the other hand,
+    has a binding but no value.
+
+    When speaking of macro or function definitions, the global definition is
+    the  definition  associated  with a symbol not established by a function
+    binding.  The lexical definition or macro or function  binding  is  that
+    association established by an flet, labels, or macrolet form.
+
+    Associations that are established by LISP forms (for example let, catch,
+    flet,  block) are established anew each time the LISP form is evaluated.
+    Thus in a recursive function,  new  bindings  of  lambda-list  variables
+    (formal  parameters)  to their values (actual parameters) is established
+    on each application.  This applies equally  to  block  names  and  catch
+    frames.   Confusion  can  arise  when  lexical closures generated by the
+    function  special  form  (described  below)  are  used.   Fundamentally,
+    expressions in a LISP program are merely convenient (and static) textual
+    representations that in the course of running the  program  represent  a
+    number  of  distinct  (and  dynamic) associations.  This is particularly
+    evident in the definition of a recursive function.  The  dynamic  nature
+    of  the  associations  becomes  clear if one `unrolls' the definition by
+    repeatedly (ad infinitum) replacing self-applications of the function by
+    name  with the actual body of the function.  By unrolling the definition
+    in this way, one is in a sense projecting the  time  (execution)  domain
+    onto  the  space  (textual)  domain.   An  example of such a function is
+    discussed below.
+
+
+    Having established our basic terminology, we can define  the  two  basic
+    types of scope and of extent in COMMON LISP.
+
+    Associations with LEXICAL SCOPE are valid within the spatial domain of a
+    LISP  form  that  establishes  the  association.  Examples of LISP forms
+    establishing lexical associations are let and block.   Within  the  LISP
+    form,  the  association exists.  Once control leaves the form, the asso-
+    ciation  is  dissolved.  Contrast  this  with  associations  that   have
+    INDEFINITE  SCOPE:  such associations are valid in any spatial domain of
+    the LISP program.
+
+    DYNAMIC EXTENT constrains an association to a time  domain  that  begins
+    when  a  LISP  form  establishes  the association and that ends when the
+    association is disestablished, usually when control  leaves  the  estab-
+    lishing  form.  On the other hand, an association with INDEFINITE EXTENT
+    survives as long as the association is meaningful.  Speaking of entities
+    rather  than  associations, an entity with dynamic extent has a lifetime
+    that begins when a LISP form creates the entity and that ends  when  the
+    entity  is  destroyed,  usually  when  control leaves the creating form.
+    Entities with indefinite extent survive as long as it  remains  possible
+    to reference them.
+
+    An association that has indefinite scope and dynamic  extent  is  called
+    DYNAMICALLY SCOPED.
+
+    Associations in COMMON LISP can  be  classified  using  the  above  four
+    categorizations:  lexical  and  indefinite  scope, and dynamic and inde-
+    finite extent.
+
+    Variable bindings normally have lexical scope and indefinite extent.  If
+    the variables bound are declared special, their bindings have indefinite
+    scope and dynamic extent.  A variable that is  defined  outside  of  any
+    binding  is  necessarily  special.   As  mentioned above, inner bindings
+    shadow both outer bindings and global values.
+
+    (defvar *v* 10) => *v*
+
+    (defun v-value ()
+      (declare (special v))
+      v)
+
+    (let ((v 10)
+          (w 0))
+      (declare (special v))
+      (apply
+       #'values
+       v                            ; bound value of special
+       *v*                          ; global value of special
+       w                            ; bound value of lexical
+       (let ((*v* 20)
+             (v 20)
+             (w 10))
+         (list v                    ; bound value of lexical
+               *v*                  ; bound value of special
+               w                    ; bound value of lexical
+               (symbol-value 'v)    ; bound value of special
+               (v-value)))))        ; bound value of special
+      => 10 10 0 20 20 10 10 10
+
+    *v* => 10                       ; global value of special
+
+    The example above illustrates variable scoping rules.  The  symbol-value
+    function  is  defined  to  return the value of a special variable at the
+    time when the symbol-value function  is  applied.   The  argument  given
+    symbol-value  always names a special variable.  An error is signalled if
+    there is no special variable by the given name,  if  the  named  special
+    variable  is bound but has an undefined value, or if the variable has no
+    binding and also has no (global) value.
+
+    Macro or function bindings established by  flet,  labels,  and  macrolet
+    have  lexical  scope  and indefinite extent.  Such bindings shadow outer
+    bindings and global macro or function definitions.
+
+    (setf *f* (flet ((car (l) (cdr l)))
+                #'(lambda (l) (car l))))
+
+    (funcall *f* '(1 2)) => (2)
+
+    A catch frame established by a  catch  form  has  indefinite  scope  and
+    dynamic  extent.   A  catch  frame may be identified by any LISP object.
+    The reference to a frame is made only by throw.  In  contrast,  a  block
+    established with block has lexical scope and dynamic extent.  Many forms
+    in COMMON LISP establish implicit blocks.  tagbody  labels  (symbols  or
+    integers)  that  serve  as  targets  for  go also have lexical scope and
+    dynamic extent.  Catch frames, tagbody labels, and  blocks  can  all  be
+    shadowed.   In  the  case  of catch frames, the shadowing is dynamic, so
+    that catch forms that are evaluated in the future with a tag eq  to  one
+    previously  established will shadow the earlier association between that
+    tag and the earlier catch frame. tagbody labels and blocks are  shadowed
+    lexically.
+
+    (defun catcher (thrower tag)
+      (list
+       (catch tag
+         (funcall thrower tag))))
+
+    (catcher
+     #'(lambda (tag)
+         (catcher #'(lambda (tag) (throw 'red 0))
+                  'green))
+     'red) => (0)
+
+    (catcher
+     #'(lambda (tag)
+         (catcher #'(lambda (tag) (throw 'red 0))
+                  'red))
+     'red) => ((0))
+
+    Constants such as t and pi have indefinite scope and indefinite  extent.
+    Constants cannot be bound, and thus they cannot be shadowed.
+
+    A consequence of lexical scoping in  COMMON  LISP  is  that  it  may  be
+    necessary  for  the  function special form to generate a LEXICAL CLOSURE
+    when it surrounds a lambda expression.  A lexical closure is a  function
+    object  that incorporates information about the lexical context in which
+    the lambda expression appeared such that when  the  lexical  closure  is
+    applied  the  rules  of  lexical scoping as outlined above are observed.
+    The act of  preserving  contextual  information  about  associations  is
+    called  CLOSING  OVER  the associations.  Note that the function special
+    form does not close over special variable bindings.  Further, it is  not
+    possible in COMMON LISP to explicitly close over specific variable bind-
+    ings.  Closures implicitly close over all relevant associations, includ-
+    ing  blocks  and  tagbody  labels.   The  closures  are created when the
+    function special form is evaluated.
+
+    (defun confounder (&optional (i 1) (j (1- i)))
+      (labels
+          ((confounderer (n funs)
+             (block confound
+               (return-from confounderer
+
+
+                 (if (zerop n)
+                     (funcall (elt funs j))
+                   (confounderer
+                    (1- n)
+                    (cons
+                     #'(lambda ()
+                         (return-from confound))
+                     funs)))))
+             n))
+        (confounderer i nil)))
+
+    (confounder 1 0) => 1
+    (confounder 2 0) => 1
+    (confounder 2 1) => 2
+
+    The values returned are explained by noting that  the  function  special
+    form  returns a closure such that the symbol confound is associated with
+    the block confound in the same recursive  application  of  confounderer.
+    (Recall  that  the  reader  syntax  ``#'''  is  equivalent  to using the
+    function special form.) When such a closure is applied, it returns  from
+    the  block  associated with the application of confounderer that created
+    the closure.   This  illustrates  the  notion  of  dynamic  associations
+    discussed  earlier  with  respect  to recursive functions.  The sense of
+    distinct blocks named confound  being  associated  with  each  recursive
+    application  of  confounderer is really no different from distinct asso-
+    ciations of the formal parameters n and funs with their actual arguments
+    on  each such application.  Note that blocks have dynamic extent, and in
+    the above  example  all  blocks  are  active  when  the  return-from  is
+    evaluated.
+
+    ;;;  This example is in error.
+    (defun retrogressor (val)
+      (block past
+        #'(lambda ()
+            (return-from past)))
+      val)
+
+    (setf *f* (retrogressor 10))
+
+    (funcall *f*) => ERROR
+
+    Attempting to apply the closure *f* signals an error because  the  block
+    named  past  is  no  longer  active, since the function retrogressor has
+    already returned.
+
+    (defun cooperating-counters
+        (&optional (counter 0) (increment 1))
+      (values
+       #'(lambda (val)
+           "Initialize counter increment."
+           (setf increment val))
+       #'(lambda (val)
+           "Initialize counter."
+           (setf counter val))
+       #'(lambda ()
+           "Bump up counter to next odd value."
+           (incf counter increment)
+           (if (oddp counter) counter (incf counter)))
+       #'(lambda ()
+           "Bump up counter to next even value."
+           (incf counter increment)
+           (if (evenp counter)
+               counter
+             (incf counter)))))
+
+    (multiple-value-setq (*i* *c* *o* *e*) (cooperating-counters))
+
+    (funcall *o*) => 1
+    (funcall *o*) => 3
+    (funcall *o*) => 5
+    (funcall *e*) => 6
+    (funcall *e*) => 8
+
+    (funcall *c* 7) => 7
+    (funcall *e*) => 8
+    (funcall *i* 3) => 3
+    (funcall *e*) => 12
+
+    Closures may share bindings as illustrated in this example.  In  all  of
+    the function special forms, the variables counter and increment refer to
+    precisely one set of variables, those bound by  the  lambda  list.   The
+    resulting closures therefore share that common binding.
+
+    As a final example of closures, here is a  definition  of  the  fixpoint
+    combinator  Y of the lambda calculus, along with the canonical factorial
+    function implemented using the fixed point of  a  B-abstraction  of  its
+    recursive definition.
+
+    (defun Y (h)
+      "The fixpoint combinator Y of the lambda calculus.
+       Returns the fixed point of its functional argument."
+      (funcall
+       #'(lambda (x)
+           #'(lambda (g)
+               (funcall (funcall h (funcall x x)) g)))
+       #'(lambda (x)
+           #'(lambda (g)
+               (funcall (funcall h (funcall x x)) g)))))
+
+    (defun factorial (n)
+      "Factorial function defined using the fixed point of
+       the beta-abstraction of the recursive definition."
+      (funcall
+       '#,(Y #'(lambda (f)
+                 #'(lambda (n)
+                     (if (zerop n) 1 (* n (funcall f (1- n)))))))
+       n))
+
+    (defun simple-factorial (n)
+      "Simple recursive factorial function."
+      (if (zerop n) 1 (* n (simple-factorial (1- n)))))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

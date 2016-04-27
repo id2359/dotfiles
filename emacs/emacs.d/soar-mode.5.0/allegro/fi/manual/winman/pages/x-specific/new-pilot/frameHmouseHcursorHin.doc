@@ -1,0 +1,132 @@
+
+                                                       frame-mouse-cursor-in
+
+
+    METHOD
+    frame-mouse-cursor-in  -  respond to a mouse-cursor-in event
+
+    Usage
+    frame-mouse-cursor-in WSTREAM MOUSE-STATE [TRANSITION]
+
+    DESCRIPTION
+    The system calls this method whenever the mouse cursor enters the  frame
+    of WSTREAM, which must be a window-stream.  Such an occurrence is called
+    a `cursor-in' or `enter' event, as well as a `mouse-cursor-in' event.
+
+    You do not (normally) call this method directly.  Instead, you add  your
+    own  functions  to  the  list of functions called by this method.  Those
+    functions must have the same lambda list (that is, take the  same  argu-
+    ments in the same order) as the method itself.
+
+    A mouse-cursor-in event can only be generated if the mouse is entering a
+    portion  of  the  frame  that is not occluded (covered) by other windows
+    (active-regions cannot cover the frame).  Also, if  a  mouse  button  is
+    depressed  over a mouse sensitive region, all mouse events are caught by
+    the region regardless of the position of the cursor until the button  is
+    released.   Therefore,  if  the  cursor enters the frame with any button
+    down, you get the enter event when the button is released in  the  frame
+    (the  button  up  event  going  to  the  region  where  the  button  was
+    depressed).  If the cursor leaves the frame  without  the  button  being
+    released, no cursor in event occurs.  Also, if the mouse cursor location
+    is moved  programmatically  (with,  say,  set-mouse-position)  into  the
+    frame, a cursor in event is generated.
+
+    The  argument  MOUSE-STATE  is  a  mouse-state  and  the  the   argument
+    TRANSITION   is   an  integer  representing  a  mouse  event.   For  the
+    frame-mouse-cursor-in method, the value of the  TRANSITION  argument  is
+    the  value  of  the  constant  *mouse-cursor-in-event*.  The MOUSE-STATE
+    argument records the mouse state when the  enter  event  occurred.   The
+    position  component of MOUSE-STATE is the position of the mouse, in phy-
+    sical coordinates of WSTREAM, at the  time  the  event  occurred.   (The
+    position  will  be  inside  the  frame  and may be inside the window, of
+    course.) The button-state component tells you  what  mouse  and  special
+    keyboard buttons were down when the even occurred.  Functions you add to
+    the list of functions called by the method should use the information in
+    the arguments as necessary to achieve the desired result.
+
+    The TRANSITION argument is useful only when you  are  writing  functions
+    that  will be added to several different kinds of methods (mouse-cursor-
+    in, mouse-cursor-in, left-button-down, and so on).   Obviously,  if  you
+    are  writing  a  function  that  will  only  be  added  to  the list for
+    frame-mouse-cursor-in, you do not need to look at the  TRANSITION  argu-
+    ment  to  know  that  it was a mouse-cursor-in event that happened.  You
+    must allow for the TRANSITION argument in any function that you  add  to
+    the  method  since that function will be called by the system with three
+    arguments.  If you call this method  directly,  however,  (not  a  usual
+    thing, but certainly permitted), you need not specify the third argument
+    since it is optional.
+
+    When the mouse cursor enters WSTREAM,  the  system  calls  this  method,
+    which  in  turn  calls all the functions, in order, in the list of func-
+    tions returned by window-stream-frame-mouse-cursor-in.   Initially,  the
+    list  contains  the  single function default-window-stream-mouse-cursor-
+    in-method, which is a null function (its only action is to return  nil),
+    so  no action results from a mouse-cursor-in event on a window-stream or
+    unless you modify the method for that window-stream.  You add  functions
+    to  and remove them from the list with modify-window-stream-method.  You
+    can also replace the entire list setfbyusing and  the  function  window-
+    stream-frame-mouse-cursor-in.   You  can restore the list to its initial
+    state (that  is,  to  do  nothing)  with  restore-default-window-stream-
+    method.
+
+    The frame-mouse-cursor-in method returns what is returned  by  the  last
+    function  in  the  list of functions called by the method.  If this list
+    has not been  changed  from  its  initial  value,  frame-mouse-cursor-in
+    returns nil.
+
+    EXAMPLES
+    ;;  We define a frame mouse-cursor-in-method and make a window.
+
+    (defun my-frame-mouse-cursor-in (wstream mouse-state event)
+      (declare (ignore event))
+      (format wstream "Cursor is now in. ~%"))
+
+    (setf *my-win*
+          (make-window-stream :title "My Window"
+           :left 100 :bottom 100
+           :width 200 :height 200
+           :activate-p  t))
+
+    ;;  We check the list of functions called by the method.
+    (window-stream-mouse-cursor-in *my-win*)
+      => (default-window-stream-mouse-cursor-in-method)
+
+    (modify-window-stream-method *my-win* :frame-mouse-cursor-in
+                                 :after 'my-frame-mouse-cursor-in)
+
+    ;;  The list of functions called is now changed.
+    (window-stream-mouse-cursor-in *my-win*)
+      => (default-window-stream-mouse-cursor-in-method
+           my-frame-mouse-cursor-in)
+
+    SEE ALSO
+    frame-left-button-down, frame-left-button-up, frame-middle-button-down,
+    frame-middle-button-up, frame-mouse-cursor-in, frame-mouse-cursor-move,
+    frame-right-button-down, frame-right-button-up
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

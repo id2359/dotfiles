@@ -1,0 +1,666 @@
+
+                                                                        &key
+
+
+    Lambda-List KEYWORD
+    &key  -  specify keyword arguments
+
+    Usage
+    &key {KVAR | ({KVAR | (KEYWORD VAR)} [INITFORM [SVAR]])}*
+
+    DESCRIPTION
+    The lambda-list keyword &key introduces the  keyword  arguments  in  the
+    lambda  list  of  a lambda expression or a function or macro definition.
+    Parameter specifications that follow &key (up to  the  next  lambda-list
+    keyword or the end of the lambda list) describe keyword arguments to the
+    function or macro.
+
+    When the function or macro is called, the keyword arguments must  follow
+    all  required  arguments  AND all optional arguments.  The keyword argu-
+    ments are optional and may be provided in any order.  Each keyword argu-
+    ment consists of two consecutive elements in the argument list: the key-
+    word and its value.  In this discussion we refer to two such consecutive
+    elements  in  an  argument  list  as a keyword-argument pair.  A keyword
+    argument matches a keyword parameter when the keyword of the pair is the
+    same  symbol  as  the  keyword  symbol  in  a  parameter specifier.  The
+    corresponding parameter variable is bound to the  value  of  the  actual
+    keyword  argument  when the function or macro is called.  It is an error
+    if the first element in each keyword-argument pair is not  a  symbol  in
+    the  keyword package.  Because keyword arguments come in pairs, it is an
+    error if the number of elements remaining in  the  argument  list  after
+    processing  required  and  optional  arguments is not even.  If there is
+    more than one actual keyword argument  that  matches  a  single  keyword
+    parameter in the lambda list, the leftmost keyword argument is processed
+    and the others are ignored.
+
+    Each parameter specifier that follows &key in the  lambda  list  may  be
+    either  a list or a symbol KVAR.  A parameter specifier that is a symbol
+    specifies an argument whose keyword is a symbol in the  keyword  package
+    with  the  same print name as the parameter symbol KVAR.  Thus if a key-
+    word parameter specifier is rewind, then the keyword  symbol  that  must
+    appear in an argument list is :rewind.
+
+    A parameter specifier that is a list must have one, two, or  three  ele-
+    ments.  The first element is either a symbol or a list.  If it is a sym-
+    bol, the argument keyword is a symbol in the keyword  package  with  the
+    same  print name as the parameter symbol KVAR.  If it is a list, it must
+    consist of two elements.  The first element KEYWORD is the keyword  sym-
+    bol  for  the  argument,  which must be a symbol in the keyword package.
+    The second element VAR is the parameter variable.  It  is  important  to
+    note  that  in  order  to  specify explicitly the keyword symbol and the
+    parameter symbol, they must be in a list, which itself must be the first
+    element  of  a  parameter-specifier  list.   Thus  the keyword parameter
+    specifier ((:rewind rewind-value)) specifies a keyword argument  :rewind
+    that  will  bind  the variable rewind-value within the macro or function
+    definition.
+
+    The second element of a parameter  specifier  that  is  a  list  is  the
+    initial-value   form   INITFORM.   If  no  value  is  supplied  for  the
+    corresponding keyword argument when the function or macro is called, the
+    INITFORM  is  evaluated to provide a default value for the keyword argu-
+    ment.  The INITFORM itself defaults to nil.   The  third  element  of  a
+    parameter-specifier  list  is  the  `supplied-p'  variable SVAR.  When a
+    value is supplied for the keyword argument, this variable will be  bound
+    to a non-NIL value, otherwise it will be bound to nil.
+
+    The initial-value form INITFORM may contain references to other  lambda-
+    list parameter variables and supplied-p variables appearing in parameter
+    specifiers to its left in the lambda list.  The parameter variables  may
+    correspond  to  required or optional arguments or to other keyword argu-
+    ments.  These parameter variables and  supplied-p  variables  will  have
+    been  bound  when  INITFORM  is evaluated, since actual arguments in the
+    call form are assigned to formal parameters in the lambda list from left
+    to right.  The INITFORM may rely on the fact that the parameter variable
+    for the parameter specifier in which it appears has not yet  been  bound
+    when INITFORM is evaluated.
+
+    The supplied-p variable SVAR allows one to distinguish between an absent
+    keyword argument and a keyword argument that was specified with the same
+    value as the default value.  The default value  is  either  nil  or  the
+    value of INITFORM if it was specified.
+
+    The actual arguments in a function-call or macro-call form are processed
+    in  order, left to right.  After the required and optional arguments are
+    processed, the keyword arguments (if there are any specified)  are  pro-
+    cessed.  Keyword arguments are specified in pairs as noted above.  It is
+    normally an error if each keyword element of a pair does not  correspond
+    to  a  keyword  argument specified in the lambda list of the function or
+    macro.  The lambda-list keyword &allow-other-keys or the actual  keyword
+    argument :allow-other-keys may be used to override this requirement.
+
+    The lambda-list keyword &allow-other-keys must follow all keyword param-
+    eter specifiers in the lambda list.  If present, it is permitted to have
+    actual keyword arguments that do not match a keyword  parameter  in  the
+    lambda  list.  Alternatively, the function or macro call may include the
+    keyword argument :allow-other-keys with a non-nil  value.   Any  keyword
+    arguments  in the argument list that do not match a keyword parameter in
+    the lambda list will be ignored, but they will  be  collected  into  the
+    list  bound  to  the  &rest parameter variable if one is specified.  All
+    actual keyword arguments are collected into a list for an &rest  parame-
+    ter variable.
+
+    When the &key and &rest lambda-list keywords both  appear  in  a  lambda
+    list,  &rest  must  precede &key.  (In a macro lambda list, &body may be
+    used instead of &rest.  The behavior of the two is identical as  far  as
+    this discussion is concerned.) Using &allow-other-keys and &rest permits
+    more than one function to `share' the same argument list.  One  function
+    may  be  process  some  of  the arguments, and pass on others to another
+    function.
+
+    Keyword arguments are often preferred to optional (&optional)  arguments
+    since  they  too are optional and yet may be specified in any order.  If
+    there are several optional arguments, on the other hand,  they  must  be
+    specified  in  order,  so  that  if  one  is only interested in the last
+    optional argument, one must nonetheless specify all the ones before  it.
+    Keywords  can  also have descriptive names, making it easier to remember
+    the arguments to a function.  The semantics of keyword arguments depends
+    on the function or macro definition itself.  It may, for example, be the
+    case that specifying one keyword argument precludes specifying  another,
+    such  as  the :test and :test-not keywords for sequence functions.  Such
+    exclusions cannot be enforced using parameter  specifiers  in  a  lambda
+    list.  The function or macro definition itself must deal with this.
+
+    EXAMPLES
+    ;;  In this example, the keyword argument D is identified
+    ;;  by the keyword :Z, not :D.
+    (defun foo (a &key b (c a s) ((:z d)))
+      (list a b c s d)) => foo
+    (foo 1) => (1 nil 1 nil nil)
+    (foo 1 :c 2) => (1 nil 2 t nil)
+    (foo 1 :c 2 :b 3 :z 4 :b 5) => (1 3 2 t 4)
+    (foo 1 2) => ERROR
+
+    ;;  Function FOO can be called with extra keyword arguments when
+    ;;  the pair :ALLOW-OTHER-KEYS T is added to the argument list:
+    (foo 1 :c 2 :b 4 :z 8 :new-key 9 :allow-other-keys t)
+      => (1 4 2 t 8)
+
+    ;;  When BAR is defined with the same keyword arguments as
+    ;;  FOO, but an &REST arg as well, additional keyword arguments
+    ;;  specified at run time are available in the &REST list:
+    (defun bar (a &rest arg &key b (c a s) ((:z d)))
+      (list a b c s d arg)) => bar
+    (bar 1) => (1 nil 1 nil nil nil)
+    (bar 1 :c 2) => (1 nil 2 t nil (:c 2))
+    (bar 1 :c 2 :b 4 :new-key 9 :allow-other-keys t)
+      => (1 4 2 t nil (:c 2 :b 4 :new-key 9 :allow-other-keys t))
+
+    ;;  BAZ allows other keyword arguments without :ALLOW-OTHER-KEYS
+    ;;  since &ALLOW-OTHER-KEYS is in the lambda list.  Note
+    ;;  there is also a &REST arg so extra keys will be
+    ;;  available in the list bound to arg:
+    (defun baz (a &rest arg
+                  &key b (c a s) ((:z d)) &allow-other-keys)
+      (list a b c s d arg)) => baz
+    (baz 1 :c 2 :b 4 :z 8 :new-key 9)
+      => (1 4 2 t 8 (:c 2 :b 4 :z 8 :new-key 9))
+
+    ;;  The following example shows an initial form being used:
+    (setq x "global")
+    (defun goo (&key (w x) x) (list w x))
+    (goo :x "local") => ("global" "local")
+    (defun hoo (&key x (y x)) (list x y))
+    (hoo :x "local") => ("local" "local")
+
+    SEE ALSO
+    CLtL 5:60, about forms, about keywords, about lambda lists, &allow-
+    other-keys, :allow-other-keys, &aux, &body, defmacro, defun,
+    &environment, &optional, &rest, &whole
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

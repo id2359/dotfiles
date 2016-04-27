@@ -1,0 +1,66 @@
+
+                                                       user-homedir-pathname
+
+
+    FUNCTION
+    user-homedir-pathname  -  get pathname of user's home directory
+
+    USAGE
+    user-homedir-pathname [host]
+
+    DESCRIPTION
+    The definition of the user's home directory is implementation-dependent.
+    Whatever definition is used by an implementation, this function returns,
+    as a pathname, the path to that directory on the host machine identified
+    by HOST.  If it cannot discover the necessary information, this function
+    returns a pathname with nil name, type and version components if HOST is
+    not  specified,  and  returns nil if HOST is specified.  The default for
+    HOST and its interpretation are implementation-dependent.
+
+    EXAMPLES
+    In a hypothetical case, user DM on a Unix-like system might see the fol-
+    lowing results:
+
+    (directory-namestring (user-homedir-pathname)) => "/usr/tech/dm"
+
+    SEE ALSO
+    CLtL 23:418, directory-namestring, make-pathname, pathname
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

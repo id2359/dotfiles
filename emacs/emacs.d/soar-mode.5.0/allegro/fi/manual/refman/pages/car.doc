@@ -1,0 +1,66 @@
+
+                                                                         car
+
+
+    FUNCTION
+    car  -  get the CAR of a list
+
+    USAGE
+    car list
+
+    DESCRIPTION
+    Returns the car of LIST, which must be a cons or nil (that is,  it  must
+    be  of  type  list).  The car of nil is defined to be nil.  The car of a
+    list is the first element in the printed representation of the list.
+
+    EXAMPLES
+    (car '(a . b)) => a
+    (car (cons 'a 'b)) => a
+    (car '(w x y z)) => w
+    (car '(((u) v))) => ((u) v)
+    (car '(1 2 3)) => 1
+    (car ''a) => quote
+    (car nil) => nil
+    ;;  Cannot take the car of a non-cons.
+    (car 'x) => ERROR
+
+    SEE ALSO
+    CLtL 15:262, cdr, cons, first, rplaca
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

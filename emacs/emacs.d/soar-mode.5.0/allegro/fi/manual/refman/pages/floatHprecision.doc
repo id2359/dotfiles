@@ -1,0 +1,66 @@
+
+                                                             float-precision
+
+
+    FUNCTION
+    float-precision  -  get the number of significant digits in the internal
+      representation of a floating-point number
+
+    USAGE
+    float-precision float
+
+    DESCRIPTION
+    This function returns the number  of  significant  digits  used  in  the
+    internal  representation of the floating-point number FLOAT.  The digits
+    are taken to  be  in  the  radix  of  the  representation  (returned  by
+    float-radix).
+
+    If the argument to float-precision is a floating-point zero,  the  value
+    returned  is  zero.   The value returned by float-precision is less than
+    that returned by float-digits for a denormalized floating-point number.
+
+    EXAMPLES
+    ;;  The value are implementation-dependent.
+    (float-precision 1.0) =>  24
+    (float-precision 0.0) => 0
+    (float-precision 10.0d0) => 53
+
+    SEE ALSO
+    CLtL 12:218, decode-float, float-digits, float-radix, float-sign,
+    integer-decode-float, scale-float
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

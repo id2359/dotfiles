@@ -1,0 +1,66 @@
+
+                                                                      member
+
+
+    Type SPECIFIER
+    member  -  specify a data type (as a set) by enumerating its elements
+
+    Usage
+    (member {OBJECT}*)
+
+    DESCRIPTION
+    Specifies a data type as a set whose members are precisely those OBJECTS
+    listed.   For an object to be of this type, it must be eql to one of the
+    given OBJECTS.
+
+    EXAMPLES
+    (typep 2 '(member 1 2 3)) => t
+    (typep 4 '(member 1 2 3)) => nil
+
+    SEE ALSO
+    CLtL 4:44, about type specifiers, eql, typep
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                                       svref
+
+
+    FUNCTION
+    svref  -  get an element of a simple general vector
+
+    USAGE
+    svref simple-vector index
+
+    DESCRIPTION
+    Returns the element of SIMPLE-VECTOR at index INDEX.   The  indexing  is
+    zero-based,  so  the  first element is at index 0.  The vector must be a
+    simple general vector, that is a unidimensional array of element type  t
+    that  has  no  fill  pointer,   is not displaced, and is not adjustable.
+    This function may be used in  conjunction  with  setf  to  destructively
+    replace an element of a vector.
+
+    EXAMPLES
+    (let ((w  (vector 'a 'b 'c 'd 'e)))
+      (svref w 4)) => e
+    (let ((w (vector 'a 'b 'c 'd 'e) ))
+      (setf (svref w 4)'z)
+      w) => #(a b c d z)
+
+    SEE ALSO
+    CLtL 17:291, :adjustable, array-has-fill-pointer-p, :displaced-to,
+    :fill-pointer, make-array, simple-vector-p
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                            set-exclusive-or
+
+
+    FUNCTION
+    set-exclusive-or  -  create a new list using elements on either of two
+      lists, but not both
+
+    USAGE
+    set-exclusive-or list1 list2 [{:test | :test-not} pred] [:key keyfnc]
+
+    DESCRIPTION
+    Returns a list formed by those elements appearing in one or the other of
+    the  lists  LIST1  and  LIST2, but not in both.  Precisely, the returned
+    list contains every element of either list for which there is no  match-
+    ing  element  in  the  other  list.  This is determined done as follows.
+    Pairs of elements, one from each list, are considered.  If the  elements
+    in a pair are eql, neither element appears in the resulting list.
+
+    A test predicate other than eql may be used by specifying  PRED  as  the
+    value  of either the :test or the :test-not keyword argument.  PRED must
+    be a function that accepts two arguments (one element  from  LIST1,  one
+    from  LIST2,  passed in that order).  If PRED is the value of :test, the
+    elements match if PRED returns true.  If PRED is the value of :test-not,
+    the elements match if PRED returns false.  It is an error to supply both
+    :test and :test-not keyword arguments.
+
+    If the keyword argument :key is specified and its value  KEYFNC  is  not
+    nil,  KEYFNC  must  be a function that accepts one argument.  It will be
+    applied to each element of both lists  before  they  are  tested.   When
+    unspecified or nil, it effectively defaults to the function identity.
+
+    The order of elements  in  the  resulting  list  is  not  defined.   The
+    destructive version of this function is nset-exclusive-or.
+
+    EXAMPLES
+    (set-exclusive-or '(1 2 3) '(4 5 6)) => (1 2 3 4 5 6)
+    (set-exclusive-or '(1 2 3) '(2 3 4)) => (1 4)
+    (set-exclusive-or '(1 1 2 3) '(2 3 4)) => (1 1 4)
+    (set-exclusive-or '((a 1) (b 2)) '((b 3) (c 4))
+                      :key #'car) => ((a 1) (c 4))
+    (set-exclusive-or '(3 4) '(1 2) :test #'<) => (3 4 1 2)
+    (set-exclusive-or '(3 4) '(1 2) :test #'>) => nil
+    (set-exclusive-or '(3 4) '(1 2) :test-not #'<) => nil
+    (set-exclusive-or '(3 4) '(1 2) :test-not #'>) => (2 1 4 3)
+
+    SEE ALSO
+    CLtL 15:278, intersection, :key, member, nset-difference, nset-
+    exclusive-or, set-difference, subsetp, :test, :test-not, union
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

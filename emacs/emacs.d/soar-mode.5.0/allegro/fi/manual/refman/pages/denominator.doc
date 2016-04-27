@@ -1,0 +1,66 @@
+
+                                                                 denominator
+
+
+    FUNCTION
+    denominator  -  get the denominator of a rational number
+
+    USAGE
+    denominator rational
+
+    DESCRIPTION
+    Returns the denominator of the canonical reduced form of RATIONAL, which
+    must  be  a  ratio  or an integer.  If RATIONAL is an integer, then 1 is
+    returned.  The denominator of a rational in  canonical  form  is  always
+    strictly  positive  (the  sign is carried by the numerator).  The gcd of
+    the numerator and denominator of a rational, as  returned  by  numerator
+    and denominator, respectively, is always 1.
+
+    EXAMPLES
+    (denominator (/ -1 2)) => 2
+    (denominator (/ 1 -2)) => 2
+    (denominator (/ 12 24)) => 2
+    (denominator 4) => 1
+
+    SEE ALSO
+    CLtL 12:215, gcd, lcm, numerator
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

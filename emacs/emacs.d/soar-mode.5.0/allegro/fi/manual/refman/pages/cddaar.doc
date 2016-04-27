@@ -1,0 +1,66 @@
+
+                                                                      cddaar
+
+
+    FUNCTION
+    cddaar  -  get the CDDAAR of a list
+
+    USAGE
+    cddaar list
+
+    DESCRIPTION
+    This is a composition of the car and cdr functions:
+
+    (cddaar lis) = (cdr (cdr (car (car lis))))
+
+    The argument LIST must be of type list.
+
+    EXAMPLES
+    (cddaar '(((a b c d)))) => (c d)
+
+    SEE ALSO
+    CLtL 15:262, car, cdr
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

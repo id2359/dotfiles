@@ -1,0 +1,66 @@
+
+                                                                random-state
+
+
+    Type SPECIFIER
+    random-state  -  the data type comprising states of the random-number
+      generator
+
+    USAGE
+    random-state
+
+    DESCRIPTION
+    Specifies the data type consisting of data structures used to  hold  the
+    state  of  a  pseudorandom  number generator. The type of the underlying
+    data structures is implementation-dependent.
+
+    The printed representation of a random-state object  is  implementation-
+    dependent  but must be able to be read back (at least by the same imple-
+    mentation).
+
+    EXAMPLES
+    (typep *random-state* 'random-state) => t
+    ;;  In this implementation, a random-state is
+    ;;  implemented as a structure:
+    *random-state* => #s(random-state :seed 7791641717136025225)
+
+    SEE ALSO
+    CLtL 2:31, CLtL 4:43, about type specifiers, *random-state*, typep
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

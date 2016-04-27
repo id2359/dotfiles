@@ -1,0 +1,132 @@
+
+                                         window-stream-frame-right-button-up
+
+
+    FUNCTION
+    window-stream-frame-right-button-up  -  get the list of functions called
+      by the frame-right-button-up method
+
+    Usage
+    window-stream-frame-right-button-up WSTREAM
+
+    DESCRIPTION
+    Returns  the  list  of  functions  that  will   be   called   when   the
+    frame-right-button-up  method  for  the window-stream WSTREAM is called.
+    This method is called by the system when the right button is released in
+    the  frame  (assuming the button was also depressed in the frame).  But,
+    if the right button menu is installed on WSTREAM, this method will NEVER
+    be called by the system since a menu of window control choices is popped
+    up when the right button is depressed and the button up event is  caught
+    by  the  menu.   Therefore,  when  the  right  button menu is installed,
+    frame-right-button-up is inoperative and the list of functions it  calls
+    is  uninteresting  since  they  will  never be called.  The rest of this
+    discussion assumes either that the right button menu is not installed on
+    WSTREAM  or that the frame-right-button-down method has been modified so
+    that it does NOT contain the function cw::window-stream-right-down,  the
+    function that pops up the menu.
+
+    With the above in mind, the system calls this method when the right but-
+    ton  is  released  in  the  frame (assuming it was also depressed in the
+    frame).  You do not (normally) call the method directly.
+
+    This list initially contains the single function  default-window-stream-
+    right-button-up-method,  which  does nothing except return nil.  You can
+    add functions to (or remove  functions  from)  this  list  with  modify-
+    window-stream-method.   You  may replace the entire list with this func-
+    tion and setf.  restore-default-window-stream-method restores  the  list
+    to its initial contents.
+
+    EXAMPLES
+    ;;  We make a window.
+    (setf *my-win*
+          (make-window-stream :left 100 :bottom 200
+                              :width 100 :height 100
+                              :activate-p t))
+
+    ;;  The list contains one function initially.
+    (window-stream-frame-left-button-up *my-win*)
+      => (default-window-stream-frame-right-button-up-method)
+
+    ;;  We add a function to the list.
+    (defun my-after-frame-right-button-up (wstream mouse-state event)
+      (declare (ignore event))
+          (format  *standard-output*
+                   "Position: ~S ~% "
+                   (mouse-state-position mouse-state)))
+
+    (modify-window-stream-method *my-win* :frame-right-button-up
+                                  :after 'my-after-frame-right-button-up)
+
+    ;;  Now the list contains two functions.
+    (window-stream-frame-right-button-up *my-win*)
+      => (default-window-stream-frame-right-button-up-method
+           my-after-frame-right-button-up)
+
+    ;;  We restore the list to its initial state.
+    (restore-default-window-stream-method *my-win*
+      :frame-right-button-up)
+    (window-stream-frame-right-button-up *my-win*)
+      => (default-window-stream-frame-right-button-up-method)
+
+    SEE ALSO
+    add-right-button-menu, frame-right-button-up, modify-window-stream-
+    method, restore-default-window-stream-method
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                                      second
+
+
+    FUNCTION
+    second  -  get the second element of a list
+
+    USAGE
+    second list
+
+    DESCRIPTION
+    Returns the second element of LIST, where the car of LIST is  considered
+    to be the first element.  LIST must be a list.
+
+    Unlike the nth function, which uses zero-origin indexing, this  function
+    uses  one-origin indexing.  If the list has fewer than two elements, nil
+    is returned.  setf may be used with second to replace the second element
+    of a list.
+
+    EXAMPLES
+    (second '(a b c d e f g h i j)) => b
+    (second '(a)) => nil
+    (setq lis '(a b c d e f g h i j)) => (a b c d e f g h i j)
+    (setf (second lis) 2) => 2
+    lis => (a 2 c d e f g h i j)
+
+    SEE ALSO
+    CLtL 15:266, car, eighth, elt, fifth, first, fourth, ninth, nth,
+    seventh, sixth, tenth, third
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

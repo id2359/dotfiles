@@ -1,0 +1,66 @@
+
+                                                                        char
+
+
+    FUNCTION
+    char  -  extract a character from a string
+
+    USAGE
+    char string i
+
+    DESCRIPTION
+    Returns the I-th character of STRING as a character object.  STRING must
+    be a string and I must be a non-negative integer less than the length of
+    STRING (indexing is zero-origin).  You may use setf with  this  function
+    to  replace  (destructively)  a  character within STRING.  The following
+    identity holds:
+
+    (char s i) = (aref (the string s) i)
+
+    EXAMPLES
+    (char "Hello" 0) => #\H
+    (char "Hello" 4) => #\o
+    (setq welcome "Hella") => "Hella"
+    (progn (setf (char welcome 4) #\o) welcome) => "Hello"
+    welcome => "Hello"
+
+    SEE ALSO
+    CLtL 18:300, aref, elt, schar
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

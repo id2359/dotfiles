@@ -1,0 +1,66 @@
+
+                                                                     gethash
+
+
+    FUNCTION
+    gethash  -  get the value associated with a key in a hash table
+
+    USAGE
+    gethash key hash-table [default]
+
+    DESCRIPTION
+    Returns two values:  the value in HASH-TABLE associated with KEY, and  a
+    boolean  value  that  is true if and only if there is a value associated
+    with KEY in HASH-TABLE.  If KEY is not found, the first  value  returned
+    is DEFAULT, or nil if DEFAULT is not specified.  The HASH-TABLE argument
+    must be of type hash-table.  KEY may be any LISP object.
+
+    Entries are usually added to a hash-table using setf with gethash.  When
+    used  with  setf,  the DEFAULT argument is ignored, and the new value is
+    associated with KEY, replacing the existing value if there is one.  When
+    used  with  other macros related to setf, such as incf, which modify the
+    value stored in the generalized variable specified  by  their  argument,
+    the  DEFAULT value is taken to be the value that will be modified if the
+    given KEY is not found.  The modified default value is then stored  into
+    the given HASH-TABLE under the given KEY.
+
+    EXAMPLES
+    (progn (setq ht (make-hash-table))
+      (gethash 'quick ht 'not-home)) => not-home nil
+    (progn
+      (setf (gethash 'quick ht) 'brown)
+      (setf (gethash 'fox ht) 'jumped)
+      (setf (gethash 'over ht) 'fence)
+      (list
+        (gethash 'quick ht) (gethash 'fox ht)
+        (remhash 'fox ht) (gethash 'fox ht)))
+      => (brown jumped t nil)
+    (hash-table-count ht) => 2
+    (gethash 'number ht) => nil nil
+    (incf (gethash 'number ht 20)) => 21
+    (gethash 'number ht) => 21 t
+
+    SEE ALSO
+    CLtL 16:284, make-hash-table, remhash, setf
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

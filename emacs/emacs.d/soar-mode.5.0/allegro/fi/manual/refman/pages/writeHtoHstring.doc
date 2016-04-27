@@ -1,0 +1,66 @@
+
+                                                             write-to-string
+
+
+    FUNCTION
+    write-to-string  -  write the printed representation of an object to a
+      string
+
+    Usage
+    write-to-string OBJECT [:escape ESCAPE] [:radix RADIX] [:base BASE]
+      [:circle CIRCLE] [:pretty PRETTY] [:level LEVEL] [:length LENGTH]
+      [:case CASE] [:gensym GENSYM] [:array ARRAY]
+
+    DESCRIPTION
+    Returns the string of characters that would  be  output  for  OBJECT  by
+    write.   Each  of the keyword arguments corresponds to one of the global
+    variables that controls stream output and defaults to the current  value
+    of  that  global  variable.   For  example, the keyword argument :escape
+    corresponds to the global variable *print-escape*.
+
+    EXAMPLES
+    (write-to-string '(this is a test list))
+      => "(this is a test list)"
+    (write-to-string "string" :escape nil) => "string"
+    (write-to-string 5 :radix t :base 2) => "#b101"
+    (write-to-string 10 :radix t :base 10) => "10."
+
+    (setq old '(a b c))
+    (setf (cddr old) old)  ; tail points to head
+    (write-to-string  old :circle t) => "#1=(a b . #1#)"
+
+    (write-to-string #'(lambda() '(test function)) :pretty t)
+      => "(lambda () '(test function))"
+    (setq nester
+      (write-to-string
+       '(alpha (a1 (a11 (a111 a112) a12) a2) beta)
+       :level 1)) => "(alpha # beta)"
+    (setq lengthy
+      (write-to-string
+       '(alpha (a1 (a11 (a111 a112) a12) a2) beta)
+       :length 1) => "(alpha ...)"
+    (write-to-string 'foo :case :upcase) => "FOO"
+    (write-to-string (gensym) :gensym nil) => "g4"
+    (write-to-string (gensym) :gensym t) => "#:g5"
+    (write-to-string (make-array '(2 3)
+                                 :initial-contents
+                                 '((a b c)(d e f)))
+                     :array t) => "#2a((a b c) (d e f))"
+    (write-to-string (make-array '(2 3)
+                                 :initial-contents
+                                 '((a b c)(d e f)))
+                     :array nil) => "#<Array, rank 2 @ #x31e819>"
+
+    SEE ALSO
+    CLtL 22:383, *print-array*, *print-base*, *print-case*, *print-circle*,
+    *print-escape*, *print-gensym*, *print-length*, *print-level*, *print-
+    pretty*, *print-radix*, prin1-to-string, princ-to-string, write
+
+
+
+
+
+
+
+
+

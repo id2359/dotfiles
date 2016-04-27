@@ -1,0 +1,66 @@
+
+
+                                                         define-modify-macro
+
+
+    MACRO
+    define-modify-macro  -  define a new generalized-variable manipulating
+      macro
+
+    USAGE
+    define-modify-macro name lambda-list function [doc-string]
+
+    SIDE EFFECTS
+    Defines a read-modify-write macro called NAME.  The purpose of the macro
+    NAME  is to provide a particular way of manipulating a generalized vari-
+    able, so as to change its contents.
+
+    DESCRIPTION
+    Returns NAME, after defining it as a new macro that operates on general-
+    ized  variables.  When this macro is called, the first subform will be a
+    generalized-variable reference.  The remaining subforms in the call  are
+    described  by  LAMBDA-LIST.   The  argument  FUNCTION is the name of the
+    function that will be  applied  to  the  contents  of  the  generalized-
+    variable  reference, followed by the arguments described by LAMBDA-LIST.
+    The function should return the new value of  the  generalized  variable.
+    The  lambda  list  may only contain &optional and &rest lambda-list key-
+    words.  The optional  documentation  argument,  DOC-STRING,  attaches  a
+    documentation string of type function to the macro NAME.
+
+    define-modify-macro ensures that a macro is created  that  observes  the
+    semantic  rules  for  macros  that manipulate generalized variables (see
+    setf).
+
+    EXAMPLES
+    (define-modify-macro modf
+        (divisor)
+      mod "Modify first argument to be result of mod")
+
+    (setf x 10)
+    (modf x 2) => 0
+    x => 0
+
+    SEE ALSO
+    CLtL 7:101, about generalized variables, define-setf-method, defsetf,
+    get-setf-method, get-setf-method-multiple-value
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

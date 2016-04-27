@@ -1,0 +1,66 @@
+
+                                                                   char-code
+
+
+    FUNCTION
+    char-code  -  get the code attribute of a character object
+
+    USAGE
+    char-code char
+
+    DESCRIPTION
+    Returns the code attribute of CHAR, which must be  a  character  object.
+    The  value returned is a non-negative integer that is strictly less than
+    CHAR-CODE-LIMIT.   The  actual  value  returned  for  any  character  is
+    implementation-dependent.
+
+    EXAMPLES
+    ;;  The returned values are implementation-dependent:
+    (char-code #\a) => 97
+    (char-code #\A) => 65
+
+    SEE ALSO
+    CLtL 13:239, char-bits, char-code-limit, char-font, code-char
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

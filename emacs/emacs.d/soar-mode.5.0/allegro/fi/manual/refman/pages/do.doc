@@ -1,0 +1,66 @@
+
+                                                                          do
+
+
+    MACRO
+    do  -  iterate until test condition is met
+
+    USAGE
+    do ({(var [init [step]])}*) (end-test {result}*) {decl}* {tag | state-
+      ment}*
+
+    DESCRIPTION
+    First all the INIT forms are evaluated, then the corresponding variables
+    VAR are bound to the resulting values.  (Therefore, no VAR will be bound
+    until all the INIT forms are evaluated.  Contrast this with  do*,  which
+    sequentially binds each VAR
+     to the value of its corresponding INIT form.) Missing  INIT  forms  are
+    treated  as  nil.   Next  the END-TEST form is evaluated.  If it returns
+    true, the RESULT forms are evaluated sequentially and the values of  the
+    last  form are returned.  If there are no RESULT forms, nil is returned.
+    If the END-TEST returns false then the body forms of  the  do  are  exe-
+    cuted.   The  body  is  an implicit tagbody, consisting of any number of
+    tags and statements.  Declarations may precede the body.  They apply  to
+    the body forms, to the bindings of the variables VAR, to the INIT forms,
+    to the STEP forms, to the END-TEST form, and to the RESULT forms.
+
+    After the body forms are evaluated the first time,  iteration  continues
+    as  follows.   First,  all STEP forms are evaluated.  After they are all
+    evaluated, the resulting values are assigned to the associated VAR vari-
+    ables in parallel, as if by psetq.  If no STEP form is associated with a
+    VAR, its binding is not changed.  (The STEP forms may refer to any  VAR,
+    depending  on  the  fact that it is not updated until all the STEP forms
+    are evaluated.  Contrast with do* which binds each VAR  sequentially  to
+    the value of its corresponding STEP form.  After the VARS have their new
+    values, END-TEST is evaluated.  If it  is  true,  the  RESULT  form  are
+    evaluated  and  do  returns  the  values  of  the  last RESULT form.  If
+    END-TEST is false, the body forms are evaluated once again and the cycle
+    repeats itself.
+
+    Because the body of the do forms an implicit tagbody,  any  tags  within
+    the body of the loop can be targets of a go within the body of the loop.
+    A TAG in a tagbody is distinguished by being a  symbol  or  an  integer.
+    The  loop  as  a  whole  forms an implicit block named nil, so that if a
+    return is processed at any point, the block and the entire  do  form  is
+    exited, returning whatever values are specified by the return.
+
+    EXAMPLES
+    (do ((x 0 (+ x 1)) (y 10 (- y 1)))      ; with step forms
+        ((= x 3) y)                         ; end test
+      )                                     ;no body
+      => 7
+
+    (do ((x 1) (y 10))                      ; no step forms
+        ((= x 3) y)                         ;end test
+      (setq x (+ x 1))                      ; body
+      (setq y (- y 1))) => 8
+
+    SEE ALSO
+    CLtL 7:122, block, do*, dolist, dotimes, return, tagbody
+
+
+
+
+
+
+

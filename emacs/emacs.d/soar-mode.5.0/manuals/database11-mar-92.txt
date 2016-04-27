@@ -1,0 +1,1295 @@
+Date: Tue, 10 Mar 92 19:49:33 -0500
+From: Douglas J Pearson <douglasp@engin.umich.edu>
+To: soar-group@CENTRO.SOAR.CS.CMU.EDU
+Subject: Complete soar database
+
+Hi everyone,
+        This is the complete, current, hot off the presses version of our
+database of Soar folk.  Please check your own entry and let me know if there
+are any mistakes.  Also if you are not found in the pages below then please
+fill out the form and send it back to me at either douglasp@caen.engin.umich.e\
+du or
+soar-db@cs.cmu.edu.  By the way the listing is by site and then alphabetically\
+ on
+last name.
+
+Here's a blank form if you need one :
+
+Update                  : <today's date (dd/mm/yy)>
+Name                    : <last, first>
+Site                    : <Univ. of X etc.>
+Princ. Invest.          : <last, first>
+Occupation              : <Professor, Grad. Student etc.>
+E-mail                  : <abc@xyz.edu>
+Address                 : <1234 Soar-workers Drive, Townsville  MI 56789>
+Telephone               : <(123) 456-7890>
+FAX                     : <(987) 654-3210>
+Relation to Soar        : <PI, researcher, funder, interested gadfly etc.>
+Activity level in Soar  : <none, low, medium, high>
+Current Projects        :
+Soar systems developed  :
+Systems responsible for :
+Last workshop invited to: <SoarW10>
+Last workshop attended  : <SoarW10>
+
+Site manager's extra piece :
+
+Site                    : <Univ. of X etc.>
+Contact                 : <last, first>
+Machines                : <Apollos, IBMs, DECs, Suns etc.>
+OS                      : <DomainOS, SunOS, Unix>
+Tape                    : <Tape format>
+Lisp                    : <Allegro Common Lisp etc.>
+
+============================ Database from here on =======================
+
+Air Products and Chemicals, Inc. :
+        Ajay K. Modi
+
+Cal Poly, San Luis Obispo :
+        Floyd, Barry
+
+Carnegie Mellon University :
+        Altmann, Erik
+        Bates, Joseph
+        Doorenbos, Bob
+        John, Bonnie E.
+        Larkin, Jill
+        Lehman, Jill
+        Lewis, Richard
+        Li, Xiaoping
+        McGinnis, Thomas
+        Mertz, Joe
+        Milnes, Brian 
+        Nelson, Greg
+        Newell, Allen
+        Pathak, Dhiraj K. 
+        Peck, Virginia (Gin)
+        Pelton, Garrett
+        Polk, Thad
+        Ritter, Frank E.
+        Steier David
+        Tambe, Milind 
+        Yost, Gregg
+        de Silva, Rujith
+        Vera, Alonso
+
+Georgia Tech, School of Psychology :
+        Simon, Tony
+
+Imperial Cancer Research Fund Laboratories :
+        Fox, John
+
+MRC Applied Psychology Unit :
+        Howes, Andrew
+        Young, Richard M
+
+NASA - Ames Research Center :
+        Banda, Carolyn
+        Remington, Roger
+
+NASA Johnson Space Center :
+        Erickson, Jon
+
+NTT Basic Research Laboratories :
+        Okuno, Hiroshi G.
+
+Northwestern University :
+        Ruiz, Dirk
+
+Ohio State University :
+        Amra, Nasir
+        Bayazitoglu, Ayse
+        Johnson, Todd
+        Josephson, John
+        Smith, Jack
+
+Siemens Corporate Research :
+        Greiner, Russell
+
+Stanford :
+        Tessler, Shirley
+
+Univ. of Delaware :
+        Allen, Robert
+
+University of California, Berkeley :
+        Berger, Daniel
+        Pirolli, Peter
+        Recker, Mimi
+
+University of Colorado at Boulder :
+        Wharton, Cathleen
+
+PTT Research :
+        Aasman, Jans
+
+University of Groningen :
+        Akyurek, Aladin
+        Wierda, Marcel
+
+University of Michigan :
+        Bhattacharyya, Sayan
+        Congdon, Clare Bates
+        Covrigaru, Arie
+        Herbsleb, James
+        Hucka, Michael
+        Huffman, Scott
+        Kortenkamp, David
+        Laird, John
+        Miller, Craig
+        Pearson, Douglas
+        Weber, Gregory
+        Wiesmeyer, Mark
+        Wu, H.J. Paul
+        Yager, Eric
+
+University of Nottingham :
+        Churchill, Elizabeth
+        Reichgelt, Han
+
+University of Regensburg :
+        Krems, Josef F.
+        Nerb, Josef
+
+University of Southern California :
+        Cho, Bonghan
+        Johnson, Lewis
+        Lee, Soowon 
+        Rosenbloom, Paul S.
+        Smith, Ben
+        Stobie, Iain
+
+University of Twente :
+        Leenes, Ronald
+
+WP-AFB, WL-Avionics Directorate :
+        Hopper, Chahira
+
+Ohio State University :
+        Johnson, Kathy
+
+In total 76 people at 25 sites
+
+                                  Ajay K. Modi
+                                  Air Products and Chemicals, Inc.
+                                  Process Systems Group, Air Products and Chem\
+icals, Inc.
+                                  7201 Hamilton Boulevard, Allentown, PA 18195\
+-1501
+                                  (215) 481-2733
+                                  (215) 481-2177 (FAX)
+                                  modi@edrc.cmu.edu
+Occupation                      : Research Engineer
+Relation to Soar                : Former active user, currently interested non\
+-user
+Soar systems developed          : CPD-Soar, Interval-Soar
+
+                                  Floyd, Barry
+                                  Cal Poly, San Luis Obispo
+                                  Management Dept., School of Business, Cal Po\
+ly,
+                                  San Luis Obispo, CA 93407
+                                  805-756-6551
+                                  805-756-1473 (FAX)
+                                  BFLOYD@MORPHEUS.CALPOLY.EDU  or BFLOYD@RND.G\
+BA.NYU.EDU
+Occupation                      : Assoc. Prof.
+Relation to Soar                : Interested gadfly, potential new 'user'
+Activity level in Soar          : None, but increasing soon (new workstation n\
+ow)
+Current Projects                : comprehension of diagrams in Business Systems
+Current Projects 2              : Analysis and Design
+
+                                  Altmann, Erik
+                                  Carnegie Mellon University
+                                  School of Computer Science, CMU, 5000 Forbes\
+ Ave
+                                  Pittsburgh, PA 15213-3890
+                                  (412) 268-5728
+                                  (412) 681-5739 (FAX)
+                                  altmann@cs.cmu.edu
+Occupation                      : Grad. Student
+Relation to Soar                : researcher
+Activity level in Soar          : high
+Current Projects                : Integration of multiple forms of learning
+Soar systems developed          : Rail-Soar
+Systems responsible for         : TAQL (w. Gregg Yost)
+
+                                  Bates, Joseph
+                                  Carnegie Mellon University
+                                  5000 Forbes Avenue, Pittsburgh, PA 15213
+                                  412-268-3725
+                                  412-681-5739 (FAX)
+                                  joseph.bates@cs.cmu.edu
+Occupation                      : Professor
+Relation to Soar                : researcher on related project (broad agents \
+in Oz)
+Activity level in Soar          : low, discussion with CMU Soar group
+Current Projects                : Oz - interactive fiction, dramatic virtual r\
+eality
+
+                                  Doorenbos, Bob
+                                  Carnegie Mellon University
+                                  School of Computer Science, CMU, Pgh PA 15213
+                                  (412) 268-3060
+                                  Robert.Doorenbos@cs.cmu.edu
+Occupation                      : Grad Student
+Relation to Soar                : researcher
+Activity level in Soar          : high
+Current Projects                : Dispatcher-Soar, Large System Effort
+Soar systems developed          : Soar/Database + lots of TAQL experiment tasks
+Systems responsible for         : Soar/Database
+
+                                  John, Bonnie E.
+                                  Carnegie Mellon University
+                                  School of Computer Science, CMU, Pgh, PA 152\
+13
+                                  (412) 268-7182
+                                  (412) 681-5739 (FAX)
+                                  bej@cs.cmu.edu
+Occupation                      : Research Scientist, Computer Science and Psy\
+chology
+Relation to Soar                : PI (I think)
+Activity level in Soar          : high
+Current Projects                : Browser-Soar, HI-Soar(Nintendo TM), Soar use\
+r interface
+Soar systems developed          : Browser-Soar, HI-Soar(Nintendo TM) 
+
+                                  Larkin, Jill
+                                  Carnegie Mellon University
+                                  Dept of Psychology, Carneige Mellon Universi\
+ty,
+                                  Pittsburgh, PA 15213
+                                  (412) 268 3785
+                                  (987) 654-3210 (FAX)
+                                  jhl@andrew.cmu.edu
+Occupation                      : Professor
+Relation to Soar                : PI
+Activity level in Soar          : high
+
+                                  Lehman, Jill
+                                  Carnegie Mellon University
+                                  CMU School of Computer Science, Pittsburgh P\
+A 15213
+                                  412-CMU-6246
+                                  412-CMU-5739 (FAX)
+                                  jef@cs.cmu.edu
+Occupation                      : Research Computer Scientist
+Relation to Soar                : PI and researcher
+Activity level in Soar          : high
+Current Projects                : NL-Soar, Education in microworlds
+Soar systems developed          : NL-Soar
+Systems responsible for         : NL-Soar
+
+                                  Lewis, Richard
+                                  Carnegie Mellon University
+                                  School of Computer Science, Carnegie Mellon \
+University
+                                  5000 Forbes Ave, Pittsburgh, PA 15213-3890
+                                  (412) 268-2145
+                                  richard.lewis@cs.cmu.edu
+Occupation                      : Grad Student
+Relation to Soar                : researcher
+Activity level in Soar          : high
+Current Projects                : NL-Soar
+Soar systems developed          : NL-Soar, BI-Soar
+Systems responsible for         : NL-Soar
+
+                                  Li, Xiaoping
+                                  Carnegie Mellon University
+                                  SUPA, HbH 1113, CMU, Pittsburgh, PA 15213
+                                  (412)268-8717
+                                  (412)268-7036 (FAX)
+                                  xl04@cs.cmu.edu
+Occupation                      : Grad. Student
+Relation to Soar                : researcher
+Activity level in Soar          : high
+Current Projects                : Mathematical model formulation in Soar
+Soar systems developed          : MFS
+Systems responsible for         : MFS
+
+                                  McGinnis, Thomas
+                                  Carnegie Mellon University
+                                  School of Computer Science, Carnegie Mellon \
+University
+                                  5000 Forbes Avenue, Pittsburgh, PA 15213-3890
+                                  (412) 268-2627
+                                  (412) 681-5739 (FAX)
+                                  tfm+@cs.cmu.edu
+Occupation                      : Research Programmer (university staff)
+Relation to Soar                : Researcher, programmer (implementation)
+Activity level in Soar          : high
+Current Projects                : soar-bugs@cs.cmu.edu, Developer's Soar Inter\
+face
+Soar systems developed          : Implementation (debugging)
+Systems responsible for         : Implementation, Developer's Soar Interface
+Systems responsible for 2       : (Soar in X, soar-mode, taql-mode all with Fr\
+ank Ritter)
+
+                                  Mertz, Joe
+                                  Carnegie Mellon University
+                                  EPP, CMU, 5000 Forbes Ave, Pgh. PA, 15213
+                                  (412) 268-5617
+                                  (412) 268-3757 (FAX)
+                                  joseph.mertz@cs.cmu.edu
+Occupation                      : Grad. Student
+Relation to Soar                : researcher
+Activity level in Soar          : medium
+Current Projects                : Assembly Tutorial Workbench
+
+                                  Milnes, Brian 
+                                  Carnegie Mellon University
+                                  School Of Computer Science, Carnegie Mellon \
+University
+                                  5000 Forbes Ave., Pittsburgh, PA 15213-3890
+                                  412-268-5622
+                                  412-681-5739 (FAX)
+                                  Brian.Milnes@cs.cmu.edu
+Occupation                      : Research Programmer
+Relation to Soar                : Research Programmer designing, specifying an\
+d constructing Soar6
+Activity level in Soar          : high 
+Current Projects                : Soar6 
+Systems responsible for         : Soar6
+
+                                  Nelson, Greg
+                                  Carnegie Mellon University
+                                  School of Computer Science, Carnegie Mellon \
+University
+                                  Pittsburgh, PA 15213
+                                  (412) 268-7571
+                                  ghn+@cs.cmu.edu
+Occupation                      : Computer Science Graduate Student
+Relation to Soar                : researcher (?)
+Activity level in Soar          : low, increasing this semester
+Current Projects                : NTD-Soar, NL-Soar
+
+                                  Newell, Allen
+                                  Carnegie Mellon University
+                                  School of Computer Science, Carnegie Mellon \
+University,
+                                  (412) 268-2602
+                                  (412) 681-5739 (FAX)
+                                  allen.newell@cs.cmu.edu
+Occupation                      : Professor
+Relation to Soar                : Principle investigator
+Activity level in Soar          : High
+Current Projects                : Helping everyone else, PSCM
+Soar systems developed          : Soar architecture
+
+                                  Pathak, Dhiraj K. 
+                                  Carnegie Mellon University
+                                  Robotics, Carnegie Mellon University, Pittsb\
+urgh, PA 15213
+                                  412-268-8102
+                                  dkp@cs.cmu.edu
+Occupation                      : Graduate Student
+Relation to Soar                : researcher
+Activity level in Soar          : high
+Current Projects                : Soar/Mathematica
+
+                                  Peck, Virginia (Gin)
+                                  Carnegie Mellon University
+                                  School of Computer Science, Carnegie Mellon \
+University
+                                  5000 Forbes Ave., Pittsburgh, PA 15213
+                                  (412) 268-3620
+                                  vapeck@cs.cmu.edu
+Occupation                      : Graduate Student
+Relation to Soar                : researcher
+Activity level in Soar          : high
+Current Projects                : Browser-Soar
+Soar systems developed          : Browser-Soar
+Systems responsible for         : Browser-Soar
+
+                                  Pelton, Garrett
+                                  Carnegie Mellon University
+                                  School of Computer Science, CMU, Pittsburgh,\
+  Pa
+                                  (412) 268-2627
+                                  (412) 681-1998 (FAX)
+                                  gap@cs.cmu.edu
+Occupation                      : Grad. Student
+Relation to Soar                : researcher
+Activity level in Soar          : high
+Current Projects                : Soar6, Draw-Soar
+Soar systems developed          : Draw-Soar, Soar5.2
+Systems responsible for         : Soar5.2
+
+                                  Polk, Thad
+                                  Carnegie Mellon University
+                                  Computer Science Dept., CMU, Pgh, PA 15213
+                                  Pittsburgh, PA 15213
+                                  (412) 268-2145
+                                  (412) 681-5739 (FAX)
+                                  polk@cs.cmu.edu
+Occupation                      : Grad. Student
+Relation to Soar                : researcher
+Activity level in Soar          : high
+Current Projects                : verbal reasoning, ASPM
+Soar systems developed          : VR-Soar, IR-Soar(Syl), SIR-Soar, Syl-Soar
+Systems responsible for         : VR-Soar, IR-Soar(Syl), SIR-Soar, Syl-Soar
+
+                                  Ritter, Frank E.
+                                  Carnegie Mellon University
+                                  Dept. of Psychology, CMU, 5000 Forbes Ave.
+                                  412-682-6918
+                                  412-681-5739 (CS Dept fax) (FAX)
+                                  ritter@cs.cmu.edu
+Occupation                      : Grad student 5
+Relation to Soar                : researcher, DSI developer
+Activity level in Soar          : High
+Current Projects                : Soar/Protocol Analysis tool,  DSI
+Soar systems developed          : DSI, FOKIBOFIT-Soar, a version of Seibel-Soar
+Systems responsible for         : With Tom McGinnis & Mike Hucka: the DSI
+
+                                  Steier David
+                                  Carnegie Mellon University
+                                  Eng. Design Research Center, CMU, Pgh, PA 15\
+213
+                                  (412) 268-7863
+                                  (412) 268-5229 (FAX)
+                                  steier@edrc.cmu.edu
+Occupation                      : Research scientist
+Relation to Soar                : researcher
+Activity level in Soar          : high
+Current Projects                : Interaction with external software systems
+Soar systems developed          : Designer-Meets-Soar, Cypress-Soar, Designer-\
+Soar,
+Soar systems developed 2        : Merle-Soar, Soar/IBDE, Data-Soar, Builder-So\
+ar
+Systems responsible for         : Same (can one develop a system and deny resp\
+onsibility for it ?)
+
+                                  Tambe, Milind 
+                                  Carnegie Mellon University
+                                  School of Computer Science, Carnegie Mellon \
+University
+                                  Pittsburgh, PA 15213-3890
+                                  (412)-268-7680
+                                  (412)-681-1998 (FAX)
+                                  tambe@cs.cmu.edu
+Occupation                      : Research associate
+Relation to Soar                : Researcher
+Activity level in Soar          : high
+Current Projects                : Efficient implementations (production mattch\
+),
+Current Projects 2              : Large systems effort, Spatial reasoning in S\
+oar
+Soar systems developed          : Gridworld-Soar 
+
+                                  Yost, Gregg
+                                  Carnegie Mellon University
+                                  Computer Science Department, 5000 Forbes Ave.
+                                  Pittsburgh, PA 15213
+                                  (413) 268-3060
+                                  gry+@cs.cmu.edu
+Occupation                      : Grad. Student
+Relation to Soar                : researcher
+Activity level in Soar          : high
+Current Projects                : Rapid Task Acquisition
+Soar systems developed          : TAQL
+Systems responsible for         : TAQL
+
+                                  de Silva, Rujith
+                                  Carnegie Mellon University
+                                  330 Stratford Ave Apt 4, Pittsburgh, PA 1523\
+2-1105
+                                  (412) 268-3620
+                                  rudis+@cs.cmu.edu
+Occupation                      : Grad Student
+Relation to Soar                : researcher
+Activity level in Soar          : medium
+Current Projects                : TAQL
+
+                                  Vera, Alonso
+                                  Carnegie Mellon University
+                                  342 Spahr ST., Pittsburgh,  PA 15232
+                                  (412) 362-1535
+                                  - (FAX)
+                                  av0m@andrew.cmu.edu
+Occupation                      : Post Doc
+Relation to Soar                : researcher
+Activity level in Soar          : high
+Current Projects                : HI-Soar
+
+                                  Simon, Tony
+                                  Georgia Tech, School of Psychology
+                                  School of Psychology, Georgia Tech, Atlanta \
+GA 30332
+                                  (404) 894-2681 (CMU1)
+                                  (404) 894-8905 (FAX)
+                                  tonys@pravda.cc.gatech.edu
+Occupation                      : Professor
+Relation to Soar                : researcher
+Activity level in Soar          : medium-high
+Current Projects                : Quantitative development*, Series completion\
+**
+Soar systems developed          : Q-Soar*, SC-Soar**
+
+                                  Fox, John
+                                  Imperial Cancer Research Fund Laboratories
+                                  Lincoln's Inn Fields, London WC2A 3PX, UK
+                                  +71-269-3624
+                                  +71-269-3185 (FAX)
+                                  J-Fox@UK.AC.ICRF
+Occupation                      : Principal scientist, running AI lab
+Relation to Soar                : Jointly leading modelling methodology projec\
+t (@ UCL)
+Activity level in Soar          : Medium (Project involves 3 people @ Universi\
+ty College
+Current Projects                : SOAR reconstruction and analysis
+Soar systems developed          : SOAR 4 and SOAR 5 (reconstructions)
+Systems responsible for         : n/a ??
+
+                                  Howes, Andrew
+                                  MRC Applied Psychology Unit
+                                  15 Chaucer Road, Cambridge, CB2 2EF
+                                  +44 223 355294
+                                  +44 223 359062 (FAX)
+                                  andrew.howes@uk.ac.cam.mrc-apu
+Occupation                      : Junior Scientist
+Relation to Soar                : researcher
+Activity level in Soar          : high
+Current Projects                : ta-soar
+Soar systems developed          : ta-soar
+Systems responsible for         : ta-soar
+
+                                  Young, Richard M
+                                  MRC Applied Psychology Unit
+                                  15 Chaucer Road, Cambridge CB2 2EF, UK
+                                  +44 (223) 355 294
+                                  +44 (223) 359 062 (FAX)
+                                  Richard.Young@mrc-apu.cam.ac.uk
+Occupation                      : Research Scientist
+Relation to Soar                : Researcher
+Activity level in Soar          : medium
+Current Projects                : User modelling in HCI
+Current Projects 2              : Cognitive architecture for integrated user m\
+odel
+Soar systems developed          : (with Andrew Howes) TA-Soar
+Soar systems developed 2        : (with Joyce Whittington) MEA-in-Soar
+
+                                  Banda, Carolyn
+                                  NASA - Ames Research Center
+                                  NASA-Ames Research Center, M.S. 239-9;
+                                  Moffett Field, CA 94035
+                                  (415) 604-1334
+                                  (415) 604-3954 (FAX)
+                                  banda@eos.arc.nasa.gov
+Occupation                      : Senior Analyst
+Relation to Soar                : interested gadfly (interested in SOAR's capa\
+bilities
+Current Projects                : MIDAS, Man-machine Integration Design and An\
+alysis
+Systems responsible for         : Portions of MIDAS cognitive model
+
+                                  Remington, Roger
+                                  NASA - Ames Research Center
+                                  MS 262-2, Moffett Field, CA 94035
+                                  (415) 604-6243
+                                  (415) 604-3227 (FAX)
+                                  roger@eos.arc.nasa.gov
+Occupation                      : Research Psychologist
+Relation to Soar                : Researcher; Funder
+Activity level in Soar          : low
+Current Projects                : NTD-Soar
+
+                                  Erickson, Jon
+                                  NASA Johnson Space Center
+                                  MC ER,NASA Johnson Space Ctr,Houston,TX,77058
+                                  (713) 483-1508
+                                  (713) 483-3204 (FAX)
+                                  erickson@aio.jsc.nasa.gov
+Occupation                      : Chief Scientist,Automation and Robotics
+Relation to Soar                : interested gadfly
+Activity level in Soar          : low
+
+                                  Okuno, Hiroshi G.
+                                  NTT Basic Research Laboratories
+                                  3-9-11 Midori-cho, Musashino, Tokyo 180 JAPAN
+                                  +81 (422) 59-3850
+                                  +81 (422) 59-3943 (FAX)
+                                  okuno@nuesun.ntt.jp
+Occupation                      : Senior Research Engineer, Supervisor
+Relation to Soar                : user
+Current Projects                : Multiple-Context reasoning, Parallel AI, dis\
+trubuted system
+
+                                  Ruiz, Dirk
+                                  Northwestern University
+                                  2001 Sheridan Rd., Evanston IL  60208-2008
+                                  (708) 491-2713
+                                  (708) 491-2498 (FAX)
+                                  dirk@golem14.kellogg.nwu.edu
+Occupation                      : Assistant Professor of Marketing
+Relation to Soar                : Researcher.
+Activity level in Soar          : Currently low, soon to be high.
+Current Projects                : Models of human problem solving.
+Soar systems developed          : Model of three Tower of Hanoi protocols.
+
+                                  Amra, Nasir
+                                  Ohio State University
+                                  571 Health Science Library,376 W. 10th , Col\
+umbus, Ohio, 43210
+                                  (614)-292-8614
+                                  (987) 654-3210 (FAX)
+                                  amra@med.ohio-state.edu
+Occupation                      : Pathology Instructor and CIS Grad student
+Relation to Soar                : researcher
+Activity level in Soar          : medium
+Current Projects                : RedSoar(a participant)
+Soar systems developed          : RedSoar(a participant)
+
+                                  Bayazitoglu, Ayse
+                                  Ohio State University
+                                  228 Bolz Hall
+                                  2036 Neil Ave., Columbus, OH 43210
+                                  (614) 292-9358
+                                  bayazito@cis.ohio-state.edu
+Occupation                      : Grad. Student
+Relation to Soar                : researcher
+Activity level in Soar          : high
+Current Projects                : Pathology Expert project (Liver-Soar, Red-So\
+ar)
+Soar systems developed          : Liver-Soar
+Systems responsible for         : Liver-Soar 
+
+                                  Johnson, Todd
+                                  Ohio State University
+                                  376 W. 10th Ave Rm. 571 Columbus, Ohio 43210
+                                  (614) 292-3284
+                                  tj@cis.ohio-state.edu
+Occupation                      : Assistant Professor
+Relation to Soar                : Researcher
+Activity level in Soar          : Medium
+Current Projects                : Generic Task Tools, RedSoar, Pathex/Liver
+Soar systems developed          : RedSoar, Pathex/Liver, ER-Soar, Abd-Soar, Hy\
+per-Soar
+
+                                  Josephson, John
+                                  Ohio State University
+                                  CIS Dept, 2036 Neil, Columbus, OH  43210>
+                                  (614) 292-0208
+                                  (614) 292-1424 (FAX)
+                                  jj@cis.ohio-state.edu
+Occupation                      : Research Scientist
+Relation to Soar                : interested
+Activity level in Soar          : none personally, but others at site are acti\
+ve
+Current Projects                : causal reasoning, abduction, speech understa\
+nding
+
+                                  Smith, Jack
+                                  Ohio State University
+                                  Director, Division of Medical Informatics, 5\
+71 Health
+                                  Science Library, 376 West 10th Av, Columbus \
+OH 43210-1228
+                                  614-292-8614
+                                  614-292-7072 (FAX)
+                                  smith.30@osu.edu
+Occupation                      : Associate Professor of Pathology & Comp.Info\
+. Sys.
+Relation to Soar                : PI, researcher
+Activity level in Soar          : high
+Current Projects                : Task specific architectures in PSCM/SOAR, Me\
+diaical KBS in
+Current Projects 2              : PSCM/SOAR, Cog. modeling of problem-solving \
+in medical domains
+Soar systems developed          : PATHEX/RED-SOAR  PATHEX/LIVER-SOAR
+Systems responsible for         : above
+
+                                  Greiner, Russell
+                                  Siemens Corporate Research
+                                  755 College Road East, Princeton, NJ 08540
+                                  (609) 734-3627
+                                  (609) 734-6565 (FAX)
+                                  greiner@learning.siemens.com
+Occupation                      : Research Scientist
+Relation to Soar                : interested gadfly
+Activity level in Soar          : very very low
+Current Projects                : formal analysis of speed-up learning,
+Current Projects 2              : applying learning techniques to KR tasks
+Soar systems developed          : -
+Systems responsible for         : -
+
+                                  Tessler, Shirley
+                                  Stanford
+                                  c/o Aldo Ventures, Inc. 261 Hamilton Ave, Su\
+ite 214
+                                  Palo Alto, CA 94301
+                                  415-322-2233
+                                  415-322-2918 (FAX)
+                                  tessler@hpp.stanford.edu
+Occupation                      : Grad. student 
+Relation to Soar                : Grad. student & interested observer
+Activity level in Soar          : low
+
+                                  Allen, Robert
+                                  Univ. of Delaware
+                                  126 Spencer Laboratory, Newark, DE 19716-3140
+                                  302 451-2421
+                                  302 292-3619 (FAX)
+                                  Allen@minnie.me.udel.edu
+Occupation                      : Assistant Professor of Mechanical Engineering
+Relation to Soar                : interested gadfly 
+Activity level in Soar          : low
+Current Projects                : Design Problem Solving
+
+                                  Berger, Daniel
+                                  University of California, Berkeley
+                                  School of Education/EMST Berkeley, CA 94720
+                                  510-643-8858
+                                  510-643-3926 (FAX)
+                                  berger@dewy.soe.berkeley.edu
+Occupation                      : Specialist, Academic Staff
+Relation to Soar                : researcher
+Activity level in Soar          : at one time high, currently very low
+Soar systems developed          : Instructional Design Model
+Systems responsible for         : at least partially IDM above
+
+                                  Pirolli, Peter
+                                  University of California, Berkeley
+                                  School of Education, U of C, Berkeley CA 947\
+20
+                                  [510] 642-4206
+                                  [510] 643-8245 (FAX)
+                                  pirolli@cogsci.berkeley.edu
+Occupation                      : Professor
+Relation to Soar                : PI, researcher
+Activity level in Soar          : medium
+Current Projects                : self-explanation and skill acquisition in pr\
+ogramming
+Soar systems developed          : instructional design, learning to program 
+Systems responsible for         : see above
+
+                                  Recker, Mimi
+                                  University of California, Berkeley
+                                  4533 Tolman Hall/ School of Education
+                                  University of California, Berkeley, CA 94720
+                                  510-642-4206
+                                  mimi@soe.berkeley.edu
+Occupation                      : Gradual Student
+Relation to Soar                : interested gadfly
+Activity level in Soar          : low
+Current Projects                : modelling students' learning and problem sol\
+ving
+
+                                  Wharton, Cathleen
+                                  University of Colorado at Boulder
+                                  Department of Computer Science and Institute\
+ of
+                                  Cognitive Science, Campus Box 430, Boulder, \
+CO 80309-0430
+                                  (303) 492-7514
+                                  (303) 492-2844 (FAX)
+                                  cwharton@cs.colorado.edu
+Occupation                      : Graduate Student
+Relation to Soar                : Researcher
+Activity level in Soar          : Medium-High
+Current Projects                : ATM-Soar, ExploreSoar
+Soar systems developed          : ATM-Soar, ExploreSoar
+Systems responsible for         : ATM-Soar, ExploreSoar
+
+                                  Aasman, Jans
+                                  PTT Research
+                                  PTT Research, Duindoorn 31, Postbus 421,
+                                  2260 AK Leidschendam, The Netherlands
+                                  31 - 70 - 3323307
+                                  31 - 70 - 3329508 (FAX)
+                                  J.Aasman@Research.ptt.nl
+Occupation                      : Researcher
+Relation to Soar                : researcher
+Activity level in Soar          : high
+Current Projects                : Modelling Driver Behaviour
+Soar systems developed          : Driver Soar
+Systems responsible for         : Driver Soar
+
+                                  Akyurek, Aladin
+                                  University of Groningen
+                                  Department of Psychology, University of Gron\
+ingen
+                                  Grote Kruisstraat 2/1, 9718 TS Groningen, Th\
+e Netherlands
+                                  (31) (50) 636376
+                                  (31) (50) 636304 (FAX)
+                                  akyurek@rug.nl
+Occupation                      : Grad. Student
+Relation to Soar                : researcher
+Activity level in Soar          : high
+Current Projects                : planning, architectures for general intellig\
+ence
+Soar systems developed          : means-ends planner
+Systems responsible for         : ?
+
+                                  Wierda, Marcel
+                                  University of Groningen
+                                  TRC, PO Box 69, 9750 AB Haren, Holland      \
+   
+                                  +31-50636759 or +31-50636780
+                                  +31-50636784     (FAX)
+                                  Wierda@rug.nl
+Occupation                      : Grad. Student, applied researcher
+Relation to Soar                : researcher
+Activity level in Soar          : low,in coorperation with Jans Aasman
+Current Projects                : Multitasking, Perceptual processes
+Soar systems developed          : (Aasman:) Driver, Soar model of driving beha\
+vior
+
+                                  Bhattacharyya, Sayan
+                                  University of Michigan
+                                  1101 Beal Avenue,The Univ of Michigan, Ann A\
+rbor  MI 48109
+                                  (313) 763-5441
+                                  bhattach@dip.eecs.umich.edu
+Occupation                      : Grad. Student
+Relation to Soar                : interested student, planning to start work s\
+hortly
+Activity level in Soar          : low
+
+                                  Congdon, Clare Bates
+                                  University of Michigan
+                                  AI Lab, 1101 Beal Avenue, The University of \
+Michigan,
+                                  Ann Arbor, MI 48109-2110
+                                  313-763-1562
+                                  313-763-1260 (FAX)
+                                  congdon@engin.umich.edu
+Occupation                      : Grad Student
+Relation to Soar                : previous life
+Soar systems developed          : Lego-Soar
+Systems responsible for         : Is that different from 'developed'? I don't \
+take any
+
+                                  Covrigaru, Arie
+                                  University of Michigan
+                                  1101 Beal Ave, Ann Arbor, MI 48109-2122
+                                  313-763-1255
+                                  313-763-1260 (FAX)
+                                  arie@eecs.umich.edu
+Occupation                      : Grad. Student
+Relation to Soar                : researcher
+Activity level in Soar          : high
+Current Projects                : Soar in NASA TileWorld
+Soar systems developed          : Worked on the development of Hero Soar
+
+                                  Herbsleb, James
+                                  University of Michigan
+                                  2265 Stone Drive, Ann Arbor, MI 48105
+                                  (313) 763-9032
+                                  (987) 654-3210 (FAX)
+                                  herbsleb@csmil.umich.edu
+Occupation                      : postdoc at CSMIL
+Relation to Soar                : former user, potential user
+Activity level in Soar          : none currently
+Current Projects                : empirical research on collaborative design, \
+use of diagrams
+Soar systems developed          : intelligent cognition orthosis 
+
+                                  Hucka, Michael
+                                  University of Michigan
+                                  1101 Beal Ave, Ann Arbor, MI 48109-2110
+                                  763-1254
+                                  hucka@engin.umich.edu
+Occupation                      : Graduate student
+Relation to Soar                : Graduate student doing research
+Activity level in Soar          : high
+Current Projects                : Interruption and resumption of tasks
+Soar systems developed          : Robo-Soar, (partly) Hero-Soar
+Systems responsible for         : Robo-Soar, Hero-Soar
+
+                                  Huffman, Scott
+                                  University of Michigan
+                                  AI Lab, 1101 Beal Ave, Ann Arbor 48109-2110
+                                  313-936-3667
+                                  313-763-1260 (FAX)
+                                  huffman@engin.umich.edu
+Occupation                      : Grad. Student
+Relation to Soar                : researcher
+Activity level in Soar          : high
+Current Projects                : Interactive Instruction Taking
+Soar systems developed          : NL*Robo-Soar
+
+                                  Kortenkamp, David
+                                  University of Michigan
+                                  1101 Beal Ave. Ann Arbor, MI 48109
+                                  (313) 763-9074
+                                  ? (I should know this but don't) (FAX)
+                                  korten@caen.engin.umich.edu
+Occupation                      : Grad student
+Relation to Soar                : gadfly
+Current Projects                : robot spatial mapping (not in Soar, but may \
+be)
+
+                                  Laird, John
+                                  University of Michigan
+                                  1101 Beal Ave, Ann Arbor MI, 48109-2110
+                                  (313) 747-1761
+                                  (313) 763-1260 (FAX)
+                                  laird@engin.umich.edu
+Occupation                      : Professor
+Relation to Soar                : PI
+Activity level in Soar          : high
+Current Projects                : Soar (IFOR, interaction with the outside wor\
+ld)
+Soar systems developed          : Hero-Soar, Soar, recovery from incorrect kno\
+wledge
+
+                                  Miller, Craig
+                                  University of Michigan
+                                  1101 Beal Ave; Ann Arbor, MI 48109-2210
+                                  (313) 763-9074
+                                  cmiller@caen.engin.umich.edu
+Occupation                      : Grad. Student
+Relation to Soar                : researcher
+Activity level in Soar          : medium
+Current Projects                : Concept acquisition
+Soar systems developed          : Model of human concept acquisition
+
+                                  Pearson, Douglas
+                                  University of Michigan
+                                  149 ATL, 1101 Beal Avenue, Ann Arbor MI 48109
+                                  (313) 763-1255
+                                  (313) 763-1260 (FAX)
+                                  douglasp@caen.engin.umich.edu
+Occupation                      : Graduate Student (started 1990)
+Relation to Soar                : Researcher
+Activity level in Soar          : High
+Current Projects                : Error recovery, using Robo-Soar for testbed
+Systems responsible for         : Soar users database (this list !)
+
+                                  Weber, Gregory
+                                  University of Michigan
+                                  1370 McIntyre Drive, Ann Arbor, MI 48105-2409
+                                  (313) 747-2325
+                                  gregoryw@eecs.umich.edu
+Occupation                      : grad. student
+Relation to Soar                : researcher
+Activity level in Soar          : low
+Current Projects                : learning causal relations by experimentation
+Soar systems developed          : Thorndike's cat
+
+                                  Wiesmeyer, Mark
+                                  University of Michigan
+                                  150 ATL Building, Ann Arbor MI 48190-2110
+                                  (313) 763-9074
+                                  (313) 763-1260 (FAX)
+                                  wiesmeye@caen.engin.umich.edu
+Occupation                      : Grad. Student
+Relation to Soar                : Researcher
+Activity level in Soar          : High, but I don't chunk
+Current Projects                : Modeling Human Visual Attention
+Soar systems developed          : NOVA, a model of human visual attention
+
+                                  Wu, H.J. Paul
+                                  University of Michigan
+                                  1586 Murfin #10, Ann Arbor, MI 48105
+                                  (313) 763-1562
+                                  (313) 763-1260 (FAX)
+                                  pwu@engin.umich.edu
+Occupation                      : Graduate Student
+Relation to Soar                : Researcher
+Activity level in Soar          : High
+Current Projects                : BUYER
+Soar systems developed          : BUYER
+
+                                  Yager, Eric
+                                  University of Michigan
+                                  1101 Beal Ave, Ann Arbor, MI 48109-2210
+                                  (313) 747-0969
+                                  (313) 763-1260 (FAX)
+                                  esyager@caen.engin.umich.edu
+Occupation                      : Graduate Student
+Relation to Soar                : Researcher
+Activity level in Soar          : High
+Current Projects                : Resource Management
+Soar systems developed          : Robo-Soar, Model of adaptation to resource c\
+onstraints
+
+                                  Churchill, Elizabeth
+                                  University of Nottingham
+                                  1234 Soar-workers Drive, Townsville  MI 56789
+                                  + 44 - 602 - 484848
+                                  + 44 - 602 - 590339 (FAX)
+                                  lizc@uk.ac.nott.psyc
+Occupation                      : Research Assistant
+Relation to Soar                : Researcher 
+Activity level in Soar          : medium
+Current Projects                : Computational Models of User's Development o\
+f Mental Models
+
+                                  Reichgelt, Han
+                                  University of Nottingham
+                                  University Park, Nottingham NG7 2RD, England
+                                  +44 602 484848 ext 3587
+                                  +44 602 590339 (FAX)
+                                  han@psyc.nott.ac.uk
+Occupation                      : Lecturer
+Relation to Soar                : researcher, research team leader
+Activity level in Soar          : high
+Current Projects                : The effect of different device representatio\
+ns on people's
+Current Projects 2              : ability to interact in various way with the \
+device.
+
+                                  Krems, Josef F.
+                                  University of Regensburg
+                                  Univ. of Regensburg, Inst. of Psychology, D-\
+8400 Regensburg, Germany
+                                  (0941) 943-3769
+                                  (0941) 943-2305 (FAX)
+                                  krems@vax1.rz.uni-regensburg.dbp.de
+Occupation                      : Ass. Professor, (Priv. Doz)
+Relation to Soar                : researcher
+Activity level in Soar          : medium
+Current Projects                : Skill-acquisition in scheduling-tasks, oppor\
+tunistic planning
+Current Projects 2              : in debugging, knowledge acquisition for expe\
+rt systems
+Soar systems developed          : SCHED-SOAR: modelling skill-akquisition in s\
+cheduling
+
+                                  Nerb, Josef
+                                  University of Regensburg
+                                  Soar-group, University of Regensburg 
+                                  8400 Regensburg, W-Germany
+                                  + 49 941 943 3867
+                                  nerb@vax1.rz.uni-regensburg.dbp.de
+Occupation                      : Student
+Relation to Soar                : Thesis work (UTC)
+Activity level in Soar          : high
+Current Projects                : Soar on Scheduling
+Soar systems developed          : one Prototype
+Systems responsible for         : "site manager"
+
+                                  Cho, Bonghan
+                                  University of Southern California
+                                  4676 Admiralty Way #950, Marina Del Rey, CA \
+90292
+                                  (310) 822-1511
+                                  (310) 823-6714 (FAX)
+                                  bcho@isi.edu
+Occupation                      : Grad. Student 
+Relation to Soar                : researcher
+Activity level in Soar          : medium
+Current Projects                : Neuro-Soar
+
+                                  Johnson, Lewis
+                                  University of Southern California
+                                  4676 Admiralty Way, Marina del Rey, CA 90292\
+-6695
+                                  (310) 822-1511
+                                  (310) 823-6714 (FAX)
+                                  johnson@isi.edu
+Occupation                      : Project Leader
+Relation to Soar                : Researcher
+Activity level in Soar          : Low (soon to be high)
+Current Projects                : Will be on Intelligent Forces project, also \
+currently
+Current Projects 2              : advising on VLBI Trainer, which will probabl\
+y use Soar
+
+                                  Lee, Soowon 
+                                  University of Southern California
+                                  Univ of Southern California, Information Sci\
+ences Institute
+                                  4676 Admiralty Way, Marina del Rey, CA 90292
+                                  (310) 822-1511
+                                  (310) 823-6714 (FAX)
+                                  swlee@isi.edu
+Occupation                      : Graduate student
+Relation to Soar                : Researcher
+Activity level in Soar          : Medium
+Current Projects                : Planning
+Soar systems developed          : Function Package
+Systems responsible for         : Function Package
+
+                                  Rosenbloom, Paul S.
+                                  University of Southern California
+                                  USC/ISI, 4676 Admiralty Way, Marina del Rey,\
+ CA 90292
+                                  ISI: (310) 822-1511, Campus: (213) 740-4777
+                                  ISI: (310) (FAX)
+                                  Rosenbloom@isi.edu
+Occupation                      : Associate Professor
+Relation to Soar                : PI
+Activity level in Soar          : high
+Current Projects                : Simulation agents, integrated learning, inte\
+grated
+Soar systems developed          : R1-Soar, memory operator, function/arithmetic
+Systems responsible for         : Memory operator
+
+                                  Smith, Ben
+                                  University of Southern California
+                                  4676 Admiralty Way, Marina del Rey, CA 90292\
+-6695
+                                  (310) 822-1511
+                                  bdsmith@isi.edu
+Occupation                      : Grad Student
+Relation to Soar                : researcher
+Activity level in Soar          : high
+Current Projects                : Learning to Use Physical Devices
+
+                                  Stobie, Iain
+                                  University of Southern California
+                                  PO Box 93974, Los Angeles, CA 90093
+                                  213 664-1948
+                                  stobie@usc.edu
+Occupation                      : Grad. Student
+Activity level in Soar          : high
+Current Projects                : Navigation in Soar (gridworld-soar)
+Soar systems developed          : gridworld-soar
+
+                                  Leenes, Ronald
+                                  University of Twente
+                                  P.O. Box 217, Enschede, 7500 AE, the Netherl\
+ands
+                                  +31 53 892616
+                                  +31 53 356695 (FAX)
+                                  romix@bsk.utwente.nl
+Occupation                      : Grad. Student etc.
+Relation to Soar                : researcher
+Activity level in Soar          : low
+Current Projects                : Legal Reasoning in Soar
+Soar systems developed          : -
+Systems responsible for         : -
+
+                                  Hopper, Chahira
+                                  WP-AFB, WL-Avionics Directorate
+                                  WL/AAAT-1, BLG 620, AreaB, WP-AFB, Dayton OH\
+, 45433-6543
+                                  (513) 255-7865
+                                  (513) 476-4302 (FAX)
+                                  hoppercm@W1.WPAFB.AF.MIL
+Occupation                      : Project Engineer
+Relation to Soar                : researcher and funder
+Activity level in Soar          : medium
+Current Projects                : visoar: vision using Soar
+
+                                  Johnson, Kathy
+                                  Ohio State University
+                                  376 W. 10th Ave. Rm 571, Columbus, OH 43228
+                                  (614) 292-9358
+                                  (614) 292-7072 (FAX)
+                                  kj@cis.ohio-state.edu
+Occupation                      : Grad. Student
+Relation to Soar                : researcher
+Activity level in Soar          : medium
+Current Projects                : RedSoar, RedCoach
+Soar systems developed          : RedSoar, RedCoach
+Systems responsible for         : RedSoar, RedCoach
+
+--------------------------- SITE MANAGERS -------------------------------
+
+                                  Akyurek, Aladin
+                                  University of Groningen
+Machines                        : (1) IBM RT PC; (2) Vax3100
+OS                              : (1) AIX; (2) ULTRIX
+Tape                            : (1) ordinary tapes used on Unix machines; (2\
+) TK50
+Lisp                            : (1) Lucid CL 1.01; (2) Allegro Common Lisp
+
+                                  Allen, Robert
+                                  Univ. of Delaware
+Machines                        : TI Explorer
+OS                              : LISP
+Lisp                            : Allegro Common Lisp etc.
+
+                                  Berger, Daniel
+                                  Univ. of California, Berkeley
+Machines                        : DECstations (RISC)
+OS                              : Ultrix
+Tape                            : Tar format for Mass Tape or TK50
+Lisp                            : Allegro Common Lisp 
+
+                                  Hopper, Chahira
+                                  WP-AFB, WL/AAAT
+Machines                        : DECs
+OS                              : Ultrix
+Tape                            : TK50
+Lisp                            : Allegro Common Lisp
+
+                                  Howes, Andrew
+                                  MRC Applied Psychology Unit
+Machines                        : Sun Sparc Stations
+OS                              : Unix
+Tape                            : 1/4 inch low-density cartridge
+Lisp                            : Lucid Common Lisp
+
+                                  Hucka, Michael
+                                  University of Michigan
+Machines                        : Apollo, IBM RS/6000, DEC, Sun, SGI Iris, App\
+le Macintosh
+OS                              : DomainOS, AIX, Ultrix, SunOS, Irix, MacOS
+Tape                            : Sun cartridge tape format
+Lisp                            : Franz Allegro Common Lisp, Macintosh Allegro\
+ Common Lisp
+
+                                  Johnson, Todd
+                                  The Ohio State University
+Machines                        : Macs, Suns
+OS                              : MacOS, Unix
+Lisp                            : Macintosh CL, Franz Allegro CL
+
+                                  Lee, Soowon
+                                  University of Southern California
+Machines                        : Sun4
+OS                              : SunOS
+Lisp                            : Sun Common Lisp 4.0.1
+
+                                  Leenes, Ronald
+                                  University of Twente
+Machines                        : Sun
+OS                              : SunOS
+Tape                            : 1/4"
+Lisp                            : SunLisp
+
+                                  McGinnis, Thomas
+                                  Carnegie Mellon University
+Machines                        : DECs, Suns, Vax 
+OS                              : Mach, SunOS
+Tape                            : 3M DLC cartridge, 9-track 1/2 inch round, Ma\
+cintosh diskettes
+Lisp                            : Allegro (DEC, Sun), Lucid (Vax, Sun), CMU (D\
+EC)
+
+                                  Nerb, Josef
+                                  Univ. of Regensburg
+Machines                        : Suns
+OS                              : SunOS
+Tape                            : tar
+Lisp                            : Allegro Common Lisp
+
+                                  Okuno, Hiroshi G.
+                                  NTT Basic Research Laboratories
+Machines                        : SUNs, Next
+OS                              : SunOS, Mach
+Tape                            : Streamer, Exabyte
+Lisp                            : Lucid Common Lisp, Allegro Common Lisp, Kyot\
+o Common Lisp
+
+                                  Ruiz, Dirk
+                                  Northwestern University
+Machines                        : DECStation 3100, RS6000 (maybe)
+OS                              : Ultrix, Unix.
+Tape                            : tar
+Lisp                            : Allegro Common Lisp etc.
+
+                                  Simon, Tony
+                                  Georgia Tech, School of Psychology
+Machines                        : Sparcstations (one day!)
+OS                              : SunOS
+Tape                            : 8mm, 1/4inch, CD-ROM!(ooh)
+Lisp                            : Unsure yet (Allegro Common Lisp most likely)
+
+                                  Wharton, Cathleen
+                                  University of Colorado at Boulder
+Machines                        : HP, Sun and Sun clones, DecStation, Symbolic\
+s, Macintosh
+OS                              : HP-UX, Unix, Ultrix, Genera, Macintosh propr\
+ietary OS
+Tape                            : we have tape drives but prefer FTP access
+Lisp                            : HP Common Lisp - Lucid, AKCL (Can't get SOAR\
+ compiled), Lucid or Beta version of CMU Common Lisp, ZetaLisp, Allegro

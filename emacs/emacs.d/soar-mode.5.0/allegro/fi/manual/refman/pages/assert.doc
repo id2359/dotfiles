@@ -1,0 +1,66 @@
+
+                                                                      assert
+
+
+    MACRO
+    assert  -  assert that a condition holds and permit recovery if it does
+      not
+
+    USAGE
+    assert test-form [({place}*) [string {args}*]]
+
+    SIDE EFFECTS
+    If the value of TEST-FORM is nil, a continuable error is  signalled  and
+    new  values  for the PLACE generalized variables may be entered.  If the
+    error is continued from, TEST-FORM will be evaluated again, and  so  on,
+    until the assertion is true.
+
+    DESCRIPTION
+    Returns nil if this macro is continued  from.   The  argument  TEST-FORM
+    should  depend  on  the values of the PLACE generalized variables, since
+    they are what may be changed when the  assertion  fails.   The  argument
+    STRING, together with the ARGS, are passed to format to display an error
+    message when an assertion fails.  (They are evaluated only if the asser-
+    tion  fails.) A default error message is used if these arguments are not
+    supplied.  Subforms of each PLACE will be evaluated only if  the  asser-
+    tion fails, and they will be re-evaluated each time the assertion fails.
+
+    EXAMPLES
+    (let ((x 0) (y 0))
+      (assert
+       (> (* x y) 100) (x y)
+       "The product of x (~D) and y (~D) must exceed 100." x y)
+      (+ x y))
+    ;;  Repeatedly signals a continuable error and asks for new
+    ;;  values of x and y until their product is greater than 100.
+
+    SEE ALSO
+    CLtL 24:434, ccase, cerror, check-type, ctypecase, ecase, error,
+    etypecase
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

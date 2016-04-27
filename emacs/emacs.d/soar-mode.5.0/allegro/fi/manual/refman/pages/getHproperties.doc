@@ -1,0 +1,66 @@
+
+                                                              get-properties
+
+
+    FUNCTION
+    get-properties  -  retrieve property values from a property list
+
+    USAGE
+    get-properties place indicator-list
+
+    DESCRIPTION
+    Returns three values after searching the property list stored  in  PLACE
+    for  any  of the indicators that are in INDICATOR-LIST.  If an indicator
+    is found, then the first two values returned are the indicator  and  the
+    property  value  associated  with it, and the third value is the tail of
+    the property list whose car is the indicator found and whose cadr is the
+    value.  If no matching indicator is found then all three returned values
+    are nil.  Thus, the third returned value is both  a  boolean  indicating
+    whether  the  search  is  successful and the list to search for the next
+    property pair.
+
+    As with getf, an indicator on the property list at PLACE must be  eq  to
+    one  of  the  indicators  in  INDICATOR-LIST for the associated property
+    value to be found.
+
+    EXAMPLES
+    ;;  We assume the properties have already been defined:
+    (get-properties 'crime-and-punishment  '(:language :author))
+      => :language
+         "Russian"
+         (:language "Russian" :mood "depressing" :author "Dostoyevsky")
+
+    SEE ALSO
+    CLtL 10:167, get, getf
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

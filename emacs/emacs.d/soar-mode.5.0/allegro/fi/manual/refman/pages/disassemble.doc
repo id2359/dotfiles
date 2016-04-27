@@ -1,0 +1,66 @@
+
+                                                                 disassemble
+
+
+    FUNCTION
+    disassemble  -  `unassemble' compiled code and print it out
+
+    Usage
+    disassemble NAME-OR-FUNCTION
+
+    SIDE EFFECTS
+    The  functional  object  denoted  by  NAME-OR-FUNCTION  is  compiled  if
+    necessary.
+
+    DESCRIPTION
+    Displays assembly-language instructions for a compiled function  object,
+    thus    providing   information   about   how   compiled   code   works.
+    NAME-OR-FUNCTION should either be a function object,  a  lambda  expres-
+    sion,  or  a  symbol with a function definition.  If the function is not
+    compiled, disassemble will first compile it and then disassemble it.
+
+    Exactly what is printed, how it is printed, and what,  if  anything,  is
+    returned by this function is implementation-dependent.
+
+    EXAMPLES
+    ;;  The following is part of what is printed when
+    ;;  a function is disassembled on a Motorola 68000
+    ;;  68000 machine in one implementation (note that the
+    ;;  function is compiled during the disassembly):
+    (defun foo ()
+      (declare (optimize (speed 3) (safety 0))
+               nil)) => nil
+    (compiled-function-p #'foo) => nil
+    (disassemble 'foo) PRINTS
+    ;; disassembling #<Function foo @ #x3bc909>
+    ;; formals:
+
+    ;; code vector @ #x574b4c
+    0:      link    a6,#0
+    4:      move.l  a2,-(a7)
+    6:      move.l  a5,-(a7)
+    8:      move.l  7(a2),a5
+    12:     move.l  d3,d4           ; nil
+    14:     move.l  #1,d1
+    16:     move.l  -8(a6),a5
+    20:     unlk    a6
+    22:     rtd     #0
+
+    (compiled-function-p #'foo) => t
+
+    SEE ALSO
+    CLtL 25:439, compile
+
+
+
+
+
+
+
+
+
+
+
+
+
+

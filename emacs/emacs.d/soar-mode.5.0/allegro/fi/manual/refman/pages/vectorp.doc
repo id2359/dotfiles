@@ -1,0 +1,66 @@
+
+                                                                     vectorp
+
+
+    FUNCTION
+    vectorp  -  test whether an object is a vector
+
+    USAGE
+    vectorp object
+
+    DESCRIPTION
+    Returns true if OBJECT is a vector, and false otherwise.  The  following
+    identity holds:
+
+    (vectorp x) = (typep x 'vector)
+
+    EXAMPLES
+    (vectorp '#(a b c)) => t
+    (vectorp '(a b c)) => nil
+    (vectorp "(a b c)") => t
+
+    SEE ALSO
+    CLtL 6:75, about type specifiers, make-array, vector
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

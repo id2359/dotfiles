@@ -1,0 +1,66 @@
+
+                                                                      rplacd
+
+
+    FUNCTION
+    rplacd  -  replace the cdr of a list (destructive)
+
+    USAGE
+    rplacd x y
+
+    SIDE EFFECTS
+    The argument X is changed.
+
+    DESCRIPTION
+    Returns the argument X, which must be a cons, after first replacing  its
+    cdr  with  the arbitrary object Y.  Use this function with caution since
+    when it is applied to lists which share storage with other lists,  unex-
+    pected results can occur.
+
+    EXAMPLES
+    (setq c '(w x y z)) => (w x y z)
+    (rplacd (cdr c) '(u v)) => (x u v)
+    c => (w x u v)
+    (rplacd (cdr c) 'm) => (x . m)
+    c => (w x . m)
+
+    SEE ALSO
+    CLtL 15:272, car, cdr, cons, rplaca
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

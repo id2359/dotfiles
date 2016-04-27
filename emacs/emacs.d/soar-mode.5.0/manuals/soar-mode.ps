@@ -1,0 +1,3103 @@
+%!PS-Adobe-2.0
+%%Title: soar-mode.mss
+%%DocumentFonts: (atend)
+%%Creator: Thomas McGinnis and Scribe 7(1700)
+%%CreationDate: 10 December 1992 14:03
+%%Pages: (atend)
+%%EndComments
+% PostScript Prelude for Scribe.
+/BS {/SV save def 0.0 792.0 translate .01 -.01 scale} bind def
+/ES {showpage SV restore} bind def
+/SC {setrgbcolor} bind def
+/FMTX matrix def
+/RDF {WFT SLT 0.0 eq 
+  {SSZ 0.0 0.0 SSZ neg 0.0 0.0 FMTX astore}
+  {SSZ 0.0 SLT neg sin SLT cos div SSZ mul SSZ neg 0.0 0.0 FMTX astore}
+  ifelse makefont setfont} bind def
+/SLT 0.0 def
+/SI { /SLT exch cvr def RDF} bind def
+/WFT /Courier findfont def
+/SF { /WFT exch findfont def RDF} bind def
+/SSZ 1000.0 def
+/SS { /SSZ exch 100.0 mul def RDF} bind def
+/AF { /WFT exch findfont def /SSZ exch 100.0 mul def RDF} bind def
+/MT /moveto load def
+/XM {currentpoint exch pop moveto} bind def
+/UL {gsave newpath moveto dup 2.0 div 0.0 exch rmoveto
+   setlinewidth 0.0 rlineto stroke grestore} bind def
+/LH {gsave newpath moveto setlinewidth
+   0.0 rlineto
+   gsave stroke grestore} bind def
+/LV {gsave newpath moveto setlinewidth
+   0.0 exch rlineto
+   gsave stroke grestore} bind def
+/BX {gsave newpath moveto setlinewidth
+   exch
+   dup 0.0 rlineto
+   exch 0.0 exch neg rlineto
+   neg 0.0 rlineto
+   closepath
+   gsave stroke grestore} bind def
+/BX1 {grestore} bind def
+/BX2 {setlinewidth 1 setgray stroke grestore} bind def
+/PB {/PV save def newpath translate
+    100.0 -100.0 scale pop /showpage {} def} bind def
+/PE {PV restore} bind def
+/GB {/PV save def newpath translate rotate
+    div dup scale 100.0 -100.0 scale /showpage {} def} bind def
+/GE {PV restore} bind def
+/FB {dict dup /FontMapDict exch def begin} bind def
+/FM {cvn exch cvn exch def} bind def
+/FE {end /original-findfont /findfont load def  /findfont
+   {dup FontMapDict exch known{FontMapDict exch get} if
+   original-findfont} def} bind def
+/BC {gsave moveto dup 0 exch rlineto exch 0 rlineto neg 0 exch rlineto closepath clip} bind def
+/EC /grestore load def
+/SH /show load def
+/MX {exch show 0.0 rmoveto} bind def
+/W {0 32 4 -1 roll widthshow} bind def
+/WX {0 32 5 -1 roll widthshow 0.0 rmoveto} bind def
+/RC {100.0 -100.0 scale
+612.0 0.0 translate
+-90.0 rotate
+.01 -.01 scale} bind def
+/URC {100.0 -100.0 scale
+90.0 rotate
+-612.0 0.0 translate
+.01 -.01 scale} bind def
+/RCC {100.0 -100.0 scale
+0.0 -792.0 translate 90.0 rotate
+.01 -.01 scale} bind def
+/URCC {100.0 -100.0 scale
+-90.0 rotate 0.0 792.0 translate
+.01 -.01 scale} bind def
+%%EndProlog
+%%Page: 0 1
+BS
+0 SI
+15 /Times-Bold AF
+20683 19005 MT
+(Soar-mode v5.0 User's Manual)SH
+21913 20789 MT
+(for Soar release 5.2 and 6.0)SH
+10 /Times-Roman AF
+23583 23936 MT
+(*)SH
+32049 XM
+(**)SH
+43584 XM
+(***)SH
+12 SS 
+16115 24317 MT
+(Frank E. Ritter,)SH
+24383 XM
+(Michael Hucka,)SH
+33349 XM
+(Thomas F. McGinnis)SH
+26034 27541 MT
+(10 December 1992)SH
+26400 29153 MT
+(CMU-CS-92-205)SH
+10 SS 
+24864 31617 MT
+(School of Computer Science)SH
+24989 32994 MT
+(Carnegie Mellon University)SH
+25113 34371 MT
+(Pittsburgh, PA 15213-3891)SH
+13 /Times-Bold AF
+28181 37730 MT
+(Abstract)SH
+10 /Times-Roman AF
+7200 40103 MT
+(Soar-mode is a major mode within the)
+71 W( GNU-Emacs editor.  It provides an integrated, structured editor for editing,)70 W
+7200 41389 MT
+(running, and debugging Soar models on the production level.)
+89 W( Productions)
+429 W( are treated as first class objects.  With)90 W
+7200 42675 MT
+(keystroke \050or menu\051 commands productions can be)
+12 W( directly loaded, examined, and queried about their current match)11 W
+7200 43961 MT
+(status. Listings)
+413 W( of the productions that have fired or are about to fire can be automatically displayed.  Soar-mode)82 W
+7200 45247 MT
+(includes and organizes, for the)
+27 W( first time, complete on-line documentation on Soar and a simple browser to examine)26 W
+7200 46533 MT
+(this information.)SH
+8 SS 
+25581 48942 MT
+(*)SH
+10 SS 
+25981 49287 MT
+(Psychology Department)SH
+19253 50664 MT
+(Carnegie Mellon University, Pittsburgh, PA 15213-3890)SH
+8 SS 
+18577 53073 MT
+(**)SH
+10 SS 
+19377 53418 MT
+(Electrical Engineering and Computer Science Department)SH
+19171 54795 MT
+(The University of Michigan, Ann Arbor, MI 48109-2122)SH
+8 SS 
+24264 57204 MT
+(***)SH
+10 SS 
+25464 57549 MT
+(School of Computer Science)SH
+19253 58926 MT
+(Carnegie Mellon University, Pittsburgh, PA 15213-3891)SH
+7200 61886 MT
+(This work was sponsored in part by a training grant from the Air Force)
+29 W( Office of Scientific Research, Bolling AFB,)30 W
+7200 63172 MT
+(DC; and in part by the Avionics Laboratory, Wright Research)
+185 W( and Development Center, Aeronautical Systems)184 W
+7200 64458 MT
+(Division \050AFSC\051, U. S. Air Force, Wright-Patterson AFB, OH 45433-6543)
+187 W( under Contract F33615-90-C-1465,)188 W
+7200 65744 MT
+(ARPA Order No. 7597.)SH
+7200 68132 MT
+(The views and conclusions contained)
+132 W( in this document are those of the authors and should not be interpreted as)131 W
+7200 69418 MT
+(representing the official policies, either expressed or implied, of the U.S. Government.)SH
+ES
+%%Page: 0 2
+BS
+0 SI
+10 /Times-Bold AF
+8200 66177 MT
+(Keywords:)SH
+/Times-Roman SF
+13116 XM
+(Structured integrated editors, AI programming tools, Soar.)SH
+ES
+%%Page: 1 3
+BS
+0 SI
+10 /Times-Roman AF
+30350 4286 MT
+(1)SH
+28628 7886 MT
+(Overview)SH
+3943 50 28628 8086 UL
+8200 10365 MT
+(As a minimal description, soar-mode provides the following features:)SH
+/Symbol SF
+8990 11818 MT
+(\267)SH
+/Times-Roman SF
+9700 XM
+(A structured editor for Soar productions and loading them directly into a running Soar interpreter.)SH
+/Symbol SF
+8990 13576 MT
+(\267)SH
+/Times-Roman SF
+9700 XM
+(The ability to treat)
+152 W( Soar problem spaces and operators as levels in an outline, performing the usual)153 W
+9700 14681 MT
+(outline processing functions on them.)SH
+/Symbol SF
+8990 16439 MT
+(\267)SH
+/Times-Roman SF
+9700 XM
+(Commands to test and examine productions bound to keys and mouse buttons)
+47 W( that are smart enough to)46 W
+9700 17544 MT
+(tell which productions they are in or over.)SH
+/Symbol SF
+8990 19302 MT
+(\267)SH
+/Times-Roman SF
+9700 XM
+(Complete on-line documentation for Soar, soar-mode, the Soar default productions,)
+19 W( and the Soar source)20 W
+9700 20407 MT
+(code.)SH
+/Symbol SF
+8990 22165 MT
+(\267)SH
+/Times-Roman SF
+9700 XM
+(Functions to generate and maintain informative source code file headers.)SH
+/Symbol SF
+8990 23923 MT
+(\267)SH
+/Times-Roman SF
+9700 XM
+(Tags file support)
+265 W( for Soar productions \050i.e., find-production-source-code\051 to enable fast and easy)264 W
+9700 25028 MT
+(retrieval of production's source code.)SH
+/Symbol SF
+8990 26786 MT
+(\267)SH
+/Times-Roman SF
+9700 XM
+(Support for running one or more)
+31 W( Soar processes in separate buffers, and commands for interacting with)32 W
+9700 27891 MT
+(these subprocesses.)SH
+/Symbol SF
+8990 29649 MT
+(\267)SH
+/Times-Roman SF
+9700 XM
+(Support for Common Lisp programming \050this may disappear in later releases\051.)SH
+7200 33922 MT
+(Obtaining later versions of this manual)SH
+15582 50 7200 34122 UL
+7200 35027 MT
+(Updated versions of Soar-mode and this manual are available via anonymous FTP)SH
+7200 36132 MT
+(from centro.soar.cs.cmu.edu [128.2.242.245].  The README file in)SH
+7200 37237 MT
+(/afs/cs/project/soar/public/Soar5 \050or /afs/cs/project/soar/public/Soar6\051 will)SH
+7200 38342 MT
+(provide you with a listing of the latest versions, and which files to pull to get them.)SH
+7200 39447 MT
+(Note: CMU's machines do not allow you to access intermediate directories in this path.)SH
+7200 41657 MT
+(Requests for clarifications or bug reports should be sent to soar-bugs@cs.cmu.edu.)SH
+27544 44605 MT
+(DISCLAIMER)SH
+6111 50 27544 44805 UL
+8200 47084 MT
+(The Developmental Soar Interface)
+128 W( is placed in the public domain.  You are free to copy it as you wish.  The)127 W
+7200 48461 MT
+(Developmental Soar Interface and all of its parts: Soar in X \050SX\051,)
+77 W( taql-mode, and soar-mode, \050like Soar itself\051 are)78 W
+7200 49838 MT
+(made available AS IS, and Carnegie Mellon University, the University of Michigan, and its developers, make)
+106 W( no)105 W
+7200 51215 MT
+(warranty about the software or its performance.)
+81 W( Please)
+413 W( contact soar-bugs@cs.cmu.edu for more information or to)82 W
+7200 52592 MT
+(report problems.)SH
+8200 55071 MT
+(Some of the supporting software)
+215 W( comes with different copyright conditions.  Soar-mode and taql-mode use)214 W
+7200 56448 MT
+(several utility programs that are protected under the Free Software Foundation's Copyleft agreement.)SH
+ES
+%%Page: 2 4
+BS
+0 SI
+10 /Times-Roman AF
+30350 4286 MT
+(2)SH
+13 /Times-Bold AF
+7200 8071 MT
+(1. Design philosophy)SH
+10 /Times-Roman AF
+8200 9448 MT
+(This short section provides a conceptual overview of soar-mode and motivation for)
+59 W( the current approach.  Eager)60 W
+7200 10825 MT
+(users can skip it.  The following sections describe soar-mode in detail.)SH
+8200 13304 MT
+(Soar programmers develop applications in a cycle that typically consists of the following phases:)SH
+9200 14643 MT
+(1.)SH
+10200 XM
+(Create an initial conceptual description of a task.)SH
+9200 16401 MT
+(2.)SH
+10200 XM
+(Map the conceptual description into the Soar computational model.)SH
+9200 18159 MT
+(3.)SH
+10200 XM
+(Create a set of Soar productions implementing the task.  This actually can involve several substeps:)SH
+12256 19498 MT
+(a.)SH
+13200 XM
+(create source text files containing subsets of the task productions,)SH
+12200 21256 MT
+(b.)SH
+13200 XM
+(write the productions, following certain style and naming conventions, and)SH
+12256 23014 MT
+(c.)SH
+13200 XM
+(intersperse descriptive comments throughout the source text files.)SH
+9200 24772 MT
+(4.)SH
+10200 XM
+(Run Soar and incrementally define the set of productions to the Soar)
+56 W( interpreter, entering a cycle that)55 W
+10200 25877 MT
+(ends when the task is running:)SH
+12256 27216 MT
+(a.)SH
+13200 XM
+(read productions into Soar,)SH
+12200 28974 MT
+(b.)SH
+13200 XM
+(collect error messages and examine Soar's behavior,)SH
+12256 30732 MT
+(c.)SH
+13200 XM
+(edit productions and go to \050a\051.)SH
+8200 33211 MT
+(The first two steps)
+94 W( require much intuition and soul-searching on the part of the Soar programmer; during these)95 W
+7200 34588 MT
+(stages not much)
+52 W( programming actually takes place.  The 3rd and 4th steps are computer-intensive.  They require at)51 W
+7200 35965 MT
+(least two separate)
+81 W( program components, a text editor and a Soar interpreter, and considerable time expenditure on)82 W
+7200 37342 MT
+(the part of the programmer.)SH
+8200 39821 MT
+(Until recently the 3rd and)
+210 W( 4th phases were not well integrated.  A number of attempts have been made at)209 W
+7200 41198 MT
+(providing better, more integrated Soar programming environments embodying)
+231 W( these phases for Unix systems:)232 W
+7200 42575 MT
+(Blake Ward's 1987 electric-soar-mode, Milnes and Shevis's)
+440 W( original soar-mode, Olin Shivers soar-mode)439 W
+7200 43952 MT
+(scaffolding, and)
+116 W( Frank Ritter's recent Hypersoar-mode.  All were based on Emacs-style editors.  A customizable)117 W
+7200 45329 MT
+(editor such as Emacs provides a good substrate for integrating the phases together.  By using a Lisp)
+142 W( subsystem)141 W
+7200 46706 MT
+(supported by Emacs one can create a structured editor that understands properties specific to Soar.)SH
+8200 49185 MT
+(This new soar-mode)
+48 W( integrates all of the features and ideas from Ward's, Shevis', Shivers', Ritter's and Hucka's)49 W
+7200 50562 MT
+(modes, along with new facilities, on top of an extensive Lisp mode called ILISP by Chris McConnell, and parts)
+57 W( of)56 W
+7200 51939 MT
+(Franz Inc.'s mode for their Allegro)
+146 W( Common Lisp.  It is nothing if not extensive, but we have tried to make it)147 W
+7200 53316 MT
+(accessible also.)SH
+ES
+%%Page: 3 5
+BS
+0 SI
+10 /Times-Roman AF
+30350 4286 MT
+(3)SH
+13 /Times-Bold AF
+7200 8071 MT
+(2. GNU-Emacs typing conventions)SH
+10 /Times-Roman AF
+8200 9448 MT
+(If you are terribly)
+26 W( familiar with GNU-Emacs, you could skip this section. If you are not, it will behoove you to at)25 W
+7200 10825 MT
+(least quickly scan it, for it is quite necessary for understanding the keystroke notations used in later sections.)SH
+8200 13304 MT
+(You should first note that)
+5 W( GNU Emacs is case sensitive. For consistency, all Emacs commands in this mode are in)6 W
+11994 50 18698 13504 UL
+7200 14681 MT
+(lower case.  When a)
+83 W( command is called "taql-insert-construct", it can not be typed in as "TAQL-insert-construct".)82 W
+7200 16058 MT
+(TAQL and Soar are only capitalized when they denote Soar or the Task AcQuisition Language themselves.)SH
+611 50 33916 16258 UL
+722 50 36110 16258 UL
+722 50 37276 16258 UL
+611 50 41249 16258 UL
+8200 18537 MT
+(The standard GNU Emacs)
+221 W( conventions for specifying control characters are used.)
+222 W( For)
+722 W( example, "C-c C-t")222 W
+34847 50 8200 18737 UL
+7200 19914 MT
+(represents holding down the control key and)
+163 W( typing "c" and then holding down the control key and typing "t".)162 W
+7200 21291 MT
+(\050Control characters)
+33 W( are not case sensitive, that is, C-C is the same as C-c.\051  Spaces \050and other whitespace characters)34 W
+7200 22668 MT
+(like tab\051 are)
+22 W( represented by their name in broken brackets, for example, <TAB>.  Escape key sequences are denoted)21 W
+7200 24045 MT
+(by "M-" for meta, because some keyboards will actually have a meta key that can be held down, shifting all keys)
+30 W( to)31 W
+7200 25422 MT
+(meta just like)
+65 W( control does.  Keyboards without this feature provide escape, a way to preface a single key as meta.)64 W
+7200 26799 MT
+(For example, typing <escape> and then "x" is represented by M-x.  Sometimes escape may also be denoted by "^[".)SH
+8200 29278 MT
+(Typing C-g at any point in GNU Emacs will abort the current action.)
+91 W( This)
+591 W( is also true)
+91 W( in the Soar and TAQL)92 W
+28672 50 8200 29478 UL
+7200 30655 MT
+(sub-modes where)
+138 W( C-g will abort commands cleanly.  For example, typing C-g while completing a template will)137 W
+7200 32032 MT
+(leave the template in a state that further expansion will correctly fill it in.)SH
+8200 34511 MT
+(Many of the soar-)
+81 W( and taql-mode commands begin with the Soar Command Prefix \050SCP\051 that can be set by the)82 W
+45800 50 8200 34711 UL
+7200 35888 MT
+(user. This)
+588 W( prefix is used to avoid clashing with other key)
+88 W( bindings and yet remain flexible.  The default value is)87 W
+1916 50 7200 36088 UL
+8 SS 
+8894 36920 MT
+(1)SH
+10 SS 
+7200 37265 MT
+(C-c.)SH
+10192 XM
+(\050If you use C-c to bind other)
+199 W( commands, you can specify another character, such as C-6 which is not)200 W
+7200 38642 MT
+(otherwise used in Emacs.\051  Code to set the SCP to another character is shown in the defaults file described below.)SH
+8200 41121 MT
+(Open and close delimiters are counted for you.)
+17 W( These)
+267 W( include all those delimiters in Soar used only as delimiters;)17 W
+18837 50 8200 41321 UL
+7200 42498 MT
+(that is, all those in this string: "{}[]\050\051".  We don't treat < and > as delimiters because they)
+210 W( are also used in)211 W
+7200 43875 MT
+(preferences and could thus be miscounted.  When you type a close delimiter, the corresponding open)
+46 W( delimiter will)45 W
+7200 45252 MT
+(be flashed: the cursor will briefly move back to)
+41 W( the open delimiter, or if it is not currently displayed, the line that it)42 W
+7200 46629 MT
+(occurs on will be displayed in the message line.)SH
+8200 49108 MT
+(The keybindings described below are only provided when the buffer is in soar-mode.)
+28 W( At)
+278 W( all other times, after)
+28 W( the)27 W
+34357 50 8200 49308 UL
+7200 50485 MT
+(initialization file has been loaded and soar-mode has been)
+12 W( called at least once, you can execute commands by typing)13 W
+7200 51862 MT
+("M-x command-name".)SH
+10800 50 7200 70352 UL
+6 SS 
+8000 71691 MT
+(1)SH
+8 SS 
+8300 72000 MT
+(C-6 was to be the default, but it appears that some keyboards can't generate it.)SH
+ES
+%%Page: 4 6
+BS
+0 SI
+10 /Times-Roman AF
+30350 4286 MT
+(4)SH
+13 /Times-Bold AF
+7200 8071 MT
+(3. Commands for editing Soar files)SH
+10 /Times-Roman AF
+8200 9448 MT
+(Buffers containing files of Soar source code \050and ending in .soar or .soar5 or .soar6\051)
+93 W( are automatically put into)92 W
+7200 10825 MT
+(soar-mode by the commands in the default init file.)
+7 W( When)
+266 W( such a file is read into an Emacs buffer it is automatically)8 W
+7200 12202 MT
+(put into soar-mode, which binds several keys to new, Soar specific)
+130 W( functions.  The most important of the initial)129 W
+7200 13579 MT
+(bindings are listed below.)
+23 W( Each)
+298 W( command normally works on the production the cursor is in or just after.  Keys can)24 W
+7200 14956 MT
+(be rebound by users \050for an example, see the default)
+16 W( init-file\051.  A complete and current listing is available on-line by)15 W
+7200 16333 MT
+(typing C-h m, or individual keys can be tested by C-h k {key sequence}.  Where possible \050and feasible\051,)
+27 W( commands)28 W
+7200 17710 MT
+(that apply to productions also apply to TC's.)SH
+/Courier-Bold SF
+7200 19972 MT
+(Operations on productions and regions:)SH
+22800 50 7200 20172 UL
+8400 21103 MT
+(C-c e)
+SH( Eval)
+3000 W( production or function \050i.e., send to running Soar\051)SH
+8400 22234 MT
+(ESC C-x)
+SH( \050alternative)
+4200 W( binding\051)SH
+8400 23365 MT
+(C-c C-e)
+SH( Eval)
+1800 W( production or function and goto the Soar buffer)SH
+8400 24496 MT
+(C-c f)
+SH( Find)
+3000 W( production source code \050using tags\051)SH
+8400 25627 MT
+(ESC .)
+SH( Find)
+3000 W( function source code \050using tags\051)SH
+15600 26758 MT
+(\050standard version, not customized for productions\051)SH
+8400 27889 MT
+(C-c r)
+SH( Eval)
+3000 W( region)SH
+8400 29020 MT
+(C-c C-r)
+SH( Eval)
+1800 W( region and goto the Soar buffer)SH
+8400 30151 MT
+(C-c n)
+SH( Eval)
+3000 W( next s-expression \050i.e. production\051)SH
+8400 31282 MT
+(C-c C-n)
+SH( Eval)
+1800 W( next production and goto the Soar buffer)SH
+8400 32413 MT
+(C-c c)
+SH( Show)
+3000 W( production soar-pclass)SH
+8400 33544 MT
+(C-c p)
+SH( Print)
+3000 W( object around or before point \050using spr\051)SH
+8400 34675 MT
+(C-c x)
+SH( Excise)
+3000 W( production)SH
+8400 35806 MT
+(C-c w)
+SH( Copy)
+3000 W( production \050or TC\051 to kill buffer. C-y will insert a copy.)SH
+7200 38068 MT
+(Tracing operations:)SH
+11400 50 7200 38268 UL
+8400 39199 MT
+(C-c B)
+SH( Pbreak)
+3000 W( production \050with arg, e.g. C-u, unpbreak\051)SH
+8400 40330 MT
+(C-c t)
+SH( Ptrace)
+3000 W( production \050with arg, e.g. C-u, unptrace\051)SH
+7200 42592 MT
+(Match information:)SH
+10800 50 7200 42792 UL
+8400 43723 MT
+(C-c m)
+SH( Smatches)
+3000 W( on production)SH
+8400 44854 MT
+(C-c M)
+SH( Full-matches)
+3000 W( on production)SH
+7200 47116 MT
+(Movement commands:)SH
+10800 50 7200 47316 UL
+8400 48247 MT
+(ESC C-a)
+SH( Go)
+1800 W( to beginning of production)SH
+8400 49378 MT
+(ESC C-e)
+SH( Go)
+1800 W( to the end of production)SH
+8400 50509 MT
+(ESC C-b)
+SH( Go)
+1800 W( backward one clause \050or s-expression\051)SH
+8400 51640 MT
+(ESC C-f)
+SH( Go)
+1800 W( forward one clause \050or s-expression\051)SH
+8400 52771 MT
+(ESC C-k)
+SH( Kill)
+1800 W( next clause \050or s-expression\051)SH
+8400 53902 MT
+(C-c C-z)
+SH( Zwitch)
+1800 W( to the Soar buffer,)SH
+18000 55033 MT
+(with arg \050i.e., C-u\051 go to end of the Soar buffer)SH
+8400 56164 MT
+(C-c b)
+SH( Same)
+3000 W( as C-c C-z.)SH
+7200 58426 MT
+(Misc. source file editing commands:)SH
+21000 50 7200 58626 UL
+8400 59557 MT
+(ESC ;)
+SH( Start)
+3000 W( an in-line comment)SH
+8400 60688 MT
+(C-c ;)
+SH( Comment-region.)
+3000 W( will)
+600 W( put prefix number of copies of)SH
+15600 61819 MT
+(";" before the lines in region.  to)SH
+15600 62950 MT
+(uncomment a region, use a minus prefix \050e.g., C-u - 3 C-c ;\051)SH
+8400 64081 MT
+(C-c l)
+SH( Load)
+3000 W( file into Soar)SH
+8400 65212 MT
+(C-c C-l)
+SH( Run-soar,)
+1800 W( start up a Soar)SH
+ES
+%%Page: 5 7
+BS
+0 SI
+10 /Times-Roman AF
+30350 4286 MT
+(5)SH
+/Courier-Bold SF
+7200 7874 MT
+(Running commands)SH
+9600 50 7200 8074 UL
+8400 9005 MT
+(These commands all use the same default arg \050soar-default-drm-arg\051,)SH
+8400 10136 MT
+(which can be set in your .emacs file.  It is initially 1, that is: \050d)SH
+8400 11267 MT
+(1\051, \050r 1\051 and \050macrocycle 1\051.  It is updated after each use.  An arg)SH
+8400 12398 MT
+(of 0 sets the default to nil \050i.e., \050d\051, \050r\051 and \050macrocycle\051\051.)SH
+8400 13529 MT
+(\050ESC-x soar-run-task also uses this arg.\051)SH
+8400 15791 MT
+(C-c .)
+SH( \050d)3000 W
+/Times-Italic SF
+16800 XM
+(arg)SH
+/Courier-Bold SF
+(\051)SH
+8400 16922 MT
+(C-c ,)
+SH( \050r)3000 W
+/Times-Italic SF
+16800 XM
+(arg)SH
+/Courier-Bold SF
+(\051)SH
+8400 18053 MT
+(C-c SPC)
+SH( \050macrocycle)1800 W
+/Times-Italic SF
+22200 XM
+(arg)SH
+/Courier-Bold SF
+(\051)SH
+7200 21446 MT
+(Useful functions from Common Lisp mode:)SH
+23400 50 7200 21646 UL
+8400 22577 MT
+(C-c t)
+SH( Trace)
+3000 W( a Lisp function)SH
+17400 23708 MT
+(\050untrace when given argument, i.e., C-u\051)SH
+8400 24839 MT
+(] Close)
+5400 W( all open parentheses \050i.e., a "super-\051"\051)SH
+16800 25970 MT
+(up to first [)SH
+8400 27101 MT
+(C-c \051)
+SH( Find)
+3000 W( unbalanced Lisp parenthesis)SH
+8400 28232 MT
+(M-j Insert)
+4200 W( new comment line \050if in a comment\051, or a plain newline)SH
+7200 29363 MT
+(if not.)SH
+7200 31625 MT
+(Other effective standard Emacs commands:)SH
+24000 50 7200 31825 UL
+8400 32756 MT
+(ESC /)
+SH( Auto)
+3000 W( complete)SH
+8400 33887 MT
+(C-/ Undo)
+4200 W( \050can be repeated multiple times\051)SH
+7200 36149 MT
+(Reset and help functions:)SH
+15000 50 7200 36349 UL
+8400 37280 MT
+(C-c C-c)
+SH( Interrupt)
+1800 W( the running Soar or Lisp)SH
+8400 38411 MT
+(C-c z)
+SH( Pop)
+3000 W( out of all break\050s\051 to top level in the Soar or Lisp buffer)SH
+8400 39542 MT
+(C-d Pop)
+4200 W( out of single break in the Soar or Lisp buffer)SH
+8400 40673 MT
+(M-x panic-lisp)SH
+15000 41804 MT
+(Panic reset for the inferior LISP or Soar)SH
+8400 42935 MT
+(C-c C-m)
+SH( Run)
+1800 W( the soar-mode command menu)SH
+8400 44066 MT
+(C-h m)
+SH( Describe)
+3000 W( the current mode, e.g. soar-mode)SH
+8400 45197 MT
+(C-c d)
+SH( Get)
+3000 W( Lisp documentation string for symbol under point)SH
+8400 46328 MT
+(C-c D)
+SH( Look)
+3000 W( up Common Lisp function under point in reference manual)SH
+8400 47459 MT
+(C-c A)
+SH( Apropos)
+3000 W( for Common Lisp functions)SH
+8400 49721 MT
+(These last two commands provide a buffer of information on the selected)SH
+8400 50852 MT
+(item. In)
+600 W( this buffer "a" is bound to apropos, "m" to manual lookup, "s")SH
+8400 51983 MT
+(to search-forward-see-alsos, and "C-c C-c" to flush-doc.)SH
+7200 54245 MT
+(Outline functions)SH
+10200 50 7200 54445 UL
+7200 56507 MT
+(Soar-mode allows the user to collapse blocks of productions into)SH
+7200 57638 MT
+(problem spaces and operators labeled headings, like working with an)SH
+7200 58769 MT
+(outline processor.)SH
+7200 61031 MT
+(Blocks of text and productions beginning with "; @problem-space)SH
+7200 62162 MT
+(name" or "; @operator name" can be collapsed into a single line ";)SH
+7200 63293 MT
+(@problem-space name ...".)
+SH( Operator)
+1200 W( blocks collapse as children)SH
+7200 64424 MT
+(nodes of problem spaces as shown in this example:)SH
+/Courier SF
+9600 65830 MT
+(; @problem-space  top-space)SH
+9600 66861 MT
+(; @operator top-operator ...)SH
+9600 67892 MT
+(; @operator near-top-operator ...)SH
+9600 68923 MT
+(; @problem-space lower-space ...)SH
+/Courier-Bold SF
+7200 71185 MT
+(Problem space and operator labels that are indented two spaces)SH
+ES
+%%Page: 6 8
+BS
+0 SI
+10 /Times-Roman AF
+30350 4286 MT
+(6)SH
+/Courier-Bold SF
+7200 7874 MT
+(collapse an additional layer down.  Through this mechanism, problem)SH
+7200 9005 MT
+(spaces can be nested within other problem spaces and operators.)SH
+7200 11267 MT
+(The functions to manipulate the parents and children are included on)SH
+7200 12398 MT
+(the soar-mode menu under outl/, and bound to keys.  The default)SH
+7200 13529 MT
+(keybindings begin with C-z.  This is a user setable variable, and is)SH
+7200 14660 MT
+(included in the soar-mode-defaults.el file.  The most frequent used)SH
+7200 15791 MT
+(commands are likely to be hide-node \050C-z C-c C-h\051 and show node \050C-)SH
+7200 16922 MT
+(z C-c C-s\051.  If users find these keybindings unwieldy, there are)SH
+7200 18053 MT
+(examples of how to rebind functions to keys in the soar-mode-)SH
+7200 19184 MT
+(defaults.el file)SH
+8400 21446 MT
+(If the tag @problem-space \050and @operator\051 is indented further than)SH
+7200 22577 MT
+(one space, they are treated as lower levels, one level for every two spaces of)SH
+7200 23708 MT
+(indention.)SH
+7200 25970 MT
+(Extended commands:)SH
+10800 50 7200 26170 UL
+/Times-Roman SF
+8200 28449 MT
+(In addition, a)
+39 W( number of other commands are not bound to keys but are available as extended commands \050that is,)38 W
+7200 29826 MT
+(to execute them type ESC-x command-name\051:)SH
+/Courier-Bold SF
+7800 32088 MT
+(run-soar)SH
+/Times-Italic SF
+13200 XM
+(or)SH
+/Courier-Bold SF
+24289 XM
+(Start up a Soar5 process by calling)SH
+7800 33219 MT
+(soar soar-image-name.)
+13200 W( You)
+600 W( can set this in your)SH
+24000 34350 MT
+(.emacs file.  The default value is "Soar5".)SH
+24000 35481 MT
+(Beeps when things are set up.)SH
+7800 36612 MT
+(soar6 Start)
+12600 W( up a Soar6 process by calling)SH
+24000 37743 MT
+(soar6-image-name.)SH
+7800 38874 MT
+(cms Creates)
+13800 W( a buffer with the productions that)SH
+24000 40005 MT
+(are currently matched.  With just soar-mode, the)SH
+24000 41136 MT
+(buffer is updated after every elaboration cycle.)SH
+24000 42267 MT
+(With the SX display the rate is adjustable.)SH
+7800 43398 MT
+(make-header Insert)
+9000 W( file header into current buffer.)SH
+7800 44529 MT
+(make-revision Add)
+7800 W( a revision line to header.)SH
+25800 45660 MT
+(After soar-mode has been loaded, these two)SH
+24000 46791 MT
+(commands can also be called when in other modes.)SH
+24000 47922 MT
+(See below for more information.)SH
+7800 50184 MT
+(make-tags-table Make)
+6600 W( a tags table, prompting for a list of files.)SH
+7800 51315 MT
+(remake-tags-table Update)
+5400 W( a tags table, replacing entries only for)SH
+24000 52446 MT
+(files that have changed since the TAGS file was)SH
+24000 53577 MT
+(saved.)SH
+7800 55839 MT
+(find-tags-table Switch)
+6600 W( tags table files.)SH
+7800 58101 MT
+(soar-count-productions Count)
+2400 W( the number of productions in current buffer.)SH
+7800 59232 MT
+(soar-list-production-names)SH
+24000 60363 MT
+(Collect the names of all productions in buffer)SH
+24000 61494 MT
+(and output in other window.)SH
+7800 62625 MT
+(insert-date-string Insert)
+4800 W( the date after point, e.g., "5-27-91 -")SH
+24000 63756 MT
+(if insert-date-with-month-name is not nil, month)SH
+24000 64887 MT
+(name is used and day/month order is shifted,)SH
+24000 66018 MT
+(e.g. "27-May-91".)SH
+7800 67149 MT
+(insert-time-string Insert)
+4800 W( the time in military format after point,)SH
+24600 68280 MT
+(e.g., "1457".)SH
+7800 69411 MT
+(insert-current-time-string Insert the full current-time-string after point,)SH
+24000 70542 MT
+(e.g., "Mon May 27 15:00:57 1991".)SH
+7800 71673 MT
+(inspect-lisp These)
+8400 W( two functions will call inspect or describe)SH
+ES
+%%Page: 7 9
+BS
+0 SI
+10 /Times-Roman AF
+30350 4286 MT
+(7)SH
+/Courier-Bold SF
+7800 7874 MT
+(describe-lisp on)
+7800 W( the current s-expression, or when called with)SH
+24000 9005 MT
+(an argument will prompt for the object.)SH
+7800 11267 MT
+(0-argument Soar commands)
+SH( All)
+1200 W( argumentless Soar commands, such as)SH
+/Times-Italic SF
+48000 XM
+(pgs)SH
+/Courier-Bold SF
+49989 XM
+(are)SH
+24000 12398 MT
+(available as M-x commands.  For example,)SH
+24000 13529 MT
+("M-x excise-task".)SH
+7800 14660 MT
+(0-argument DSI commands)
+SH( The)
+1800 W( argumentless DSI commands)SH
+/Times-Italic SF
+42000 XM
+(load-taql)SH
+/Courier-Bold SF
+46267 XM
+(and)SH
+/Times-Italic SF
+24000 15791 MT
+(sx)SH
+/Courier-Bold SF
+25433 XM
+(are available as M-x commands.  For)SH
+24000 16922 MT
+(example, "M-x sx" will start up the command)SH
+24000 18053 MT
+(interpreter loop.)SH
+7800 19184 MT
+(run-task User)
+10800 W( defined function.  The soar-mode version)SH
+24000 20315 MT
+(passes a numeric argument, soar-default-drm-arg,)SH
+24000 21446 MT
+(which is used and set in the same way as for the)SH
+24000 22577 MT
+(soar-mode version of d, r and macrocycle \050see)SH
+24000 23708 MT
+("Running Commands" above\051.)SH
+7800 24839 MT
+(macroexpand-lisp Macro)
+6000 W( expansion \050also available on Lisp menu\051.)SH
+/Times-Roman SF
+8200 27318 MT
+(This package modifies the Emacs variable)95 W
+/Times-Italic SF
+25933 XM
+(auto-mode-alist)SH
+/Times-Roman SF
+32612 XM
+(so that the major modes defined in this package are)96 W
+7200 28695 MT
+(invoked when certain types of source files are read into Emacs.  The list of filename extensions given by the)
+53 W( value)52 W
+7200 30072 MT
+(of "soar-file-types" causes soar-mode to be invoked whenever a file with one of these extensions is)
+109 W( visited.  The)110 W
+7200 31449 MT
+(default extensions are .soar)
+9 W( and .soar5, but more can be added.  Any buffer may be put into soar-mode by calling the)8 W
+7200 32826 MT
+(function)SH
+/Times-Italic SF
+10783 XM
+(soar-mode)SH
+/Times-Roman SF
+15310 XM
+(interactively \050e.g., by doing "ESC-x soar-mode"\051.)SH
+8200 35305 MT
+(Delete now converts tabs to spaces as it moves back.)SH
+27530 38253 MT
+(Mouse Support)SH
+6139 50 27530 38453 UL
+8200 40732 MT
+(When running a separate GNU)
+131 W( window under X windows, soar-mode defines special functions for the mouse)132 W
+7200 42109 MT
+(buttons. These)
+314 W( button bindings will not work when using GNU with the -nw, no \050separate\051 window, option.)
+32 W( If)
+312 W( you)31 W
+7200 43486 MT
+(set mouse)
+190 W( buttons in your window manager's init file, you may clobber these definitions because the window)191 W
+7200 44863 MT
+(manager's settings will probably have priority.)SH
+/Courier-Bold SF
+7200 46668 MT
+(BUTTON FUNCTION)7800 W
+7200 47799 MT
+(------------------------------------------------------------------------------)SH
+7200 48930 MT
+(left [)
+9000 W( These are not set by soar-mode, but are  ])SH
+7200 50061 MT
+(middle [)
+7800 W( left for the user to set.  Typically they])SH
+7200 51192 MT
+(right [)
+8400 W( set point, paste, and select text.)
+SH( ])3600 W
+7200 53454 MT
+(SHIFT-left Run)
+6600 W( Soar "spr" on item under cursor)SH
+7200 54585 MT
+(SHIFT-middle Run)
+5400 W( Soar "full-matches" on item under cursor)SH
+7200 55716 MT
+(SHIFT-right Run)
+6000 W( find-tag on item under cursor)SH
+7200 57978 MT
+(CONTROL-left Load)
+5400 W( definition \050Soar or Lisp\051 under cursor)SH
+7200 59109 MT
+(CONTROL-middle Run)
+4200 W( Soar "ptrace" on item under cursor)SH
+7200 60240 MT
+(CONTROL-right [)
+4800 W( available for future expansion or user settable ])SH
+/Times-Roman SF
+26503 63188 MT
+(File Headers in Soar)SH
+8193 50 26503 63388 UL
+8200 65667 MT
+(Soar-mode provides extensive support for file headers.  A file)
+10 W( header is a descriptive comment block placed at the)9 W
+7200 67044 MT
+(beginning of a source code file to keep track of such)
+10 W( information as the author, creation date, last-modified date, and)11 W
+7200 68421 MT
+(so on.)SH
+8200 70900 MT
+(To make a header for the file in the current buffer, execute the command "M-x make-header".  This inserts a)127 W
+ES
+%%Page: 8 10
+BS
+0 SI
+10 /Times-Roman AF
+30350 4286 MT
+(8)SH
+7200 7886 MT
+(standard header)
+80 W( at the top of the buffer, based on the current mode \050it will work for non-soar buffers too\051 and the)81 W
+7200 9263 MT
+(functions listed in the variable "make-header-hooks".  The default)
+43 W( configuration of "make-header" would create the)42 W
+7200 10640 MT
+(following header for a file named "test.soar":)SH
+/Courier-Bold SF
+7200 12445 MT
+(;;;; -*- Mode: Soar -*-)SH
+7200 13576 MT
+(;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;)SH
+7200 14707 MT
+(;;;;)SH
+7200 15838 MT
+(;;;; File)
+SH( :)
+6600 W( test.soar)SH
+7200 16969 MT
+(;;;; Author)
+SH( :)
+5400 W( Joe User)SH
+7200 18100 MT
+(;;;; Created On)
+SH( :)
+3000 W( Thu Mar 29 14:12:46 1990)SH
+7200 19231 MT
+(;;;; Last Modified By:)SH
+7200 20362 MT
+(;;;; Last Modified On:)SH
+7200 21493 MT
+(;;;; Update Count)
+SH( :)
+1800 W( 0)SH
+7200 22624 MT
+(;;;; Soar Version)
+SH( :)
+1800 W( 5.1)SH
+7200 23755 MT
+(;;;;)SH
+7200 24886 MT
+(;;;; PURPOSE)SH
+7200 26017 MT
+(;;;; |>Description)
+1800 W( of module's purpose<|)SH
+7200 27148 MT
+(;;;; TABLE OF CONTENTS)SH
+7200 28279 MT
+(;;;; |>Contents)
+1800 W( of this module<|)SH
+7200 29410 MT
+(;;;; <tab>)
+600 W( header 1)SH
+7200 30541 MT
+(;;;; <tab>)
+600 W( header 2)SH
+7200 31672 MT
+(;;;; \050use)
+1200 W( tab so you don't have to remember number of spaces\051)SH
+7200 32803 MT
+(;;;;)SH
+7200 33934 MT
+(;;;; \050C\051 Copyright 1992, University of Fichigan, all rights reserved.)SH
+7200 35065 MT
+(;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;)SH
+/Times-Roman SF
+8200 37544 MT
+(And if you use the header-status and header-history lines \050the default\051, this is tacked on at the end:)SH
+/Courier-Bold SF
+7200 39349 MT
+(;;;; Status)
+SH( :)
+5400 W( Unknown, Use with caution!)SH
+7200 40480 MT
+(;;;; HISTORY)SH
+7200 41611 MT
+(;;;;)SH
+7200 42742 MT
+(;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;)SH
+/Times-Roman SF
+8200 45221 MT
+(If you use RCS, the header ends like this:)SH
+/Courier-Bold SF
+7200 47026 MT
+(;;;; $Locker$)SH
+7200 48157 MT
+(;;;; $Log$)SH
+7200 49288 MT
+(;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;)SH
+/Times-Roman SF
+8200 51105 MT
+(You must fill in the PURPOSE, TABLE OF)
+112 W( CONTENTS, Status, and HISTORY entries yourself.  When you)113 W
+7200 52482 MT
+(save a file containing)
+61 W( a header created by "make-header", and soar-mode has been loaded \050or the header files have)60 W
+7200 53859 MT
+(been loaded by you or some other mode\051, the "Last Modified By", "Last Modified On")
+69 W( and "Update Count" fields)70 W
+7200 55236 MT
+(are automatically updated.  We expect this will be the primary way file headers are updated.)SH
+8200 57715 MT
+(The "$Locker$" and "$Log$" fields are used by RCS, a more advanced way of updating files.  If)
+31 W( you use RCS to)30 W
+7200 59092 MT
+(maintain your source files, the)
+154 W( RCS commands will automatically generate the appropriate information in those)155 W
+7200 60469 MT
+(fields.)SH
+8200 62948 MT
+(The fields that are used are taken from the header-elements-list variable,)
+81 W( which you can set in your .emacs file.)80 W
+7200 64325 MT
+(The default value is shown in the soar-mode-defaults.el)
+1 W( file included with this distribution in the directory above this)2 W
+7200 65702 MT
+(manual \050and also in this manual, below\051.  For example, you could remove the history and status line from that list.)SH
+26835 68650 MT
+(Editing Comments)SH
+7529 50 26835 68850 UL
+8200 71129 MT
+(When in the middle of a block comment, "M-j" will break the current line at)
+62 W( the cursor point, then indent to the)61 W
+ES
+%%Page: 9 11
+BS
+0 SI
+10 /Times-Roman AF
+30350 4286 MT
+(9)SH
+7200 7886 MT
+(same column, continuing the comment.)
+77 W( If)
+405 W( you are not in the middle of a comment "M-j" will add a new line and)78 W
+7200 9263 MT
+(indent \050as will CR\051.)SH
+25420 12211 MT
+(Using the TAGS Features)SH
+10360 50 25420 12411 UL
+8200 14690 MT
+(The Emacs "tags" facility provides the means to quickly)
+122 W( locate the source code for a symbol.  Standard GNU)121 W
+7200 16067 MT
+(Emacs supports "tags" files for C, Lisp and a few other)
+23 W( languages.  Once a tags file has been selected, the keystroke)24 W
+7200 17444 MT
+("M- ."  \050meta-dot\051 over a symbol will move the cursor to the source for that function.)SH
+8200 19923 MT
+(Soar-mode adds support for tagging the SP form of)
+38 W( Soar productions.  A "tags table" is a list of tuples of <name,)37 W
+7200 21300 MT
+(file, position>, describing how function)
+73 W( and variable declarations of a multi-file program are separated into source)74 W
+7200 22677 MT
+(files. For)
+338 W( each name \050the "tag"\051, the file in which the name is defined and)
+44 W( the position in the file is recorded in the)43 W
+7200 24054 MT
+(tags table.  The file which stores the tags table is called a "tags table file" and its conventional name is "TAGS".)SH
+8200 26533 MT
+(Using the tags feature)
+95 W( of soar-mode, it's possible to create a tags table file listing all the productions in a task.)96 W
+7200 27910 MT
+(The simplest way to generate this file is to use)
+132 W( the function "make-tags-table".  It prompts for the names of the)131 W
+7200 29287 MT
+(source file and the name of the TAGS table to be created.  Therefore, if you have a directory)
+52 W( full of .soar files you)53 W
+7200 30664 MT
+(would like to "tagify", you could do the following:)SH
+8200 33143 MT
+(ESC-x make-tags-table <CR> /pathname/*.soar <CR> /pathname/TAGS <CR>)SH
+8200 35622 MT
+(Once the tags file)
+87 W( has been constructed, you can use it to quickly locate the source code of a production if you)86 W
+7200 36999 MT
+(have its name.  To look up the definition)
+10 W( of a production \050or Lisp function or variable or whatever\051, first position the)11 W
+7200 38376 MT
+(cursor over the name of the production, and then type "C-c C-f" which invokes the find-tag function.)
+228 W( \050The)705 W
+7200 39753 MT
+(almost-equivalent alternative, "ESC-." \050so called "meta dot"\051 is retained for compatibility)
+75 W( with normal Emacs/Lisp)76 W
+7200 41130 MT
+(key bindings.\051)SH
+8200 43609 MT
+(This feature works in both Soar subprocess buffers and Soar text buffers.  Thus you can lookup the definition of a)14 W
+7200 44986 MT
+(production whose name you)
+91 W( see printed anywhere in the buffer \050provide, of course, the appropriate tags table has)92 W
+7200 46363 MT
+(been built.\051)SH
+8200 48842 MT
+(A suggestion:  whenever you built a tags table for a set of Soar files, include)
+303 W( in the list of filenames)302 W
+7200 50219 MT
+(~soar/src/default.soar. This)
+458 W( often comes in handy when you see default productions firing and you're wondering)105 W
+7200 51596 MT
+(what they are doing.)SH
+8200 54075 MT
+(The function "remake-tags-table" can be used to update a TAGS file for a set of files.)SH
+8200 56554 MT
+(Sometimes you will need to switch tags)
+54 W( table files.  The function "find-tags-table" will prompt you for the name)53 W
+7200 57931 MT
+(of a new tags table to use.)SH
+8200 60410 MT
+(The function "tags-apropos" will display a list of all tags matching a given regular expression in the current tags)55 W
+7200 61787 MT
+(table.)SH
+ES
+%%Page: 10 12
+BS
+0 SI
+10 /Times-Roman AF
+30100 4286 MT
+(10)SH
+13 /Times-Bold AF
+7200 8071 MT
+(4. Getting help)SH
+10 /Times-Roman AF
+8200 9448 MT
+(Help on the current buffer's set of key bindings and state variables \050the mode\051 is always available by typing)SH
+7200 10825 MT
+("C-h m" in GNU Emacs.  This presents)
+88 W( help on what commands are generally available in the current buffer \050the)87 W
+7200 12202 MT
+(one the cursor is in\051, and often a brief statement about the major mode's general orientation.)SH
+8200 14681 MT
+(The manual you are reading now is available)
+144 W( on-line in the soar-mode distribution directory in manuals/soar-)145 W
+7200 16058 MT
+(mode-manual.doc \050as text\051 and soar-mode-manual.ps \050PostScript version\051.  The command menu, available)
+72 W( through)71 W
+7200 17435 MT
+(C-c C-m, provides you with a list of manuals under the "Doc" menu item.)SH
+8200 19914 MT
+(Help is also available)
+40 W( for Soar commands.  Soar commands are essentially Common Lisp functions, and as such,)41 W
+7200 21291 MT
+(their descriptions are)
+234 W( available under the standard get-description-string command in soar-mode.  The default)233 W
+7200 22668 MT
+(binding of this command in soar-mode is "C-c d".)SH
+8200 25147 MT
+(If you encounter what you think is a bug, you can \050and should\051 generate a report automatically by typing)SH
+7200 26524 MT
+("M-x soar-bug".  \050This command is also available in the menu.\051  You should send this report)
+198 W( by mail, using)199 W
+7200 27901 MT
+(whatever mail program you normally use.)SH
+ES
+%%Page: 11 13
+BS
+0 SI
+10 /Times-Roman AF
+30100 4286 MT
+(11)SH
+13 /Times-Bold AF
+7200 8071 MT
+(5. Loading and running soar-mode)SH
+10 /Times-Roman AF
+8200 9448 MT
+(To use soar-mode,)
+126 W( load the file soar-mode-defaults.el.  Its directory is dependent on your site.  At CMU \050and)125 W
+7200 10825 MT
+(other AFS sites\051 you can just put the following statement in your .emacs file:)SH
+8200 13304 MT
+(\050load "/afs/cs.cmu.edu/project/soar/5.2/emacs/soar/{soar-mode-release}/soar-mode-defaults.el"\051)SH
+8200 15783 MT
+(Then, when you want to edit a file of Soar)
+62 W( productions \050ending in .soar or .soar6\051, simply read the file normally)63 W
+7200 17160 MT
+(into Emacs and the buffer automatically will be put)
+113 W( into soar-mode.  Similarly, if you edit a Lisp file \050ending in)112 W
+7200 18537 MT
+(.lisp\051, ILISP alone will get loaded.)SH
+8200 21016 MT
+(If you don't like the default settings set by soar-mode-defaults, and there are)
+7 W( enough that you should view this file)8 W
+7200 22393 MT
+(when you start)
+200 W( to use soar-mode more, put customizations in your .emacs file after the command to load the)199 W
+7200 23770 MT
+(defaults, overwriting them.  You could also insert the contents of the soar-mode-defaults file into)
+62 W( your .emacs file,)63 W
+7200 25147 MT
+(and make the appropriate changes there.)SH
+8200 27626 MT
+(To run)
+71 W( Soar as a subprocess, invoke the command "run-soar" or just "soar" by typing "M-x soar".  The normal-)70 W
+7200 29003 MT
+(appearing Soar)
+56 W( process will start up in a window of Emacs.  If you use several versions of Soar, such as the Soar5)57 W
+7200 30380 MT
+(and Soar5+sx, you can use the example code in soar-mode-defaults.el to choose between them at start up.)SH
+8200 32859 MT
+(Once you're editing a file of Soar code or running Soar, type "C-h m" for help on Emacs soar-mode,)
+121 W( or "C-c)120 W
+7200 34236 MT
+(C-m" for the soar-mode menu.)SH
+8200 36715 MT
+(Before you exit Emacs, you should quit the Soar process as you would normally.)
+44 W( Not)
+340 W( doing so is normally safe,)45 W
+7200 38092 MT
+(but it relies on Emacs successfully killing the Soar job when Emacs exits, which does not always happen.)SH
+8200 40571 MT
+(Soar and soar-mode are not small programs.  Old Emacs versions \05018.57 and older\051 can run out)
+34 W( of address space,)33 W
+7200 41948 MT
+(and are more likely to do so when)
+15 W( you run these programs.  The best answer is to use a newer Emacs.  If you cannot)16 W
+7200 43325 MT
+(do so, as a preventative measure you should exit and restart Emacs)
+104 W( more often, particularly if you examine large)103 W
+7200 44702 MT
+(files.)SH
+8200 47181 MT
+(If Emacs does crash, don't)
+183 W( panic.  Your modified files should be backed up as #file-name# in their normal)184 W
+7200 48558 MT
+(directory. You)
+289 W( can edit them, and when you save them, they are written out without the surrounding pound-sign \050#\051)19 W
+7200 49935 MT
+(characters.)SH
+23225 52883 MT
+(Modifying soar-mode through hooks)SH
+14749 50 23225 53083 UL
+8200 55362 MT
+(A hook is a place to hang either a function, or a list)
+54 W( of functions that get executed after a specific corresponding)55 W
+7200 56739 MT
+(event occurs.  They allow you to customize soar-mode to suit)
+56 W( yourself, particularly if you want to do something to)55 W
+7200 58116 MT
+(each file or Soar process.  They are implemented as Lisp variables, so you can put functions or)
+41 W( lambda expressions)42 W
+7200 59493 MT
+(on them just as you would add to any list.  The table below shows when hooks get called, and their calling order.)SH
+ES
+%%Page: 12 14
+BS
+0 SI
+10 /Times-Roman AF
+30100 4286 MT
+(12)SH
+/Courier-Bold SF
+7200 7874 MT
+(Keymaps and their relationships:)SH
+7200 10136 MT
+(Keymap to change or changes)
+SH( Hook\050s\051)
+7800 W( to use)SH
+7200 11267 MT
+(==========================================================================)SH
+7200 12398 MT
+(soar-mode-map soar-mode-load-hook)16200 W
+8400 13529 MT
+(This is used in soar-mode, on)SH
+8400 14660 MT
+(files of Soar productions.)SH
+7200 16922 MT
+(isoar-mode-map soar-mode-load-hook)
+15600 W( -or- soar-hook)SH
+8400 18053 MT
+(This is used in the buffer)SH
+8400 19184 MT
+(running Soar.)SH
+7200 21446 MT
+(Choosing a Soar program to run:)SH
+8400 22577 MT
+(- each time Soar is called)
+SH( soar-hook)7200 W
+8400 23708 MT
+(- at start of session only)
+SH( soar-mode-load-hook)7200 W
+7200 25970 MT
+(ilisp-mode-map ilisp-load-hook)15600 W
+7200 27101 MT
+(comint-mode-map lisp-mode-hook)15000 W
+7200 28232 MT
+(lisp-mode-map)SH
+8400 29363 MT
+(These are the underlying keymaps)SH
+8400 30494 MT
+(soar-mode is built on.  Leave them)SH
+8400 31625 MT
+(alone unless you are running)SH
+8400 32756 MT
+(stand-alone Lisp too.)SH
+7200 34561 MT
+(Hooks you may want to use \050Advanced version\051:)SH
+7200 36823 MT
+(Event Hooks)
+14400 W( called \050in order\051)SH
+7200 37954 MT
+(==========================================================================)SH
+7200 39085 MT
+(soar-mode loaded)
+SH( ilisp-site-hook,)
+7800 W( ilisp-load-hook,)SH
+25200 40216 MT
+(soar-mode-site-hook, soar-mode-load-hook)SH
+7200 42478 MT
+(soar-mode entered)
+SH( lisp-mode-hook,)
+7200 W( soar-mode-hook)SH
+7200 44740 MT
+(inferior-soar mode started)
+SH( ilisp-mode-hook,)1800 W
+8400 45871 MT
+(\050Soar started up\051)
+SH( <dialect>-hook)
+6000 W( \050e.g., allegro-hook\051,)SH
+25200 47002 MT
+(soar-hook, comint-mode-hook)SH
+7200 49264 MT
+(Executed after inferior Soar  ilisp-init-hook)SH
+8400 50395 MT
+(\050or lisp\051 is initialized)SH
+7200 52657 MT
+(lisp-mode entered)
+SH( lisp-mode-hook,)
+7200 W( comint-mode-hook,)SH
+7200 53788 MT
+(lisp started up)
+SH( ilisp-mode-hook,)
+8400 W( clisp-hook,)SH
+25200 54919 MT
+(<dialect>-hook \050e.g., allegro-hook\051)SH
+25200 56050 MT
+(comint-mode-hook)SH
+25200 58312 MT
+(soar-after-ilisp-hook)SH
+/Times-Roman SF
+8200 60129 MT
+(For example, consider the following code.  In addition to)
+78 W( changing a few small things, it queries you each time)77 W
+7200 61506 MT
+(you start up about which image to run, a plain Soar image, or the Soar+sx image:)SH
+ES
+%%Page: 13 15
+BS
+0 SI
+10 /Times-Roman AF
+30100 4286 MT
+(13)SH
+/Courier-Bold SF
+7200 7874 MT
+(\050setq soar-hook)SH
+9600 9005 MT
+('\050 \050lambda \050\051)SH
+13200 10136 MT
+(;; this could be done on soar-mode-load-hook just as well and faster)SH
+13200 11267 MT
+(\050setq soar-date-with-month-name t\051)SH
+13200 12398 MT
+(\050if \050and \050not \050comint-check-proc "*soar*"\051\051)SH
+18600 13529 MT
+(\050y-or-n-p "Use Soar5+sx\050y\051 or plain Soar5 \050n\051? "\051\051)SH
+15600 14660 MT
+(\050setq ilisp-program)SH
+19200 15791 MT
+("/afs/cs/project/soar/5.2/src/sx/5.1.1/Soar5+sx.acli"\051)SH
+15600 16922 MT
+(\050setq ilisp-program)SH
+19200 18053 MT
+("/afs/cs/project/soar/5.2/2/bin/pmax/mach/franz/Soar5"\051\051)SH
+13200 19184 MT
+(\050setq tab-width 4\051\051)SH
+11400 20315 MT
+(\051\051)SH
+/Times-Roman SF
+23309 23263 MT
+(Installing soar-mode at a remote site)SH
+14581 50 23309 23463 UL
+8200 25742 MT
+(Updated versions of Soar-mode and this manual are)
+98 W( available via anonymous FTP from centro.soar.cs.cmu.edu)99 W
+7200 27119 MT
+([128.2.242.245]. The)
+486 W( README file in /afs/cs/project/soar/public/Soar5 \050or /afs/cs/project/soar/public/Soar6\051 will)117 W
+7200 28496 MT
+(provide you with a listing of the latest versions, and which files to)
+36 W( pull to get them.  Note: CMU's machines do not)37 W
+7200 29873 MT
+(allow you to access intermediate directories in this path.)SH
+8200 32352 MT
+(In those directories, the complete source for soar-mode is mostly likely still named "soar-mode.<soar-mode-)186 W
+7200 33729 MT
+(version>.tar.Z". You)
+310 W( can copy this file directly if you)
+30 W( are at Michigan or ISI, or you can retrieve it via anonymous-)31 W
+7200 35106 MT
+(FTP.)SH
+8200 37585 MT
+(You should move it into the directory it will live in.  We)
+184 W( suggest putting it in the directory {soar-on-your-)183 W
+7200 38962 MT
+(system}/soar-mode/{soar-mode-version}.)SH
+8200 41441 MT
+(You must uncompress it \050uncompress)
+22 W( soar-mode.tar.Z\051 and untar it \050tar xf soar-mode.tar\051.  You then must change)23 W
+7200 42818 MT
+(the following variables in the indicated files:)SH
+ES
+%%Page: 14 16
+BS
+0 SI
+10 /Times-Roman AF
+30100 4286 MT
+(14)SH
+/Courier-Bold SF
+7200 7874 MT
+(File Variable New)
+10800 W( Value)SH
+7200 9005 MT
+(============================================================================)SH
+7200 10136 MT
+(soar-mode-defaults.el soar-mode-home-directory)
+600 W( New)
+1200 W( untared directory name)SH
+7200 12398 MT
+(soar-site.el soar-mode-home-directory)
+6000 W( New)
+1200 W( untared directory name)SH
+21000 13529 MT
+(soar-image-name What)
+6600 W( you call Soar)SH
+39000 14660 MT
+(\050Soar5 is default\051)SH
+21000 15791 MT
+(In file section IV,)
+SH( Local)
+4200 W( paths for:)SH
+22200 16922 MT
+(paths pointing to)
+SH( Soar)
+6000 W( source file)SH
+22200 18053 MT
+(manuals & source)
+SH( Soar)
+6600 W( bibliography file)SH
+39000 19184 MT
+(default productions file)SH
+21000 20315 MT
+(header-copyright-notice Your)
+1800 W( name or site name)SH
+7200 21446 MT
+(defdialect-soar.el "\050defdialect)
+1800 W( soar" args)
+SH( Lisp)
+2400 W( version that Soar is)SH
+37800 22577 MT
+(based on, e.g., Lucid.)SH
+37800 23708 MT
+(Allegro is the default.)SH
+21000 24839 MT
+(comint-prompt-regexp A)
+3600 W( regular expression that)SH
+37800 25970 MT
+(matches the prompt when)SH
+37800 27101 MT
+(Soar is running. A good)SH
+37800 28232 MT
+(check to make is to)SH
+37800 29363 MT
+(evaluate)SH
+/Times-Bold SF
+43200 XM
+(\050string-match)SH
+19950 30494 MT
+(comint-prompt-regexp)SH
+/Times-Italic SF
+19950 31625 MT
+("your Soar prompt")SH
+/Times-Bold SF
+(\051)SH
+/Courier-Bold SF
+37800 32756 MT
+(and verify that it returns)SH
+37800 33887 MT
+(0 \050If the call returns)SH
+37800 35018 MT
+(nil, you must edit the)SH
+37800 36149 MT
+(value of the variable to)SH
+37800 37280 MT
+(match your prompt\051.)SH
+7200 38411 MT
+(ilisp/<version>/soar.lisp Code)
+14400 W( you want to be loaded)SH
+38400 39542 MT
+(each time Soar starts up,)SH
+38400 40673 MT
+(such as as \050init-soar\051.)SH
+38400 41804 MT
+(For format, see file.)SH
+/Times-Roman SF
+8200 44283 MT
+(Recompiling the emacs code.)
+90 W( After)
+340 W( you have set the above variables, you should recompile the Emacs files so)90 W
+12046 50 8200 44483 UL
+7200 45660 MT
+(soar-mode runs faster.  In a separate X GNU-Emacs window \050not a gnu -nw window\051, you must first)
+120 W( load soar-)121 W
+7200 47037 MT
+(mode-defaults.el \050by calling ESC-x)
+97 W( load-file soar-mode-defaults.el\051, then load soar-mode \050ESC-x soar-mode\051, and)96 W
+7200 48414 MT
+(then compile it \050ESC-x)
+27 W( soar-compile-soar-mode\051.  This recompile may prompt you to confirm each file compilation)28 W
+7200 49791 MT
+(and you should always answer "y".  It should take less)
+86 W( than 5 minutes to do, and subsequent loading and running)85 W
+7200 51168 MT
+(will be)
+115 W( considerably faster. Note to Epoch users:  Before recompiling, you should rename ilisp/<version>/epoch-)116 W
+7200 52545 MT
+(pop-el to ilisp/<version>/epoch-pop.el .)SH
+8200 55024 MT
+(Recompiling the lisp code.)
+20 W( Ilisp)
+270 W( loads)
+20 W( some common lisp files into Soar5 when it starts up.  Users at remote sites)19 W
+10782 50 8200 55224 UL
+7200 56401 MT
+(should compile them)
+145 W( on their own after the emacs code has been compiled.  To start this procedd, bring up an)146 W
+7200 57778 MT
+(inferior Soar process \050ESC-x soar\051 and then typing "ESC-X ilisp-compile-inits".  It uses an)
+95 W( extension for binaries)94 W
+7200 59155 MT
+(that makes them appropriate and unique to the machine and LISP implementation.)
+120 W( So)
+492 W( after you have started up)121 W
+7200 60532 MT
+(Soar, you need to call M-x)82 W
+/Times-Italic SF
+18607 XM
+(ilisp-compile-inits)SH
+/Times-Roman SF
+26217 XM
+(only once for each)
+82 W( machine/lisp combination.  This may be slightly)81 W
+7200 61909 MT
+(screwy, and if it queries you, you may have to answer \050"n" seems)
+62 W( good so far\051.  You can also compile the files by)63 W
+7200 63286 MT
+(hand if you don't figure it out.  The distributed version includes source files to load into and set up: Allegro, Lucid,)33 W
+7200 64663 MT
+(CMULisp, and KCL.)SH
+8200 67142 MT
+(If you have problems getting)
+27 W( soar-mode up because it appears to be in an endless loop initializing, the problem is)28 W
+7200 68519 MT
+(probably that)
+102 W( soar-mode can not recognize your local Soar prompt.  Even if you don't know how to read regular)101 W
+7200 69896 MT
+(expressions, you can check to see that comint-prompt-regexp in the defdialect)
+129 W( in defdialect-soar.el matches your)130 W
+7200 71273 MT
+(prompt with string-match \050see note in table above\051.  Examples)
+40 W( of some prompts that will be matched by the default)39 W
+ES
+%%Page: 15 17
+BS
+0 SI
+10 /Times-Roman AF
+30100 4286 MT
+(15)SH
+7200 7886 MT
+(value of comint-prompt-regexp are "<cl>)
+19 W( ",)
+SH( "<soar:user>)
+19 W( ",)
+SH( "<Soar)
+19 W( 6>",)
+SH( and)
+19 W( "[1c])
+20 W( <cl> ".)
+SH( Some)
+290 W( prompts that would)20 W
+7200 9263 MT
+(not match are "foo", "<soar)
+71 W( ",)
+SH( and "%)
+71 W( ".)
+SH( If)
+392 W( you suspect this is part of a problem, please include your regular Soar)71 W
+7200 10640 MT
+(prompt in all bug reports.)SH
+8200 13119 MT
+(If you run on a Sun, we include a file in the distribution provided by Josef Nerb called sunfun-nj.el.  It provides)
+SH( an)1 W
+7200 14496 MT
+(attempt to provide a uniform mechanism for binding Sun function keys.  We have)
+10 W( not tested it, but Josef and Ronald)9 W
+7200 15873 MT
+(Leenes report that it works.)
+42 W( If)
+336 W( all of your machines are Suns, you should put in the soar-site file a line that loads it)43 W
+7200 17250 MT
+(\050i.e., \050load "sunfun-nj"\051\051 and insert into)
+11 W( the soar-site file their suggestions for insertion in the .emacs.  Otherwise you)10 W
+7200 18627 MT
+(can point it out to users as something they can load in their .emacs files.)SH
+ES
+%%Page: 16 18
+BS
+0 SI
+10 /Times-Roman AF
+30100 4286 MT
+(16)SH
+17211 7886 MT
+(6. INCOMPATIBLE CHANGES FROM PREVIOUS VERSIONS)SH
+8200 10365 MT
+(* Soar6 is defined)
+79 W( as a dialect of Soar.  To start it up, type M-x Soar6.  To change its image name, modify the)80 W
+7200 11742 MT
+(value of soar6-image-name in your .emacs file.)SH
+8200 14221 MT
+(* inferior-soar-mode-map is now isoar-mode-map.)SH
+8200 16700 MT
+(* The variable soar-load-hook has been replaced by the more appropriately named soar-mode-load-hook.)SH
+8200 19179 MT
+(* C-z has been rebound to)
+41 W( access the new outlining commands.  You can change it by setting outline-prefix-char)40 W
+7200 20556 MT
+(in your .emacs to another character, such as "\134C-c\134C-z".)SH
+8200 23035 MT
+(* "Hooks" variables have been renamed to be)
+160 W( "hook" variables.  This is more consistent with Emacs coding)161 W
+7200 24412 MT
+(conventions. For)
+250 W( example, soar-mode-hooks is now soar-mode-hook.)SH
+8200 26891 MT
+(* The variable soar-image-arguments has gone away.  You must either define a shell alias)
+56 W( or holler to soar-bugs)55 W
+7200 28268 MT
+(for help.)SH
+8200 30747 MT
+(* Several keys get rebound, including C-x o, C-c.  You)
+7 W( can rebind them, see the example defaults file, soar-mode-)8 W
+7200 32124 MT
+(defaults.el.)SH
+ES
+%%Page: 17 19
+BS
+0 SI
+10 /Times-Roman AF
+30100 4286 MT
+(17)SH
+13 /Times-Bold AF
+7200 8071 MT
+(6. Complete keybindings listing)SH
+10 /Times-Roman AF
+8200 9448 MT
+(There are a several keymaps around, but only two of them are likely to)
+231 W( be interesting to you.  The first,)230 W
+7200 10825 MT
+(isoar-mode-map, is the keymap that is used by the *soar* buffer.  \050This buffer's mode is actually inferior-soar-)144 W
+7200 12202 MT
+(mode. That)
+586 W( is to say, it is running an inferior process, in this case Soar, and is designed to)
+168 W( interact with that)167 W
+7200 13579 MT
+(process.\051 The)
+406 W( second keymap, soar-mode-map, is used)
+78 W( by buffers simply in soar-mode.  Soar-mode is used when)79 W
+7200 14956 MT
+(editing buffers filled with Soar commands or productions.)
+50 W( The)
+349 W( two maps share a large number of keybindings and)49 W
+7200 16333 MT
+(differ only when the purposes of each mode diverge.)SH
+8200 18812 MT
+(A complete listing)
+65 W( of the keybindings is presented below, along with the keybindings of lisp-mode and inferior-)66 W
+7200 20189 MT
+(lisp-mode. If)
+250 W( you use the underlying package, ILISP, to edit Lisp, you may be interested in these maps also.)SH
+8200 22668 MT
+(You can customize your keybindings by placing code to rebind your favorite keys on the soar-mode-hook.)SH
+/Courier-Bold SF
+7200 24473 MT
+(Soar Mode keybindings:)SH
+7200 26735 MT
+(;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;)SH
+7200 27866 MT
+(Leading:)SH
+8400 28997 MT
+(* = Different between soar-mode and lisp-mode,)SH
+8400 30128 MT
+(+ = Additions to soar-mode beyond what lisp-mode offers)SH
+11400 31259 MT
+(\050i.e., unbound by ilisp\051,)SH
+8400 32390 MT
+(i = Inferior modes only \050i.e., those with a running Soar or lisp\051.)SH
+7200 34652 MT
+(Otherwise soar-mode inherits from lisp-mode and isoar-mode \050inferior)SH
+7200 35783 MT
+(soar mode\051 inherits from ilisp-mode \050inferior lisp mode\051.)SH
+7200 36914 MT
+(;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;)SH
+7200 39176 MT
+(Changes to the global mode map:)SH
+18600 50 7200 39376 UL
+8400 41438 MT
+(C-x o)
+SH( popper-other-window)6000 W
+20400 42569 MT
+(\050requires a C-u prefix to get to popper windows,)SH
+20400 43700 MT
+(including buffer listings.\051)SH
+8400 44831 MT
+(LFD newline-and-indent-lisp)7200 W
+8400 45962 MT
+(C-] close-and-send-lisp)7200 W
+8400 47093 MT
+(] close-all-lisp)8400 W
+7200 48224 MT
+(* TAB)
+SH( indent-line-ilisp)
+7200 W( ; lisp-mode)SH
+7200 49355 MT
+(* TAB)
+SH( dabbrev-expand)
+7200 W( ;)
+1800 W( during expansion in taql-mode)SH
+8400 50486 MT
+(DEL backward-delete-char-untabify)7200 W
+8400 51617 MT
+(C-c Prefix)
+7200 W( Command)SH
+7200 52748 MT
+(i C-a)
+SH( bol-ilisp)7200 W
+7200 53879 MT
+(i C-d)
+SH( delete-char-or-pop-ilisp)7200 W
+7200 55010 MT
+(i RET)
+SH( return-ilisp)7200 W
+8400 56141 MT
+(RET newline-and-indent-lisp)7200 W
+8400 57272 MT
+(C-x C-f)
+SH( find-file-lisp)4800 W
+8400 58403 MT
+(C-c g)
+SH( popper-grow-output)
+6000 W( \050overridden)
+600 W( in soar- and lisp-modes\051)SH
+7200 60665 MT
+(Control-c map:)
+SH( \050order:)
+2400 W( punctuation, Caps, small, control\051)SH
+8400 50 7200 60865 UL
+8400 62927 MT
+(C-c !)
+SH( default-directory-lisp)6000 W
+7200 64058 MT
+(i C-c #)
+SH( raw-keys-ilisp)6000 W
+8400 65189 MT
+(C-c \051)
+SH( find-unbalanced-lisp)6000 W
+8400 66320 MT
+(C-c ;)
+SH( comment-region-lisp)6000 W
+8400 67451 MT
+(C-c ^)
+SH( edit-callers-lisp)6000 W
+8400 68582 MT
+(C-c .)
+SH( \050d)
+6000 W( 1\051)SH
+8400 69713 MT
+(C-c ,)
+SH( \050r)
+6000 W( 1\051)SH
+8400 70844 MT
+(C-c 1)
+SH( popper-bury-output)6000 W
+7200 71975 MT
+(* C-c SPC)
+SH( mark-change-lisp)4800 W
+ES
+%%Page: 18 20
+BS
+0 SI
+10 /Times-Roman AF
+30100 4286 MT
+(18)SH
+/Courier-Bold SF
+7200 7874 MT
+(* C-c SPC)
+SH( macrocycle)
+4800 W( ;soar)SH
+8400 9005 MT
+(C-c TAB)
+SH( send-invisible)4800 W
+8400 11267 MT
+(C-c *)
+SH( Prefix)
+6000 W( Command)SH
+8400 12398 MT
+(C-c * 0)
+SH( clear-changes-lisp)4800 W
+8400 13529 MT
+(C-c * c)
+SH( compile-changes-lisp)4800 W
+8400 14660 MT
+(C-c * e)
+SH( eval-changes-lisp)4800 W
+8400 15791 MT
+(C-c * l)
+SH( list-changes-lisp)4800 W
+8400 18053 MT
+(C-c A)
+SH( clman-apropos)6000 W
+8400 19184 MT
+(C-c B)
+SH( soar-pbreak-production)6000 W
+8400 20315 MT
+(C-c D)
+SH( clman)6000 W
+8400 21446 MT
+(C-c I)
+SH( inspect-lisp)6000 W
+7200 22577 MT
+(* C-c M)
+SH( macroexpand-lisp)
+6000 W( ;lisp)SH
+7200 23708 MT
+(* C-c M)
+SH( full-matches)
+6000 W( ;soar)
+2400 W( \050Soar)
+600 W( 6 matches 1\051)SH
+7200 24839 MT
+(* C-c M-m)
+SH( really-full-matches)
+4800 W( ;soar6 matches 2)SH
+8400 25970 MT
+(C-c P)
+SH( set-package-lisp)6000 W
+7200 27101 MT
+(i C-c R)
+SH( comint-msearch-input-matching)6000 W
+8400 28232 MT
+(C-c S)
+SH( select-ilisp)6000 W
+8400 29363 MT
+(C-c T)
+SH( ptrace-soar)6000 W
+8400 31625 MT
+(C-c a)
+SH( arglist-lisp)6000 W
+8400 32756 MT
+(C-c b)
+SH( switch-to-lisp)6000 W
+7200 33887 MT
+(* C-c c)
+SH( compile-defun-lisp)
+6000 W( ;lisp)SH
+7200 35018 MT
+(* C-c c)
+SH( soar-pclass)
+6000 W( ;soar)4200 W
+8400 36149 MT
+(C-c d)
+SH( documentation-lisp)6000 W
+8400 37280 MT
+(C-c e)
+SH( eval-defun-lisp)6000 W
+7200 38411 MT
+(+ C-c f)
+SH( soar-find-tag)6000 W
+8400 39542 MT
+(C-c g)
+SH( abort-commands-lisp)6000 W
+8400 40673 MT
+(C-c i)
+SH( describe-lisp)6000 W
+8400 41804 MT
+(C-c k)
+SH( compile-file-lisp)6000 W
+7200 42935 MT
+(* C-c l)
+SH( load-file-lisp)6000 W
+7200 44066 MT
+(* C-c l)
+SH( load-file-soar)6000 W
+7200 45197 MT
+(* C-c m)
+SH( macroexpand-1-lisp)
+6000 W( ;lisp)SH
+7200 46328 MT
+(* C-c m)
+SH( smatches ;soar)
+6000 W( \050Soar 6 matches 0\051)SH
+8400 47459 MT
+(C-c n)
+SH( eval-next-sexp-lisp)6000 W
+7200 48590 MT
+(* C-c p)
+SH( package-lisp)6000 W
+7200 49721 MT
+(* C-c p)
+SH( spr)6000 W
+8400 50852 MT
+(C-c r)
+SH( eval-region-lisp)6000 W
+8400 51983 MT
+(C-c s)
+SH( status-lisp)6000 W
+8400 53114 MT
+(C-c t)
+SH( trace-defun-lisp)6000 W
+8400 54245 MT
+(C-c v)
+SH( popper-scroll-output)6000 W
+7200 55376 MT
+(* C-c w)
+SH( compile-region-lisp)6000 W
+7200 56507 MT
+(* C-c w)
+SH( soar-copy-sp)6000 W
+7200 57638 MT
+(+ C-c x)
+SH( soar-excise-production)6000 W
+8400 58769 MT
+(C-c y)
+SH( call-defun-lisp)6000 W
+8400 59900 MT
+(C-c z)
+SH( reset-ilisp)6000 W
+7200 62162 MT
+(+ C-c C-a)
+SH( taql-add-clause)4800 W
+8400 63293 MT
+(C-c C-c)
+SH( interrupt-subjob-ilisp)
+4800 W( ;)
+1800 W( ilisp-mode)SH
+8400 64424 MT
+(C-c C-b)
+SH( soar-load-buffer)4800 W
+8400 65555 MT
+(C-c C-c)
+SH( compile-defun-and-go-lisp)
+4800 W( ;  lisp-mode)SH
+8400 66686 MT
+(C-c C-d)
+SH( insert-date-string)4800 W
+8400 67817 MT
+(C-c C-e)
+SH( eval-defun-and-go-lisp)4800 W
+7200 68948 MT
+(+ C-c C-f)
+SH( taql-fixup-construct)4800 W
+8400 70079 MT
+(C-c M-f)
+SH( find-production-in-other-window)4800 W
+7200 71210 MT
+(+ C-c C-l)
+SH( run-soar)4800 W
+ES
+%%Page: 19 21
+BS
+0 SI
+10 /Times-Roman AF
+30100 4286 MT
+(19)SH
+/Courier-Bold SF
+7200 7874 MT
+(+ C-c C-m)
+SH( run-soar-menu)4800 W
+8400 9005 MT
+(C-c C-n)
+SH( eval-next-sexp-and-go-lisp)4800 W
+7200 10136 MT
+(i C-c C-o)
+SH( comint-kill-output)4800 W
+8400 11267 MT
+(C-c C-r)
+SH( eval-region-and-go-lisp)4800 W
+7200 12398 MT
+(+ C-c C-t)
+SH( taql-insert-construct)4800 W
+8400 13529 MT
+(C-c C-w)
+SH( compile-region-and-go-lisp)4800 W
+7200 14660 MT
+(i C-c C-u)
+SH( comint-kill-input)4800 W
+7200 15791 MT
+(+ C-c C-z)
+SH( outline-commands)4800 W
+7200 18053 MT
+(+ C-c C-z C-n)
+SH( Move)
+2400 W( to next visible heading)SH
+7200 19184 MT
+(+ C-c C-z C-p)
+SH( Move)
+2400 W( to previous visible heading.)SH
+7200 20315 MT
+(+ C-c C-z C-f)
+SH( Forward)
+2400 W( same level.)SH
+7200 21446 MT
+(+ C-c C-z C-b)
+SH( Backward)
+2400 W( same level.)SH
+7200 22577 MT
+(+ C-c C-z C-u)
+SH( Up)
+2400 W( a heading.)SH
+7200 23708 MT
+(+ C-c C-z C-a)
+SH( Show)
+2400 W( all.)SH
+7200 24839 MT
+(+ C-c C-z C-s)
+SH( Show)
+2400 W( sub-tree.)SH
+7200 25970 MT
+(+ C-c C-z C-i)
+SH( Show)
+2400 W( children \050takes arg with C-u\051.)SH
+7200 27101 MT
+(+ C-c C-z C-e)
+SH( Show)
+2400 W( entry.)SH
+7200 28232 MT
+(+ C-c C-z C-x)
+SH( Show)
+2400 W( leaves.)SH
+7200 29363 MT
+(+ C-c C-z C-h)
+SH( Hide)
+2400 W( subtree.)SH
+7200 30494 MT
+(+ C-c C-z C-t)
+SH( Hide)
+2400 W( body.)SH
+7200 31625 MT
+(+ C-c C-z C-c)
+SH( Hide)
+2400 W( entry.)SH
+7200 32756 MT
+(+ C-c C-z C-l)
+SH( Hide)
+2400 W( leaves.)SH
+7200 35018 MT
+(Escape map:)
+SH( \050order:)
+1800 W( punctuation, Caps, small, control\051)SH
+6600 50 7200 35218 UL
+8400 37280 MT
+(ESC ")
+SH( replace-lisp)6000 W
+8400 38411 MT
+(ESC ,)
+SH( next-definition-lisp)6000 W
+7200 39542 MT
+(* ESC .)
+SH( edit-definitions-lisp)
+6000 W( ;lisp)600 W
+7200 40673 MT
+(* ESC .)
+SH( find-tag)
+6000 W( ;soar)8400 W
+8400 41804 MT
+(ESC ?)
+SH( search-lisp)6000 W
+8400 42935 MT
+(ESC `)
+SH( next-caller-lisp)6000 W
+8400 44066 MT
+(ESC RET)
+SH( close-and-send-lisp)4800 W
+8400 45197 MT
+(ESC TAB)
+SH( complete-lisp)4800 W
+7200 46328 MT
+(+ ESC e)
+SH( taql-expand-construct)6000 W
+7200 48590 MT
+(i ESC N)
+SH( comint-psearch-input)6000 W
+7200 49721 MT
+(i ESC P)
+SH( comint-msearch-input)6000 W
+7200 51983 MT
+(i ESC n)
+SH( comint-next-input)6000 W
+7200 53114 MT
+(i ESC p)
+SH( comint-previous-input)6000 W
+8400 54245 MT
+(ESC q)
+SH( reindent-lisp)6000 W
+7200 55376 MT
+(i ESC s)
+SH( comint-previous-similar-input)6000 W
+8400 57638 MT
+(ESC C-l)
+SH( previous-buffer-lisp)4800 W
+8400 58769 MT
+(ESC C-a)
+SH( beginning-of-defun-lisp)4800 W
+8400 59900 MT
+(ESC C-e)
+SH( end-of-defun-lisp)4800 W
+8400 61031 MT
+(ESC C-q)
+SH( indent-sexp-ilisp)4800 W
+8400 62162 MT
+(ESC C-r)
+SH( reposition-window-lisp)4800 W
+8400 63293 MT
+(ESC C-x)
+SH( eval-defun-lisp)4800 W
+ES
+%%Page: 20 22
+BS
+0 SI
+10 /Times-Roman AF
+30100 4286 MT
+(20)SH
+13 /Times-Bold AF
+7200 8071 MT
+(7. Default startup file)SH
+10 /Courier-Bold AF
+7200 9876 MT
+(;;;; -*- Mode: Emacs-Lisp -*-)SH
+7200 11007 MT
+(;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;)SH
+7200 12138 MT
+(;;;;)SH
+7200 13269 MT
+(;;;; File)
+SH( :)
+6600 W( soar-mode-defaults.el)SH
+7200 14400 MT
+(;;;; Author)
+SH( :)
+5400 W( Frank Ritter)SH
+7200 15531 MT
+(;;;; Created On)
+SH( :)
+3000 W( Wed Jun 20)SH
+7200 16662 MT
+(;;;; Last Modified By: Frank Ritter)SH
+7200 17793 MT
+(;;;; Last Modified On: Wed Nov 11 17:54:48 1992)SH
+7200 18924 MT
+(;;;; Update Count)
+SH( :)
+1800 W( 98)SH
+7200 20055 MT
+(;;;;)SH
+7200 21186 MT
+(;;;;)SH
+7200 22317 MT
+(;;;; How)
+9600 W( to load GNU Emacs Soar mode)SH
+7200 23448 MT
+(;;;;)SH
+7200 24579 MT
+(;;;; This file contains details on a default set of commands to load and use)SH
+7200 25710 MT
+(;;;; soar mode.  Novice users with vanilla tastes can just always load this,)SH
+7200 26841 MT
+(;;;; more advanced users will want to cut and paste the commands out of this)SH
+7200 27972 MT
+(;;;; into their .emacs files)SH
+7200 29103 MT
+(;;;;)SH
+7200 30234 MT
+(;;;; To use Soar6, merely set the image name you want to use as)SH
+7200 31365 MT
+(;;;; soar6-image-name, and call the function Soar6 instead of Soar.)SH
+7200 32496 MT
+(;;;;)SH
+7200 33627 MT
+(;;;; Loading this file will cause the following major changes to Emacs to)SH
+7200 34758 MT
+(;;;; take place:)SH
+7200 35889 MT
+(;;;;)SH
+7200 37020 MT
+(;;;; a\051 The file cl.el will be loaded if was not already loaded.)SH
+7200 38151 MT
+(;;;; b\051 Many configuration variables will have been set.  These affect)SH
+7200 39282 MT
+(;;;; the)
+1800 W( behavior of Soar mode and the code on top of which it is built.)SH
+7200 40413 MT
+(;;;; c\051 The following packages will be autoloaded when the listed functions)SH
+7200 41544 MT
+(;;;; are)
+1800 W( called:)SH
+7200 42675 MT
+(;;;; Package)
+4800 W( Function)6600 W
+7200 43806 MT
+(;;;; -------)
+4800 W( ---------)6600 W
+7200 44937 MT
+(;;;; ILISP)
+5400 W( run-ilisp)7200 W
+7200 46068 MT
+(;;;; ILISP)
+5400 W( allegro)7200 W
+7200 47199 MT
+(;;;; soar)
+5400 W( soar)7800 W
+7200 48330 MT
+(;;;;)SH
+7200 49461 MT
+(;;;; d\051 The following mappings between buffer modes and file name patterns)SH
+7200 50592 MT
+(;;;; will)
+1800 W( be established, causing Emacs to put buffers that have these)SH
+7200 51723 MT
+(;;;; file)
+1800 W( extensions be put into the specified mode automatically:)SH
+7200 52854 MT
+(;;;; File)
+3600 W( name suffix)
+SH( Mode)2400 W
+7200 53985 MT
+(;;;; ----------------)
+3600 W( ----)2400 W
+7200 55116 MT
+(;;;; .soar)
+5400 W( soar)7200 W
+7200 56247 MT
+(;;;; .lisp)
+5400 W( lisp-mode)
+7200 W( \050ilisp-version\051)SH
+7200 57378 MT
+(;;;;)SH
+7200 58509 MT
+(;;;;)SH
+7200 59640 MT
+(;;;; TABLE OF CONTENTS)SH
+7200 60771 MT
+(;;;; i.)
+1800 W( Variables)
+3000 W( that must be set)SH
+7200 61902 MT
+(;;;; ii.)
+1800 W( How)
+2400 W( to set keybindings and hooks)SH
+7200 63033 MT
+(;;;; iii. Load)
+1800 W( associated code)SH
+7200 64164 MT
+(;;;; iv.)
+1800 W( Grungy)
+2400 W( things you have to do)SH
+7200 65295 MT
+(;;;;)SH
+7200 66426 MT
+(;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;)SH
+7200 67557 MT
+(;; changed auto-mode-alist to ignore .soar-aliases 27-Jul-92 -FER)SH
+7200 69819 MT
+(\050require 'cl\051)
+SH( ;)
+15600 W( Loaded often-used CL extensions.)SH
+31200 70950 MT
+(; we will use things here like pushnew)SH
+ES
+%%Page: 21 23
+BS
+0 SI
+10 /Times-Roman AF
+30100 4286 MT
+(21)SH
+/Courier-Bold SF
+7200 7874 MT
+(;;;)SH
+7200 9005 MT
+(;;; i.)
+2400 W( Variables)
+3000 W( that must be set)SH
+7200 10136 MT
+(;;;)SH
+7200 11267 MT
+(;;; If you insert this into your .emacs, this is a section of active code that)SH
+7200 12398 MT
+(;;; you can not comment out or remove.)SH
+7200 14660 MT
+(;; This says where soar-mode lives.  Do not end the pathname with '/'.)SH
+7200 15791 MT
+(\050setq soar-mode-home-directory)SH
+10800 16922 MT
+("/afs/cs/project/soar/5.2/emacs/soar/new"\051)SH
+7200 18053 MT
+(;\050setq soar-image-name "/../stego/usr/doorenbs/soar6"\051)SH
+7200 19184 MT
+(\050setq soar-image-name "/afs/cs/project/soar/5.2/2/bin/pmax/mach/franz/Soar5"\051)SH
+7200 20315 MT
+(\050setq soar6-image-name "/afs/cs/project/soar/5.2/emacs/soar/new/soar6"\051)SH
+7200 23708 MT
+(;; Relative pathname off of soar-mode for ilisp-mode)SH
+7200 24839 MT
+(\050setq soar-ilisp-subdirectory "ilisp/4.12"\051)SH
+7200 27101 MT
+(;; tags should include taql code too...)SH
+7200 28232 MT
+(\050setq soar-default-tags-table "DEFAULT-TAGS"\051)SH
+7200 31625 MT
+(;;;)SH
+7200 32756 MT
+(;;; ii. Variables)
+2400 W( that can be set)SH
+7200 33887 MT
+(;;;)SH
+7200 35018 MT
+(;;; These)
+600 W( variables are shown with their default values.  If you want to)SH
+7200 36149 MT
+(;;; change)
+600 W( their values, copy this file \050or portions of this file\051 to your)SH
+7200 37280 MT
+(;;; directory)
+600 W( or insert it into your .emacs file.)SH
+7200 39542 MT
+(;; The variable `soar-image-name' must contain the name of the Soar)SH
+7200 40673 MT
+(;; executable or be an alias which runs Soar.  It must be something which is)SH
+7200 41804 MT
+(;; in your normal command execution path, or Emacs will not be able to find)SH
+7200 42935 MT
+(;; it.  If you are NOT using the site default \050set in `soar.el'\051, then you)SH
+7200 44066 MT
+(;; must set this variable manually.)SH
+7200 46328 MT
+(;; \050setq soar-image-name "Soar5"\051)SH
+7200 48590 MT
+(;; If t, soar commands print descriptions into soar-diversion-buffer \050*glide*\051)SH
+7200 49721 MT
+(;; buffer.  If nil, dumps into *soar* buffer.)SH
+7200 50852 MT
+(;; \050setq soar-print-into-diversion-p t\051)SH
+7200 53114 MT
+(;; Set `lisp-no-popper' to `t' if you want all Lisp loading output \050as opposed)SH
+7200 54245 MT
+(;; to that of Soar productions\051 to go to the inferior Soar buffer rather than)SH
+7200 55376 MT
+(;; into a pop-up window.  You should probably also set `comint-always-scroll')SH
+7200 56507 MT
+(;; to `t' as well so that output is always visible.)SH
+7200 58769 MT
+(;; \050setq lisp-no-popper nil\051  ;default is nil)SH
+7200 59900 MT
+(;; \050setq comint-always-scroll nil\051 ;default is nil)SH
+7200 62162 MT
+(;; Set the following to `t' to print out the month in `insert-date-string' as)SH
+7200 63293 MT
+(;; letters, and in 30-Oct-91 order, rather than as 10-30-91.)SH
+7200 64424 MT
+(;; \050setq insert-date-with-month-name nil\051  ; default is nil)SH
+7200 66686 MT
+(;; Set to `nil' if you don't want `C-x o' to skip pop-up buffers, such)SH
+7200 67817 MT
+(;; as `*Buffer Menu*' or `*Help*'.  Default is `t'.)SH
+7200 68948 MT
+(;; Can also be set to a list of pop-up buffers you want to skip.)SH
+7200 71210 MT
+(\050setq popper-buffers-to-skip nil\051)SH
+ES
+%%Page: 22 24
+BS
+0 SI
+10 /Times-Roman AF
+30100 4286 MT
+(22)SH
+/Courier-Bold SF
+7200 7874 MT
+(;; Pop to the CMS \050continuous match set\051 buffer if it is being written)SH
+7200 9005 MT
+(;; to \050default `nil'\051.)SH
+7200 11267 MT
+(;; \050setq pop-to-cms nil\051)SH
+7200 13529 MT
+(;; if this is C-^, it is also C-6 unshifted)SH
+7200 14660 MT
+(;; \050setq soar-command-prefix "\134C-c"\051)SH
+7200 16922 MT
+(;; The outline commands are bound on C-c then this prefix char.)SH
+7200 18053 MT
+(;; \050setq outline-prefix-char "\134C-z"\051)SH
+7200 20315 MT
+(;; If soar-erase-diversion-buffer-p is t \050default\051, erase the diversion)SH
+7200 21446 MT
+(;; buffer each time you use it.)SH
+7200 22577 MT
+(;; \050setq soar-erase-diversion-buffer-p t\051)SH
+7200 24839 MT
+(;; Name of the diversion buffer.)SH
+7200 25970 MT
+(;; \050setq soar-diversion-buffer-name "*glide*"\051)SH
+7200 28232 MT
+(;; Popup the diversion buffer if t \050the default\051 something gets put in there.)SH
+7200 29363 MT
+(;; \050setq soar-popup-diversion-buffer-p t\051)SH
+7200 31625 MT
+(;; soar-header-hooks contains a list of what to put on the header when)SH
+7200 32756 MT
+(;; make-header is called.  The default is shown below.)SH
+7200 33887 MT
+(;;)SH
+7200 35018 MT
+(;; \050setq soar-header-hooks)SH
+7200 36149 MT
+(;; '\050;;)
+3600 W( a top line with mode  comes for free)SH
+7200 37280 MT
+(;; ;;)
+4800 W( a divisor line)
+SH( comes)
+4200 W( for free)SH
+7200 38411 MT
+(;; header-blank)4800 W
+7200 39542 MT
+(;; header-file-name)4800 W
+7200 40673 MT
+(;; header-author)4800 W
+7200 41804 MT
+(;; header-creation-date)4800 W
+7200 42935 MT
+(;; header-modification-author)4800 W
+7200 44066 MT
+(;; header-modification-date)4800 W
+7200 45197 MT
+(;; header-update-count)4800 W
+7200 46328 MT
+(;; soar-version)4800 W
+7200 47459 MT
+(;; taql-version)4800 W
+7200 48590 MT
+(;; ;;Put)
+4800 W( PURPOSE and TOC near top)SH
+7200 49721 MT
+(;; header-blank)4800 W
+7200 50852 MT
+(;; header-purpose)4800 W
+7200 51983 MT
+(;; header-toc)4800 W
+7200 53114 MT
+(;; header-copyright)4800 W
+7200 54245 MT
+(;; ;;Generally)
+4800 W( want either RCS stuff or header-history)SH
+7200 55376 MT
+(;; ;;at)
+4800 W( CMU and elsewhere, fewer users and fewer non-hacky use RCS,)SH
+7200 56507 MT
+(;; header-divisor-line)4800 W
+7200 57638 MT
+(;; header-status)4800 W
+7200 58769 MT
+(;; header-history)4800 W
+7200 59900 MT
+(;; ;;header-rcs-locker)4800 W
+7200 61031 MT
+(;; ;;;;header-rcs-header)4800 W
+7200 62162 MT
+(;; ;;header-rcs-log)4800 W
+7200 63293 MT
+(;; ;;)
+4800 W( divisor line)
+SH( comes)
+4200 W( for free)SH
+7200 64424 MT
+(;; \051\051)4800 W
+7200 66686 MT
+(;; Soar will beep when initialized if t.)SH
+7200 67817 MT
+(;; \050setq soar-beep-after-setup-p t\051)SH
+7200 71210 MT
+(;;;)SH
+ES
+%%Page: 23 25
+BS
+0 SI
+10 /Times-Roman AF
+30100 4286 MT
+(23)SH
+/Courier-Bold SF
+7200 7874 MT
+(;;; ii. How)
+2400 W( to set keybindings and hooks)SH
+7200 9005 MT
+(;;;)SH
+7200 10136 MT
+(;;; If you wish to change the keybindings or add to them for buffers in)SH
+7200 11267 MT
+(;;; soar-mode, put the changes on the `soar-hook' in your .emacs file)SH
+7200 12398 MT
+(;;; with code comparable to the code below.  Similar code could be put on)SH
+7200 13529 MT
+(;;; the `inferior-soar-mode-hook' for buffers running Soar.)SH
+7200 14660 MT
+(;;;)SH
+7200 15791 MT
+(;;; Here is an example of a soar-hook function which defines `C-c C-t')SH
+7200 16922 MT
+(;;; to run function `favorite-cmd' in both Soar mode buffers and Soar process)SH
+7200 18053 MT
+(;;; buffers; and redefines a mouse button.)SH
+7200 19184 MT
+(;;; Further information on how to reset the mouse keys are available in the)SH
+7200 20315 MT
+(;;; soar-mouse-x.el file.)SH
+7200 21446 MT
+(;;;)SH
+7200 23708 MT
+(;; Example set up for stuff to do when putting a buffer into soar-mode)SH
+7200 24839 MT
+(;\050setq soar-mode-hook)SH
+7200 25970 MT
+(; '\050\050lambda)
+2400 W( \050\051)SH
+7200 27101 MT
+(; \050visit-tags-table)
+4800 W( soar-default-tags-table\051)SH
+7200 28232 MT
+(; ;;)
+4800 W( works for code buffers)SH
+7200 29363 MT
+(; \050define-key)
+4800 W( soar-mode-map "\134C-z" 'favorite-cmd2\051)SH
+7200 30494 MT
+(; ;;)
+4800 W( this command rebinds the control middle mouse to what it was)SH
+7200 31625 MT
+(; ;;)
+4800 W( originally.)SH
+7200 32756 MT
+(; \050define-key)
+4800 W( mouse-map x-button-c-middle-up 'x-cut-and-wipe-text\051)SH
+7200 33887 MT
+(; \051\051\051)4200 W
+7200 36149 MT
+(;;; works for running Soar buffers)SH
+7200 37280 MT
+(;\050setq soar-mode-hook)SH
+7200 38411 MT
+(; '\050\050lambda)
+2400 W( \050\051)SH
+7200 39542 MT
+(; \050visit-tags-table)
+4800 W( soar-default-tags-table\051)SH
+7200 40673 MT
+(; \050define-key)
+4800 W( isoar-mode-map "\134C-z" 'favorite-cmd\051)SH
+7200 41804 MT
+(; ;;)
+4800 W( this command rebinds the control middle mouse to what it was)SH
+7200 42935 MT
+(; ;;)
+4800 W( originally.)SH
+7200 44066 MT
+(; \050define-key)
+4800 W( mouse-map x-button-c-middle-up 'x-cut-and-wipe-text\051)SH
+7200 45197 MT
+(; \051\051\051)4200 W
+7200 48590 MT
+(;;; Example of how to set soar-hook, and what you can put on it, which gets)SH
+7200 49721 MT
+(;;; gets called when an inferior \050running\051 Soar starts up.)SH
+7200 50852 MT
+(;;;)SH
+7200 53114 MT
+(;\050if \050not \050boundp 'soar-hook\051\051 \050setq soar-hook nil\051\051)SH
+7200 54245 MT
+(;;; soar-hook gets called after ilisp inits, but before soar gets called)SH
+7200 55376 MT
+(;\050setq soar-hook)SH
+7200 56507 MT
+(; \050append)
+1200 W( soar-hook)SH
+7200 57638 MT
+(; '\050\050lambda)
+3000 W( \050\051)SH
+7200 58769 MT
+(; ;;)
+4800 W( use C-6 instead of C-c as command prefix)SH
+7200 59900 MT
+(; \050setq)
+4800 W( soar-command-prefix "\134C-6"\051)SH
+7200 61031 MT
+(; ;;)
+4800 W( start by visiting a tags table)SH
+7200 62162 MT
+(; \050visit-tags-table)
+4800 W( "/afs/cs/project/soar/5.2/2/lib/TAGS"\051)SH
+7200 63293 MT
+(; ;;)
+4800 W( ask which soar I want iff don't have a live one)SH
+7200 64424 MT
+(; \050if)
+4800 W( \050and \050not \050comint-check-proc "*soar*"\051\051)SH
+7200 65555 MT
+(; \050y-or-n-p)9000 W
+7200 66686 MT
+(; "Use)
+9600 W( \050perhaps\051 local copy of Soar5+sx\050y\051 or Soar5 \050n\051? "\051\051)SH
+7200 67817 MT
+(; \050setq)
+7200 W( ilisp-program)SH
+7200 68948 MT
+(; "/afs/cs/project/soar/5.2/src/sx/new/Soar5+sx.acli"\051\051)10800 W
+7200 70079 MT
+(;)SH
+7200 71210 MT
+(; ;;)
+4200 W( or just always use a single version)SH
+ES
+%%Page: 24 26
+BS
+0 SI
+10 /Times-Roman AF
+30100 4286 MT
+(24)SH
+/Courier-Bold SF
+7200 7874 MT
+(; \050setq)
+4200 W( ilisp-program)SH
+7200 9005 MT
+(; "/afs/cs.cmu.edu/project/soar/5.2/2/bin/pmax/mach/franz/Soar5"\051\051\051)6000 W
+7200 10136 MT
+(; ;;)
+6000 W( set my header notice)SH
+7200 11267 MT
+(; \050setq)
+4200 W( header-copyright-notice "Copyright 1991, Frank Ritter."\051)SH
+7200 12398 MT
+(; \051\051\051\051)2400 W
+7200 15791 MT
+(;;;)SH
+7200 16922 MT
+(;;; iii.)
+2400 W( Load)
+1800 W( associated code)SH
+7200 18053 MT
+(;;;)SH
+7200 19184 MT
+(;;; `utilities/taql-indent-line.el' provides code to indent TC's correctly)SH
+7200 20315 MT
+(;;; when using soar- or taql-mode \050but is not automatically loaded by)SH
+7200 21446 MT
+(;;; soar-mode\051.)SH
+7200 22577 MT
+(;;;)SH
+7200 23708 MT
+(;;; \050e.g., Set up ilisp so you can find it w/o soar-mode.\051)SH
+7200 24839 MT
+(;;; We believe that if you don't use ilisp alone, that you could comment or)SH
+7200 25970 MT
+(;;; cut this out to save space. \050But I wouldn't do that if I were you.\051)SH
+7200 27101 MT
+(;;;)SH
+7200 29363 MT
+(;; Establish path to the home directory of Soar mode and ILISP mode.)SH
+7200 30494 MT
+(;; The latter is set here so that you can use ILISP mode independently)SH
+7200 31625 MT
+(;; of Soar mode:)SH
+7200 33887 MT
+(\050pushnew soar-mode-home-directory load-path\051)SH
+7200 35018 MT
+(\050pushnew \050concat soar-mode-home-directory "/" soar-ilisp-subdirectory\051)SH
+12600 36149 MT
+(load-path\051)SH
+7200 38411 MT
+(;; To load `utilities/taql-indent-line' iff it has not been loaded.)SH
+7200 39542 MT
+(;; Cut this into your soar-mode-hook, if you wish.)SH
+7200 40673 MT
+(;; \050require 'taql-indent-line\051)SH
+7200 42935 MT
+(;; Some handy things for working on just lisp that you are carrying around)SH
+7200 44066 MT
+(;; too, let's not let them go to waste:)SH
+7200 46328 MT
+(\050autoload 'run-ilisp "ilisp" "Select a new inferior LISP." t\051)SH
+7200 47459 MT
+(\050autoload 'allegro)
+SH( "ilisp")
+1200 W( "Inferior Allegro Common LISP." t\051)SH
+7200 49721 MT
+(;; Additional useful functions.)SH
+7200 51983 MT
+(\050autoload 'comint-mem "comint")SH
+8400 53114 MT
+("Test to see if ITEM is equal to an item in LIST.)SH
+7200 54245 MT
+(Option comparison function ELT= defaults to equal." t\051)SH
+7200 56507 MT
+(\050autoload 'add-hook "comint-ipc")SH
+13200 57638 MT
+("Add a function to a hook if not already present." t\051)SH
+7200 59900 MT
+(\050autoload 'soar-manual "utilities/soar-manual")SH
+13200 61031 MT
+("Read an online manual, such as for Soar or soar-mode." t\051)SH
+7200 63293 MT
+(\050autoload 'clman "allegro/allegro-mode-init")SH
+13200 64424 MT
+("Read about a specific topic in the online CL manual." t\051)SH
+7200 66686 MT
+(\050autoload 'clman-apropos "allegro/allegro-mode-init")SH
+13200 67817 MT
+("List topics matching a subexpression in the online CL manual." t\051)SH
+7200 70079 MT
+(;; set the ilisp-command-prefix in case you are headed into ilisp first)SH
+7200 71210 MT
+(\050setq ilisp-prefix "\134C-c"\051)SH
+ES
+%%Page: 25 27
+BS
+0 SI
+10 /Times-Roman AF
+30100 4286 MT
+(25)SH
+/Courier-Bold SF
+7200 7874 MT
+(;;; Emacs would normally put .lisp files in it's default simple lisp-mode.)SH
+7200 9005 MT
+(;;; This makes reading a lisp file load in ilisp.)SH
+7200 10136 MT
+(\050add-hook 'lisp-mode-hook)SH
+13200 11267 MT
+(\050function)SH
+13800 12398 MT
+(\050lambda \050\051)SH
+14400 13529 MT
+(\050require 'ilisp\051\051\051\051)SH
+7200 15791 MT
+(;;;)SH
+7200 16922 MT
+(;;; iv. Grungy)
+2400 W( things you have to do)SH
+7200 18053 MT
+(;;;)SH
+7200 19184 MT
+(;;; This is live code that you have to have, but that you don't have to)SH
+7200 20315 MT
+(;;; understand if you leave it alone.)SH
+7200 21446 MT
+(;;;)SH
+7200 23708 MT
+(;; Put files that end in .soar into soar-mode)SH
+7200 24839 MT
+(;; remove comment to do it for .Soar files too)SH
+7200 27101 MT
+(\050defvar soar-file-types)SH
+9000 28232 MT
+('\050"\134\134.soar$")SH
+10200 29363 MT
+(;; "\134\134.Soar$")SH
+10200 30494 MT
+("\134\134.soar5$")SH
+10200 31625 MT
+("\134\134.soar6$"\051\051)SH
+7200 33887 MT
+(\050dolist \050suffix soar-file-types\051)SH
+8400 35018 MT
+(\050if \050not \050assoc suffix auto-mode-alist\051\051)SH
+10800 36149 MT
+(\050push \050cons suffix 'soar-mode\051 auto-mode-alist\051\051\051)SH
+7200 38411 MT
+(;;; make calling  {run-soar, soar, soar-mode} load the mode code.)SH
+7200 39542 MT
+(\050mapcar)SH
+7800 40673 MT
+(\050function \050lambda \050x\051 \050autoload \050car x\051 "soar" \050car \050cdr x\051\051 t\051\051\051)SH
+7800 41804 MT
+('\050\050run-soar "Starting)
+600 W( up an inferior \050buffer\051 soar process."\051)SH
+9000 42935 MT
+(\050soar "Another)
+600 W( way to start up an inferior \050buffer\051 soar process."\051)SH
+9000 44066 MT
+(\050soar6 "Another)
+600 W( way to start up an inferior \050buffer\051 soar process."\051)SH
+9000 45197 MT
+(\050soar-mode "When editing a file of Soar productions or lisp code."\051)SH
+9000 46328 MT
+(\051\051)SH
+7200 48590 MT
+(\050defun Soar \050\051)SH
+8400 49721 MT
+(\050interactive\051)SH
+8400 50852 MT
+(\050soar\051\051)SH
+7200 53114 MT
+(;;;; This should be covered by the new  use-soar-mode-if-available  variable.)SH
+7200 54245 MT
+(;;; If taql-mode is around, put .taql files into soar-mode as the major)SH
+7200 55376 MT
+(;;; mode when they start up, with taql-mode behind)SH
+7200 56507 MT
+(;;; This works if soar-mode is loaded second.)SH
+7200 57638 MT
+(;\050if \050assoc "\134\134.taql" auto-mode-alist\051)SH
+7200 58769 MT
+(; \050set-default)
+1800 W( 'auto-mode-alist)SH
+7200 59900 MT
+(; \050append)7200 W
+7200 61031 MT
+(; \050mapcar)
+9000 W( '\050lambda \050x\051)SH
+7200 62162 MT
+(; \050cons)
+15600 W( x 'soar-and-taql-mode\051\051)SH
+7200 63293 MT
+(; '\050"\134\134.taql$"\051\051)14400 W
+7200 64424 MT
+(; auto-mode-alist\051)9000 W
+7200 65555 MT
+(; \051\051)1800 W
+ES
+%%Page: i 28
+BS
+0 SI
+10 /Times-Roman AF
+30461 4286 MT
+(i)SH
+13 /Times-Bold AF
+25652 8071 MT
+(Table of Contents)SH
+12 SS 
+7200 9327 MT
+(1. Design philosophy)SH
+53400 XM
+(2)SH
+7200 10583 MT
+(2. GNU-Emacs typing conventions)SH
+53400 XM
+(3)SH
+7200 11839 MT
+(3. Commands for editing Soar files)SH
+53400 XM
+(4)SH
+7200 13095 MT
+(4. Getting help)SH
+52800 XM
+(10)SH
+7200 14351 MT
+(5. Loading and running soar-mode)SH
+52800 XM
+(11)SH
+7200 15607 MT
+(6. Complete keybindings listing)SH
+52800 XM
+(17)SH
+7200 16863 MT
+(7. Default startup file)SH
+52800 XM
+(20)SH
+ES
+%%Trailer
+%%Pages: 28
+%%DocumentFonts: Times-Roman Times-Bold Courier-Bold Symbol Times-Italic Courier

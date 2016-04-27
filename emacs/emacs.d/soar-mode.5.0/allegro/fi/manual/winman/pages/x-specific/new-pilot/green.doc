@@ -1,0 +1,66 @@
+
+                                                                       green
+
+
+    FUNCTION
+    green  -  the color green
+
+    Usage
+    green
+
+    DESCRIPTION
+    This is a constant, bound to the color green.  The color  is  read-only,
+    which means you cannot change it.
+
+    EXAMPLES
+    green => #<Color: (rgb) 0.0, 1.0, 0.0, read-only: uninitialized>
+
+    SEE ALSO
+    black, blue, purple, red, turquoise, white, yellow
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

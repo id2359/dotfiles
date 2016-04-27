@@ -1,0 +1,66 @@
+
+                                                             make-hash-table
+
+
+    FUNCTION
+    make-hash-table  -  create a new hash-table
+
+    USAGE
+    make-hash-table [:size size] [:test pred] [:rehash-size more] [:rehash-
+      threshold when]
+
+    DESCRIPTION
+    Returns a new hash table that compares keys with the predicate PRED  and
+    contains  room  for approximately SIZE entries.  PRED must be one of the
+    symbols eq, eql, or equal,  or  one  of  the  objects  #'eql,  #'eq,  or
+    #'equal.  The argument PRED defaults to eql.
+
+    SIZE, MORE, and WHEN control initial size and the growth pattern of  the
+    hash table.  Their default values are implementation-dependent.
+
+    The argument SIZE should be a positive integer  specifying  the  initial
+    size.   The  system  may  make the hash table larger in order to benefit
+    from optimal sizes, but this value  should  approximate  the  number  of
+    entries you will need.
+
+    The argument WHEN may  be  a  positive  integer  less  than  SIZE  or  a
+    floating-point  number between zero and one.  When the number of entries
+    is greater than WHEN (for WHEN an integer) or greater  than  WHEN  times
+    the  hash table size (for WHEN a float), the hash table will be resized.
+    If WHEN is an integer, the threshold will be scaled up whenever the hash
+    table is resized.
+
+    The argument MORE may be either a positive integer, or a  floating-point
+    number  greater  than  one.   When  resized, the hash table will have at
+    least MORE new entries (if MORE is an integer) or will be at least  MORE
+    times the old size (if MORE is a float).
+
+    The printed representation of a hash table is  implementation-dependent,
+    and cannot be read in most implementations.
+
+    EXAMPLES
+    (hash-table-p
+      (setq ht (make-hash-table :size 100 :rehash-size 1.4)))
+      => t
+    (progn
+      (setf (gethash 'quick ht) 'brown)
+      (setf (gethash 'fox ht) 'jumped)
+      (setf (gethash 'over ht) 'fence)
+      (list
+        (gethash 'quick ht) (gethash 'fox ht)
+        (remhash 'fox ht) (gethash 'fox ht)))
+        => (brown jumped t nil)
+    (hash-table-count ht) => 2
+
+    SEE ALSO
+    CLtL 16:283, clrhash, gethash, hash-table-count, hash-table-p, remhash,
+    sxhash
+
+
+
+
+
+
+
+
+

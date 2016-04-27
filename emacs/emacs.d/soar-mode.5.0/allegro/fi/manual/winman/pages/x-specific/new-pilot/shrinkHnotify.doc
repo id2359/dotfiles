@@ -1,0 +1,66 @@
+
+                                                               shrink-notify
+
+
+    METHOD
+    shrink-notify  -  method called when X shrinks a window
+
+    Usage
+    shrink-notify WSTREAM
+
+    DESCRIPTION
+    Returns   what   the   last   function   in   the   list   returned   by
+    window-stream-shrink-notify  returns.  When the X window-manager shrinks
+    a common window, it informs COMMON WINDOWS that it has done so to  allow
+    COMMON  WINDOWS to update its information on window status.  COMMON WIN-
+    DOWS calls this method, which in turn calls all the  functions  returned
+    by  window-stream-shrink-notify  applied  to  WSTREAM.  You do not (nor-
+    mally) call this function directly.
+
+    The initial value of the list  returned  by  window-stream-shrink-notify
+    contains the single function default-window-stream-shrink-notify-method.
+    This function does the work of updating COMMON WINDOWS so you should not
+    remove  it from the list.  You may add new functions to the list for any
+    window-stream with modify-window-stream-method.   You  may  replace  the
+    whole  list  with  setf  and  window-stream-shrink-notify but be sure to
+    include default-window-stream-shrink-notify-method in the new list.  The
+    function  restore-default-window-stream-method  restores the list to its
+    original value.
+
+    Any function added to the list must accept one argument.   The  argument
+    will be the window-stream WSTREAM.
+
+    EXAMPLES
+    (setf *my-win*
+                (make-window-stream :left 100 :bottom 100
+                :width 200 :height 200
+                :activate-p t :title "Just a Window"))
+
+    (window-stream-shrink-notify *my-win*)
+      => (default-window-stream-shrink-notify-method)
+
+    (defun my-after-shrink-notify (w)
+      (format t "Status of window is ~S ~%"
+              (window-stream-status w)))
+
+    (modify-window-stream-method *my-win* :shrink-notify
+                           :after 'my-after-shrink-notify)
+    (window-stream-shrink-notify  *my-win*)
+      => (default-window-stream-shrink-notify-method
+              my-after-shrink-notify)
+    ;; Now try using the X window manager to shrink the window.
+    ;; The system will print "Status of window is :inactive "
+    ;; to *TERMINAL-IO*.
+
+    SEE ALSO
+    expand, flush, reshape, shrink, window-stream-shrink, window-stream-
+    shrink-notify
+
+
+
+
+
+
+
+
+

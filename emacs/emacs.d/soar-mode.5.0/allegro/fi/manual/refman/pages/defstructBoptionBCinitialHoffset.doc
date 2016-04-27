@@ -1,0 +1,66 @@
+
+                                            defstruct option :initial-offset
+
+
+    DEFSTRUCT OPTION
+    :initial-offset  -  specify initial slots to skip for structures with
+      explicit representational type
+
+    Usage
+    :initial-offset N
+
+    DESCRIPTION
+    This is a defstruct option to control the representation  of  structures
+    defined  with  an explicit :type option.  It is not valid unless a :type
+    option is also specified.  In the default case (corresponding to N being
+    zero),  structure slots are assigned to the representational type begin-
+    ning with the first element (e.g. with lists the car of the  list  would
+    contain the first slot).  In the case of named structures (see the :name
+    option), the first element is a symbol  naming  the  structure  and  the
+    slots  are assigned beginning with the second element of the representa-
+    tional type.  The value N must be a non-negative integer specifying  the
+    number  of elements of the representational type to to skip before allo-
+    cating elements for the structure.  (For  named  structures,  the  first
+    element allocated will be used for the name.)
+
+    EXAMPLES
+    (defstruct (fraction (:type (vector t))        ; not named
+                         (:initial-offset 3))
+      num denom) => fraction
+    (setq f (make-fraction :num 2 :denom 3)) => #(nil nil nil 2 3)
+
+    (defstruct (fraction :named
+                         (:initial-offset 3)
+                         (:type list))
+      num denom) => fraction
+    (setq a
+          (make-fraction :num 2 :denom 3))
+      => (nil nil nil fraction 2 3)
+
+    SEE ALSO
+    CLtL 19:315, CLtL 19:319, defstruct, defstruct-option :conc-name,
+    defstruct-option :constructor, defstruct option :copier, defstruct
+    option :include, defstruct option :named, defstruct option :predicate,
+    defstruct option :print-function, defstruct option :type
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

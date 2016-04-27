@@ -1,0 +1,66 @@
+
+                                                                      defvar
+
+
+    MACRO
+    defvar  -  declare a special variable
+
+    USAGE
+    defvar name [initform [doc-string]]
+
+    DESCRIPTION
+    Proclaims the variable NAME to be special, and returns NAME.  This macro
+    is  usually used to declare and initialize globally-defined variables at
+    the top level.  An optional initial value  is  given  by  the  value  of
+    INITFORM,  which  is  evaluated and stored in NAME only if NAME does not
+    already have a value.  If specified, a documentation  string  DOC-STRING
+    of type variable is attached to NAME.
+
+    EXAMPLES
+    (defvar *max-files*) => *max-files*
+    (defvar *workspace-path*
+      (make-pathname :directory "foo")
+      "Scratch directory.") => *workspace-path*
+    (defvar foo 3) => foo
+    foo => 3
+    (defvar foo 4) => foo
+    foo => 3
+
+    SEE ALSO
+    CLtL 5:68, documentation, defconstant, defparameter, proclaim, special
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

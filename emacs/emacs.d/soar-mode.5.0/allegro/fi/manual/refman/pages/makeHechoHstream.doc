@@ -1,0 +1,66 @@
+
+                                                            make-echo-stream
+
+
+    FUNCTION
+    make-echo-stream  -  make a bidirectional stream that echoes its input
+
+    USAGE
+    make-echo-stream instream outstream
+
+    DESCRIPTION
+    Returns a bidirectional stream.  The arguments  INSTREAM  and  OUTSTREAM
+    must  both be streams.  Any output to the echo stream goes to OUTSTREAM.
+    Any input from the echo stream actually comes from INSTREAM and is  out-
+    put to OUTSTREAM.
+
+    EXAMPLES
+    (let* ((in (make-string-input-stream "Hello"))
+           (out (make-string-output-stream))
+           (io (make-echo-stream in out)))
+      (prin1 (read io) io)
+      (get-output-stream-string out))
+      => "HelloHello"
+
+    SEE ALSO
+    CLtL 21:330, get-output-stream-string, make-broadcast-stream, make-
+    concatenated-stream, make-string-input-stream, make-string-output-
+    stream, make-synonym-stream, make-two-way-stream, open
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

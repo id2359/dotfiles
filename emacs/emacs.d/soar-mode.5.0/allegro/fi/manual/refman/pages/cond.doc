@@ -1,0 +1,66 @@
+
+                                                                        cond
+
+
+    MACRO
+    cond  -  evaluate clauses conditionally
+
+    USAGE
+    cond {(test {form}*)}*
+
+    DESCRIPTION
+    Returns the values of the last FORM of the first clause  whose  TEST  is
+    true.   cond processes clauses sequentially, in each case evaluating the
+    TEST.  When a test is found to be true, cond evaluates each FORM in  the
+    cdr of the clause, returning the value (or values) of the last form.  If
+    the cdr of the clause is empty, then the value of the TEST is  returned.
+    (If  TEST  returns  multiple  values, only the first value is returned.)
+    Clauses  after  the  successful  clause  are  not  evaluated.   If  cond
+    processes  all  of  the  clauses,  and  all tests are false, then nil is
+    returned.  Any clause where TEST is t will always be evaluated if it  is
+    reached.
+
+    EXAMPLES
+    (let ((x 0))
+      (cond ((= 2 3) (setq x (+ x 10)) x)
+            ((= 2 2) (setq x (+ x 20)) x)
+            (t (setq x 30)))) => 20
+
+    SEE ALSO
+    CLtL 7:116, case, if, unless, when
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

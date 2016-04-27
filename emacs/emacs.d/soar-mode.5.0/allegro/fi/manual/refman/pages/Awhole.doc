@@ -1,0 +1,66 @@
+
+                                                                      &whole
+
+
+    Lambda-List KEYWORD
+    &whole  -  bind entire macro-call form
+
+    USAGE
+    &whole macro-call-var
+
+    DESCRIPTION
+    Specifies that during macro expansion, MACRO-CALL-VAR be  bound  to  the
+    entire  macro-call form.  The &whole lambda-list keyword can only appear
+    in a defmacro, macrolet, or define-setf-method  form  and  must  be  the
+    first  element  in the lambda-list form.  After MACRO-CALL-VAR is bound,
+    the argument list is inherited intact by later parts of the lambda-list.
+
+    EXAMPLES
+    (defmacro m (&whole all a b)
+      `(list ',all ,b ,a)) => m
+    (m 2 3) => ((m 2 3) 3 2)
+
+    SEE ALSO
+    CLtL 8:145, about forms, about lambda lists, defmacro
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

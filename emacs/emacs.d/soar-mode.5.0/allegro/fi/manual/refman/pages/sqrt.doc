@@ -1,0 +1,66 @@
+
+                                                                        sqrt
+
+
+    FUNCTION
+    sqrt  -  get the square root of a number
+
+    USAGE
+    sqrt number
+
+    DESCRIPTION
+    Returns the principal square root of NUMBER, which may be any number.
+
+    The branch cut for sqrt is continuous with the second quadrant, and lies
+    on  the  negative  real  axis.   The  range is the right half-plane, and
+    includes the non-negative  imaginary  axis  but  excludes  the  negative
+    imaginary axis.
+
+    If NUMBER is a non-negative integer with an integral  square  root,  the
+    format  of  the  result  (whether  integer  or  real) is implementation-
+    dependent.  Similarly, if NUMBER is a negative  integer  with  a  square
+    root  whose  imaginary part is integral, the parts of the complex result
+    may be real or rational.
+
+    EXAMPLES
+    (sqrt 9.0) => 3.0
+    (sqrt -9.0) => #c(0.0 3.0)
+    (sqrt 1/4) => 0.5
+
+    SEE ALSO
+    CLtL 12:205, exp, expt, log
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

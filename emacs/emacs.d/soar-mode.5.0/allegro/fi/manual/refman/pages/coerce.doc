@@ -1,0 +1,132 @@
+
+                                                                      coerce
+
+
+    FUNCTION
+    coerce  -  convert an object to an `equivalent' object of a given type
+
+    USAGE
+    coerce object result-type
+
+    DESCRIPTION
+    Returns an object of type RESULT-TYPE, which must be a  type  specifier,
+    that  is equivalent to (and possibly identical to) OBJECT.  If OBJECT is
+    already of type RESULT-TYPE, (as determined by using typep), it is  just
+    returned.  If RESULT-TYPE is a specialized type, the returned object may
+    be of a more general type.  All objects can be coerced to type t,  (this
+    is  an  identity operation), while no object can be coerced to type nil.
+    If the coercion cannot be performed, the system signals a error.
+
+    This function will  not  coerce  floating-point  numbers  to  rationals,
+    ratios  to  integers,  nor  characters to integers.  These coercions are
+    provided by special-purpose functions  such  as  rational,  rationalize,
+    floor, ceiling, truncate, round, char-code, and char-int.
+
+    If OBJECT is a sequence, it may be coerced to any other sequence type if
+    the new sequence is capable of holding all of the elements.  An error is
+    signalled if this  is  not  possible.   The  elements  of  the  returned
+    sequence  will  all  be  at  least  eql to the corresponding elements of
+    OBJECT.
+
+    If OBJECT is a unit-length string or a symbol with a  unit-length  print
+    name,  it may be coerced to a character, and coerce will return the sin-
+    gle character of the corresponding string.  If OBJECT is an integer,  it
+    may  be  coerced  to  a  character, and coerce will return what int-char
+    returns, when applied to the integer.
+
+    If a noncomplex, non-floating-point number is coerced to the type float,
+    the number is converted to type single-float.
+
+    Any number can be converted to a complex number.  The latter  conversion
+    is  done  by  creating  an imaginary part of zero and coercing it to the
+    same type as that of the real part.  In this case, if the real  part  is
+    rational,  complex  canonicalization calls for immediate reconversion of
+    the complex number to a rational, so coerce ends up returning a rational
+    number.
+
+    EXAMPLES
+    ;;  Coerce a symbol to a character.
+    (coerce 'x 'character) => #\x
+
+    ;;  The result of the first coercion
+    ;;  is rational, due to complex canonicalization.
+    (coerce 3 'complex) => 3
+
+    (coerce 3 '(complex float)) => #c(3.0 0.0)
+
+    ;;  65 is the (implementation-dependent)
+    ;;  character code for `A', so we can coerce
+    ;;  the integer 65 to this character.
+    (coerce 65 'character) => #\A
+
+    ;;  We can coerce a string to a list, since they
+    ;;  are both sequences.
+    (coerce "fred" 'list) => (#\f #\r #\e #\d)
+
+
+
+    SEE ALSO
+    CLtL 4:51, about type specifiers, ceiling, char-code, char-int,
+    character, complex, float, floor, int-char, rational, rationalize,
+    round, truncate,
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

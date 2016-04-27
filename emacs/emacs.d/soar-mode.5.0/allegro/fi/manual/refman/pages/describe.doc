@@ -1,0 +1,66 @@
+
+                                                                    describe
+
+
+    FUNCTION
+    describe  -  print information about an object
+
+    Usage
+    describe OBJECT
+
+    DESCRIPTION
+    Returns   no   values   and   prints   information   about   OBJECT   to
+    *standard-output*.    The   nature   and   format   of   the  output  is
+    implementation-dependent.  The description of a symbol may  include  its
+    value,  definition  and  a list of its properties.  The description of a
+    floating-point number may show its internal representation in a way that
+    is useful for finding rounding errors.  Sometimes there are things to be
+    described that occur inside of other items, and in  this  case  describe
+    will print the information with appropriate nesting.
+
+    EXAMPLES
+    Evaluating
+
+    (describe 'cons)
+
+    causes something like this to be printed:
+
+    cons is a symbol
+      It is unbound
+      It is external in the lisp package
+      Its function binding is #<Function cons @ #x262501>
+       The function takes arguments (excl::x excl::y)
+      Its property list has these indicator/value pairs:
+    compiler::.args.            (2 . 2)
+    m68k::.s-bifs.              m68k::s-cons
+    compiler::a-priori          12
+
+    SEE ALSO
+    CLtL 25:441, apropos, apropos-list, documentation
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

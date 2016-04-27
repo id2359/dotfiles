@@ -1,0 +1,66 @@
+
+                                                        multiple-value-prog1
+
+
+    SPECIAL FORM
+    multiple-value-prog1  -  evaluate forms sequentially, returning all of
+      the values returned by the first form
+
+    USAGE
+    multiple-value-prog1 {form}+
+
+    DESCRIPTION
+    All the forms provided as arguments  are  evaluated  sequentially.   All
+    values   returned   by   the  first  form  are  saved  and  returned  by
+    multiple-value-prog1.  multiple-value-prog1 differs from prog1  in  that
+    prog1  returns  exactly one value, the first value returned by the first
+    form or nil, if the first form returns no values.   multiple-value-prog1
+    returns  exactly what the first form returns, whether zero, one, or mul-
+    tiple values.  At least one form must be provided as an argument.
+
+    Like prog1, multiple-value-prog1 is usually used to get  the  values  of
+    the first form before the side effects of the later forms take effect.
+
+    EXAMPLES
+    (setq num 10) => 10
+    (multiple-value-prog1
+        (floor num 3))
+      (incf num))) => 3 1
+    num => 11
+
+    SEE ALSO
+    CLtL 7:136, prog1, multiple-value-bind, multiple-value-call, multiple-
+    value-setq, multiple-values-list, values-list,
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

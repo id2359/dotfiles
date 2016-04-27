@@ -1,0 +1,66 @@
+
+                                                             merge-pathnames
+
+
+    FUNCTION
+    merge-pathnames  -  fill in unspecified pathname components
+
+    USAGE
+    merge-pathnames path1 [path2 [version]]
+
+    DESCRIPTION
+    Returns a new pathname, an object of type pathname.   The  new  pathname
+    derives  as  many of the six required components of a pathname as it can
+    from PATH1.  Missing components are supplied by PATH2  and  VERSION.   A
+    missing  component  is  one that is nil.  PATH2 defaults to the pathname
+    that is the value of *default-pathname-defaults*.  VERSION  defaults  to
+    :newest.
+
+    In most cases, components not supplied by PATH1 are supplied  by  PATH2.
+    However, there are cases for which there are special rules.  In particu-
+    lar, if PATH1 contains a host component but not a device component,  and
+    the  host  components  of PATH1 and PATH2 differ, then the device of the
+    new pathname is the default device for the host of PATH1.  If  the  name
+    component  of PATH1 is provided and the version is not, then the version
+    of the new pathname is supplied by VERSION.
+
+    If either PATH1 or PATH2 is provided as a symbol, the name of the symbol
+    is  used.  Note  that  it  is  preferable  to use a string, because some
+    filesystems support case-sensitive filenames.  If either PATH1 or  PATH2
+    is  a  stream,  the pathname components are those of the file with which
+    the stream is associated.  Note that not  all  filesystems  support  all
+    Common  Lisp pathname components.  However every Common Lisp implementa-
+    tion must support the defined interface to pathnames.
+
+    EXAMPLES
+    (let* ((x (make-pathname :name "foo" :type nil))
+           (y (make-pathname :name "bar" :type "liszt"))
+           (mxy (merge-pathnames x y)))
+      (list
+       (pathname-name x) (pathname-type x)
+       (pathname-name mxy) (pathname-type mxy)))
+      => ("foo" nil "foo" "liszt")
+
+    SEE ALSO
+    CLtL 23:415, *default-pathname-defaults*, make-pathname, pathname
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

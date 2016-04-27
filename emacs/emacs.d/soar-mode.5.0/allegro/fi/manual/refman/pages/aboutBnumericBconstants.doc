@@ -1,0 +1,66 @@
+
+                                                     about numeric constants
+
+
+    NOTES
+    about numeric constants  -  list of numerical implementation parameters
+
+    DESCRIPTION
+    There are a number of named numeric constants  that  may  be  useful  in
+    parameterizing   your   programs.    In   general,   their   values  are
+    implementation- and hardware-dependent.  Each has its  own  entry  where
+    its exact definition is given.  A complete list follows.
+
+    double-float-epsilon              most-negative-fixnum
+    double-float-negative-epsilon     most-negative-long-float
+    least-negative-double-float       most-negative-short-float
+    least-negative-long-float         most-negative-single-float
+    least-negative-short-float        most-positive-double-float
+    least-negative-single-float       most-positive-fixnum
+    least-positive-double-float       most-positive-long-float
+    least-positive-long-float         most-positive-short-float
+    least-positive-short-float        most-positive-single-float
+    least-positive-single-float       short-float-epsilon
+    long-float-epsilon                short-float-negative-epsilon
+    long-float-negative-epsilon       single-float-epsilon
+    most-negative-double-float        single-float-negative-epsilon
+
+    EXAMPLES
+    ;;  These values are implementation-dependent:
+    most-positive-fixnum => 268435455
+    single-float-negative-epsilon => 1.1920929e-7
+
+    SEE ALSO
+    CLtL 12:231, pi
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

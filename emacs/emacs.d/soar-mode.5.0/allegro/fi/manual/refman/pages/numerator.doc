@@ -1,0 +1,66 @@
+
+                                                                   numerator
+
+
+    FUNCTION
+    numerator  -  get the numerator of a rational number
+
+    USAGE
+    numerator number
+
+    DESCRIPTION
+    Returns NUMBER if NUMBER is an integer, and the numerator of the canoni-
+    cal  reduced  form  of  NUMBER  if NUMBER is a ratio.  (In the canonical
+    reduced form, the denominator is positive and the greatest common  divi-
+    sor of the numerator and the denominator is one.) NUMBER must be of type
+    rational.
+
+    EXAMPLES
+    (numerator 3/4) => 3
+    (numerator 7) => 7
+    (numerator (/ -1 2)) => -1
+    (numerator (/ 1 -2)) => -1
+    (numerator (/ 12 24)) => 1
+
+    SEE ALSO
+    CLtL 12:215, denominator, gcd, lcm
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

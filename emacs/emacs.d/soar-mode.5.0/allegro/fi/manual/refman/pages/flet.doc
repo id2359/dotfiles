@@ -1,0 +1,66 @@
+
+                                                                        flet
+
+
+    SPECIAL FORM
+    flet  -  define locally-named functions
+
+    USAGE
+    flet ({(name lambda-list {decl | doc-string}* {form}*)}*) {form}*
+
+    DESCRIPTION
+    The flet construct is used to evaluate a sequence of  forms  within  the
+    lexical context of specific local function definitions. flet returns the
+    values of the last form evaluated in its body (those forms following the
+    function definitions).
+
+    The first subform of a flet  construct  is  a  list  of  local  function
+    definitions.   Each definition has a form analogous to that of an impli-
+    cit defun, consisting of a name (which must be a symbol), a lambda list,
+    optional  declarations  and  a  documentation  string, and a sequence of
+    forms that constitute the body of the function.   The  lambda  list  can
+    contain  &optional,  &rest,  and  &key parameters.  Only those three are
+    specified in COMMON LISP: THE LANGUAGE, but many  implementations  allow
+    &aux and &allow-other-keys as well.
+
+    The scope of the locally-defined function names is the body forms of the
+    flet  construct,  and  does  NOT  include the function definitions them-
+    selves.  Thus it is possible  to  define  local  functions  using  outer
+    definitions  of  functions  with  the same names.  (It is here that flet
+    differs from labels.  In an labels form, locally-defined function  names
+    are  visible  in the function definitions themselves, allowing mutually-
+    recursive local function definitions.) If a locally-defined function has
+    the  same  name  as  an  outer lexically-defined function or a globally-
+    defined function, the local definition shadows the outer definition only
+    in the body forms of the flet form.
+
+    The forms in the body of the  flet  are  evaluated  sequentially  as  if
+    enclosed  by progn.  In some implementations, declarations are permitted
+    before the body forms, following the function definitions  that  consti-
+    tute  the first subform of the flet construct (as indicated in the Usage
+    template).  This follows the spirit but not the letter of  COMMON  LISP:
+    THE  LANGUAGE  and  may  not  be supported in every implementation.  Any
+    function name within the body forms that is the same as that of  one  of
+    the  locally-defined  functions  refers to the local function definition
+    rather than any global or outer lexical definition.   (This  applies  to
+    symbols  appearing in the function position of a list or as the argument
+    to the function special form.  As  the  first  argument  to  funcall  or
+    apply, the symbol name must be preceded by ``#''', NOT just a quote, for
+    the local function definition to be seen.)
+
+    EXAMPLES
+    (flet ((car (lis) "funny car" (cdr lis))
+           (cdr (lis) "funny cdr" (car lis)))
+      (car (cdr '(((a) b) c)))) => (b)
+    (car (cdr '(((a) b) c))) => c
+
+    ;;  The global definition is used when the symbol is not
+    ;;  in the functional position.
+    (flet ((car (lis) (cadr lis))) (funcall 'car '(a b c))) => a
+    ;;  Compare the following to the last result.
+    (flet ((car (lis) (cadr lis))) (funcall #'car '(a b c))) => b
+
+    SEE ALSO
+    CLtL 7:113, defun, labels, let, macrolet
+
+

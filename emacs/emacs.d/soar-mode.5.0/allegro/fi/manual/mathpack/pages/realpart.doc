@@ -1,0 +1,66 @@
+
+                                                               math:realpart
+
+
+    FUNCTION
+    realpart  -  get the imaginary part of a number, matrix, or vector
+
+    Usage
+    realpart X
+
+    DESCRIPTION
+    This standard Common Lisp function has been modified  to  accept  matrix
+    and  vector  as well as scalar arguments.  When the argument is a scalar
+    (i.e. a number), this function works just as when Allegro Matrix is  not
+    loaded: returning the real part of its argument.  When the argument is a
+    vector or a matrix, a new vector or matrix is returned each  element  of
+    which is the real part of the corresponding element of the argument vec-
+    tor or matrix.
+
+    Recall that the complex number is a number of the form a+bi, where a and
+    b are real numbers.  The real part of such a number is a.  The real part
+    of a real number is that number.
+
+    EXAMPLES
+    ;;  Our examples deal with matrices and vectors only.
+    (setq mat (make-matrix '((1.0 #c(1.0 2.0)) (#c(3.0 -4.0) 7.0))))
+    (print-matrix mat) PRINTS
+      1.0          #c(1.0 2.0)
+      #c(3.0 -4.0) 7.0
+    (setq mat1 (realpart mat))
+    (print-matrix mat1) PRINTS
+      1.0 1.0
+      3.0 7.0
+    (setq vec (make-array 2 :initial-contents
+                             '(#c(1.0 1.0) #c(2.0 -2.0))))
+      => #(#c(1.0 1.0) #c(2.0 -2.0))
+    (realpart vec) => #(1.0 2.0)
+
+    SEE ALSO
+    conjugate, imagpart
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

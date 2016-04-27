@@ -1,0 +1,66 @@
+
+                                                                 bury-notify
+
+
+    METHOD
+    bury-notify  -  bury method called when X buries a window
+
+    Usage
+    bury-notify WSTREAM
+
+    DESCRIPTION
+    Returns   what   the   last   function   in   the   list   returned   by
+    window-stream-bury-notify  returns.   When the X window-manager buries a
+    common window, it informs COMMON WINDOWS that it has done  so  to  allow
+    COMMON  WINDOWS to update its information on window status.  COMMON WIN-
+    DOWS calls this method, which in turn calls all the  functions  returned
+    by  window-stream-bury-notify applied to WSTREAM.  You do not (normally)
+    call this function directly.
+
+    The initial value of the list returned by window-stream-bury-notify con-
+    tains   the  single  function  default-window-stream-bury-notify-method.
+    This function does the work of updating COMMON WINDOWS so you should not
+    remove  it from the list.  You may add new functions to the list for any
+    window-stream with modify-window-stream-method.   You  may  replace  the
+    whole  list  with  setf  and  window-stream-bury-notify  but  be sure to
+    include default-window-stream-bury-notify-method in the new  list.   The
+    function  restore-default-window-stream-method  restores the list to its
+    original value.
+
+    Any function added to the list must accept one argument.   The  argument
+    will be the window-stream WSTREAM.
+
+    EXAMPLES
+    (setf *my-win*
+                (make-window-stream :left 100 :bottom 100
+                :width 200 :height 200
+                :activate-p t :title "Just a Window"))
+
+    (window-stream-bury-notify *my-win*)
+      => (default-window-stream-bury-notify-method)
+
+    (defun my-after-bury-notify (w)
+      (format wstream "I have been buried ~%"))
+
+    (modify-window-stream-method *my-win* :bury-notify
+                           :after 'my-after-bury-notify)
+    (window-stream-bury-notify  *my-win*)
+      => (default-window-stream-bury-notify-method
+             my-after-bury-notify)
+
+    SEE ALSO
+    expand, flush, reshape, shrink, window-stream-bury-notify
+
+
+
+
+
+
+
+
+
+
+
+
+
+

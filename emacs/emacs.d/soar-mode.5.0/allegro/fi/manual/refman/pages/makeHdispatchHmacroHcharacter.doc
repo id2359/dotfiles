@@ -1,0 +1,66 @@
+
+                                               make-dispatch-macro-character
+
+
+    FUNCTION
+    make-dispatch-macro-character  -  make a dispatch-macro character
+
+    Usage
+    make-dispatch-macro-character CHAR [NON-TERMINATING-P [TABLE]])
+
+    SIDE EFFECTS
+    The readtable TABLE, which defaults to the current readtable, is changed
+    to reflect the fact that CHAR is now a dispatch-macro character.
+
+    DESCRIPTION
+    Returns t, but this function is used for its side effects.  The argument
+    NON-TERMINATING-P  defaults  to  nil.   If  it  is non-nil, then CHAR is
+    defined as a nonterminating macro character,  meaning  that  it  may  be
+    embedded in tokens.  A dispatch-macro character is a character that when
+    read, calls a particular function based on the next few characters read.
+    The   character  #\#  is  an  example  of  a  dispatch-macro  character.
+    Dispatch-macro characters expect  an  optional  unsigned  decimal  digit
+    string  followed  by  a  single character, called the subcharacter.  The
+    dispatch character and the subcharacter together determine  which  func-
+    tion gets called (or `dispatched').
+
+    To use dispatch character macros, one must first use the function  make-
+    dispatch-macro-character.  This establishes the dispatch macro character
+    (if it  is  not  already  established).   Then  use  set-dispatch-macro-
+    character  to  assign functions to subcharacters.  When a dispatch-macro
+    character is first established, all subcharacters will signal an error.
+
+    EXAMPLES
+    (make-dispatch-macro-character #\%)
+    (defun exponentiation (stream subchar arg)
+      ;;  raise e to a power
+      (declare (ignore arg))
+      (if (char= subchar #\e)
+          (let ((num (read stream t nil t)))
+            (exp num))))
+    (set-dispatch-macro-character #\% #\e #'exponentiation)
+    %e2  =>  7.389056
+
+    SEE ALSO
+    CLtL 22:363, about reading, get-dispatch-macro-character, get-macro-
+    character, set-dispatch-macro-character, set-macro-character
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

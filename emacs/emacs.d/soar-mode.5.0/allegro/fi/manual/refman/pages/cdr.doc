@@ -1,0 +1,66 @@
+
+                                                                         cdr
+
+
+    FUNCTION
+    cdr  -  get the CDR cell of a list
+
+    USAGE
+    cdr list
+
+    DESCRIPTION
+    Returns the cdr of LIST, which must be a cons or nil (that is,  it  must
+    be  of  type  list).  The cdr of nil is defined to be nil.  The cdr of a
+    dotted pair is the second element of the  printed  representation.   The
+    cdr of a list is a sublist containing all but the first element.
+
+    EXAMPLES
+    (cdr '(a . b)) => b
+    (cdr (cons 'a 'b)) => b
+    (cdr '(w x y z)) => (x y z)
+    (cdr '(((u) v))) => nil
+    (cdr '(1 2 3)) => (2 3)
+    (let* ((a '(1 2 3))
+           (b (cdr a)))
+      (eq b (cdr a))) => t
+    ;;  Cannot take the cdr of a non-cons.
+    (cdr "(a b c)") => ERROR
+
+    SEE ALSO
+    CLtL 15:262, car, cons, nthcdr, rest, rplacd
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

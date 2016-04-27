@@ -1,0 +1,66 @@
+
+                                                                  hash-table
+
+
+    Type SPECIFIER
+    hash-table  -  the data type hash-table
+
+    USAGE
+    hash-table
+
+    DESCRIPTION
+    Specifies the data type hash-table.  Hash  tables  are  data  structures
+    which map keys to objects very efficiently.
+
+    EXAMPLES
+    (typep (make-hash-table) 'hash-table)
+      => t
+
+    SEE ALSO
+    CLtL 2:31, CLtL 4:43, about type-specifiers, typep, make-hash-table
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                    math:conjugate-transpose
+
+
+    FUNCTION
+    conjugate-transpose  -  get the conjugate transpose of a matrix
+
+    USAGE
+    conjugate-transpose matrix
+
+    DESCRIPTION
+    Returns a new matrix that is the conjugate transpose of MATRIX.   Recall
+    that  the  complex  conjugate  of the complex number a+bi is a-bi.  This
+    function uses the Common Lisp function conjugate on the elements of  the
+    matrix,  so,  as  the examples show, if the elements of MATRIX are real,
+    this function is equivalent to transpose.   (Indeed,  only  the  complex
+    elements  have  their  values  changed at all, although all off-diagonal
+    elements will be repositioned.) The argument MATRIX is unchanged by this
+    function.   The  related  function nconjugate-transpose is a destructive
+    version of this function that works on square matrices only.
+
+    It is an error if MATRIX is not a matrix.
+
+    EXAMPLES
+    (setq mat1 (make-matrix '((#c(1.0 2.0) #c(1.3 -4.6))
+                              (#c(-2.0 1.7) #c(-6.4 -5.5)))))
+    (setq mat2 (make-matrix '((1.0 1.3) (2.2 4.6))))
+    (setq mat3 (make-matrix '((1 #c(5.0 2.0) 1/2 3.0))))
+
+    (print-matrix mat1) PRINTS
+       #c(1.0 2.0)   #c(1.3 -4.6)
+       #c(-2.0 1.7)  #c(-6.4 -5.5)
+
+    (print-matrix (conjugate-transpose mat1)) PRINTS
+       #c(1.0 -2.0)  #c(-2.0 -1.7)
+       #c(1.3 4.6)   #c(-6.4 5.5)
+
+    (print-matrix mat2) PRINTS
+       1.0 1.3
+       2.2 4.6
+    (print-matrix (conjugate-transpose mat2)) PRINTS
+       1.0 2.2
+       1.3 4.6
+
+    (print-matrix mat3) PRINTS
+       1           #c(5.0 2.0) 1/2         3.0
+    (print-matrix (conjugate-transpose mat3)) PRINTS
+       1
+       #c(5.0 -2.0)
+       1/2
+       3.0
+
+    SEE ALSO
+    conjugate, nconjugate, nconjugate-transpose, ntranspose, transpose
+
+
+
+
+
+
+
+
+
+
+
+

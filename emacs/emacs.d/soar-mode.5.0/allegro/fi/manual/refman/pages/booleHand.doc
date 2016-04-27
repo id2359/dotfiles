@@ -1,0 +1,66 @@
+
+                                                                   boole-and
+
+
+    CONSTANT
+    boole-and  -  specify bitwise logical `and' operation
+
+    DESCRIPTION
+    Used as the first argument to boole to specify the bitwise boolean `and'
+    operation.
+
+    EXAMPLES
+    (setf *print-base* 2
+          *print-radix* t)
+    (boole boole-and #b1100 #b1010) => #b1000
+
+    SEE ALSO
+    CLtL 12:222, boole, boole-1, boole-2, boole-andc1, boole-andc2, boole-
+    c1, boole-c2, boole-clr, boole-eqv, boole-ior, boole-nand, boole-nor,
+    boole-orc1, boole-orc2, boole-set, boole-xor
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

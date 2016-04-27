@@ -1,0 +1,66 @@
+
+                                            math:matrix-with-initial-element
+
+
+    FUNCTION
+    matrix-with-initial-element  -  get a matrix with elements a specified
+      value
+
+    USAGE
+    matrix-with-initial-element element dimensions
+
+    DESCRIPTION
+    Returns a matrix of size specified by DIMENSIONS all of  whose  elements
+    are  equal  to  ELEMENT.   DIMENSIONS may by an integer or a list of two
+    integers.  If it is an integer, the resulting matrix will be square with
+    that  number  of rows and columns.  If it is a list of two integers, the
+    first specifies the number of rows and the second the number of  columns
+    of  the  result  matrix.  ELEMENT must be a number.  The element type of
+    the resulting matrix will be the type of ELEMENT.
+
+    It is an error if ELEMENT is not a number or if DIMENSIONS is not a fix-
+    num or a list of two fixnums.
+
+    EXAMPLES
+    (setq mat1 (matrix-with-initial-element -1.0 3))
+    (print-matrix mat1) PRINTS
+      -1.0 -1.0 -1.0
+      -1.0 -1.0 -1.0
+      -1.0 -1.0 -1.0
+    (array-element-type mat1) => single-float
+    (setq mat2 (matrix-with-initial-element 5 '(2 4)))
+    (print-matrix mat2) PRINTS
+      5 5 5 5
+      5 5 5 5
+    (array-element-type mat2) => fixnum
+
+    SEE ALSO
+    identity-matrix, make-matrix
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                             output-stream-p
+
+
+    FUNCTION
+    output-stream-p  -  test whether a stream accepts output
+
+    USAGE
+    output-stream-p stream
+
+    DESCRIPTION
+    Returns true if STREAM, which must be a stream,  is  capable  of  output
+    operations, and false otherwise.
+
+    EXAMPLES
+    (output-stream-p *query-io*) => t
+    (output-stream-p (make-string-output-stream)) => t
+
+    SEE ALSO
+    CLtL 21:332, open, input-stream-p, streamp, with-open-file
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

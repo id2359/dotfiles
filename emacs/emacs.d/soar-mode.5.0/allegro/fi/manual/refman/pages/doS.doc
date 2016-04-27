@@ -1,0 +1,66 @@
+
+                                                                         do*
+
+
+    MACRO
+    do*  -  iterate until test condition is met
+
+    USAGE
+    do* ({(var [init [step]])}*)(end-test {result}*) {decl}* {tag | state-
+      ment}*
+
+    DESCRIPTION
+    First, each INIT form is evaluated and it associated VAR is bound to its
+    value.   Since the bindings are sequential, later INIT forms may use any
+    earlier VAR, depending on its initial binding being established.   (Con-
+    trast  to  do,  which  does  parallel  binding.)  Missing INIT forms are
+    treated as nil.  Next the END-TEST form is  evaluated.   If  it  returns
+    true,  the RESULT forms are evaluated sequentially and the values of the
+    last form are returned.  If there are no RESULT forms, nil is  returned.
+    If  the END-TEST returns false then the body of the do is executed.  The
+    body is an implicit tagbody, consisting of any number of tags and state-
+    ments.   Declarations  may  precede  the  body.   They apply to the body
+    forms, to the bindings of the variables VAR, to the INIT forms,  to  the
+    STEP forms, to the END-TEST form, and to the RESULT forms.
+
+    After the first execution of body is complete,  iteration  continues  as
+    follows.   First,  each STEP form is evaluated and its associated VAR is
+    bound to its value.  Since the bindings are sequential, later STEP forms
+    may use any earlier VAR, depending on its new binding being established.
+    (Contrast to do, which does parallel binding.) If no STEP form is  asso-
+    ciated with a VAR, its binding is not changed.  After the VAR have their
+    new values, END-TEST is evaluated.  If it is true, the RESULT forms  are
+    evaluated  and  do*  returns  the  values  of  the last RESULT form.  If
+    END-TEST is false, the body is executed and then the cycle begins again.
+
+    Because the body of the do* forms an implicit tagbody, any  tags  within
+    the body of the loop can be targets of a go within the body of the loop.
+    The loop as a whole forms an implicit block named  nil,  so  that  if  a
+    return  is  processed at any point, the block and the entire do* form is
+    exited, returning whatever value is specied by the return.
+
+    EXAMPLES
+    (do* ((x 0 (+ x 1)) (y 2 (* x 2)))      ; var , init and step forms
+         ((= x 10)(values x y))             ; end-test and result
+      (declare (integer x))                 ; declaration
+      (format t "x is ~D ~%" x)             ; body
+      (format t "y is ~D ~%" y))            ; body
+      => 10 20
+
+    SEE ALSO
+    CLtL 7:122, block, do, dolist, dotimes, return, tagbody
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

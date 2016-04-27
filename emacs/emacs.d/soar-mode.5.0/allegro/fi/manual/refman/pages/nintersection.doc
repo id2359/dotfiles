@@ -1,0 +1,66 @@
+
+                                                               nintersection
+
+
+    FUNCTION
+    nintersection  -  delete elements from one list that appear on another
+      list (destructive)
+
+    USAGE
+    nintersection list1 list2 [{:test | :test-not} pred] [:key keyfnc]
+
+    SIDE EFFECTS
+    The argument LIST1 may be modified.
+
+    DESCRIPTION
+    Returns a list formed by deleting from LIST1 all elements  except  those
+    which  are  eql  to some element of LIST2.  Precisely, all pairs of ele-
+    ments, one from LIST1 and one from LIST2 are examined.  If they are eql,
+    the element from LIST1 is included in the returned list.
+
+    A test predicate other than eql may be used by specifying  PRED  as  the
+    value  of either the :test or the :test-not keyword argument.  PRED must
+    be a function that accepts two arguments (an element from LIST1  and  an
+    element  from  LIST2,  passed  in  that order).  If PRED is the value of
+    :test, the elements match if PRED returns true.  If PRED is the value of
+    :test-not,  the elements match if PRED returns false.  It is an error to
+    supply both :test and :test-not keyword arguments.
+
+    If the keyword argument :key is specified and its value  KEYFNC  is  not
+    nil,  KEYFNC  must  be a function that accepts one argument.  It will be
+    applied to each element of both lists  before  they  are  tested.   When
+    unspecified or nil, it effectively defaults to the function identity.
+
+    The order of elements in the returned list is not defined.   The  result
+    list may share elements with, or be eq to, LIST1.
+
+    An implementation is free to implement this as a  non-destructive  func-
+    tion.   Thus  you should not rely on the argument to this function being
+    changed.
+
+    EXAMPLES
+    (setq a '(1 2 3))
+    (setq b  '(4 5 6))
+    ;;  Since the first argument to NINTERSECTION may not itself change,
+    ;;  you  should use SETQ, as in the following.
+    (setq a (nintersection a b)) => nil
+    a => nil
+    (nintersection '(1 2 3) '(2 3 4)) => (3 2)
+    (nintersection '(1 2 3 3) '(2 3 4)) => (3 3 2)
+    (nintersection '((a 1) (b 2)) '((b 3) (c 4)) :key #'car)
+      => ((b 2))
+    (nintersection '(3 4) '(1 2) :test #'<) => nil
+    (nintersection '(3 4) '(1 2) :test #'>) => (4 3)
+    (nintersection '(3 4) '(1 2) :test-not #'>) => nil
+
+    SEE ALSO
+    CLtL 15:277, intersection, :key, set-difference, set-exclusive-or,
+    subsetp, :test, :test-not, union
+
+
+
+
+
+
+
+

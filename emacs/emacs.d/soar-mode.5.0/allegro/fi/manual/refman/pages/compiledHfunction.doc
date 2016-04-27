@@ -1,0 +1,66 @@
+
+                                                           compiled-function
+
+
+    Type SPECIFIER
+    compiled-function  -  the data type comprising compiled function objects
+
+    USAGE
+    compiled-function
+
+    DESCRIPTION
+    Specifies the data type compiled-function, which consists  of  compiled-
+    code objects.
+
+    EXAMPLES
+    (defun foo (x) x) => foo
+    (compile 'foo) => foo
+    (typep #'foo 'compiled-function) => t
+
+    SEE ALSO
+    CLtL 2:32, CLtL 4:43, about type specifiers, compile, defun, function,
+    typep
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

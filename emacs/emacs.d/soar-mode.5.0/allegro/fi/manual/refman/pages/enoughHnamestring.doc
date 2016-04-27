@@ -1,0 +1,66 @@
+
+                                                           enough-namestring
+
+
+    FUNCTION
+    enough-namestring  -  returns abbreviated string form of a pathname
+
+    USAGE
+    enough-namestring pathname [defaults]
+
+    DESCRIPTION
+    Returns the shortest string sufficient to  represent  PATHNAME  uniquely
+    relative to DEFAULTS, which defaults to *default-pathname-defaults*.  In
+    other words, this function returns the shortest  string  such  that  the
+    following identity holds:
+
+    (merge-pathnames (enough-namestring p1 p2) p2)
+      = (merge-pathnames (parse-namestring p1 nil p2) p2)
+
+    Each of PATHNAME and DEFAULTS must be a  pathname,  string,  symbol,  or
+    stream.  If PATHNAME is a stream, it must be associated with a file.
+
+    EXAMPLES
+    ;;  The following is implementation-dependent.
+    (enough-namestring "dua0:[foo.land]bar.boom;1"
+                       "dua0:[foo]")
+      => "[.LAND]BAR.BOOM;1"
+
+    SEE ALSO
+    CLtL 23:417, directory-namestring, file-namestring, host-namestring,
+    namestring, parse-namestring
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,132 @@
+
+                                                           read-char-no-hang
+
+
+    FUNCTION
+    read-char-no-hang  -  read one character if one is available
+
+    Usage
+    read-char-no-hang [INPUT-STREAM [EOF-ERROR-P [EOF-VALUE [RECURSIVE-P]]]]
+
+    SIDE EFFECTS
+    If a character is actually read, read-char-no-hang positions the  stream
+    pointer  at  the  next  position after the character that was read.  The
+    next input operation will read the next object from the stream.
+
+    DESCRIPTION
+    Returns the character that was read, or nil if no  character  is  avail-
+    able.  This function is just like read-char, except that it performs the
+    extra check of seeing whether a character is available to be  read.   It
+    is  especially  useful  with  interactive streams, such as from the key-
+    board.  When read-char is called and there is no character available, it
+    will    hang    waiting   for   a   character   to   become   available.
+    read-char-no-hang returns nil immediately in such a case.
+
+    Note that this function will actually  return  a  character  if  one  is
+    available.   The  related function listen never actually reads anything.
+    Further, listen does not distinguish an end-of-file from no input  being
+    available.
+
+    The value of INPUT-STREAM must be a stream.  If it is not specified,  or
+    is specified as nil, the value of INPUT-STREAM is the value of the vari-
+    able *standard-input*.  If the argument INPUT-STREAM is specified as  t,
+    the value of INPUT-STREAM is the value of the variable *terminal-io*.
+
+    The argument EOF-ERROR-P controls what  happens  when  the  end  of  the
+    INPUT-STREAM  is reached.  (If the stream is open to a file, the end-of-
+    file is the end of the stream.  If the stream is reading from a  string,
+    the  end  of  the  string  is  the  end  of  the stream.  The concept is
+    straightforwardly extended to specialized streams.) If the value of  the
+    argument  is  t,  the  default,  an error is signalled.  However, if the
+    value of the argument is nil, then in most situations an  error  is  not
+    signalled.   Instead,  the  read-char-no-hang  function  terminates  and
+    returns the value of EOF-VALUE.  EOF-VALUE defaults to nil.   The  func-
+    tion  read-char-no-hang always signals an error if the end of the stream
+    is reached when a COMMON LISP object is  partially  but  not  completely
+    read.
+
+    The argument RECURSIVE-P indicates whether or not this  is  a  recursive
+    call  to  read.  Whether a call to a read function is recursive needs to
+    be known for three reasons.  First,  referents  #N=  for  the  syntactic
+    forms  #N#  are  unique to the outermost expression being read.  Second,
+    whether or not to preserve whitespace is a  property  of  the  outermost
+    call  to  the reader, either read or read-preserving-whitespace.  Third,
+    encountering the end of a stream has a different meaning in a  recursive
+    call than in a top-level call, since encountering the end of a stream in
+    the middle of a printed representation is ALWAYS and error.
+
+    EXAMPLES
+    ;;  There is not much difference between reading characters
+    ;;  from input streams with READ-CHAR and READ-CHAR-NO-HANG.
+
+    (let ((str (make-string-input-stream "abc")))
+      (list (read-char-no-hang str) (read-char-no-hang str)
+       (read-char-no-hang str)
+       (read-char-no-hang str nil 'reached-end)))
+      => (#\a #\b #\c reached-end)
+
+    ;;  The difference is when the stream is interactive.  READ-CHAR
+    ;;  waits for input (`hangs') on the following form, while
+    ;;  READ-CHAR-NO-HANG returns NIL at once.  (This example may be
+    ;;  implementation-dependent.  Some implementations reportedly
+    ;;  catch and return the #\Newline.)
+
+    (read-char-no-hang *terminal-io*) => nil
+
+    SEE ALSO
+    CLtL 22:380, about reading, listen, peek-char, read, read-byte, read-
+    char, read-line, unread-char
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

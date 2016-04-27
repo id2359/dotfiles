@@ -1,0 +1,66 @@
+
+                                                                  bit-vector
+
+
+    Type SPECIFIER
+    bit-vector  -  the data type comprising vectors of bits
+
+    USAGE
+    {bit-vector | (&Ebit-vector [size])}
+
+    DESCRIPTION
+    Specifies a data type consisting of bit vectors of  length  SIZE,  which
+    may  be  explicitly  unspecified  using  ``*''.   This type specifier is
+    equivalent to (array bit (SIZE)).
+
+    The printed representation of a bit vector uses the ``#*'' syntax.   How
+    a  bit  vector  is  printed  depends  on the value of *print-array*.  If
+    *print-array* is nil, bit vectors are printed  with  the  ``#<''  syntax
+    (which  cannot  be  read with read), containing implementation-dependent
+    information.  If *print-array* is non-nil, the ``#*'' notation  is  used
+    followed  by  the  zeroes and ones of the bit vector.  If the bit vector
+    has a fill pointer, only bits below the fill pointer are  printed.   The
+    bits are printed in order beginning with bit 0.
+
+    EXAMPLES
+    (type-of #*10101) => (simple-array bit (5))
+    (typep #*10101 '(bit-vector 5)) => t
+    (subtypep '(bit-vector 100) '(bit-vector *)) => t t
+    (let ((*print-array* t)) (write-to-string #*1010101010))
+      => "#*1010101010"
+
+    ;;  The returned value is implementation-dependent.
+    (let ((*print-array* nil)) (write-to-string #*1010101010))
+      => "#<Bit-vector @ #x3b13d9>"
+
+    SEE ALSO
+    CLtL 2:29, CLtL 4:43, CLtL 4:49, about type specifiers, array, bit,
+    *print-array*, simple-bit-vector, subtypep, type-of, typep, vector
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

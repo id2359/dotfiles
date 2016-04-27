@@ -1,0 +1,66 @@
+
+                                                                    proclaim
+
+
+    FUNCTION
+    proclaim  -  make a global declaration
+
+    USAGE
+    proclaim decl-spec
+
+    SIDE EFFECTS
+    The declaration specifier DECL-SPEC is applied globally.
+
+    DESCRIPTION
+    What is returned is implementation-dependent, but this function is  used
+    for  its side effects.  Declarations made by proclaim are called procla-
+    mations.  They have effect until  changed  by  another  proclamation  or
+    shadowed  locally by a declaration made with declare.  In proclamations,
+    variable names refer to dynamic variables, functions refer to  globally-
+    defined functions.
+
+    The declaration specifier special may not be shadowed locally,  applying
+    to  all  bindings  and  references to the named variables.  It is recom-
+    mended, however, that instead of proclaiming a variable to  be  special,
+    the variable be defined with defvar or defparameter.
+
+    EXAMPLES
+    ;;  The returned value is implementation-dependent.
+    (proclaim '(integer *counter*)) => t
+
+    (proclaim '(inline floor)) => t
+    (defun safe (x)
+      (declare (notinline floor)) ; proclamation is shadowed
+      (floor x))
+
+    SEE ALSO
+    CLtL 9:156, declarations, declare, locally, special
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

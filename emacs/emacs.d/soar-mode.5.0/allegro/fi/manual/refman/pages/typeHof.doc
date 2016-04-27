@@ -1,0 +1,66 @@
+
+                                                                     type-of
+
+
+    FUNCTION
+    type-of  -  get the type of an object
+
+    USAGE
+    type-of object
+
+    DESCRIPTION
+    Returns a type specifier describing the type of  OBJECT.   The  returned
+    type  is  implementation-dependent,  and merely gives some type to which
+    OBJECT belongs.  This function is probably best used for debugging  pur-
+    poses only.  For greater portability, try to use typep and typecase.
+
+    EXAMPLES
+    (type-of 4) => fixnum
+    (type-of (coerce 3 '(complex float))) => complex
+    (type-of "hello") => (simple-array string-char (5))
+
+    SEE ALSO
+    CLtL 4:52, about type specifiers, defstruct, deftype, typecase, typep
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

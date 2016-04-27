@@ -1,0 +1,66 @@
+
+                                                        integer-decode-float
+
+
+    FUNCTION
+    integer-decode-float  -  get internal representation of a float, scaling
+      the significand to an integer
+
+    USAGE
+    integer-decode-float float
+
+    DESCRIPTION
+    Returns three values, computed in a fashion analogous  to  decode-float,
+    except  that  all  the  returned  values  are integers.  FLOAT must be a
+    floating-point number.
+
+    If FLOAT is 0.0, the first returned value will  be  0.   Otherwise,  the
+    first  value  will  be  an  integer between two successive powers of the
+    radix of floating-point representation so that all the accuracy in FLOAT
+    is  preserved.   Specifically,  let  R  be  the  radix  of  the internal
+    floating-point representation, as returned  by  float-radix.   Then  the
+    first value returned will be an integer in the range from
+
+    (expt R (- (float-precision float) 1))
+
+    (inclusive) , to
+
+    (expt R (float-precision float))
+
+    (exclusive) .
+
+    The second returned value will be an integer equal to  the  exponent  of
+    the  radix that makes the first returned value times the radix raised to
+    that exponent equal to the absolute value of FLOAT (after  it  has  been
+    coerced to the correct format).
+
+    The third returned value is -1  or  1  as  FLOAT  is  negative  or  non-
+    negative.
+
+    EXAMPLES
+    (integer-decode-float 8.0) => 8388608 -20 1
+    (integer-decode-float -8.0) => 8388608 -20 -1
+    (integer-decode-float 0.125d0) => 4503599627370496 -55 1
+    (integer-decode-float 0.0) => 0 0 1
+
+    SEE ALSO
+    CLtL 12:218, decode-float, float-digits, float-precision, float-radix,
+    float-sign, scale-float
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

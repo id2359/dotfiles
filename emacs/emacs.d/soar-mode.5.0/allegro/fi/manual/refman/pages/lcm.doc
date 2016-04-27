@@ -1,0 +1,66 @@
+
+                                                                         lcm
+
+
+    FUNCTION
+    lcm  -  get the least common multiple of the arguments
+
+    USAGE
+    lcm {n}+
+
+    DESCRIPTION
+    Returns the least common  multiple  of  the  arguments  (which  must  be
+    integers).   By  definition,  the  least  common multiple of two nonzero
+    integers is
+
+    (lcm m n) = (/ (abs (* m n)) (gcd m n))
+
+    In words, it is the smallest positive integer which the arguments divide
+    evenly.  The result will be a non-negative integer.  Returns 0 if any of
+    the arguments is zero.  Returns the absolute value of a single argument.
+
+    EXAMPLES
+    (lcm 12 16) => 48
+    (lcm 1 2 3 4 0) => 0
+    (lcm 1 2 3 -4) => 12
+    (lcm -10 -20 -30) => 60
+    (lcm -120 => 12
+
+    SEE ALSO
+    CLtL 12:202, gcd
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

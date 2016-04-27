@@ -1,0 +1,66 @@
+
+                                                          math:eigen-vectors
+
+
+    FUNCTION
+    eigen-vectors  -  get the eigenvectors of a square matrix
+
+    USAGE
+    eigen-vectors matrix
+
+    DESCRIPTION
+    Returns a matrix (always complex, single or double  float  according  to
+    the  type  of  MATRIX)  containing the eigenvectors of MATRIX, stored as
+    rows.  MATRIX must be a square matrix whose element type (as returned by
+    array-element-type)  is  one  of  single-float,  double-float,  (complex
+    single-float), or (complex double-float).  It is an error if the  matrix
+    does not have one of those element types.
+
+    The returned matrix will have the same dimensions as MATRIX.  If for any
+    reason the eigenvectors cannot be calculated, an error is signaled.
+
+    Note that this function works by calling the function eigen and discard-
+    ing  the  first  returned value, which is the vector of eigenvalues.  If
+    you need both the eigenvalues and eigenvectors, use  eigen  rather  than
+    this function and eigen-values.
+
+    EXAMPLES
+    (setq mat (make-matrix '((1.0 -2.0 3.0) (-5.0 7.0 2.0) (3.0 -1.0 0.0))
+                           'single-float))
+    (print-matrix mat) PRINTS
+      1.0  -2.0 3.0
+      -5.0 7.0  2.0
+      3.0  -1.0 0.0
+    (print-matrix (eigen-vectors mat)) PRINTS
+      #c(-0.78281957 0.0) #c(-0.52967644 0.0) #c(0.6443581 0.0)
+      #c(0.33598733 0.0)  #c(-0.8961732 0.0)  #c(0.22758605 0.0)
+      #c(0.6425521 0.0)   #c(0.44051546 0.0)  #c(0.6055217 0.0)
+
+    SEE ALSO
+    eigen, eigen-values
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

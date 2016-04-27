@@ -1,0 +1,66 @@
+
+                                                                  write-char
+
+
+    FUNCTION
+    write-char  -  output a character to a stream
+
+    Usage
+    write-char CHAR [STREAM]
+
+    SIDE EFFECTS
+    The argument CHAR is written to the output stream.
+
+    DESCRIPTION
+    Returns CHAR, but this function is used for its side effects.
+
+    The argument STREAM must be a stream, t, or nil, the default.  If STREAM
+    is  nil,  the character is written to the value of *standard-output*, If
+    STREAM is t, the character is written to the value of *terminal-io*.
+
+    EXAMPLES
+    (setq my-stream (make-string-output-stream))
+    (progn
+      (write-char #\f my-stream)
+      (write-char #\i my-stream)
+      (write-char #\n my-stream)
+      (write-char #\i my-stream)) => #\i
+    (get-output-stream-string my-stream) => "fini"
+
+    SEE ALSO
+    CLtL 22:384, write, write-byte, write-line, write-string, write-to-
+    string
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

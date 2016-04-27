@@ -1,0 +1,66 @@
+
+                                                       active-region-remprop
+
+
+    FUNCTION
+    active-region-remprop  -  remove a value from an active-region property
+      list
+
+    Usage
+    active-region-remprop ACTIVE-REGION INDICATOR
+
+    SIDE EFFECTS
+    Destructively removes the first indicator which is eq to  INDICATOR,  as
+    well  as  its  associated value from the property list of ACTIVE-REGION,
+    which must be an active-region.
+
+    DESCRIPTION
+    The argument ACTIVE-REGION must be an active-region.
+
+    An active-region property list may be used to store  arbitrary  informa-
+    tion about an active-region.  It is a standard property list, consisting
+    of an arbitrary number of indicators and values. An  active-region  pro-
+    perty may be set with setf.
+
+    EXAMPLES
+    (setf *my-active*(make-active-region))
+    (setf (active-region-get *my-active* 'owner) 'me)
+    (active-region-get *my-active* 'owner) => me
+
+    ;;  We retrieve the property list for this active-region.
+    (active-region-plist *my-active*) =>
+    (active-region-remprop *my-active* 'color)
+    (active-region-plist *my-active*) =>
+
+    SEE ALSO
+    'colors, active-region-get, active-region-plist
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

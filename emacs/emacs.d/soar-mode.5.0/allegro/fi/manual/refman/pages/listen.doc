@@ -1,0 +1,66 @@
+
+                                                                      listen
+
+
+    FUNCTION
+    listen  -  check whether any characters are available for input
+
+    Usage
+    listen [STREAM]
+
+    DESCRIPTION
+    Returns true if there is a character immediately available from  STREAM,
+    otherwise  returns  false.   This  function  is particularly useful with
+    interactive streams, such as one connected to  a  keyboard.   When  used
+    with  noninteractive  streams,  listen returns true unless the next read
+    operation would be at the end-of-file.
+
+    The argument STREAM may be a stream,  t,  or  nil.   If  it  is  nil  or
+    unspecified,  *standard-input*  is  used.   If it is t, *terminal-io* is
+    used.
+
+    EXAMPLES
+    (with-open-file (io "junk" :direction :io
+                        :if-exists :append
+                        :if-does-not-exist :create)
+      (values (listen io)
+              (progn (write t :stream io)
+                     (file-position io :start)
+                     (listen io)))) => nil t
+
+    SEE ALSO
+    CLtL 22:380, clear-input, parse-integer, peek-char, read, read-byte,
+    read-char, read-char-no-hang, read-delimited-list, read-from-string,
+    read-line, read-preserving-whitespace, *read-default-float-format*,
+    unread-char
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

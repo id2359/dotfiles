@@ -1,0 +1,132 @@
+
+                                                                        open
+
+
+    FUNCTION
+    open  -  open a stream to a file
+
+    USAGE
+    open file [:direction in-out] [:element-type type] [:if-exists y-action]
+      [:if-does-not-exist n-action]
+
+    SIDE EFFECTS
+    Depending on the arguments, a new file may be  created  or  an  old  one
+    destroyed.
+
+    DESCRIPTION
+    Returns a stream connected to the file specified by FILE, which must  be
+    a  pathname,  string, or stream.  If FILE is a stream, the stream is not
+    itself affected: a new stream is opened using the file name provided  by
+    the  stream.   When a stream returned by open is closed, the association
+    between the stream and the corresponding  file  is  broken.   The  macro
+    with-open-file  is  provided  to  close automatically streams associated
+    with files when control leaves the form.  (Note that  an  implementation
+    may or may not close discarded streams automatically.)
+
+    The keyword arguments are described briefly below, and in greater  under
+    their  own  entries.   (Note  that there are two entries for the keyword
+    argument :element-type, one relating to open and one to make-array.) The
+    value of the :direction argument is one of the keywords :input, :output,
+    :io, and :probe.  The first three indicate that the stream  returned  by
+    open is an input, output, or bidirectional stream, respectively.  :probe
+    is used to test whether a file exists.  No active stream is returned  by
+    open when this option is chosen.  The default value is :input.
+
+    The value of :element-type must be some subtype of integer or character.
+    Its  default  value  is  string-char.  The value of :if-exists specifies
+    what happens if the file specified by FILE already exists.  That may  be
+    what  is expected, in which case values such as :append, :overwrite, and
+    :supersede may be appropriate, or not, in  which  case  :new-version  or
+    :error  may  be appropriate.  For an exhaustive list of possible values,
+    see the :if-exists entry.  The default value is :error if the version of
+    the  specified  file  is not :newest, and :new-version if the version of
+    the specified file is :newest.  (Not all  implementations  support  file
+    versions.) Finally, the value of the :if-does-not-exist keyword argument
+    can be :error (the  default  if  :direction  is  :error),  :create  (the
+    default  if  :direction  is  :output  or  :io), or nil (the default when
+    :direction is :probe).
+
+    EXAMPLES
+    ;;  The printed representation of steam objects is
+    ;;  implementation-dependent.  The following call to OPEN
+    ;;  open a output stream to a file, overwriting the file
+    ;;  if it already exists.
+    (setq stream (open "newfile" :direction :output
+                       :if-exists :overwrite
+                       :if-does-not-exist :create))
+       => #<stream writing /usr/dm/newfile>
+    (print "nOW" stream) => "nOW"
+    (close stream) => nil
+    (setq stream (open "newfile" :direction :input
+                       :if-does-not-exist :error))
+       => #<stream reading /usr/dm/newfile>
+    (read stream) => "nOW"
+    ;;  Streams should be closed when they are no longer needed:
+    (close stream) => nil
+
+
+    SEE ALSO
+    CLtL 23:418, close, :direction, :element-type, file-length, file-
+    position, :if-does-not-exist, :if-exists, probe-file, with-open-file
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                                     maplist
+
+
+    FUNCTION
+    maplist  -  map a function over successive tails of lists, saving the
+      results in a list
+
+    USAGE
+    maplist fun {list}+
+
+    DESCRIPTION
+    Returns a list consisting of the results of applying FUN  to  successive
+    tails  of  the  lists  given  as  arguments.  Specifically, FUN is first
+    applied to all the argument lists, passed in  the  same  order  as  they
+    appear as arguments, then to the cdrs of all the argument lists, then to
+    the second cdrs, continuing until the end of the shortest argument  list
+    is  reached.  Remaining tails of longer argument lists are ignored.  The
+    value (only the first value if multiple values are returned by  FUN)  of
+    each  call  to FUN is stored.  When the shortest list (which may be nil)
+    is exhausted, all of the stored values are made into a  list  with  list
+    and  that list is returned by maplist.  The argument FUN must be a func-
+    tion that accepts as many arguments as there are lists.
+
+    EXAMPLES
+    (maplist #'list
+             '(a b c) '(1 2 3) '(alpha beta gamma))
+      => (((a b c) (1 2 3) (alpha beta gamma))
+          ((b c) (2 3) (beta gamma)
+           ((c) (3) (gamma)))
+
+    (maplist #'list
+             '(a b c)
+             '(1 2 3)
+             '(alpha beta))
+      => (((a b c) (1 2 3) (alpha beta))
+            ((b c) (2 3) (beta)))
+
+    SEE ALSO
+    CLtL 7:128, map, mapc, mapcan, mapcar, mapcon, mapl
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

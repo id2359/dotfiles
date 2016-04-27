@@ -1,0 +1,66 @@
+
+                                                              input-stream-p
+
+
+    FUNCTION
+    input-stream-p  -  test whether a stream is capable of input
+
+    USAGE
+    input-stream-p stream
+
+    DESCRIPTION
+    Returns true if STREAM, which must be a  stream,  is  capable  of  input
+    operations, and false otherwise.
+
+    EXAMPLES
+    (input-stream-p *query-io*) => t
+    (input-stream-p (make-string-output-stream)) => nil
+    (input-stream-p *standard-input*) => t
+
+    SEE ALSO
+    CLtL 21:332, output-stream-p, streamp
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                                        acos
+
+
+    FUNCTION
+    acos  -  get the arc cosine of a number
+
+    USAGE
+    acos number
+
+    DESCRIPTION
+    Returns the arc (or inverse) cosine of NUMBER,  that  is,  a  number  in
+    radians whose cosine is NUMBER.  The argument may be of any number type,
+    including complex.  A non-numeric argument signals an error.  The result
+    may be complex, as in cases when the absolute value of NUMBER is greater
+    than 1.
+
+    There are two portions to the branch cut for acos.  One lies  along  the
+    negative  real axis from -1 (inclusive) to negative infinity, continuous
+    with the second quadrant, and the other lies  along  the  positive  real
+    axis from 1 (inclusive) to positive infinity, continuous with the fourth
+    quadrant.  The range consists of points in the complex plane whose  real
+    part  is  between  0  (including  the end point if the imaginary part is
+    non-negative), and J (including the end point if the imaginary  part  is
+    non-positive).
+
+    EXAMPLES
+    (acos 1/2) => 1.0471976
+    (acos 0) => 1.5707964
+    (acos 3) => #c(0.0 1.7627472)
+    (acos .8) => 0.6435011
+
+    SEE ALSO
+    CLtL 12:207, asin, atan, cos, sin, tan
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                                       union
+
+
+    FUNCTION
+    union  -  get a new list by combining elements of two lists
+
+    USAGE
+    union list1 list2 [{:test | :test-not} pred] [:key keyfnc]
+
+    DESCRIPTION
+    Returns a new list formed by combining the elements of the  lists  LIST1
+    and  LIST2,  except  that  elements  duplicated  (in the sense described
+    below) between lists appear only once in the  returned  list.   For  any
+    pair of elements X1 in LIST1 and X2 in LIST2, if X1 tests eql to X2 then
+    they are considered to be duplicated between the lists and only  one  of
+    them appears in the result.  But two elements from the same list testing
+    eql to each other may both appear in the result.  The returned list  may
+    share  parts with the arguments, and the ordering of its elements is not
+    defined.
+
+    A test predicate other than eql may be used by specifying  PRED  as  the
+    value  of either the :test or the :test-not keyword argument.  PRED must
+    be a function that accepts two arguments (an element from LIST1  and  an
+    element  from  LIST2,  passed  in  that order).  If PRED is the value of
+    :test, the elements match if PRED returns true.  If PRED is the value of
+    :test-not,  the elements match if PRED returns false.  It is an error to
+    supply both :test and :test-not keyword arguments.
+
+    If the keyword argument :key is specified and its value  KEYFNC  is  not
+    nil,  KEYFNC  must  be a function that accepts one argument.  It will be
+    applied to each element of both lists before  that  element  is  tested.
+    When  unspecified  or  nil,  it  effectively  defaults  to  the function
+    identity.
+
+    EXAMPLES
+    (union '(1 2 3) '(4 5 6)) => (6 5 4 1 2 3)
+    (union '(1 2 3) '(2 3 4)) => (4 1 2 3)
+    (union '(1 1 2 3) '(2 3 4)) => (4 1 1 2 3)
+    (union '((a 1) (b 2)) '((b 3) (c 4)) :key #'car)
+      => ((c 4) (a 1) (b 2))
+    (union '(3 4) '(1 2) :test #'<) => (3 4)
+
+    SEE ALSO
+    CLtL 15:276, adjoin, intersection, :key, member, nunion, set-difference,
+    set-exclusive-or, subsetp, :test, :test-not
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                                    y-or-n-p
+
+
+    FUNCTION
+    y-or-n-p  -  ask the user a yes-or-no question
+
+    Usage
+    y-or-n-p [FORMAT-STRING {ARGS}*]
+
+    SIDE EFFECTS
+    The question is output to the value of *query-io*.  The answer  is  read
+    from the same stream.
+
+    DESCRIPTION
+    Returns non-nil if the user's response is affirmative  and  nil  if  the
+    response  is  negative.   If  FORMAT-STRING  is  supplied,  the function
+    fresh-line is called and the format string is displayed  as  if  it  and
+    ARGS were given to the function format.  Whether or not FORMAT-STRING is
+    supplied, a response is expected from the user. (The query may have been
+    generated   separately.)    The   range   of   acceptable  responses  is
+    implementation-dependent.  However, the acceptable responses should  all
+    be  simple,  such  as  entering a single character (for example ``y'' or
+    ``n'') or a mouse-click.
+
+    The argument FORMAT-STRING must be a  string.   It  may  include  format
+    directives  as  specified for the format function.  If any of the format
+    directives take arguments the  arguments  are  taken  sequentially  from
+    ARGS.   FORMAT-STRING  should be a query that can take an affirmative or
+    negative response. The query  should  not  refer  to  the  form  of  the
+    response  since it is implementation-dependent, and doing so will result
+    in nonportable code.  Implementations may provide information  automati-
+    cally  about  how the user should respond.  (For example, the acceptable
+    responses may be given if the first response is inappropriate.)
+
+    If the possible consequences of the user's response are serious or  dif-
+    ficult  to rectify, the function yes-or-no-p should be used.  This func-
+    tion has the same syntax, but requires a fuller response from the user.
+
+    EXAMPLES
+    ;;  The specific message as well as the details of the
+    ;;  script (the prompt, etc.) are implementation-dependent.
+    <cl> (PROGN (SETQ X 4)
+           (IF (Y-OR-N-P "SET X TO 3? ")
+               (SETQ X 3)))
+    Set x to 3? SURE
+    Type "y" for yes or "n" for no.
+    Set x to 3? Y
+    3
+    <cl>
+
+    SEE ALSO
+    CLtL 22:407, format, yes-or-no-p
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                                   ctypecase
+
+
+    MACRO
+    ctypecase  -  exhaustive type discriminator that signals continuable er-
+      rors
+
+    USAGE
+    ctypecase place {(type {form}*)}*
+
+    SIDE EFFECTS
+    If no TYPE matches the type of PLACE, a continuable error  is  signalled
+    and,  if  continued from, a new value for PLACE is accepted.  The entire
+    process may be repeated until an object of an appropriate type  specifi-
+    cation is supplied.
+
+    DESCRIPTION
+    Returns the value (or values) of the last FORM of the first clause whose
+    TYPE  matched  the type of PLACE.  The argument PLACE must be a general-
+    ized variable reference, acceptable to setf.  The  argument  TYPE  is  a
+    type specifier, and is not evaluated.
+
+    This function is similar to typecase,  except  that  no  explicit  t  or
+    otherwise clause is permitted. The argument PLACE is evaluated, and then
+    the car of each clause is examined in order.  If the value of  PLACE  is
+    of  type  TYPE,  then  the consequents of that clause are executed as an
+    implicit  progn.   Clauses  following  the  evaluated  clause  are   not
+    evaluated.
+
+    Subforms of PLACE may end up being evaluated multiple  times,  once  for
+    each  iteration  of the error-correction loop.  During each iteration of
+    the error-correction loop, the user is prompted  for  a  new  value  for
+    PLACE.
+
+    EXAMPLES
+    ;;  The function FACT performs appropriate coercion of its
+    ;;  argument before calling FACT1 which does the actual
+    ;;  calculation.  The script which follows shows what happens
+    ;;  when an argument of an inappropriate type is passed to FACT.
+    (defun fact (n)
+      (ctypecase n (integer (fact1 n))
+                 (float (fact1 (truncate n)))
+                 (complex (fact1 (abs n)))))
+    (defun fact1 (n)
+      (cond ((= n 0) 1)
+            (t (* n (fact1 (1- n))))))
+    (fact 10) => 3628800
+    (fact #c(6.0 8.0)) => 3628800.0
+
+    ;;  The system prompts and responses are implementation-dependent.
+    <cl> (fact '(a b))
+    Error: (a b) fell through ctypecase expression.
+    wanted one of (integer float complex).
+    Restart actions (select using :continue):
+     0: supply a new value of n.
+    [1] <cl> :continue 0
+    Type a form to be evaluated: 10
+    3628800
+    <cl>
+
+    SEE ALSO
+    CLtL 24:436, case, ccase, cerror, check-type, ecase, etypecase, typecase
+
+
+

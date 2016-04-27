@@ -1,0 +1,66 @@
+
+                                                                   rationalp
+
+
+    FUNCTION
+    rationalp  -  test whether an object is a rational number
+
+    USAGE
+    rationalp object
+
+    DESCRIPTION
+    Returns true if OBJECT is a ratio or an integer,  and  false  otherwise.
+    The following identity holds:
+
+    (rationalp x) = (typep x 'rational)
+
+    EXAMPLES
+    (rationalp 1.3) => nil
+    (rationalp 1/3) => t
+    (rationalp 3) => t
+    (rationalp 3.4) => nil
+
+    SEE ALSO
+    CLtL 6:74, about type specifiers, integer, ration, rational
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

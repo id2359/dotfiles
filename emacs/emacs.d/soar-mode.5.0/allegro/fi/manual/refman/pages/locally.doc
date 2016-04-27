@@ -1,0 +1,66 @@
+
+                                                                     locally
+
+
+    MACRO
+    locally  -  make local pervasive declarations
+
+    USAGE
+    locally {declaration}* {form}*
+
+    DESCRIPTION
+    This form provides a localized scope for declarations.  Each DECLARATION
+    is  an  instance of the declare special form.  Each FORM is a form to be
+    evaluated, and will be within  the  scope  of  the  local  declarations.
+    Declarations  effecting  variable  bindings  are  not meaningful because
+    locally establishes no bindings.  Variables may be declared  special  to
+    affect references to them within the locally forms.
+
+    This form returns the values of the last FORM, or nil in the  degenerate
+    case when there are no FORMS.  The following forms are equivalent:
+
+    (locally x y z) = (let nil x y z)
+
+    EXAMPLES
+    (locally
+      (declare (inline exp)(optimize speed))
+      (exp 0)) => 1.0
+
+    SEE ALSO
+    CLtL 9:156, declarations, declare, proclaim
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

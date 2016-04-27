@@ -1,0 +1,66 @@
+
+                                                                defparameter
+
+
+    MACRO
+    defparameter  -  declare a special program parameter (destructive)
+
+    USAGE
+    defparameter name initform [doc-string]
+
+    DESCRIPTION
+    Proclaims the variable NAME to be special, assigns the value of INITFORM
+    to it, and returns NAME.  This macro is usually used to declare and ini-
+    tialize globally-defined variables at the top level,  where  changes  to
+    such  variables  are considered to be changes to the program.  Otherwise
+    it is like a defvar with a required INITFORM that  is  always  evaluated
+    and  stored  in  the  variable.   If  specified,  a documentation string
+    DOC-STRING of type variable is associated with NAME.
+
+    Global variables modified by a program  can  be  defined  using  defvar.
+    Parameters  used  by a program that can be changed by the user to affect
+    the operation of the program should be defined using defparameter.
+
+    EXAMPLES
+    (defparameter *max-files* 32) => *max-files*
+    (defparameter *float-test-fuzz* .000001
+      "Single precision floating point variation")
+      => *float-test-fuzz*
+
+    SEE ALSO
+    CLtL 5:68, documentation, defconstant, defvar, special
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

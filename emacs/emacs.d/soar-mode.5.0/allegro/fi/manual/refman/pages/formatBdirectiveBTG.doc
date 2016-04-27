@@ -1,0 +1,66 @@
+
+                                                         format directive ~G
+
+
+    FORMAT DIRECTIVE
+    ~G  -  print floating-point number in fixed-format or exponential nota-
+      tion
+
+    USAGE
+    ~width,round,ewidth,scale,overflowchar,padchar,echar[@]G
+
+    DESCRIPTION
+    Prints the next format argument as a  floating-point  number  in  nonex-
+    ponential  or exponential notation, depending on the argument's absolute
+    value.  If the argument is a complex number or a non-numeric object, the
+    format  ~WIDTHD is used.  If the argument is rational, the value printed
+    is of type single-float.  Note that to print the components of a complex
+    number  using  this  directive,  the  real  and  imaginary parts must be
+    printed separately using ``~G'' twice in the format control string  with
+    the real and imaginary parts as separate format arguments.
+
+    For the sake of explanation, let ARG be the absolute value of the format
+    argument   to   be   printed,   and  let  N  be  an  integer  such  that
+    10N-1 < ARG < 10N (but let N be 0 if ARG is zero).  Now  let  PADEXP  be
+    EWIDTH  + 2 if EWIDTH is specified, otherwise let PADEXP be 4.  Then let
+    FWIDTH be WIDTH - PADEXP if WIDTH is specified, otherwise let FWIDTH  be
+    empty.   If  ROUND  is  unspecified,  define it to be (max Q (min N 7)),
+    where Q is the number of digits needed to print  ARG  with  no  loss  of
+    information  and without leading or trailing zeros.  Finally, let FROUND
+    be ROUND - N.
+
+    If 0 < N < ROUND, then the argument is printed as if with the directive
+
+         ~FWIDTH,FROUND,,OVERFLOWCHAR,PADCHARF~PADEXP@T
+
+    The SCALE and ECHAR parameters are not used in this case.  For all other
+    values of N, the argument is printed as if with the directive
+
+         ~WIDTH,ROUND,EWIDTH,OVERFLOWCHAR,PADCHAR,ECHARE
+
+    In all cases an ``@'' modifier is passed to the new directive if  it  is
+    used in the original ``~G'' directive.
+
+    EXAMPLES
+    (defun gtest (x)
+      (format nil "~10,3,2,2@G%~10,2,2,,'x,'>,'^G%~9,3,,-2G"
+              x x x x)) => gtest
+    (gtest 1234.0)    => "+12.34e+02%>>1.23^+03% 0.001e+6"
+    (gtest 0.007E16)  => "+70.00e+12%>>7.00^+13%0.007e+16"
+    (gtest 1.23456)   => " +1.23    %>>>1.2    % 1.23    "
+    (gtest -1.23456)  => " -1.23    %>>-1.2    %-1.23    "
+    (gtest 500.0L123) => "**********%xxxxxxxxxx%.005d+128"
+
+    SEE ALSO
+    CLtL 22:395, format, format directive ~E, format directive ~F
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                                   revappend
+
+
+    FUNCTION
+    revappend  -  append two lists, reversing first list
+
+    USAGE
+    revappend list1 list2
+
+    DESCRIPTION
+    Both LIST1 and LIST2 must be lists.  A new list is made of the  elements
+    of  LIST1,  but  in the reverse order.  The result of appending this new
+    list to LIST2 is returned.  The following are equivalent:
+
+    (revappend x y) = (append (reverse x) y)
+
+    EXAMPLES
+    (revappend '(1 2 3) '(d e)) => (3 2 1 d e)
+    (revappend '(a b c) '()) => (c b a)
+
+    SEE ALSO
+    CLtL 15:269, append, nreconc
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                                          1+
+
+
+    FUNCTION
+    1+  -  add one to a number
+
+    USAGE
+    1+ number
+
+    DESCRIPTION
+    Returns the result of adding one to NUMBER.  This  function  behaves  as
+    though it were evaluating the form (+ NUMBER 1).
+
+    EXAMPLES
+    (1+ 1) => 2
+    (1+ #c(3 4)) => #c(4 4)
+    (1+ 4/2) => 3
+    (1+ 4.0d0) => 5.0d0
+
+    SEE ALSO
+    CLtL 12:200, 1-, +
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                                         exp
+
+
+    FUNCTION
+    exp  -  raise E to a power
+
+    USAGE
+    exp number
+
+    DESCRIPTION
+    Returns E raised to the power NUMBER, where E is the base of the natural
+    logarithms.  NUMBER may be any number type.
+
+    EXAMPLES
+    (exp 0) => 1.0
+    (exp 1) =>  2.7182817
+    (exp (* #c(0 1) pi)) => #c(-1.0d0 0.0d0)
+
+    SEE ALSO
+    CLtL 12:203, expt, log, sqrt
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

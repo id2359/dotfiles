@@ -1,0 +1,66 @@
+
+                                                                 swap-colors
+
+
+    FUNCTION
+    swap-colors  -  interchange two colors
+
+    Usage
+    swap-colors COLOR1 COLOR2
+
+    DESCRIPTION
+    Returns a list of the colors swapped, but this function is used for  its
+    side  effects.  The red, green, and blue values in the colors identified
+    by the arguments  COLOR1  and  COLOR2  are  swapped.   (All  colors  are
+    represented by values of red, green, and blue, even though colors can be
+    defined in other ways.)  Both COLOR1 and COLOR2 must be read-write  (NOT
+    read-only) colors.
+
+    If either color is initialized (meaning that it is installed in  a  LISP
+    colormap  and the associated server colormap) the values in those color-
+    maps are also changed.  After the swap has completed, all pixels on  the
+    screen  previously  displayed  in COLOR1 will be displayed in COLOR2 and
+    vice versa.
+
+    The related function rotate-colors changes all the colors in a  list  or
+    vector of colors.
+
+    EXAMPLES
+    (setf *my-win*
+      (make-window-stream :left 100 :bottom 100
+                          :width 200 :height 200
+                          :activate-p t :title "Just a Window"))
+
+    (setq color1 (make-color :red 1.0 :green 0.0 :blue 0.0))
+    (setq color2 (make-color :red 0.0 :green 1.0 :blue 0.0))
+    (color-green color1) => 0.0d0
+    (color-red color1) => 1.0d0
+    (color-green color2) => 1.0d0
+    (color-red color2) => 0.0d0
+
+    (draw-filled-circle *my-win* (make-position :x 30 :y  50) 20
+                        :color color1)
+    (draw-filled-circle *my-win* (make-position :x 50 :y  50) 20
+                        :color color2)
+    ;;  The right circle is green and the left red.  After we
+    ;;  evaluate the next form, the right circle will be red
+    ;;  and the left green.
+    (swap-colors color1 color2)
+
+    ;;  The colors themselves are changed:
+    (color-green color1) => 1.0d0
+    (color-red color1) => 0.0d0
+    (color-green color2) => 0.0d0
+    (color-red color2) => 1.0d0
+
+    ;;  You may not swap read-only colors.  The eight
+    ;;  predefined colors are read-only.
+    (swap-colors red blue) => ERROR
+    ;;  The error message is "Error: Cannot rotate a read-only color..."
+
+    SEE ALSO
+    install-color, make-color, rotate-colors
+
+
+
+

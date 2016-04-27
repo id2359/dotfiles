@@ -1,0 +1,66 @@
+
+                                                                      terpri
+
+
+    FUNCTION
+    terpri  -  output a newline to a stream
+
+    Usage
+    terpri [STREAM]
+
+    SIDE EFFECTS
+    A newline is appended to the end of the output stream.
+
+    DESCRIPTION
+    Returns nil, but this function is used for its side effects.
+
+    The argument STREAM defaults to the value of *standard-output*, which is
+    also the value used if STREAM is nil.  Otherwise, the argument must be a
+    stream, or t, in which case it takes on the value of *terminal-io*.
+
+    EXAMPLES
+    ;;  Note in the following script that FRESH-LINE only outputs
+    ;;  a newline if it has to, while TERPRI always does.
+    <cl> (progn (format t  "fred") (terpri)
+           (fresh-line t) (format t  "fred"))
+
+    fred
+    fred
+    nil
+
+    SEE ALSO
+    CLtL 22:384, prin1, write, princ, write-to-string, prin1-to-string,
+    princ-to-string, write-char, write-string, write-line, print, fresh-
+    line, finish-output, force-output, clear-output, write-byte, format
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

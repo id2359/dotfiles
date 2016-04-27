@@ -1,0 +1,66 @@
+
+                                                                     nsublis
+
+
+    FUNCTION
+    nsublis  -  change a tree by performing multiple simultaneous substitu-
+      tions
+
+    USAGE
+    nsublis alist tree [{:test | :test-not} pred] [:key keyfnc]
+
+    SIDE EFFECTS
+    The argument TREE may be changed.
+
+    DESCRIPTION
+    Returns the argument TREE after subjecting it to  multiple  simultaneous
+    subst operations as specified by the association list ALIST.  This asso-
+    ciation list consists of dotted pairs of the form (OLDITEM .   NEWITEM).
+    In the returned tree, every subtree OR leaf at ALL levels eql any one of
+    the OLDITEMS (the keys of  the  pairs  in  ALIST)  is  replaced  by  the
+    corresponding NEWITEM (the value of the pair in ALIST).
+
+    The substitutions must happen in a top down order.  The root of the tree
+    is  the  first  candidate for substitution, the children of the root are
+    next scrutinized, and so on recursively until a leaf is  reached.   This
+    order guarantees an implementation-dependent result.
+
+    A test predicate other than eql may be used by specifying  PRED  as  the
+    value  of either the :test or the :test-not keyword argument.  PRED must
+    be a function that accepts two arguments  (OLDITEM  and  an  element  of
+    TREE, passed in that order).  If PRED is the value of :test, OLDITEM and
+    the element match if PRED  returns  true.   If  PRED  is  the  value  of
+    :test-not,  OLDITEM  and the element match if PRED returns false.  It is
+    an error to supply both :test and :test-not keyword arguments.
+
+    If the keyword argument :key is specified and its value  KEYFNC  is  not
+    nil,  KEYFNC  must  be a function that accepts one argument.  It will be
+    applied to each element of TREE before that  element  is  tested.   When
+    unspecified or nil, it effectively defaults to the function identity.
+
+    The argument TREE must be a tree, that is a nested  list  of  lists  and
+    other conses.  The nondestructive version of this function is sublis.
+
+    EXAMPLES
+    (setq x '((a . 1) ( b . 2)))
+    (setq y '(a (b a (b))))
+    (setq y (nsublis x y)) => (1 (2 1 (2)))
+    y => (1 (2 1 (2)))
+    (nsublis '(((a 4) . (b 5)) ((c 6) . (d 8)))
+      '((a 4) (p 11) (c 6) (m 2)) :test #'equal)
+      => ((b 5) (p 11) (d 8) (m 2))
+    (nsublis '((t . nil)) '(1 (2 3)) :key #'listp)  => nil
+
+    SEE ALSO
+    CLtL 15:275, :key, nsubst, nsubstitute, sublis, subst, substitute :test,
+    :test-not
+
+
+
+
+
+
+
+
+
+

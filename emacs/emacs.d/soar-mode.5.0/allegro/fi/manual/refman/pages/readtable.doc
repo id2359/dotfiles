@@ -1,0 +1,66 @@
+
+                                                                   readtable
+
+
+    Type SPECIFIER
+    readtable  -  the data type readtable
+
+    USAGE
+    readtable
+
+    DESCRIPTION
+    Specifies the data type readtable, consisting of objects used to control
+    the  expression-parsing performed by the read function.  It maps charac-
+    ters into syntax types and identifies  the  macro  definition  for  each
+    macro character.
+
+    EXAMPLES
+    *readtable* => #<readtable @ #x123456>
+    (typep *readtable* 'readtable) => t
+
+    SEE ALSO
+    CLtL 2:31, CLtL 4:43, about type specifiers, read, *readtable*, typep
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

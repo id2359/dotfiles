@@ -1,0 +1,132 @@
+
+                                                              about keywords
+
+
+    NOTES
+    about keywords  -  keyword argument conventions
+
+    DESCRIPTION
+    The keyword data type in Common Lisp consists of all symbols in the key-
+    word  package.  When printed, these symbols are normally preceded with a
+    single colon.  This colon is the usual package qualifier, handled  some-
+    what specially.  (It is as if the nickname of the keyword package is the
+    empty string.  Many implementations define the keyword package  to  have
+    that  nickname  although  that  is  not required.  If that is done by an
+    implementation, the colon is used more or less  normally-as  part  of  a
+    package  qualifier  preceded by the package nickname.  The behavior when
+    reading a keyword is exactly as expected then; the behavior when  print-
+    ing a keyword is somewhat nonstandard since the package nickname is used
+    rather than the full package name.) Every symbol in the keyword  package
+    is  exported  automatically.  A symbol preceded by a colon unambiguously
+    refers to a keyword, the symbol in the keyword package whose print  name
+    is the symbol name which follows the colon.
+
+    Keywords are self-evaluating (the value of  a  keyword  is  itself)  and
+    wherever  they  are  referred to, keywords with the same print names are
+    eq.  Therefore, keywords are useful as flags  or  specifiers.   We  will
+    describe  keyword arguments to functions and macros in a moment, but two
+    other illustrative uses of keywords  are  the  possible  values  of  the
+    :direction  keyword  argument to open (the allowable values include key-
+    words such as :input, :output, and :io) and the use of a  keyword  whose
+    print  name  is the string naming a package as the package-name argument
+    where such is allowed (for example in-package).  The first use shows how
+    keywords  are  useful  as  flags.  The second (a convention used in this
+    manual but by no means universally followed) does have  some  advantages
+    over  using  a symbol or string.  If a string is used, it must be in the
+    correct case, often uppercase, and that is sometimes tiresome to type if
+    you  normally type in lowercase.  If a nonkeyword symbol is used, a sym-
+    bol with that name is created in the current package and this symbol may
+    later  cause a name conflict with another symbol.  Although naming a new
+    keyword may create a new symbol in the keyword  package,  no  name  con-
+    flicts will ever arise.
+
+    The most familiar and important use of keywords is  as  designators  for
+    keyword  arguments  to  functions and macros.  How keyword arguments are
+    specified on the lambda list of a function or macro is described in  the
+    &key  entry.  Once specified, calls to the function or macro should con-
+    tain pairs, consisting of a keyword and a value.  These pairs are placed
+    at  the  end  of  the  argument list, after all the required and ALL the
+    optional arguments have been specified.  Keyword arguments are a type of
+    optional  argument  with the following advantages.  First, as many or as
+    few as desired may be specified; second, the order of  specification  is
+    unimportant;  third,  if  meaningful names for the keyword arguments are
+    chosen, the function or macro call itself will be more informative.
+
+    Among the Common Lisp functions, keyword arguments with the same name in
+    different  function  calls  play  similar  roles.   This  is by no means
+    required, however.  It is generally true with functions in the same area
+    (thus  in all sequence functions, the :key, :test, and :test-not keyword
+    arguments do similar things) but with unrelated functions, keyword argu-
+    ments  with  the same name may be quite different (for example, :type as
+    an argument to make-pathname and defstruct).   And  of  course  in  user
+    code,  keywords  with  the  same  name  may be used with any meaning the
+    writer of the code chooses to assign.
+
+
+
+
+    EXAMPLES
+    (setf (get 'white-house :location) 'district-of-columbia)
+       => district-of-columbia
+    (symbol-name :foo) => "foo"
+
+    (defun try-keys (donald &optional daisy &key huey louie dewey)
+      (format t "~%Mr. Duck will be played by ~a." donald)
+      (if daisy
+          (format t
+                  "~&His friend Daisy will be played by ~a. "
+                  daisy))
+      (when (or huey louie dewey)
+            (format t "~&Mr. Duck's nephews have been ~
+                    assigned as follows:")
+            (format t "~&     Huey      ~a"
+                    (or huey "not assigned"))
+            (format t "~&     Dewey     ~a"
+                    (or dewey "not assigned"))
+            (format t "~&     Louie     ~a"
+                    (or louie "not assigned"))))
+       => try-keys
+    (try-keys "John Smith" "Mary Jones"
+      :louie "Jimmy Green" :huey "Joey Brown") => nil
+      PRINTS
+    Mr. Duck will be played by John Smith.
+    His friend Daisy will be played by Mary Jones.
+    Mr. Duck's nephews have been assigned as follows:
+         Huey      Joey Brown
+         Dewey     not assigned
+         Louie     Jimmy Green
+
+    SEE ALSO
+    CLtL 11:182, &allow-other-keys, &aux, &body, &environment, &key,
+    &optional, &rest, &whole
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

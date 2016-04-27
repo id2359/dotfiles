@@ -1,0 +1,66 @@
+
+                                                 window-stream-expose-notify
+
+
+    FUNCTION
+    window-stream-expose-notify  -  get the list of functions called by the
+      expose-notify method
+
+    Usage
+    window-stream-expose-notify STREAM
+
+    DESCRIPTION
+    Returns the list of functions that will be called when the expose-notify
+    method for the window-stream WSTREAM is called.  expose-notify is called
+    by the system when a common window is exposed by the window manager, not
+    by  COMMON  WINDOWS  itself.   You  do not (normally) call expose-notify
+    directly.
+
+    By default the list contains the single function  default-window-stream-
+    expose-notify-method.   This  function  does the work of updating COMMON
+    WINDOWS about the change in the window, so you should not remove it from
+    the list.
+
+    You can change this list by using modify-window-stream-method or replace
+    it  entirely  by  using  setf.   If  you  replace the list, be sure that
+    default-window-stream-expose-notify-method is in the new list.  You  can
+    restore  the  list  to  its  initial  state with restore-default-window-
+    stream-method.
+
+    EXAMPLES
+    (setf *my-win*
+      (make-window-stream :left 100 :bottom 100
+                          :width 200 :height 200
+                          :activate-p t :title "Just a Window"))
+
+    (defun my-after-expose-notify (w)
+      (format wstream "I have been exposed ~%"))
+
+    ;;  The initial list returned contains one function.
+    (window-stream-expose-notify  *my-win*)
+      => (default-window-stream-expose-notify-method)
+
+    ;;  We add a new function.
+    (modify-window-stream-method *my-win* :expose-notify
+                                 :after 'my-after-expose-notify)
+    ;;  Now the list contains two functions.
+    (window-stream-expose-notify  *my-win*) =>
+    (default-window-stream-expose-notify-method my-after-expose-notify)
+
+    ;;  We restore the list to its initial state.
+    (restore-window-stream-method *my-win* :expose-notify)
+    (window-stream-expose-notify  *my-win*)
+      => (default-window-stream-expose-notify-method)
+
+    SEE ALSO
+    expose, expose-notify, modify-window-stream-method, restore-window-
+    stream-method
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                       encode-universal-time
+
+
+    FUNCTION
+    encode-universal-time  -  convert decoded time to Universal time format
+
+    Usage
+    encode-universal-time SECOND MINUTE HOUR DATE MONTH YEAR [TIME-ZONE]
+
+    DESCRIPTION
+    Returns a non-negative integer representation in Universal  Time  format
+    of the instant of time corresponding to that specified by the arguments,
+    which are components of Decoded Time format.
+
+    In Decoded Time format, the second and minute  components  are  integers
+    from  0  to  59   inclusive,  the day is an integer from 1 to 31 but not
+    greater than the number of days in the month, the month  is  an  integer
+    from  1  to 12, and the year is either the full number of the Common Era
+    (i.e. AD), such as 1948, or a two-digit number, which is interpreted  as
+    the  year  with those last two digits within 50 years before (inclusive)
+    and 50 years after (exclusive) of the current year.  Thus, in  1987,  37
+    is  1937  and  36  is  2036, but in 1988, 37 is 2037 .  TIME-ZONE, which
+    defaults  to  the  current  time  zone  on  your  machine  adjusted  for
+    daylight-saving  time,  is  the  number  of time zones west of Greenwich
+    (i.e. hours less than GMT).  If TIME-ZONE is  specified,  no  adjustment
+    for daylight-saving time is done.
+
+    Universal Time is the number of seconds since  midnight  of  January  1,
+    1900  GMT.   Therefore,  relative Universal Time (the difference between
+    two values in Universal Time format) is a number of seconds.  Every  day
+    is  86400  seconds long, and leap years occur in every year divisible by
+    four, except those divisible by 100 and not 400 (making 2000 a leap year
+    but  1900  not a leap year).  Because Universal Time is represented as a
+    non-negative integer, times before midnight of January 1, 1900  are  not
+    representable.
+
+    EXAMPLES
+    (encode-universal-time 22 37 6 12 3 1984) => 2656939042
+    ;;  6:37:22 am on March 12, 1984 in California.
+
+    SEE ALSO
+    CLtL 25:446, decode-universal-time, get-decoded-time, get-universal-time
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

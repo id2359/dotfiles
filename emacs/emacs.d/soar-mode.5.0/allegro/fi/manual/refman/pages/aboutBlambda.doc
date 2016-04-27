@@ -1,0 +1,132 @@
+
+                                                                about lambda
+
+
+    NOTES
+    about lambda  -  the lambda expression as the fundamental function ob-
+      ject
+
+    USAGE
+    (lambda lambda-list {declaration | doc-string}* {form}*)
+
+    DESCRIPTION
+    A LAMBDA EXPRESSION is a list with the syntax described  above.   It  is
+    the  fundamental way to represent a function object in COMMON LISP.  The
+    defun macro provides a convenient way to associate a symbol with a func-
+    tion  object  without having to deal directly with the underlying lambda
+    expression.  A lambda expression is not a form, and it makes no sense to
+    evaluate it.
+
+    The LAMBDA-LIST is a list specifying the  function  parameters  and  how
+    they  are  bound  to  the  arguments that appear in a function call.  In
+    evaluating a function call, the first element of the function call form,
+    which must be a symbol or a lambda expression (see about forms), identi-
+    fies the function object.  The remaining elements are evaluated to  pro-
+    duce  the  arguments,  and  then the function object is applied to them.
+    When the function call is entered, parameters are bound to arguments  in
+    a  manner  dictated by the lambda list.  See about lambda lists for more
+    information.
+
+    Parameters are generally bound as lexical variables, but  special  bind-
+    ings  can be arranged with defvar or proclaim, or within the DECLARATION
+    part of the lambda expression using declare.  Upon  return  or  nonlocal
+    exit  from  the function, the parameter bindings are dissolved, never to
+    be reinstated unless  a  closure  is  created  over  the  bindings  (see
+    function).
+
+    The DECLARATION part is used to declare special variables and to provide
+    advisory  information to the compiler and programmer; see about declara-
+    tions.  Documentation may be added to the function as a DOC-STRING;  see
+    documentation.
+
+    The main executable body of the function is contained in  zero  or  more
+    FORMS.   When  the  function  is  applied  to arguments, these FORMS are
+    evaluated in order within the context of the parameter bindings, and the
+    values of the last FORM are returned as the values of the function call.
+    If the there are no forms, the value nil is returned.
+
+    EXAMPLES
+    The lambda expression
+
+    (lambda (x y)
+      "This function is like cons, but with
+      the arguments reversed."
+      (declare (type list x))
+      (cons y x))
+
+    illustrates a function object taking two arguments; in isolation  it  is
+    not  particularly  useful.   Sometimes  a  situation requires a function
+    object when a lambda expression would be more convenient than defining a
+    named function with defun, for example,
+
+    (apply #'(lambda (x y) (cons y x)) '((b c) a))
+      => (a b c)
+
+    The following illustrates a common use  of  a  lambda  expression.   The
+    function  defined  with the lambda expression is only referred to in one
+    place in the code and it includes  in  its  definition  a  variable  NUM
+    defined  in  its  lexical  environment  (the variable that NUM refers to
+    would not be accessible if the function were defined with  defun  unless
+    something  else was done, such as passing it as an argument or declaring
+    it special):
+
+    (defun a-function (num &rest other-nums)
+      (map 'vector #'(lambda (arg) (+ num arg)) other-nums))
+       => a-function
+    (a-function 7 1 2 3 4 5) => #(8 9 10 11 12)
+
+    SEE ALSO
+    CLtL 5:59, about declarations, about forms, about lambda lists, about
+    scope and extent, defmacro, defun, function
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

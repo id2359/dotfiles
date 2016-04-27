@@ -1,0 +1,66 @@
+
+                                                                   functionp
+
+
+    FUNCTION
+    functionp  -  test whether an object is like a function
+
+    USAGE
+    functionp object
+
+    DESCRIPTION
+    Returns true if OBJECT can be applied to  arguments  (in  the  sense  of
+    funcall  or apply), and false otherwise.  functionp returns true for any
+    OBJECT that is
+
+         a symbol,
+         a list whose car is lambda,
+         returned by the function special form, or
+         returned by compile with a nil first argument.
+
+    Note that functionp returns true when its argument is a symbol  even  if
+    that  symbol  does  not  have  a  function  binding  (either  lexical or
+    dynamic).
+
+    EXAMPLES
+    (functionp 'anysymbol) => t
+    (functionp 'functionp) => t
+    (functionp "setq") => nil
+    (functionp '(lambda (x) (+ x 1))) => t
+
+    SEE ALSO
+    CLtL 6:76, apply, compile, funcall, function, lambda
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

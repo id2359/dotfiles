@@ -1,0 +1,66 @@
+
+                                                                         cis
+
+
+    FUNCTION
+    cis  -  get COS + I SIN
+
+    USAGE
+    cis radians
+
+    DESCRIPTION
+    Returns the result of raising E, the base of the  natural  logarithm  to
+    the  power  I  x  RADIANS, which is mathematically equivalent to COS + I
+    SIN.  The argument RADIANS may be any non-complex number of radians.
+
+    EXAMPLES
+    (cis pi) => #c(-1.0d0 0.0d0)
+
+    SEE ALSO
+    CLtL 12:207, cos, exp, expt, sin
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

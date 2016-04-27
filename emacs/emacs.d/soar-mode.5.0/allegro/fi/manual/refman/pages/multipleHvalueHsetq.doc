@@ -1,0 +1,66 @@
+
+                                                         multiple-value-setq
+
+
+    MACRO
+    multiple-value-setq  -  set a list of variables to multiple values re-
+      turned by a form
+
+    USAGE
+    multiple-value-setq varlist form
+
+    SIDE EFFECTS
+    The values or bindings of the variables in VARLIST are set, in order, to
+    the  values  returned  by  evaluating FORM.  Excess variables are set to
+    nil.
+
+    DESCRIPTION
+    Returns the first value produced by FORM or nil, if FORM does  not  pro-
+    duce  any  values.   VARLIST,  which is not evaluated, must be a list of
+    symbols naming variables.  If  there  are  more  variables  than  values
+    returned  by  FORM,  the  excess variables are set to nil.  If there are
+    more values than variables, the excess values are discarded.
+
+    The values or bindings of the variables are set to the values  resulting
+    from   the   evaluation   of  FORM.   No  bindings  are  established  by
+    multiple-value-setq.
+
+    EXAMPLES
+    (multiple-value-setq (quotient remainder)
+      (floor 14 -4))
+    quotient => -4
+    remainder => -2
+
+    SEE ALSO
+    CLtL 7:136, multiple-value-list, multiple-value-bind, multiple-value-
+    call, multiple-value-prog1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

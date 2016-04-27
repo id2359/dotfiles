@@ -1,0 +1,66 @@
+
+                                                     :displaced-index-offset
+
+
+    KEYWORD ARGUMENT
+    :displaced-index-offset  -  specify offset in a displaced-to array
+
+    USAGE
+    :displaced-index-offset index
+
+    SIDE EFFECTS
+    When an array W is created or adjusted with array V as the value of  the
+    :DISPLACED-TO  keyword  argument,  W is said to be displaced to array V.
+    Viewing both arrays as one dimensional (following the convention that an
+    array  is  stored so that the last dimension varies fastest, that is, in
+    row-major oreder), the first element of W is the element of V  specified
+    by one plus the value of the :displaced-index-offset.
+
+    DESCRIPTION
+    This  keyword  argument  may  be  used   with   either   make-array   or
+    adjust-array,  but  only  when  the :displaced-to keyword option is also
+    used. Its value must be a fixnum.
+
+    When used with make-array, the size of the newly created array plus this
+    value can be no larger than the size of the array being displaced to.
+
+    EXAMPLES
+    (setq A (make-array 10
+                        :adjustable t
+                        :initial-contents '(1 2 3 4 5 6 7 8 9 10)))
+      => #(1 2 3 4 5 6 7 8 9 10)
+    (setq B (make-array 5 :displaced-to A
+                        :displaced-index-offset 3)))
+      => #(4 5 6 7 8)
+
+    SEE ALSO
+    CLtL 17:288, :adjustable, adjust-array, :displaced-to, :element-type,
+    :fill-pointer, :initial-contents, :initial-element, make-array
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

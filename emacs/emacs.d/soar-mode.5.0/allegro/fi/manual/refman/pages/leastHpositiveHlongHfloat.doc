@@ -1,0 +1,66 @@
+
+                                                   least-positive-long-float
+
+
+    CONSTANT
+    least-positive-long-float  -  positive long-float closest to zero
+
+    DESCRIPTION
+    Returns the value of the positive  long-float  number  nearest  to  (but
+    still different from) zero.  This value is implementation-dependent.
+
+    EXAMPLES
+    ;;  This value is implementation-dependent.
+    least-positive-long-float => 2.2250738585072027d-308
+
+    SEE ALSO
+    CLtL 12:232, about numeric constants
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                                 float-radix
+
+
+    FUNCTION
+    float-radix  -  get the radix of the representation of a floating-point
+      number
+
+    USAGE
+    float-radix float
+
+    DESCRIPTION
+    Returns the radix of the internal representation of FLOAT.   This  value
+    is implementation-dependent.  The most common values are 2 and 16.
+
+    A floating-point number may be represented  mathematically  as  S F RE-Q
+    where  S  is  the  sign (as returned by float-sign), F is the fractional
+    part such that 0 < F RP < RP, R is the radix of the internal representa-
+    tion  (as returned by float-radix), E is the exponent, Q is the integral
+    excess or bias of the representation, and P is the precision in  radix-R
+    digits  of the representation.  For normalized numbers, R-1 < F < 1 or F
+    is zero and E is minimal.
+
+    The function decode-float returns F as  its  first  value,  E-Q  as  its
+    second  value, and S at its third value, for a normalized floating-point
+    number.
+
+    EXAMPLES
+    (float-radix 2.8) => 2
+    (float-radix 13.0) => 2
+
+    SEE ALSO
+    CLtL 12:218, decode-float, float-digits, float-precision, integer-
+    decode-float, float-sign, scale-float
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

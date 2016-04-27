@@ -1,0 +1,66 @@
+
+                                                           math:print-matrix
+
+
+    FUNCTION
+    print-matrix  -  print a matrix in pretty format
+
+    USAGE
+    print-matrix matrix [stream]
+
+    DESCRIPTION
+    Returns nil but this function is used for its side effects.   It  prints
+    the  value  of MATRIX, one row at a time, to the stream specified by the
+    optional argument STREAM.  A blank line is printed before and after  the
+    matrix.
+
+    If STREAM is not specified or nil, the matrix will  be  printed  to  the
+    stream  that  is the value of *standard-output*.  If STREAM is specified
+    as t, the matrix  is  printed  to  the  stream  that  is  the  value  of
+    *terminal-io*.   Otherwise, the matrix is printed to the stream which is
+    the value of STREAM.
+
+    Each entry in the matrix is converted to a string.  For  each  row,  the
+    strings are printed out on a single line.  (That is, there is not return
+    or linefeed in the code to print-matrix.  However, unless a  matrix  has
+    very  few  columns, the rows will probably spill over a single line.  No
+    effort is made to control or prettify the printing of individual rows.)
+
+    EXAMPLES
+    (print-matrix (make-matrix '((1.0 2.0) (3.0 4.0)))) PRINTS
+      1.0 2.0
+      3.0 4.0
+      => nil
+    ;;  Note: blank lines before and after the printed matrix
+    ;;  have been removed in this example.
+
+    SEE ALSO
+    make-matrix
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

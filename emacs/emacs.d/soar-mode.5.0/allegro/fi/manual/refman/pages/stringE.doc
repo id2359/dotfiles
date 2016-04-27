@@ -1,0 +1,66 @@
+
+                                                                     string=
+
+
+    FUNCTION
+    string=  -  test whether two strings are the same
+
+    USAGE
+    string= string1 string2 [:start1 s1] [:end1 e1] [:start2 s2] [:end2 e2]
+
+    DESCRIPTION
+    Returns true if corresponding characters of  the  strings  specified  by
+    STRING1  and  STRING2  are  the  same, and false otherwise.  STRING1 and
+    STRING2 must be strings or symbols.  The print names of symbols are used
+    as the strings.
+
+    This function is similar to string-equal, except that string=  does  NOT
+    ignore case distinctions whereas string-equal does ignore them.  string=
+    uses char= to compare characters.
+
+    To operate on a substring of STRING1, use the :start1 and :end1  keyword
+    arguments.   The  :start1  keyword  argument  specifies the index of the
+    first character of the substring  of  STRING1  to  examine.   Its  value
+    defaults  to  zero  (indicating the first character).  The :end1 keyword
+    argument specifies an index one greater than the index of the last char-
+    acter of STRING1 to examine. A value of nil is equivalent to the default
+    value, the length of the string.  Note that if STRING1 is a string  with
+    a  fill  pointer,  only  the active elements of STRING1 can be compared.
+    These remarks also apply to the :start2  and  :end2  keyword  arguments,
+    which  specify  the  starting  and  ending  indices  of the substring of
+    STRING2.
+
+    If the substrings or strings being compared are  not  of  equal  length,
+    string-equal will return nil.
+
+    EXAMPLES
+    (string-equal "Hello" "hello") => t
+    (string= "Hello" "hello") => nil
+    (string= 'default 'haul) => nil
+    (string= "default" "haul" :start1 3 :end1 6 :start2 1)  => t
+
+    SEE ALSO
+    CLtL 18:300, char=, string/=, string-equal, string>, string>=, string<,
+    string<=
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

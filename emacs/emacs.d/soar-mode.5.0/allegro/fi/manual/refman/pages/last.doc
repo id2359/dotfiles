@@ -1,0 +1,66 @@
+
+                                                                        last
+
+
+    FUNCTION
+    last  -  get last cons cell of a list
+
+    USAGE
+    last list
+
+    DESCRIPTION
+    Returns the last cons of LIST, or nil if LIST is nil.  LIST  must  be  a
+    list.
+
+    Note that despite their names, first and last behave differently.  first
+    returns  the  first  element in a list while last returns the last cons,
+    NOT the last element.
+
+    EXAMPLES
+    (last '(1 2 3 4 5)) => (5)
+    (car (last '(1 2 3 4 5))) => 5
+    (first '(1 2 3 4 5)) => 1
+    (last '()) => nil
+    (last '(w x y . z)) => (y . z)
+    (last '(1)) => (1)
+
+    SEE ALSO
+    CLtL 15:267, cons, first, nth, nthcdr
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

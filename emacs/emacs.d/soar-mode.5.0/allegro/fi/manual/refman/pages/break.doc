@@ -1,0 +1,66 @@
+
+                                                                       break
+
+
+    FUNCTION
+    break  -  Print a break message and go into the debugger
+
+    USAGE
+    break [format-string {arg}*]
+
+    SIDE EFFECTS
+    A break message is printed and COMMON LISP goes into the debugger.
+
+    DESCRIPTION
+    Returns nil, but this function is used for its side effects.  It is used
+    to insert break points into a program, not to signal errors.  A break is
+    continuable.  The FORMAT-STRING and ARG arguments are passed  to  format
+    to display a message to *error-output*.
+
+    EXAMPLES
+    ;;  The details of the following script are
+    ;;  implementation-dependent.
+    <cl> (FLET ((TEST (NUM)
+                  (WHEN (EVENP NUM)
+                    (BREAK "~D IS THE SUPPLIED NUMBER." NUM))))
+           (TEST 4))
+    Break: 4 is the supplied number.
+    Restart actions (select using :continue):
+     0: return from break.
+    [1c] <cl> :CONTINUE
+    nil
+    <cl>
+
+    SEE ALSO
+    CLtL 24:432, *break-on-warnings*, cerror, error, warn
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

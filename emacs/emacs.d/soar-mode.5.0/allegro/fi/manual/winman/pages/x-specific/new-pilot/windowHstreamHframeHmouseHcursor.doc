@@ -1,0 +1,66 @@
+
+                                            window-stream-frame-mouse-cursor
+
+
+    FUNCTION
+    window-stream-frame-mouse-cursor  -  get the mouse cursor associated
+      with the frame of a window
+
+    Usage
+    window-stream-frame-mouse-cursor WSTREAM
+
+    DESCRIPTION
+    Returns the mouse cursor object associated with the frame of the  window
+    stream  WSTREAM.  This mouse cursor will be displayed when the cursor is
+    moved into this the frame of the window.
+
+    The frame of a window-stream is the area that includes the title  region
+    and the borders.
+
+    The default value returned by this function is the bullseye  mouse  cur-
+    sor,  that is, the cursor bound to *mouse-cursor-bullseye*.  A different
+    mouse cursor for the frame can be specified when the window  is  created
+    by   specifying   a   value  for  the  :frame-mouse-cursor  argument  to
+    make-window-stream.  The cursor can be changed after the window has been
+    created with this function and setf.
+
+    EXAMPLES
+    (setf *my-win*
+              (make-window-stream :left 100 :bottom 200
+                                  :width 100 :height 100
+                                  :activate-p t :title "My Window"))
+    ;;  The frame mouse cursor is the bullseye.
+    (eq (window-stream-frame-mouse-cursor *my-win*)
+        *mouse-cursor-bullseye*) => t
+
+    ;;  We can change the frame mouse cursor with SETF.
+    (setf (window-stream-frame-mouse-cursor *my-win*)
+      *mouse-cursor-+*)
+
+    SEE ALSO
+    flush-mouse-cursor, make-mouse-cursor, window-stream-mouse-cursor
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

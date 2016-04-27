@@ -1,0 +1,66 @@
+
+                                                                   notinline
+
+
+    DECLARATION SPECIFIER
+    notinline  -   advise compiler not to compile functions in-line
+
+    USAGE
+    notinline {function}*
+
+    SIDE EFFECTS
+    The COMMON LISP system is advised  that  each  FUNCTION  should  not  be
+    open-coded.
+
+    DESCRIPTION
+    Like all declaration specifiers, notinline appears as the car of a  list
+    followed  by the names of the functions to which it applies. Declaration
+    specifiers may only appear in a declare or proclaim  form.   (It  is  an
+    error to evaluate a declaration.) It is used with declare or proclaim to
+    order the system not to compile the specified functions in-line.  We say
+    `order'  since this declaration, unlike most others, may not be ignored.
+    notinline observes the rules of lexical scoping, implying  that  a  form
+    such as flet or labels may have notinline declarations which shadow glo-
+    bal ones.
+
+    EXAMPLES
+    (proclaim '(notinline floor))
+    (defun not-open-floor (num)
+      (declare (notinline floor))
+      (floor num))
+
+    SEE ALSO
+    CLtL 9:159, about declarations, declare, inline, proclaim
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

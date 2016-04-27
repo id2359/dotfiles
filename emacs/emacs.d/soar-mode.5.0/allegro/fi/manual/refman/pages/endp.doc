@@ -1,0 +1,66 @@
+
+                                                                        endp
+
+
+    FUNCTION
+    endp  -  test for the end of a list
+
+    USAGE
+    endp object
+
+    DESCRIPTION
+    Returns true if OBJECT is nil, and false if it is  a  cons.   It  is  an
+    error  for  OBJECT to be any other type of argument (and implementations
+    are encouraged to signal an error).  Thus, endp returns true if the  end
+    of  a  true  list is reached, returns false if the end of a list has not
+    been reached, and (in many  implementations)  signals  an  error  on  an
+    object  which  cannot  be  a cdr of a true list.  Using endp is the best
+    test for the end of a list.
+
+    EXAMPLES
+    (endp '(a b)) => nil
+    (endp '()) => t
+    (setq x '(1 2 3 4 5)) => (1 2 3 4 5)
+    (do ((y x (cdr y))
+         (sum 0 (+ sum (car y))))
+        ((endp y) sum)) => 15
+
+    ;;  Tried to apply endp to a non-cons:
+    (do ((dlis '(1 2 . 3) (cdr dlis))
+         (sum 0 (+ sum (car dlis))))
+        ((endp dlis) sum)) => ERROR
+
+    ;;  Tried to apply endp to a non-cons:
+    (endp 'x)  => ERROR
+
+    SEE ALSO
+    CLtL 15:264, null
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

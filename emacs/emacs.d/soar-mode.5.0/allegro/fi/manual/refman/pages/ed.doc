@@ -1,0 +1,66 @@
+
+                                                                          ed
+
+
+    FUNCTION
+    ed  -  invoke the resident editor from lisp
+
+    Usage
+    ed [PATHNAME-OR-SYMBOL]
+
+    DESCRIPTION
+    Invoke the resident editor, if  there  is  one.   The  return  value  is
+    implementation-dependent.   Assuming that there is a resident editor, ed
+    called with an argument of nil or without any arguments will resume  the
+    editor in the same state in which you last left it.  If a symbol is sup-
+    plied as the argument, the code associated with the function represented
+    by the symbol is edited, if it is available.  If the argument is a path-
+    name or string, ed will edit the contents of the  file  denoted  by  the
+    pathname or string.
+
+    EXAMPLES
+    ;;  The following invokes the resident editor on
+    ;;  the file mydir/foo.l.
+    (ed "mydir/foo.l")
+
+    SEE ALSO
+    CLtL 25:442
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

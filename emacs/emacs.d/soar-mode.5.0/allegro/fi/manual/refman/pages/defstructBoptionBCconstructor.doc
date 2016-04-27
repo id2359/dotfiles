@@ -1,0 +1,66 @@
+
+                                               defstruct option :constructor
+
+
+    DEFSTRUCT OPTION
+    :constructor  -  customize a structure constructor function
+
+    Usage
+    :constructor [NAME [ARGLIST]]
+
+    DESCRIPTION
+    This is a defstruct option that controls whether a constructor  function
+    is defined, the name of the constructor function, and its functionality.
+    In the simplest case, with no arguments, the standard constructor  func-
+    tion  is  created and named by prefixing make- to the name of the struc-
+    ture.  When the argument ARGLIST is not provided, the argument  NAME  is
+    either  a non-nil symbol, in which case the constructor function differs
+    from the default constructor  function  in  name  only,  or  nil,  which
+    prevents  a  constructor  function from being defined for the structure.
+    The NAME and ARGLIST arguments are not evaluated.
+
+    The argument ARGLIST, if provided, behaves like a lambda  list  for  the
+    constructor   function   (See  about  lambda  lists).   It  can  contain
+    &optional, &rest, and &aux lambda list keywords.  The names of the  for-
+    mal  parameters  in the lambda list must correspond to slot names in the
+    structure.  The arguments to the  constructor  function  are  associated
+    with slots using the names of the parameters.  Optional arguments behave
+    as expected.  Default values will  be  used  to  override  any  explicit
+    default  specified in a slot description.  If no default parameter value
+    is specified, the parameter is optional, and the argument  is  not  sup-
+    plied  to  the  constructor,  the  default  value  supplied  in the slot
+    description is used.
+
+    Rest parameters will set the corresponding slot value to  the  remaining
+    arguments  passed  to  the  constructor.  Auxiliary `variables' are used
+    solely to override defaults.  If no default is  specified  for  an  &aux
+    variable,  the  corresponding slot is not initialized and its value will
+    be undefined.  If a default  is  specified,  it  overrides  the  default
+    specified with the slot description.
+
+    It is possible to use the :constructor option more than once  to  define
+    several constructor functions.
+
+    EXAMPLES
+    (defstruct (book (:constructor create-reading-matter))
+      title length) => book
+    (setq my-book
+      (create-reading-matter
+       :title "Crime and Punishment"
+       :length 400))
+      => #s(book :title "Crime and Punishment" :length 400)
+
+    (defstruct
+        (book (:constructor book-maker (title &optional (length 100))))
+      title length) => book
+    (book-maker "foo") => #s(book :title "foo" :length 100)
+
+    (defstruct
+        (book (:constructor book-maker (title &rest pages)))
+      title pages) => book
+    (book-maker "foo" 20 30 40 50)
+      => #s(book :title "foo" :pages (20 30 40 50))
+
+    SEE ALSO
+    CLtL 19:311, about lambda lists, defstruct, defstruct-option :conc-name,
+    defstruct option :copier, defstruct option :include, defstruct option

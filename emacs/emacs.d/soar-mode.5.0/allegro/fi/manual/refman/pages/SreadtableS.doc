@@ -1,0 +1,66 @@
+
+                                                                 *readtable*
+
+
+    VARIABLE
+    *readtable*  -  the current readtable
+
+    DESCRIPTION
+    Bound to the current readtable, which is  a  data  structure  containing
+    information  about  the syntax of each character.  The initial value for
+    this symbol is the standard COMMON LISP readtable, but there is exists a
+    family of functions for producing customized readtables.
+
+    EXAMPLES
+    ;;  The printed representation of readtables is implementation-dependent.
+    *readtable* => #<readtable @ #x39d371>
+    ;;  We define #v to read numbers as their negative.
+    (defun negate (stream char num)
+      (declare (ignore char num))
+      (- (read stream t nil t)))
+    (set-dispatch-macro-character #\# #\v #'negate)
+    #v1 => -1
+    ;;  Now we save the current readtable.
+    (setf old-readtable (copy-readtable *readtable*))
+    ;;  We redefine #v to just read numbers straight.
+    (defun ident (stream char num)
+      (declare (ignore char num))
+      (read stream t nil t))
+    (set-dispatch-macro-character #\# #\v #'ident)
+    #v1 => 1
+    ;;  Now we restore the old readtable and #v negates numbers again.
+    (setf *readtable* old-readtable)
+    #v1 => -1
+
+    SEE ALSO
+    CLtL 22:361, copy-readtable, get-dispatch-macro-character, get-macro-
+    character, make-dispatch-macro-character, readtablep, set-dispatch-
+    macro-character, set-macro-character, set-syntax-from-char
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

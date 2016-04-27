@@ -1,0 +1,66 @@
+
+                                                                       first
+
+
+    FUNCTION
+    first  -  get the first element of a list
+
+    USAGE
+    first list
+
+    DESCRIPTION
+    Returns the first element of LIST, where the car of LIST  is  considered
+    to be the first element.  LIST must be a list.
+
+    Unlike the nth function, which uses zero-origin indexing, this  function
+    uses  one-origin indexing.  If LIST is empty, nil is returned.  setf may
+    be used with third to replace the first element of a list.
+
+    EXAMPLES
+    (first '(a b c d e f g h i j)) => a
+    (first '()) => nil
+    (setq lis '(a b c d e f g h i j)) => (a b c d e f g h i j)
+    (setf (first lis) 1) => 1
+    lis => (1 b c d e f g h i j)
+
+    SEE ALSO
+    CLtL 15:266, car, eighth, elt, fifth, fourth, ninth, nth, second,
+    seventh, sixth, tenth, third
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                         format directive ~(
+
+
+    FORMAT DIRECTIVE
+    ~(  -  process control string with case conversion
+
+    USAGE
+    ~[:][@](string~)
+
+    DESCRIPTION
+    Processes a string as a o.E format  control  string  and  performs  case
+    conversion according to the ``:'' and ``@'' modifiers.
+
+    ~(   Converts all uppercase characters to lowercase.
+
+    ~:(  Capitalizes all words, as if with string-capitalize.
+
+    ~@(  Capitalizes only the first word and converts the rest to lowercase.
+
+    ~:@( Converts all lowercase characters to uppercase.
+
+    This directive must nest properly with respect to other  format  control
+    structure  directives.   The  ``~^''  directive may be used to terminate
+    processing prematurely.
+
+    EXAMPLES
+    (format nil "~@(~A~) ~(~A~) did not write ~:(~A~)."
+      "the poet" "E.E. Cummings" "the illiad")
+      => "The poet e.e. cummings did not write The Illiad."
+    (format nil "Yes, ~:(~A~), you may have won ~:@(~R~) dollars!"
+      "john doe" 40000000)
+      => "Yes, John Doe, you may have won FORTY MILLION dollars!"
+
+    SEE ALSO
+    CLtL 22:401, format, format directive ~^, string-capitalize
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

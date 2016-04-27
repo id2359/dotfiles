@@ -1,0 +1,66 @@
+
+                                                                         gcd
+
+
+    FUNCTION
+    gcd  -  get the greatest common divisor of all the arguments
+
+    USAGE
+    gcd {n}*
+
+    DESCRIPTION
+    Returns the greatest common  divisor  of  all  of  the  arguments.   The
+    greatest  common divisor is the largest integer which evenly divides all
+    the arguments, all of which must be integers.  The result is a  nonnega-
+    tive integer.  0 is returned if no arguments are provided.
+
+    EXAMPLES
+    (gcd 24 32) => 8
+    (gcd -8 24 32) => 8
+    (gcd -32) => 32
+    (gcd 17 28) => 1
+    (gcd) => 0
+
+    SEE ALSO
+    CLtL 12:202, lcm
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,264 @@
+
+                                                 about generalized variables
+
+
+    NOTES
+    about generalized variables  -  generalized variables
+
+    DESCRIPTION
+
+    A generalized variable is an extension of the concept of  variable.   It
+    is an expression that locates a LISP object.
+
+    Variables are associated with values.  When a  variable  is  referenced,
+    its  associated  value is retrieved.  When a variable is set or changed,
+    its associated value is changed.  In effect, a variable is  a  place  to
+    store a LISP object.
+
+    A variable in COMMON LISP is denoted by a symbol.  Evaluating  a  symbol
+    retrieves  the  value  associated  with  the  variable being referenced.
+    Using set or setq on a symbol changes the value associated with a  vari-
+    able.   The  rules of scoping determine what variable is referenced by a
+    symbol in any given context.
+
+    This limited notion of VARIABLE is expanded in COMMON LISP by  the  con-
+    cept  of  GENERALIZED VARIABLE.  A generalized variable is an expression
+    that specifies the location of a LISP object.  Specifically, the expres-
+    sion  is one that if it were evaluated would retrieve the LISP object at
+    some location.  That location is the generalized variable represented by
+    the  expression.   For  example,  the  expression  (first  *roll*)  is a
+    generalized variable-its value is what is stored in the first element of
+    the  list  *roll*.   And in fact evaluating this expression returns that
+    first element.  But how does one change the value  of  this  generalized
+    variable?   One could use rplaca, which destructively modifies the first
+    element of its list argument.  But this makes no use of the  concept  of
+    generalized variables.
+
+    Special macros exist  in  COMMON  LISP  that  interpret  expressions  as
+    generalized  variables.   To  update  the  generalized  variable  (first
+    *roll*), one would use the macro setf.  Its syntax is similar to that of
+    setq,  used  to  modify simple variables (denoted by symbols).  A simple
+    example:
+
+    (let ((roll (list 5 2 3 1 0)))
+      (setf (first roll) 4)
+      (first roll)) => 4
+
+    This is a complete list of macros that operate on generalized variables:
+
+    assert                  ccase                   check-type
+    ctypecase               decf                    getf
+    incf                    pop                     psetf
+    push                    pushnew                 remf
+    rotatef                 setf                    shiftf
+
+    This list may be  extended  by  defining  new  macros  using  the  macro
+    define-modify-macro.
+
+    Macros that manipulate generalized variables usually guarantee  left-to-
+    right  order  of  evaluation of their arguments.  Most further guarantee
+    that subforms of a generalized-variable expression are evaluated only as
+    many times as they appear in the expression.  Exceptions are macros such
+    as check-type.
+
+    One particular advantage of generalized variables  is  that  it  is  not
+    necessary  to  burden  one's  memory,  or the COMMON LISP language, with
+    numerous functions that update components of  various  data  structures.
+    With  generalized variables, one need only know the expression to access
+    a value.  (There are nonetheless functions such as rplaca that exist for
+    historical reasons.  But many other functions do not exist, perhaps most
+    notably putprop, found in many other LISPs for updating property lists.)
+
+    Just ANY LISP expression may not be  used  as  a  generalized  variable.
+    COMMON LISP defines a set of expressions that may be used as generalized
+    variables.  Users may define more expressions using either of the macros
+    defsetf  or  define-setf-method.   The following paragraphs describe the
+    standard generalized-variable expressions.
+
+    o+
+      A symbol that names a variable, either lexical or dynamic.
+
+    o+
+      A list whose first element is one of the following symbols:
+
+      aref             bit              caaaar           caaadr
+      caaar            caadar           caaddr           caadr
+      caar             cadaar           cadadr           cadar
+      caddar           cadddr           caddr            cadr
+      car              cdaaar           cdaadr           cdaar
+      cdadar           cdaddr           cdadr            cdar
+      cddaar           cddadr           cddar            cdddar
+      cddddr           cdddr            cddr             cdr
+      char             char-bit         documentation    eighth
+      elt              fifth            fill-pointer     first
+      fourth           get              getf             gethash
+      ldb              macro-function   mask-field       ninth
+      nth              rest             sbit             schar
+      second           seventh          sixth            subseq
+      svref            symbol-function  symbol-plist     symbol-value
+      tenth            third
+
+    o+
+      A list whose first element is a symbol  naming  an  accessor  function
+      defined via defstruct.
+
+    o+
+      A list whose first  element  is  the  symbol  the.   Updating  such  a
+      declarational form is equivalent to updating the last subform with the
+      corresponding value implicitly declared  as  being  of  the  specified
+      type.  For example,
+
+      (setf (the double-float (aref *f* 0)) *e*)
+
+      is treated as if it were represented as
+
+      (setf (aref *f* 0) (the double-float *e*))
+
+    o+
+      A list whose first element is apply and  whose  second  element  is  a
+      function  special  form with a symbolic argument that names a function
+      otherwise recognized in a generalized-variable expression.  For  exam-
+      ple,
+
+      (setf (apply #'subseq *s* (list begin end)) *r*)
+
+      is functionally identical to the expression
+
+      (setf (subseq *s* begin end) *r*)
+
+    o+
+      A list that is a macro call.  The form is macroexpanded and the expan-
+      sion is used in its place.
+
+    Note that it is an error if the corresponding value cannot appropriately
+    be  stored  in the specified location.  For example, attempting to store
+    an object that is not of type string-char into a location specified by a
+    list whose first element is the symbol char would be an error.
+
+    For a list whose first element is the symbol subseq, the  update  opera-
+    tion  works  in the manner of replace.  The subsequence specified by the
+    subseq expression is replaced by the corresponding value, which must  be
+    a  sequence  whose  elements can be stored into the sequence being modi-
+    fied.  If the two sequences are not of  the  same  length,  the  shorter
+    sequence  determines how many elements are in fact modified.  Unless the
+    the two sequences are coincident (that is, they span the  same  elements
+    of the same identical sequence), they must not overlap or the results of
+    the modification are unpredictable.
+
+    For  all  expressions  except  those  involving   char-bit,   ldb,   and
+    mask-field,  what  is  modified  is  the  actual  data referenced by the
+    expression.  But for expressions involving these  three  functions,  the
+    actual  data  referenced  cannot  be  modified since both characters and
+    bytes (and  more  generally  numbers)  are  noncomposite  data  objects,
+    instances  of  which are immutable.  Further, numbers and characters are
+    data objects that have no `identity,' that is  identical  characters  or
+    numbers are not necessarily eq.  In order to be acceptable as a general-
+    ized variable, these expressions must themselves reference a generalized
+    variable.  The datum referenced by that generalized variable is replaced
+    by a new integer  or  character.   For  expressions  involving  ldb  and
+    mask-field, the third element of the list (the integer argument) must be
+    a generalized variable.  For char-bit, the second element  of  the  list
+    (the  character argument) must be a generalized variable.  The functions
+    used  to  modify   generalized-variable   expressions   involving   ldb,
+    mask-field,  and  char-bit  are  dpb,  deposit-field,  and set-char-bit,
+    respectively.  Thus
+
+    (setf (ldb (byte 0 8) (elt *i* 0)) #xFF)
+
+    is functionally equivalent to
+
+    (let ((i (elt *i* 0)))
+      (dpb #xFF (byte 0 8) i)
+      (setf (elt *i* 0) i))
+
+    Further, note the following behavior.
+
+    (let* ((loc #\space)
+           (ref loc))
+      (setf (char-bit loc :meta) t)
+      (values loc ref (eq loc ref)))
+      => #\meta-space #\space nil
+
+    And compare the above with the simplest case below, which may or may not
+    evaluate true!
+
+    (let ((loc #\space))
+      (eq loc loc))
+
+    But the following example reflects the behavior of setf with other  data
+    objects.
+
+    (let* ((loc "123")
+           (ref loc))
+      (setf (schar loc 2) #\C)
+      (values loc ref (eq loc ref)))
+      => "12C" "12C" t
+
+    The generalized-variable mechanism in COMMON LISP is  a  syntactic  one.
+    All  macros  that  operate on generalized-variable expressions parse the
+    expression and look up the appropriate method to update  the  referenced
+    location.   The  method  is  dispatched  using the SYMBOL that names the
+    function  or  macro  in  the  generalized-variable  expression.   Nested
+    generalized-variable  expressions  are handled recursively.  This method
+    is called the setf method.  A setf method is described by several param-
+    eters;   it   is   not   a   function.    (See   define-setf-method  and
+    get-setf-method for details.) Nonetheless, it  is  often  convenient  to
+    conceptualize  an  updator function or a mutator for a generalized vari-
+    able.   Because  of  its  syntactic  nature,  some  generalized-variable
+    expressions cannot be handled straightforwardly.  In the following exam-
+    ple, defining a new function whose definition is identical to that of  a
+    function  with a defined setf method does not propagate the setf method,
+    since the setf method  is  associated  with  the  SYMBOL  car,  not  the
+    FUNCTION car.
+
+    (setf *l* (list 1 (list 2 (list 3))))
+    (setf (car *l*) 'A) => a
+    *l* => (a (2 (3)))
+
+    (setf (symbol-function 'rac)
+          (symbol-function 'car))
+    (setf (rac *l*) 'B) => ERROR
+
+    In this next example, an expression involving a composition of functions
+    with  known  setf  methods  is  not  a valid generalized variable, again
+    because of the association of a setf method with a symbol.
+
+    (defun compose (&rest functions)
+      (function
+       (lambda (&rest argument-var)
+         (let ((result argument-var))
+           (mapc #'(lambda (functor)
+                     (setq result (list (apply functor result))))
+                 (reverse functions))
+           (car result)))))
+
+    (setf (car (car (cdr *l*))) 'ii) => ii
+    (setf (apply #'caar (apply #'cdadr (list *l*))) 'iii) => iii
+    *l* => (a (ii (iii)))
+    (setf (apply (compose #'caar #'cdadr) (list *l*)) 'B) => ERROR
+
+    Although the generalized-variable expression itself  is  not  evaluated,
+    its subforms may be evaluated by the setf method.  For example,
+
+    (let ((v (vector 0 1 2 3 4 5))
+          (i 0))
+      (flet ((next () (prog1 i (incf i))))
+        (setf (svref v (next)) 'A)
+        (setf (svref v (next)) 'B)
+        (values v i)))
+      => #(a b 2 3 4 5) 2
+
+    SEE ALSO
+    CLtL 7:93, define-modify-macro, define-setf-method, defsetf
+
+
+
+
+
+
+
+
+
+
+
+

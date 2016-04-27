@@ -1,0 +1,66 @@
+
+                                                               simple-string
+
+
+    Type SPECIFIER
+    simple-string  -  the data type comprising simple strings
+
+    USAGE
+    {simple-string | (&Esimple-string [size])}
+
+    DESCRIPTION
+    Specifies a data type consisting of simple strings of length SIZE, which
+    may   be  explicitly  unspecified  using  *.   This  type  specifier  is
+    equivalent to (simple-array string-char (SIZE)).  An array is  a  simple
+    array if it has no fill pointer, is not adjustable, and is not displaced
+    to another array.
+
+    Strings and bit vectors are two specialized  arrays  provided  by  every
+    implementation.
+
+    EXAMPLES
+    (type-of "foo") => (simple-array string-char (3))
+    (typep "hello" '(simple-string 5)) => t
+    (subtypep '(simple-string 100) '(string *)) => t t
+
+    SEE ALSO
+    CLtL 4:43, CLtL 4:49, about type specifiers, array, reader syntax ",
+    simple-string, subtypep, type-of, typep
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                                          if
+
+
+    SPECIAL FORM
+    if  -  simple two-branch conditional
+
+    USAGE
+    if test-part then-part [else-part]
+
+    DESCRIPTION
+    Returns the result of THEN-PART if TEST-PART is true, otherwise  returns
+    the  result of ELSE-PART, if it is specified, or nil.  This special form
+    first evaluates the TEST-PART.  If this evaluates to  a  non-nil  (true)
+    value,  the  THEN-PART  is evaluated and returned as the value of the if
+    form.  If TEST-PART evaluates to nil, the  ELSE-PART  is  evaluated  and
+    returned.   Only  the  selected  expression is evaluated.  Note that all
+    three arguments must be single forms.
+
+    EXAMPLES
+    (if (= 2 2)
+        (format nil "truth")
+        (format nil "falsehood")) => "truth"
+    (if (= 2 3)
+        (format nil "truth")
+        (format nil "falsehood")) => "falsehood"
+
+    SEE ALSO
+    CLtL 7:115, and, case, cond, not, or, unless, when
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

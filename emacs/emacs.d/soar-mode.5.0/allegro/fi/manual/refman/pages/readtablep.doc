@@ -1,0 +1,66 @@
+
+                                                                  readtablep
+
+
+    FUNCTION
+    readtablep  -  test whether an object is a readtable
+
+    Usage
+    readtablep OBJECT
+
+    DESCRIPTION
+    Returns true if OBJECT is of type readtable.
+
+    EXAMPLES
+    (readtablep *readtable*) => t
+    (readtablep 73) => nil
+
+    SEE ALSO
+    CLtL 22:361, copy-readtable, *read-table*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

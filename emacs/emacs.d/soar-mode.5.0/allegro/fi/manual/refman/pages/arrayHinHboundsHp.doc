@@ -1,0 +1,66 @@
+
+                                                           array-in-bounds-p
+
+
+    FUNCTION
+    array-in-bounds-p  -  test whether the given subscripts are legal for
+      the given array
+
+    USAGE
+    array-in-bounds-p array {subscript}*
+
+    DESCRIPTION
+    Returns true if it is true that each SUBSCRIPT is a legal subscript  for
+    ARRAY;  otherwise  returns  false.  The subscripts must be integers, and
+    the total number of subscripts must equal the rank of the  array.   This
+    function ignores fill pointers.
+
+    EXAMPLES
+    (array-in-bounds-p (make-array '(3 4)) 2 4) => nil
+    (array-in-bounds-p (make-array '(3 4)) 2 3) => t
+    (array-in-bounds-p (make-array '(15) :fill-pointer 12) 13) => t
+
+    SEE ALSO
+    CLtL 17:292, array-dimension, array-dimensions, array-rank, make-array
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

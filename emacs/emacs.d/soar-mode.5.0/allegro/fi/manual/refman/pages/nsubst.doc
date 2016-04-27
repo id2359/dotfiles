@@ -1,0 +1,66 @@
+
+                                                                      nsubst
+
+
+    FUNCTION
+    nsubst  -  change a tree by replacing selected elements (destructive)
+
+    USAGE
+    nsubst newitem olditem tree [{:test | :test-not} pred] [:key keyfnc]
+
+    SIDE EFFECTS
+    The argument TREE may be changed.
+
+    DESCRIPTION
+    Returns the argument TREE after modifying it so that  every  subtree  OR
+    leaf  at ALL levels eql to OLDITEM is replaced by NEWITEM.  The argument
+    TREE must be a tree, that is a nested structure of lists and conses.
+
+    A test predicate other than eql may be used by specifying  PRED  as  the
+    value  of either the :test or the :test-not keyword argument.  PRED must
+    be a function that accepts two arguments (OLDITEM and a leaf or  subtree
+    of  TREE, passed in that order).  If PRED is the value of :test, OLDITEM
+    and the leaf or subtree match if PRED returns  true.   If  PRED  is  the
+    value  of  :test-not,  OLDITEM  and  the  leaf  or subtree match if PRED
+    returns false.  It is an error to supply both :test and  :test-not  key-
+    word arguments.
+
+    If the keyword argument :key is specified and its value  KEYFNC  is  not
+    nil,  KEYFNC  must  be a function that accepts one argument.  It will be
+    applied to each leaf or subtree of TREE before that element  is  tested.
+    When  unspecified  or  nil,  it  effectively  defaults  to  the function
+    identity.
+
+    This is a destructive version of the  subst  function.   (Note  that  an
+    implementation  is  free  to copy TREE and modify the copy, leaving TREE
+    unchanged or changed but not eq to the result.)
+
+    EXAMPLES
+    (setq my-tree '(a (b a (a) c)))
+    (setq my-tree (nsubst 'x 'a my-tree)) => (x (b x (x) c))
+    ;;  Since the third argument to NSUBST may not itself change,
+    ;;  you  should use SETQ, as in the following.
+    my-tree => (x (b x (x) c))
+    (nsubst 'x nil '(a (b a (a) c)))
+       => (a (b a (a . x) c . x) . x)
+    (nsubst '(x) '(a b) '(a b a b) :test #'equal) => (a b x)
+
+    SEE ALSO
+    CLtL 15:274, :key, :test, :test-not, nsublis, nsubst-if, nsubst-if-not,
+    nsubstitute, sublis, subst, subst-if, subst-if-not, substitute
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

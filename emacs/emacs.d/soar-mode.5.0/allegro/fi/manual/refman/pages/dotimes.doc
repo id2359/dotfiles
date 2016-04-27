@@ -1,0 +1,66 @@
+
+                                                                     dotimes
+
+
+    MACRO
+    dotimes  -  iterate a specific number of times
+
+    USAGE
+    dotimes (var countform [result]) {declaration}* {tag | statement}*
+
+    DESCRIPTION
+    This macro iterates a specified number of times as a counter  is  incre-
+    mented.   It  returns the values of RESULT (which must be a single form,
+    not an implicit progn) or nil, if RESULT is not specified.  At the  time
+    RESULT is evaluated, VAR is bound to nil.
+
+    First, dotimes evaluates COUNTFORM (which should evaluate to an integer)
+    and  then  performs one iteration for each integer from zero to one less
+    than its value.  During the first iteration, VAR is bound to zero.   VAR
+    is  incremented by one in each subsequent iteration.  In each iteration,
+    the body of the loop is evaluated after VAR is bound.  The body  of  the
+    loop  is  an implicit tagbody, so it may contain STATEMENTS (forms which
+    are executed sequentially) and TAGS, symbols or integers used as  labels
+    for  go forms.  The body may be preceded by declarations.  The construct
+    as a whole is surrounded by an implicit block named nil, and thus may be
+    exited  at  any  time with return, returning the values specified by the
+    return.
+
+    EXAMPLES
+    ;;  Note that the loop starts with 0 and ends with 9.
+    (let ((result nil))
+      (dotimes (i 10 (nreverse result))
+        (push i result))) => (0 1 2 3 4 5 6 7 8 9)
+
+    SEE ALSO
+    CLtL 7:126, block, do, do*, dolist, return, tagbody
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

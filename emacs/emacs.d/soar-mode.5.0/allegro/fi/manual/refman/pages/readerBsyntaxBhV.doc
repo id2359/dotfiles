@@ -1,0 +1,66 @@
+
+                                                            reader syntax #|
+
+
+    READER SYNTAX
+    #|  -  nested comment
+
+    Usage
+    #|...|#
+
+    DESCRIPTION
+    Everything between ``#|'' and ``|#'' is treated as a comment and ignored
+    by the reader.  These comments may be nested.
+
+    EXAMPLES
+    (list 1 #|2|# 3) => (1 3)
+    (list 1 #|(list 10 #|20|# 30)|# 3) => (1 3)
+    ;;  The following behaviour results from # not being
+    ;;  a terminating macro character.
+    'a#|b|#c => |A#b#C|
+
+    SEE ALSO
+    CLtL 22:359, about printing, about reading, reader syntax ;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

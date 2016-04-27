@@ -1,0 +1,66 @@
+
+                                                                     pushnew
+
+
+    MACRO
+    pushnew  -  push a new item onto the front of a list (destructive)
+
+    USAGE
+    pushnew item place [{:test | :test-not} pred] [:key keyfnc]
+
+    SIDE EFFECTS
+    The argument PLACE may be changed.
+
+    DESCRIPTION
+    Returns the value (a list) of the generalized variable  PLACE  with  the
+    arbitrary object ITEM possibly consed onto the front.  ITEM will only be
+    consed to the front of the list in PLACE if ITEM is not already  eql  to
+    an  element of the list.  The form PLACE may be any generalized variable
+    acceptable to setf that contains a list.  The value at  PLACE  is  modi-
+    fied.  Any subform of PLACE is evaluated only once.
+
+    A test predicate other than eql may be used by specifying  PRED  as  the
+    value  of either the :test or the :test-not keyword argument.  PRED must
+    be a function that accepts two arguments (ITEM and  an  element  of  the
+    list  in  PLACE,  passed in that order).  If PRED is the value of :test,
+    ITEM and the element match if PRED returns true.  If PRED is  the  value
+    of  :test-not,  ITEM and the element match if PRED returns false.  It is
+    an error to supply both :test and :test-not keyword arguments.
+
+    If the keyword argument :key is specified and its value  KEYFNC  is  not
+    nil,  KEYFNC  must  be a function that accepts one argument.  It will be
+    applied both to ITEM and to each element of the  list  before  the  test
+    predicate  is  applied  to them.  When unspecified or nil, KEYFNC effec-
+    tively defaults to the function identity.  (Note that it  is  only  with
+    this  macro  and adjoin that KEYFNC is applied to both ITEM and the list
+    elements.  Generally it is applied only to sequence elements.)
+
+    The following identity holds:
+
+    (pushnew obj place :test p) =
+      (setf place (adjoin obj place :test p))
+
+    pushnew, however, only evaluates subforms of PLACE once and also may  be
+    more efficient.
+
+    EXAMPLES
+    (setq z '(2 3 4)) => (2 3 4)
+    (pushnew 3 z) => (2 3 4)
+    (pushnew 1 z) => (1 2 3 4)
+    z => (1 2 3 4)
+    (setq x '((2 1) (3 1) (4 1))) => ((2 1) (3 1) (4 1))
+    (pushnew '(5 1) x :key #'car) => ((5 1) (2 1) (3 1) (4 1))
+    (pushnew '(5 1) x :key #'cadr) => ((2 1) (3 1) (4 1))
+
+    SEE ALSO
+    CLtL 15:270, adjoin, :key, pop, push, setf, :test, :test-not
+
+
+
+
+
+
+
+
+
+

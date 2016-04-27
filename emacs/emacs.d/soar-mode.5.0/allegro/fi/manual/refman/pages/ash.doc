@@ -1,0 +1,66 @@
+
+                                                                         ash
+
+
+    FUNCTION
+    ash  -  arithmetic shift
+
+    USAGE
+    ash n count
+
+    DESCRIPTION
+    Returns an integer representing the integer N shifted COUNT bits to  the
+    left  if  COUNT is positive, or shifted COUNT bits to the right if COUNT
+    is negative.  The arguments must be integers, and the computation treats
+    N  and  the  result as integers in two's-complement representation.  The
+    sign of N is always preserved in the result.  During a left shift,  zero
+    bits  are  added  on  the  right,  and  during  a  right shift, bits are
+    discarded from the right and copies of the sign bit  are  added  on  the
+    left.  The following mathematical identity holds:
+
+    (ash n count) = (floor (* n (expt 2 count)))
+
+    EXAMPLES
+    (ash 1 2) => 4
+    (ash 8 -2) => 2
+    (ash -2 -10) => -1
+
+    SEE ALSO
+    CLtL 12:224, boole, floor, integer-length, logand, logandc1, logandc2,
+    logbitp, logcount, logeqv, logior, lognand, lognor, lognot, logorc1,
+    logorc2, logtest, logxor
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

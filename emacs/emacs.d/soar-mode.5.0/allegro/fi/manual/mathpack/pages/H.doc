@@ -1,0 +1,66 @@
+
+                                                                      math:-
+
+
+    FUNCTION
+    -  -  get the difference of a number, matrix, or vector and the sum of
+      more numbers, matrices, or vectors
+
+    Usage
+    - ARGS+
+
+    DESCRIPTION
+    This standard Common Lisp function has been modified  to  accept  matrix
+    and  vector  as  well as scalar arguments.  All the arguments must be of
+    the same type.  When the arguments  are  scalars  (i.e.  numbers),  this
+    function  works just as when Allegro Matrix is not loaded: returning the
+    difference of the first argument and the sum of the remaining  arguments
+    (or  the negative of the first argument if there is only one).  When the
+    arguments are all matrices or all vectors, they must all be of the  same
+    dimension  (length for vectors, number of rows and number of columns for
+    matrices).  Elements of vectors or matrices are subtracted  elementwise,
+    that  is  the  element  in a particular position in the result matrix or
+    vector is the result of applying - to the elements in that  position  in
+    the argument matrices or vectors.
+
+    There is no limit to the number of arguments to  this  function  (except
+    the  value  of call-arguments-limit, of course).  There must be at least
+    one argument.
+
+    EXAMPLES
+    ;;  We define some matrices and vectors:
+    (setq mat1 (make-matrix '((1.0 2.0) (-3.0 4.0))))
+    (print-matrix mat1) PRINTS
+      1.0  2.0
+      -3.0 4.0
+    (setq mat2 (make-matrix '((-5.0 7.0) (0.0 1.0))))
+    (print-matrix mat2) PRINTS
+      -5.0 7.0
+      0.0  1.0
+    (setq vec1 (make-array 2 :initial-contents '(-10.0 +10.0)))
+      => #(-10.0 10.0)
+    (setq vec2 (make-array 2 :initial-contents '(10.0 +10.0)))
+      => #(10.0 10.0)
+    (print-matrix (- mat1)) PRINTS
+      -1.0 -2.0
+      3.0  -4.0
+    (print-matrix (- mat1 mat2)) PRINTS
+      6.0  -5.0
+      -3.0 3.0
+    (- vec1 vec2) => #(-20.0 0.0)
+    ;;  You cannot have both numbers and matrices among the arguments:
+    (- 10 mat1) => ERROR
+    ;;  the error message is:
+    ;;  Error: All arguments to - must be numbers, OR vectors of
+    ;;  same length, OR matrices of same dimension
+
+    ;;  If you want to subtract the same value from all matrix elements,
+    ;;  create a matrix with MATRIX-WITH-INITIAL-ELEMENT and make
+    ;;  it the second argument to -..
+    ;;  You also cannot mix matrices and vectors, or vectors and numbers
+    ;;  in the argument to -.
+
+    SEE ALSO
+    dot-product, vector-product, +, *
+
+

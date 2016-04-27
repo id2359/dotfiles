@@ -1,0 +1,66 @@
+
+                                                                     seventh
+
+
+    FUNCTION
+    seventh  -  get the seventh element of a list
+
+    USAGE
+    seventh list
+
+    DESCRIPTION
+    Returns the seventh element of LIST, where the car of LIST is considered
+    to be the first element.  LIST must be a list.
+
+    Unlike the nth function, which uses zero-origin indexing, this  function
+    uses  one-origin  indexing.   If the list has fewer than seven elements,
+    nil is returned.  setf may be used with seventh to replace  the  seventh
+    element of a list.
+
+    EXAMPLES
+    (seventh '(a b c d e f g h i j)) => g
+    (seventh '(a)) => nil
+    (setq lis '(a b c d e f g h i j)) => (a b c d e f g h i j)
+    (setf (seventh lis) 7) => 7
+    lis => (a b c d e f 7 h i j)
+
+    SEE ALSO
+    CLtL 15:266, car, eighth, elt, fifth, first, fourth, ninth, nth, second,
+    sixth, tenth, third
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

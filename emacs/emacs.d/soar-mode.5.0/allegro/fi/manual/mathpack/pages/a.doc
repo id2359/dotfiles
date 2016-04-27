@@ -1,0 +1,66 @@
+
+                                                                      math:+
+
+
+    FUNCTION
+    +  -  get the sum of numbers, matrices, or vectors
+
+    Usage
+    + ARGS*
+
+    DESCRIPTION
+    This standard Common Lisp function has been modified  to  accept  matrix
+    and  vector  as  well as scalar arguments.  All the arguments must be of
+    the same type.  When the arguments  are  scalars  (i.e.  numbers),  this
+    function  works just as when Allegro Matrix is not loaded: returning the
+    sum of the arguments.  When the arguments are all matrices or  all  vec-
+    tors, they must all be of the same dimension (length for vectors, number
+    of rows and number of columns for matrices).   Elements  of  vectors  or
+    matrices  are  added  elementwise,  that  is the element in a particular
+    position in the result matrix or vector is the sum of  the  elements  in
+    that position in the argument matrices or vectors.
+
+    There is no limit to the number of arguments to  this  function  (except
+    the value of call-arguments-limit, of course).
+
+    EXAMPLES
+    ;;  We define some matrices and vectors:
+    (setq mat1 (make-matrix '((1.0 2.0) (-3.0 4.0))))
+    (print-matrix mat1) PRINTS
+      1.0  2.0
+      -3.0 4.0
+    (setq mat2 (make-matrix '((-5.0 7.0) (0.0 1.0))))
+    (print-matrix mat2) PRINTS
+      -5.0 7.0
+      0.0  1.0
+    (setq vec1 (make-array 2 :initial-contents '(-10.0 +10.0)))
+      => #(-10.0 10.0)
+    (setq vec2 (make-array 2 :initial-contents '(10.0 +10.0)))
+      => #(10.0 10.0)
+    (print-matrix (+ mat1 mat2)) PRINTS
+      -4.0 9.0
+      -3.0 5.0
+    (+ vec1 vec2) => #(0.0 20.0)
+    ;;  You cannot add a number to a matrix:
+    (+ 10 mat1) => ERROR
+    ;;  the error message is:
+    ;;  Error: All arguments to + must be numbers, OR vectors of
+    ;;  same length, OR matrices of same dimension
+
+    ;;  If you want to add the same value to all matrix elements,
+    ;;  create a matrix with MATRIX-WITH-INITIAL-ELEMENT.
+    ;;  You also cannot mix matrices and vectors, or vectors and numbers
+    ;;  as arguments to +.
+
+    SEE ALSO
+    dot-product, vector-product, -, *
+
+
+
+
+
+
+
+
+
+

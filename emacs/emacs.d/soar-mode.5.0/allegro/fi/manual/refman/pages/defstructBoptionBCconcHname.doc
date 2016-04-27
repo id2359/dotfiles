@@ -1,0 +1,66 @@
+
+                                                 defstruct option :conc-name
+
+
+    DEFSTRUCT OPTION
+    :conc-name  -  customize the prefix name for defstruct accessor func-
+      tions
+
+    Usage
+    :conc-name NAME
+
+    DESCRIPTION
+    This is a defstruct option that specifies  the  prefix  used  for  slot-
+    accessor  functions associated with a structure.  The argument NAME must
+    be a symbol.  It is not evaluated.  The default accessor function prefix
+    is  the structure name followed by a hyphen.  When you specify an expli-
+    cit name, however, the system does not automatically  supply  a  hyphen.
+    If  the  argument NAME is nil, then no prefix is used and the slot names
+    themselves are used as the names of the accessor functions.
+
+    Note that when you use a constructor function to create an instance of a
+    structure, you should specify the slot with just the name of the slot as
+    a keyword and without a prefix.  You DO use the prefix, however when you
+    use  setf to set the values for individual slots in the structure, since
+    setf methods are defined for the slot-accessor functions.
+
+    EXAMPLES
+    (defstruct (book (:conc-name tome-)) title length) => book
+    (setq my-book (make-book :title "Life With Charlie" :length 400))
+      => #s(book :title "Life With Charlie" :length 400)
+    (tome-title my-book) => "Life With Charlie"
+    (setf (tome-length my-book) 100) => 100
+
+    (defstruct (magazine (:conc-name nil)) title) => magazine
+    (setq my-mag (make-magazine :title 'Life))
+      => #s(magazine :title Life)
+    (title my-mag) => Life
+
+    SEE ALSO
+    CLtL 19:311, defstruct, defstruct-option :constructor, defstruct option
+    :copier, defstruct option :include, defstruct option :initial-offset,
+    defstruct option :named, defstruct option :predicate, defstruct option
+    :print-function, defstruct option :type
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                                       consp
+
+
+    FUNCTION
+    consp  -  test whether an object is a cons
+
+    USAGE
+    consp object
+
+    DESCRIPTION
+    Returns true if OBJECT is a cons, and false otherwise.  The  empty  list
+    is  not  considered  a cons by consp.  consp is the same as listp except
+    when OBJECT is nil.  listp returns true for nil.
+
+    The following identities hold:
+
+    (consp x) = (typep x 'cons) = (not (typep x 'atom))
+    (consp '()) = (consp nil) => nil
+
+    EXAMPLES
+    (consp '(a b c)) => t
+    (consp '(d . e)) => t
+    (consp '()) => nil
+
+    SEE ALSO
+    CLtL 6:74, atom, listp
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

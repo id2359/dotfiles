@@ -1,0 +1,666 @@
+
+                                                             about contagion
+
+
+    NOTES
+    about contagion  -  how the result type of a numerical calculation is
+      determined
+
+    DESCRIPTION
+    One of the features of COMMON LISP is that almost  all  numerical  func-
+    tions  are  generic-that  is,  they  may  be applied to arguments of any
+    numeric type.  But,  if  a  function  whose  values  are  normally  real
+    (floating-point) is applied to a rational, or if numbers of several dif-
+    ferent types are combined in one operation,  how  is  the  type  of  the
+    result  to  be  determined?   The  answer  is  provided  by the rules of
+    floating-point contagion.  We summarize those rules in this entry.
+
+    A number may be real or complex and it further  may  be  an  integer,  a
+    rational (an integer is also a rational), a short-float, a single-float,
+    a double-float, or a long-float.  Note that not all implementations sup-
+    port  all  floating-point  formats.  It is not uncommon to only have two
+    floating-point formats (usually combining short and single, and long and
+    double).  Some implementations support only a single floating-point for-
+    mat.  We will discuss the most general situation here.   Note  too  that
+    the  distinction  between  a fixnum and a bignum is not relevant in this
+    discussion.  They are simply integers.
+
+    The two general rules are as follows:
+
+    o+
+      When rationals are converted to floats, they are converted to  single-
+      floats  unless  there  is some reason to use some other floating-point
+      format.
+
+    o+
+      The result of a  floating-point  calculation  has  the  largest  (most
+      digits) format of any of the arguments.
+
+    You can determine what happens in most cases from these rules.  If,  for
+    example, there is a long-float among the arguments, the result will be a
+    long-float.  If all the arguments are  rational  but  the  result  is  a
+    floating-point number, it will be a single-float.  A secondary rule con-
+    cerns complex numbers.  No calculation with real arguments will  have  a
+    complex  result  unless  the imaginary part is nonzero (that is, numbers
+    are not made complex unless they have to be).  There  are  some  special
+    cases and facts which we list next.
+
+    Some large rationals may be able to be converted to a  double-float  but
+    not  to  a  single-float  (since  double-floats  typically  have  larger
+    exponent fields).  The system will still try to convert such a  rational
+    to a single-float even though this results in an error.  One consequence
+    of this is adding a large integer to 2.0s0 may  signal  an  error  while
+    adding the same number to 2.0d0 may not.
+
+    When functions like + and * (which  are  theoretically  associative  and
+    commutative)  are  applied  to  arguments that mix types (some rational,
+    some short-floats,  some  long-floats),  different  implementations  may
+    generate  the  result  in  different  ways.  One implementation may, for
+    example, combine all values of the same type, then convert  the  partial
+    results to the largest floating-point type, then combine them to get the
+    final result.  Another implementation may work left to right,  consider-
+    ing  the  partial result and the next argument as a pair, converting one
+    or the other as  necessary.   Because  accuracy  may  be  lost  in  some
+    floating-point  calculations,  two  different implementations seeing the
+    same operation applied to the same arguments may  produce  significantly
+    different  results. You may force the order of calculation by specifying
+    the function calls exactly.  Thus:
+
+    (+ (+ a b) c)
+
+    rather than
+
+    (+ a b c)
+
+    Even though multiplication increases accuracy and addition may  decrease
+    it,  COMMON  LISP  makes  no  attempt to use these facts.  A short-float
+    times a short-float is still a short-float.  A short-float plus a  long-
+    float is a long-float.  Indeed, a floating-point number of one format is
+    never automatically changed to a floating-point number of a smaller for-
+    mat.
+
+    While the result of calculations that involve only rational  numbers  is
+    never  gratuitously  converted  to a floating-point value, some calcula-
+    tions that theoretically result in a rational value may nonetheless pro-
+    duce  a floating-point result.  Thus, although expt with a rational base
+    (first argument) and an integer exponent (second argument) is guaranteed
+    to  be rational, an exponent of any other type may result in a floating-
+    point value, even if the result mathematically might have been rational.
+    (For  example, (expt 4 1/2) may be 2.0s0 even though the exact answer is
+    2.) sqrt also may produce  floating-point  results  when  applied  to  a
+    rational  argument,  even  one which is a perfect square.  (By `may', we
+    mean it depends on the implementation.)
+
+    A complex number will convert both its parts  to  the  same  format  and
+    type,  following  the  rules  above.  Thus, #c(2 1.0d0) becomes #c(2.0d0
+    1.0d0).  A complex rational with zero imaginary  part  automatically  is
+    converted to a (real) rational.
+
+    A rational with denominator 1 when the  numerator  and  denominator  are
+    reduced to lowest terms automatically is converted to an integer.
+
+    EXAMPLES
+    (+ 1 1/2 0.5s0 1.0f0 1.0d0 1.0l0) => 6.0l0
+    (sqrt 2) => 1.4142135f0
+    (expt 1/3 2) => 1/9
+    (- 1.1s0 1.1000000003d0) => 0.000000003d0
+
+    SEE ALSO
+    CLtL 12:193, about numeric constants, coerce, float, rationalize
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                                  write-byte
+
+
+    FUNCTION
+    write-byte  -  write a `byte' to a stream
+
+    Usage
+    write-byte INTEGER STREAM
+
+    SIDE EFFECTS
+    The byte is output to the stream.
+
+    DESCRIPTION
+    Returns INTEGER, which is the integer whose value is written as  a  byte
+    to  STREAM.   The  argument  STREAM  must be a binary stream, that is, a
+    stream whose element type is a finite subtype of integer.  The  type  of
+    INTEGER must be of the same type as the stream-element type.
+
+    EXAMPLES
+    (setq *print-base* 2)
+    (with-open-file (out "junk"
+                         :direction :output
+                         :if-exists :supersede
+                         :element-type '(unsigned-byte 8))
+      (with-open-file (in "junk"
+                          :direction :input
+                          :element-type '(unsigned-byte 8))
+        (write-byte #b10010101 out)
+        (finish-output out)
+        (read-byte in))) => 10010101
+
+    SEE ALSO
+    CLtL 22:385, open, read-byte, write, write-char, write-line, write-
+    string, write-to-string
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

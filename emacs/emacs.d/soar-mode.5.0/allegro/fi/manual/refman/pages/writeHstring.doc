@@ -1,0 +1,66 @@
+
+                                                                write-string
+
+
+    FUNCTION
+    write-string  -  write a string to an output stream
+
+    Usage
+    write-string STRING [STREAM] [:start START] [:end END]
+
+    SIDE EFFECTS
+    A string of characters is written to a stream.
+
+    DESCRIPTION
+    Returns STRING, after writing out the characters of this string  to  the
+    stream STREAM.
+
+    To write a substring of STRING, specify  the  :start  and  :end  keyword
+    arguments.  The :start keyword argument indicates the index of the first
+    element of the substring to write.  It defaults to zero (the first  ele-
+    ment).   The  :end  keyword argument specifies an index one greater than
+    the index of the last element to write.  A value of nil is equivalent to
+    the  default,  the  length  of  the string.  Even if only a substring of
+    STRING is written to STREAM, the  entire  string  argument,  STRING,  is
+    returned.
+
+    The argument STREAM may be a stream, t or nil, the default.   If  STREAM
+    is  nil,  the  string  is written to the value of *standard-output*.  If
+    STREAM is t, the string is written to the value of *terminal-io*.
+
+    EXAMPLES
+    (progn (write-string "No line breaks ...")
+           (write-string "for the weary")) PRINTS
+    No line breaks ...for the weary
+
+    SEE ALSO
+    CLtL 22:384, write, write-byte, write-char, write-line, write-to-string
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

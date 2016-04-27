@@ -1,0 +1,66 @@
+
+                                                                       cadar
+
+
+    FUNCTION
+    cadar  -  get the CADAR of a list
+
+    USAGE
+    cadar list
+
+    DESCRIPTION
+    This is a composition of the car and cdr functions:
+
+    (cadar lis) = (car (cdr (car lis)))
+
+    The argument LIST must be of type list.
+
+    EXAMPLES
+    (cadar '((a (b c)) d)) => (b c)
+
+    SEE ALSO
+    CLtL 15:262, car, cdr
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

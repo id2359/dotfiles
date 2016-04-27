@@ -1,0 +1,66 @@
+
+                                                                       apply
+
+
+    FUNCTION
+    apply  -  apply a function to a list of arguments
+
+    USAGE
+    apply fun {arg}+
+
+    DESCRIPTION
+    Returns the result of applying the function specified by FUN to  a  list
+    of arguments.  The argument list is constructed by appending (as if with
+    append) the last argument to apply to the list of all previous arguments
+    except  FUN.   The  last  argument must be a list.  Its elements are NOT
+    evaluated before they are seen by FUN.  The whole list of arguments must
+    have fewer members than the value of call-arguments-limit.  The function
+    FUN may be a compiled-code object, a lambda expression, a  lexical  clo-
+    sure, or a symbol.  When FUN is a symbol, its global functional value is
+    used.  FUN may not be the name of a macro or special form.
+
+    EXAMPLES
+    (apply #'car '((a b c))) => a
+    (apply #'list (+ 3 4) '((+ 5 6) 9)) => (7 (+ 5 6) 9)
+
+    ;;  The following three forms are equivalent:
+    (apply '+ 1 2 '(3 4)) => 10
+    (apply '+ (list* 1 2 '(3 4))) => 10
+    (apply '+ '(1 2 3 4) => 10
+
+    ;;  But note this gives an error since the last
+    ;;  argument is not a list:
+    (apply '+ 1 2 3 4) => ERROR
+
+    SEE ALSO
+    CLtL 7:107, append, call-arguments-limit, funcall, list*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                                        push
+
+
+    MACRO
+    push  -  push an object onto the front of a list (destructive)
+
+    USAGE
+    push item place
+
+    SIDE EFFECTS
+    The argument PLACE is changed.
+
+    DESCRIPTION
+    Returns the value stored in the location specified  by  the  generalized
+    variable  PLACE  with the arbitrary object ITEM consed onto the front of
+    it.  The form PLACE may be any generalized variable acceptable  to  setf
+    that  contains  a list.  The value at PLACE is modified.  Any subform of
+    PLACE is evaluated only once.  Calling (push ITEM PLACE) is  similar  to
+    calling  (setf  PLACE  (cons ITEM PLACE)) but only evaluates subforms of
+    PLACE once instead of twice.  Depending on the PLACE form and the imple-
+    mentation, push may also be more efficient.
+
+    EXAMPLES
+    (setq z '((3 4))) => ((3 4))
+    (push '(1 2) z) => ((1 2) (3 4))
+    (push '(foo) (car z)) => ((foo) 1 2)
+    z => (((foo) 1 2) (3 4))
+
+    SEE ALSO
+    CLtL 15:269, cons, pop, pushnew, setf
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

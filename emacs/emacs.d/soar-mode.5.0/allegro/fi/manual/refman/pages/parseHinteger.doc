@@ -1,0 +1,66 @@
+
+                                                               parse-integer
+
+
+    FUNCTION
+    parse-integer  -  read an integer by scanning a string
+
+    Usage
+    parse-integer STRING [:start SN] [:end EN] [:radix RADIX] [:junk-
+      allowed JUNK-FLAG]
+
+    DESCRIPTION
+    This function scans STRING for  a  representation  of  an  integer.   It
+    returns  two  values,  the  integer it found (if any) and the index into
+    STRING at the character following the integer found.  If no  integer  is
+    found  the  index returned is 0.  If there is no character following the
+    integer found, the index returned is the length of STRING.  The argument
+    STRING must be a string.
+
+    To operate on a substring of STRING, specify the :start and :end keyword
+    arguments.   The :start keyword indicates the index of the first charac-
+    ter of the substring to examine.  It defaults to zero (the first charac-
+    ter).  The :end keyword specifies an index one greater than the index of
+    the last character to examine. A value  of  nil  is  equivalent  to  the
+    default, the length of the string.
+
+    The keyword argument :radix specifies the radix of the integer represen-
+    tation  in STRING.  The radix defaults to 10 and may have any value from
+    2 to 36.
+
+    The behavior of this function is controlled by the  value  JUNK-FLAG  of
+    the  :junk-allowed keyword argument.  If JUNK-FLAG is false (its default
+    value), STRING must contain only numeric  characters  (and  an  optional
+    sign),  perhaps  surrounded by whitespace.  Within the substring trimmed
+    of surrounding (but not embedded) whitespace, any character that is  not
+    valid in a representation of an integer of radix RADIX signals an error.
+    (Whitespace is not permitted within an integer  representation.)  If  no
+    extraneous  characters  are  found,  then  the  integer  represented  is
+    returned as the first value, and EN (or the length of STRING, if  EN  is
+    not specified) is returned as the second value.
+
+    If JUNK-FLAG is true, an error is not signalled when an invalid  charac-
+    ter  is  encountered.  If a valid integer has been seen before the junk,
+    it is returned.  The index of the last character examined is returned as
+    the second value.
+
+    Note that the radix specifiers #O, #B, #X, #NR, and the trailing decimal
+    point used to indicate radix 10, generally recognized by the COMMON LISP
+    reader, are not recognized by parse-integer.
+
+    EXAMPLES
+    (parse-integer " 123 ") => 123 5
+    ;;  PARSE-INTEGER will signal an error if
+    ;;  invalid characters are encountered.
+    (parse-integer "123skidoo") => ERROR
+    (parse-integer "123skidoo" :junk-allowed t) => 123 3
+    (parse-integer "base two 10" :start 9 :radix 2) => 2 11
+    (parse-integer "119" :radix 2 :junk-allowed t) => 3 2
+    (parse-integer "  -ghij  " :radix 32) => -542291 9
+    ;;  A trailing decimal point is invalid.
+    (parse-integer "22.") => ERROR
+    (parse-integer "22." :junk-allowed t) => 22 2
+
+    SEE ALSO
+    CLtL 22:381, read-from-string
+

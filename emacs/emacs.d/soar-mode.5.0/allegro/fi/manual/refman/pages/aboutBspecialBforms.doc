@@ -1,0 +1,66 @@
+
+                                                         about special forms
+
+
+    NOTES
+    about special forms  -  COMMON LISP special forms
+
+    DESCRIPTION
+    A special form is a construct that processes its subforms in an idiosyn-
+    cratic  way.  For example, it may evaluate some subforms and not others,
+    or it may not evaluate them left to right.  Special forms may also  per-
+    form singular operations such as a nonlocal transfer of control.
+
+    The set of special forms is fixed in COMMON LISP (there is  no  way  for
+    users to define more):
+
+    block                   if                      progv
+    catch                   labels                  quote
+    compiler-let            let                     return-from
+    declare                 let*                    setq
+    eval-when               macrolet                tagbody
+    flet                    multiple-value-call     the
+    function                multiple-value-prog1    throw
+    go                      progn                   unwind-protect
+
+    Any of the special forms above may be implemented as  macros.   Further,
+    implementations  are free to implement any macro as a special form, pro-
+    vided a macro definition is also available.  Therefore, it  is  possible
+    that both macro-function and special-form-p will be true when applied to
+    one of the special forms listed above and that both will  be  true  when
+    applied  to  a  macro not in the list above. However, special-form-p can
+    never return true when applied to a user-defined macro.
+
+    EXAMPLES
+    (setq x 10)
+    (set 'x 10)
+
+    Both expressions above have the same effect at top  level,  setting  the
+    global  value  of  symbol x to 10.  The setq special form does not, how-
+    ever, evaluate its first argument, and it may  be  used  to  change  the
+    value  associated  with  lexical  and dynamic variables, whereas set can
+    only change the value of the current  dynamic  binding  (or  the  global
+    value  if  there  is  no  binding)  of  a special variable.  The special
+    functionality of setq motivates its status as a special form.
+
+    SEE ALSO
+    CLtL 5:57, about forms, macro-function, special-form-p
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

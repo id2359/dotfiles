@@ -1,0 +1,66 @@
+
+                                                                        mapl
+
+
+    FUNCTION
+    mapl  -  map a function over successive tails of lists for side effects
+
+    USAGE
+    mapl fun {list}+
+
+    DESCRIPTION
+    This mapping function is similar to maplist but it does not preserve any
+    of  the  values  returned by FUN applied to the elements of the argument
+    lists.  mapl simply returns its first (required) LIST argument.  mapl is
+    primarily used for the side effects of FUN.
+
+    The argument FUN must be an object acceptable as the first  argument  to
+    apply  and  it  must accept as many arguments as there are lists.  It is
+    first passed all the argument lists in the order in which they appear in
+    the  argument  list.   Then  it is passed the cdrs of all the list argu-
+    ments, then the second cdrs, and so on until the  end  of  the  shortest
+    argument  list  is  reached.  Tails remaining from longer argument lists
+    are then ignored.  When the end of the shortest list  is  reached,  mapl
+    returns.
+
+    EXAMPLES
+    (let ((result nil))
+      (mapl #'(lambda (lis1 lis2) (push (list lis1 lis2) result))
+            '(a b c) '(1 2 3))
+      result) => (((c) (3)) ((b c) (2 3)) ((a b c) (1 2 3)))
+    (let ((result nil))
+      (mapl #'(lambda (lis1 lis2) (push (list lis1 lis2) result))
+            '(a b c) '(1 2 ))
+      result) => (((b c) (2)) ((a b c) (1 2)))
+
+    SEE ALSO
+    CLtL 7:128, map, mapc, mapcan, mapcar, mapcon, maplist
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

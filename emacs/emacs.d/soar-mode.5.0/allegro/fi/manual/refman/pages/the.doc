@@ -1,0 +1,66 @@
+
+                                                                         the
+
+
+    SPECIAL FORM
+    the  -  declare the type of the value of a form
+
+    USAGE
+    the type form
+
+    SIDE EFFECTS
+    The values returned by FORM may be checked to make sure they are of  the
+    types indicated.
+
+    DESCRIPTION
+    Returns whatever FORM returns.  The purpose of this special form  is  to
+    provide a way to declare the types of the results of evaluating isolated
+    forms.  To use the with a form that returns more than one value,  use  a
+    values type specifier. A values type specifier is an ordered list of the
+    symbol values and as many type specifications as there are values to  be
+    returned. It is an error if FORM does not return an object of type TYPE.
+    Like other type declarations, those specified in a the form are advisory
+    to  the  system, and an erroneous return type may not result in an error
+    being signalled.  However, many implementations check  for  this  error,
+    particularly in interpreted code.
+
+    EXAMPLES
+    (defun integer-half (num)
+      (the integer (/ num 2)))
+    (integer-half 4) => 2
+    (integer-half 3) => ERROR
+    ;;  3/2 is not an integer.
+    (the (values integer rational) (round 5/6 3/4)) => 1  1/12
+
+    SEE ALSO
+    CLtL 9:162, about declaration, declare, ftype, function, proclaim, type
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

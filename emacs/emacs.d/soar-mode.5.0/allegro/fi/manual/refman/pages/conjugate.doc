@@ -1,0 +1,66 @@
+
+                                                                   conjugate
+
+
+    FUNCTION
+    conjugate  -  get the complex conjugate of a number
+
+    USAGE
+    conjugate number
+
+    DESCRIPTION
+    Returns the complex conjugate of NUMBER, which may be any number.   Con-
+    jugation  is an identity operation for non-complex numbers.  For complex
+    numbers, the following identity holds:
+
+    (conjugate x) = (complex (realpart x) (- (imagpart x)))
+
+    EXAMPLES
+    (conjugate #c(4 3)) =>  #c(4 -3)
+    (conjugate 15) => 15
+    (conjugate #c(1 1/2)) => #c(1 -1/2)
+    (conjugate #c(1 -4.55)) => #c(1.0 4.55)
+
+    SEE ALSO
+    CLtL 12:201, complex, imagpart, realpart
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

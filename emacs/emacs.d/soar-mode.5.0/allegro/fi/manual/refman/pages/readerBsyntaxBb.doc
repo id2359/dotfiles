@@ -1,0 +1,264 @@
+
+                                                             reader syntax `
+
+
+    READER SYNTAX
+    `  -  reads as a selectively-quoted expression
+
+    USAGE
+    `expr
+
+    DESCRIPTION
+    The backquote reader macro is superficially similar to the quote  reader
+    macro  ``''',  but permits selective evaluation of subexpressions.  When
+    the expression read by the backquote macro character is later evaluated,
+    it will evaluate to an expression whose form mirrors the textual form of
+    the original backquoted expression.  The backquote reader macro is  most
+    useful  for  writing macros (with defmacro, for example), when it can be
+    used to construct templates for expressions.
+
+    Descriptively, the backquote reader macro reads the expression  EXPR  in
+    such a way that evaluating the result will produce an expression identi-
+    cal to expr except for those subexpressions preceded by a comma.   These
+    subexpressions  are  replaced in some way by the result of their evalua-
+    tion.  In effect, backquote quotes (as if by ``''') the expression  fol-
+    lowing it except for its subexpressions preceded by commas.  If a subex-
+    pression is preceded by just a comma (``,''),  it  is  replaced  by  the
+    evaluated subexpression.  If a subexpression is preceded by a comma fol-
+    lowed by an at-sign (``,@''), the evaluated  subexpression  is  `spliced
+    in'  to  the  containing list or vector: the single subexpression may be
+    replaced by several subexpressions or none.  A subexpression preceded by
+    a comma followed by a period (``,.''), is treated just like a subexpres-
+    sion preceded by ``,@'' except that the  backquoted  expression  may  be
+    destructively modified.
+
+    Although there is a similarity between ``'''  and  ```''  in  that  both
+    prevent evaluation of all or part of an expression, a backquoted expres-
+    sion may allocate storage when it is evaluated.
+
+    The following paragraphs describe the operation of ```''  precisely  and
+    mechanistically.   The  description  specifies  the expressions that are
+    read by the backquote reader macro using a plausible method of implemen-
+    tation.   However,  what  is  specified  by COMMON LISP is the result of
+    EVALUATING the expression  read.   The  expression  constructed  by  the
+    reader  from  the  backquoted  expression  is  implementation-dependent.
+    Describing the result of evaluation  unfortunately  becomes  quite  con-
+    voluted.  When a backquoted expression is evaluated, it will be equal to
+    the value of the expression derived using the rules below.  These  rules
+    are  followed by an illustrative example of how these mechanisms work to
+    produce the intuitive result.
+
+    o+
+      When EXPR is not a cons, list, or vector, the backquoted expression is
+      equivalent to, and read as, (quote EXPR).
+
+      `other =~ (quote other)
+
+    o+
+      When EXPR is preceded by a comma,  the  backquoted  expression  is  an
+      identity.  The expression may not be preceded by ``,.'' or by ``,@''.
+
+      `,expr =~ expr
+      `,.expr => ERROR
+      `,@expr => ERROR
+
+    o+
+      When EXPR is a cons or a list, the effect is  to  read  an  expression
+      that  applies  append or nconc to the interpreted elements of the cons
+      or list.  The interpretation of the elements is described  later,  and
+      is represented in the examples below by the function F.
+
+      `(e1 e2 ... en)
+        =~ (append (F e1) (F e2) ... (F en))
+
+      `(e1 e2 ... en . atom)
+        =~ (append (F e1) (F e2) ... (F en) (quote atom))
+
+      `(e1 e2 ... en . ,form)
+        =~ (append (F e1) (F e2) ... (F en) form)
+
+      `(e1 e2 ... en . ,@form) => ERROR
+
+      The function nconc may be used instead of  append  if  the  backquoted
+      expression contains subexpressions preceded by ``,.''.
+
+    o+
+      When EXPR is a vector, the effect is to read a  form  that  applies  a
+      composition  of vector and append or nconc to the interpreted elements
+      of the vector.  The interpretation of the elements is described later,
+      and is represented in the examples below by the function F.
+
+      `#(e1 e2 ... en)
+        =~ (apply #'vector (append (F e1) (F e2) ... (F en)))
+
+      The function nconc may be used instead of  append  if  the  backquoted
+      expression contains subexpressions preceded by ``,.''.
+
+    When interpreting elements of a backquoted cons, list,  or  vector,  the
+    following  rules  apply.  (These rules describe the function represented
+    by F above.)
+
+    o+
+      A subexpression preceded by a comma is interpreted as a list  consist-
+      ing of the subexpression.
+
+      ,expr =~ (list expr)
+
+    o+
+      A subexpression preceded by ``,.'' or by ``,@'' is interpreted as  the
+      subexpression itself.
+
+      ,@expr =~ expr
+      ,.expr =~ expr
+
+    o+
+      Any other subexpression is interpreted as a  list  of  its  backquoted
+      form.
+
+      expr =~ (list `expr)
+
+    Note that a comma may appear only in the contexts  explicitly  specified
+    by the above rules.
+
+    When backquoted expressions are nested, the innermost backquoted expres-
+    sion  is read first.  When several commas occur in a row, therefore, the
+    rightmost comma `belongs' to the outermost backquote.
+
+    Here is a simple example of the backquote mechanism at work.
+
+    (defmacro throwing-to (tag &body forms)
+      `(throw ',tag (progn ,@forms)))
+
+
+    The macro above embodies a convenient expression for returning  a  value
+    from  a non-local branch.  Unlike throw, it does not evaluate its catch-
+    tag argument, and it allows a sequence of forms in an implicit progn.
+
+    The following two expressions illustrate  that  the  precise  expression
+    read  for  a  backquoted expression may be different than that described
+    mechanistically above, so long as the result of evaluating  the  expres-
+    sion  is the same.  Here then are two possible macro-expansion functions
+    for the macro throwing-to as written above.
+
+    (macro-function 'throwing-to)
+      => (lambda (call-form env)
+           (let ((tag (cadr call-form))
+                 (forms (cddr call-form)))
+             (append (list (quote throw))
+                     (list (append (list 'quote) (list tag)))
+                     (list (append (list 'progn) forms nil)))))
+
+    (macro-function 'throwing-to)
+      => (lambda (call-form env)
+           (let ((tag (cadr call-form))
+                 (forms (cddr call-form)))
+             (list 'throw
+                   (list 'quote tag)
+                   (cons 'progn forms))))
+
+    Looking at the first simplified macro-expansion function,  we  see  that
+    the  backquoted  body of the macro as we defined it was read as a series
+    of expressions that when evaluated will  indeed  produce  an  expression
+    with  the  same  appearance  as the original backquoted expression.  The
+    first macro-expansion function above follows the rules described earlier
+    quite  literally.   Note  in particular the use of list within append to
+    preserve elements of the original list (such as the symbol  throw),  and
+    contrast  this  with  how  the  spliced  forms argument is handled.  The
+    second macro-expansion function above does the same job as the first but
+    is  more  economical.  Because it is functionally indistinguishable from
+    the expression generated using the mechanistic  rules,  it  is  a  valid
+    implementation of backquote.
+
+    (throwing-to outer-loop
+      (setq jumped t)
+      (cons nil nil))
+      -> (throw 'outer-loop
+           (progn (setq jumped t) (cons nil nil)))
+
+    We see here that the original backquoted expression  and  the  resulting
+    macroexpansion  have  the same general form.  (Recall that the symbol ->
+    represents macro-expansion.) A backquoted expression  is  essentially  a
+    pattern  in  which  subexpressions preceded by commas are filled-in when
+    the expression is evaluated.
+
+    EXAMPLES
+    (defmacro def-jump-form (name mechanism)
+      `(defmacro ,name (tag &body forms)
+         `(,',mechanism ',tag (progn ,@forms))))
+      => def-jump-form
+
+    (def-jump-form returning-to return-from)
+    (returning-to reset
+      (setq reset? t)
+      (gensym))
+      -> (return-from 'reset
+           (progn (setq reset? t) (gensym)))
+
+
+
+    (defmacro named-let (name var-list &body forms)
+      `(labels ((,name (&optional ,@var-list)
+                  ,@forms))
+         (,name))) => named-let
+
+    (named-let next ((tail '(1 2)) (n 0))
+      (if (endp tail)
+          n
+        (next (cdr tail) (1+ n))))
+      -> (labels ((next (&optional (tail '(1 2)) (n 0))
+                    (if (endp tail)
+                        n
+                      (next (cdr tail) (1+ n)))))
+           (next))
+    (named-let next ((tail '(1 2)) (n 0))
+      (if (endp tail)
+          n
+        (next (cdr tail) (1+ n)))) => 2
+
+    (defmacro simple-case= (expr &body clauses)
+      (let ((expr-var (gensym)))
+        (named-let next-clause
+            ((clauses clauses)
+             (clause-list nil))
+          (if (endp clauses)
+              `(let ((,expr-var ,expr))
+                 (cond ,.(nreverse clause-list)))
+            (next-clause
+             (cdr clauses)
+             (cons
+              `((or ,.(named-let next-key
+                          ((keys (if (atom (caar clauses))
+                                     (list (caar clauses))
+                                   (caar clauses)))
+                           (key-list nil))
+                        (if (endp keys)
+                            (nreverse key-list)
+                          (next-key
+                           (cdr keys)
+                           (cons `(= ,expr-var ',(car keys))
+                                 key-list)))))
+                ,@(cdar clauses))
+              clause-list)))))) => simple-case=
+
+    (simple-case= i
+      (10 "ten")
+      ((20 30) "not ten"))
+      -> (let ((#:g116 i))
+           (cond ((or (= #:g116 '10)) "ten")
+                 ((or (= #:g116 '20) (= #:g116 '30)) "not ten")))
+    (let ((i 10))
+      (simple-case= i
+        (10 "ten")
+        ((20 30) "not ten"))) => "ten"
+
+    SEE ALSO
+    CLtL 22:349, about printing, about reading, defmacro
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                                      bignum
+
+
+    Type SPECIFIER
+    bignum  -  the data type comprising `large' integers
+
+    USAGE
+    bignum
+
+    DESCRIPTION
+    Specifies the  data  type  consisting  of  non-fixnum  integers.   Which
+    integers  are bignums and which are fixnums is implementation dependent.
+    In  any  implementation,  all  integers  greater  than  the   value   of
+    most-positive-fixnum and less than the value of most-negative-fixnum are
+    bignums.
+
+    The printed representation of a  bignum  is  the  same  as  the  printed
+    representation  of any integer: an optional radix-specifier, a sign, and
+    a  sequence  of  digits.    (The   radix-specifier   is   printed   when
+    *print-radix* is non-nil.) Which characters qualify as digits depends on
+    the radix.
+
+    EXAMPLES
+    ;;  While the exact value of MOST-POSITIVE-FIXNUM
+    ;;  is implementation-dependent, the following are probably
+    ;;  correct in most implementations:
+
+    (typep 999999999999999999 'bignum) => t
+    (typep 3 'bignum) => nil
+
+    SEE ALSO
+    CLtL 2:14, CLtL 4:43, about type specifiers, fixnum, integer, most-
+    negative-fixnum, most-positive-fixnum, number, *print-base*, *print-
+    radix*, typep
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

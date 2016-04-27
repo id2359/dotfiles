@@ -1,0 +1,66 @@
+
+                                                                       &rest
+
+
+    Lambda-List KEYWORD
+    &rest  -  bind remaining arguments as a list
+
+    USAGE
+    {&rest | &body | .} var
+
+    DESCRIPTION
+    Specifies that during a function or macro call,  the  parameter  VAR  be
+    bound  to  a list of any unprocessed arguments that remain after binding
+    the required and optional parameters.  If there are none  left,  VAR  is
+    bound to nil.
+
+    The &rest lambda-list keyword appears  after  any  positional  parameter
+    specifiers and before &key introducing any keyword parameter specifiers.
+    If the lambda list has no &rest part, or if it has both &rest and  &key,
+    only  keyword  arguments  may remain.  In the second case, the remaining
+    keyword arguments are included in the list to which VAR is bound.
+
+    Two other lambda-list keywords, &body and .  (period)  mean  nearly  the
+    same  thing  as  &rest,  except  that  they are only allowed in defmacro
+    lambda lists.  The &body lambda-list keyword  has  the  same  effect  as
+    &rest,  except that it is recognized by certain editing and output func-
+    tions to indicate that the rest of the form is to be regarded as a body,
+    and  may  be  indented  appropriately.  When a period is used instead of
+    &rest, the VAR following it must end the lambda list, but otherwise  the
+    effect  is  identical.   This is an element of the destructuring feature
+    available to all defmacro lambda lists.
+
+    EXAMPLES
+    (defun foo (a &optional b &rest c) (list a b c)) => foo
+    (foo 1 2) => (1 2 nil)
+    (foo 1 2 3 4 5 6) => (1 2 (3 4 5 6))
+    (defmacro bar (a &optional b &rest c)
+      (list 'list a b (list 'quote c))) => bar
+    (bar 1 2 3 4 5 6) => (1 2 (3 4 5 6))
+    (defmacro dot (a &optional b . c)
+      (list 'list a b (list 'quote c))) => dot
+    (dot 1 2 3 4 5 6) => (1 2 (3 4 5 6))
+    (defmacro bod (a &optional b &body c)
+      (list 'list a b (list 'quote c))) => bod
+    (bod 1 2 3 4 5 6) => (1 2 (3 4 5 6))
+
+    SEE ALSO
+    CLtL 5:65, about lambda lists, &body, defmacro, defun, &optional
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

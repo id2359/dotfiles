@@ -1,0 +1,66 @@
+
+                                                                  namestring
+
+
+    FUNCTION
+    namestring  -  get full string form of a pathname
+
+    USAGE
+    namestring path
+
+    DESCRIPTION
+    Returns a string representing PATH.  PATH must be  a  pathname,  string,
+    symbol, or stream.  If PATH is a stream, it must be or have been open to
+    a file, and the returned file name may need to be submitted to  truename
+    to find out the real file name.
+
+    The exact behavior of this  function  is  implementation-dependent,  the
+    implementation in turn depending on details of the operating system.
+
+    EXAMPLES
+    ;;  The details of the returned string
+    ;;  are implementation-dependent:
+    (namestring (make-pathname
+                 :host "franz" :device "clroot"
+                 :directory :root :name "foo" :type "cl"))
+      => "ROOT/foo.cl"
+
+    SEE ALSO
+    CLtL 23:417, directory-namestring, enough-namestring, file-namestring,
+    host-namestring, make-pathname, pathname, truename
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

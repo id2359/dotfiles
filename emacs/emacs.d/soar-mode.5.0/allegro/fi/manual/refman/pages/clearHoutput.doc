@@ -1,0 +1,66 @@
+
+                                                                clear-output
+
+
+    FUNCTION
+    clear-output  -  abort pending output operation
+
+    Usage
+    clear-output [STREAM]
+
+    SIDE EFFECTS
+    Any outstanding output operation to the stream STREAM is aborted if pos-
+    sible.
+
+    DESCRIPTION
+    Returns nil.  This function is used for its side effects.  The  argument
+    STREAM,  if  supplied,  must  be a stream, nil, or t.  If it is nil, the
+    stream *standard-output* is used.  That is also the  default  value  for
+    this argument.  If STREAM is T, then *terminal-io* is used.
+
+    The operation of this function is implementation-dependent.
+
+    SEE ALSO
+    CLtL 22:384, clear-input, finish-output, force-output, *standard-
+    output*, *terminal-io*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

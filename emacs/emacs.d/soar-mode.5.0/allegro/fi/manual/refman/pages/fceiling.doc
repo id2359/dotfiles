@@ -1,0 +1,66 @@
+
+                                                                    fceiling
+
+
+    FUNCTION
+    fceiling  -  truncate a number toward positive infinity and convert the
+      result to floating-point number
+
+    USAGE
+    fceiling number [divisor]
+
+    DESCRIPTION
+    Returns two values, Q and R.  Q is the result of truncating the quotient
+    of  NUMBER  and  DIVISOR  toward positive infinity, converted to a float
+    with the same format as NUMBER.  (If NUMBER is  an  integer,  the  first
+    returned  value  is  a single-float.) R is the difference between NUMBER
+    and Q times DIVISOR.  That is
+
+    r = NUMBER - q*DIVISOR
+
+    The truncation of a number toward  positive  infinity  is  the  smallest
+    integer greater than or equal to the number.
+
+    DIVISOR defaults to 1, so if only one argument is  provided,  the  first
+    returned  value  will  be  the smallest integer greater than or equal to
+    NUMBER coerced to a float with the format of NUMBER.  The format of  the
+    second  returned  value  follows  the  rules of floating-point contagion
+    (applied before Q is converted to a float).  Therefore, the second value
+    may be an integer if both of the arguments are integers.
+
+    Both arguments must  be  real  numbers,  either  integer,  rational,  or
+    floating-point.
+
+    EXAMPLES
+    (fceiling 5.3) => 6.0 -0.7
+    (fceiling 5 2) => 3.0 -1
+    (fceiling 5 -2) => -2.0 -1
+    (fceiling -5 2) => -2.0 -1
+    (fceiling -5 -2) => 3.0 1
+    (fceiling -5.2 2) => -2.0 -1.2
+
+    SEE ALSO
+    CLtL 12:217, ceiling, ffloor, fround, ftruncate
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                                       typep
+
+
+    FUNCTION
+    typep  -  test whether an object is of a particular type
+
+    USAGE
+    typep object type
+
+    DESCRIPTION
+    Returns true if OBJECT is of type TYPE, and false otherwise.
+
+    An OBJECT is always of more than one TYPE.  In addition to at least  one
+    more  specific  type,  all  objects are of type t.  TYPES are summarized
+    under about type specifiers, and described with individual entries.
+
+    EXAMPLES
+    (typep 8.95 'integer) => nil
+    (typep 9 '(satisfies evenp)) => nil
+
+    SEE ALSO
+    CLtL 6:72, about type specifiers, subtypep
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

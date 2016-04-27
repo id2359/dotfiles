@@ -1,0 +1,66 @@
+
+                                                                compiler-let
+
+
+    SPECIAL FORM
+    compiler-let  -  sequentially evaluate forms with variables bound in the
+      execution context of the compiler
+
+    USAGE
+    compiler-let ({variable | (variable value)}*) {form}*
+
+    DESCRIPTION
+    Returns the values  of  the  last  FORM,  with  the  other  forms  being
+    evaluated for their side effects.  The forms are evaluated sequentially,
+    as in let.  For each (VARIABLE VALUE) pair, VARIABLE is bound to  VALUE.
+    If  a  VARIABLE  occurs  alone,  then  it  is  bound  to  nil.   When  a
+    compiler-let is run interpretively, each VARIABLE is implicitly declared
+    special.   When  it is processed by the compiler, no code is emitted for
+    the bindings, and each VARIABLE is bound to its VALUE in  the  execution
+    context  of  the  compiler.  Note that declarations are not permitted at
+    the beginning of the body because of its unusual treatment  of  variable
+    bindings.
+
+    EXAMPLES
+    ;;  A COMPILER-LET is similar in structure to a LET.
+    (compiler-let (empty-list
+                   (alphalist '(a b c))
+                   (numlist '(1 2 3)))
+      (list empty-list alphalist numlist)) => (nil (a b c) (1 2 3))
+
+    ;;;  In the following example, we define a global parameter, *cv*
+    ;;;  and arrange that the compiled definition of the function
+    ;;;  `bizarre' be sensitive to the value of this variable at the
+    ;;;  the time of compilation.
+    (defparameter *cv* 30) => *cv*
+    (defmacro  cv-value ()
+      (if (boundp 'cv) cv nil)) => cv-value
+    (defun bizarre ()
+      (compiler-let ((cv *cv*))
+        (weird (cv-value)))) => bizarre
+    (defun weird (value)
+      (or value cv)) => weird
+    (boundp 'cv) => nil
+    (bizarre) => 30
+    (compile 'bizarre) => bizarre
+    (setf *cv* 40) => 40
+
+    ;;  The function reflects the value of *cv* at the time the
+    ;;  function was compiled.
+    (bizarre) => 30
+    (uncompile 'bizarre) => bizarre
+
+    ;;  Now we are using the uncompiled version of `bizarre' again.
+    (bizarre) => 40
+
+    SEE ALSO
+    CLtL 7:112, about scope and extent, compile, eval-when, function, let,
+    let*
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                                    math:row
+
+
+    FUNCTION
+    row  -  get a vector equal to a row of a matrix
+
+    USAGE
+    row matrix i [:displaced dp]
+
+    DESCRIPTION
+    Returns a vector whose length is the same as the number  of  columns  of
+    MATRIX  and  whose  elements  are  the  same  as those of the ITH row of
+    MATRIX.  If the value of the :displaced keyword argument is non-nil, the
+    returned  vector will be displaced into (share storage with) MATRIX.  An
+    example below shows the effect of sharing storage.  If the value of  the
+    :displaced  argument  is  nil  (the  default), the vector will not share
+    storage with MATRIX.
+
+    The element type (as returned by array-element-type) of the result  vec-
+    tor is the same as the element type of the argument MATRIX.
+
+    EXAMPLES
+    (setq mat (make-matrix '((1.1 1.2 1.3) (2.1 2.2 2.3) (3.1 3.2 3.3))
+                           'single-float))
+      => #2a((1.1 1.2 1.3) (2.1 2.2 2.3) (3.1 3.2 3.3))
+    (row mat 0) => #(1.1 1.2 1.3)
+    (row mat 1) => #(2.1 2.2 2.3)
+    (row mat 2) => #(3.1 3.2 3.3)
+    (row mat 3) => ERROR
+    ;;  The error message is:
+    ;;  Error: Not that many rows in matrix given to row
+
+    ;;  When the :DISPLACED argument is specified non-NIL,
+    ;;  the matrix and the vector will share storage.
+    (setq row0 (row mat 0)) => #(1.1 1.2 1.3)
+    (setq row0d (row mat 0 :displaced t)) => #(1.1 1.2 1.3)
+    ;;
+    ;;  Now a change to MAT will also change ROW0D but not ROW0:
+    (setf (aref mat 0 0) -1.1)
+    mat => #2a((-1.1 1.2 1.3) (2.1 2.2 2.3) (3.1 3.2 3.3))
+    row0 => #(1.1 1.2 1.3)
+    row0d => #(-1.1 1.2 1.3)
+
+    SEE ALSO
+    column, column-matrix, row-matrix
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

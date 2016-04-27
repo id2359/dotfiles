@@ -1,0 +1,66 @@
+
+                                                            :initial-element
+
+
+    KEYWORD ARGUMENT
+    :initial-element  -  keyword argument for make-array and adjust-array
+      specifying an array's initial elements
+
+    USAGE
+    :initial-element element
+
+    DESCRIPTION
+    This keyword option may be used with either make-array or  adjust-array.
+    For  make-array,  it  specifies the value that each element of the array
+    will be initialized to.  It may not be used if  either  of  the  keyword
+    arguments  initial-contents  or displaced-to are used.  If none of these
+    keyword arguments is used, the initial values of the array elements  are
+    undefined.
+
+    In the case of adjust-array, this keyword argument applies to those ele-
+    ments that are NOT in the bounds of the original array.  In other words,
+    any new element created will be initialized to ELEMENT, but the old ele-
+    ments are untouched.  If :initial-element and :initial-contents are both
+    unspecified, any new elements created will have undefined values.
+
+    EXAMPLES
+    (setq A (make-array '(2 3) :adjustable t
+                        :initial-element 0))
+      => #2a((0 0 0) (0 0 0))
+    (setq B (adjust-array A '(3 3) :initial-element 'x))
+      => #2a((0 0 0) (0 0 0) (x x x))
+
+    SEE ALSO
+    CLtL 17:287, :adjustable, adjust-array, :displaced-index-offset,
+    :displaced-to, :element-type, :fill-pointer, :initial-contents, make-
+    array
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

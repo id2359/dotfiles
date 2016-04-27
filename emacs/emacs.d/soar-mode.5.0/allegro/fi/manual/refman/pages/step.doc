@@ -1,0 +1,66 @@
+
+                                                                        step
+
+
+    MACRO
+    step  -  interactively step through execution of a function
+
+    Usage
+    step FORM
+
+    DESCRIPTION
+    Returns what FORM returns  while  allowing  you  to  interactively  step
+    though  the  execution of the code.  The exact nature of the interaction
+    is implementation-dependent,  but  usually  something  like  a  carriage
+    return or a space allows you to move to the next step in the execution.
+
+    EXAMPLES
+    ;;  This script show how STEP works in one implementation.
+    ;;  `<cl>' is the usual prompt.  `[step] <cl>' is the prompt
+    ;;  when stepping is enabled.  When the prompt is followed
+    ;;  by no printed characters, the RETURN key was hit.
+    characters
+    <cl> (defun foo (x y) (+ 10 (* 2 x) y))
+
+    foo
+    <cl> (foo 2 3)
+
+    17
+    <cl> (step (foo 2 3))
+     1: (foo 2 3)
+
+    [step] <cl>
+      2: 2 => 2
+      2: 3 => 3
+      2: (block foo (+ 10 (* 2 x) y))
+
+    [step] <cl>
+       3: (+ 10 (* 2 x) y)
+
+    [step] <cl>
+        4: 10 => 10
+        4: (* 2 x)
+
+    [step] <cl>
+         5: 2 => 2
+         5: x => 2
+        result 4: 4
+        4: y => 3
+       result 3: 17
+      result 2: 17
+     result 1: 17
+    17
+
+    SEE ALSO
+    CLtL 25:441, *applyhook*, *evalhook*, describe, time, trace, untrace
+
+
+
+
+
+
+
+
+
+
+

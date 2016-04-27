@@ -1,0 +1,66 @@
+
+                                                      common-windows-version
+
+
+    FUNCTION
+    common-windows-version  -  get the version the running COMMON WINDOWS
+
+    Usage
+    common-windows-version
+
+    DESCRIPTION
+    Returns a string that identifies this version of the the COMMON  WINDOWS
+    image.   Be  sure  to  include the version number (the value returned by
+    this function) in any bug report, question, or other communication  con-
+    cerning COMMON WINDOWS.
+
+    The variable *version* is bound to the same string.
+
+    EXAMPLES
+    ;;  Evaluate this function when you create a dribble file for
+    ;;  bug reporting.  The function DRIBBLE-BUG writes other useful
+    ;;  information to the dribble file.  Here is how a bug report
+    ;;  file will look:
+
+    (dribble-bug "my-bug")
+    (common-windows-version)
+    ;; Reproduce the bug here.
+    (dribble)
+
+    SEE ALSO
+    lisp:dribble, excl:dribble-bug, *version*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

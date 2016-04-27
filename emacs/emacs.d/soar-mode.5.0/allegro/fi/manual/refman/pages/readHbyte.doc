@@ -1,0 +1,66 @@
+
+                                                                   read-byte
+
+
+    FUNCTION
+    read-byte  -  read a byte from a stream and return it as an integer
+
+    Usage
+    read-byte INPUT-STREAM [EOF-ERROR-P [EOF-VALUE]]
+
+    SIDE EFFECTS
+    The stream pointer is advanced beyond the byte that is read.   The  next
+    input operation will read the next object from the stream.
+
+    DESCRIPTION
+    Returns the byte that is read from INPUT-STREAM as an integer.  The size
+    of the byte read is specified by the type of INPUT-STREAM.
+
+    The value of INPUT-STREAM must be a stream.  If it is specified as  nil,
+    the value of INPUT-STREAM is the value of the variable *standard-input*.
+    If it is specified as t, the value of INPUT-STREAM is the value  of  the
+    variable *terminal-io*.
+
+    The argument EOF-ERROR-P controls what  happens  when  the  end  of  the
+    INPUT-STREAM  is reached.  (If the stream is open to a file, the end-of-
+    file is the end of the stream.  If the stream is reading from a  string,
+    the  end  of  the  string  is  the  end  of  the stream.  The concept is
+    straightforwardly extended to specialized streams.) If the value of  the
+    argument  is  t,  the  default,  an error is signalled.  However, if the
+    value of the argument is nil, then in most situations an  error  is  not
+    signalled.  Instead,  the  read-byte function terminates and returns the
+    value of EOF-VALUE.  EOF-VALUE defaults to nil.  The function  read-byte
+    always  signals an error if the end of the stream is reached when a COM-
+    MON LISP object is partially but not completely read.
+
+    EXAMPLES
+    (let* ((out (open "junk" :direction :output :if-exists :supersede
+                      :element-type '(unsigned-byte 8)))
+           (in (open "junk" :direction :input
+                     :element-type '(unsigned-byte 8))))
+      (write-byte #b10010101 out) (write-byte #b11101001 out)
+      (close out)
+      (format t "~8B " (read-byte in))
+      (format t "~8B " (read-byte in))
+      (close in)) => nil
+      PRINTS 10010101 11101001
+
+    SEE ALSO
+    CLtL 22:382, about reading, parse-integer, read, read-char, read-line,
+    write-byte
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

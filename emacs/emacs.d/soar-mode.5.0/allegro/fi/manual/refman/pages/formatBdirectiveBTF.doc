@@ -1,0 +1,132 @@
+
+                                                         format directive ~F
+
+
+    FORMAT DIRECTIVE
+    ~F  -  print floating-point number in fixed-format notation
+
+    USAGE
+    ~width,round,scale,overflowchar,padchar[@]F
+
+    DESCRIPTION
+    Prints the next format argument as a  floating-point  number  in  nonex-
+    ponential  notation,  unless  it  is  a  complex number or a non-numeric
+    object, in which case the format ~WIDTHD is used.  If  the  argument  is
+    rational, the value printed is of type single-float.  Note that to print
+    the components of a complex number using this directive,  the  real  and
+    imaginary  parts  must  be  printed separately using ``~F'' twice in the
+    format control string with the real  and  imaginary  parts  as  separate
+    format arguments.
+
+    The prefix parameters are summarized below.
+
+         WIDTH - total field width (default is variable width)
+         ROUND - number  of  digits  after  decimal  point  (default  is  no
+         constraint)
+         SCALE - multiply argument by ten to the power SCALE (default 0)
+         OVERFLOWCHAR - printed when field  is  too  small  (default  is  to
+         expand field)
+         PADCHAR - fills out field on the left (default the space  character
+         `` '')
+
+    If WIDTH is specified, the argument is printed in  a  field  of  exactly
+    WIDTH characters.  Enough copies of PADCHAR (default the space character
+    `` '') are printed at the beginning of the output, if necessary, to  pad
+    the  field  on  the  left, and then the sign is printed if the number is
+    negative or if the ``@'' modifier is given.
+
+    After possible padding and sign, a string of digits containing a  single
+    decimal  point is printed.  This number is the magnitude of the argument
+    multiplied by ten to the power SCALE (default 0) and then rounded.   The
+    number  of  digits appearing to the right of the decimal point is speci-
+    fied by ROUND.  During  rounding,  if  the  scaled  value  is  the  same
+    distance from the values obtained by rounding up and down, the implemen-
+    tation is free to use either one.
+
+    If the field is too narrow to print using the requested format,  and  if
+    OVERFLOWCHAR  is  specified,  the output consists of WIDTH copies of it.
+    In the absence of OVERFLOWCHAR, the field may be  wider  than  WIDTH  to
+    accommodate all the necessary digits.
+
+    If ROUND is not specified, the largest integer is  chosen  for  it  such
+    that  the constraint imposed by WIDTH is respected and no trailing zeros
+    appear except when the fraction is zero, in which case a single trailing
+    zero  is permitted.  A single leading zero may appear before the decimal
+    point if the printed  value  is  less  than  one  and  the  field  WIDTH
+    constraint is respected.
+
+    If WIDTH is unspecified, then no padding occurs,  exactly  ROUND  digits
+    appear after the decimal point, and the field is wide enough to accommo-
+    date all the necessary digits.  If neither WIDTH nor  ROUND  are  speci-
+    fied, the output produced is identical to that produced by prin1 when it
+    prints a number that is zero or greater than or equal to 10-3  and  less
+    than  10+7.   This is ordinary free-format output.  If WIDTH is unspeci-
+    fied and the argument is large enough, or if both WIDTH  and  ROUND  are
+    unspecified and the argument is small enough, the implementation is free
+    to print using exponential notation a value that would otherwise require
+    more than 100 digits to print; the effect would be the same as using the
+    ``~E'' directive with no prefix parameters.
+
+    EXAMPLES
+    (defun ftest (x)
+      (format nil "~6,2,,,'>F%~6,2F%~6,2,1,'xF%~6F%~,2F%~F"
+              x x x x x x)) => ftest
+    (ftest 0.007)    => ">>0.01%  0.01%  0.07% 0.007%0.01%0.007"
+    (ftest 1.23456)  => ">>1.23%  1.23% 12.35%1.2346%1.23%1.23456"
+    (ftest -1.23456) => ">-1.23% -1.23%-12.35%-1.235%-1.23%-1.23456"
+    (ftest 500.000)  => "500.00%500.00%xxxxxx% 500.0%500.00%500.0"
+
+    SEE ALSO
+    CLtL 22:390, format, format directive ~D, format directive ~E, format
+    directive ~G, prin1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

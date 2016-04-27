@@ -1,0 +1,66 @@
+
+                                                              *print-length*
+
+
+    VARIABLE
+    *print-length*  -  variable that controls how many elements of a nona-
+      tomic object are printed
+
+    DESCRIPTION
+    Evaluates to an integer or nil.  When this variable is nil,  then  every
+    element  in  an  object will be printed.  Note that if *print-circle* is
+    also nil, attempts to print circular structures may not terminate.
+
+    If *print-length* is bound to an integer, then it is the maximum  number
+    of  elements  in  an object that will be printed.  The presence of extra
+    elements is indicated with suspension points (that is, three consecutive
+    dots  with  no  intervening  spaces  ...).   (If  a dotted list is being
+    printed and just the terminating atom would not be  printed  because  of
+    the value of *print-length*, the atom is printed anyway.) If the printed
+    representation of an object contains suspension  points,  it  cannot  be
+    read  back.   Indeed,  it  is normally an error to try to read an object
+    whose printed representation contains suspension points.
+
+    The objects whose printed representations are affected by this  variable
+    are  lists and objects with list-like structure, such as arrays and vec-
+    tors.  The printing of strings, symbols, bit-vectors, numbers  (particu-
+    larly bignums), and so on is not affected.
+
+    The value of this variable must be nil or an integer.  If it is zero (or
+    negative),  no  elements  of  the affected objects will be printed.  Its
+    initial value is nil.
+
+    EXAMPLES
+    *print-length* => nil
+    (setq lengthy '(alpha (a1 (a11 (a111 a112) a12) a2) beta))
+    (let ((*print-length* 1)) (print lengthy))
+      PRINTS (alpha ...)
+    (let ((*print-length* 2)) (print lengthy))
+      PRINTS (alpha (a1 (a11 (a111 a112) ...) ...) ...)
+    (let ((*print-length* 1))
+      (print (list* 'a 'b))
+      (print (list* 'a 'b 'c))) => (a b . c)
+      PRINTS (a . b)
+        (a ...)
+
+    SEE ALSO
+    CLtL 22:372, about printing, *print-array*, *print-case*, *print-
+    circle*, *print-escape*, *print-gensym*, *print-length*, *print-level*,
+    *print-pretty*, *print-radix*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

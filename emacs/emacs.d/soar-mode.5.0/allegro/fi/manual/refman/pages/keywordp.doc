@@ -1,0 +1,66 @@
+
+                                                                    keywordp
+
+
+    FUNCTION
+    keywordp  -  test whether an object is a symbol in the keyword package
+
+    USAGE
+    keywordp object
+
+    DESCRIPTION
+    Returns true if OBJECT belongs to the keyword package, otherwise returns
+    false.
+
+    All symbols  in  the  keyword  package  evaluate  to  themselves.   Con-
+    sequently,  if  keywordp  returns true, constantp with the same argument
+    will also return true.
+
+    EXAMPLES
+    (keywordp :start) => t
+    (keywordp 27) => nil
+    (constantp :end) => t
+
+    SEE ALSO
+    CLtL 10:170, constantp
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

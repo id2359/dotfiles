@@ -1,0 +1,66 @@
+
+                                                                          //
+
+
+    VARIABLE
+    //  -  a list of the values returned from ++
+
+    USAGE
+    //
+
+    DESCRIPTION
+    The value of // is a list of the values returned from the evaluation  of
+    the  form  in  ++.   This  variable  is not updated if the evaluation is
+    aborted.  If no values are returned, // is nil.  (If the printing of the
+    values  is  aborted,  //  will already have been updated.) This variable
+    exists for the convenience of the user when interacting  with  a  COMMON
+    LISP top level.
+
+    EXAMPLES
+    <cl> (ROUND PI)
+    3
+    0.14159265358979312d0
+    <cl> (SETQ FOO "FILLER")
+    "Filler"
+    <cl> (FORMAT NIL "ROUNDED OFF PART IS ~G " (CADR //))
+    "Rounded off part is 0.14159265358979312     "
+    <cl>
+
+    SEE ALSO
+    CLtL 20:325, ***, **, +++, ++, +, ///, /, -
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

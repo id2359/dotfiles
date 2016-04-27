@@ -1,0 +1,132 @@
+
+                                                   initialize-common-windows
+
+
+    FUNCTION
+    initialize-common-windows  -  start up Common Windows and establish a
+      connection to X
+
+    Usage
+    initialize-common-windows [:host HOST][:force FORCE] [:verbose
+      VERBOSE][:prompt-window PWIN]
+
+    SIDE EFFECTS
+    If need be, the COMMON WINDOWS module is loaded, along with any subsidi-
+    ary  packages.  Also, the system establishes a connection between COMMON
+    LISP and the X server.  Other initialization operations  that  are  per-
+    formed  include  initializing  the  interrupt handler and the fonts, and
+    making the prompt window.
+
+    DESCRIPTION
+    This function returns what the last function in the list  bound  to  the
+    global variable *initialize-common-windows-actions* returns.  The inten-
+    tion is that you can change the contents of this list, and thus  custom-
+    ize the behavior of the system.  In the default case, this list consists
+    of the single item default-initialize-common-windows.  Since this  func-
+    tion  does  the  crucial  work of initializing COMMON WINDOWS you should
+    insure that it is not removed from the list .  The following  paragraphs
+    describe the behavior of default-initialize-common-windows.
+
+    This is the function which is used to  start  up  COMMON  WINDOWS.   Its
+    behavior  is  different depending on the exact state of the LISP.  There
+    are three cases:  the FRESH case is when COMMON WINDOWS are not  running
+    and  the  LISP  is not a restarted LISP dumped while COMMON WINDOWS were
+    running;  the  DUMPED  case  is  when  the  LISP   was   dumped   (using
+    excl:dumplisp)  while  COMMON  WINDOWS were running; the RUNNING case is
+    when COMMON WINDOWS is running.
+
+    In the fresh case, initialize-common-windows connects LISP to  the  host
+    specified  by  the  :host  keyword argument.  The value of this argument
+    must be a string of the form HOSTNAME:SERVER-NUMBER.DISPLAY-NUMBER.  The
+    DISPLAY-NUMBER  need  not be specified.  If it is not, it defaults to 0.
+    If the :host argument is not specified, it defaults to the value of  the
+    DISPLAY  environment  variable.  If that variable has no value, the name
+    of the host running LISP is used.
+
+    A prompt window (the value of *prompt-window*) will be  We  created  and
+    put  on the screen if the value of the :prompt-window argument is speci-
+    fied non-nil (which is the default).  The :verbose argument controls how
+    much  information  about the initialization is printed.  The :force key-
+    word argument is ignored in the fresh case.
+
+    The :force argument becomes important in the dumped and  running  cases.
+    The  point is that it is usually the case that in the dumped and running
+    cases, you should call restart-common-windows  rather  than  initialize-
+    common-windows.   restart-common-windows preserves the work already done
+    while initialize-common-windows starts a completely  fresh  COMMON  WIN-
+    DOWS.   In  the  dumped and running cases, two things can happen: either
+    you get a message suggesting that you use restart-common-windows (and no
+    further  action  is taken) or kill-common-windows is run (destroying any
+    running or stopped COMMON WINDOWS), and then COMMON WINDOWS  is  started
+    fresh by initialize-common-windows.  The values of the force and verbose
+    arguments determines which action is taken.  If the :force  argument  is
+    nil, initialize-common-windows will not work when restart-common-windows
+    is  what  should  be  run.   If  the  :verbose  argument   is   non-nil,
+    initialize-common-windows  will  not  work and a message will be printed
+    saying you should use restart-common-windows.  Finally,  if  the  :force
+    argument  is  non-nil  and  the  :verbose  argument  is nil, initialize-
+    common-windows will run regardless of whether  you  should  have  called
+    restart-common-windows.   In  that case, all saved windows and graphical
+    information will be lost.
+
+    EXAMPLES
+    <cl>
+     (KILL-COMMON-WINDOWS)
+
+    nil
+    <cl> (INITIALIZE-COMMON-WINDOWS)
+
+    t
+    <cl>
+
+    SEE ALSO
+    common-windows-initialized-p, kill-common-windows, restart-common-
+    windows
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

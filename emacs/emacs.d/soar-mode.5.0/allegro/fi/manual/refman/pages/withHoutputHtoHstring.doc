@@ -1,0 +1,66 @@
+
+                                                       with-output-to-string
+
+
+    MACRO
+    with-output-to-string  -  open string output stream, evaluate forms, and
+      then close stream
+
+    USAGE
+    with-output-to-string (var [string]) {declaration}* {form}*
+
+    DESCRIPTION
+    First binds the variable VAR to an output stream that writes  characters
+    to  a  string,  then evaluates the FORMS, and finally closes the stream.
+    If no string is provided for STRING, a string containing the accumulated
+    characters is returned.  If a string STRING is specified, characters are
+    written to it and with-output-to-string returns the values of  the  last
+    FORM.   Any  such  STRING must have a fill pointer.  Output is incremen-
+    tally added to the string as if with vector-push-extend if the string is
+    adjustable,  otherwise  with vector-push.  The FORMS are evaluated as an
+    implicit progn, and may be preceded  by  DECLARATIONS.   The  stream  is
+    closed  whether or not exit from this macro is normal.  The input stream
+    has dynamic extent insofar as its association with STRING,  even  though
+    the stream itself has indefinite extent.
+
+    EXAMPLES
+    (with-output-to-string (out)
+      (do ((i 5 (- i 1)))
+          ((zerop i) nil)
+        (format out "~D " (* i i)))) => "25 16 9 4 1 "
+    (setq string1
+      (make-array 6
+                  :fill-pointer t
+                  :initial-contents '(#\a #\b #\c #\d #\e #\f)
+                  :element-type 'string-char))
+      => "abcdef"
+    (setf (fill-pointer string1) 2) => 2
+    (with-output-to-string (out string1)
+      (do ((i 5 (- i 1)))
+          ((zerop i) nil)
+          (format out "~D " (* i i))))
+      => nil
+    string1 => "ab25 1"
+    (setq string2
+      (make-array 6
+                  :fill-pointer t
+                  :initial-contents '(#\a #\b #\c #\d #\e #\f)
+                  :element-type 'string-char
+                  :adjustable t))
+      => "abcdef"
+    (setf (fill-pointer string2) 2) => 2
+    (with-output-to-string (out string2 )
+      (do ((i 5 (- i 1)))
+          ((zerop i) nil)
+        (format out "~D " (* i i)))) => nil
+    string2
+      => "ab25 16 9 4 1 "
+
+    SEE ALSO
+    CLtL 21:331, close, make-string-output-stream, open, vector-push,
+    vector-push-extend, with-open-file, with-open-stream
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                                       schar
+
+
+    FUNCTION
+    schar  -  extract a character from a simple string
+
+    USAGE
+    schar string i
+
+    DESCRIPTION
+    Returns the ITH character of STRING as a character object.  STRING  must
+    be  a  simple string or a symbol.  A simple string is any vector of ele-
+    ment type string-char that has no fill pointer, is not displaced, and is
+    not  adjustable.   If  STRING is a symbol, its print name is used as the
+    string to operate on.  I must be a non-negative integer  less  than  the
+    length  of  the string (indexing is zero-origin).  You may use setf with
+    this function to replace (destructively) a character within STRING, pro-
+    vided  STRING  is  NOT  a  symbol.  The function schar applied to simple
+    strings behaves identically to aref or char, but it may be  faster  than
+    either in many implementations.
+
+    EXAMPLES
+    (schar "Hello" 0) => #\H
+    (schar "Hello" 4) => #\o
+    (let ((welcome "Hella"))
+      (setf (schar welcome 4) #\o)
+      welcome) => "Hello"
+
+    SEE ALSO
+    CLtL 18:300, aref, char, elt
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

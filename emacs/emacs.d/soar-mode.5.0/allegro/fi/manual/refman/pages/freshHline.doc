@@ -1,0 +1,66 @@
+
+                                                                  fresh-line
+
+
+    FUNCTION
+    fresh-line  -  output a newline to a stream if not at beginning of line
+
+    Usage
+    fresh-line [STREAM]
+
+    SIDE EFFECTS
+    A newline (the character #\newline) is output to STREAM if the next out-
+    put  operation  would not otherwise be at the beginning of the  line, or
+    if this information cannot be determined.  (This may be  implementation-
+    dependent and dependent on the nature of the stream.)
+
+    DESCRIPTION
+    Returns t if a newline was output and nil otherwise.
+
+    The argument STREAM may be a stream, nil, or  t.   If  it  is  nil,  the
+    stream  used  is *standard-output*, which is also the default value.  If
+    STREAM is t, the stream used is *terminal-io*.
+
+    EXAMPLES
+    ;;  FRESH-LINE only prints a newline if it must.  TERPRI always does.
+
+    <cl> (progn (format t  "fred")
+                (terpri)
+                (fresh-line t)
+                (format t  "fred"))
+    fred
+    fred
+    nil
+    <cl> (progn (format t  "fred")
+                (fresh-line t)
+                (terpri)
+                (format t  "fred"))
+    fred
+
+    fred
+    nil
+    ;;  The value NIL is the returned value from the
+    ;;  the FORMAT in the PROGN.
+
+    SEE ALSO
+    CLtL 22:384, terpri
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

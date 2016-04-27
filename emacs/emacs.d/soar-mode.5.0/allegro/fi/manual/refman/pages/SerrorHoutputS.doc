@@ -1,0 +1,66 @@
+
+                                                              *error-output*
+
+
+    VARIABLE
+    *error-output*  -  stream to which error messages are printed
+
+    USAGE
+    *error-output*
+
+    DESCRIPTION
+    Evaluates to an output stream that is used  as  the  default  for  error
+    messages.  Note that if an error is encountered while trying to write to
+    *error-output*, error will be called recursively.  Thus you should exer-
+    cise caution when binding or setting the value of *error-output*.
+
+    EXAMPLES
+    ;;  Create a log file for errors.
+    (setf *error-output*
+      (make-broadcast-stream *standard-output*
+                             (setf *error-log*
+                               (open "errors.log" :direction :output
+                                     :if-does-not-exist :create
+                                     :if-exists :append))))
+    ;;  The error message will now appear both at
+    ;;  the user's console and in the log file.
+
+    SEE ALSO
+    CLtL 21:328, *debug-io*, *query-io*, *standard-input*, *standard-
+    output*, *terminal-io*, *trace-output*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

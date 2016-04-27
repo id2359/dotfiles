@@ -1,0 +1,132 @@
+
+                                                                    mismatch
+
+
+    FUNCTION
+    mismatch  -  test whether two sequences have the same elements
+
+    Usage
+    mismatch SEQUENCE1 SEQUENCE2 [{:test | :test-not} PRED] [:key KEYFNC]
+      [:from-end FE] [:start1 SN1] [:end1 EN1] [:start2 SN2] [:end2 EN2]
+
+    DESCRIPTION
+    This sequence function  tests  whether  corresponding  elements  in  two
+    sequences  are  not  eql.  This test is done on successive pairs of ele-
+    ments, one from  SEQUENCE1  and  the  other  from  SEQUENCE2.   mismatch
+    returns  the  integer index of the leftmost element in SEQUENCE1 that is
+    not eql to the element in SEQUENCE2 at the same index.  This value is  a
+    non-negative  integer.  If  every pair is eql, mismatch returns nil.  If
+    the sequences (or the specified subsequences) are not of  equal  length,
+    then  this function will return an integer no greater than the length of
+    the shorter (sub)sequence.
+
+    A test predicate other than eql may be used by specifying  PRED  as  the
+    value  of either the :test or the :test-not keyword argument.  PRED must
+    be a function that accepts two arguments, an element from SEQUENCE1  and
+    an  element  from SEQUENCE2, passed in that order.  If PRED is the value
+    of :test, the elements match if PRED returns true.  If PRED is the value
+    of  :test-not, the elements match if PRED returns false.  It is an error
+    to supply both :test and :test-not keyword arguments.
+
+    If the keyword argument :key is specified and KEYFNC is not nil,  KEYFNC
+    must  be  a  function  that accepts one argument.  It will be applied to
+    every element of each argument sequence before that element  is  tested.
+    If  unspecified  or  nil,  KEYFNC  effectively  defaults to the function
+    identity.
+
+    To process the sequences in the reverse  direction,  specify  a  non-nil
+    value  for  the :from-end keyword argument.  Then, the index returned is
+    one plus the index of the rightmost element where the  mismatch  occurs.
+    The  index  is  relative  to  SEQUENCE1, and again nil is returned if no
+    mismatches occur.  The value of the argument defaults to nil
+
+    To operate on a subsequence of SEQUENCE1, use the :start1 and :end1 key-
+    words.   The  :start1  keyword argument indicates the index of the first
+    element of the subsequence of SEQUENCE1 to examine.  Its value  defaults
+    to  zero  (indicating  the  first  element).  The :end1 keyword argument
+    specifies an index one greater than the index of  the  last  element  of
+    SEQUENCE1 to examine. A value of nil is equivalent to the default value,
+    the length of the sequence.  Note that if SEQUENCE1 is a vector  with  a
+    fill  pointer,  only  the  active elements of SEQUENCE1 can be compared.
+    These remarks also apply to :start2 and :end2, which specify the  start-
+    ing and ending indices in SEQUENCE2.
+
+    EXAMPLES
+    (mismatch '(a b c) '(a b c)) => nil
+    (mismatch '(a b c) '(a d c)) => 1
+    (mismatch '(1 2 3 4) '(1 2 3)) => 3
+    (mismatch '((a) (b) (c)) '((a) (b) (c))
+              :test #'equal) => nil
+    (mismatch '(0 1 a b 4) '(0 1 a b 4)
+              :start1 2 :end1 4
+              :start2 1 :end2 3) => 2
+    (mismatch '(a b 2 3) '(0 1 a b)
+              :end1 2
+              :start2 2 :end2 4) => nil
+
+
+    SEE ALSO
+    CLtL 14:257, :end, :key, :start, :test, :test-not
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

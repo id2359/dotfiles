@@ -1,0 +1,66 @@
+
+                                                                   name-char
+
+
+    FUNCTION
+    name-char  -  get a character given its name
+
+    USAGE
+    name-char name
+
+    DESCRIPTION
+    Returns the character represented by NAME if there is one, and nil  oth-
+    erwise.   NAME  must  be  a string or an object that can be coerced to a
+    string with the function string.  This string is compared  to  character
+    names  using  the  case-insensitive  comparison  function  string-equal.
+    Characters with names include #\Newline and #\Space (which are  standard
+    characters  available in every implementation), #\Tab, #\Page, #\Rubout,
+    #\Linefeed, and #\Backspace (which are semistandard  characters  usually
+    available).   There may be other named characters in a particular imple-
+    mentation.  Characters that always have names are those for which  there
+    is  no  simple  graphic representation or glyph and which have zero font
+    and bits attributes.
+
+    Whether the name of an alphanumeric character is the  string  containing
+    the  character  depends  on  the implementation.  In the example below A
+    does not name #\A.
+
+    EXAMPLES
+    (name-char "space") => #\space
+    (name-char 'Newline) => #\newline
+
+    ;;  The tab character may not be supported:
+    (name-char "tAb") => #\tab
+
+    ;;  Some implementations may return #\A for the next form:
+    (name-char "A") => nil
+
+    SEE ALSO
+    CLtL 13:243, char-name, string-equal
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                                    char-bit
+
+
+    FUNCTION
+    char-bit  -  test whether a given bit is set in a character
+
+    USAGE
+    char-bit char bit
+
+    DESCRIPTION
+    The function char-bit returns true if the character bit named by BIT  is
+    set in the character object CHAR, and false otherwise.
+
+    The behavior of this function is implementation-dependent.   Implementa-
+    tions  need  not  support  any character bits attributes but may support
+    more than four, and may choose different names for supported bits.   The
+    customary  names  for  character  bits  of  weights  1,  2, 4, and 8 are
+    :control, :meta, :super, and :hyper, respectively.
+
+    If CHAR is given by a place form acceptable to setf, then  char-bit  can
+    be  used with setf to change the character at the location.  Setting the
+    value to nil has the effect of clearing the bit and setting to any other
+    value  has  the  effect of setting the bit.  Such a setf operation first
+    performs a set-char-bit on the character at place  given  by  char  then
+    replaces the character at char with the result.
+
+    It is an error to call char-bit with the name of an unsupported  charac-
+    ter bit.
+
+    EXAMPLES
+    ;;  The examples assume all four standard
+    ;;  bits are supported with their usual names.
+    (char-bit #\Control-A :control) => t
+    (char-bit #\Meta-x :meta) => t
+    (char-bit #\Meta-x :hyper) => nil
+    (char-bit #\Super-y :super) => t
+
+    (setq my-char #\Control-A) => #\CONTROL-A
+    (setf (char-bit my-char :control) nil) => nil
+    (char-bit my-char :control) => nil
+
+    SEE ALSO
+    CLtL 13:243, char-bits, char-code, char-control-bit, char-font, char-
+    hyper-bit, char-int, char-meta-bit, char-super-bit, set-char-bit
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

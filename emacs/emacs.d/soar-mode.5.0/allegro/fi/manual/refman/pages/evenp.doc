@@ -1,0 +1,66 @@
+
+                                                                       evenp
+
+
+    FUNCTION
+    evenp  -  test whether a number is even
+
+    USAGE
+    even number
+
+    DESCRIPTION
+    Returns true if NUMBER is divisible by two and false if it is not. It is
+    an error if NUMBER is not an integer.
+
+    EXAMPLES
+    (evenp 3) => nil
+    (evenp 1) => nil
+    (evenp 2) => t
+
+    SEE ALSO
+    CLtL 12:196, oddp
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

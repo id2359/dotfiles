@@ -1,0 +1,66 @@
+
+                                                                  write-line
+
+
+    FUNCTION
+    write-line  -  write a string followed by a newline to an output stream
+
+    Usage
+    write-line STRING [STREAM] [:start START] [:end END]
+
+    SIDE EFFECTS
+    A string of characters followed by a newline is written to a stream.
+
+    DESCRIPTION
+    Returns STRING, after writing this string to the stream STREAM, and out-
+    putting a newlinee.
+
+    To write a substring of STRING, specify  the  :start  and  :end  keyword
+    arguments.  The :start keyword argument indicates the index of the first
+    element of the substring to write.  It defaults to zero (the first  ele-
+    ment).   The  :end  keyword argument specifies an index one greater than
+    the index of the last element to write.  A value of nil is equivalent to
+    the  default,  the  length  of  the string.  Even if only a substring of
+    STRING is written to STREAM, the  entire  string  argument,  STRING,  is
+    returned.
+
+    The argument STREAM may be a stream, t or nil, the default.   If  STREAM
+    is  nil,  the  string  is written to the value of *standard-output*.  If
+    STREAM is t, the string is written to the value of *terminal-io*.
+
+    EXAMPLES
+    (progn (write-line "It's time for a ...")
+           (write-line "line break")) PRINTS
+    It's time for a ...
+    line break
+
+    SEE ALSO
+    CLtL 22:384, fresh-line, terpri, write, write-byte, write-char, write-
+    string, write-to-string
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

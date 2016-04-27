@@ -1,0 +1,66 @@
+
+                                                                         let
+
+
+    SPECIAL FORM
+    let  -  bind variables, and evaluate forms sequentially
+
+    USAGE
+    let ({var | (var value)}*) {decl}* {form}*
+
+    DESCRIPTION
+    The let form is used to evaluate a sequence of forms within the  context
+    of  specific variable bindings.  The form returns the values of the last
+    form evaluated in its body.
+
+    The first subform of a let construct is a  list  of  variable  names  or
+    variable  name  and value (VAR VALUE) lists.  If a variable name appears
+    alone, it is bound to nil in the body of the let form.  When a  variable
+    name  appears in a name and value list, VALUE is evaluated and the asso-
+    ciated variable VAR is bound to the result.  Note that the bindings  are
+    set  up  in  parallel,  so  the binding of one VAR is not visible in the
+    VALUE expression of another VAR.  This is in  contrast  to  let*,  which
+    sets  up  its  bindings  sequentially.  The bindings have lexical scope,
+    unless a variable is special, in which  case  the  binding  has  dynamic
+    extent.   A  variable may be special by virtue of a top-level definition
+    (e.g. with defvar), by a declaration or proclamation within whose  scope
+    the  let  form  lies,  or  by a declaration at the beginning of the body
+    forms of the let.
+
+    The body of the let form comprises the declarations and forms  following
+    the  subform  that  establishes  the variable bindings. The forms of the
+    body are evaluated sequentially.  The values of the last form  evaluated
+    are returned by let.
+
+    EXAMPLES
+    (let (empty-list (alphalist '(a b c)) (numlist '(1 2 3)))
+      (list empty-list alphalist numlist)) => (nil (a b c) (1 2 3))
+
+    (let ((x 0))
+      (declare (integer x))
+      (setq x 5)) => 5
+
+    (defparameter *s* 10)
+    (defun s-and-h ()
+      (+ *s* (if (boundp 'h) h 40)))
+
+    (let ((*s* 2)
+          (h 10))
+      (s-and-h)) => 42
+
+
+    SEE ALSO
+    CLtL 7:110, compiler-let, flet, labels, let*, macrolet, prog, progn,
+    progv
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                                        atan
+
+
+    FUNCTION
+    atan  -  get the arc tangent of a number or of a quotient
+
+    USAGE
+    atan number [denom]
+
+    DESCRIPTION
+    When one argument is given, returns the  arc  (or  inverse)  tangent  of
+    NUMBER,  that  is  an  angle whose tangent is NUMBER.  NUMBER may be any
+    number, real or complex, in the one argument case.  With two  arguments,
+    returns  the  arc  tangent  of  the  quotient of NUMBER and DENOM.  Both
+    NUMBER and DENOM must be real in the two argument case.   The  signs  of
+    NUMBER  and DENOM are used to determine the quadrant of the result.  The
+    result will be an angle which in standard position (with  one  side  the
+    x-axis) has one side in the same quadrant as the point ( DENOM, NUMBER).
+    The range is from -J (exclusive) to J (inclusive) in  the  two  argument
+    case.   An  error is signaled if both NUM and DENOM are zero in the two-
+    argument case.  (If only DENOM is zero, the result is J/2 or -J/2 as NUM
+    is  positive  or negative.) An error is also signaled if any argument is
+    not a number.
+
+    There are two portions to the branch cut for atan.  One lies  along  the
+    positive  imaginary  axis  from i (exclusive) to positive infinity, con-
+    tinuous with the second quadrant, and the other lies along the  negative
+    imaginary axis from -i (exclusive) to negative infinity, continuous with
+    the fourth quadrant.  The range consists of points in the complex  plane
+    whose  real  part  is  between  -J/2   (including  the  end point if the
+    imaginary part is strictly positive), and J/2 (including the  end  point
+    if the imaginary part is strictly negative).
+
+    EXAMPLES
+    (atan 1) => 0.7853982
+    (atan #c(1.0 2.3)) => #c(1.3900658 0.37153915)
+    (atan 0) => 0.0
+    (atan 3 4) => 0.6435011
+    (atan -3 4) => -0.6435011
+    (atan 3 -4) => 2.4980915
+    (atan -3 -4) => -2.4980915
+
+    SEE ALSO
+    CLtL 12:207, acos, asin, cos, sin, tan
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

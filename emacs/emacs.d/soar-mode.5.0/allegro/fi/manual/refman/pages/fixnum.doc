@@ -1,0 +1,66 @@
+
+                                                                      fixnum
+
+
+    Type SPECIFIER
+    fixnum  -  the data type comprising `small' integers
+
+    USAGE
+    fixnum
+
+    DESCRIPTION
+    Specifies a subtype of integer.  fixnum consists of a range of  integers
+    that are efficient to represent.  The range is implementation-dependent,
+    but integers of type fixnum are of smaller magnitude than those of  type
+    bignum,  as  the  names imply.  fixnum and bignum are mutually exclusive
+    subtypes of integer.
+
+    The printed representation of a  fixnum  is  the  same  as  the  printed
+    representation  of  any integer, an optional radix-specifier a sign, and
+    digits  with  no  spaces.   (The   radix-specifier   is   printed   when
+    *print-radix*  is non-nil.) What characters qualify as digits depends on
+    the radix.
+
+    EXAMPLES
+    ;;  The following results are implementation-dependent (but
+    ;;  probably correct in all implementations).
+    (typep 999999999999999999 'fixnum) => nil
+    (typep 3 'fixnum) => t
+
+    SEE ALSO
+    CLtL 2:14, CLtL 4:43, about type specifiers, bignum, number, *print-
+    radix*, *print-base*, typep
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                                          <=
+
+
+    FUNCTION
+    <=  -  test whether given numbers are monotonically non-decreasing
+
+    USAGE
+    <= {n}+
+
+    DESCRIPTION
+    Returns true if the sequence of (noncomplex) argument numbers  is  mono-
+    tonically non decreasing, and false otherwise.  It is an error if any of
+    the arguments is not a non-complex number.  This function  automatically
+    performs required coercions when arguments are of different types.  This
+    function always returns  true when it is given only one argument.
+
+    EXAMPLES
+    (<= 4 5) => t
+    (<= 4 4) => t
+    (<= 4 4.1 5) => t
+    (<= 4 4.1 4.1 5) => t
+
+    SEE ALSO
+    CLtL 12:196, =, /=, <, >, >=
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

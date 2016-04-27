@@ -1,0 +1,66 @@
+
+                                                                         bit
+
+
+    Type SPECIFIER
+    bit  -  the data type comprising 0 and 1 only.
+
+    Usage
+    bit
+
+    DESCRIPTION
+    Specifies a data type representing the  integers  0  and  1.   The  type
+    specifier (integer 0 1) is equivalent to bit.
+
+    The printed representation of a bit is either 0 or 1.  (If *print-radix*
+    is  non-nil,  then  the  value  of  the  bit  is  preceded by the radix-
+    specifier.)
+
+    EXAMPLES
+    (typep 1 'bit) => t
+    (subtypep 'bit 'integer) => t t
+
+    SEE ALSO
+    CLtL 4:43, about type specifiers, bignum, fixnum, integer, mod, number,
+    signed-byte, subtypep, type-of, typep, unsigned-byte
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

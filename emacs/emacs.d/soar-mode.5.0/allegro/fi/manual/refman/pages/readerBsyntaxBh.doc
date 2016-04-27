@@ -1,0 +1,132 @@
+
+                                                            reader syntax #\
+
+
+    READER SYNTAX
+    #\  -  representation of a character
+
+    Usage
+    #FONT\C | #FONT\NAME
+
+    DESCRIPTION
+    Reads as a character.
+
+    The backslash may be followed by either a  single  character  C,  inter-
+    preted  literally,  or  by  the  name  of a character NAME.  In order to
+    distinguish between these two cases, the character that follows the sin-
+    gle  character  form must be a non-constituent character.  The name of a
+    character is case-insensitive.  The syntax of a character  name  is  the
+    same as the syntax of a symbol.  In the single-character form, the char-
+    acter C is not subject to interpretation-it is `escaped.' Thus  case  is
+    distinguished and the syntactic attributes of the character are ignored.
+    (The fact that there are two distinguished cases,  single-character  and
+    named-character,  implies that character names are longer than one char-
+    acter.)
+
+    The standard named characters  are  #\newline  and  #\space,  being  the
+    line-division  and  blank  space characters, respectively.  Semistandard
+    named characters are #\backspace, #\tab, #\linefeed,  #\page,  #\return,
+    and  #\rubout,  usually  corresponding  (in  the ASCII character set) to
+    backspace (BS, code 8), horizontal tabulation  (HT,  code  9),  linefeed
+    (LF,  code  10),  formfeed (FF, code 12), carriage return (CR, code 13),
+    and delete (DEL, code 127), respectively.  Additional  named  characters
+    may be supported by an implementation.  Not all named characters need be
+    unique.
+
+    If an unsigned decimal digit string FONT appears between the  ``#''  and
+    ``\'', it specifies the font attribute of the character.  Not all imple-
+    mentations support font attributes for characters,  and  implementations
+    will  not necessarily support the same font attributes or interpret them
+    identically.
+
+    For those implementations that support bits  attributes  of  characters,
+    the  character or character name may be preceded by a hyphenated list of
+    bit names or initials.  The standard bit names and initials are  control
+    and c, meta and m, super and s, and hyper and h.  The bit names and ini-
+    tials are case-insensitive, and each must be followed by a hyphen ``-''.
+    For  the single-character case, the actual character must be preceded by
+    the character ``\'' following the last hyphen if that  single  character
+    would  have  to be escaped to retain its identity in a token.  The exam-
+    ples below should make this clear.
+
+    In effect, the character or character name is read as a token  including
+    the  first  ``\'',  which  is always interpreted as an escape character.
+    Thus #10\control-m-\c may be interpreted as reading the character speci-
+    fied  by the token \control-m-\c.  This token is then parsed for leading
+    bits indicators (which are case insensitive).  What is left must then be
+    interpreted as a single character or as a character name.
+
+    Characters are self-evaluating objects.
+
+    EXAMPLES
+    ;;; Start with the standard readtable.
+    (setf *readtable* (copy-readtable nil))
+
+
+
+    (defun char-values (char)
+      "Returns three values given a character: the character stripped
+       of bits and font attributes, the numeric font attribute, and
+       the numeric bits attribute."
+      (values (make-char char) (char-font char) (char-bits char)))
+
+    (char-values #\a) => #\a 0 0
+    (char-values #\A) => #\A 0 0
+    (upper-case-p #\a) => nil
+    (lower-case-p #\A) => nil
+
+    (char-values #\space) => #\space 0 0
+    (char-values #\control-space) => #\space 0 1
+    (char-values #10\c-m-space) => #\space 10 3
+    (char-values #0\hyper-a) => #\A 0 8
+    (char-values #\h-|a|) => #\a 0 8
+    (char-values #0\hyper-\z) => #\z 0 8
+    (char-values #0\h|yper-z|) => #\z 0 8
+    (char-values #\super-\() => #\( 0 4
+    (char-values #\s--) => #\- 0 4
+    (char-values #\super-\\) => #\\ 0 4
+
+    ;;; Now change the escape character.
+    (set-syntax-from-char #\$ #\\)
+    (set-syntax-from-char #\\ #\A)
+
+    (char-values #\a) => #\a 0 0
+    (char-values #\super-\() => #\( 0 4
+    ;; First two spaces following backslash, then one.
+    (list #\  1) => (#\space 1)
+    (list #\ 1) => ERROR
+
+    SEE ALSO
+    CLtL 22:353, about printing, about reading, code-char, make-char
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                                    assoc-if
+
+
+    FUNCTION
+    assoc-if  -  retrieve the first key-datum pair from an a-list whose key
+      satisfies a predicate
+
+    USAGE
+    assoc-if pred a-list
+
+    DESCRIPTION
+    Returns the first pair (a cons or dotted pair) in the  association  list
+    A-LIST  such  that the car (the key) of the pair satisfies the predicate
+    function PRED.  Returns nil if there is no such pair.  PRED must  accept
+    one argument.  This is a variant of assoc.
+
+    EXAMPLES
+    (setq x '((4 . a) (2 . b) (3 . c) (2 . d)))
+    (assoc-if #'numberp x) => (4 . a)
+    (assoc-if #'symbolp x) => nil
+    (assoc-if #'oddp x) => (3 . c)
+
+    SEE ALSO
+    CLtL 15:280, acons, assoc, assoc-if-not, rassoc, rassoc-if, rassoc-if-
+    not
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

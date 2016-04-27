@@ -1,0 +1,66 @@
+
+                                                            reader syntax #c
+
+
+    READER SYNTAX
+    #c  -  representation of a complex number
+
+    Usage
+    #C(REAL IMAG)
+
+    DESCRIPTION
+    Reads as a complex number whose real component is the number represented
+    by REAL and whose imaginary component is the number represented by IMAG.
+
+    When the reader reads the dispatch-macro  character  ``#''  followed  by
+    ``c''  or  ``C'', these characters are discarded and the next expression
+    is read.  This expression must be a list of  two  elements,  which  each
+    must  read  as  real numbers.  The first element specifies the real com-
+    ponent of a complex number, the  second  the  imaginary  component.   If
+    either  number  is  a floating-point number, the rules of floating-point
+    contagion apply: a  rational  will  be  converted  to  a  floating-point
+    number,  and  two  floating-point  numbers will be converted to the same
+    type (short, single, double, or long).  The ``#c'' syntactic form  reads
+    as  the  complex  number represented by the specified real and imaginary
+    components.
+
+    Because of the rules of complex canonicalization, the result of  reading
+    this syntactic form may be of type rational instead of type complex.  In
+    particular, if the  real  and  imaginary  parts  are  rational  and  the
+    imaginary part is zero, a rational number is read.
+
+    Although a statement is made in COMMON LISP: THE LANGUAGE that the  syn-
+    tactic  form  #c(R I) is equivalent to #,(complexR I), most, if not all,
+    implementations  do  not  follow  this  specification.   The  real   and
+    imaginary  parts  specified  with  ``#c''  are  never evaluated in these
+    implementations of COMMON LISP.
+
+    Complex numbers are self-evaluating objects.  (In fact all  numbers  are
+    self-evaluating.)
+
+    EXAMPLES
+    #c(0 1) => #c(0 1)
+    #c(#xFF #o10) => #c(255 8)
+    #c(5.0s0 0.1d0) => #c(5.0d0 0.1d0)
+    #c(10.0 0.0) => #c(10.0 0.0)
+    #c(#b1011/11 0) => 11/3
+
+    (setf *r* 10 *i* 2)
+    #,(complex *r* *i*) => #c(10 2)
+    #c(*r* *i*) => ERROR
+
+    SEE ALSO
+    CLtL 2:19, about contagion, about printing, about reading, complex
+
+
+
+
+
+
+
+
+
+
+
+
+

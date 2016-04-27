@@ -1,0 +1,66 @@
+
+                                                                    complexp
+
+
+    FUNCTION
+    complexp  -  test whether an object is a complex number
+
+    USAGE
+    complexp object
+
+    DESCRIPTION
+    Returns true if OBJECT is a complex number, and  false  otherwise.   The
+    following identity holds:
+
+    (complexp x) = (typep x 'complex)
+
+    EXAMPLES
+    (complexp #c(0 1)) => t
+    (complexp #c(3.4 5/6)) => t
+    (complexp 1.0d0) => nil
+    (complexp (complex 12 0)) => nil
+
+    SEE ALSO
+    CLtL 6:75, about type specifiers, complex
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

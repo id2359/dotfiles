@@ -1,0 +1,66 @@
+
+                                                                      stream
+
+
+    Type SPECIFIER
+    stream  -  the data type comprising streams
+
+    USAGE
+    stream
+
+    DESCRIPTION
+    Specifies the data type stream, consisting of  objects  used  to  direct
+    input  and  output.  All input and output operations in COMMON LISP take
+    place to or from a stream.  Implementations  generally  do  not  provide
+    readable printed representations of streams.
+
+    EXAMPLES
+    (typep *standard-output* 'stream) => t
+
+    SEE ALSO
+    CLtL 2:31, CLtL 4:43, about type specifiers, type-of, typep
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

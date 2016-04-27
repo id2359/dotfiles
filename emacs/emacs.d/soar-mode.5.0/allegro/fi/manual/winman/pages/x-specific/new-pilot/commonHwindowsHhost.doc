@@ -1,0 +1,66 @@
+
+                                                         common-windows-host
+
+
+    FUNCTION
+    common-windows-host  -  get the machine running the X server connected
+      to COMMON WINDOWS
+
+    Usage
+    common-windows-host
+
+    DESCRIPTION
+    Returns as a string the name of the server to which  COMMON  WINDOWS  is
+    connected.   You  must be connected to a server in order to perform most
+    operations in COMMON WINDOWS (e.g. making  a  window  with  make-window-
+    stream).    This   connection   is  established  when  you  call  either
+    initialize-common-windows or restart-common-windows.
+
+    EXAMPLES
+    (kill-common-windows)
+    (initialize-common-windows :host "frigg")
+    (common-windows-host) => "frigg"
+
+    SEE ALSO
+    connected-to-server-p, initialize-common-windows, restart-common-windows
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

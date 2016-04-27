@@ -1,0 +1,66 @@
+
+                                                            get-decoded-time
+
+
+    FUNCTION
+    get-decoded-time  -  get the current time in Decoded Time format
+
+    Usage
+    get-decoded-time
+
+    DESCRIPTION
+    Returns the current time in Decoded Time format.  The nine components of
+    Decoded  Time  are SECOND, MINUTE, HOUR, DATE, MONTH, YEAR, DAY-OF-WEEK,
+    DAYLIGHT-SAVINGS-TIME-P, and TIME-ZONE.  SECOND is an integer from 0  to
+    59,  as is MINUTE.  HOUR is an integer from 0 to 23.  DATE is an integer
+    from 1 to 31, but is not greater than the number of days in  the  month.
+    MONTH  is  an  integer  from 1 to 12, with January being 1.  YEAR is the
+    absolute year of the Common Era (i.e. AD).  DAY-OF-WEEK is coded from  0
+    to 6 with Monday being 0.  TIME-ZONE is in zones west of Greenwich, that
+    is the number of hours that standard time in your location is less  than
+    GMT.   DAYLIGHT-SAVINGS-TIME-P is t or nil as daylight-saving time is or
+    is not currently in EFFECT in your location (not is or is  not  used  in
+    your location).
+
+    EXAMPLES
+    ;;  The following time is Saturday, May 28, 1988,
+    ;;  1:30:34 PM in California (8 zones west of Greenwich,
+    ;;  with daylight-saving time in effect).
+    (multiple-value-list (get-decoded-time))
+      => (34 30 13 28 5 1988 5 t 8)
+
+    SEE ALSO
+    CLtL 25:445, decode-universal-time, encode-universal-time, get-
+    universal-time
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                                  tree-equal
+
+
+    FUNCTION
+    tree-equal  -  test whether two trees are isomorphic with identical
+      leaves
+
+    USAGE
+    tree-equal x y [{:test | :test-not} pred]
+
+    DESCRIPTION
+    Returns non-nil if X and Y are both atoms satisfying the  test  eql,  or
+    are  both conses satisfying the condition that their respective cars and
+    cdrs are tree-equal.  This function is similar to equal, but is  not  as
+    lenient  in  comparing  bit-vectors and strings.  A test predicate other
+    than eql may be used by specifying PRED as the value of either the :test
+    or the :test-not keyword argument.  PRED must be a function that accepts
+    two arguments.  If :test-not is used instead of  :test  or  the  default
+    test predicate eql, then two atoms are tree-equal if PRED returns nil.
+
+    EXAMPLES
+    (tree-equal '(a (b c)) '(a (b c))) => t
+    (tree-equal '(b "good") '(b "good")) => nil
+    (equal '(b "good") '(b "good")) => t
+    (tree-equal '(b "good") '(b "good") :test #'equal) => t
+    (tree-equal 'hat 'coat :test-not 'eql) => t
+
+    SEE ALSO
+    CLtL 15:264, about equality, about keywords, car, cdr, cons, eql, equal
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

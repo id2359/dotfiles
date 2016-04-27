@@ -1,0 +1,66 @@
+
+                                                    about special characters
+
+
+    NOTES
+    about special characters  -  special characters for listeners and rubout
+      handlers
+
+    DESCRIPTION
+    COMMON WINDOWS defines a set of special characters  which  are  used  in
+    cases  where  COMMON  WINDOWS  accepts input.  Lisp listeners and rubout
+    handlers use these characters.  The list of such  characters  and  their
+    associated  COMMON  WINDOWS  variables  follows.   The initial values of
+    these variables are set when COMMON WINDOWS is  initialized  by  polling
+    the  environment  of the shell that started the LISP.  For more informa-
+    tion on these characters, see the Unix documentation for stty.
+
+            *brk-char*      break
+            *eof-char*      end of file
+            *erase-char*    erase
+            *intr-char*     interrupt
+            *kill-char*     kill
+            *quit-char*     quit
+            *start-char*    start
+            *stop-char*     stop
+
+    EXAMPLES
+    ;; The example shows some possible values for these variables
+    ;; The results will differ depending on
+    ;; how you have set up your shell environment.
+    *brk-char* => #\%rubout
+    *eof-char* => #\^d
+    *erase-char* => #\rubout
+    *intr-char* => #\^c
+    *kill-char* => #\^u
+    *quit-char* => #\^
+    *start-char* => #\^q
+    *stop-char* => #\^s
+
+    SEE ALSO
+    make-window-stream, rubout-handler
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

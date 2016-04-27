@@ -1,0 +1,66 @@
+
+                                                                         log
+
+
+    FUNCTION
+    log  -  calculate the logarithm of a number to a given base
+
+    USAGE
+    log number [base]
+
+    DESCRIPTION
+    Returns the logarithm of NUMBER, in the base BASE.  The base defaults to
+    E, the base of the natural logarithms.  NUMBER may be any number.
+
+    The branch cut for the natural logarithms is continuous with the  second
+    quadrant,  and  lies on the negative real axis.  The domain excludes the
+    origin.  The range is the portion of the  complex  plane  that  contains
+    imaginary  parts from -J (exclusive) to J (inclusive).  The range of the
+    two-argument version of log is the entire complex plane.
+
+    When the arguments are rational and the result could (mathematically) be
+    rational (as in the last example), whether the result is a rational or a
+    float is implementation-dependent.
+
+    EXAMPLES
+    (log (exp 2)) => 2.0
+    (log 8.0 4) => 1.5
+    ;;  Whether the following result is a float
+    ;;  or an integer depends on the implementation:
+    (log 16 2) => 4.0
+
+    SEE ALSO
+    CLtL 12:204, exp, expt, sqrt
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

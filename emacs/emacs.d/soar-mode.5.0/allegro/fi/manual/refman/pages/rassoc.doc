@@ -1,0 +1,66 @@
+
+                                                                      rassoc
+
+
+    FUNCTION
+    rassoc  -  get from an association list the first key-datum pair match-
+      ing a DATUM
+
+    USAGE
+    rassoc item a-list [{:test | :test-not} pred] [:key keyfnc]
+
+    DESCRIPTION
+    Returns the first pair in the association list A-LIST such that ITEM  is
+    eql to the cdr of the pair, or nil if there is no such pair.  This func-
+    tion is the complement of assoc: whereas assoc finds a datum  associated
+    with a key, rassoc finds a key associated with a datum.
+
+    A test predicate other than eql may be used by specifying  PRED  as  the
+    value  of either the :test or the :test-not keyword argument.  PRED must
+    be a function that accepts two arguments, the argument ITEM and the  cdr
+    of  the pair.  If PRED is the value of :test, ITEM and the element match
+    if PRED returns true.  If PRED is the value of :test-not, ITEM  and  the
+    element  match  if  PRED  returns  false.  It is an error to supply both
+    :test and :test-not keyword arguments.
+
+    If the keyword argument :key is specified and its value  KEYFNC  is  not
+    nil,  KEYFNC  must  be a function that accepts one argument.  It will be
+    applied to the DATUM part of each  pair  in  the  A-LIST  before  it  is
+    tested.   When  unspecified or nil, it effectively defaults to the func-
+    tion identity.
+
+    The expression (rassoc ITEM A-LIST :test PRED) means the same  thing  as
+    (find  ITEM  A-LIST  :test  PRED  :key #'cdr), except that when the ITEM
+    being searched for is nil: then find will return not only when  the  cdr
+    of  a  non-nil pair is nil, but also when the search encounters nil used
+    in place of a pair.
+
+    EXAMPLES
+    (setq x '((4 . a) (3 . d) (1 . c) (2 . d)))
+      => ((4 . a) (3 . d) (1 . c) (2 . d))
+    (rassoc 'c x) => (1 . c)
+    (rassoc 'd x) => (3 . d)
+    (rassoc '(2 2) '((a 4 5) (b 7 6) (c 2 2)) :test #'equal)
+      => (c 2 2)
+    (rassoc 'e x) => nil
+    (rplaca (rassoc 'a x) 5) => (5 . a)
+    x => ((5 . a) (3 . d) (1 . c) (2 . d))
+
+    SEE ALSO
+    CLtL 15:281, acons, assoc, assoc-if, assoc-if-not, find, :key, rassoc-
+    if, rassoc-if-not
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

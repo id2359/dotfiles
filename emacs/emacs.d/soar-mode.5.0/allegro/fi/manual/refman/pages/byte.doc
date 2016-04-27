@@ -1,0 +1,66 @@
+
+                                                                        byte
+
+
+    FUNCTION
+    byte  -  make a byte specifier
+
+    USAGE
+    byte size position
+
+    DESCRIPTION
+    Returns a byte specifier SIZE bits wide starting  at  bit  POSITION  and
+    ending  at  bit  POSITION + SIZE - 1.  The POSITION bit is the one whose
+    weight is 2 raised to the power POSITION.  Thus for example, the  0  bit
+    is  the  lowest order bit.  The arguments must be non-negative integers,
+    and SIZE is not tied to traditional concepts of byte  size  (eight,  for
+    example).   The  byte specifier returned is usually passed to other byte
+    manipulation functions.  The following identities hold:
+
+    (byte-size (byte s p)) = s
+    (byte-position (byte s p)) = p
+
+    EXAMPLES
+    (setq *print-base* 2)
+    (setq *print-radix* t)
+    (ldb (byte 4 0) #b10010110) => #b110
+    (ldb (byte 4 1) #b10010110) => #b1011
+    (ldb (byte 6 2) #b10010110) => #b100101
+
+    SEE ALSO
+    CLtL 12:225, byte-position, byte-size, deposit-field, dpb, ldb, ldb-
+    test, mask-field
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

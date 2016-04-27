@@ -1,0 +1,66 @@
+
+                                                                 move-notify
+
+
+    METHOD
+    move-notify  -  method called when X moves a window
+
+    Usage
+    move-notify WSTREAM POSITION
+
+    DESCRIPTION
+    Returns   what   the   last   function   in   the   list   returned   by
+    window-stream-move-notify  returns.   When  the X window-manager moves a
+    common window, it informs COMMON WINDOWS that it has done  so  to  allow
+    COMMON  WINDOWS to update its information on window status.  COMMON WIN-
+    DOWS calls this method, which in turn calls all the  functions  returned
+    by  window-stream-move-notify applied to WSTREAM.  You do not (normally)
+    call this function directly.
+
+    The initial value of the list returned by window-stream-move-notify con-
+    tains   the  single  function  default-window-stream-move-notify-method.
+    This function does the work of updating COMMON WINDOWS so you should not
+    remove  it from the list.  You may add new functions to the list for any
+    window-stream with modify-window-stream-method.   You  may  replace  the
+    whole  list  with  setf  and  window-stream-move-notify  but  be sure to
+    include default-window-stream-move-notify-method in the new  list.   The
+    function  restore-default-window-stream-method  restores the list to its
+    original value.
+
+    Any function added to the list must accept  two  arguments,  the  window
+    stream, WSTREAM, and the new position of its lower left corner.
+
+    EXAMPLES
+    (setf *my-win*
+                (make-window-stream :left 100 :bottom 100
+                :width 200 :height 200
+                :activate-p t :title "Just a Window"))
+
+    (window-stream-move-notify *my-win*)
+      => (default-window-stream-move-notify-method)
+
+    (defun my-before-move-notify (w pos)
+      (declare (ignore pos))
+      (setf (window-stream-get w 'old-pos)
+        (window-stream-position w)))
+
+    (defun my-after-move-notify (w pos)
+       (declare (ignore pos))
+      (move w (window-stream-get w 'old-pos)))
+
+    (modify-window-stream-method *my-win* :move-notify
+                           :after 'my-after-move-notify)
+
+    (modify-window-stream-method *my-win* :move-notify
+                           :before 'my-before-move-notify)
+    (window-stream-move-notify  *my-win*)
+      => (my-before-move-notify
+           default-window-stream-move-notify-method
+           my-after-move-notify)
+    ;;  Now when you use the X window manager to move the window
+    ;;  LISP will move it back to where it started.
+
+    SEE ALSO
+    expand, flush, shrink, reshape, window-stream-move, window-stream-move-
+    notify
+

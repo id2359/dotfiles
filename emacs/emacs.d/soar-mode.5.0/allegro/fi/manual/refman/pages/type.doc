@@ -1,0 +1,66 @@
+
+                                                                        type
+
+
+    DECLARATION SPECIFIER
+    type  -  specify that variables are of a certain type
+
+    Usage
+    type TYPE {VAR-NAME}*
+
+    SIDE EFFECTS
+    The COMMON LISP system is advised that the  each  VAR-NAME  is  of  type
+    TYPE.
+
+    DESCRIPTION
+    In a declaration, advises that the variables named by VAR-NAMES  are  to
+    be  of  type TYPE.  When TYPE is one of the standard type specifier sym-
+    bols, a type declaration specification can be abbreviated by leaving out
+    the word type.
+
+    EXAMPLES
+    (defun foo (x y)
+      (declare (type (integer x) (integer y)))
+      (let ((a 1.0) (b 2.3))
+        (declare (float a b ))
+        (list a x b y)))
+
+    SEE ALSO
+    CLtL 9:158, about declarations, about type specifiers, ftype, function
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                                      cdaddr
+
+
+    FUNCTION
+    cdaddr  -  get the CDADDR of a list
+
+    USAGE
+    cdaddr list
+
+    DESCRIPTION
+    This is a composition of the car and cdr functions:
+
+    (cdaddr lis) = (cdr (car (cdr (cdr lis))))
+
+    The argument LIST must be of type list.
+
+    EXAMPLES
+    (cdaddr '(a b (c d))) => (d)
+
+    SEE ALSO
+    CLtL 15:262, car, cdr
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

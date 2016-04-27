@@ -1,0 +1,66 @@
+
+                                                        most-positive-fixnum
+
+
+    CONSTANT
+    most-positive-fixnum  -  the fixnum closest to positive infinity
+
+    DESCRIPTION
+    This constant evaluates to the value of the fixnum nearest  to  positive
+    infinity.  This value is implementation-dependent.
+
+    EXAMPLES
+    ;;  This value is implementation-dependent.
+    most-positive-fixnum => 268435455
+
+    SEE ALSO
+    CLtL 12:231, about numeric constants
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

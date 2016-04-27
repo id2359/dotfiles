@@ -1,0 +1,66 @@
+
+                                                                      logxor
+
+
+    FUNCTION
+    logxor  -  bitwise logical `exclusive or'
+
+    USAGE
+    logxor {n}*
+
+    DESCRIPTION
+    Returns the bitwise logical `exclusive or'  of  its  arguments,  all  of
+    which must be integers.  If no arguments are provided, 0 is returned.  0
+    is the identity for this function.  Arguments  and  results  are  inter-
+    preted as if represented in two's-complement notation.
+
+    EXAMPLES
+    (logxor) => 0
+    (logxor 1) => 1
+    (logxor 3 5) => 6
+
+    (setf *print-base* 2
+          *print-radix* t)
+    ;;  (The printer drops leading zeros when printing integers.
+    ;;  The printed number #b110 is equivalent to #b0110.)
+    (logxor #b1100 #b1010) => #b110
+
+    SEE ALSO
+    CLtL 12:221, boole, logand, logandc1, logandc2, logbitp, logcount,
+    logeqv, logior, lognand, lognor, lognot, logorc1, logorc2, logtest
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

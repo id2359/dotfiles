@@ -1,0 +1,66 @@
+
+                                                              symbol-package
+
+
+    FUNCTION
+    symbol-package  -  get the home package of a symbol
+
+    USAGE
+    symbol-package sym
+
+    DESCRIPTION
+    Returns the contents of the package cell of SYM.  This will be either  a
+    package  object or nil.  This value is the `home package' of the symbol.
+    If a symbol is uninterned, it will have no home package, and this  func-
+    tion will return nil.
+
+    EXAMPLES
+    (equal (symbol-package :test)
+           (symbol-package 'car)) => nil
+    (equal (symbol-package 'cadr)
+           (symbol-package 'car)) => t
+
+    ;;  Here is a pathological example.
+    (setf *s* (make-symbol "SPIRIT")) => #:spirit
+    (symbol-package *s*) => nil
+    (import *s*) => t
+    (symbol-package *s*) => nil
+    (eq 'spirit *s*)  => t
+
+    SEE ALSO
+    CLtL 10:170, symbol-name
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

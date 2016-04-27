@@ -1,0 +1,66 @@
+
+                                                           make-random-state
+
+
+    FUNCTION
+    make-random-state  -  make a new random-state object
+
+    USAGE
+    make-random-state [state]
+
+    DESCRIPTION
+    Returns a new object of type random-state.  The purpose of this function
+    is  to  create  a random state that will serve as the second argument to
+    random, or that can be assigned as the  value  of  the  global  variable
+    *random-state*.   If  STATE  is unspecified or nil, the new random-state
+    object is a copy of the value of the global variable *random-state*.
+
+    If STATE is itself a random-state object, the new state is a copy of it.
+    If  STATE  is t, the new state will be created by some presumably random
+    means.  We say `presumably' because schemes for generating random values
+    from the environment are notoriously nonrandom.
+
+    EXAMPLES
+    ;;  note: the returned value that you see may vary
+    ;;  unpredictably from what is shown below
+    (let ((state (make-random-state))
+          (result nil))
+      (dotimes (i 3)
+        (push (random 100 state) result))
+      result) => (66 28 40)
+
+    (let ((state (make-random-state)))
+      (list
+       (random 100) (random 100) (random 100)
+       (setq *random-state* state)
+       (random 100) (random 100) (random 100)))
+      => (69 25 36 #s(random-state :seed 103102221129233) 69 25 36)
+
+
+    SEE ALSO
+    CLtL 12:230, random, *random-state*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                              *random-state*
+
+
+    VARIABLE
+    *random-state*  -  internal state of random-number generator
+
+    DESCRIPTION
+    This global variable holds a data structure encoding the internal  state
+    of the pseudorandom-number generator used by random.  It is changed as a
+    side  effect  of  calling  random  with  only  one  argument,  or   with
+    *random-state* as a second argument.
+
+    random will return the same value each time it is called with  the  same
+    first  argument and the same random-state.  Thus, if you wish to be able
+    to repeat exactly any behavior depending on random, save  the  value  of
+    *random-state*  before  the  first  call to random, call random with one
+    argument, and set *random-state* back to the saved value when  you  wish
+    to repeat the computation.  Results using random with one argument where
+    the initial value of *random-state* is not saved CANNOT be replicated.
+
+    EXAMPLES
+    ;;  The returned values are illustrative only, since they
+    ;;  are `random.'  It is implementation-dependent to implement
+    ;;  a random-state object as a structure.
+    (let ((state (make-random-state)))
+      (list (random 100) (random 100) (random 100)
+       (setq *random-state* state)
+       (random 100) (random 100) (random 100)))
+      => (2 92 45 #s(random-state :seed 127333206494165) 2 92 45)
+
+    SEE ALSO
+    CLtL 12:230, make-random-state, random, random-state-p
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

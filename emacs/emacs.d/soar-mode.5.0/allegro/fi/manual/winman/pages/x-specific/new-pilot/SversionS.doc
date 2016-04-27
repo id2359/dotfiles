@@ -1,0 +1,66 @@
+
+                                                                   *version*
+
+
+    VARIABLE
+    *version*  -  the version number of the running COMMON WINDOWS
+
+    DESCRIPTION
+    Bound to a string identifying the version  of  the  currently  installed
+    COMMON  WINDOWS.   Do not change the value of this variable.  Be sure to
+    include the version number (the value  of  this  variable)  in  any  bug
+    report, question, or other communication concerning COMMON WINDOWS.
+
+    The function common-windows-version returns the same string.
+
+    EXAMPLES
+    ;;  Evaluate this variable when you create a dribble file for
+    ;;  bug reporting.  The function DRIBBLE-BUG writes other useful
+    ;;  information to the dribble file.  Here is how a bug report
+    ;;  file will look:
+    (dribble-bug "my-bug")
+    *version*
+    ;; Reproduce the bug here.
+    (dribble)
+
+    SEE ALSO
+    common-windows-version, dribble, excl:dribble-bug
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

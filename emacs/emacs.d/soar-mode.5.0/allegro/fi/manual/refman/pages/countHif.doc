@@ -1,0 +1,66 @@
+
+                                                                    count-if
+
+
+    FUNCTION
+    count-if  -  count the number of elements which satisfy a test in a se-
+      quence
+
+    Usage
+    count-if TEST SEQUENCE [:start SN] [:end EN] [:key KEYFNC] [:from-end
+      FE]
+
+    DESCRIPTION
+
+    Returns the number of items in the sequence SEQUENCE which satisfy TEST.
+    The argument TEST must be a function that accepts one argument.  An ele-
+    ment satisfies the test if applying TEST to it returns true.
+
+    If the keyword argument :key is specified and its value  KEYFNC  is  not
+    nil,  KEYFNC  must  be a function that accepts one argument.  It will be
+    applied to each element of SEQUENCE before that element is tested.  When
+    unspecified or nil, it effectively defaults to the function identity.
+
+    If the :from-end keyword argument is specified non-nil, SEQUENCE is pro-
+    cessed  in  the reverse direction.  Doing so has no effect on the result
+    of this function since counting  produces  the  same  result  in  either
+    direction.  The argument is included for consistency with other sequence
+    functions.
+
+    To operate on a subsequence of SEQUENCE, specify  the  :start  and  :end
+    keyword  arguments.   The :start keyword argument indicates the index of
+    the first element of the subsequence to examine.  Its value defaults  to
+    zero  (indicating  the first element).  The :end keyword argument speci-
+    fies an index one greater than the index of the last element to examine.
+    A value of nil is equivalent to the default, the length of the sequence.
+    If SEQUENCE is a vector with a fill pointer, only the active elements of
+    SEQUENCE can be examined.
+
+    EXAMPLES
+    (count-if #'characterp '(1 2 #\a #\b 4 d)) => 2
+    (count-if #'characterp '(1 2 3 4 5)) => 0
+    (count-if #'oddp '(1 2 4 6 12 60 7 8 22)
+              :start 3 :end 7) => 1
+    (count-if  #'oddp '((1 2 3)(2 3 4)(3 4 5)) :key #'second) => 1
+
+    SEE ALSO
+    CLtL 14:257, :end, :start, :key, count, count-if-not
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

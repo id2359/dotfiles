@@ -1,0 +1,66 @@
+
+                                                             char-font-limit
+
+
+    CONSTANT
+    char-font-limit  -  upper exclusive bound on character font values
+
+    DESCRIPTION
+    Evaluates to a non-negative integer  representing  the  upper  exclusive
+    bound  on  character  font  values returned by char-font.  This value is
+    implementation-dependent.  If an implementation does  not  support  font
+    attributes, the value will be 1.
+
+    EXAMPLES
+    ;;  The value is implementation-dependent:
+    char-font-limit => 256
+
+    SEE ALSO
+    CLtL 13:234, char-bits, char-bits-limit, char-code, char-code-limit,
+    char-font
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

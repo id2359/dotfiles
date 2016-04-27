@@ -1,0 +1,66 @@
+
+                                                                     declare
+
+
+    SPECIAL FORM
+    declare  -  make a declaration
+
+    USAGE
+    declare {decl-spec}*
+
+    DESCRIPTION
+    This special form is not evaluated, but may occur any number of times at
+    the  beginning  of the body of each the following special forms.  It may
+    also occur at the beginning of the body of a lambda expression.
+
+    defmacro                defsetf                 deftype
+    defun                   do*                     do-all-symbols
+    do-external-symbols     do-symbols              do
+    dolist                  dotimes                 flet
+    labels                  let                     let*
+    locally                 macrolet                multiple-value-bind
+    prog                    prog*
+
+    See the manual page about declarations for a discussion of the scope  of
+    declarations.
+
+    Each DECL-SPEC is not evaluated, and must be a valid declaration specif-
+    ier. A declaration specifier is a list whose car is its name.  For exam-
+    ple, (inline FOO) is a declaration specifier that advises  the  compiler
+    to compile calls to the function FOO inline.  All declaration specifiers
+    are advisory, except special, which alters the default  scoping  proper-
+    ties of a variable.
+
+    EXAMPLES
+    (defun careful (x y)
+      (declare (integer x) (float y) (optimize safety))
+      (+ x y)) => careful
+
+    SEE ALSO
+    CLtL 9:153, about declarations, locally, proclaim
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                         make-synonym-stream
+
+
+    FUNCTION
+    make-synonym-stream  -  make a stream that always operates on a stream
+      bound to a given symbol
+
+    USAGE
+    make-synonym-stream symbol
+
+    DESCRIPTION
+    Returns a synonym stream. Operations on the returned stream will  always
+    be  carried  out  on the stream that is bound (at the time of the opera-
+    tion) to the symbol SYMBOL.  (The binding used is the dynamic binding in
+    the context of the operation.)
+
+    EXAMPLES
+    ;;  The printed representation of streams is
+    ;;  implementation-dependent.
+    (setq stan (make-synonym-stream '*terminal-io*))
+      => #<synonym stream for *terminal-io* @ #x4ce699>
+    ;;  Writing to STAN prints to the terminal.
+    (format stan "hello") => nil
+      PRINTS Hello
+
+    SEE ALSO
+    CLtL 21:329, make-broadcast-stream, make-concatenated-stream, make-two-
+    way-stream, make-echo-stream, make-string-input-stream, make-string-
+    output-stream, open
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

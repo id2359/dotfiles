@@ -1,0 +1,66 @@
+
+                                                                    boole-c1
+
+
+    CONSTANT
+    boole-c1  -  specify bitwise logical operation to return operand one
+      complemented
+
+    DESCRIPTION
+    Used as the first argument to  boole  to  specify  the  bitwise  boolean
+    operation  that  returns the complement of its first operand (the second
+    argument to boole).
+
+    EXAMPLES
+    (setf *print-base* 2
+          *print-radix* t)
+    ;;  (Since bitwise logical operations interpret integers as
+    ;;  half-infinite, the result is negative, which in two's-
+    ;;  complement representation has an infinite string of 1's
+    ;;  to the right, that is toward higher-order bits.  The
+    ;;  number #b-1101 would be represented in two's-complement
+    ;;  as ...111110011.)
+    (boole boole-c1 #b1100 #b1010) => #b-1101
+    (ldb (byte 4 0) #b-1101) => #b11
+    (logbitp 100 #b-1101) => t
+
+    SEE ALSO
+    CLtL 12:222, boole, boole-1, boole-2, boole-and, boole-andc1, boole-
+    andc2, boole-c2, boole-clr, boole-eqv, boole-ior, boole-nand, boole-nor,
+    boole-orc1, boole-orc2, boole-set, boole-xor
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

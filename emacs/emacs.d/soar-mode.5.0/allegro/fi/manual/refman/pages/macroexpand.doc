@@ -1,0 +1,132 @@
+
+                                                                 macroexpand
+
+
+    FUNCTION
+    macroexpand  -  repeatedly expand a macro-call form
+
+    USAGE
+    macroexpand form [env]
+
+    DESCRIPTION
+    Returns two values:  (1) the form which  is  the  result  of  repeatedly
+    expanding  FORM  until it is no longer a macro call, and (2) the value t
+    if the original FORM was a macro call, or nil if it was not.   (Thus  if
+    FORM  is not a macro call, FORM and nil are returned.) A form is a macro
+    call if it is a list whose car names a macro.
+
+    This  function  effectively  does  the  following:  It   first   applies
+    macroexpand-1  to  the  FORM.   If  the  FORM  was not a macro call, the
+    results of macroexpand-1 are returned.  Otherwise, the function  repeat-
+    edly applies macroexpand-1 to the previous result of macroexpand-1 until
+    the form to be expanded is no longer a macro call, indicated by a second
+    value  of  nil  from macroexpand-1.  The final macro-expanded form and t
+    are then returned as values.
+
+    The optional argument ENV specifies the environment within which FORM is
+    to  be  macro-expanded.   If  not  specified,  it  defaults  to the null
+    environment: only global macro definitions established by defmacro  will
+    be considered when expanding FORM.  If specified, it should be an object
+    such as that bound to the &environment parameter of a macro  definition.
+    Any  local  macro  definitions  established by macrolet within the given
+    environment will be considered.  In fact, the principal use of  the  ENV
+    argument  is by a macro expander function that itself expands other mac-
+    ros in its macro-call form before returning its own  expanded  form.   A
+    canonical  example  of  where  such  a  macro  might  be used is a `code
+    walker,' a function that recursively descends  a  form  to  analyze  its
+    structure.  The structure of the object bound to the &environment param-
+    eter is implementation-dependent and not intended for scrutiny.
+
+    EXAMPLES
+    ;;  LOOP might be implemented to produce the following:
+    (macroexpand '(loop (return 10)))
+      => (block nil (tagbody #:g2 (return 10) (go #:g2))) t
+    (macroexpand '(+ 1 2 3)) => (+ 1 2 3) nil
+    (defmacro bar () 5) => bar
+    (defmacro foo (a &environment e)
+      `(list ,a (macroexpand '(bar) ',e))) => foo
+    (defmacro goo (a)
+      `(list ,a (macroexpand '(bar)))) => goo
+    (foo 1) => (1 5)
+    (macrolet ((bar () 6)) (foo 1)) => (1 6)
+    (macrolet ((bar () 6)) (goo 1)) => (1 5)
+
+    (defun walk (form &optional env)
+      (setq form (macroexpand form env))
+      (if (consp form)
+          (let ((functor (car form)))
+            (if (symbolp functor)
+                (let ((handler (get functor 'walk-handler)))
+                  (if handler
+                      (funcall handler form env)
+                    (cons functor (mapcar #'(lambda (expr)
+                                              (walk expr env))
+                                          (cdr form)))))
+              (mapcar #'(lambda (expr)
+                          (walk expr env))
+                      form)))
+        form))
+
+    (defmacro walk-macrolet (form &environment env)
+      `(mapcar #'(lambda (expr)
+                   (walk expr ',env))
+               ',form))
+
+    (setf (get 'macrolet 'walk-handler)
+          #'(lambda (form &optional env)
+              `(progn
+                 ,@(eval `(macrolet ,(cadr form)
+                            (walk-macrolet ,(cddr form)))))))
+
+    (walk '(car (macrolet ((car (x) `(cdr ,x))) (car '(1 2 3)))))
+      => (car (progn (cdr '(1 2 3))))
+    (car (macrolet ((car (x) `(cdr ,x))) (car '(1 2 3)))) => 2
+
+    SEE ALSO
+    CLtL 8:151, eval, macro-function, macroexpand-1, *macroexpand-hook*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

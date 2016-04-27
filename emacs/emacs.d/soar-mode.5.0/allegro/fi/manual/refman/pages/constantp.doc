@@ -1,0 +1,66 @@
+
+                                                                   constantp
+
+
+    FUNCTION
+    constantp  -  test whether an object is a constant
+
+    USAGE
+    constantp object
+
+    DESCRIPTION
+    Returns  true  if  OBJECT  is  a  constant,  otherwise  returns   false.
+    Constants include self-evaluating objects (numbers, strings, characters,
+    bit-vectors,    keywords),     predefined     constants     (nil,     t,
+    most-negative-fixnum,  pi),  constants  defined  using  defconstant, and
+    quoted forms.
+
+    EXAMPLES
+    (setq foo '(a b c)) => (a b c)
+    (constantp foo) => nil
+
+    (defconstant pie 3 "Roughly speaking ...") => pie
+    (constantp pie) => t
+
+    (constantp 100) => t
+    (constantp 'foo) => nil
+    (constantp ''foo) => t
+    (constantp '(quote #(1 2 3))) => t
+
+    SEE ALSO
+    CLtL 20:324, defconstant, eval
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

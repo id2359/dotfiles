@@ -1,0 +1,66 @@
+
+                                                                       psetq
+
+
+    MACRO
+    psetq  -  parallel variable assignment (destructive)
+
+    USAGE
+    psetq {var form}*
+
+    SIDE EFFECTS
+    For each VAR the result of evaluating the corresponding FORM  is  stored
+    in VAR.
+
+    DESCRIPTION
+    Returns nil, but this macro is used for its side effects.  psetq differs
+    from  setq  only in assigning values in parallel.  If a FORM refers to a
+    variable VAR that is also being assigned by the psetq  form,  the  value
+    seen  is the value BEFORE VAR is bound by the psetq form.  setq, in con-
+    trast, assigns values sequentially.  Like setq, psetq may  be  used  for
+    assignment  of  both dynamic and lexical variables.  The values modified
+    are those associated with the variables named by the symbols VAR in  the
+    context within which the psetq form appears or is evaluated.
+
+    EXAMPLES
+    (setq x 4) => 4
+    (psetq x 5 y x) => nil
+    x => 5
+    y => 4
+
+    SEE ALSO
+    CLtL 7:92, psetf, set, setf, setq
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

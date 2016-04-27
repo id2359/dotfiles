@@ -1,0 +1,66 @@
+
+                                                                  char-lessp
+
+
+    FUNCTION
+    char-lessp  -  test whether given characters are monotonically increas-
+      ing, ignoring case and bits
+
+    USAGE
+    char-lessp {char}+
+
+    DESCRIPTION
+    Returns true if each CHAR is less than the next argument CHAR  specified
+    and  returns nil otherwise.  char-lessp ignores case and any bits attri-
+    butes and takes font  attributes  into  account  in  an  implementation-
+    dependent  way.   Each CHAR must be a character object.  The ordering on
+    characters obeys alphabetic ordering within letters, and numeric  order-
+    ing  within  the  digits  0  through 9.  Digits are not interleaved with
+    letters, but whether a digit is less  than  or  greater  than  a  letter
+    depends on the implementation.
+
+    EXAMPLES
+    (char-lessp #\b #\b) => nil
+    (char-lessp #\b #\c) => t
+    (char-lessp #\b #\B) => nil
+    (char-lessp #\B #\b) => nil
+    (char-lessp #\b) => t
+
+    ;;  The following result is implementation-dependent:
+    (char-lessp #\a #\1) => nil
+
+    SEE ALSO
+    CLtL 13:239, char-code, char-equal, char-greaterp, char-not-equal,
+    char-not-greaterp, char-not-lessp, char<
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                                       progn
+
+
+    SPECIAL FORM
+    progn  -  evaluate forms sequentially
+
+    USAGE
+    progn {form}*
+
+    DESCRIPTION
+    Returns the values returned  by  the  last  FORM.   All  the  forms  are
+    evaluated  sequentially.   The  values returned by forms before the last
+    are discarded.  Thus, they are executed for  their  side  effects  only.
+    progn with no forms returns nil.  progn (unlike prog1 and prog2) returns
+    exactly what the last form returns, no values, one  value,  or  multiple
+    values as appropriate.
+
+    Many Common Lisp macros evaluate forms given as arguments in an  `impli-
+    cit  progn'  (let and cond are examples).  This means that the forms are
+    evaluated as if they were the arguments to progn.
+
+    EXAMPLES
+    (progn (setq x 4) (incf x)  (list 'result x)) => (result 5)
+    (progn (truncate 1.5)) => 1 0.5
+    ;;  PROGN returns no values when the last form returns no values.
+    (multiple-value-list (progn (values))) => nil
+
+    SEE ALSO
+    CLtL 7:109, multiple-value-prog1, prog1, prog2, prog, prog*, progv
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

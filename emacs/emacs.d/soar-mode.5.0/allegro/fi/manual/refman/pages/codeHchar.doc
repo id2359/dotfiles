@@ -1,0 +1,66 @@
+
+
+                                                                   code-char
+
+
+    FUNCTION
+    code-char  -  make a character given code, bits and font attributes
+
+    USAGE
+    code-char code [bits [font]]
+
+    DESCRIPTION
+    Returns a character object with the given CODE, BITS,  and  FONT  attri-
+    butes  provided such a character is possible, and returns nil otherwise.
+    The optional arguments BITS and FONT both default to zero.  All  of  the
+    arguments  must  be non-negative integers.  The association between code
+    values and characters and whether bits and font attributes are supported
+    are implementation-dependent.
+
+    EXAMPLES
+    ;;  The results in these examples are implementation-dependent;
+    ;;  they are reasonable for an ASCII-based implementation.
+    ;;  Construct a character out of control bit and `A' character:
+    (code-char 65 char-control-bit) => #\control-A
+
+    ;;  Note that ASCII control-A (ASCII code 1) is definitely not
+    ;;  the same as a Lisp character with a `control' bit attribute.
+    (char= #\control-A (code-char 1)) => nil
+    (char-code (code-char 65 1 2)) => 65
+    (char-bits (code-char 65 1 2)) => 1
+    (char-font (code-char 65 1 2)) => 2
+
+    SEE ALSO
+    CLtL 13:240, char-bits, char-code, char-control-bit, char-font, char-
+    int, char-meta-bit, int-char, make-char
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

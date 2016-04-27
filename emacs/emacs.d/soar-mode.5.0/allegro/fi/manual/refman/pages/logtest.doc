@@ -1,0 +1,66 @@
+
+                                                                     logtest
+
+
+    FUNCTION
+    logtest  -  test whether the logical `and' of two integers is zero
+
+    USAGE
+    logtest n1 n2
+
+    DESCRIPTION
+    Returns true if there is at least one  bit  position  where  the  two's-
+    complement  representations of N1 and N2 are both 1.  Returns false oth-
+    erwise.  Both arguments must be integers.  The following identity holds:
+
+    (logtest x y) = (not (zerop (logand x y)))
+
+    EXAMPLES
+    (logtest 2 5) => nil
+    (logtest 2 3) => t
+
+    SEE ALSO
+    CLtL 12:223, boole, logand, logandc1, logandc2, logbitp, logcount,
+    logeqv, logior, lognand, lognor, lognot, logorc1, logorc2, logxor
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

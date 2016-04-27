@@ -1,0 +1,66 @@
+
+                                         window-stream-frame-mouse-cursor-in
+
+
+    FUNCTION
+    window-stream-frame-mouse-cursor-in  -  get the list of functions called
+      by the frame-mouse-cursor-in method
+
+    Usage
+    window-stream-frame-mouse-cursor-in WSTREAM
+
+    DESCRIPTION
+    Returns  the  list  of  functions  that  will   be   called   when   the
+    frame-mouse-cursor-in  method  for  the window-stream WSTREAM is called.
+    The system calls this function when the mouse cursor enters  the  window
+    frame  (the  borders  and  title  region) from OUTSIDE the window.  (The
+    method is NOT called when the cursor enters the frame  from  within  the
+    window.) You do not (normally) call this function directly.
+
+    Initially, the list of functions contains the single  function  default-
+    window-stream-frame-mouse-cursor-in-method.     This   function   simply
+    returns nil.  You can add functions to (or remove functions  from)  this
+    list  with modify-window-stream-method.  You can replace the entire list
+    with  window-stream-frame-mouse-cursor-in  and  setf.   restore-default-
+    window-stream-method restores the list to its initial contents.
+
+    EXAMPLES
+    ;;  We make a window.
+    (setf *my-win*
+          (make-window-stream :left 100 :bottom 200
+                              :width 100 :height 100
+                              :activate-p t))
+    ;;  The list contains one function.
+    (window-stream-frame-mouse-cursor-in *my-win*) =>
+    (default-window-stream-frame-mouse-cursor-in-method)
+
+    ;;  We add another function to the list.
+    (defun my-after-frame-mouse-cursor-in (wstream mouse-state event)
+      (declare (ignore event))
+          (format  *standard-output*
+                   "Position: ~S ~% "
+                   (mouse-state-position mouse-state)))
+
+    (modify-window-stream-method *my-win* :frame-mouse-cursor-in
+                                  :after 'my-after-frame-mouse-cursor-in)
+
+    ;;  The list now contains two functions.
+    (window-stream-frame-mouse-cursor-in *my-win*)
+      => (default-window-stream-frame-mouse-cursor-in-method
+              my-after-frame-mouse-cursor-in)
+
+    ;;  We restore the list to its initial state.
+    (restore-default-window-stream-method *my-win* :frame-mouse-cursor-in)
+    (window-stream-frame-mouse-cursor-in *my-win*) =>
+    (default-window-stream-frame-mouse-cursor-in-method)
+
+    SEE ALSO
+    frame-mouse-cursor-in, modify-window-stream-method, restore-default-
+    window-stream-method
+
+
+
+
+
+
+

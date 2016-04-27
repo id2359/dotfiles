@@ -1,0 +1,66 @@
+
+                                                                    packagep
+
+
+    FUNCTION
+    packagep  -  test whether an object is a package
+
+    USAGE
+    packagep object
+
+    DESCRIPTION
+    Returns true if OBJECT is a package, and false otherwise.  The following
+    identity holds:
+
+    (packagep x) = (typep x 'package)
+
+    EXAMPLES
+    (packagep (find-package :lisp)) => t
+    (packagep "LISP") => nil
+    (packagep *package*) => t
+
+    SEE ALSO
+    CLtL 6:76, about type specifiers, find-package, make-package
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

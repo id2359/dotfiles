@@ -1,0 +1,66 @@
+
+                                                                       psetf
+
+
+    MACRO
+    psetf  -  set the values of generalized variables in parallel (destruc-
+      tive)
+
+    USAGE
+    psetf {place value}*
+
+    SIDE EFFECTS
+    Each location PLACE is modified to hold the corresponding value VALUE.
+
+    DESCRIPTION
+    Returns nil, but this macro is used for its side effects.  Each PLACE is
+    a generalized variable.  When PLACE is a symbol, what is modified is the
+    value of the variable named by the symbol in the context  in  which  the
+    psetf  form  appears.   This  value  may be associated with a lexical or
+    dynamic binding or it may be a global value.  (Thus a psetf of a  symbol
+    is  identical  functionally  to  a  psetq of a symbol.) If more than one
+    PLACE and VALUE pair is specified,  then  the  pairs  are  processed  in
+    parallel,  and  thus the new values are not visible to the later VALUES.
+    (The VALUES are evaluated left to right but the assignments may be  done
+    in  any  order,  which matters only if two of the PLACE arguments denote
+    the same location).
+
+    EXAMPLES
+    (setq x 4) => 4
+    (psetf x 5 y x) => nil
+    x => 5
+    y => 4
+    (setq lis '(a b c))
+    (psetf (car lis) 'z (cadr lis) (car lis))
+    lis => (z a c)
+
+    SEE ALSO
+    CLtL 7:97, defsetf, psetq, setf, setq
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

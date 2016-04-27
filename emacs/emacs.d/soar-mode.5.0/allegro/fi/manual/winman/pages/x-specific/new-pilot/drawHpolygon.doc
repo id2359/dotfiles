@@ -1,0 +1,132 @@
+
+                                                                draw-polygon
+
+
+    FUNCTION
+    draw-polygon  -  draw a polygon on a graphic stream
+
+    Usage
+    draw-polygon GR-STREAM POSITIONS [:brush-width BRUSH-WIDTH] [:operation
+      OPERATION] [:color COLOR] [:dashing DASHING]
+
+    DESCRIPTION
+    Returns nil but this function is called for its side effects.  It causes
+    a  polygon  to  be drawn on the graphics stream GR-STREAM, which must be
+    either a window-stream or a bitmap-stream.
+
+    A polygon, recall, is figure drawn with a finite number of straight line
+    segments,  beginning and ending at the same point.  The simplest type of
+    polygon is a triangle.
+
+    The POSITIONS argument must be a sequence (list or vector) of positions.
+    These  specify the vertices of the polygon in the extent coordinate sys-
+    tem of GR-STREAM.  If the first and last position are the same, then the
+    polygon  will  have  one fewer sides than positions in the sequence.  If
+    the first and last are different, an additional edge is drawn to connect
+    the  first and last vertices, and the number of edges is the same as the
+    number of positions.
+
+    The :brush-width argument specifies the thickness of the  line  used  to
+    draw  the  polygon.   Its  value  defaults  to  the  value  returned  by
+    window-stream-brush-width applied to GR-STREAM.  Note that the  value  0
+    instructs the system to draw edges of width one but to ignore the strict
+    rules of which pixels must be on and which off.  The value 0 provides  a
+    performance enhancement over the value 1, with slightly less quality.
+
+    The value of the keyword argument :dashing must be a  list  of  positive
+    integers or a single positive integer.  It specifies the dashing pattern
+    of the circle.  For example, the value (1 2  3  4)  says  that  one  bit
+    should be turned on followed by 2 bits turned off, 3 on, and 4 off, then
+    repeating.  If the length of the list is odd, then the  dashing  pattern
+    cycles.   For example the list (1 2 3) would produce the dashing pattern
+    (1 on, 2 off, 3 on)  (1 off, 2 on, 3 off), etc.  A integer  value  or  a
+    list containing a single integer indicates that many on followed by that
+    many off, repeated.  For example, if the value is 2, then the pattern is
+    2 on, 2 off, 2 on, 2 off, etc.
+
+    The keyword argument :operation specifies  the  boolean  operation  that
+    will  be used when the bits from the drawing operation are combined with
+    the bits already on the graphic stream.  This argument defaults  to  the
+    value  of window-stream-operation applied to GR-STREAM.  All the sixteen
+    standard boolean operations of COMMON LISP are supported.  If you have a
+    color machine, we recommend that you only use the boole-1 operation.
+
+    The keyword argument :color, specifies the drawing color,  and  defaults
+    to  the  value  returned  by  window-stream-foreground-color  applied to
+    GR-STREAM.
+
+    EXAMPLES
+    (setf *my-win*
+          (make-window-stream
+           :left 100
+           :bottom 100
+           :width 300
+           :height 300
+           :activate-p t :title "A"))
+    (let ((A
+           (make-array
+            '(9) :initial-contents
+            (list
+             (make-position :x 10 :y 20)
+             (make-position :x 20 :y 10)
+             (make-position :x 10 :y 50)
+             (make-position :x 50  :y 10 )
+             (make-position :x 15  :y 25 )
+             (make-position :x 25 :y 15)
+             (make-position :x 150 :y 55)
+             (make-position :x 55  :y 150 )
+             (make-position :x 40 :y 100))
+            )))
+      (draw-polygon  *my-win* A))
+
+    SEE ALSO
+    draw-filled-polygon, draw-filled-polygon-xy, draw-polygon-xy
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

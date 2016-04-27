@@ -1,0 +1,66 @@
+
+                                                  window-stream-mouse-cursor
+
+
+    FUNCTION
+    window-stream-mouse-cursor  -  get the mouse cursor of a window-stream
+
+    Usage
+    window-stream-mouse-cursor WSTREAM
+
+    DESCRIPTION
+    Returns the mouse cursor that is associated with WSTREAM.  You  can  use
+    this  function,  in  conjunction with setf to provide a mouse cursor for
+    WSTREAM.  In the current implementation, you must use one of the  prede-
+    fined mouse cursors from the list *mouse-cursor-list*.
+
+    EXAMPLES
+    ;;  We make a window to display each predefined
+    ;;  mouse cursor.
+    (let ((left 50)(bottom 10))
+      (dolist (i cw::*mouse-cursor-list*)
+              (let ((w (make-window-stream
+                        :left left
+                        :bottom left
+                        :width 100
+                        :height 100 :activate-p t
+                        :title (princ-to-string (/ left 50)))))
+                (setf (window-stream-mouse-cursor w)
+                      (eval i))
+                (add-right-button-menu w)
+                (incf left 25)
+                (incf bottom 25))))
+
+    SEE ALSO
+    *system-mouse-cursor*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,132 @@
+
+                                                       about type specifiers
+
+
+    NOTES
+    about type specifiers  -  naming LISP data types
+
+    DESCRIPTION
+    A TYPE SPECIFIER in COMMON LISP is a symbol or list  that  identifies  a
+    class  of objects.  Type specifiers can combine with each other and with
+    predicate functions to produce new types, including subtypes and  super-
+    types.   Some type specifiers are merely abbreviations for commonly used
+    combinations.  Users may define new type specifier symbols using deftype
+    and defstruct.
+
+    A type specifier may have two distinct uses:  declaration and  discrimi-
+    nation.    In   a  declaration  (using,  for  example,  declare  or  the
+    :element-type keyword of make-array), it provides  advisory  information
+    to  the  system  and the compiler (and the programmer), perhaps allowing
+    optimizations to be made.  Some type specifiers name SPECIALIZATIONS  of
+    data types, that is, types that are expressed differently but may or may
+    not have different underlying representations.  The predicate typep will
+    not discriminate between different specializations unless the underlying
+    data types are in fact distinct.  For example, in an  implementation  of
+    COMMON  LISP  that  implements long and double floats the same and short
+    and single floats the same, the specializations (array double-float) and
+    (array long-float) are equivalent, while (array double-float) and (array
+    single-float) are distinct.
+
+    The simplest type specifiers are just symbols that name data types, such
+    as  atom or list.  A type specifier may also be a list whose car names a
+    data type and whose  cdr  gives  subsidiary  attributes.   For  example,
+    (array  integer  2) specifies integer arrays of two dimensions.  Often a
+    subsidiary attribute may be left unspecified by putting an asterisk,  *,
+    in  its  place.  When one type specifier has an explicit attribute where
+    another has an asterisk, but they  are  otherwise  identical,  then  the
+    first is a SUBTYPE of the second.  A type specifier list that has one or
+    more asterisks at the end may be abbreviated by dropping them.  If  this
+    results  in a list of only one element, the list may be replaced by just
+    that element.  For example,  (array  *  2),  which  specifies  all  two-
+    dimensional  arrays, is a subtype of the set of general arrays, (array *
+    *), which is the same as just array.
+
+    Not every type specifier list has a data type as its car.  A two-element
+    list  beginning  with satisfies identifies the set of objects satisfying
+    the predicate named by its second element.  A list beginning with member
+    specifies  the  set  of objects given in its cdr.  A type specifier list
+    indicates a combination of types if its cdr contains one  or  more  type
+    specifiers  and its car is one of and, or, or not.  Type specifier lists
+    which start with mod, signed-byte, or unsigned-byte describe subtypes of
+    integer.  A values type specifier pertains to functions that return more
+    than one value (or zero values).
+
+    The different kinds of  type  specifiers  are  described  in  detail  in
+    separate entries.  Each is labeled with the symbol that defines the type
+    or appears as the car of a type specifier  list.   In  some  cases  (for
+    example  function  and  nil, and many more), there will be another entry
+    (in the case of function, two other entries) with the same  name.   Look
+    for  the  one  headed  Type  Specifier.  For example, the type specifier
+    entry called array describes arrays.  The symbols  thus  documented  are
+    listed  below.  Symbols  that  are preceded by |- in this listing are the
+    standard type specifier symbols defined by COMMON LISP.   They  are  the
+    only  type  specifiers defined for the language that can be expressed as
+    symbols.  Some of them may also appear as the car of  a  type  specifier
+    list.
+
+      and                |- keyword          |- sequence
+    |- array              |- list             |- short-float
+    |- atom               |- long-float         signed-byte
+    |- bignum               member           |- simple-array
+    |- bit                  mod              |- simple-bit-vector
+    |- bit-vector         |- nil              |- simple-string
+    |- character            not              |- simple-vector
+    |- common             |- null             |- single-float
+    |- compiled-function  |- number           |- standard-char
+    |- complex              or               |- stream
+    |- cons               |- package          |- string
+    |- double-float       |- pathname         |- string-char
+    |- fixnum             |- random-state     |- symbol
+    |- float              |- ratio            |- t
+    |- function           |- rational           unsigned-byte
+    |- hash-table         |- readtable          values
+    |- integer              satisfies        |- vector
+
+    EXAMPLES
+    (typep 5/2 'ratio) => t
+    (typep (coerce 5/2 'float) 'float) => t
+    (subtypep 'ratio 'rational) => t t
+    (subtypep 'float 'rational) => nil t
+    (typep 6 '(integer 1 10)) => t
+    (typep 6 '(integer 1 5)) => nil
+    (typep 'cat '(member dog cat horse)) => t
+
+    SEE ALSO
+    CLtL 4:42, about declarations, about keywords, declare, defstruct,
+    deftype, make-array, subtypep, type-of, typep
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

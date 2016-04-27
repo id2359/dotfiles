@@ -1,0 +1,66 @@
+
+                                                                       tailp
+
+
+    FUNCTION
+    tailp  -  test whether one list is a sublist of another list
+
+    USAGE
+    tailp sublist list
+
+    DESCRIPTION
+    Returns true if SUBLIST is a  sublist  of  LIST,  and  false  otherwise.
+    Equivalently,  SUBLIST  must be eq to one of the conses at the top level
+    of LIST.  If SUBLIST is a tail of LIST, then SUBLIST can be accessed  by
+    some number of successive applications of cdr to LIST.
+
+    EXAMPLES
+    (setq a '(m n o p q r)) => (m n o p q r)
+    (setq b (cddr a)) => (o p q r)
+    (tailp b a) => t
+    (tailp '(o p q r) a) => nil
+
+    SEE ALSO
+    CLtL 15:275, eq, ldiff
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

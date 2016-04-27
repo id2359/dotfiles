@@ -1,0 +1,66 @@
+
+                                                             nset-difference
+
+
+    FUNCTION
+    nset-difference  -  delete elements of one list that are in another list
+      (destructive)
+
+    USAGE
+    nset-difference list1 list2 [{:test | :test-not} pred] [:key keyfnc]
+
+    SIDE EFFECTS
+    The argument LIST1 may be modified.
+
+    DESCRIPTION
+    Returns a list formed by deleting elements from LIST1 that are in LIST2.
+    Precisely,  the  returned list contains every element of LIST1 for which
+    there is no eql element of LIST2.
+
+    A test predicate other than eql may be used by specifying  PRED  as  the
+    value  of either the :test or the :test-not keyword argument.  PRED must
+    be a function that accepts two arguments (an element  of  LIST1  and  an
+    element of LIST2, passed in that order).  If PRED is the value of :test,
+    the elements match if PRED returns  true.   If  PRED  is  the  value  of
+    :test-not,  the elements match if PRED returns false.  It is an error to
+    supply both :test and :test-not keyword arguments.
+
+    If the keyword argument :key is specified and its value  KEYFNC  is  not
+    nil,  KEYFNC  must  be a function that accepts one argument.  It will be
+    applied to each element of both lists before the  elements  are  tested.
+    When  unspecified  or  nil,  it  effectively  defaults  to  the function
+    identity.
+
+    The resulting list may be eq to, or  share  entries  with,  LIST1.   The
+    order  of  its  elements  is not defined. The non-destructive version of
+    this function is set-difference.
+
+    An implementation is free to implement this as a  non-destructive  func-
+    tion.   Thus  you should not rely on the argument to this function being
+    changed.
+
+    EXAMPLES
+    (setq l1 '(1 2 3)) => (1 2 3)
+    (setq l2 '(4 5 6)) => (4 5 6)
+    ;;  Since the first argument to NSETDIFFERENCE may not itself change,
+    ;;  you  should use SETQ, as in the following.
+    (setq l1 (nset-difference l1 l2)) => (3 2 1)
+    l1 => (1)
+
+    (nset-difference '(1 2 3) '(2 3 4)) => (1)
+    (nset-difference '(1 2 3 3) '(2 4)) => (3 3 1)
+    (nset-difference '(-3 -2 -1 0 1 2 3) '(-2 1)
+      :test #'<) => (3 2 1)
+    (nset-difference '(-3 -2 -1 0 1 2 3) '(-2 1)
+      :test-not #'<) => (-3)
+    (nset-difference '((a 1) (b 2)) '((b 3) (c 4))
+      :key #'car) => ((a 1))
+
+    SEE ALSO
+    CLtL 15:278, intersection, :key, member, nintersection, nset-exclusive-
+    or, set-difference, set-exclusive-or, subsetp, :test, :test-not, union
+
+
+
+
+

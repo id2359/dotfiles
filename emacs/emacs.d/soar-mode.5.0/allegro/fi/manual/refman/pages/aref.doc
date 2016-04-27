@@ -1,0 +1,66 @@
+
+                                                                        aref
+
+
+    FUNCTION
+    aref  -  access an element of an array
+
+    USAGE
+    aref array {subscript}*
+
+    DESCRIPTION
+    Returns an array element accessed by using each SUBSCRIPT argument as an
+    index  into  succeeding  dimensions  of  the array ARRAY.  The number of
+    SUBSCRIPT arguments must be the rank of the array and  each  must  be  a
+    non-negative integer less than the corresponding array dimension.  Array
+    subscripts are numbered starting from zero.  This  function  can  access
+    all  of  the  elements  of an array, even those that are beyond the fill
+    pointer.  This function can also be used in  conjunction  with  setf  to
+    destructively replace an element of an array.
+
+    EXAMPLES
+    (let ((A (make-array '(2 3) :initial-contents '((a b c) (1 2 3)))))
+      (aref A 1 2)) => 3
+    (let ((A (make-array '(2) :initial-contents '((a b c) (1 2 3)))))
+      (aref A 0)) => (a b c)
+    (let ((A (make-array '(2) :initial-contents '((a b c) (1 2 3)))))
+      (setf (aref A 0) 'newthing) (aref A 0)) => newthing
+    (let ((dim-list '(1 2))
+          (A (make-array '(2 3) :initial-contents '((a b c) (1 2 3)))))
+      (apply #'aref A dim-list)) => 3
+
+    SEE ALSO
+    CLtL 17:290, array-dimension, array-dimensions, array-rank, make-array,
+    svref, vector
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                           *event-type-mask*
+
+
+    VARIABLE
+    *event-type-mask*  -  mask to determine the type of a mouse event
+
+    DESCRIPTION
+    Bound to a number which is the sum of  the  following  events,  each  of
+    which is a constant bound to an integer
+            *button-down-event*
+            *button-up-event*
+            *mouse-cursor-in-event*
+            *mouse-cursor-out-event*
+            *mouse-moved-event*
+
+    This constant in included in COMMON WINDOWS as a convenience.  It  gives
+    you a way of easily determining which of the above event types triggered
+    the call to the mouse method you are dealing with.  (This is encoded  in
+    the  TRANSITION  argument  to  the mouse method.) To determine the event
+    type, use the function logand with *event-type-mask and the the  transi-
+    tion  as arguments.  If the result is eq to say, *button-up-event*, then
+    you know that this is the type of the event.
+
+    EXAMPLES
+    ;;   Assume *m-e* is a mouse event argument
+    ;;   passed to a mouse method.
+    ;;  The following will return true if the event
+    ;;  involved a button going down:
+    (eq (logand *m-e* *event-type-mask*) *button-down-event*)
+
+    SEE ALSO
+    about mouse events, *event-button-mask*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

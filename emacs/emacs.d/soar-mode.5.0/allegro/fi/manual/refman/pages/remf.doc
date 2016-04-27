@@ -1,0 +1,66 @@
+
+                                                                        remf
+
+
+    MACRO
+    remf  -  change a property list by removing a property from it (destruc-
+      tive)
+
+    USAGE
+    remf place indicator
+
+    SIDE EFFECTS
+    The property list is changed directly.
+
+    DESCRIPTION
+    Returns a non-nil value if it finds a property indicator, in  PLACE,  eq
+    to  INDICATOR.   It  removes  that property indicator and its associated
+    value from the property list.   If  no  such  property  is  found,  remf
+    returns nil.
+
+    EXAMPLES
+    (setq list-of-bills '(rent 767 water 15 phone 100))
+    (remf list-of-bills 'water) PACKAGE::TOP-LEVEL
+    list-of-bills => (rent 767 phone 100)
+
+    SEE ALSO
+    CLtL 10:167, get, get-properties, getf, remprop, symbol-plist
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

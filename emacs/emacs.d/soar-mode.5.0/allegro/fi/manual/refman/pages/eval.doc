@@ -1,0 +1,66 @@
+
+                                                                        eval
+
+
+    FUNCTION
+    eval  -  evaluate a form
+
+    USAGE
+    eval form
+
+    DESCRIPTION
+    Returns the result of evaluating FORM.  The lexical environment for  the
+    evaluation  is  null,  but the current dynamic environment is used.  The
+    argument FORM is actually  evaluated  twice,  once  due  to  the  normal
+    evaluation  of  the arguments to functions, and once due to the explicit
+    call to eval.  The function symbol-value is useful for evaluating just a
+    symbol.
+
+    If the global variable *evalhook* is not nil, it should be  bound  to  a
+    function which will be used instead of eval when any evaluation is done.
+
+    EXAMPLES
+    (setq x 'y) => y
+    (setq y 2) => 2
+    (eval x) => 2
+    (eval '(car '(alpha beta gamma))) => alpha
+
+    SEE ALSO
+    CLtL 20:321, *applyhook*, apply, applyhook, *evalhook*, evalhook,
+    symbol-value
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

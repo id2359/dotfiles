@@ -1,0 +1,66 @@
+
+                                                                       phase
+
+
+    FUNCTION
+    phase  -  get the angular part of the polar representation of a complex
+      number
+
+    USAGE
+    phase number
+
+    DESCRIPTION
+    Returns the angular component of the  polar  representation  of  NUMBER,
+    which  must be a number.  If NUMBER is real, it is interpreted as a com-
+    plex number with imaginary part zero, and so has a phase of zero or J as
+    it is positive or negative.  If the argument is a complex floating-point
+    number, the result will be a floating-point number of the same  type  as
+    the  components  of  NUMBER.   wider  of  the  two types if the real and
+    imaginary parts are different).  The result will be single-float if  the
+    argument is a rational or a complex number with rational components.
+
+    The branch cut for phase is continuous with  the  second  quadrant,  and
+    lies  on  the negative real axis.  The range is along the real axis from
+    -J (exclusive) to J (inclusive).
+
+    The following mathematical identity holds:
+
+    (phase z) = (atan (imagpart z) (realpart z))
+
+    EXAMPLES
+    (phase 5) => 0.0
+    (phase -5.0d0) => 3.141592653589793d0
+    (phase #c(0 1)) => 1.5707964s0
+    (phase #c(0 1.0d0)) => 1.5707963267948966d0
+
+    SEE ALSO
+    CLtL 12:206, abs
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,54 @@
+
+
+
+                                       *default-colormap-size*
+
+       
+
+       *default-colormap-size*
+       
+
+
+       VARIABLE
+       *default-colormap-size*  -  default value of the SIZE
+         argument to create-colormap
+
+       DESCRIPTION
+       Evaluates to a number that will be the size of a color-
+       map  created  by  create-colormap  if the optional SIZE
+       argument to that function is not specified.   The  ini-
+       tial  value  of  this  variable is 8, which is also the
+       size  of  the  colormap   which   is   the   value   of
+       *default-colormap.   The  size of a colormap determines
+       how many colors can be stored into it.
+
+       EXAMPLES
+       *default-colormap-size* => 8
+       (colormap-size (create-colormap)) => 8
+
+       SEE ALSO
+       create-colormap, *default-colormap*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+       Reference Manual                                      1
+
+
+
+
+

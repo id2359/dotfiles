@@ -1,0 +1,66 @@
+
+                                                             symbol-function
+
+
+    FUNCTION
+    symbol-function  -  get the global function definition of a symbol
+
+    USAGE
+    symbol-function symbol
+
+    DESCRIPTION
+    Returns the global function definition associated with SYMBOL.   If  the
+    SYMBOL  has  no  global  function  definition,  this function signals an
+    error.  (It is generally recommended that fboundp be used before  apply-
+    ing symbol-function.)
+
+    The value returned may be a function or  an  object  that  represents  a
+    macro definition or a special form.  (Macros and special forms cannot be
+    applied using apply or funcall.)
+
+    Only the global function definition of a symbol  is  accessible.   Local
+    definitions  associated  with  SYMBOL are not visible.  One may use setf
+    with symbol-function to replace the current global  function  definition
+    of symbol.  (There can only be one global function definition, which may
+    be a macro or a function.)
+
+    EXAMPLES
+    (defun foo (x) (car x))
+    (symbol-function 'foo) => (lambda (x) (block foo (car x)))
+    (setf (symbol-function 'foo) '(lambda (x)(cadr x)))
+    (symbol-function 'foo) => (lambda (x) (cadr x))
+    (flet ((foo (x y) (cons x y)))
+      (symbol-function 'foo)) => (lambda (x) (cadr x))
+
+    SEE ALSO
+    CLtL 7:90, fboundp, symbol-value
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

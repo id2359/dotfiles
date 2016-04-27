@@ -1,0 +1,66 @@
+
+                                                                      vector
+
+
+    Type SPECIFIER
+    vector  -  the data type comprising unidimensional arrays
+
+    Usage
+    {vector | (vector [ELEMENT-TYPE [SIZE]])}
+
+    DESCRIPTION
+    Specifies a data type consisting of vectors  (see  array)  with  element
+    type  given  by  ELEMENT-TYPE and size given by the non-negative integer
+    SIZE.  Both ELEMENT-TYPE and SIZE may be explicitly unspecified using *.
+    A  list  specifier  that  has  one  or  more asterisks at the end may be
+    abbreviated by dropping them.  If this results in a  list  of  only  one
+    element, the list may be replaced by just vector.
+
+    A vector is a one-dimensional array.  It may have a fill pointer and its
+    size  may  be adjustable.  An adjustable array is one for which the size
+    can be changed dynamically.  Two vectors may share elements  if  one  is
+    DISPLACED  to  the  other.  Vectors of characters are called STRINGS and
+    vectors of the integer values 0 and 1 are called BIT-VECTORS.  The types
+    (vector  string-char)  and  (vector  bit)  are  equivalent to string and
+    bit-vector, respectively.  If a vector has no fill  pointer,  cannot  be
+    enlarged  or shrunk dynamically, and is not displaced to another vector,
+    it is known as a SIMPLE vector.  All implementations specialize  vectors
+    of string characters and of bits.
+
+    EXAMPLES
+    (subtypep 'vector 'simple-array) => nil t
+    (subtypep '(vector * 5) 'vector) => t t
+
+    SEE ALSO
+    CLtL 2:29, 4:43, about type specifiers, array, bit-vector, simple-
+    vector, simple-string, string
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

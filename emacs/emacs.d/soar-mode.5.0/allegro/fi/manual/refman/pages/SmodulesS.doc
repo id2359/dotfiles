@@ -1,0 +1,66 @@
+
+                                                                   *modules*
+
+
+    VARIABLE
+    *modules*  -  the list of modules loaded in Lisp
+
+    USAGE
+    *modules*
+
+    DESCRIPTION
+    A MODULE is a loosely-defined term meaning a COMMON LISP subsystem  that
+    is  stored in one or more files.  COMMON LISP provides this global vari-
+    able and two functions, require and provide, for manipulating modules.
+
+    *modules* evaluates to a list  of  strings  that  identify  the  modules
+    (presumably)  loaded  into  the  system.   (We say `presumably' since no
+    effort is made to ensure that the files comprising a module listed  have
+    been loaded.)  The list of possible modules is implementation-dependent.
+    Modules are identified by strings or symbols.  If a symbol  is  used  to
+    identify a module, its print name is stored on the *modules* list.
+
+    When provide is called, the name (as a string) of the module given as an
+    argument  is  added  to  the  *modules*  list. When require is called, a
+    case-sensitive comparison of its argument, or  the  print  name  of  its
+    argument  if  the  argument  is  a  symbol, is made with the elements of
+    *modules* to determine whether the module is  already  loaded.   If  the
+    module  is  not  on  the *modules* list, it is loaded. Note that provide
+    adds the name WITHOUT loading any associated files and that require does
+    not  load  files  for a module whose name appears on the *modules* list.
+    In normal usage, the files  comprising  a  module  include  a  top-level
+    application  of  provide  in  order  to  indicate to the system that the
+    module has been loaded.  require does NOT add the module being loaded to
+    the *modules* list.
+
+    EXAMPLES
+    ;;  In the example, we assume that there are two modules,
+    ;;  one with a PROVIDE form, and one without.
+
+    *modules* => ("cstructs" "sa68881")
+    (require "module-with-provide") => t
+    ;;  loading is done here
+    *modules* => ("module-with-provide" "cstructs" "sa68881")
+    (require "module-without-provide") => t
+    ;;  loading is done here
+    *modules* => ("module-with-provide" "cstructs" "sa68881")
+    (require "module-with-provide") => nil
+    (require "module-without-provide") => t
+    ;;  loading is done here
+
+    SEE ALSO
+    CLtL 11:188, provide, require
+
+
+
+
+
+
+
+
+
+
+
+
+
+

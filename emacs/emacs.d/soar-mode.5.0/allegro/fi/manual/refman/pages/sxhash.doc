@@ -1,0 +1,66 @@
+
+                                                                      sxhash
+
+
+    FUNCTION
+    sxhash  -  get a hash code for an object
+
+    USAGE
+    sxhash object
+
+    DESCRIPTION
+    Returns a non-negative fixnum that may  be  used  as  a  hash  code  for
+    OBJECT,  which  may  be  any  COMMON  LISP object.  The code returned is
+    implementation-dependent, but, guaranteed to be independent of different
+    incarnations  or  core images of the same implementation.  Thus the code
+    can be written to a file, read in later by a fresh copy of COMMON  LISP,
+    and  used  meaningfully.   The  code  returned  is  the same for any two
+    objects that are equal.
+
+    EXAMPLES
+    (setq x '(a b c)) => (a b c)
+    (equal (sxhash x) (sxhash (copy-list x)))  => t
+
+    SEE ALSO
+    CLtL 16:285, make-hash-table
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                                        warn
+
+
+    FUNCTION
+    warn  -  issue a warning
+
+    USAGE
+    warn format-string {arg}*
+
+    SIDE EFFECTS
+    If *break-on-warnings* is true, the debugger is invoked.
+
+    DESCRIPTION
+    Returns nil.  This function signals a warning  by  printing  a  message,
+    and,  if  the  value of the global variable *break-on-warnings* is true,
+    invokes the debugger.  The message is printed by applying format to nil,
+    FORMAT-STRING,  and  all ARG arguments, further processing the resulting
+    string in an implementation-dependent way, and then writing  it  to  the
+    stream  that  is  the value of *error-output*.  The FORMAT-STRING should
+    not contain newlines at the beginning or end  nor  words  that  indicate
+    that the message is a warning since these will be supplied automatically
+    by any implementation.  Messages conventionally end  in  a  period.   No
+    indentation should follow newlines within long warning messages.
+
+    EXAMPLES
+    (flet ((test (num)
+             (when (evenp num)
+               (warn "Please use an odd number.~%~
+                  ~D is an even number. Please use an odd number."
+                     num))
+             (* num 2)))
+      (test 4)) => 8
+       PRINTS Warning: Please use an odd number.
+             4 is an even number. Please use an odd number.
+
+    SEE ALSO
+    CLtL 24:432, *break-on-warnings*, break, cerror, error
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

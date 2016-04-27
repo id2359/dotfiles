@@ -1,0 +1,66 @@
+
+                                                     window-stream-operation
+
+
+    FUNCTION
+    window-stream-operation  -  get drawing and writing operation of a
+      window-stream or bitmap-stream
+
+    Usage
+    window-stream-operation GR-STREAM
+
+    DESCRIPTION
+    Returns the boolean operation that is used whenever characters are drawn
+    or written to the graphics-stream GR-STREAM.  GR-STREAM must be either a
+    window-stream or a bitmap-stream.  The  default  operation  is  boole-1.
+    All  sixteen standard COMMON LISP boolean operations are supported.  The
+    value returned by this function may be changed with setf.
+
+    EXAMPLES
+    (setf *my-win*
+            (make-window-stream :left 100 :bottom 100
+            :width 200 :height 200
+            :activate-p t :title "Just a Window"))
+
+    (eq (window-stream-operation *my-win*)
+        'boole-1) => t
+
+    (setf (window-stream-operation *my-win*) boole-xor)
+    (eq (window-stream-operation *my-win*)
+        'boole-xor) => t
+
+    SEE ALSO
+    make-window-stream
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

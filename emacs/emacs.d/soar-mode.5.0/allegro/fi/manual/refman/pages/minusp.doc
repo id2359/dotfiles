@@ -1,0 +1,66 @@
+
+                                                                      minusp
+
+
+    FUNCTION
+    minusp  -  test whether a number is less than zero
+
+    USAGE
+    minusp number
+
+    DESCRIPTION
+    Returns true if NUMBER is strictly less than  0,  and  false  otherwise.
+    NUMBER  must  be  a  real  number.   If  an  implementation has separate
+    representations for positive and negative  zero,  neither  will  satisfy
+    this predicate.
+
+    EXAMPLES
+    (minusp -0.1) => t
+    (minusp -0/5) => nil
+    (minusp -3) => t
+    (minusp *least-negative-short-float*) => t
+
+    SEE ALSO
+    CLtL 12:196, plusp, zerop
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                                      subseq
+
+
+    FUNCTION
+    subseq  -  get a subsequence of a sequence
+
+    Usage
+    subseq SEQUENCE START [END]
+
+    DESCRIPTION
+    Returns copy of the subsequence of SEQUENCE bounded by  START  and  END.
+    SEQUENCE must be a sequence.
+
+    Indexing is zero-origin, with START a non-negative  integer  designating
+    the  first  element  of  the  subsequence  and  END (if supplied) a non-
+    negative integer designating the first element  after  the  subsequence.
+    END  defaults to the length of SEQUENCE, which value is also used if END
+    is nil.
+
+    subseq may be used with setf to destructively modify the contents  of  a
+    subsequence of SEQUENCE.
+
+    EXAMPLES
+    (setq seq1 '(1 2 3 4))
+    (subseq seq1 1 3) => (1 2)
+    (subseq seq1 0 4) => (1 2 3 4)
+    (setf (subseq seq1 1 3) '(a b)) => (0 a b 3)
+
+    SEE ALSO
+    CLtL 14:248, replace, setf
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

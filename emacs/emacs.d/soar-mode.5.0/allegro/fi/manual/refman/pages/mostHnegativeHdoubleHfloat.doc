@@ -1,0 +1,66 @@
+
+                                                  most-negative-double-float
+
+
+    CONSTANT
+    most-negative-double-float  -  the double-float closest to negative in-
+      finity
+
+    DESCRIPTION
+    This constant evaluates to the value of the double-float number  nearest
+    to  (but  still  different  from)  negative infinity.  The value of this
+    constant is implementation-dependent.
+
+    EXAMPLES
+    ;;  This value is implementation-dependent.
+    most-negative-double-float => -4.4942328371557866d+307
+
+    SEE ALSO
+    CLtL 12:232, about numeric constants
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                         format directive ~*
+
+
+    FORMAT DIRECTIVE
+    ~*  -  skip backward or forward in argument list
+
+    USAGE
+    ~count[:][@]&ESTAR
+
+    DESCRIPTION
+    Skips forward over COUNT (default 1) format arguments, unless the  ``:''
+    modifier  is  given,  in  which case the skipping is backward.  When the
+    ``@'' modifier is given, skipping is absolute  in  the  sense  that  the
+    argument numbered COUNT (default 0) becomes available to the next direc-
+    tive in the format control string.  The first argument is numbered zero.
+
+    Within the repetition control structure directive, ``~{'',  this  direc-
+    tive  skips forward, backward, or absolutely within the sublist of argu-
+    ments being processed by the iteration.
+
+    EXAMPLES
+    (format nil "~B ~:*~O ~:*~D ~:*~X" 13)
+      => "1101 15 13 d"
+    (format nil "~3@*~A ~V@*~A ~2*~A" 'a 'b 'c 'd 2 'e)
+      => "d c e"
+
+    SEE ALSO
+    CLtL 22:399, format, format directive ~A, format directive ~{
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

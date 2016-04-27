@@ -1,0 +1,66 @@
+
+                                                                       close
+
+
+    FUNCTION
+    close  -  close a stream
+
+    USAGE
+    close stream [:abort abortp]
+
+    SIDE EFFECTS
+    No subsequent input or output operations on  STREAM  are  possible.   If
+    ABORTP  is  non-nil, side effects associated with the creation of STREAM
+    may be reversed (for example, a file created along with  STREAM  may  be
+    removed).
+
+    DESCRIPTION
+    Causes STREAM, which must be a stream, to be closed,  and  returns  nil.
+    If  a non-nil value is supplied for the :abort keyword argument, this is
+    an indication that the stream is being closed abnormally and the  system
+    tries  to  clean up any side effects of opening STREAM.  It is permitted
+    to close a stream that is already closed.  It may be possible to inquire
+    about the stream after it is closed.
+
+    EXAMPLES
+    (close *debug-io*) => nil
+
+    ;;  The error is due to the attempt to perform
+    ;;  an I/O operation on the closed stream:
+    (read *debug-io*) => ERROR
+
+    SEE ALSO
+    CLtL 21:332, about keywords, open, read, with-open-file
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

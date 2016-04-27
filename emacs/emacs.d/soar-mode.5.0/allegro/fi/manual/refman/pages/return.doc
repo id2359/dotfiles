@@ -1,0 +1,66 @@
+
+                                                                      return
+
+
+    MACRO
+    return  -  Return from a block named nil
+
+    USAGE
+    return  [result]
+
+    SIDE EFFECTS
+    Causes a return from  a  block  named  nil  and  determines  the  values
+    returned by the block.
+
+    DESCRIPTION
+    Does not return anything itself.  The values returned from the block are
+    either  the  results  of  evaluating  RESULT, or the single value nil if
+    RESULT is not specified.  The return form must be lexically enclosed  in
+    a  block  named  nil.   do,  do*,  do-all-symbols,  do-external-symbols,
+    dolist, do-symbols, dotimes, loop, prog, and  prog*  each  automatically
+    establish  a  block named nil.  To return from a block with a name other
+    than nil, use return-from.  The following forms are equivalent:
+
+    (return x) = (return-from nil x)
+
+    EXAMPLES
+    (dolist (x '(1 2 3)) (if (evenp x) (return x))) => 2
+    (dolist (x '(1 2 3)) (if (floatp x) (return x))) => nil
+
+    SEE ALSO
+    CLtL 7:120, block, return-from
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

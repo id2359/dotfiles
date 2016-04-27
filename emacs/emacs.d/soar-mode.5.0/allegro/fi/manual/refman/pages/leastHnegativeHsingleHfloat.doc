@@ -1,0 +1,66 @@
+
+                                                 least-negative-single-float
+
+
+    CONSTANT
+    least-negative-single-float  -  negative single-float closest to zero
+
+    DESCRIPTION
+    Returns the value of the negative single-float number  nearest  to  (but
+    still  different from) zero.  This value is implementation-dependent but
+    is guaranteed not to be minus zero (if the implementation  has  distinct
+    signed floating-point zeroes).
+
+    EXAMPLES
+    ;;  This value is implementation-dependent.
+    least-negative-single-float => -1.1754944e-38
+
+    SEE ALSO
+    CLtL 12:232, about numeric constants
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

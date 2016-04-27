@@ -1,0 +1,66 @@
+
+                                                                       black
+
+
+    FUNCTION
+    black  -  the color black
+
+    Usage
+    black
+
+    DESCRIPTION
+    This is a constant, bound to the color black.  The color  is  read-only,
+    which means you cannot change it.
+
+    EXAMPLES
+    black => #<Gray: 0.0, read-only>
+
+    SEE ALSO
+    blue, green, purple, red, turquoise, white, yellow
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

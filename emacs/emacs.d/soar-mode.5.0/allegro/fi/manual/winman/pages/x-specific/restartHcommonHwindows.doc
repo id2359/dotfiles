@@ -1,0 +1,132 @@
+
+                                                      restart-common-windows
+
+
+    FUNCTION
+    restart-common-windows  -  restart COMMON WINDOWS after a dumplisp
+
+    Usage
+    restart-common-windows [:host HOST][:verbose VERBOSE][GC-CURSOR GC-
+      CURSOR]
+
+    DESCRIPTION
+    This function returns what the last function in the list  bound  to  the
+    global variable *restart-common-windows-actions* returns.  This function
+    may be used to restart COMMON WINDOWS after a dumplisp  where  you  have
+    saved  some  COMMON  WINDOWS  state.  First, you should invoke the saved
+    Lisp image, and then you should call restart-common-windows, rather than
+    initialize-common-windows.   COMMON WINDOWS will resume inthe same state
+    as when if was dumped out.
+
+    You can customize the behavior of restart-common-windows by changing the
+    contents of the list bound to *restart-common-windows-actions*.
+
+    restart-common-windows calls the functions in that list  in  order,  all
+    with  the  same  arguments  passed  to  restart-common-windows  itself .
+    (Actually, the list contains symbols denoting functions rather than  the
+    function objects themseleves.) Initially, this list consists of the sin-
+    gle item default-restart-common-windows.  This function does the  actual
+    work  of  restarting  COMMON WINDOWS so you should insure that it is NOT
+    removed from the list .  The following paragraphs describe the  behavior
+    of default-restart-common-windows.
+
+    The  keyword  argument  :host,  must   be   a   string   of   the   form
+    HOST-NAME[SERVER-NUMBER[DISPLAY-NUMBER]],  and  is  used  to specify the
+    name of the machine that will be the X server.  If  this  DISPLAY-NUMBER
+    is not specified, it defaults to 0.  SERVER-NUMBER also defaults to 0 if
+    not specified.  If the  :host  argument  itself  is  not  specified,  it
+    defaults to the value of the DISPLAY environment variable on the machine
+    running LISP.  If that variable has no value, the name of the host  run-
+    ning LISP is used.
+
+    The keyword argument :verbose introduces a flag that  tells  the  system
+    whether  or  not  it  should  produce  messages about the state of the X
+    server connection at the  time of the restart.  Its  value  defaults  to
+    nil.  The :gc-cursor argument tells the system whether to display a spe-
+    cial mouse-cursor (shaped like an hourglass) when LISP is  garbage  col-
+    lecting.  Doing so tells you why LISP and COMMON WINDOWS have suspended,
+    but there is a cost.  LISP has grabbed the mouse and the  mouse  buttons
+    will  not  work with other X clients until the cursor changes back.  You
+    must weigh the costs and benefits of enabling the gc-cursor..  (You  may
+    enable   the   gc-cursor   after   COMMON   WINDOWS   is   running  with
+    enable-gc-cursor and disable it with disable-gc-cursor.
+
+    The function restart-common-windows calls the restore  method  on  every
+    window-stream  and  bitmap-stream  in  the  restored  environment.   For
+    window-streams, the default restore  method  just  calls  repaint.   For
+    bitmap-streams,  the  default restore method calls the function restore-
+    bitmap-stream which restores the bits on the bitmap stream.  The default
+    restore method does not call restore-window-stream, since window-streams
+    usually have their own repaint methods.  If this  is  not  the  behavior
+    that you want, then you can customize the save and restore methods.
+
+    EXAMPLES
+    ;;  We restart COMMON WINDOWS on host "frigg:0.0"
+    (restart-common-windows :host "frigg:0.0")
+
+    ;;  We could have left out the ":0.0", so this call
+    ;; has the same effect:
+    (restart-common-windows :host "frigg")
+
+    ;;  When :HOST is not specified, the value of the DISPLAY
+    ;;  environment variable is used, or the host running
+    ;; COMMON WINDOWS 's DISPLAY has no value. There must be an X
+    ;; server running on the host.
+    (restart-common-windows :host "frigg")
+
+    ;;  We restart COMMON WINDOWS in the verbose mode:
+
+    (restart-common-windows :host "frigg" :verbose t)
+
+    ;; We restart COMMON WINDOWS with the gc-cursor enabled:
+
+    (restart-common-windows :host "frigg" :gc-cursor t)
+
+    SEE ALSO
+    common-windows-initialized-p, save, restore, restore-window-stream,
+    restore-bitmap-stream, initialize-common-windows, kill-common-windows
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                                 use-package
+
+
+    FUNCTION
+    use-package  -  make the external symbols of packages accessible to
+      another package
+
+    USAGE
+    use-package packages-to-use [package]
+
+    DESCRIPTION
+    Returns t after making  all  the  external  symbols  in  PACKAGES-TO-USE
+    accessible  to  PACKAGE.  (That means that in PACKAGE, those symbols can
+    be referred to without the package name and colon qualifier.  Note  that
+    if  the  name  of  an external symbol in one of the PACKAGES-TO-USE con-
+    flicts with the name of a symbol already accessible  in  PACKAGE  or  an
+    external  symbol  in another PACKAGE-TO-USE, a continuable error is sig-
+    nalled.  No error will be signalled, however, if the symbol  is  on  the
+    shadowing-symbols  list  of  PACKAGE.)  one of the which defaults to the
+    current package (the value of *package*).
+
+    PACKAGES-TO-USE must be either a single package, string, or symbol, or a
+    list  of  packages, strings, or symbols.  The print names of symbols are
+    used as the strings to identify packages.  PACKAGE must  be  a  package.
+    It  is  an  error to call use-package with the keyword package as one of
+    the PACKAGES-TO-USE.
+
+    EXAMPLES
+    ;;  The printed representation of package objects
+    ;;  is implementation-dependent.
+    (in-package :my-package)
+      => #<The MY-PACKAGE package, 0 internal, 0 external>
+    (setq my-sym 3) => 3
+    (export 'my-sym) => t
+    (in-package :your-package)
+      => #<The YOUR-PACKAGE package, 0 internal, 0 external>
+    (use-package :my-package) => t
+    ;;  Now MY-SYM is inherited by YOUR-PACKAGE.
+    my-sym => 3
+    (unuse-package :my-package :your-package) => t
+    ;;  MY-SYM can no longer be accessed without a package qualifier.
+    my-sym => ERROR
+
+    SEE ALSO
+    CLtL 11:187, find-package, make-package, *package*, unuse-package
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

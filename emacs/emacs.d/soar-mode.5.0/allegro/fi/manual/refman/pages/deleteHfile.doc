@@ -1,0 +1,66 @@
+
+                                                                 delete-file
+
+
+    FUNCTION
+    delete-file  -  remove a file
+
+    USAGE
+    delete-file file
+
+    SIDE EFFECTS
+    The file identified by FILE is erased from the file system.
+
+    DESCRIPTION
+    Removes the file identified by FILE, and returns a non-nil value if  the
+    deletion  was successful.  If for any reason the deletion was unsuccess-
+    ful, an error is signalled.
+
+    The argument FILE must be a pathname, string, or stream.   If  it  is  a
+    pathname,  it  must  not  contain  a :wild component, or a nil component
+    where a nil component is not permitted by the file system.  If FILE is a
+    stream,  the  precise  action  is  implementation-dependent, but the end
+    result is that the file is deleted and the stream is  closed,  if  these
+    actions   are   possible.    It   is   implementation-dependent  whether
+    delete-file returns non-nil or signals an error when applied to  a  non-
+    existent file.
+
+    EXAMPLES
+    (progn
+      (with-open-file (out "junk" :direction :output
+                           :if-exists :supersede)
+        (prin1 'foo out))
+      (list
+       (null (probe-file "junk"))
+       (null (delete-file "junk"))
+       (null (probe-file "junk"))))
+      => (nil nil t)
+
+    SEE ALSO
+    CLtL 23:424, probe-file, rename-file, with-open-file
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

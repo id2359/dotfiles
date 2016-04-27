@@ -1,0 +1,66 @@
+
+                                                                 find-symbol
+
+
+    FUNCTION
+    find-symbol  -  find an existing symbol in a package
+
+    USAGE
+    find-symbol string [package]
+
+    DESCRIPTION
+    Returns two values.  If a symbol is found,  the  symbol  and  a  keyword
+    describing how it was found are returned.  If a symbol is not found, the
+    two values returned are both nil.  STRING must  be  a  string.   PACKAGE
+    must  be  a package.  PACKAGE defaults to the current package (the value
+    of *package*).
+
+    PACKAGE is searched for a symbol whose print name is STRING.  The search
+    will  be  successful  if such a symbol is accessible to PACKAGE, whether
+    directly or by inheritance.  If the search is successful, the symbol  is
+    returned  as  the  first  value  and  one  of  the following keywords is
+    returned as the  second  value:  :internal,  :external,  or  :inherited.
+    :internal  is returned if the symbol is present in PACKAGE and is inter-
+    nal, :external is returned is the symbol is present in  PACKAGE  and  is
+    external, :inherited is returned if the symbol is inherited from another
+    package (and thus implicitly internal).
+
+    Note that find-symbol differs from intern in that if the symbol  is  not
+    found  it  is  NOT created.  intern creates a new symbol if no symbol is
+    found.
+
+    EXAMPLES
+    (unless (find-package :geometry) (make-package :geometry))
+    (intern :rotate-triangle (find-package :geometry))
+    (find-symbol "ROTATE-TRIANGLE" (find-package :geometry))
+      => geometry::rotate-triangle :internal
+
+    SEE ALSO
+    CLtL 11:185, find-all-symbols, intern, *package*, use-package
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

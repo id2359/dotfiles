@@ -1,0 +1,66 @@
+
+                                                               *print-level*
+
+
+    VARIABLE
+    *print-level*  -  variable that controls the depth of printing of nested
+      data structures
+
+    DESCRIPTION
+    Evaluates to an integer or nil.  When the value of this variable is nil,
+    all  levels  of lists, arrays, vectors and other similar objects will be
+    printed.  If  the  value  is  an  integer,  only  objects  that  can  be
+    represented  at  a  lower  level  than the integer are printed normally.
+    Composite objects to be printed at a level greater than or equal to  the
+    integer are printed with a #.
+
+    Level is defined recursively.  An object to be printed is at level zero.
+    Its elements are at level one.  If an object is at level N, its elements
+    (if it is not an atom) are at level N+1.
+
+    If the printed representation of an object contains # replacing  entries
+    at  levels  greater  than or equal to *print-level*, this representation
+    cannot be read back.  Indeed, it is normally an error to try to  read  a
+    representation of an object containing a # (since it is not legal syntax
+    in the default readtable).
+
+    This variable only affects the printing of lists and  list-like  objects
+    such  as  vectors  and  arrays.   The printing of symbols, strings, bit-
+    vectors, numbers (particularly bignums), and so  on  are  not  affected.
+    The value of this variable must be nil or an integer.  Its initial value
+    is nil.
+
+    EXAMPLES
+    *print-level* => nil
+    (setq nester '(alpha (a1 (a11 (a111 a112) a12) a2) beta))
+    (let ((*print-level* 1)) (print nester))
+      PRINTS (alpha # beta)
+    (let ((*print-level* 2)) (print nester))
+      PRINTS (alpha (a1 # a2) beta)
+
+    SEE ALSO
+    CLtL 22:372, about printing, *print-array*, *print-base*, *print-case*,
+    *print-circle*, *print-escape*, *print-gensym*, *print-length*, *print-
+    pretty*, *print-radix*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

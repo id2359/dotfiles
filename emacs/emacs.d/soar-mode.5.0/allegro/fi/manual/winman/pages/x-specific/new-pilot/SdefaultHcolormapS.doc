@@ -1,0 +1,66 @@
+
+                                                          *default-colormap*
+
+
+    VARIABLE
+    *default-colormap*  -  the default LISP colormap
+
+    DESCRIPTION
+    A LISP colormap is a LISP data structure used to store colors.  On black
+    and white machines, the colormap contains black and white and no further
+    colors need be defined.  On gray level machines, grays can  be  defined.
+    On color machines, many colors can be defined.
+
+    One LISP colormap is defined when COMMON WINDOWS is initialized.  It  is
+    the  default  LISP  colormap that is the value of this variable.  A LISP
+    colormap is the interface between LISP colors and the  server  colormap.
+    Each  LISP  colormap  is  associated  with a server colormap, and when a
+    color is installed (stored) in a LISP colormap, it is assigned an  index
+    into the associated server colormap and the color value is stored in the
+    server colormap location specified by the index.
+
+    The *default-colormap* is associated with the default  server  colormap,
+    the  one  used  when  COMMON  WINDOWS is initialized.  As new colors are
+    installed in the *default-colormap*, slots are grabbed from the  default
+    server  colormap.  When no more slots are available, trying to install a
+    new  color  will  signal  an  error.   (The  error  condition  will   be
+    allocate-color-error.)
+
+    Unless you need lots of colors, you need not use  LISP  colormaps  other
+    than  the  default,  and  therefore,  since this colormap is the default
+    value of every colormap argument, you need not worry about colormaps  at
+    all.  Only if you need lots of colors or if you get an error when trying
+    to install a color do you need to create a new colormap.  See the  entry
+    on make-colormap for more information.
+
+    The printed representation of the colormap structure  contains  informa-
+    tion  about how many colors have been installed.  You will note only two
+    colors are defined when COMMON WINDOWS is initialized.  New  colors  are
+    installed as you use them.
+
+    EXAMPLES
+    ;;  When Common Windows starts up:
+    *default-colormap* => #<Default colormap @@ #x6f5e11, 2 slots in use>
+    ;;  Colors are installed either when the are used:
+    (make-window-stream :foreground-color blue)
+    *default-colormap* => #<Default colormap @@ #x6f5e11, 3 slots in use>
+    ;;  Or when they are installed explicitly.  Note that the
+    ;;  optional second argument to INSTALL-COLOR defaults to
+    ;;  the value of *DEFAULT-COLORMAP*.
+    (install-color red)
+    *default-colormap* => #<Default colormap @@ #x6f5e11, 4 slots in use>
+
+    SEE ALSO
+    install-color, install-colormap, make-color, make-colormap, uninstall-
+    colormap
+
+
+
+
+
+
+
+
+
+
+

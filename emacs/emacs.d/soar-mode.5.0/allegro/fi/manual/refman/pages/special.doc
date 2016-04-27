@@ -1,0 +1,66 @@
+
+                                                                     special
+
+
+    DECLARATION SPECIFIER
+    special  -  specify variables to be dynamically scoped
+
+    Usage
+    special {VARNAME}*
+
+    SIDE EFFECTS
+    The binding of each VARNAME is made to be dynamic, and references to  it
+    refer to the current dynamic binding.
+
+    DESCRIPTION
+    This declaration specifier must appear in a declare  or  proclaim  form.
+    It  specifies  that  all  variables  named  by  the  symbols VARNAME are
+    SPECIAL.  Special variables have dynamic extent and indefinite scope.
+
+    This declaration affects variable bindings established by  the  form  in
+    which  it appears and pervasively affects variable references.  If, how-
+    ever, this declaration specifier appears in a proclamation (that is,  in
+    proclaim),  variable  bindings  are also affected pervasively.  Affected
+    bindings of the named variables are made dynamic and all affected refer-
+    ences  will  refer to the local dynamic binding.  If there is no binding
+    established for the named variable, affected references  will  refer  to
+    the  visible dynamic binding (or global value if there is no binding) of
+    a special variable of the given name.
+
+    Any inner binding established for a variable named in  this  declaration
+    are  not  affected,  and  in  effect shadow this special declaration.  A
+    proclamation WILL, however, affect all inner bindings of a  named  vari-
+    able.   (This  is  an  exception  to the standard rule that declarations
+    affecting bindings are not pervasive.)
+
+    The macros defvar, defparameter, and defconstant implicitly proclaim the
+    variables they define to be special.
+
+    COMMON LISP variables are by default lexically scoped, that is they have
+    lexical scope and indefinite extent.
+
+    EXAMPLES
+    (proclaim '(special q))
+    (defun confounder (q r)
+      (declare (special r))
+      (let ((q (list q)) (r (list r)))
+        (values (locally (declare (special q))
+                  q)
+                q
+                (locally (declare (special r))
+                  r)
+                r))) => confounder
+    (confounder 20 30) => (20) (20) 30 (30)
+
+    SEE ALSO
+    CLtL 9:157, about declarations, about scope and extent
+
+
+
+
+
+
+
+
+
+

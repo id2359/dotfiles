@@ -1,0 +1,66 @@
+
+                                                                apropos-list
+
+
+    FUNCTION
+    apropos-list  -  get a list of all symbols whose print name contains a
+      specified string
+
+    Usage
+    apropos-list STRING [PACKAGE]
+
+    DESCRIPTION
+    Returns a list of all symbols whose print names contain STRING as a sub-
+    string.  The argument STRING is normally a string but also may be a sym-
+    bol.  In that case its print name is used as the string  which  will  be
+    compared with other symbols' print names.
+
+    If you specify PACKAGE then only those symbols accessible in that  pack-
+    age  will  be searched.  Since symbols may be available in a package via
+    different inheritance paths, a symbol may appear more than once  in  the
+    list.   If  PACKAGE  is not specified or is nil, then all symbols (as in
+    do-all-symbols) are looked at.  PACKAGE must be a package or nil.
+
+    EXAMPLES
+    (apropos-list 'keyword (find-package :lisp))
+      => (lambda-list-keywords keywordp keyword)
+
+    SEE ALSO
+    CLtL 25:443, apropos, describe, documentation
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

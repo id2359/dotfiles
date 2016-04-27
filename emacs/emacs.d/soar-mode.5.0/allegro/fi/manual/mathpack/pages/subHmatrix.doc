@@ -1,0 +1,132 @@
+
+                                                             math:sub-matrix
+
+
+    FUNCTION
+    sub-matrix  -  get a submatrix of a matrix
+
+    USAGE
+    sub-matrix matrix dimensions displacement
+
+    DESCRIPTION
+    Returns a new matrix that is a submatrix of MATRIX.  DIMENSIONS must  be
+    a  list  of  two  elements,  specifying the dimensions of the submatrix.
+    DISPLACEMENT is a list of two elements specifying the  entry  in  MATRIX
+    that  will  be  the  0,0TH  entry  in the submatrix (the upper left-hand
+    entry).  The returned matrix does not share storage with MATRIX.
+
+    Note that the submatrix elements are contiguous elements in MATRIX.  You
+    cannot use this function to form a matrix containing, say, the first and
+    last column of MATRIX when MATRIX has more than two columns.
+
+    It is an error if MATRIX is not a matrix, if DIMENSIONS and DISPLACEMENT
+    are  not  lists  of  exactly  two  elements,  if  the  first  element of
+    DIMENSIONS plus the first element of DISPLACEMENT minus one  is  greater
+    than  the  first  dimension  of  MATRIX,  or  if  the  second element of
+    DIMENSIONS plus the second element of DISPLACEMENT minus one is  greater
+    than  the  second dimension of MATRIX.  (These last two restrictions say
+    that the submatrix cannot be too large to fit into  MATRIX  starting  at
+    DISPLACEMENT.)
+
+    The element type (as  returned  by  array-element-type)  of  the  result
+    matrix is the same as the element type of the argument MATRIX.
+
+    EXAMPLES
+    (setq mat (make-matrix '((1.1 1.2 1.3) (2.1 2.2 2.3)
+                             (3.1 3.2 3.3)) 'single-float))
+    (print-matrix mat) PRINTS
+      1.1 1.2 1.3
+      2.1 2.2 2.3
+      3.1 3.2 3.3
+    (print-matrix (sub-matrix mat '(2 2) '(1 1))) PRINTS
+      2.2 2.3
+      3.2 3.3
+    (print-matrix (sub-matrix mat '(1 1) '(0 0))) PRINTS
+      1.1
+    (print-matrix (sub-matrix mat '(3 1) '(0 2))) PRINTS
+      1.3
+      2.3
+      3.3
+    (print-matrix (sub-matrix mat '(3 2) '(0 1))) PRINTS
+      1.2 1.3
+      2.2 2.3
+      3.2 3.3
+
+    ;;  Note that the element type of the returned submatrix
+    ;;  is the same as that of the argument:
+    (array-element-type (sub-matrix mat '(2 2) '(1 1)))
+      => single-float
+
+    ;;  It is an error if the specified submatrix exceeds
+    ;;  the bounds of MATRIX:
+    (sub-matrix mat '(2 1) '(2 2)) => ERROR
+    ;;  The error message is:
+    ;;  Error: Not that many elements in matrix: can't make sub-matrix
+
+    ;;  The same error message is generated when the DISPLACEMENT
+    ;;  argument is outside the argument matrix:
+    (sub-matrix mat '(1 1) '(3 3)) => ERROR
+
+    SEE ALSO
+    column, row
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

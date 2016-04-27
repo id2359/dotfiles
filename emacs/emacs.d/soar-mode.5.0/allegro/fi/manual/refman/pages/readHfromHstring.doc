@@ -1,0 +1,66 @@
+
+                                                            read-from-string
+
+
+    FUNCTION
+    read-from-string  -  read an object from a string
+
+    Usage
+    read-from-string STRING [EOF-ERROR-P [EOF-VALUE [:start START]
+      [:end END] [:preserve-whitespace PRESERVE]]]
+
+    DESCRIPTION
+    Returns two values: the LISP object read from successive  characters  in
+    STRING and the index of the first character in STRING that was not read.
+
+    You can read from a substring of STRING by  specifying  values  for  the
+    keyword  arguments  :start and :end.  The keyword argument :start speci-
+    fies the index of the first character in  STRING  to  read.   Its  value
+    defaults  to  0, denoting the beginning of STRING.  The keyword argument
+    :end, specifies an index one greater than the index of the last  charac-
+    ter  to  read.  Its value may be an integer greater than or equal to the
+    value of the :start argument and less than or equal  to  the  length  of
+    STRING,  or  nil.   The  value nil is the same as the default value, the
+    length of STRING.
+
+    If the value of the keyword argument :preserve-whitespace  is  specified
+    non-nil,   white   space  will  be  preserved  in  the  same  manner  as
+    read-preserving-whitespace.
+
+    The argument EOF-ERROR-P controls what happens when the end of STRING is
+    reached.   If  the  value of the argument is t, the default, an error is
+    signalled.  However, if the value of the argument is nil, then  in  most
+    situations  an  error  is  not  signalled. Instead, the read-from-string
+    function terminates and  returns  the  value  of  EOF-VALUE.   EOF-VALUE
+    defaults  to nil.  The function read-from-string always signals an error
+    if the end of STRING is reached when a COMMON LISP object  is  partially
+    but not completely read.
+
+    EXAMPLES
+    (read-from-string "this is a test") => this 5
+    (read-from-string "this is a test" nil nil :preserve-whitespace t)
+      => this 4
+    (read-from-string "this is a test" nil 'done :start 5) => is 8
+    (read-from-string "this is a test" nil 'done :start 5 :end 6)
+      => i 6
+    (read-from-string "this is a test" nil 'done :start 14) => done 14
+
+    SEE ALSO
+    CLtL 22:380, about reading, read
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

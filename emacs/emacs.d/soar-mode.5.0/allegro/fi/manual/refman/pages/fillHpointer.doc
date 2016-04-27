@@ -1,0 +1,66 @@
+
+                                                                fill-pointer
+
+
+    FUNCTION
+    fill-pointer  -  return the fill pointer of a vector
+
+    USAGE
+    fill-pointer vector
+
+    DESCRIPTION
+    Returns the fill pointer of VECTOR.  It is a number between zero and the
+    length of the vector, inclusive.  It is an error if the argument VECTOR,
+    which must be a vector, does not have a fill pointer.  This function may
+    be  used  in  conjunction  with  setf  to  change  the value of the fill
+    pointer.
+
+    A fill pointer specifies what portion of a vector is active. Most  func-
+    tions  operating  on  vectors  operate only on the active portion of the
+    vector, the active portion being the elements  whose  indices  are  from
+    zero  to  one  less  than the value of the fill pointer.  (When the fill
+    pointer is equal to the length of the vector, all of the elements of the
+    vector  are  active.)  The  function  aref operates on the ENTIRE vector
+    irrespective of its fill pointer.  For a vector to have a fill  pointer,
+    it must have been created with one using the :fill-pointer keyword argu-
+    ment to make-array.
+
+    EXAMPLES
+    (fill-pointer (make-array '(20) :fill-pointer 10)) => 10
+
+    SEE ALSO
+    CLtL 17:296, array-has-fill-pointer-p, :fill-pointer, make-array,
+    vector-pop, vector-push, vector-push-extend
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

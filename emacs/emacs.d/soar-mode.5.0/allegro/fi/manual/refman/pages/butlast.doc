@@ -1,0 +1,66 @@
+
+                                                                     butlast
+
+
+    FUNCTION
+    butlast  -  get all elements of a list but the last
+
+    USAGE
+    butlast list [n]
+
+    DESCRIPTION
+    Returns a new list containing all but the last N elements of LIST.  If N
+    is  greater than or equal to the number of elements in LIST, then nil is
+    returned.  If N is not specified, it defaults to 1.
+
+    EXAMPLES
+    (butlast '(r s t u v)) => (r s t u)
+    (butlast '(r s t u v) 5) => nil
+    (butlast '(r s t u v) 4) => (r)
+    (butlast '()) => nil
+    (butlast '(x)) => nil
+
+    SEE ALSO
+    CLtL 15:271, endp, nbutlast
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

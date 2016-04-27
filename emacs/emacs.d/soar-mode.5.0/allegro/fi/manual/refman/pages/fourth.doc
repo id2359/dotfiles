@@ -1,0 +1,66 @@
+
+                                                                      fourth
+
+
+    FUNCTION
+    fourth  -  get the fourth element of a list
+
+    USAGE
+    fourth list
+
+    DESCRIPTION
+    Returns the fourth element of LIST, where the car of LIST is  considered
+    to be the first element.  LIST must be a list.
+
+    Unlike the nth function, which uses zero-origin indexing, this  function
+    uses one-origin indexing.  If the list has fewer than four elements, nil
+    is returned.  setf may be used with fourth to replace the fourth element
+    of a list.
+
+    EXAMPLES
+    (fourth '(a b c d e f g h i j)) => d
+    (fourth '(a)) => nil
+    (setq lis '(a b c d e f g h i j)) => (a b c d e f g h i j)
+    (setf (fourth lis) 4) => 4
+    lis => (a b c 4 e f g h i j)
+
+    SEE ALSO
+    CLtL 15:266, car, eighth, elt, fifth, first, ninth, nth, second,
+    seventh, sixth, third
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

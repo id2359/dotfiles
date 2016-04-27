@@ -1,0 +1,66 @@
+
+                                                                   *package*
+
+
+    VARIABLE
+    *package*  -  variable whose value is the current package
+
+    USAGE
+    *package*
+
+    DESCRIPTION
+    Evaluates to the current package.  Its value must be a package, and  the
+    initial value is the user package.
+
+    The function load binds *package* to its current value, thus  in  effect
+    storing  the  current  value  and  restoring it when the load completes.
+    This allows the value of *package* to be changed by forms  in  the  file
+    being loaded without changing the current package when load returns.
+
+    EXAMPLES
+    (package-name *package*) => "USER"
+
+    SEE ALSO
+    CLtL 11:183, in-package, load, make-package
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

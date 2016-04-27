@@ -1,0 +1,66 @@
+
+                                                                package-name
+
+
+    FUNCTION
+    package-name  -  get the name of a package
+
+    USAGE
+    package-name package
+
+    DESCRIPTION
+    Returns the string that is the name PACKAGE.  PACKAGE must be a package.
+
+    EXAMPLES
+    (package-name (find-package :lisp)) => "LISP"
+
+    SEE ALSO
+    CLtL 11:184, make-package, package-nicknames
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

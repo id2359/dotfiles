@@ -1,0 +1,132 @@
+
+                                                               rotate-colors
+
+
+    FUNCTION
+    rotate-colors  -  rotate a sequence of colors
+
+    Usage
+    rotate-colors COLORS [DISTANCE]
+
+    SIDE EFFECTS
+    The pixels on the screen displayed in the colors of the sequence  COLORS
+    will change colors.
+
+    DESCRIPTION
+    Returns COLORS after its contents have been rotated but this function is
+    called  for its side effects.  COLORS must be a sequence (array or list)
+    of read-write colors.  DISTANCE must be a fixnum.
+
+    Each color in COLORS is modified to become the  color  DISTANCE  earlier
+    the  sequence  COLORS  (wrapping  around if DISTANCE is greater than the
+    position of the color in the sequence).  The default value for  DISTANCE
+    is  1,  so  in  the  default case, each color is replaced with the color
+    immediately before it  in  the  sequence,  except  the  first  which  is
+    replaced with the last color.
+
+    The function rotate-colors is useful in certain kinds of animation, when
+    you want to change a bunch of colors simultaneously.
+
+    EXAMPLES
+    ;;  To make clear the use of the DISTANCE argument, let us
+    ;;  define a list of three read-write colors, red, green, and blue.
+    (setf col-lis (list (make-color :from-color red)
+                    (make-color :from-color green)
+                    (make-color :from-color blue)))
+
+    ;;  The printed representation of color objects looks like
+    ;;  #<Color: (rgb) 1.0 0.0 0.0> (that is the color red, e.g.)
+    ;;  For clarity, we will represent the colors just defined
+    ;;  as <red>, <green>, and <blue>.  We will rotate COL-LIS
+    ;;  with different values for DISTANCE.  Note that ROTATE-COLORS
+    ;;  modifies COL-LIS, so each rotation is with respect to
+    ;;  the last returned value.  We start with the default value 1.
+
+    col-lis => (<red> <green> <blue>)
+    (rotate-colors col-lis) => (<blue> <red> <green>)
+    (rotate-colors col-lis 2) => (<red> <green> <blue>)
+    (rotate-colors col-lis 3) => (<red> <green> <blue>)  ;; no change
+    (rotate-colors col-lis 4) => (<blue> <red> <green>)  ;; same as 1
+    (rotate-colors col-lis 25) => (<green> <blue> <red>) ;; same as 1
+    (rotate-colors col-lis 0) => (<green> <blue> <red>)  ;; no change
+    (rotate-colors col-lis -1) => (<blue> <red> <green>) ;; back 1
+
+    ;;  This example displays circles in shades of gray and then
+    ;;  rotates the grays.
+    (setf *my-win*
+      (make-window-stream :left 100 :bottom 100
+                          :width 200 :height 200
+                          :activate-p t :title "Just a Window"))
+
+    (setq colors (make-array 10))
+    (dotimes (i 10) (setf (elt colors i) (make-color :level (/ i 10))))
+
+    (dotimes (i 10)
+      (draw-filled-circle *my-win*
+       (make-position :x (* i 10) :y  (* i 10)) 50 :color (elt colors i)))
+
+    ;;  Now when we rotate COLORS, the circles will change colors:
+    (dotimes (i 100) (rotate-colors colors) (sleep 1))
+
+    ;;  Here are two errors.  The first is a common mistake for
+    ;;  users new to LISP: confusing a list of symbols whose
+    ;;  values are colors with the colors themselves:
+    (setq lis '(blue red green))
+    (rotate-colors lis) => ERROR
+    ;;  The error message is: Error: rotate-colors expects a
+    ;;                        sequence of colors....
+
+    ;;  Instead, you must form the list with LIST so the symbols
+    ;;  are evaluated.  This brings us to the second error:
+    ;;  predefined colors are read-only.  The argument to
+    ;;  ROTATE-COLORS must contain read-write colors only.
+    (setq lis (list red green blue))
+    (rotate-colors lis) => ERROR
+    ;;  The error message is: Error: Cannot rotate read-only colors....
+
+    SEE ALSO
+    make-color, swap-colors
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

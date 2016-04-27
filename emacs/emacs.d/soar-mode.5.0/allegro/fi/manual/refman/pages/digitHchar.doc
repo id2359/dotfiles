@@ -1,0 +1,66 @@
+
+                                                                  digit-char
+
+
+    FUNCTION
+    digit-char  -  make a digit character given weight, radix and font
+
+    USAGE
+    digit-char weight [radix [font]]
+
+    DESCRIPTION
+    Returns a character object in font FONT that  is  a  digit  representing
+    WEIGHT  in radix RADIX provided this is possible, and returns nil other-
+    wise.  The arguments must be integers, RADIX defaulting to 10  and  FONT
+    defaulting  to  0.  The function digit-char will not return nil when the
+    font is zero, the radix is between 2 and 36 inclusive, and the weight is
+    non-negative and less than the radix.  Uppercase letters are returned in
+    preference to lowercase letters.  Exactly what nonzero  values  of  FONT
+    can result in a non-nil returned value is implementation-dependent.
+
+    EXAMPLES
+    (digit-char 9) => #\9
+    (digit-char 10) => nil
+    (digit-char 10 16) => #\A
+    (digit-char 9 8) => nil
+
+    SEE ALSO
+    CLtL 13:241, code-char, digit-char-p, make-char
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

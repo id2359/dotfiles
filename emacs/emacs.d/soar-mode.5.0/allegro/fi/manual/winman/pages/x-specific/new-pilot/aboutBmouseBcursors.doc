@@ -1,0 +1,666 @@
+
+                                                         about mouse cursors
+
+
+    NOTES
+    about mouse cursors  -  information about mouse cursor and a list of
+      predefined mouse cursors
+
+    DESCRIPTION
+    Each window-stream has two mouse cursors associated with it: one for the
+    frame,  returned  by  the function and one inside the frame, returned by
+    the function window-stream-mouse-cursor.  Both of these can be set  when
+    the  window-stream  is  created  (with the :mouse-cursor and the :frame-
+    mouse-cursor arguments) or changed later  with  setf  and  the  accessor
+    function.
+
+    Active-regions in windows also have  mouse-cursors.   They  inherit  the
+    (interior)  mouse cursor of their parent, but this cursor may be changed
+    with setf and the accessor active-region-mouse-cursor.
+
+    There is a list of predefined mouse cursor given below.  You make create
+    other  mouse cursors with the function make-mouse-cursor.  Conceptually,
+    a mouse cursor is defined with two bitmaps, one for  the  cursor  itself
+    and one for a mask.  The mask bitmap typically has 1 bits everywhere the
+    cursor bitmap has 1 bits, and additional 1 bits surrounding the  cursor.
+    The  cursor bit map is displayed in one color and the mask bitmap (where
+    it differs from the cursor bitmap) is displayed in another.   Therefore,
+    the  mask  bitmap outlines the cursor, ensuring that it is always on the
+    screen.
+
+    Each mouse cursor has a hotspot, a specific bit that is its  true  loca-
+    tion  on  the  screen.   This  location  is specified when the cursor is
+    created.
+
+    X has a special mouse cursor font which contains a  good  collection  of
+    cursors.  You may view this font by typing xfd cursor to the shell while
+    X windows is running.
+
+    There are predefined mouse cursors available under COMMON WINDOWS.   The
+    variable  *mouse-cursor-list*  is bound to a list of symbols whose value
+    are predefined mouse cursors.  The list includes the following symbols.
+
+            *mouse-cursor-+*
+            *mouse-cursor-blank*
+            *mouse-cursor-bullseye*
+            *mouse-cursor-northwest-arrow*
+            *mouse-cursor-right-arrow*
+            *mouse-cursor-timer*
+            *mouse-cursor-x*
+            *mouse-cursor-down-arrow*
+            *mouse-cursor-horiz-double-arrow*
+            *mouse-cursor-left-arrow*
+            *mouse-cursor-left-bottom-corner*
+            *mouse-cursor-left-top-corner*
+            *mouse-cursor-move-window*
+            *mouse-cursor-northeast-arrow*
+            *mouse-cursor-right-bottom-corner*
+            *mouse-cursor-right-top-corner*
+            *mouse-cursor-up-arrow*
+            *mouse-cursor-vert-double-arrow*
+
+    The `timer' cursor is shaped like a watch.   The  `corner'  cursors  all
+    look  like  a right angle, with the apex (corner) at the location speci-
+    fied and an arrow pointing toward the corner.  The `move-window'  cursor
+    is a cross with arrow tips at each point.  The blank cursor has no visi-
+    ble manifestation.  The appearance of the other cursors is  pretty  well
+    described  by the symbol names.  (The examples below show how to examine
+    a cursor.)
+
+    The hotspots of the predefined cursors are  at  obvious  locations:  the
+    tips  of  arrows, the center of x's and crosses, the corners of corners,
+    the center of the bullseye and the move-window.  (The  location  of  the
+    hotspot  of  the blank is left as an exercise to the reader.) All prede-
+    fined cursors have foreground color black and background color white.
+
+    EXAMPLES
+    ;;  We can set a cursor after a window has been created or
+    ;;  when it is created, as the following examples show.
+    (setf *my-win*
+      (make-window-stream :title "A Window" :activate-p t))
+    (setf (window-stream-mouse-cursor *my-win*)
+      *mouse-cursor-horiz-double-arrow*)
+
+    (setf *my-win*
+      (make-window-stream
+       :title "A Window"
+       :activate-p t
+       :mouse-cursor *mouse-cursor-horiz-double-arrow*))
+    ;;  To look at a mouse cursor, bring up a window, set
+    ;;  its mouse cursor as desired, and move the cursor into
+    ;;  the window.  We draw a filled rectangle over half
+    ;;  the window to show the cursor against both a white and a
+    ;;  black background.
+    (setq *mc-win* (make-window-stream :left 200 :bottom 200
+                                       :width 300 :height 400
+                                       :title "Cursor window"
+                                       :activate-p t))
+    (draw-filled-rectangle-xy *mc-win* 150 0 150 400)
+    ;;  Now, set the cursor to the one you want to examine.
+    ;;  Here we look at the up arrow.  Then move the mouse
+    ;;  cursor into the window.
+    (setf (window-stream-mouse-cursor *mc-win*) *mouse-cursor-up-arrow*)
+
+    SEE ALSO
+    active-region-mouse-cursor, make-mouse-cursor, make-window-stream,
+    window-stream-frame-mouse-cursor, window-stream-mouse-cursor
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,132 @@
+
+                                                            reader syntax #s
+
+
+    READER SYNTAX
+    #s  -  representation of a structure
+
+    Usage
+    #S(NAME {SLOT VALUE}*)
+
+    DESCRIPTION
+    Reads as an instance of a structure named NAME with slots initialized to
+    the specified values.
+
+    When the reader reads the dispatch-macro  character  ``#''  followed  by
+    ``s''  or  ``S'', these characters are discarded and the next expression
+    is read.  This expression must be a list of at least one  element.   The
+    first  element  must be a symbol that names a structure that has already
+    been defined with defstruct when  this  syntactic  form  is  read.   The
+    remaining  elements  of the list, if any, must come in pairs.  The first
+    element of each pair is a symbol whose print name is identical  (in  the
+    sense  of  string=)  to  the print name of a structure slot.  The second
+    element of each pair is a value to assign to that slot.  Neither element
+    of  each  pair  is  evaluated  by the reader.  The ``#s'' syntactic form
+    reads as an instance of the specified structure.
+
+    Assume that the standard constructor macro for the  named  structure  is
+    make-name.  Then the syntactic form
+
+    #s(name slot1 value1 ...)
+
+    is equivalent to
+
+    #.(make-name (intern (string 'slot1) :keyword) 'value1 ...)
+
+    following COMMON LISP: THE  LANGUAGE.   Most  implementations,  however,
+    treat the first syntactic form as equivalent to
+
+    #.(make-name (intern (symbol-name 'slot1) :keyword) 'value1 ...)
+
+    and thus disallow all but symbols for each slot specification.
+
+    The named structure must have a keyword constructor.  It may have  other
+    constructors.   If the structure has only by-order-of-argument construc-
+    tors or no constructors at all, the ``#s'' syntax cannot be used to read
+    an instance of the structure.
+
+    Following the letter of COMMON LISP: THE LANGUAGE, instances  of  struc-
+    tures  are  not self-evaluating objects, therefore structures read using
+    this syntax should normally be quoted.  Some  implementations  do,  how-
+    ever, make structures self-evaluating.  Portable code should not rely on
+    this property.
+
+    EXAMPLES
+    (defstruct rabbit
+      (ears '(and :big :floppy))
+      (tail '(and :cute :fuzzy))) => rabbit
+    '#s(rabbit) => #s(rabbit :ears (and :big :floppy)
+                             :tail (and :cute :fuzzy))
+    (defstruct (hamster (:constructor beget-hamster)
+                        (:constructor make-a-ham ((fur :velvety)
+                                                  (nose :pointy))))
+      (fur :shaggy)
+      (nose :whiskery)) => hamster
+    '#s(hamster nose :pudgy)
+      => #s(hamster :fur :shaggy :nose :pudgy)
+    (defstruct (love-bird (:constructor nil))
+      (hobby :kissing)
+      (finger :nibble)) => love-bird
+    '#s(love-bird) => ERROR
+
+    SEE ALSO
+    CLtL 22:357, about printing, about reading, defstruct
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

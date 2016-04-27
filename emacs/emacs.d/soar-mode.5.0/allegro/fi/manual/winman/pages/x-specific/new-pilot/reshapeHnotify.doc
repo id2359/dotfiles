@@ -1,0 +1,132 @@
+
+                                                              reshape-notify
+
+
+    METHOD
+    reshape-notify  -  method called when X reshapes a window
+
+    Usage
+    reshape-notify STREAM REGION
+
+    DESCRIPTION
+    Returns   what   the   last   function   in   the   list   returned   by
+    window-stream-reshape-notify   returns.    When   the  X  window-manager
+    reshapes a common window, it informs COMMON WINDOWS that it has done  so
+    to  allow  COMMON  WINDOWS  to  update its information on window status.
+    COMMON WINDOWS calls this method, which in turn calls all the  functions
+    returned by window-stream-reshape-notify applied to WSTREAM.  You do not
+    (normally) call this function directly.
+
+    The initial value of the list returned  by  window-stream-reshape-notify
+    contains   the   single  function  default-window-stream-reshape-notify-
+    method.  This function does the work of updating COMMON WINDOWS  so  you
+    should  not  remove  it from the list.  You may add new functions to the
+    list for any window-stream with  modify-window-stream-method.   You  may
+    replace the whole list with setf and window-stream-reshape-notify but be
+    sure to include default-window-stream-reshape-notify-method in  the  new
+    list.   The  function  restore-default-window-stream-method restores the
+    list to its original value.
+
+    Any function added to the list must accept  two  arguments,  the  window
+    stream and the new region which it occupies.
+
+    EXAMPLES
+    (setf *my-win*
+                (make-window-stream :left 100 :bottom 100
+                :width 200 :height 200
+                :activate-p t :title "Just a Window"))
+
+    (window-stream-reshape-notify *my-win*)
+      => (default-window-stream-reshape-notify-method
+              common-windows::reset-right-margin)
+
+    (defun my-before-reshape-notify (w region)
+      (declare (ignore region))
+      (setf (window-stream-get w 'old-region)
+        (window-stream-region w)))
+
+    (defun my-after-reshape-notify (w region)
+       (declare (ignore region))
+      (reshape w (window-stream-get w 'old-region)))
+
+    (modify-window-stream-method *my-win* :reshape-notify
+                           :after 'my-after-reshape-notify)
+
+    (modify-window-stream-method *my-win* :reshape-notify
+                           :before 'my-before-reshape-notify)
+    (window-stream-reshape-notify  *my-win*)
+      => (my-before-reshape-notify
+           default-window-stream-reshape-notify-method
+           common-windows::reset-right-margin my-after-reshape-notify)
+
+    ;;  Now when you use the X window manager to reshape the window,
+    ;;  LISP will restore it to its original shape.
+
+
+
+
+    SEE ALSO
+    expand, flush, reshape, shrink, window-stream-reshape, window-stream-
+    reshape-notify
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

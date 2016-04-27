@@ -1,0 +1,66 @@
+
+                                                         format directive ~1
+
+
+    FORMAT DIRECTIVE
+    ~%  -  print newline character
+
+    USAGE
+    ~count%
+
+    DESCRIPTION
+    Prints COUNT (default 1) newlines.  Putting a newline in the format con-
+    trol  string  instead of ``~%'' accomplishes the same thing.  Printing a
+    newline means printing a #\newline character.
+
+    EXAMPLES
+    (let () (format t "Hello world.~%") (format t "Bye.")) => nil
+    PRINTS
+    Hello world.
+    Bye.
+
+    SEE ALSO
+    CLtL 22:397, format, format directive ~&, terpri
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

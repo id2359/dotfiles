@@ -1,0 +1,66 @@
+
+                                                                     funcall
+
+
+    FUNCTION
+    funcall  -  apply a function to arguments
+
+    USAGE
+    funcall FUN {ARGUMENTS}*
+
+    DESCRIPTION
+    Returns the result of applying FUN to the arguments.  FUN  should  be  a
+    function,  not  a macro or a special form.  Note that since funcall is a
+    function, FUN is evaluated.  If FUN evaluates to a  symbol,  the  global
+    function definition of that symbol is used as the function to be called.
+
+    EXAMPLES
+    (setq lis '(car cadr cdr))
+    (funcall (car lis) '(a b c)) => a
+
+    SEE ALSO
+    CLtL 7:108, apply
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

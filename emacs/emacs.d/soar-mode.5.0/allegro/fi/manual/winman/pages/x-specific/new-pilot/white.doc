@@ -1,0 +1,66 @@
+
+                                                                       white
+
+
+    FUNCTION
+    white  -  the color white
+
+    Usage
+    white
+
+    DESCRIPTION
+    This is a constant, bound to the color white.  The color  is  read-only,
+    which means you cannot change it.
+
+    EXAMPLES
+    white => #<Color: (rgb) 0.0, 0.0, 1.0, read-only: uninitialized>
+
+    SEE ALSO
+    black, blue, green, purple, red, turquoise, yellow
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

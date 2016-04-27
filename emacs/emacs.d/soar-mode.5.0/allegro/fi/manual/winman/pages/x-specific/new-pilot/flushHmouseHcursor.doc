@@ -1,0 +1,66 @@
+
+                                                          flush-mouse-cursor
+
+
+    FUNCTION
+    flush-mouse-cursor  -  destroy a mouse cursor
+
+    Usage
+    flush-mouse-cursor MOUSE-CURSOR
+
+    SIDE EFFECTS
+    Destroys the mouse cursor MOUSE-CURSOR, freeing up foreign storage asso-
+    ciated  with  it.  The effect in areas where the mouse cursor is used is
+    undefined.
+
+    DESCRIPTION
+    Returns nil after flushing the cursor.  Unless space is really an issue,
+    there  is  no reason to flush mouse cursors.  Be sure that the cursor is
+    not used anywhere before flushing it.
+
+    EXAMPLES
+    ;;  The following creates a mouse cursor.
+    (setq my-mouse-cursor
+      (make-mouse-cursor
+       :foreground-color black
+       :background-color white
+       :source-index 4
+       :mask-index 4
+       ))
+
+    ;;  The cursor is destroyed with FLUSH-MOUSE-CURSOR.
+    (flush-mouse-cursor my-mouse-cursor) => nil
+
+    SEE ALSO
+    active-region-mouse-cursor, make-mouse-cursor, window-stream-frame-
+    mouse-cursor, window-stream-mouse-cursor
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

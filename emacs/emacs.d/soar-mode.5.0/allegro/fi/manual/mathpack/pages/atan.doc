@@ -1,0 +1,66 @@
+
+                                                                   math:atan
+
+
+    FUNCTION
+    atan  -  get the arc tangent of a number or matrix
+
+    Usage
+    atan X
+
+    DESCRIPTION
+    This standard Common Lisp function has been modified to accept matrix as
+    well  as  scalar  arguments.   When  the  argument  is  a scalar (i.e. a
+    number), this function works just as when Allegro Matrix is not  loaded:
+    returning  the  arc  tangent  of  the  specified value in an appropriate
+    numerical format.  When given a square matrix whose array  element  type
+    is  one  of single-float, double-float, (complex single-float), (complex
+    double-float), the matrix which is the atan of the matrix X is returned.
+    The  atan  of  a  matrix is defined below.  It is an error if X is not a
+    number or a matrix.  If X is a matrix, it  is  an  error  if  X  is  not
+    square,  if  it  has  an  array  element type other than the four listed
+    above, or if its atan cannot  be  calculated  for  any  reason  (usually
+    because the matrix cannot be inverted).
+
+    The atan (or any such function applied to a  matrix)  is  calculated  as
+    follows.   A transformation matrix T and its inverse , T-inv, are calcu-
+    lated such that T-inv*x*T is diagonal (that is, the  off  diagonal  ele-
+    ments  are zero). T is the matrix of eigen vectors where the vectors are
+    the columns of the matrix.  The function eigen-vectors returns a  matrix
+    whose  rows  are  the  eigen  vectors, so T is the result of (ntranspose
+    (eigen-vectors x)).  The diagonal elements  of  T-inv*x*T  are  replaced
+    with  their  atan  and  the modified diagonal matrix is retransformed by
+    multiplying on the left by T and on the right by T-inv.   Note  that  NO
+    checking  is  done  to  ensure  that the diagonalized matrix is actually
+    diagonal (that is, that the off-diagonal elements are  zero  to  machine
+    accuracy).   Only if the diagonalization process actually fails will any
+    error be signaled.  Note further that there may be more than one  possi-
+    ble  result  (because of branch cuts, etc.), but only one result matrix,
+    calculated as described, is returned.
+
+    The returned matrix is of the same type as  the  argument  matrix.   The
+    internal calculations are done as complex double-floats.  If X is a real
+    matrix, it diagonalized counterpart is also real  (by  theory),  so  any
+    imaginary  part  is  discarded. (atan applied to a real returns a real.)
+    Then the values are coerced to single or double floats, as appropriate.
+
+    EXAMPLES
+    ;;  We only show ATAN applied to matrices here:
+    (setq mat (make-matrix '((1.0 2.0) (-3.0 4.0))))
+    (print-matrix mat) PRINTS
+      1.0  2.0
+      -3.0 4.0
+
+    ;;  ATAN will not work on a matrix whose element type is T:
+    (atan mat) => ERROR
+    ;;  The error message is:
+    ;;  Error: Non-float matrix to function computed by diagonalization
+
+    ;;  Now we set the element type of the matrix passed to ATAN:
+    (print-matrix (atan (single-float-matrix mat))) PRINTS
+      1.1747884   0.18994495
+      -0.28491744 1.4597058
+
+    SEE ALSO
+    cos, exp, expt log, sin, sqrt
+

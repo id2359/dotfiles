@@ -1,0 +1,66 @@
+
+                                                                    realpart
+
+
+    FUNCTION
+    realpart  -  get the real part of a complex number
+
+    USAGE
+    realpart number
+
+    DESCRIPTION
+    Returns the real part of the complex number  NUMBER.   If  NUMBER  is  a
+    non-complex number, it is simply returned.
+
+    EXAMPLES
+    (realpart (complex 2 2)) => 2
+    (realpart (complex 2.0d0 2)) => 2.0d0
+    (realpart (complex 2 2.0d0)) => 2.0d0
+    (realpart 2) => 2
+    (realpart 2.0) => 2.0
+    (realpart 3/5) => 3/5
+
+    SEE ALSO
+    CLtL 12:220, complex, imagpart
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

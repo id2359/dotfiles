@@ -1,0 +1,66 @@
+
+                                                     math:*mathpack-version*
+
+
+    CONSTANT
+    *mathpack-version*  -  the Allegro Matrix version number
+
+    DESCRIPTION
+    Evaluates to the  version  number  of  the  version  of  Allegro  Matrix
+    installed  on your system.  Knowing the version number is important when
+    reporting bugs or problems, and even when  asking  questions  or  making
+    comments.
+
+    EXAMPLES
+    *mathpack-version* => 1.0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

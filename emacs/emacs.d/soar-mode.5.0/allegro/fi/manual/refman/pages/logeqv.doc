@@ -1,0 +1,66 @@
+
+                                                                      logeqv
+
+
+    FUNCTION
+    logeqv  -  bitwise logical equivalence (`exclusive nor')
+
+    USAGE
+    logeqv {n}*
+
+    DESCRIPTION
+    Returns the bitwise logical equivalence  (or  `exclusive  nor')  of  its
+    arguments, all of which must be integers. If no arguments are specified,
+    -1 is returned.  -1 is the identity for this  function.   Arguments  and
+    results are interpreted as if represented in two's-complement notation.
+
+    EXAMPLES
+    (logeqv) => -1
+    (logeqv 1) => 1
+    (logeqv -1 5) => 5
+
+    (setf *print-base* 2
+          *print-radix* t)
+    ;;  (Since bitwise logical operations interpret integers as
+    ;;  half-infinite, the result is negative, which in two's-
+    ;;  complement representation has an infinite string of 1's
+    ;;  to the right, that is toward higher-order bits.  The
+    ;;  number #b-111 would be represented in two's-complement
+    ;;  as ...111111001.)
+    (logeqv #b1100 #b1010) => #b-111
+
+    SEE ALSO
+    CLtL 12:221, boole, logand, logandc1, logandc2, logcount, logior,
+    lognand, lognor, lognot, logorc1, logorc2, logxor
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

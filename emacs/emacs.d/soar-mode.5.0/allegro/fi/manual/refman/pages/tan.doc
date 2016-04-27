@@ -1,0 +1,66 @@
+
+                                                                         tan
+
+
+    FUNCTION
+    tan  -  get the tangent of an angle
+
+    USAGE
+    tan number
+
+    DESCRIPTION
+    Returns the tangent of NUMBER.  NUMBER is assumed to be in radians.
+
+    EXAMPLES
+    (tan pi) => 0.0d0
+    (tan 0) => 0.0
+    (tan 1.5) => 14.10142
+
+    SEE ALSO
+    CLtL 12:207, acos, acosh, asin, asinh, atan, atanh, cis, cos, cosh, sin,
+    sin, tanh
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                                    pathname
+
+
+    Type SPECIFIER
+    pathname  -  the data type comprising pathnames
+
+    Usage
+    pathname
+
+    DESCRIPTION
+    Specifies the data  type  consisting  of  objects  that  represent  file
+    specifications in a portable way.
+
+    The printed representation of a pathname is implementation-dependent but
+    must be able to be read back (at least by the same implementation).
+
+    EXAMPLES
+    (typep (pathname "foo") 'pathname) => t
+    ;;  The following printed representation is
+    ;;  implementation-dependent, but can be read
+    ;;  back in this implementation:
+    (pathname "foo") => #p"foo"
+
+    SEE ALSO
+    CLtL 2:31, CLtL 4:43, about type specifiers, pathname, typep
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

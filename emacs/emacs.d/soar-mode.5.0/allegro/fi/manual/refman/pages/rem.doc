@@ -1,0 +1,66 @@
+
+                                                                         rem
+
+
+    FUNCTION
+    rem  -  return remainder after truncation
+
+    USAGE
+    rem number divisor
+
+    DESCRIPTION
+    Return the difference between NUMBER and the product of DIVISOR and  the
+    quotient  of NUMBER and DIVISOR truncated toward 0.  In other words, rem
+    returns the same value as the second value returned by truncate  applied
+    to the same arguments.
+
+    Both arguments must be real numbers.  The type of the result  is  deter-
+    mined  by the rules of floating point contagion.  In particular, if both
+    arguments are integers the result is an integer, if both  are  rational,
+    the  result  is  rational, and if either is a floating-point number, the
+    result is a floating-point number.
+
+    EXAMPLES
+    (rem 17 6) => 5
+    (rem 17 -6) => 5
+    (rem -17 6) => -5
+    (rem -17 -6) => -5
+    (rem 1/4 1/2) => 1/4
+    (rem 11.5 2) => 1.5
+
+    SEE ALSO
+    CLtL 12:217, mod, truncate
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                                symbol-value
+
+
+    FUNCTION
+    symbol-value  -  get current value of a special variable
+
+    USAGE
+    symbol-value symbol
+
+    DESCRIPTION
+    Returns the current dynamic binding associated with SYMBOL.  The  glocal
+    value is returned if there is no dynamic binding.  An error is signalled
+    if the named variable has no value.  (It is  usually  advisable  to  use
+    boundp  to  determine  whether  a  variable  has  a value before calling
+    symbol-value.) Constants are special variables whose values  are  immut-
+    able,  so they are valid arguments to symbol-value.  The argument SYMBOL
+    may also be a keyword; the value returned is the keyword itself.
+
+    This function cannot obtain the value of a lexical variable.
+
+    EXAMPLES
+    (defvar special-var '(a b c))
+    (symbol-value 'special-var) => (a b c)
+    (defconstant pie 3.1)
+    (symbol-value 'pie) =>  3.1
+    (symbol-value :reset) => :reset
+
+    (setq x 10) => 10
+    (let ((x 20)) (values x (symbol-value 'x))) => 20 10
+    (let((local-var 20))
+      (declare (special local-var))
+      (let ((local-var 10))
+        (symbol-value 'local-var))) => 20
+
+    SEE ALSO
+    CLtL 7:90, boundp, makunbound
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

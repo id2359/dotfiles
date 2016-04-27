@@ -1,0 +1,66 @@
+
+                                                                   &optional
+
+
+    Lambda-List KEYWORD
+    &optional  -  bind optional arguments
+
+    USAGE
+    &optional {var | (var [initform [svar]])}*
+
+    DESCRIPTION
+    Specifies optional arguments for a function  or  macro.   The  &optional
+    lambda-list  keyword  introduces  the second of six optional lambda-list
+    parts.  If it appears, it must be the first lambda-list keyword  follow-
+    ing  any  required parameters.  It is followed by zero or more parameter
+    specifiers, each of which is either a symbol or a list.
+
+    After the required parameters have been processed, the optional  parame-
+    ter specifiers are examined left-to-right.  Each optional parameter will
+    be associated with any remaining argument when it is processed.
+
+    If there is a remaining argument, the optional  parameter  VAR  will  be
+    bound  to  that argument and the argument is discarded.  (The binding is
+    lexical unless VAR has been declared special.) If there is no  remaining
+    argument for an optional parameter, its INITFORM is evaluated and VAR is
+    bound to the result.  If there is no INITFORM, VAR is bound to nil.  The
+    INITFORM may refer to parameter variables bound previously (specified to
+    the left of the parameter being processed).  Further, VAR itself and all
+    the  parameters  to  the  right  are  not  yet  bound  when  INITFORM is
+    evaluated.  If SVAR is given, it will be bound to true  if  an  argument
+    was supplied for the parameter and to false otherwise.
+
+    EXAMPLES
+    (defun foo (a &optional b (c a s))
+      (list a b c s)) => foo
+    (foo 1) => (1 nil 1 nil)
+    (foo 1 2) => (1 2 1 nil)
+    (foo 1 2 3) => (1 2 3 t)
+
+    SEE ALSO
+    CLtL 5:59, about lambda lists, defmacro, defun
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

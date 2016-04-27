@@ -1,0 +1,66 @@
+
+                                                        most-negative-fixnum
+
+
+    CONSTANT
+    most-negative-fixnum  -  the fixnum closest to negative infinity
+
+    DESCRIPTION
+    This constant evaluates to the value of the fixnum nearest  to  negative
+    infinity.  The value of this constant is implementation-dependent.
+
+    EXAMPLES
+    ;;  This value is implementation-dependent.
+    most-negative-fixnum => -268435456
+
+    SEE ALSO
+    CLtL 12:231, about numeric constants
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

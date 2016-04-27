@@ -1,0 +1,66 @@
+
+                                                                     keyword
+
+
+    Type SPECIFIER
+    keyword  -  the data type comprising symbols in the keyword package
+
+    USAGE
+    keyword
+
+    DESCRIPTION
+    Specifies the data type consisting of keywords.  Keywords are symbols in
+    the keyword package.
+
+    The printed representation of a keyword is a symbol name prepended  with
+    a colon (:).
+
+    EXAMPLES
+    (typep :foo 'keyword) => t
+
+    SEE ALSO
+    CLtL 4:43, about keywords, about type specifiers, keywordp, typep
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

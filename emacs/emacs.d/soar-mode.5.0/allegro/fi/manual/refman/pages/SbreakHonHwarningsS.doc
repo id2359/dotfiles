@@ -1,0 +1,66 @@
+
+                                                         *break-on-warnings*
+
+
+    VARIABLE
+    *break-on-warnings*  -  flag to determine whether to go into a break
+      loop when warnings occur
+
+    SIDE EFFECTS
+    If this flag is non-nil, then calls to the function warn will cause COM-
+    MON LISP to go into the debugger.
+
+    DESCRIPTION
+    When this variable has a non-nil value, warnings cause  a  break.   When
+    this  variable is nil, warnings print messages but do not interrupt exe-
+    cution of a COMMON LISP program.
+
+    EXAMPLES
+    ;;  The details of the following script are
+    ;;  implementation-dependent.
+    <cl> (LET ((*BREAK-ON-WARNINGS* T))
+           (WARN "PLEASE DON'T DO THIS."))
+    Break: Please don't do this.
+    Restart actions (select using :continue):
+     0: return from break.
+    [1c] <cl> :CONTINUE
+    Warning: Please don't do this.
+    nil
+    <cl>
+
+    SEE ALSO
+    CLtL 24:432, break, cerror, error, warn
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

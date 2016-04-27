@@ -1,0 +1,66 @@
+
+                                                common-windows-initialized-p
+
+
+    FUNCTION
+    common-windows-initialized-p  -  test whether COMMON WINDOWS is initial-
+      ized
+
+    Usage
+    common-windows-initialized-p
+
+    DESCRIPTION
+    Returns true if COMMON WINDOWS is initialized, otherwise returns  false.
+    You  initialize  COMMON  WINDOWS  with  the  function initialize-common-
+    windows, and kill them with  kill-common-windows.   If  LISP  is  dumped
+    while  COMMON WINDOWS is running, this function will return true (in the
+    new LISP), even if COMMON WINDOWS has not been restarted.  In that case,
+    however,  connected-to-server-p  will  return false.  You restart COMMON
+    WINDOWS in a dumped image with restart-common-windows.
+
+    EXAMPLES
+    ;;  break the NeWS connection
+    (kill-common-windows)
+    (common-windows-initialized-p) => nil
+    ;;  reestablish the NeWS connection
+    (initialize-common-windows)
+    (common-windows-initialized-p) => t
+
+    SEE ALSO
+    initialize-common-windows kill-common-windows, restart-common-windows
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

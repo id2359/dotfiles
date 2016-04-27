@@ -1,0 +1,66 @@
+
+                                                                 declaration
+
+
+    DECLARATION SPECIFIER
+    declaration  -  advise compiler about non-standard declaration names
+
+    USAGE
+    declaration {name}*
+
+    SIDE EFFECTS
+    The COMMON LISP system is advised that each NAME is a  declaration  name
+    that is not standard, but valid nonetheless.
+
+    DESCRIPTION
+    The purpose of a declaration is to advise the system about the code con-
+    taining  the  declaration.   declaration allows you to name declarations
+    other than those provided  by  COMMON  LISP  (or  your  implementation).
+    These  declarations  will not affect a version of COMMON LISP which does
+    not recognize them, but it will prevent  errors  from  being  signalled.
+    Its  purpose  is  to  allow the same code to be used with different com-
+    pilers  without  unnecessary  errors  and  warnings.   This  declaration
+    specifier may be used only in proclamations.
+
+    EXAMPLES
+    (proclaim '(declaration target-machine)) => t
+    (proclaim '(target-machine PDP-11)) => t
+
+    SEE ALSO
+    CLtL 9:160, declare, proclaim
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

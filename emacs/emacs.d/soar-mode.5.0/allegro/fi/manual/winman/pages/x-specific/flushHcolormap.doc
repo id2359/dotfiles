@@ -1,0 +1,66 @@
+
+                                                              flush-colormap
+
+
+    FUNCTION
+    flush-colormap  -  flush a colormap
+
+    Usage
+    flush-colormap COLORMAP
+
+    DESCRIPTION
+    Permanently destroy a colormap object,  freeing  up  the  foreign  store
+    associated with it.
+
+    EXAMPLES
+    ;;  We create a colormap object bound to the variable MY-COLORMAP.
+    ;;  The variable MY-COLORS is bound to an array of colors.
+    ;;  This array is a field in the colormap structure.
+    (multiple-value-setq (my-colormap my-colors) (create-colormap 4))
+
+    ;;  Flush the colormap
+    (flush-colormap my-colormap)
+
+    SEE ALSO
+    'colors, colormap-size, colormap-colors, color-true, color-p, colormap-
+    p, truecolor-p, make-truecolor, truecolor-red, truecolor-blue,
+    truecolor-green, truecolor-hue, truecolor-saturation, truecolor-
+    brightness, truecolor-level, *color-support*,
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

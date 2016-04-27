@@ -1,0 +1,66 @@
+
+                                                                         nil
+
+
+    Type SPECIFIER
+    nil  -  the empty data type
+
+    Usage
+    nil
+
+    DESCRIPTION
+    Specifies the data type that contains no objects.  nil is a  subtype  of
+    every type.
+
+    EXAMPLES
+    (typep nil 'nil) => nil
+    (subtypep nil 'integer) => t t
+
+    SEE ALSO
+    CLtL 2:33, CLtL 4:43, about type specifiers, nil, subtypep, t, typep
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

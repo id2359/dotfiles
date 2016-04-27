@@ -1,0 +1,66 @@
+
+                                                      defstruct option :type
+
+
+    DEFSTRUCT OPTION
+    :type  -  require a specific representation for a structure
+
+    Usage
+    :type TYPE
+
+    DESCRIPTION
+    This is a defstruct option that is used to specify an explicit represen-
+    tational  type.  It forces the structure to be represented with the type
+    named by NAME.  The valid choices for TYPE are list  and  specifications
+    of  vector.   Whatever  representation  is  used,  the components of the
+    structure will be stored in order, preceded by the name of the structure
+    if  it  is  :named.  If the structure is :named and the representational
+    type is vector, then the element-type of the vector must be a  supertype
+    of  symbol, because the structure name is stored in the first element of
+    the vector.
+
+    A structure  defined  with  an  explicit  representational  type  cannot
+    specify  a  print function, and it must be named if a predicate function
+    is to be defined.
+
+    EXAMPLES
+    (defstruct
+        (fraction
+          :named
+          (:type list)) num denom) => fraction
+    (setq a (make-fraction :num 2 :denom 3)) => (fraction 2 3)
+    (fraction-p a) => t
+
+    SEE ALSO
+    CLtL 19:314, defstruct, defstruct-option :conc-name, defstruct-option
+    :constructor, defstruct option :copier, defstruct option :include,
+    defstruct option :initial-offset, defstruct option :named, defstruct
+    option :predicate, defstruct option :print-function
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

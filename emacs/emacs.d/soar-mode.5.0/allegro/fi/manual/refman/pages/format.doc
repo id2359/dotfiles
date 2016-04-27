@@ -1,0 +1,666 @@
+
+                                                                      format
+
+
+    FUNCTION
+    format  -  send nicely formatted output to a string or stream
+
+    Usage
+    format DESTINATION CONTROL-STRING {ARG}*
+
+    SIDE EFFECTS
+    Output is written to a stream or collected in a string, as specified  by
+    DESTINATION.
+
+    DESCRIPTION
+    Produces output by formatting the LISP objects given as  ARGS  according
+    to  directives  in  the  string CONTROL-STRING, and then disposes of the
+    output as specified by DESTINATION.  The CONTROL-STRING  is  written  to
+    the output destination literally except for format directives.  They are
+    introduced with the tilde character ``~'', and may consume zero or  more
+    of the arguments given by ARGS.
+
+    If DESTINATION is nil, this function returns the formatted output  as  a
+    string,  otherwise  it  always returns nil.  If DESTINATION is a stream,
+    the output is simply written to it.  If it is t, the output is  sent  to
+    the  stream *standard-output*.  Finally, if DESTINATION is a string with
+    a  fill-pointer,  the  output   is   appended   to   it   as   if   with
+    vector-push-extend.
+
+    A wide variety of formatting directives is allowed within CONTROL-STRING
+    to provide sophisticated control over printing the ARGS.  In the absence
+    of formatting directives, the output is just the string itself, and  any
+    ARGS  are  ignored.   When a directive occurs in the string, it does not
+    literally appear in the output, but instead serves to  process  zero  or
+    more ARGS.  These arguments are usually processed one at a time, left to
+    right, so that an ARG used by one directive is unavailable to the  next.
+    However,  arbitrary  repositioning  within an argument list is possible.
+    An ARG may be a list of arguments required for  recursive  or  iterative
+    processing.   It  is  an error if there are no remaining arguments for a
+    directive that requires one, but it is not  an  error  if  arguments  go
+    unused.
+
+    In simplest form, a directive appears in the CONTROL-STRING as  a  ``~''
+    followed by the single character identifying what kind it is.  For exam-
+    ple, ``~X'' prints a  numerical  argument  in  hexadecimal,  and  ``~F''
+    prints in a fixed-format floating-point notation.  Between the ``~'' and
+    the single character there may be optional prefix  parameters  separated
+    by commas, followed by optional colon ``:'' and at-sign ``@'' modifiers.
+    The general form is
+
+         ~PREFIXPARAM-0,PREFIXPARAM-1,...,PREFIXPARAM-N[:][@]IDCHAR
+
+    Some directives, namely ``~('', ``~<'', ``~['', and ``~{'',  begin  spe-
+    cial  control structures which are followed by a sequence of characters,
+    possibly containing instances of the separator  directive,  ``~;'',  and
+    ending  with  the  corresponding closing directive, respectively ``~)'',
+    ``~>'', ``~]'', and ``~}''.  The ``~?'' directive  is  another  kind  of
+    control  structure  that  processes the next ARG as a recursively called
+    control string.  All the control structure directives must nest properly
+    with  respect  to each other.  The escape directive, ``~^'', may be used
+    within a control string or structure to terminate processing prematurely
+    when no arguments remain.
+
+    The usage, meanings, and default values of  the  prefix  parameters  and
+    modifiers  depends  on  the  kind  of  directive  they precede.  Each is
+    described in a section following this one, identified by its  respective
+    IDCHAR, however, some important general rules apply to all directives.
+
+    To begin with, IDCHAR, may be in uppercase or lowercase, and it  may  be
+    preceded by a ``:'' or ``@'' modifier, or both, but only in combinations
+    specifically allowed for the directive.  Each parameter is identified by
+    position,  and  so the NTH parameter is always preceded by N - 1 commas.
+    Two commas with nothing between them indicates that the parameter  after
+    the first comma is to be unspecified.  A parameter list may be truncated
+    at the point where only unspecified parameters would follow.  For  exam-
+    ple,  to specify only the third of five parameters to the floating-point
+    directive, ``~F'' (or ``~f''), the two forms ``~,,2,,F''  and  ``~,,2F''
+    are  equivalent.   It is an error to specify more parameters to a direc-
+    tive than it is described to use.
+
+    Usually, a prefix parameter is expected to be either a character  or  an
+    optionally  signed  decimal integer.  If a character object is expected,
+    it must be specified, if at all, with a single quote ``''' in  front  of
+    it.  For example, ``'a'' (not ``#\a'') is the correct way to specify the
+    letter ``a'' as a prefix parameter.
+
+    As special cases, the unquoted characters ``#'' and ``V'' (or ``v'') may
+    appear  as  prefix  parameters.   The ``#'' character is replaced by the
+    number of arguments remaining to be processed (correctly accounting  for
+    the  current  recursive  format  level,  if applicable).  If a parameter
+    appears as the letter ``V'' (or ``v''), the value of  the  parameter  is
+    taken to be the next unprocessed ARG.  If that ARG is nil, the parameter
+    assumes its default value.
+
+    Here is a summary of all the available format directives.
+
+    ~A            print object without escape characters
+    ~B            print integer in binary radix
+    ~C            print character
+    ~D            print integer in decimal radix
+    ~E            print floating-point number in exponential notation
+    ~F            print floating-point number in fixed-format notation
+    ~G            print floating-point number in fixed-format or exponential notation
+    ~O            print integer in octal radix
+    ~P            print plural or singular English suffix
+    ~R            print integer in specified radix
+    ~S            print object with escape characters
+    ~T            print enough spaces to move to a specified column (tabulate)
+    ~X            print integer in hexadecimal radix
+    ~newline      print or ignore newline character and following whitespace
+    ~$            print floating-point number in fixed-format suitable for dollar amounts
+    ~%            print newline character
+    ~&            print newline character if not already on new line
+    ~(...~)       process control string with case conversion
+    ~*            skip backward or forward in argument list
+    ~<...~;...~>  process control string with text justification
+    ~?            process argument as recursively called control string
+    ~[...~;...~]  process control string conditionally depending on argument
+    ~^            terminate processing of enclosing control string prematurely
+    ~{...~}       process control string repetitively
+    ~|            print page separator character
+    ~~            print tilde character
+
+    EXAMPLES
+    (format nil "~B" 64) => "1000000"
+    (format nil "~20D" 1234567890) => "          1234567890"
+    (format nil "~:@D" 1234567890) => "+1,234,567,890"
+    (format nil "This is a ~6@A" "test") => "This is a   test"
+    (format nil "Time ~D fl~:@P like ~R arrow~:P." 3 1)
+      => "Time 3 flies like one arrow."
+    (format nil "~@[length is ~D ~]~@[depth is ~D ~]" nil 13)
+      => "depth is 13 "
+
+    SEE ALSO
+    CLtL 22:385, cerror, clear-output, finish-output, force-output, fresh-
+    line, prin1, prin1-to-string, princ, princ-to-string, print, *standard-
+    output*, terpri, vector-push-extend, write, write-byte, write-char,
+    write-line, write-string, write-to-string
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

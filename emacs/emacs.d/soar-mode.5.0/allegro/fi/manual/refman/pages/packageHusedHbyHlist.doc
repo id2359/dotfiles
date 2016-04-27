@@ -1,0 +1,66 @@
+
+                                                        package-used-by-list
+
+
+    FUNCTION
+    package-used-by-list  -  get names of all other packages that use a
+      specified package
+
+    USAGE
+    package-used-by-list package
+
+    DESCRIPTION
+    Returns a list of all other packages that use PACKAGE.  PACKAGE must  be
+    a  package.   When one package uses another, all the exported symbols of
+    the used package become accessible by inheritance in the using  package.
+    When  the  using  package  is  current, the external symbols of the used
+    package are accessible without a package qualifier.
+
+    EXAMPLES
+    ;;  The lisp package is used by the user package.
+    (if (member (find-package :user)
+                (package-used-by-list
+                 (find-package :lisp)))
+        'yes 'no) => yes
+
+    ;;  But the user package is not used by the lisp package.
+    (if (member (find-package :lisp)
+                (package-used-by-list
+                 (find-package :user)))
+        'yes 'no) => no
+
+    SEE ALSO
+    CLtL 11:184, find-package, package-use-list, use-package
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

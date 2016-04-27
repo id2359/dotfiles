@@ -1,0 +1,66 @@
+
+                                                                       &body
+
+
+    Lambda-List KEYWORD
+    &body  -  bind remaining macro arguments as a list
+
+    USAGE
+    &body var
+
+    DESCRIPTION
+    Specifies that during macro expansion, the parameter VAR be bound  to  a
+    list of any unprocessed arguments that remain after binding the required
+    and optional parameters.  If there are none left, VAR is bound  to  nil.
+    It is important to note that keyword parameters are included in VAR.
+
+    The &body lambda-list keyword is a  variant  of  &rest  which  may  only
+    appear  in  defmacro lambda lists.  It is identical to &rest except that
+    it may be recognized by certain editing and printing functions as  indi-
+    cating  that  the  rest  of the macro call form is to be regarded as the
+    body of the form (as opposed to the arguments to the macro) and  may  be
+    indented appropriately.
+
+    EXAMPLES
+    (defmacro with-print-base (base &body forms)
+      `(let ((*print-base* ,base))
+         (declare (special *print-base*))
+         ,@forms))
+
+    (with-print-base 2 (write 1/2)) PRINTS 1/10
+    (with-print-base 2 (write 1/4)) PRINTS 1/100
+    (with-print-base 2 (write 1/8)) PRINTS 1/1000
+
+    SEE ALSO
+    CLtL 08:145, about forms, about lambda lists, defmacro, &rest, &optional
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

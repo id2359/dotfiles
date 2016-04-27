@@ -1,0 +1,66 @@
+
+                                                                 symbol-name
+
+
+    FUNCTION
+    symbol-name  -  get the print name of a symbol
+
+    USAGE
+    symbol-name sym
+
+    DESCRIPTION
+    Returns the print name of the symbol SYM.  The print name serves as  the
+    printed  representation  (for  print) of a symbol, and the print name is
+    used to map a string of characters read (by read) to a symbol.
+
+    It is considered devious to modify a string that is the print name of  a
+    symbol.
+
+    EXAMPLES
+    (symbol-name 'abc) => "ABC"
+    (symbol-name '|xyz|) => "xyz"
+    (symbol-name 'x\yz) => "XyZ"
+
+    SEE ALSO
+    CLtL 10:168, print, read
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

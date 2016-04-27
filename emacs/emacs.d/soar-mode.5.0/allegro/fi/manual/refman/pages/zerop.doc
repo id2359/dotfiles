@@ -1,0 +1,66 @@
+
+                                                                       zerop
+
+
+    FUNCTION
+    zerop  -  test whether a number is zero
+
+    USAGE
+    zerop number
+
+    DESCRIPTION
+    Returns true if NUMBER is equal to zero and false otherwise. NUMBER  may
+    be  any type of number, and it is compared to the zero of that type.  If
+    an implementation provides  distinct  representations  of  positive  and
+    negative zero, both satisfy this predicate.
+
+    EXAMPLES
+    (zerop 0) => t
+    (zerop 0.0) => t
+    (zerop #C(0 0)) => t
+
+    SEE ALSO
+    CLtL 12:195, minusp, plusp
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

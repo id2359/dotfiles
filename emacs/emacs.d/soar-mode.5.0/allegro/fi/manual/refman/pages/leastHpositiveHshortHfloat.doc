@@ -1,0 +1,66 @@
+
+                                                  least-positive-short-float
+
+
+    CONSTANT
+    least-positive-short-float  -  positive short-float closest to zero
+
+    DESCRIPTION
+    Returns the value of the positive short-float  number  nearest  to  (but
+    still different from) zero.  This value is implementation-dependent.
+
+    EXAMPLES
+    ;; This value is implementation-dependent.
+    least-positive-short-float => 1.1754944e-38
+
+    SEE ALSO
+    CLtL 12:231, about numeric constants
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

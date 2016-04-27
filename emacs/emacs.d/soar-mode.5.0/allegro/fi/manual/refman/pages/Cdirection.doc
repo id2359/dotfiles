@@ -1,0 +1,66 @@
+
+                                                                  :direction
+
+
+    KEYWORD ARGUMENT
+    :direction  -  specify data direction of a stream to be opened by open
+      or with-open-file
+
+    USAGE
+    :direction in-out
+
+    DESCRIPTION
+    Specifies whether a stream to be created by open or with-open-file  will
+    be  used  for  input, output, input and output, or just to see if a file
+    exists.  The possible values for IN-OUT are listed  below,  with  :input
+    being the default.
+
+    :input
+    The stream will be used for reading data.
+
+    :output
+    The stream will be used for writing data.
+
+    :io
+    The stream will be used both for reading and writing data.
+
+    :probe
+    The stream will not be used at all.  Any actions that depend on  whether
+    or  not  a  file  exists  will  still  be  taken.   (See  :if-exists and
+    :if-does-not-exist).
+
+    EXAMPLES
+    (let* ((out (open "junk" :direction :output :if-exists :supersede))
+           (in (open "junk" :direction :input))
+           (x (prin1 'foo out)))
+      (prog2
+        (close out)
+        (read in)
+        (close in)))
+        => foo
+    (open "a-non-existent-file" :direction :probe) => nil
+
+    SEE ALSO
+    CLtL 23:418, close, open, with-open-file
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

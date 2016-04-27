@@ -1,0 +1,66 @@
+
+                                                               software-type
+
+
+    FUNCTION
+    software-type  -  get the name of any relevant supporting software
+
+    Usage
+    software-type
+
+    DESCRIPTION
+    Returns the string  identifying  the  generic  name  of  the  supporting
+    software relevant to the Common Lisp you are running.  If no appropriate
+    value can be found, it will return nil.  The precise value  returned  is
+    implementation-dependent.   Typically, the string returned will identify
+    the `operating system' on top of which the LISP implementation  is  run-
+    ning.
+
+    EXAMPLES
+    (software-type) => "VAX/VMS"
+
+    SEE ALSO
+    CLtL 25:448, lisp-implementation-type, lisp-implementation-version,
+    long-site-name, machine-instance, machine-type, machine-version, short-
+    site-name, software-version
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

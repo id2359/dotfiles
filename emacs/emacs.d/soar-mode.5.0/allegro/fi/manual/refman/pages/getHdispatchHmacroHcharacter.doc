@@ -1,0 +1,66 @@
+
+                                                get-dispatch-macro-character
+
+
+    FUNCTION
+    get-dispatch-macro-character  -  get the macro-character function for a
+      dispatch-macro character sequence
+
+    Usage
+    get-dispatch-macro-character DISP-CHAR SUB-CHAR [TABLE]
+
+    DESCRIPTION
+    Returns the macro-character function associated  with  the  sequence  of
+    characters  consisting  of  DISP-CHAR,  followed  by  an  optional digit
+    string, followed by SUB-CHAR,  in  the  readtable  specified  by  TABLE.
+    TABLE  defaults  to  *readtable*.  An error is signalled if DISP-CHAR is
+    not a dispatch character.
+
+    EXAMPLES
+    ;;  We define the sequence ``#v'' followed by a number
+    ;;  to be read as the sine of the number.
+
+    (set-dispatch-macro-character #\# #\v
+      #'(lambda (stream sub-char infix-argument)
+         (declare (ignore sub-char infix-argument))
+         (sin (read stream t nil t)))) => t
+    #v0.0 => 0.0
+    (pprint (get-dispatch-macro-character #\# #\v)) PRINTS
+    (lambda (stream sub-char infix-argument)
+      (declare (ignore sub-char infix-argument))
+      (sin (read stream t nil t)))
+
+    ;;  Usually the function assocated with a dispatch-macro character
+    ;;  sequences is compiled, in which case this function returns a
+    ;;  compiled function  object (whose name and printed representation
+    ;;  are implemenation-dependent).
+    (get-dispatch-macro-character #\# #\')
+      => #<Function sharp-quote @ #x1d0ec1>
+
+    SEE ALSO
+    CLtL 22:364, get-dispatch-macro-character, get-macro-character, make-
+    dispatch-macro-character, set-macro-character, set-syntax-from-char
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

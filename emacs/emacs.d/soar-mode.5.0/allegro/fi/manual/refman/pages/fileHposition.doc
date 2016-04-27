@@ -1,0 +1,66 @@
+
+                                                               file-position
+
+
+    FUNCTION
+    file-position  -  get or set the position for subsequent input/output
+      operations to a file
+
+    USAGE
+    file-position file-stream [position]
+
+    SIDE EFFECTS
+    If POSITION is given, the position of the next input/output operation on
+    FILE-STREAM is set to it.
+
+    DESCRIPTION
+    When called without the  optional  argument  POSITION,  returns  a  non-
+    negative  integer  representing  the  position  of the next input/output
+    operation on FILE-STREAM, or nil if that information  cannot  be  deter-
+    mined.
+
+    If the POSITION argument is specified, the position is set to its  value
+    and t is returned.  A value of nil is returned if the file position can-
+    not be set to the value specified by POSITION.
+
+    The argument FILE-STREAM must be a stream open to a file,  and  POSITION
+    may be a non-negative integer, or one of the keywords :start, indicating
+    the beginning of the file (position zero), or :end, indicating  the  end
+    of  the file.  An error is signalled if POSITION is negative, too large,
+    or otherwise inappropriate.
+
+    The file position increases monotonically  with  each  input  or  output
+    operation.   Each  application  of  read-byte  or write-byte to a binary
+    stream increases the file position by precisely one.  Each read-char  or
+    write-char    application    increases    the    file-position   by   an
+    implementation-dependent amount.  (This amount depends on  the  encoding
+    of file positions as integers and or character translation that might be
+    performed, the most common being for #\newline.)
+
+    EXAMPLES
+    (with-open-file (out "junk" :direction :output
+                         :if-exists :supersede)
+      ;; first we write out foo and bar
+      (format out "~A ~A" 'foo 'bar)
+      ;; then set the position to the `r' in `bar'
+      (file-position out 6)
+      ;; and overwrite it with `yap' so the file
+      ;; contains `bayap'
+      (format out "~A" 'yap)) => nil
+
+    (with-open-file (in "junk" :direction :input)
+      ;; verify what the file contains by doing a read
+      (list (read in) (file-position in) (read in)))
+      => (foo 4 bayap)
+
+    SEE ALSO
+    CLtL 23:425, file-author, file-length, file-write-date
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                                   char-name
+
+
+    FUNCTION
+    char-name  -  get the name of a character
+
+    USAGE
+    char-name char
+
+    DESCRIPTION
+    Returns the name of CHAR as a string if it has one, and  nil  otherwise.
+    The  argument  CHAR,  which must be a character object, has a name if it
+    has zero bits and font attributes and does  not  satisfy  the  predicate
+    graphic-char-p.  A graphic character may or may not have a name.
+
+    The names of the standard and semistandard  non-graphic  characters  are
+    "Space",  "Newline",  "Tab", "Page", "Rubout", "Linefeed", "Return", and
+    "Backspace".  (An implementation may not support  all  these  characters
+    and  may  support  others  not  listed.)  Character  names are not case-
+    sensitive.  char-name does not use bits or font attributes in construct-
+    ing character names even if they are present in CHAR.
+
+    EXAMPLES
+    ;;  The returned values are implementation-dependent:
+    (char-name #\a) => nil
+    (char-name #\space) => "Space"
+    (char-name #\newline) => "Newline"
+
+    SEE ALSO
+    CLtL 13:242, char-int, graphic-char-p, name-char
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

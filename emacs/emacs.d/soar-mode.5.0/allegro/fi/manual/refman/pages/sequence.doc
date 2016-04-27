@@ -1,0 +1,66 @@
+
+                                                                    sequence
+
+
+    Type SPECIFIER
+    sequence  -  the data type of ordered sets of elements
+
+    USAGE
+    sequence
+
+    DESCRIPTION
+    Specifies the data type that consists of ordered sets of elements.  list
+    and vector are mutually exclusive subtypes of sequence.
+
+    EXAMPLES
+    (typep '(a b c) 'sequence) => t
+    (typep '#(a b c) 'sequence) => t
+    (typep "a b c" 'sequence) => t
+
+    SEE ALSO
+    CLtL 4:43, CLtL 14:245, about type specifiers, list, typep, vector
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

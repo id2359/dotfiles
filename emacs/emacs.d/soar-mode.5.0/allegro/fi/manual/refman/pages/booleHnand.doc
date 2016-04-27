@@ -1,0 +1,66 @@
+
+                                                                  boole-nand
+
+
+    CONSTANT
+    boole-nand  -  specify bitwise logical `nand' operation
+
+    DESCRIPTION
+    Used as the first argument to  boole  to  specify  the  bitwise  boolean
+    `nand' operation.
+
+    EXAMPLES
+    (setf *print-base* 2
+          *print-radix* t)
+    ;;  (Since bitwise logical operations interpret integers as
+    ;;  half-infinite, the result is negative, which in two's-
+    ;;  complement representation has an infinite string of 1's
+    ;;  to the right, that is toward higher-order bits.  The
+    ;;  number #b-1001 would be represented in two's-complement
+    ;;  as ...111110111.)
+    (boole boole-nand #b1100 #b1010) => #b-1001
+    (ldb (byte 4 0) #b-1001) => #b111
+    (logbitp 100 #b-1001) => t
+
+    SEE ALSO
+    CLtL 12:222, boole, boole-1, boole-2, boole-and, boole-andc1, boole-
+    andc2, boole-c1, boole-c2, boole-clr, boole-eqv, boole-ior, boole-nor,
+    boole-orc1, boole-orc2, boole-set, boole-xor
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

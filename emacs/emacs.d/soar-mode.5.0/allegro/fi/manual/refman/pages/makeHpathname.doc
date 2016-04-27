@@ -1,0 +1,66 @@
+
+                                                               make-pathname
+
+
+    FUNCTION
+    make-pathname  -  make a pathname out of given components
+
+    USAGE
+    make-pathname [:host h] [:device d] [:directory r] [:name n] [:type t]
+      [:version v] [:defaults path]
+
+    DESCRIPTION
+    Returns a new pathname  with  components  explicitly  specified  by  the
+    optional keyword arguments :host, :device, :directory, :name, :type, and
+    :version, and with unspecified components filled in from a default path-
+    name  using  the  same  merging rules as merge-pathnames.  If you do not
+    explicitly specify a default pathname, a pathname having the  same  host
+    component  as  *default-pathname-defaults*  and  nil  for all other com-
+    ponents  is  used  as  the  default  pathname.   When  a   pathname   is
+    constructed,  its components may be `canonicalized' if appropriate in an
+    implementation-dependent way.
+
+    EXAMPLES
+    (let* ((x (make-pathname :name "foo" :host nil))
+           (y (make-pathname :name "bar" :host "liszt"))
+           (mxy (merge-pathnames x y)))
+      (list
+       (pathname-name x) (pathname-host x)
+       (pathname-name mxy) (pathname-host mxy)))
+      => ("foo" nil "foo" "liszt")
+
+    SEE ALSO
+    CLtL 23:416, *default-pathname-defaults*, merge-pathnames, pathname-
+    device, pathname-directory, pathname-host, pathname-name, pathname-type,
+    pathname-version
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

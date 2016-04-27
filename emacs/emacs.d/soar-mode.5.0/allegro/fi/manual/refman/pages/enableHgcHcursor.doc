@@ -1,0 +1,66 @@
+
+                                                            enable-gc-cursor
+
+
+    FUNCTION
+    enable-gc-cursor  -  turn on the gc-cursor
+
+    Usage
+    enable-gc-cursor
+
+    SIDE EFFECTS
+    The gc-cursor will be displayed whenever the  a  garbage  collection  is
+    taking  place.   While  the  cursor is displayed, mouse button cannot be
+    used with any X application.
+
+    DESCRIPTION
+    Returns an integer (whose value is undetermined and of no significance),
+    but this function is called for its side effects.  The gc cursor will be
+    displayed whenever LISP is garbage collecting.  The cursor (which resem-
+    bles  a  hourglass)  indicates that  (and COMMON WINDOWS) cannot do any-
+    thing until the garbage collection is finished.
+
+    The cost of using the gc cursor is that the mouse buttons  are  disabled
+    for any X application (not just COMMON WINDOWS) until the gc is finished
+    and the cursor changes back.  You must weigh the costs and  benefits  of
+    using the gc cursor.
+
+    The gc cursor can also be enabled when  COMMON  WINDOWS  is  initialized
+    with  initialize-common-windows  (by  specifying a non-nil value for the
+    :gc-cursor  argument).    The   gc   cursor   can   be   disabled   with
+    disable-gc-cursor.
+
+    EXAMPLES
+    ;;  Turn on the gc-cursor.
+    (enable-gc-cursor)
+    ;;  Force a gc. The gc-cursor will be displayed.
+    (excl:gc t)
+    ;;  Turn off the gc-cursor.
+    (disable-gc-cursor)
+
+    SEE ALSO
+    disable-gc-cursor, initialize-common-windows
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

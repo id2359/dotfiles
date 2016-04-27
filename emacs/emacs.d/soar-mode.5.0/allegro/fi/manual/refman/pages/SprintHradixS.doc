@@ -1,0 +1,66 @@
+
+                                                               *print-radix*
+
+
+    VARIABLE
+    *print-radix*  -  variable whose value controls printing of radix
+      specifiers for rational numbers
+
+    DESCRIPTION
+    When this variable is true, the COMMON LISP printer will print  a  radix
+    specifier  whenever  a  rational  number  is  printed.   What is printed
+    depends on the value of the radix.  The most common values 2, 8, 10, and
+    16  all  have special designators.  Radixes 2, 8, and 16 are denoted #b,
+    #o, and #x, respectively.  In base 10, integers have a trailing  decimal
+    point  and  decimal  ratios  are  preceded  with  #10r  (lowercase `r').
+    Radixes other than the special ones are represented #NR where N  is  the
+    radix in decimal.
+
+    If the value of this variable  is  nil,  which  is  the  default,  radix
+    specifiers  will not be printed.  Recall that floating-point numbers are
+    always printed in decimal.
+
+    EXAMPLES
+    (let ((*print-base* 2) *print-radix*)
+      (format nil "~A" 5)) => "101"
+    (let ((*print-base* 2) (*print-radix* t))
+      (format nil "~A" 5)) => "#b101"
+    (let ((*print-base* 10) *print-radix*)
+      (format nil "~A" 5)) => "5"
+    (let ((*print-base* 10) (*print-radix* t))
+      (format nil "~A"5)) => "5."
+    (let ((*print-base* 10) *print-radix*)
+      (format nil "~A" 5/2)) => "5/2"
+    (let ((*print-base* 10) (*print-radix* t))
+      (format nil "~A"5/2)) => "#10r5/2"
+    (let ((*print-base* 7) *print-radix*)
+      (format nil "~A" 12)) => "15"
+    (let ((*print-base* 7) (*print-radix* t))
+      (format nil "~A" 12)) => "#7r15"
+
+    SEE ALSO
+    CLtL 22:371, about printing, *print-array*, *print-base*, *print-case*,
+    *print-circle*, *print-escape*, *print-gensym*, *print-length*, *print-
+    level*, *print-pretty*, princ, print, print1, write
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
