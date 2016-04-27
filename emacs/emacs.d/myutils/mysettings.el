@@ -49,7 +49,7 @@
     (global-set-key [f8] 'neotree-toggle)
 
     ;; flycheck
-    (global-flycheck-mode)
+    ;;(global-flycheck-mode)
 
     ;; yasnippet
     (require 'yasnippet)
