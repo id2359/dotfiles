@@ -1,0 +1,66 @@
+
+                                                    make-string-input-stream
+
+
+    FUNCTION
+    make-string-input-stream  -  make an input stream that reads from a
+      string
+
+    USAGE
+    make-string-input-stream string [start [end]]
+
+    DESCRIPTION
+    Returns an input stream that reads from the string STRING.
+
+    To operate on a subsequence of STRING use the  optional  START  and  END
+    arguments.   The START argument indicates the index of the first element
+    of the string to read.  It defaults to zero (the  first  element).   The
+    END  argument  specifies an index one greater than the index of the last
+    element to read. A value of nil is equivalent to the default, the length
+    of the string.
+
+    Input operations for the resultant stream will read  successive  charac-
+    ters  from  the  substring  of STRING.  When the last character has been
+    read, the next operation will encounter an end-of-file.
+
+    EXAMPLES
+    (let* ((i1 (make-string-input-stream "beginning "))
+           (i2 (make-string-input-stream "middle "))
+           (i3 (make-string-input-stream "end"))
+           (i4 (make-concatenated-stream i1 i2 i3)))
+      (list (read i4) (read i4) (read i4)))
+      => (beginning middle end)
+    (let* ((in (make-string-input-stream "Hello"))
+           (out (make-string-output-stream))
+           (io (make-two-way-stream in out)))
+      (prin1 (read io) io)
+      (get-output-stream-string out))
+      => "Hello"
+
+    SEE ALSO
+    CLtL 21:330, get-output-stream-string, make-broadcast-stream, make-
+    concatenated-stream, make-echo-stream, make-string-input-stream, make-
+    string-output-stream, make-synonym-stream, make-two-way-stream, open,
+    read
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

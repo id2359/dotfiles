@@ -1,0 +1,666 @@
+
+                                                              about notation
+
+
+    NOTES
+    about notation  -  notational conventions used in this manual
+
+    DESCRIPTION
+    Each COMMON LISP symbol is documented in a separate  manual  entry  that
+    includes the following information:
+
+         name
+         type
+         one-line description
+         usage summary
+         side-effects
+         full description
+         examples
+         cross-references
+
+    When a symbol has more than one use, (for example + is both  a  function
+    and  a variable, and function is a declaration specifier, a type specif-
+    ier, and a special form), there is a separate entry for each use.
+
+    Some keywords used as keyword arguments for COMMON LISP  functions  have
+    entries  of  their  own (most keywords do not, however).  There are also
+    entries (you are reading one now) which discuss general topics of COMMON
+    LISP.   These  all are named about SOMETHING, and are all located at the
+    beginning.  Finally, there  are  three  more  special  labels  used  for
+    entries.  The keyword arguments to defstruct all have their own entries.
+    They are labeled defstruct option KEYWORD.  Format directives  (used  by
+    format) have their own entries, labeled format directive.  Reader macros
+    (used by read when reading LISP objects)  have  entries  labeled  reader
+    macro.
+
+    Certain conventions are observed within usage summaries.  The  monospace
+    font  indicates  a part that must be entered literally as it appears.  A
+    name in ITALICS stands for an argument expected in that position.   Usu-
+    ally  the  name  suggests  the  purpose of the argument, but its precise
+    meaning is always explained in the accompanying text.  These rules carry
+    on  to  the description text.  There, however, italics is also occasion-
+    ally used for emphasis.
+
+    The special characters { }  ( ) * * + | [ ] are used to  encode  regular
+    expressions.   Brackets,  [  and  ], enclose a construct that may appear
+    once in that position or not at all, except  when  the  construct  is  a
+    keyword-value  argument  pair.   In  that case, the position relative to
+    other keyword-value pairs at that level does not matter.  Braces, {  and
+    },  are  used  with  other special characters to indicate grouping.  The
+    construct {X}* means zero or more repetitions of X, and {X}+  means  one
+    or more repetitions of X.  When a vertical bar, |, appears within braces
+    or brackets, it separates mutually exclusive choices.  For example, {X |
+    Y  |  Z} means one and only one of X, Y, or Z.  Note that parentheses, (
+    and ), and asterisks, *, appearing in the monospace font stand for them-
+    selves.
+
+    In examples, the symbol => means EVALUATES TO, and when evaluation  pro-
+    duces  multiple  values,  the  values  all appear on the same line.  For
+    example,
+
+    (+ 2 3) => 5
+    (floor 2.5) => 2 0.5
+
+    The symbol => ERROR means SIGNALS AN  ERROR.   Since  any  actual  error
+    message will be implementation-dependent, error messages are not usually
+    reproduced.  Instead, a comment describes what caused the error.   (Some
+    scripts, showing both user input and system response reproduce plausible
+    error messages.  These may be different from what any specific implemen-
+    tation produces, however.) Thus:
+
+    (+ 2 'a) => ERROR
+
+    The error is that a symbol (a) is an invalid argument to +.
+
+    The symbol PRINTS is used to indicate that something is printed (usually
+    to  *standard-output*) during the evaluation of a form.  Even though the
+    printing is done before the value of the form returns, we may  show  the
+    printing after the evaluation symbol.
+
+    When constructs are IDENTICALLY EQUAL, that is, when for all  consistent
+    variable  assignments  they evaluate to the same result, this is notated
+    with =, as in
+
+    (atom x) = (typep x 'atom) = (not (typep x 'cons))
+
+    The symbol -> indicates the result of macro expansion.
+
+    EXAMPLES
+    Consider the following functions' usage summaries:
+
+    subseq SEQUENCE START [END]
+    fill SEQUENCE ITEM [:start SN] [:end EN]
+    append {LIST}*
+    char= {CHAR}+
+
+    The first indicates that subseq may be called with two  or  three  argu-
+    ments.   The  second  indicates  that fill takes at least two arguments,
+    followed optionally by one or two keyword-value pairs in any  order,  so
+    long as they appear after the first two arguments.  For example,
+
+    (fill '(a b c d e) 'x) => (x x x x x)
+    (fill '(a b c d e) 'x :end 4) => (x x x x e)
+    (fill '(a b c d e) 'x :end 4 :start 2)  => (a b x x e)
+
+    The append function takes zero or more arguments, while  char=  requires
+    one or more arguments.  (When given no arguments, it signals and error.)
+
+    (append) => nil
+    (append '(a) '(b) '(c)) => (a b c)
+    (char=) => ERROR
+    (char= #\a #\A #\Control-A) => nil
+
+    SEE ALSO
+     about forms, about keywords, about lambda
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                         get-macro-character
+
+
+    FUNCTION
+    get-macro-character  -  get the function associated with a character
+      macro
+
+    Usage
+    get-macro-character CHAR [TABLE]
+
+    DESCRIPTION
+    Returns two values, the function that is associated  with  CHAR  in  the
+    readtable  TABLE,  and a boolean value asserting whether the function is
+    non-terminating  (this  value  is  the  value  of  NON-TERMINATING-P  in
+    set-macro-character).  The argument TABLE defaults to the current readt-
+    able (the value of *readtable*).
+
+    EXAMPLES
+    ;;  The function names for standard character macros and the
+    ;;  printed representation of compiled function objects are
+    ;;  implementation-dependent.
+    (get-macro-character #\() => excl::read-list nil
+    (get-macro-character #\)) => excl::read-right-paren nil
+
+    SEE ALSO
+    CLtL 22:362, copy-readtable, get-dispatch-macro-character, make-
+    dispatch-macro-character, readtablep, *readtable*, set-dispatch-macro-
+    character, set-macro-character, set-syntax-from-char
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

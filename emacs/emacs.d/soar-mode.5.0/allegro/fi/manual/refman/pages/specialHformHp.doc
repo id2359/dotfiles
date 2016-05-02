@@ -1,0 +1,66 @@
+
+                                                              special-form-p
+
+
+    FUNCTION
+    special-form-p  -  test whether a symbol is the global name for a spe-
+      cial form
+
+    USAGE
+    special-form-p symbol
+
+    DESCRIPTION
+
+    Returns a non-nil value if SYMBOL names a special form, and  nil  other-
+    wise.   A non-nil value may be an implementation-dependent function that
+    may be used to evaluate the special form.  The standard COMMON LISP spe-
+    cial forms are
+
+    block                   if                      progv
+    catch                   labels                  quote
+    compiler-let            let                     return-from
+    declare                 let*                    setq
+    eval-when               macrolet                tagbody
+    flet                    multiple-value-call     the
+    function                multiple-value-prog1    throw
+    go                      progn                   unwind-protect
+
+    An implementation may choose to implement any macro as  a  special  form
+    for  speed.  Thus special-form-p may be true of symbols other than those
+    just enumerated.  Further,  in  these  cases  macro-function  will  also
+    return  a  non-nil  value since a macro definition must be available for
+    implementation-dependent special forms.  Conversely, the  standard  spe-
+    cial  forms may be implemented as macros, in which case again both func-
+    tions will return non-nil values.
+
+    EXAMPLES
+    ;;  Many implementations return some non-NIL value other than T.
+    (special-form-p 'car) => nil
+    (special-form-p 'setq) => t
+    ;;  The remaining results are implementation-dependent.
+    (macro-function 'setq) => nil
+    (special-form-p 'do) => t
+
+    SEE ALSO
+    CLtL 7:91, about special forms, macro-function
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

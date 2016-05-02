@@ -1,0 +1,66 @@
+
+                                                *make-window-stream-actions*
+
+
+    VARIABLE
+    *make-window-stream-actions*  -  list of functions called by after a
+      window is created with make-window-stream
+
+    DESCRIPTION
+    Bound  to  a  list  of  functions  which  are  called,  in  order,  when
+    make-window-stream  finishes  making  a  window-stream and returns.  The
+    functions are called with the new window-stream as  the  only  argument.
+    (Actually, the list contains the symbols which denote the functions, not
+    the function objects themselves.)
+
+    The initial value of this variable is the  list  containing  the  single
+    function  add-right-button-menu.   This  function  adds the right button
+    menu to the newly created window-stream.  If you do not what  the  right
+    button  menu  added to a particular window-stream, bind this variable to
+    nil  (or  some  other  list   of   functions)   during   the   call   to
+    make-window-stream.   Replace  the  list entirely if you do not want the
+    right button menu on any window.  Use push or append to add functions to
+    the list while leaving add-right-button-menu.
+
+    Note that the right button menu interferes with or makes inoperable most
+    frame  button  methods.   (E.g.  frame-middle-button-up and frame-right-
+    button-up are both rendered  inoperative.   See  the  entries  on  these
+    methods for details.)
+
+    EXAMPLES
+    ;;  The default value of the list:
+    *make-window-stream-actions* => (add-right-button-menu)
+    ;;  To make a window without the right button menu:
+    (let ((*make-window-stream-actions* nil))
+      (make-window-stream))
+    ;;  We define another function and add it to the list:
+    (defun my-mws (&rest args) (declare (ignore args))
+      (format t "New window just created.~%"))
+    (push 'my-res *make-window-stream-actions*)
+    *make-window-stream-actions*
+      => (my-mws add-right-button-menu)
+
+    SEE ALSO
+    *initialize-common-windows-actions*, *kill-common-windows-actions*,
+    make-window-stream, *restart-common-windows-actions*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                                        cons
+
+
+    Type SPECIFIER
+    cons  -  the data type cons
+
+    Usage
+    cons
+
+    DESCRIPTION
+    Specifies the data type consisting of all conses.  A cons is a structure
+    with  two  components:   a car and a cdr.  A list is the symbol nil or a
+    cons the cdr of which is a list.
+
+    The printed representation of a cons is the same as for a general  list,
+    a   list   of  LISP  objects  delimited  by  spaces  and  surrounded  by
+    parentheses.  There may be a dot (#\.) surrounded by  whitespace  before
+    the last element of the list.
+
+    EXAMPLES
+    (typep '(a . b) 'cons) => t
+    (typep '(a b . c) 'cons) => t
+    (typep '(a b c) 'cons) => t
+
+    SEE ALSO
+    CLtL 2:26, CLtL 4:43, about type specifiers, list, nil, typep
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

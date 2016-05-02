@@ -1,0 +1,66 @@
+
+                                                            math:make-matrix
+
+
+    FUNCTION
+    make-matrix  -  get a matrix with specified contents
+
+    USAGE
+    make-matrix contents [type]
+
+    DESCRIPTION
+    Returns a new matrix with contents specified by CONTENTS,  which  should
+    be  a  list  of lists of equal length that are the rows of the resulting
+    matrix.  The optional argument TYPE specifies the element  type  of  the
+    matrix.    (The  element  type  is  specified  in  make-array  with  the
+    :element-type keyword argument.  The element type of any array,  includ-
+    ing matrices, is returned by the function array-element-type.) The value
+    of TYPE defaults to t.  Even if all the elements are of the  same  type,
+    if  TYPE is unspecified, the element type will be t.  Note that a matrix
+    whose element type is t cannot be given as an  argument  to  calculating
+    functions  such  as  inverse and determinant, even if the elements them-
+    selves are all of the same floating-point type.  The  elements  must  be
+    numbers  (since matrices are defined to contain numbers) but no checking
+    is done to ensure that they are in fact numbers (if TYPE is  not  speci-
+    fied) or that TYPE is a numerical type (if it is specified).
+
+    Matrices are, of course, just two dimensional arrays with  numeric  ele-
+    ments.   There  is  no type matrix in Allegro CL, so any two dimensional
+    array with numeric elements is a matrix.   You  may  use  make-array  to
+    define matrices just as well as this function, but there are fewer argu-
+    ments to make-matrix.  The following forms are equivalent:
+
+    (make-matrix contents type)
+      = (make-array (list (length contents) (length (first contents)))
+                          :element-type type
+                          :initial-contents contents)
+
+    EXAMPLES
+    (setq mat1 (make-matrix '((1.0 2.0) (3.0 4.0)) 'single-float))
+      => #2a((1.0 2.0) (3.0 4.0))
+    (print-matrix mat1) PRINTS
+      1.0 2.0
+      3.0 4.0
+    (array-element-type mat1) => single-float
+    (setq mat2 (make-matrix '((#c(1.0 -1.0) #c(2.0 -2.0) #c(3.0 -3.0)))))
+      => #2a((#c(1.0 -1.0) #c(2.0 -2.0) #c(3.0 -3.0)))
+    (print-matrix mat2) PRINTS
+      #c(1.0 -1.0) #c(2.0 -2.0) #c(3.0 -3.0)
+    (array-element-type mat2) => t
+
+    SEE ALSO
+    identity-matrix, matrix-with-initial-element
+
+
+
+
+
+
+
+
+
+
+
+
+
+

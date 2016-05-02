@@ -1,0 +1,132 @@
+
+                                                                  make-color
+
+
+    FUNCTION
+    make-color  -  create a color object
+
+    Usage
+    make-color {[:red RED] [:green GREEN] [:blue BLUE] | [:hue HUE] [:sa-
+      turation SATURATION] [:brightness BRIGHTNESS] | [:level LEVEL] |
+      [:name NAME] | [:from-color FROM-COLOR]} [:read-only READ-ONLY]
+
+    DESCRIPTION
+    Returns a LISP color object.  All colors are actually stored as combina-
+    tions  of  red,  green,  and  blue (the rgb representation), but you may
+    define colors in five different ways.
+
+    (1) You may specify values (from 0.0 to 1.0  inclusive)  for  the  :red,
+    green, and blue keyword arguments.
+
+    (2) You may specify values (again, 0.0 to 1.0 inclusive) for  the  :hue,
+    :saturation, and :brightness.  Hue, saturation, and brightness (hsb) are
+    another way to specify colors.   will convert  the  hsb  values  to  the
+    equivalent rgb values automatically.
+
+    (3) You may specify a value (from 0.0 to 1.0 inclusive) for  the  :level
+    argument.   This  specifies  a level of gray from white to black.  Grays
+    are colors with equal level of red, green, and blue.  White is all 1.0's
+    and black is all 0.0's.
+
+    (4) You may specify a string naming a color in the list of predefined  X
+    colors  as  the  value  of the :name argument.  The list is found in the
+    file RGB.TXT located in the X11 library.  Any name from the file may  be
+    used.  The names are english names for colors.  This method is very use-
+    ful if you do not know how to mix colors.
+
+    (5) You may specify an existing color as the value  of  the  :from-color
+    argument.  The red, green, and blue values of the existing color will be
+    copied exactly in the new color.  (Among the reasons to copy a color  is
+    to have a read-write copy of a read-only color, or to have a color equal
+    at first to another but later changed.)
+
+    You may not use arguments from more than one mode of specifying  colors.
+    For example, you must not specify  values for :hue and :green.  It is an
+    error and the results are undefined if you do mix arguments.
+
+    If you use rgb or hsb to define colors,  the  value  of  an  unspecified
+    argument  defaults  to  0.0.  Thus if you specify :red 0.2 and :blue 0.7
+    and do not specify a value for :green, the :green value will be 0.0.
+
+    The final keyword argument is :read-only.  A read-only color  cannot  be
+    changed (with set-color, swap-colors, rotate-colors, or setf and a color
+    accessor).  It can be shared by other X clients however, perhaps  allow-
+    ing  more  colors  to  be  defined  in  LISP.  A read-write color can be
+    changed by the functions mentioned  but  cannot  be  shared  with  other
+    clients.   A  non-nil  value for :read-only specifies a read-only color.
+    The value nil specifies a read-write color.  The default  value  depends
+    on  the mode of color specification.  If the :name argument is used, the
+    default value is t, meaning read-only.  If any other mode is  used,  the
+    default  is  nil,  meaning  read-write.   Unless  you intend to change a
+    color, you should make it read-only.  Incidentally, it is a useful  con-
+    vention  to  give  read-only  colors  descriptive  names (like `red' and
+    `puce') and to give read-write colors generic names (like  `color1'  and
+    `my-color').
+
+
+    Colors must be installed in a colormap after they are  created.   Colors
+    can   be   installed   explicitly   in  a  colormap  with  the  function
+    install-color.  If you are using  a  colormap  other  than  the  default
+    colormap  (the  value of *default-colormap*), you must use install-color
+    to install colors into it.  However, if you are using the default color-
+    map,  you  need  not  worry about installing colors explicitly since any
+    color not explicitly installed in a colormap will be  installed  in  the
+    default colormap when it are first used.
+
+    EXAMPLES
+    ;;  A read-write color using rgb format:
+    (setq col1 (make-color :red .5 :green .7 :blue .1))
+
+    ;;  A read-write color using hsb format:
+    (setq col2 (make-color :hue .5 :saturation .7 :brightness .1))
+
+    ;;  A read-only color using gray level format:
+    (setq gray65 (make-color :level .65 :read-only t))
+
+    ;;  A read-only color using a name from rgb.txt (the
+    ;;  default value of :READ-ONLY is T when :NAME is used):
+    (setq firebrick (make-color :name "firebrick"))
+
+    ;;  A read-write color using a name from rgb.txt:
+    (setq col4 (make-color :name "plum" :read-only nil))
+
+    ;;  A read-write copy of a default color (all of which are
+    ;;  read-only):
+    (setq col5 (make-color :from-color yellow))
+
+    SEE ALSO
+    about colors, color-blue, color-brightness, color-green, color-hue,
+    color-level, color-red, color-saturation, install-color, install-
+    colormap, make-colormap, uninstall-colormap, window-stream-colormap
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                                        sinh
+
+
+    FUNCTION
+    sinh  -  get the hyperbolic sine of a number
+
+    USAGE
+    sinh number
+
+    DESCRIPTION
+    Returns the hyperbolic sine of NUMBER, which may be any number.  sinh is
+    real for any real argument, but grows very quickly.
+
+    The hyperbolic sine of a number x may be defined by the expression
+    (/ (- (exp x) (exp (- x))) 2)
+
+    EXAMPLES
+    (sinh 0) => 0.0
+    (sinh 1) => 1.1752012
+    (sinh #c(1.0 2.0)) => #c(-0.48905626 1.4031192)
+    (sinh -100.0d0) => -1.344058570908068d+43
+
+    SEE ALSO
+    CLtL 12:209, acosh, asinh, atanh, cosh, tanh
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

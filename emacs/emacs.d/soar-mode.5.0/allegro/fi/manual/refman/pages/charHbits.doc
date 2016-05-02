@@ -1,0 +1,66 @@
+
+                                                                   char-bits
+
+
+    FUNCTION
+    char-bits  -  get the bits attribute of a character object
+
+    USAGE
+    char-bits char
+
+    DESCRIPTION
+    Returns the bits attribute of CHAR, which must be  a  character  object.
+    The  value returned is a non-negative integer that is strictly less than
+    char-bits-limit.  This integer is the sum of the weights of the  charac-
+    ter   bits   in   CHAR.    The   set  of  bits  that  are  supported  is
+    implementation-dependent, however if the control bit  is  supported,  it
+    has  weight  1,  meta  has  weight  2, super has weight 4, and hyper has
+    weight 8.
+
+    EXAMPLES
+    (char-bits #\A) => 0
+
+    ;;  The returned value is implementation-dependent:
+    (char-bits #\Control-A) => 1
+
+    SEE ALSO
+    CLtL 13:240, char-bit, char-bits-limit, char-code, char-control-bit,
+    char-font, char-hyper-bit, char-meta-bit, char-super-bit
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

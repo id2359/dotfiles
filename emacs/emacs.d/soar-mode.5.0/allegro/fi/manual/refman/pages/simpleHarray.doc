@@ -1,0 +1,66 @@
+
+                                                                simple-array
+
+
+    Type SPECIFIER
+    simple-array  -  the data type comprising simple arrays
+
+    USAGE
+    {simple-array | (&Esimple-array [element-type [dimensions]])}
+
+    DESCRIPTION
+    Specifies a data type consisting of  simple  arrays  with  element  type
+    given by ELEMENT-TYPE and dimensions given by DIMENSIONS.  An array is a
+    simple array if it has no fill pointer, is not adjustable,  and  is  not
+    displaced  to  another  array.   Both ELEMENT-TYPE and DIMENSIONS may be
+    explicitly unspecified  using  *.   DIMENSIONS  may  be  a  non-negative
+    integer  giving  the  number  of  dimensions,  or a list of non-negative
+    integers (any of which may be unspecified using *).  In the latter case,
+    the length of the list is the number of dimensions in the array and each
+    element of the list is the  number  of  elements  in  the  corresponding
+    dimension of the array.  A list specifier that has one or more asterisks
+    at the end may be abbreviated by dropping them.  If this  results  in  a
+    list of only one element, the list may be replaced by just simple-array.
+
+    EXAMPLES
+    (subtypep 'simple-array 'array) => t t
+    (typep "foo" 'simple-array) => t
+
+    SEE ALSO
+    CLtL 4:43, CLtL 4:46, about type specifiers, array, reader syntax #s,
+    subtypep, type-of, typep
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

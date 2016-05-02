@@ -1,0 +1,66 @@
+
+                                                                     boole-2
+
+
+    CONSTANT
+    boole-2  -  specify bitwise logical operation to return operand two
+
+    DESCRIPTION
+    Used as the first argument to  boole  to  specify  the  bitwise  boolean
+    operation that returns its second operand (the third argument to boole).
+
+    EXAMPLES
+    (setf *print-base* 2
+          *print-radix* t)
+    ;;  The result is always the second operand.
+    (boole boole-2 #b1100 #b1010) => #b1010
+
+    SEE ALSO
+    CLtL 12:222, boole, boole-1, boole-and, boole-andc1, boole-andc2,
+    boole-c1, boole-c2, boole-clr, boole-eqv, boole-ior, boole-nand, boole-
+    nor, boole-orc1, boole-orc2, boole-set, boole-xor
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

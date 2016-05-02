@@ -1,0 +1,66 @@
+
+                                                                        setq
+
+
+    SPECIAL FORM
+    setq  -  simple assignment statement (destructive)
+
+    USAGE
+    setq {var form}*
+
+    SIDE EFFECTS
+    For each variable VAR the result of evaluating FORM is stored in VAR.
+
+    DESCRIPTION
+    Returns the result of the last form evaluated but this special  form  is
+    used  for its side effects.  The setq form is the standard way to change
+    the value of the binding of a local variable or the value of the dynamic
+    binding  (or global value if there is no binding) of a special variable.
+    The VAR and FORM pairs are evaluated sequentially from  left  to  right.
+    The new values of variables assigned earlier in the setq form are there-
+    fore available to later FORMS.
+
+    VAR, which is not evaluated, must be  a  symbol.   The  degenerate  form
+    (setq) returns nil.
+
+    EXAMPLES
+    (setq x 4)
+    x => 4
+    (setq x '(a b c) y '(d e f)) => (d e f)
+    x => (a b c)
+    y => (d e f)
+    (setq x 4 y (+ x 1)) => 5
+
+    SEE ALSO
+    CLtL 7:91, makunbound, psetq, set, setf
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

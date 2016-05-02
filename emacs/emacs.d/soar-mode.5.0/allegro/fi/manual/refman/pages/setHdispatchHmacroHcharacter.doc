@@ -1,0 +1,132 @@
+
+                                                set-dispatch-macro-character
+
+
+    FUNCTION
+    set-dispatch-macro-character  -  associate a function with a subcharac-
+      ter of a dispatch macro character
+
+    Usage
+    set-dispatch-macro-character DISP-CHAR SUB-CHAR FUN [TABLE]
+
+    SIDE EFFECTS
+    The readtable is modified so  that  reading  a  sequence  of  characters
+    beginning  with  the  dispatch macro character DISP-CHAR, followed by an
+    optional unsigned decimal digit string, followed by character  SUB-CHAR,
+    will invoke function FUN.
+
+    DESCRIPTION
+    Returns t, but this function is used for its side effects.  The argument
+    SUB-CHAR  must  be a character.  It may not be a decimal digit, and will
+    be converted to uppercase.  (The case of a dispatch  macro  subcharacter
+    is  not significant.) The argument DISP-CHAR must be a dispatching macro
+    character for the readtable TABLE, which defaults to the current  readt-
+    able.   (The  function  make-dispatch-macro-character  is used to define
+    such characters.)
+
+    The function FUN will be called with  three  arguments.   They  are  the
+    input  stream,  SUB-CHAR,  and  a  non-negative  integer  whose  decimal
+    representation is the optional digit string that can appear between CHAR
+    and  SUB-CHAR  when  the  dispatching  macro is invoked.  If no optional
+    decimal string was given, nil is supplied as the  third  argument.   The
+    function  may  read  additional  characters  from the input stream.  The
+    function must return no value or one value.  If no  value  is  returned,
+    the  dispatch macro character, any optional numeric string, the subchar-
+    acter, and any characters read by the function are discarded.  A  single
+    value  returned  will  be  taken  by  the  reader  as  being  the object
+    represented by the characters consumed by the processing of the dispatch
+    macro character.
+
+    The macro-character function must not have any side effects (other  than
+    on  the  input  stream,  of  course), since it may be invoked repeatedly
+    while reading the same characters from a stream.
+
+    EXAMPLES
+    ;;  The first example causes ``#v'' followed by a number
+    ;;  to be read as the sine of the number.  The second example is
+    ;;  more complex.  It causes ``#%''  followed by a list of functions
+    ;;  to be read as the composition of those functions.
+
+    (set-dispatch-macro-character #\# #\v
+      #'(lambda (stream sub-char infix-argument)
+         (declare (ignore sub-char infix-argument))
+         (sin (read stream t nil t)))) => t
+    #v0.0 => 0.0
+    (+ (* (cos 2.0) (cos 2.0)) (* #v2.0 #v2.0)) => 1.0
+
+    (defun compose-list (functions)
+      "Create a composition of functions from a list of functions."
+      (function
+       (lambda (&rest argument-var)
+         (let ((result argument-var))
+           (mapc #'(lambda (functor)
+                     (setq result (list (apply functor result))))
+                 (reverse functions))
+           (car result)))))
+
+    (set-dispatch-macro-character #\# #\%
+      #'(lambda (stream sub-char infix-argument)
+          (declare (ignore sub-char infix-argument))
+          (compose-list (read stream t nil t))))
+    (funcall '#%(1+ abs) -10) => 11
+
+    SEE ALSO
+    CLtL 22:364, get-dispatch-macro-character, get-macro-character, make-
+    dispatch-macro-character, set-macro-character, set-syntax-from-char
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                                     string<
+
+
+    FUNCTION
+    string<  -  test whether one string is lexicographically less than
+      another
+
+    USAGE
+    string< string1 string2 [:start1 s1] [:end1 e1] [:start2 s2] [:end2 e2]
+
+    DESCRIPTION
+    Returns nil if the string  specified  by  STRING1  is  lexicographically
+    greater than or equal to the string specified by STRING2.  Otherwise the
+    value returned is the length of the longest common  prefix  of  the  two
+    strings (that is the index of the first position where the corresponding
+    characters in the two strings differ).   Differences  in  case  are  NOT
+    ignored when comparing characters.  (This function considers two charac-
+    ters the same if they satisfy char=.  The corresponding case-insensitive
+    function  is  string-lessp.)  The  arguments STRING1 and STRING2 must be
+    strings or symbols.  If a symbol is supplied, its print name is used  as
+    the string.
+
+    The first string is less than the second if the first is a proper prefix
+    of  the  second,  or  if  in  the first character position at which they
+    differ, the character from the first string is less than (in  the  sense
+    of  char<) the character from the second string.  The second string is a
+    proper prefix of the first if it is shorter and all its  characters  are
+    the  same  as  the  corresponding characters in the first string (in the
+    sense of char=).  Note that whether a an  uppercase  character  is  less
+    than   or   greater   than  the  corresponding  lowercase  character  is
+    implementation-dependent.
+
+    To operate on a substring of STRING1, use the :start1 and :end1  keyword
+    arguments.   The  :start1  keyword  argument  specifies the index of the
+    first character of the substring  of  STRING1  to  examine.   Its  value
+    defaults  to  zero  (indicating the first character).  The :end1 keyword
+    argument specifies an index one greater than the index of the last char-
+    acter of STRING1 to examine. A value of nil is equivalent to the default
+    value, the length of the string.  Note that if STRING1 is a string  with
+    a  fill  pointer,  only  the active elements of STRING1 can be compared.
+    These remarks also apply to the :start2  and  :end2  keyword  arguments,
+    which  specify  the  starting  and  ending  indices  of the substring of
+    STRING2.  The index returned when this function returns a non-nil  value
+    is  an  index  into  the  substring  of the first string relative to the
+    beginning of the entire string.
+
+    EXAMPLES
+    (string< "goodbye" "hello") => 0
+    (string< "hello" "howdy") => 1
+    (string< "beauty" "beast") => nil
+    (string< "fauna" "flora" :start1 1 :start2 3) => 1
+    (string< "short" "shorter") => 5
+    (string< "Hello" "Hello") => nil
+    (string< 'default 'haul) => 0
+    (string< "default" "haul" :start1 3 :end1 6 :start2 1) => nil
+    ;;  The following result is implementation-dependent.
+    (string< "Hello" "hello") => 0
+
+    SEE ALSO
+    CLtL 18:301, char=, char<, string/=, string-lessp, string=, string>,
+    string>=, string<=
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                             array-dimension
+
+
+    FUNCTION
+    array-dimension  -  get the dimension of a particular axis of an array
+
+    USAGE
+    array-dimension array axis-number
+
+    DESCRIPTION
+    Returns the length of the axis (or dimension) referred to by AXIS-NUMBER
+    of ARRAY.  This axis number is a non-negative integer less than the rank
+    of the array.  For vectors with fill pointers, this function returns the
+    total length of the vector, including inactive elements.
+
+    EXAMPLES
+    (let ((A (make-array '(2 3))))
+      (values (array-dimension A 0)
+              (array-dimension A 1))) => 2 3
+    (array-dimension (make-array 20 :fill-pointer 15) 0) => 20
+
+    SEE ALSO
+    CLtL 17:292, aref, array-dimensions, array-in-bounds, array-rank,
+    array-row-major-index, array-total-size, make-array, svref
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                                  bitmap-bit
+
+
+    FUNCTION
+    bitmap-bit  -  get the bit value at a location in a bitmap
+
+    Usage
+    bitmap-bit BITMAP X Y
+
+    DESCRIPTION
+    Returns the value of the bit at the location in BITMAP, which must be  a
+    bitmap,  specified  by the integers X and Y.  The lower left-hand corner
+    of the bitmap has coordinates (0,0).  An error will be signaled  if  the
+    specified point is outside the bitmap.
+
+    You may use setf with this function to set the value of a bitmap bit.
+
+    EXAMPLES
+    ;;  We make a blank bitmap, 50 pixels by 50 pixels.
+    (setf *my-bitmap*
+          (make-bitmap :width 50 :height 50))
+      => #<bitmap: 50 high by 50 wide @ #x6cff21>
+
+    ;;  We make a diagonal line across *MY-BITMAP*.
+    (dotimes(i 50)
+        (setf (bitmap-bit *my-bitmap* i i) 1))
+
+    (bitmap-bit *my-bitmap* 0 0) => 1
+    (bitmap-bit *my-bitmap* 5 5) => 1
+    (bitmap-bit *my-bitmap* 0 5) => 0
+    (bitmap-bit *my-bitmap* 49 2) => 0
+    (bitmap-bit *my-bitmap* 50 50) => ERROR
+    ;;  The error message is: Error: point x=50, y=50 is not in
+    ;;  the bitmap #<bitmap: 50 high by 50 wide @ #x6cff21>
+
+    SEE ALSO
+    bitmap-height, bitmap-name, bitmap-width, make-bitmap,
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

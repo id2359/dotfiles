@@ -1,0 +1,66 @@
+
+                                                                    char-int
+
+
+    FUNCTION
+    char-int  -  get the integer encoding of a character
+
+    USAGE
+    char-int char
+
+    DESCRIPTION
+    Returns a non-negative integer encoding CHAR, which must be a  character
+    object.   This  value is the same as that returned by char-code provided
+    the bits and font attributes of CHAR are 0.  The  char-int  function  is
+    mainly  intended  for  hashing characters.  The specific values returned
+    are implementation-dependent.
+
+    The following identity holds:
+
+    (char= c1 c2) = (= (char-int c1) (char-int c2))
+
+    EXAMPLES
+    ;;  The following results are implementation-dependent:
+    (char-int #\a) => 97
+    (char-int #\A) => 65
+    (char-int #\Control-A) => 321
+    (char-int #1\Control-A) => 65857
+
+    SEE ALSO
+    CLtL 13:242, char-code, char=, int-char
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

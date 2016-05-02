@@ -1,0 +1,66 @@
+
+                                                              *print-circle*
+
+
+    VARIABLE
+    *print-circle*  -  variable that controls printing of circular struc-
+      tures
+
+    DESCRIPTION
+    When this variable is true, the COMMON LISP printer will look for circu-
+    lar  list structures, and print them out using #N= and #n# syntax.  When
+    *print-circle* is  false, structures will  be  printed  according  to  a
+    recursive-descent  algorithm.   This algorithm may fail to terminate for
+    circular lists.  The initial value of this variable is nil.
+
+    Briefly, the syntax for representing circular lists when  *print-circle*
+    is true is as follows.  An expression #N=FORM, sets up a label for FORM,
+    which may be referred to by an expression of the form #n#  which  occurs
+    somewhere  later  in  the  list.   Here N is an integer and FORM is some
+    arbitrary expression.
+
+    EXAMPLES
+    *print-circle* => nil
+    (let ((circ-list '(a b c)) (*print-circle* t))
+      (setf (cddr circ-list) circ-list)
+      (print circ-list) nil) => nil
+      PRINTS #1=(a b . #1#)
+
+    ;;  This form may never return.  If it does, it will
+    ;;  print as shown.
+    (let ((circ-list '(a b c)) (*print-length* 6) (*print-circle* nil))
+      (setf (cddr circ-list) circ-list)
+      (print circ-list) nil) => nil
+      PRINTS (a b a b a b ...)
+
+    SEE ALSO
+    CLtL 22:371, about printing, *print-array*, *print-base*, *print-case*,
+    *print-escape*, *print-gensym*, *print-length*, *print-level*, *print-
+    pretty*, *print-radix*, print
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

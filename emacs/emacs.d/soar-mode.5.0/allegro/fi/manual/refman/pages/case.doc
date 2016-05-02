@@ -1,0 +1,66 @@
+
+                                                                        case
+
+
+    MACRO
+    case  -  evaluate a consequent, based on the value of a key
+
+    USAGE
+    case keyform {({({key}*)| key} {form}*)}*
+
+    DESCRIPTION
+    Returns the values of the last FORM of the  first  clause  that  matches
+    KEYFORM.  The matching process is described below.  If there are no suc-
+    cessful matches, case returns nil.
+
+    This is how the matching proceeds.  First KEYFORM is evaluated, and  its
+    value  is  matched against the keys of each clause in turn.  A clause is
+    either headed by a single atomic key or a list of keys,  but  in  either
+    case,  the  keys are not evaluated. When a clause is headed by a list of
+    keys, a match is successful if the value of KEYFORM is eql to any key in
+    the  list.  When a clause is headed by a single key, a match is success-
+    ful if that key is eql to the value of KEYFORM.  The  last  clause  (and
+    only the last clause) may be headed by t or otherwise, in which case the
+    forms of the last clause will be evaluated if that clause is reached.
+
+    It is an error for a key to appear in the key  list  of  more  than  one
+    clause,  so the order of the clauses (except for a t or otherwise clause
+    having to be at the end) is unimportant.  A clause should not be  headed
+    by  nil  as a single key. nil will be interpreted as the empty list, and
+    the matching will always fail.  To match the key value nil, use the  key
+    list (nil).
+
+    When a successful match is found for a clause, each FORM in  the  clause
+    is evaluated in sequence, and the values (zero or more) of the last form
+    are returned.
+
+    EXAMPLES
+    (setq x '(a b c)) => (a b c)
+    (case (car x)
+      ((e f g) 'first)
+      ((a x y) 'second)
+      (otherwise 'third)) => second
+
+    SEE ALSO
+    CLtL 7:117, ccase, ctypecase, ecase, etypecase, typecase
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

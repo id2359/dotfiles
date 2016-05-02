@@ -1,0 +1,66 @@
+
+                                                                        rest
+
+
+    FUNCTION
+    rest  -  return the cdr of a list
+
+    USAGE
+    rest list
+
+    DESCRIPTION
+    Returns a list of all but the first element of LIST, in other words, the
+    cdr.   rest is to first as cdr is to car.  setf may be used with rest to
+    replace the cdr of a list.
+
+    EXAMPLES
+    (rest '(a b c)) => (b c)
+    (rest '(a)) => nil
+    (rest nil) => nil
+
+    SEE ALSO
+    CLtL 15:266, car, cdr, first
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                                  characterp
+
+
+    FUNCTION
+    characterp  -  test whether an object is a character
+
+    USAGE
+    characterp object
+
+    DESCRIPTION
+    Returns true if OBJECT is a character, and false otherwise.
+
+    The following identity holds:
+
+    (characterp x) = (typep x 'character)
+
+    EXAMPLES
+    (characterp #\a) => t
+    (characterp #\Control-g) => t
+    (characterp #\Newline) => t
+
+    (setq a #\a) => #\a
+    (characterp a) => t
+    (characterp 'a) => nil
+
+    SEE ALSO
+    CLtL 6:75, about type specifiers
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

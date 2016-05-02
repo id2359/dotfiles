@@ -1,0 +1,66 @@
+
+                                                                        incf
+
+
+    MACRO
+    incf  -  increment a generalized variable
+
+    USAGE
+    incf place [delta]
+
+    SIDE EFFECTS
+    The value of the generalized variable is directly modified.
+
+    DESCRIPTION
+    Returns the result of incrementing by  DELTA  the  generalized  variable
+    named  by  PLACE.  The argument DELTA, must be a number, and defaults to
+    1.  The generalized variable PLACE also must hold a  number.   The  incf
+    form is conceptually similar to
+
+    (setf place (+ place delta))
+
+    except that the incf macro ensures that PLACE is evaluated only once.
+
+    EXAMPLES
+    (setq n 4) => r
+    (incf n) => 5
+    n => 5
+
+    (setq n #c(2 3)) => #c(2 3)
+    (incf n 2) => #c(4 3)
+    n => #c(4 3)
+
+    SEE ALSO
+    CLtL 12:201, +, 1+, decf, setf
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

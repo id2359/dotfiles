@@ -1,0 +1,66 @@
+
+                                             window-stream-mouse-cursor-move
+
+
+    FUNCTION
+    window-stream-mouse-cursor-move  -  get the list of functions called by
+      mouse-cursor-move method
+
+    Usage
+    window-stream-mouse-cursor-move WSTREAM
+
+    DESCRIPTION
+    Returns  the  list  of  functions  that  will   be   called   when   the
+    mouse-cursor-move  method  for the window-stream WSTREAM is called.  You
+    can replace this list by using setf,  or  modify  it  by  using  modify-
+    window-stream-method.    Use   restore-default-window-stream-method   to
+    restore the list to its default contents.
+
+    The list returned by window-stream-mouse-cursor-move initially  consists
+    of  the  single  element default-window-stream-mouse-cursor-move-method,
+    which is a function that does nothing at all.
+
+    EXAMPLES
+    ;;  We make a window.
+    (setf *my-win*
+          (make-window-stream :left 100 :bottom 200
+                              :width 100 :height 100
+                              :activate-p t))
+
+    (defun my-after-mouse-cursor-move (wstream &rest args)
+      (declare (ignore args))
+          (format  *standard-output*
+                   "Position: ~S ~% "
+                   (mouse-state-position mouse-state)))
+
+    (control-mouse-curspor-move-events *my-win*
+                                       :pointer-motion t)
+    (modify-window-stream-method *my-win* :mouse-cursor-move
+                                  :after 'my-after-mouse-cursor-move)
+
+    ;;  Now whenever the mouse moves in *my-win* we
+    ;;  can monitor the mouse position.
+
+    ;;  We look at the list of functions.
+    (window-stream-mouse-cursor-move *my-win*))
+      =>  (default-window-stream-mouse-cursor-move-method
+            my-after-mouse-cursor-move)
+
+    SEE ALSO
+    control-mouse-cursor-move-events, mouse-cursor-move, modify-window-
+    stream-method, restore-default-window-stream-method
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

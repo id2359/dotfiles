@@ -1,0 +1,66 @@
+
+                                                               pathname-host
+
+
+    FUNCTION
+    pathname-host  -  get the host component of a pathname
+
+    USAGE
+    pathname-host path
+
+    DESCRIPTION
+    Returns the host component of PATH.  The host is one  of  the  six  com-
+    ponents of a pathname (the other five are device, directory, name, type,
+    and version).  PATH must be a pathname, string, symbol, or stream.   (If
+    PATH is a stream, it must be, or have been, open to a file.)
+
+    The host component of a pathname is implementation-dependent, but may be
+    a string, a list of strings, nil, or :wild.  nil indicates that the host
+    is unspecified; :wild is a host component that `matches' any  host  when
+    the  pathname it appears in is used in a directory-search operation such
+    as that performed by directory.
+
+    EXAMPLES
+    ;;  The following example refers to a file on a VMS file system.
+    (pathname-host "pleiades::sys$sysdisk:[sys0.sysexe]lisp.exe;0")
+      => "PLEIADES"
+
+    SEE ALSO
+    CLtL 23:417, make-pathname, pathname, pathname-device, pathname-
+    directory, pathname-name, pathname-type, pathname-version
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

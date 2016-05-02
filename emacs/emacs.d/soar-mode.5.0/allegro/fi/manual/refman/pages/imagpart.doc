@@ -1,0 +1,66 @@
+
+                                                                    imagpart
+
+
+    FUNCTION
+    imagpart  -  get the imaginary part of a number
+
+    USAGE
+    imagpart number
+
+    DESCRIPTION
+    Returns the imaginary part of a complex  number.   The  argument  NUMBER
+    must  be  a  number.  If it is real, then imagpart returns 0 in the same
+    format (integer or float) as NUMBER.
+
+    EXAMPLES
+    (imagpart (complex 2 2)) => 2
+    (imagpart (complex 2.0d0 2)) => 2.0d0
+    (imagpart (complex 2 2.0d0)) => 2.0d0
+    (imagpart 2.0d0) => 0.0d0
+    (imagpart 3.0) => 0.0
+    (imagpart 1/2) => 0
+
+    SEE ALSO
+    CLtL 12:220, complex, realpart
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

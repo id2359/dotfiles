@@ -1,0 +1,132 @@
+
+                                                          about declarations
+
+
+    NOTES
+    about declarations  -  provide LISP with extra information about pro-
+      grams
+
+    DESCRIPTION
+    Declarations are forms that provide information about a  program.   Some
+    reasons  for using declarations include: advising the compiler, perform-
+    ing extra error-checking, and documenting code.  Declaring a variable to
+    be  special  is the only case where a declaration can affect a program's
+    meaning.  Other declarations only offer advice.
+
+    Declarations can be made at only two levels, globally and at the  begin-
+    nings  of the bodies of certain special forms.  The special form declare
+    is used in the latter case, and the function proclaim  is  used  in  the
+    former.   The  syntax  of the two differs in that proclaim evaluates its
+    arguments, whereas declare does not.
+
+    The following table contains a complete list of special forms and macros
+    that  may  have declarations contained within them.  In addition, lambda
+    expressions may contain declarations.
+
+    defmacro                            dotimes
+    defsetf                             flet
+    deftype                             labels
+    defun                               let
+    do*                                 let*
+    do-all-symbols                      locally
+    do-external-symbols                 macrolet
+    do-symbols                          multiple-value-bind
+    do                                  prog
+    dolist                              prog*
+
+    Declarations for any of these forms, and for lambda expressions,  appear
+    at the beginning of the body.
+
+    Declarations that affect bindings, such as type and ftype,  affect  only
+    the  bindings  established  within  the form or lambda expression before
+    whose  body  the  declaration  appears.   Any  inner  bindings  are  not
+    affected.   References  to  variables or to functions within the lexical
+    scope of the form or lambda expression are affected by the  declaration.
+    This   behavior   of   declarations   that  affect  bindings  is  called
+    NONPERVASIVE.
+
+    Other declarations, for example, inline, affect all code in the body  of
+    the form or lambda expression.  These declarations are called PERVASIVE.
+
+    Pervasive declarations may be SHADOWED  by  contrary  declarations  that
+    appear within their scope.
+
+    (let ((head (first *l*)))
+      (declare (inline first))
+      (first
+       (let ((head2 (first head)))
+         (declare (notinline first))
+         head2)))
+
+    In this example, the inline declaration applies to  all  uses  of  first
+    except the one in the initialization form of the second let.
+
+    The special declaration affects references pervasively and affects bind-
+    ings  nonpervasively.  A special PROCLAMATION, however, affects bindings
+    pervasively.
+
+    When a form contains distinguished subforms that are  not  part  of  its
+    body  proper,  such  as initialization forms or result forms, these sub-
+    forms are within the scope of pervasive  declarations  appearing  before
+    the body of the form.  These subforms may be within the scope of nonper-
+    vasive declarations, depending on the semantics of the form.  For  exam-
+    ple, for the do macro, the initialization forms are outside the scope of
+    nonpervasive declarations, but the step,  test,  and  result  forms  are
+    within  their  scope.   This  is  because  the  initialization forms are
+    evaluated before any bindings have been  established  by  the  do  form.
+    When the binding forms of a form are evaluated sequentially, as in let*,
+    nonpervasive declarations affect those forms that are evaluated  follow-
+    ing  the establishment of a binding to which they apply.  In the case of
+    let, the initialization forms for the variables bound by  the  form  are
+    within the scope of pervasive declarations but outside the scope of non-
+    pervasive declarations.
+
+    (let ((x 10))
+      (declare (special x))
+      (let ((x 20))
+        (let ((x x))
+          (declare (special x))
+          x))) => 10
+
+    (let ((x 10))
+      (declare (special x))
+      (let ((x 20))
+        (let ((x x))
+          x))) => 20
+
+    A special declaration affects variables referenced in the initialization
+    forms  as well in the body, but it only affects the bindings established
+    in the let before whose body it appears.   Thus  in  the  first  example
+    above,  the  second  special  declaration  has  the effect of creating a
+    dynamic binding of x initialized to the value of the dynamic binding  of
+    x visible at that point.  In the second example, the special declaration
+    has no effect on the two inner bindings of x,  which  are  both  lexical
+    bindings.
+
+    EXAMPLES
+    (defun sine-rounded-degrees (degrees)
+      (declare (type float degrees)
+               (optimize speed))
+      (flet ((mod-degrees (degrees)
+               (declare (type float degrees))
+               (let ((idegrees (truncate (mod degrees 360))))
+                 (declare (type (integer (-360) (+360)) idegrees))
+                 (if (minusp idegrees)
+                     (+ 360 idegrees)
+                   idegrees))))
+        (declare (ftype (function (float) (integer 0 (360)))
+                        mod-degrees))
+        (locally (declare (special pi *degrees-to-radians*)
+                          (type float pi *degrees-to-radians*))
+          (sin (the (float 0.0 (#.(* 2.0 pi)))
+                 (* (mod-degrees degrees)
+                    *degrees-to-radians*))))))
+
+    SEE ALSO
+    CLtL 9:153, declaration, declare, ftype, function, ignore, inline,
+    locally, notinline, optimize, proclaim, special, the, type
+
+
+
+
+

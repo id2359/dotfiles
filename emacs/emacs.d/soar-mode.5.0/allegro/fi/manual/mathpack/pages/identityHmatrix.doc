@@ -1,0 +1,66 @@
+
+                                                       math:indentity-matrix
+
+
+    FUNCTION
+    identity-matrix  -  get an identity matrix
+
+    USAGE
+    identity-matrix n [type]
+
+    DESCRIPTION
+    Returns an identity matrix (a square matrix with ones  on  the  diagonal
+    and  zeros  off  the  diagonal)  with dimension N and element type TYPE.
+    TYPE, which is an optional argument, may be any numeric type.  We recom-
+    mend that matrices have type one of single-float, double-float, (complex
+    single-float),   or   (complex   double-float).    TYPE   defaults    to
+    single-float.
+
+    EXAMPLES
+    (print-matrix (identity-matrix 3)) PRINTS
+      1.0 0.0 0.0
+      0.0 1.0 0.0
+      0.0 0.0 1.0
+    (print-matrix (identity-matrix 2 '(complex double-float))) PRINTS
+      #c(1.0d0 0.0d0) #c(0.0d0 0.0d0)
+      #c(0.0d0 0.0d0) #c(1.0d0 0.0d0)
+
+    SEE ALSO
+    make-matrix, matrix-with-initial-element
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

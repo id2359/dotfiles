@@ -1,0 +1,132 @@
+
+                                                       frame-right-button-up
+
+
+    METHOD
+    frame-right-button-up  -  respond to a right-button-up event
+
+    Usage
+    frame-right-button-up WSTREAM MOUSE-STATE [TRANSITION]
+
+    DESCRIPTION
+    The system calls this method whenever the right mouse button is released
+    after  being  depressed  in  the frame of WSTREAM.  The argument WSTREAM
+    must be a window-stream.  (Active-regions do not have frames so they  do
+    not have frame events.)
+
+    If the right button menu is installed on WSTREAM, depressing  the  right
+    button  in  the  frame  brings up a menu of window control options.  The
+    button up event is used by the menu and as a result, this method is  NOT
+    called.   This  method  is  only  called if the right button menu is not
+    installed on WSTREAM or if the list of functions called  by  the  frame-
+    right-button-down-method     does     not     contain    the    function
+    cw::window-frame-right-down.  In  what  follows,  we  assume  that  this
+    method will be called.
+
+    In most windows (at least those created  using  default  settings),  the
+    mouse-cursor  is different for the frame and the interior of the window.
+    When the mouse cursor is in the frame, the system will run  this  method
+    when  the  right  button  is depressed.  When the cursor is in the inner
+    region of the window, the right-button-up method will be run.  (The  mat
+    of a window is not mouse sensitive.)
+
+    You do not (normally) call this method directly.  Instead, you add  your
+    own  functions  to  the  list of functions called by this method.  Those
+    functions must have the same lambda list (that is, take the  same  argu-
+    ments in the same order) as the method itself.
+
+    A frame-right-button-up event can only be generated if the mouse is over
+    a  portion  of the frame that is not occluded (covered) by other windows
+    (active-regions cannot cover the  frame).   Also,  when  any  button  is
+    depressed  in  a  mouse  sensitive  region,  all mouse events go to that
+    region regardless of where they occur  until  the  button  is  released.
+    Thus,  if  you  depress  the  right button in the frame of a window, the
+    frame will get the button up  event  and  this  method  will  be  called
+    regardless of the position of the mouse when the button is released.
+
+    The  argument  MOUSE-STATE  is  a  mouse-state  and  the  the   argument
+    TRANSITION   is   an  integer  representing  a  mouse  event.   For  the
+    frame-right-button-up method, the value of the  TRANSITION  argument  is
+    the  value  of  the  constant  *frame-right-button-up*.  The MOUSE-STATE
+    argument records the mouse state when the button-up event occurred.  The
+    position  component of MOUSE-STATE is the position of the mouse, in phy-
+    sical coordinates of WSTREAM, at  the  time  the  event  occurred.   The
+    button-state component tells you what mouse and special keyboard buttons
+    were up when the even occurred  (obviously  the  right  button  is  up).
+    Functions  you  add to the list of functions called by the method should
+    use the information in the arguments as necessary to achieve the desired
+    result.
+
+    When the right button is released after being depressed over  the  frame
+    of  WSTREAM,  the  system calls this method, which in turn calls all the
+    functions, in order, in  the  list  of  functions  returned  by  window-
+    stream-frame-right-button-up.   Initially,  the list contains the single
+    function default-frame-right-button-up-method, which is a null  function
+    (its  only  action is to return nil), so no action results from a frame-
+    right-button-up event on a window-stream unless you  modify  the  method
+    for  that  window-stream.  You add functions to and remove them from the
+    list with modify-window-stream-method.  You can also replace the  entire
+    list by using setf and the function window-stream-frame-right-button-up.
+    You can restore the list to its initial state (that is, to  do  nothing)
+    with restore-default-window-stream-method.
+
+    The frame-right-button-up method returns what is returned  by  the  last
+    function  in  the  list of functions called by the method.  If this list
+    has not been  changed  from  its  initial  value,  frame-right-button-up
+    returns nil.
+
+    EXAMPLES
+    (setf *my-win*
+          (make-window-stream
+           :left 100 :bottom 100
+           :width 200 :height 200
+           :activate-p  t))
+
+    ;;  We get the initial list of functions called by the method.
+    (window-stream-right-button-up *my-win*)
+      => (default-window-stream-right-button-up-method)
+
+    ;;  We make a function for the method to call
+    ;;  when the right button goes up, the position of the
+    ;;  mouse will be written to *STANDARD-OUTPUT*.
+
+    (defun my-frame-right-button-up (wstream ms &rest args)
+      (declare (ignore  args))
+      (format *standard-output* "Mouse at x = ~D, y = ~D~%"
+              (position-x (mouse-state-position ms))
+              (position-y (mouse-state-position ms))))
+
+    ;;  And we hang the function on the method for the window.
+    (modify-window-stream-method *my-win* :frame-right-button-up
+                                 :after 'my-frame-right-button-up)
+
+    ;;  We reexamine the list of functions called.
+    (window-stream-frame-right-button-up *my-win*)
+      => (default-window-stream-frame-right-button-up-method,
+           my-frame-right-button-up)
+
+    SEE ALSO
+    add-right-button-menu, frame-left-button-down, frame-left-button-up,
+    frame-middle-button-down, frame-middle-button-up, frame-mouse-cursor-in,
+    frame-mouse-cursor-move, frame-mouse-cursor-out, frame-right-button-down
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                                    macrolet
+
+
+    SPECIAL FORM
+    macrolet  -  define locally named macros
+
+    USAGE
+    macrolet ({(name var-list {decl | doc-string}* {form}*)}*) {decl}*
+      {form}*
+
+    DESCRIPTION
+    The macrolet construct is used to evaluate a sequence  of  forms  within
+    the  lexical  context  of  specific  local  macro  definitions. macrolet
+    returns the values of the last FORM evaluated.
+
+    The first subform of a macrolet construct  is  a  list  of  local  macro
+    definitions.   Each definition has a form analogous to that of an impli-
+    cit defmacro, consisting of a name (which must be a  symbol),  a  lambda
+    list,  optional  declarations and a documentation string, and a sequence
+    of forms that constitute the body of the macro.  The  macro  definitions
+    are  made  in  the  null lexical environment, thus any lexically-visible
+    variables or functions are not visible to the macro-expansion functions.
+    However,  the  macro-expansions  themselves may of course refer to lexi-
+    cally visible entities.
+
+    The scope of the locally-defined macro names is the body  forms  of  the
+    macrolet  construct.   The macrolet form establishes a local environment
+    in which the macros are defined.  The  body  forms  are  then  evaluated
+    within  that  environment.   So effectively all of the macro definitions
+    established by macrolet are visible to  one  another,  since  any  given
+    macro-call  form  will  be expanded within the environment that contains
+    all of the local macro definitions.  Put another  way,  macrolet  is  to
+    defmacro  as  labels is to defun.  There is no form for macros analogous
+    to flet.
+
+    The forms in the body of the macrolet are evaluated sequentially  as  if
+    enclosed  by progn.  In some implementations, declarations are permitted
+    before the body forms, following the macro definitions  that  constitute
+    the  first  subform of the macrolet construct (as indicated in the Usage
+    template).  This follows the spirit but not the letter of  COMMON  LISP:
+    THE  LANGUAGE  and  may  not  be supported in every implementation.  Any
+    macro name within the body forms that is the same as that of one of  the
+    locally-defined  macros refers to the local macro definition rather than
+    any global or  outer  lexical  definition.   (This  applies  to  symbols
+    appearing in the function position of a list.)
+
+    EXAMPLES
+    (macrolet ((my-car (lis) "macro to imitate car" `(car ,lis)))
+      (my-car '(a b c))) => a
+
+    SEE ALSO
+    CLtL 7:113, defmacro, flet, labels, let
+
+
+
+
+
+
+
+
+
+
+
+
+

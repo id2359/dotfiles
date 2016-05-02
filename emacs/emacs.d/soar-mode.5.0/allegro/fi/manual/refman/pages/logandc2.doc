@@ -1,0 +1,66 @@
+
+                                                                    logandc2
+
+
+    FUNCTION
+    logandc2  -  bitwise logical `and', complementing the second argument
+
+    USAGE
+    logandc2 n1 n2
+
+    DESCRIPTION
+    Returns the bitwise logical `and' of N1 and the complement of  N2,  both
+    of  which must be integers.  Arguments and results are interpreted as if
+    represented in two's-complement notation.  The following identity holds:
+
+    (logandc2 x y) = (logand x (lognot y))
+
+    EXAMPLES
+    (logandc2 -1 5) => -6
+
+    (setf *print-base* 2
+          *print-radix* t)
+    ;;  (The printer drops leading zeros when printing integers.
+    ;;  The printed number #b100 is equivalent to #b0100.)
+    (logandc2 #b1100 #b1010) => #b100
+
+    SEE ALSO
+    CLtL 12:221, boole, logand, logandc1, logbitp, logcount, logeqv, logior,
+    lognand, lognor, lognot, logorc1, logorc2, logtest, logxor
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

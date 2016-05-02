@@ -1,0 +1,66 @@
+
+                                                                       acosh
+
+
+    FUNCTION
+    acosh  -  get the hyperbolic arc cosine of a number
+
+    USAGE
+    acosh number
+
+    DESCRIPTION
+    Returns the hyperbolic arc cosine of NUMBER, that is,  the  value  whose
+    hyperbolic  cosine  is  NUMBER.   The result is complex when NUMBER is a
+    real number less than 1.
+
+    The branch cut for acosh lies along the real axis, extending from  1  to
+    negative  infinity.   From  1 to 0 the branch cut is continuous with the
+    first quadrant, while from 0 to negative infinity it is continuous  with
+    the  second quadrant.  The range consists of points in the complex plane
+    whose real part is non-negative and whose imaginary part takes on values
+    from  -J  (exclusive) to J (inclusive).  If the real part of a number is
+    zero then it is in the range if  its  imaginary  part  is  between  zero
+    (inclusive) and J (inclusive).
+
+    EXAMPLES
+    (acosh 2) => 1.316958
+    (acosh 1) => 0.0
+    (acosh 0.5) => #c(0.0 1.0471976)
+
+    SEE ALSO
+    CLtL 12:209, asinh, atanh, cosh, sinh, tanh
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

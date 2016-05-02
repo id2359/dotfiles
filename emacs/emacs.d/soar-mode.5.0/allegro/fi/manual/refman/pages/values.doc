@@ -1,0 +1,66 @@
+
+                                                                      values
+
+
+    Type SPECIFIER
+    values  -  specify data types of multiple values returned by a function
+
+    Usage
+    (values {RETURN-TYPE}*)
+
+    DESCRIPTION
+    This type specifier may only be used for declarations.  It can  only  be
+    used  to describe the type of each value returned by a form that returns
+    multiple values. The lambda-list keywords &optional, &rest, and &key may
+    appear  among the RETURN-TYPES to indicate the parameter list of a func-
+    tion to which it would be appropriate to pass those  values  when  using
+    multiple-value-call.  Any of the RETURN-TYPES may be explicitly unspeci-
+    fied using *.  The values type specifier may be used only  for  declara-
+    tion in a function type specifier or a the special form.
+
+    EXAMPLES
+    (defun foo (number divisor)
+      (declare (ftype (function (single-float integer)
+                                (values fixnum single-float))
+                      truncate))
+      (truncate (* number 3.5) divisor)) => foo
+
+    SEE ALSO
+    CLtL 4:48, about type specifiers, ftype, function, &key, &rest,
+    &optional
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

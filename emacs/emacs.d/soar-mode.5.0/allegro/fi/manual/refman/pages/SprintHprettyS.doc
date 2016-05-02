@@ -1,0 +1,66 @@
+
+                                                              *print-pretty*
+
+
+    VARIABLE
+    *print-pretty*  -  variable that controls the appearance of printed ob-
+      jects
+
+    DESCRIPTION
+    When this variable is true, the printer will  print  expressions  in  an
+    aesthetically   pleasing   manner,   typically  making  liberal  use  of
+    whitespace and newlines to indent expressions in order to reflect  their
+    semantics  or structure.  The exact definition of `pretty' and the stan-
+    dards of indentation are implementation-dependent.
+
+    When this variable is false, printing will use  the  minimum  amount  of
+    whitespace.   The  initial  value  of  the  variable  is implementation-
+    dependent.
+
+    EXAMPLES
+    ;;  The following value and the appearance of prettified
+    ;;  output is implementation-dependent.
+    *print-pretty* => nil
+
+    (defun test () '(this is the test))
+    (let ((*print-pretty* nil))
+      (print (function test)))
+      PRINTS (lambda nil (block test '(this is the test)))
+
+    (let ((*print-pretty* t))
+      (print (function test)))
+      PRINTS (lambda ()
+               (block test
+                 '(this is the test)))
+
+    SEE ALSO
+    CLtL 22:371, about printing, *print-array*, *print-base*, *print-case*,
+    *print-circle*, *print-escape*, *print-gensym*, *print-length*, *print-
+    level*, *print-radix*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

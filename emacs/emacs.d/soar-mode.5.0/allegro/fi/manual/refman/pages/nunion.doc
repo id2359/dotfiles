@@ -1,0 +1,66 @@
+
+                                                                      nunion
+
+
+    FUNCTION
+    nunion  -  combine elements of two lists (destructive)
+
+    USAGE
+    nunion list1 list2 [{:test | :test-not} pred] [:key keyfnc]
+
+    SIDE EFFECTS
+    The arguments LIST1 and LIST2 may be modified.
+
+    DESCRIPTION
+    Returns a list formed by combining the elements of the lists  LIST1  and
+    LIST2,  except  that  elements duplicated (in the sense described below)
+    between lists appear only once in the returned list.  The result list is
+    constructed  as  follows.  All pairs of elements, one from LIST1 and one
+    from LIST2 are compared with eql.  If a pair matches, only  one  of  the
+    pair  will  appear  in the result list.  Any element in either list that
+    matches no element in the other list will appear in the result list.  If
+    two  elements  of  the same list match, the result list may contain only
+    one or both.  The order of the  elements  in  the  result  list  is  not
+    defined.
+
+    A test predicate other than eql may be used by specifying  PRED  as  the
+    value  of either the :test or the :test-not keyword argument.  PRED must
+    be a function that accepts two arguments (an element from LIST1  and  an
+    element  from  LIST2,  passed  in  that order).  If PRED is the value of
+    :test, the elements match if PRED returns true.  If PRED is the value of
+    :test-not,  the elements match if PRED returns false.  It is an error to
+    supply both :test and :test-not keyword arguments.
+
+    If the keyword argument :key is specified and its value  KEYFNC  is  not
+    nil,  KEYFNC  must  be a function that accepts one argument.  It will be
+    applied to each element of both lists  before  they  are  tested.   When
+    unspecified or nil, it effectively defaults to the function identity.
+
+    EXAMPLES
+    (nunion '(1 2 3) '(4 5 6)) => (3 2 1 4 5 6)
+    (nunion '(1 2 3) '(2 3 4)) => (1 2 3 4)
+    (nunion '(1 2 3 3) '(2 3 4)) => (1 2 3 4)
+    (nunion '((a 1) (b 2)) '((b 3) (c 4)) :key #'car)
+      => ((a 1) (b 2) (c 4))
+    (nunion '(3 4) '(1 2) :test #'<) => (4 3 1 2)
+
+    SEE ALSO
+    CLtL 15:276, adjoin, intersection, :key, member, set-difference, set-
+    exclusive-or, subsetp, :test, :test-not, union
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

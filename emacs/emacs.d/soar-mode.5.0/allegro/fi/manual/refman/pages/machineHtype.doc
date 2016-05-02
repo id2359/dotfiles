@@ -1,0 +1,66 @@
+
+                                                                machine-type
+
+
+    FUNCTION
+    machine-type  -  get name of computer hardware currently running
+
+    Usage
+    machine-type
+
+    DESCRIPTION
+    Returns the string identifying the generic name of the hardware on which
+    you  are  running  COMMON  LISP.   The  exact  name  is  implementation-
+    dependent.  If no appropriate  value  can  be  determined,  machine-type
+    returns nil.
+
+    EXAMPLES
+    ;;  The following returned value is implementation-
+    ;;  and version-dependent.
+    (machine-type) => "Super Computer"
+
+    SEE ALSO
+    CLtL 25:447, machine-instance, machine-version
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                         math:vector-product
+
+
+    FUNCTION
+    vector-product  -  get the vector product of two vectors
+
+    USAGE
+    vector-product vector1 vector2
+
+    DESCRIPTION
+    Returns a matrix that is the vector product of the two argument vectors,
+    VECTOR1 and VECTOR2.  The vector product, also called the outer product,
+    of two vectors is an NXM matrix, where N is the length of VECTOR1 and  M
+    is  the  length of VECTOR2.  The I,JTH element of the matrix is the pro-
+    duct of the ITH element of VECTOR1 and the JTH element of VECTOR2.   The
+    following identity holds:
+
+    (vector-product vec1 vec2)
+      = (* (column-matrix vec1) (row-matrix vec2))
+
+    The element type (as  returned  by  array-element-type)  of  the  result
+    matrix  depends  on the element types of the arguments vectors.  If both
+    are specific, the result matrix has the specific  element  type  of  its
+    elements.  If either is t, the result matrix has element type t.
+
+    EXAMPLES
+    (setq vec1 (make-array 2 :element-type 'single-float
+                             :initial-contents '(1.0 2.0)))
+      => #(1.0 2.0)
+    (setq vec2 (make-array 3 :element-type 'double-float
+                             :initial-contents '(-1.0d0 -2.0d0 -3.0d0)))
+      => #(-1.0d0 -2.0d0 -3.0d0)
+    (print-matrix (vector-product vec1 vec2)) PRINTS
+      -1.0d0 -2.0d0 -3.0d0
+      -2.0d0 -4.0d0 -6.0d0
+    (array-element-type (vector-product vec1 vec2)) => double-float
+    (print-matrix (vector-product vec2 vec1)) PRINTS
+      -1.0d0 -2.0d0
+      -2.0d0 -4.0d0
+      -3.0d0 -6.0d0
+
+    SEE ALSO
+    *, dot-product
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                                      notany
+
+
+    FUNCTION
+    notany  -  test whether no group of corresponding sequence elements sa-
+      tisfies a test
+
+    Usage
+    notany PRED {SEQUENCE}+
+
+    DESCRIPTION
+    This function applies the predicate PRED  to  successive  elements  from
+    each  sequence.   PRED must take as many arguments as there are argument
+    sequences.  The first application of PRED is to all the  first  elements
+    of SEQUENCES.  The second is to all the second elements, and so on.  The
+    first time PRED returns true, notany returns nil without further  compu-
+    tation.   If  the  end  of any argument sequence is reached without PRED
+    returning true, notany returns a non-nil value.
+
+    EXAMPLES
+    (notany #'eq '(1 2 3) '(4 5 6)) => t
+    (notany #'oddp '(2 4 612 34 52)) => t
+    (notany #'atom '((a) (b) 1 2)) => nil
+    (notany #'= '(1 2) '(3 4) '(5 6 1 2 3 4)) => t
+
+    SEE ALSO
+    CLtL 14:250, every, notevery, some
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

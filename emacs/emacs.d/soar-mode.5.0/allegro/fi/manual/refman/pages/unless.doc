@@ -1,0 +1,66 @@
+
+                                                                      unless
+
+
+    MACRO
+    unless  -  evaluate forms unless a condition is true
+
+    USAGE
+    unless test {form}*
+
+    DESCRIPTION
+    Returns the values of the last FORM, if the result of evaluating TEST is
+    false,  otherwise returns nil.  If the TEST is false, then the FORMS are
+    evaluated sequentially as if in a progn.
+
+    The following identities hold:
+
+    (unless test a b c) = (cond ((not test) a b c))
+    (unless test a b c) = (if test nil (progn a b c))
+    (unless test a b c) = (when (not test) a b c)
+
+    EXAMPLES
+    (setf x 16)
+    (unless (minusp x) (sqrt x)) => 4.0s0
+    (unless (plusp x) (setq x "negative number")) => nil
+    x => 16
+
+    SEE ALSO
+    CLtL 7:115, case, cond, if, when
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

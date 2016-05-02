@@ -1,0 +1,132 @@
+
+                                                         draw-filled-polygon
+
+
+    FUNCTION
+    draw-filled-polygon  -  draw a filled polygon on a graphic stream
+
+    Usage
+    draw-filled-polygon GR-STREAM POSITIONS [:operation OPERATION] [:color
+      COLOR] [:shape SHAPE]
+
+    DESCRIPTION
+    Returns nil but this function is called for its side effects.  It causes
+    a  filled  polygon  to  be drawn on the graphics stream GR-STREAM, which
+    must be either a window-stream or a bitmap-stream.
+
+    A polygon, recall, is figure drawn with a finite number of straight line
+    segments,  beginning and ending at the same point.  The simplest type of
+    polygon is a triangle.
+
+    The POSITIONS argument must be a sequence (list or vector) of positions.
+    These  specify the vertices of the polygon in the extent coordinate sys-
+    tem of GR-STREAM.  If the first and last position are the same, then the
+    polygon  will  have  one fewer sides than positions in the sequence.  If
+    the first and last are different, the final edge is drawn to connect the
+    first  and  last  vertices,  and  the number of edges is the same as the
+    number of positions.
+
+    Polygons may be convex, simple non-convex,  or  complex.   In  a  convex
+    polygon,  the line connecting any two interior points lies wholly within
+    the polygon.  All triangles, for example are convex, as are  rectangles.
+    A  chevron  (which  has  six sides) is not convex, however.  In a simple
+    polygon, no edges intersect.  In a complex polygon, edges can intersect.
+    A five-pointed star drawn with five lines is a complex polygon.
+
+    The keyword argument tells the system about the shape  of  the  polygon.
+    There are three possible values for this argument: :convex, :non-convex,
+    and complex.  The default value is :complex.  If the figure  is  convex,
+    specifying  :convex  as  the  value will improve performance.  Similarly
+    with :non-convex, which indicates a simple, non-convex figure.   If  any
+    edges  intersect, you must use the value :complex.  (That value will, of
+    course, work for any polygon.  It just may be less efficient.)
+
+    If the polygon is complex, a special rule is used to  determine  exactly
+    which  parts  will  be filled in.  The rule is called the even-odd rule.
+    It works as follows.  A point within  the  figure  is  filled  in  if  a
+    straight  line  (precisely,  a ray) starting at the point crosses an odd
+    number of edges.  If an even number of edges are crossed, the  point  is
+    not filled in.  (If you try this, you will discover that excepting lines
+    which pass through vertices, all lines from a point cross either an  odd
+    number  or  an  even number of edges.)  Thus in a five pointed star draw
+    with five lines (as in the examples), the points are filled in  but  the
+    interior pentagon is not.
+
+    The keyword argument :operation specifies  the  boolean  operation  that
+    will  be used when the bits from the drawing operation are combined with
+    the bits already on the graphic stream.  This argument defaults  to  the
+    value  of window-stream-operation applied to GR-STREAM.  All the sixteen
+    standard boolean operations of COMMON LISP are supported.  If you have a
+    color machine, we recommend that you only use the boole-1 operation.
+
+    The keyword argument :color, specifies the drawing color,  and  defaults
+    to  the  value  returned  by  window-stream-foreground-color  applied to
+    GR-STREAM.
+
+
+    Not all edges are drawn in a filled figure.  If the figure lies  to  the
+    right  of the edge (below for a horizontal edge), the edge is not drawn.
+    Vertices are drawn only if both adjacent edges are drawn.
+
+    EXAMPLES
+    (setf *my-win*
+          (make-window-stream
+           :left 100
+           :bottom 100
+           :width 300
+           :height 300
+           :activate-p t :title "A"))
+
+    ;;  The following draws a (lopsided) filled star on *MY-WIN*:
+    (let ((A
+           (make-array
+            5 :initial-contents
+            (list
+             (make-position :x 20 :y 20)
+             (make-position :x 35 :y 70)
+             (make-position :x 50 :y 20)
+             (make-position :x 5  :y 55 )
+             (make-position :x 65  :y 55 ))
+            )))
+      (draw-filled-polygon  *my-win* A :shape :complex))
+
+    ;;  Note that the :SHAPE argument defaults to :COMPLEX, so
+    ;;  we did not have to specify that value.
+
+    SEE ALSO
+    draw-filled-polygon-xy, draw-polygon, draw-polygon-xy
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

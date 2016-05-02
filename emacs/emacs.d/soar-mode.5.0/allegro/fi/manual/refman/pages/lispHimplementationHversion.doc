@@ -1,0 +1,66 @@
+
+                                                 lisp-implementation-version
+
+
+    FUNCTION
+    lisp-implementation-version  -  get the version of the COMMON LISP im-
+      plementation
+
+    Usage
+    lisp-implementation-version
+
+    DESCRIPTION
+    Returns the string that identifies the version number of the implementa-
+    tion  of  COMMON LISP in which it is evaluated.  If no appropriate value
+    can be found, this function will return nil.  The exact string  returned
+    is implementation-dependent.
+
+    EXAMPLES
+    (lisp-implementation-version) => "3.0 (4/28/88 12:21)"
+
+    SEE ALSO
+    CLtL 25:447, dribble, lisp-implementation-type
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

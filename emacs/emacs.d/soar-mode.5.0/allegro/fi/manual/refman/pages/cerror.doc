@@ -1,0 +1,132 @@
+
+                                                                      cerror
+
+
+    FUNCTION
+    cerror  -  signal a continuable error
+
+    USAGE
+    cerror continue-format-string error-format-string {arg}*
+
+    SIDE EFFECTS
+    An error message  is  output  to  the  stream  which  is  the  value  of
+    *error-output*.  The user may continue from the error.
+
+    DESCRIPTION
+    If the error is  continued  from,  cerror  returns  nil.   The  argument
+    CONTINUE-FORMAT-STRING  is  a  format-style control string, which should
+    contain information about what to expect if the error is continued from.
+    The  argument ERROR-FORMAT-STRING is the actual error message.  Each ARG
+    is a control string argument, just as in the function format.  Both con-
+    trol  strings share the supplied arguments.  A call to cerror should not
+    specify the name of the function that triggered the  error,  herald  the
+    error  string  with the word `Error', or mention the mechanics of how to
+    continue from the error, since this information  is  automatically  pro-
+    vided  by  the  COMMON LISP system.  The program is responsible for what
+    happens after cerror returns.  Usually,  new  values  are  read  in,  or
+    improper values are adjusted.  In the example, the factorial function is
+    coded with lots of bells and whistles.  If a non-integer is given as  an
+    argument,  a  new  value is called for.  If a negative integer is given,
+    the factorial of its absolute value is returned.
+
+    EXAMPLES
+    (defun fact (n)
+      (labels ((do-fact (n)
+                 (if (zerop n) 1 (* n (do-fact (1- n))))))
+        (if (integerp n)
+            (if (minusp n)
+                (progn (cerror "The absolute value of ~d will be used."
+                               "Only non-negative integers allowed.~%~
+                        ~D is negative" n)
+                       (do-fact (abs n)))
+                (do-fact n))
+            (progn
+              (cerror "Ask for a new value"
+                      "Only integers allowed.~%~
+                        ~D is not an integer" n)
+              (format t "New value ")
+              (setf n (read))
+              (fact n)))))
+
+    <cl> (FACT 10)
+    3628800
+    <cl> (FACT -10)
+    Error: Only non-negative integers allowed.
+    -10 is negative
+    Restart actions (select using :continue):
+     0: The absolute value of -10 will be used.
+    [1c] <cl>  :CONTINUE
+    3628800
+    <cl> (FACT 1.2)
+    Error: Only integers allowed.
+    1.2 is not an integer
+    Restart actions (select using :continue):
+     0: Ask for a new value
+    [1c] <cl> :CONTINUE
+    New value 10
+    3628800
+    <cl>
+
+    SEE ALSO
+    CLtL 24:430, error, format
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

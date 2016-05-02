@@ -1,0 +1,66 @@
+
+                                                                bit-vector-p
+
+
+    FUNCTION
+    bit-vector-p  -  test whether an object is a bit vector
+
+    USAGE
+    bit-vector-p object
+
+    DESCRIPTION
+    Returns true if OBJECT is a bit vector, and false otherwise.   The  fol-
+    lowing identity holds:
+
+    (bit-vector-p x) = (typep x 'bit-vector)
+
+    EXAMPLES
+    (bit-vector-p #*11010) => t
+    (bit-vector-p #*) => t
+
+    SEE ALSO
+    CLtL 6:75, about type specifiers, make-array, vector
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

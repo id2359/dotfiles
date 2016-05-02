@@ -1,0 +1,66 @@
+
+                                                                       atanh
+
+
+    FUNCTION
+    atanh  -  get the hyperbolic arc tangent of a number
+
+    USAGE
+    atanh number
+
+    DESCRIPTION
+    Returns the hyperbolic arc tangent of NUMBER.  (That is, the value whose
+    hyperbolic  tangent  is NUMBER).  The value returned is complex when the
+    absolute value of NUMBER is greater than 1.
+
+    There are two portions to the branch cut for atanh.  One lies along  the
+    negative  real axis from -1 (inclusive) to negative infinity, continuous
+    with the third quadrant, and the other lies along the positive real axis
+    from  1  (inclusive)  to  positive  infinity,  continuous with the first
+    quadrant.  The domain does not include the points -1 and 1.   The  range
+    consists  of points in the complex plane whose real part is between -J/2
+    (including the end point if the real part is strictly negative), and J/2
+    (including the end point if the real part is strictly positive).
+
+    EXAMPLES
+    (atanh 0) => 0.0
+    (atanh 2) => #c(0.54930615 1.5707964)
+
+    SEE ALSO
+    CLtL 12:209, acosh, asinh, cosh, sinh, tanh
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                                         +++
+
+
+    VARIABLE
+    +++  -  the third previous form read by the top-level read-eval-print
+      loop
+
+    USAGE
+    +++
+
+    DESCRIPTION
+    Bound to the form which was read by the top level loop three reads  ago.
+    This  variable  exists  for the convenience of the user when interacting
+    with a COMMON LISP top level.
+
+    EXAMPLES
+    <cl> (SETQ FIE 2)
+    2
+    <cl> (SETQ FOO 3)
+    3
+    <cl> (SETQ BAR 4)
+    4
+    <cl> +++
+    (setq fie 2)
+    <cl>
+
+    SEE ALSO
+    CLtL 20:325, ***, **, ++, +, ///, //, /, -
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

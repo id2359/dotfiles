@@ -1,0 +1,66 @@
+
+                                                                          1-
+
+
+    FUNCTION
+    1-  -  subtract one from a number
+
+    USAGE
+    1- number
+
+    DESCRIPTION
+    Returns the result  of  subtracting  one  from  NUMBER.   This  function
+    behaves as though it were computing (- NUMBER 1).
+
+    EXAMPLES
+    (1- 1) => 0
+    (1- #c(3 4)) => #c(2 4)
+    (1- 4/2) => 1
+    (1- 4.0d0) => 3.0d0
+
+    SEE ALSO
+    CLtL 12:200, 1+, -
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

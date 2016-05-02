@@ -1,0 +1,66 @@
+
+                                                             char-code-limit
+
+
+    CONSTANT
+    char-code-limit  -  upper exclusive bound on character codes
+
+    DESCRIPTION
+    Evaluates to a non-negative integer  representing  the  upper  exclusive
+    bound   on  character  codes  returned  by  char-code.   This  value  is
+    implementation-dependent.
+
+    EXAMPLES
+    ;;  This value is implementation-dependent:
+    char-code-limit => 256
+
+    SEE ALSO
+    CLtL 13:233, char-bit, char-bits, char-code, char-font
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

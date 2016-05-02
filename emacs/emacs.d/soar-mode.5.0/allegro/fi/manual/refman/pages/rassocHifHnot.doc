@@ -1,0 +1,66 @@
+
+                                                               rassoc-if-not
+
+
+    FUNCTION
+    rassoc-if-not  -  return from an association list the first key-datum
+      pair where the datum does not satisfy a test
+
+    USAGE
+    rassoc-if-not pred a-list
+
+    DESCRIPTION
+    Returns the first pair in the association list A-LIST such that the  cdr
+    of  the  pair does not satisfy the predicate PRED, or nil if there is no
+    such pair.  PRED must accept one argument.  This is  a  variant  of  the
+    rassoc function and the complement of assoc-if-not: whereas assoc-if-not
+    finds a key which fails PRED, rassoc-if-not finds a  datum  which  fails
+    PRED.
+
+    EXAMPLES
+    (setq x '((a . 4) (d . 3) (c . 1) (d . 2)))
+      => ((a . 4) (d . 3) (c . 1) (d . 2))
+    (rassoc-if-not #'numberp x) => nil
+    (rassoc-if-not #'symbolp x) => (a . 4)
+    (rassoc-if-not #'evenp x) => (d . 3)
+
+    SEE ALSO
+    CLtL 15:281, acons, assoc, assoc-if, assoc-if-not, member, rassoc,
+    rassoc-if
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

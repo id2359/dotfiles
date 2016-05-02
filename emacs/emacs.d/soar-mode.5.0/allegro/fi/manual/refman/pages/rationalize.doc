@@ -1,0 +1,66 @@
+
+                                                                 rationalize
+
+
+    FUNCTION
+    rationalize  -  convert a noncomplex number to a rational number
+
+    USAGE
+    rationalize number
+
+    DESCRIPTION
+    Returns a rational number equal to NUMBER, making  the  assumption  that
+    NUMBER  is  only  as precise as its floating-point representation.  This
+    function tries to keep both numerator and denominator small, unlike  the
+    function rational, which assumes that NUMBER is accurate.
+
+    EXAMPLES
+    (rationalize 4) => 4
+    (rationalize 1/2) => 1/2
+    (rationalize 0.125000000001) => 1/8
+
+    SEE ALSO
+    CLtL 12:214, coerce, float, rational
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

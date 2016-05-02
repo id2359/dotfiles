@@ -1,0 +1,66 @@
+
+                                                               *print-array*
+
+
+    VARIABLE
+    *print-array*  -  variable that controls array printing
+
+    DESCRIPTION
+    Evaluates to the value of the array-printing flag.  When  this  flag  is
+    true,  then  the  COMMON  LISP printer will print out arrays (other than
+    strings and bit vectors) using #( or #NA syntax.  The sequence #( intro-
+    duces   a   vector   and  #NA  denotes  an  N-dimensional  array.   When
+    *print-array* is false, arrays are printed out in  an  abbreviated  form
+    without printing the contents, using the #< syntax.  The exact nature of
+    the abbreviated  form  and  the  initial  value  of  this  variable  are
+    implementation-dependent.   An  array printed using the #< syntax cannot
+    be read with the read function.
+
+    EXAMPLES
+    ;;  The following value is implementation-dependent.
+    *print-array* => t
+    (setq my-array (make-array '(2 3) :initial-contents
+                               '((a b c) (d e f))))
+    (let ((*print-array* t))
+      (print my-array)) PRINTS #2a((a b c) (d e f))
+    (let ((*print-array* nil))
+      (print my-array) ) PRINTS #<Array, rank 2 @ #x308e49>
+    ;; This abbreviated representation is implementation-dependent.
+
+    SEE ALSO
+    CLtL 22:373, about printing, *print-base*, *print-case*, *print-circle*,
+    *print-escape*, *print-gensym*, *print-length*, *print-level*, *print-
+    pretty*, *print-radix* reader syntax #(, reader syntax #*, reader syntax
+    #A, reader syntax "
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

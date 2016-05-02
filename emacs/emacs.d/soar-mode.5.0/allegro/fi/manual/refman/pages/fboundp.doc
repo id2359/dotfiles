@@ -1,0 +1,66 @@
+
+                                                                     fboundp
+
+
+    FUNCTION
+    fboundp  -  test whether a symbol has a global function definition
+
+    USAGE
+    fboundp symbol
+
+    DESCRIPTION
+    Returns non-nil if SYMBOL has a global function definition or if  it  is
+    the name of a special form or a globally-defined macro.
+
+    EXAMPLES
+    (defun foo (x) (car x)) => foo
+    (not (null (fboundp 'foo))) => t
+    (fmakunbound 'foo)
+    (fboundp 'foo) => nil
+
+    (flet ((foo (x) (car x))) (fboundp 'foo)) => nil
+
+    SEE ALSO
+    CLtL 7:90, boundp, fmakunbound, macro-function, special-form-p, symbol-
+    function
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

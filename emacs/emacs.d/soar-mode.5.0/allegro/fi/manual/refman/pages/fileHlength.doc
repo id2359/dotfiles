@@ -1,0 +1,66 @@
+
+                                                                 file-length
+
+
+    FUNCTION
+    file-length  -  return the size of an open file
+
+    USAGE
+    file-length file-stream
+
+    DESCRIPTION
+    Returns a non-negative integer  representing  the  length  of  the  file
+    FILE-STREAM  if  that  information is available, and nil otherwise.  The
+    argument FILE-STREAM must be a stream open  to  a  file.   The  returned
+    length  for  binary files is measured in units of the kind of data being
+    transferred.  (Binary files are those files opened with :element-type  a
+    subtype of integer.) See open and :element-type.
+
+    EXAMPLES
+    (with-open-file (out "junk" :direction :output
+                         :if-exists :supersede)
+      (format out "~A ~A" 'foo 'bar)) => nil
+    (with-open-file (in "junk" :direction :input)
+      (file-length in)) => 7
+
+    SEE ALSO
+    CLtL 23:425, :element-type, file-author, file-position, file-write-date,
+    format, read, read-byte, write, write-byte
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

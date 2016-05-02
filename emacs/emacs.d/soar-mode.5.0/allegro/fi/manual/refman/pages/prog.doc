@@ -1,0 +1,66 @@
+
+                                                                        prog
+
+
+    MACRO
+    prog  -  evaluate forms in the context of bindings, allowing go and
+      return
+
+    USAGE
+    prog ({var | (var [init])}*) {decl}* {tag | stmt}*
+
+    DESCRIPTION
+    This macro combines features of let, block, and tagbody.  It  binds  the
+    variables  VAR  as  specified  in  the first subform.  The variables may
+    appear alone, in which case they are bound to nil, or as the first  ele-
+    ment  in  one  or two element lists, in which case they are bound to the
+    value of the second element, or nil  if  there  is  no  second  element.
+    (Unlike  let,  prog  allows single-element lists in the variable-binding
+    forms.) These bindings are done in parallel, so the binding of  one  VAR
+    is  invisible  to  the INIT form of a later VAR.  (prog* does sequential
+    binding.) The bindings have lexical scope, unless a variable is special,
+    in  which case the binding has dynamic scope.  A variable may be special
+    by virtue of a top-level definition (e.g. with defvar),  by  declaration
+    or  proclamation within whose scope the prog form lies, or by a declara-
+    tion at the start of the body forms of the prog.
+
+    Once the VARS are bound, the body of the prog is  processed.   Forms  in
+    the  body,  following  the  declarations DECL, are either tags or state-
+    ments.  A TAG is a symbol or an integer.  A statement is a  list.   Tags
+    are  not evaluated and serve only as targets for go.  The statements are
+    evaluated in order, except when control is transferred by go.  The  body
+    forms are processed as if they are enclosed in a tagbody form.
+
+    The entire prog form is enclosed in a single block  named  nil.   There-
+    fore, if a return form is encountered, prog returns the values specified
+    by return.  If no return is encountered, prog returns nil after the last
+    statement is evaluated.
+
+    EXAMPLES
+    (prog ((x 0) (y 2) lis)                 ; bind variables
+       (declare (integer x) (integer y))    ; make declarations
+       loop                                 ; a tag
+       (incf x)(incf y 2)
+       (setq lis (cons (list x y) lis))
+       (if (> x 3) (return lis))            ; return from block
+       (go loop))                           ; goto a tag
+      => ((4 10) (3 8) (2 6) (1 4))
+
+    SEE ALSO
+    CLtL 7:131, block, declare, go, let, prog1, prog2, prog*, progn, return,
+    tagbody
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

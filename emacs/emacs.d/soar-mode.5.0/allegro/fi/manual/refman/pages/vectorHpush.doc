@@ -1,0 +1,66 @@
+
+                                                                 vector-push
+
+
+    FUNCTION
+    vector-push  -  store into a vector at the fill pointer and increment
+      the fill pointer
+
+    USAGE
+    vector-push element vector
+
+    SIDE EFFECTS
+    If there is room for it, the argument VECTOR will contain  the  argument
+    ELEMENT  stored  at  the  location in the vector indexed by the previous
+    values of the fill pointer, and the value of the fill pointer will  then
+    be increased by one.
+
+    DESCRIPTION
+    The behavior of this function depends on the value of the  fill  pointer
+    when the function is called.  If the fill pointer is equal to the length
+    of VECTOR (indicating  that  VECTOR  is  already  full),  this  function
+    returns nil and VECTOR is not changed.  If the fill pointer is less than
+    the length of VECTOR (indicating that there is room in VECTOR),  ELEMENT
+    is  stored  at  the  location  indicated  by  the fill pointer, the fill
+    pointer is incremented by 1, and the index of the  location  of  ELEMENT
+    (the former value of the fill pointer) is returned.
+
+    It is an error to use this function with  an  array  that  has  no  fill
+    pointer.   The function vector-push-extend works like vector-push except
+    that it will increase the size of the vector if necessary and possible.
+
+    EXAMPLES
+    (setq my-vec (make-array '(4)
+                             :initial-contents '(a b c nil)
+                             :fill-pointer 3)) => #(a b c)
+    (vector-push 'd my-vec) => 3
+    my-vec => #(a b c d)
+    (vector-push 'e my-vec) => nil
+    my-vec => #(a b c d)
+
+    SEE ALSO
+    CLtL 17:296, array-has-fill-pointer-p, :fill-pointer, fill-pointer,
+    make-array, vector-pop, vector-push-extend
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

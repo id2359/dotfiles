@@ -1,0 +1,66 @@
+
+                                                                      cadddr
+
+
+    FUNCTION
+    cadddr  -  get the CADDDR of a list
+
+    USAGE
+    cadddr list
+
+    DESCRIPTION
+    This is a composition of the car and cdr functions:
+
+    (cadddr lis) = (car (cdr (cdr (cdr lis))))
+
+    The argument LIST must be of type list.
+
+    EXAMPLES
+    (cadddr '(a b c d)) => d
+
+    SEE ALSO
+    CLtL 15:262, car, cdr
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                               unsigned-byte
+
+
+    Type SPECIFIER
+    unsigned-byte  -  specify a subtype of non-negative integers a given
+      number of bits wide
+
+    USAGE
+    {unsigned-byte | (&Eunsigned-byte [n])}
+
+    DESCRIPTION
+    Specifies a data type consisting of non-negative integers  that  can  be
+    stored  in two's-complement form in N bits.  If K equals 2 raised to the
+    power N, then this type specifier is equivalent to (mod K) or (integer 0
+    K-1).   The  type specifiers (unsigned-byte *) or just unsigned-byte are
+    equivalent to (integer 0 *), which is just the non-negative integers.
+
+    EXAMPLES
+    (typep #B1010 '(unsigned-byte 3)) => nil
+    (typep #B1010 '(unsigned-byte 5)) => t
+
+    SEE ALSO
+    CLtL 4:43, CLtL 4:49, about type specifiers, integer, signed-byte,
+    subtypep, type-of, typep
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

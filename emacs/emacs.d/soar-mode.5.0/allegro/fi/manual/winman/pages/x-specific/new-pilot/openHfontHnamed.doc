@@ -1,0 +1,66 @@
+
+                                                             open-font-named
+
+
+    FUNCTION
+    open-font-named  -  open a font of a given name
+
+    Usage
+    open-font-named SERVER-NAME
+
+    DESCRIPTION
+    Returns the opened font.  SERVER-NAME must  be  a  string  denoting  the
+    server  name  for  the  desired font.  The font need not be installed in
+    COMMON WINDOWS before being opened  with  this  function.   Indeed  this
+    function  is  designed  to  allow  you  to  avoid installing fonts (with
+    install-font) entirely and to deal with fonts in  the  server  directly.
+    However,  this  function does not check that such a font ACTUALLY exists
+    in the server.  That check (and the associated  error  if  it  does  not
+    exist) is done when the font is first used.
+
+    Fonts are identified in X11 with unique server names.  These  names  are
+    typically very long.  One such name, for example, is
+    -adobe-courier-medium-r-normal--12-120-75-75-m-70-iso8859-1
+
+    Since these names are unambiguous, using them allows you to get  exactly
+    the  font  you  want.  (The associated function open-font, when can only
+    open a font installed in COMMON WINDOWS,  will  return  a  font  approx-
+    iamtely  equal  to  the  requested  one if the exact request font is not
+    available.)
+
+    EXAMPLES
+    (open-font-named
+      "-adobe-courier-medium-r-normal--12-120-75-75-m-70-iso8859-1")
+      => #<Font :UNKNOWN :UNKNOWN :UNKNOWN, 0 point: uninitialized>
+    ;;  Since OPEN-FONT-NAMED bypasses font installation, LISP
+    ;;  doesn't know the characteristics of the font and so the
+    ;;  structure fields are either unspecified or incorrect.  But
+    ;;  as long as the server knows about the font, it will work
+    ;;  correctly.  The function FONT-ATTRIBUTES will parse the
+    ;;  server name and return information about the font.
+
+    ;;  If you specify a server name which does not in fact
+    ;;  refer to a font in the server, no error is signaled
+    ;;  by OPEN-FONT-NAMED.
+    (setq bad-font (open-font-named "foo"))
+      => #<Font :UNKNOWN :UNKNOWN :UNKNOWN, 0 point: uninitialized>
+
+    ::  The error is signaled when you try to use the font.
+    (make-window-stream :font bad-font) => ERROR
+    ;;  The error message is: Error: Attempt to open unknown font....
+
+    SEE ALSO
+    font-attributes, install-font, installed-fonts, open-font
+
+
+
+
+
+
+
+
+
+
+
+
+

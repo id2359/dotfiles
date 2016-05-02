@@ -1,0 +1,66 @@
+
+                                                               char-greaterp
+
+
+    FUNCTION
+    char-greaterp  -  test whether given characters are monotonically de-
+      creasing, ignoring case and bits
+
+    USAGE
+    char-greaterp {char}+
+
+    DESCRIPTION
+    Returns true if each CHAR is greater than the next argument CHAR  speci-
+    fied and returns nil otherwise.  char-greaterp ignores case and any bits
+    attributes and takes font attributes into account in an  implementation-
+    dependent  way.   Each CHAR must be a character object.  The ordering on
+    characters obeys alphabetic ordering within letters, and numeric  order-
+    ing  within  the  digits  0  through 9.  Digits are not interleaved with
+    letters, but whether a digit is less  than  or  greater  than  a  letter
+    depends on the implementation.
+
+    EXAMPLES
+    (char-greaterp #\b #\b) => nil
+    (char-greaterp #\d #\c) => t
+    (char-greaterp #\b) => t
+    (char-greaterp #\B #\b) => nil
+    (char-greaterp #\b #\B) => nil
+
+    ;;  The following result is implementation-dependent:
+    (char-greaterp #\a #\1) => t
+
+    SEE ALSO
+    CLtL 13:239, char-code, char-equal, char-lessp, char-not-equal, char-
+    not-greaterp, char-not-lessp, char>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                               member-if-not
+
+
+    FUNCTION
+    member-if-not  -  test whether each element of a list does not satisfy a
+      test
+
+    USAGE
+    member-if-not pred list [:key keyfnc]
+
+    DESCRIPTION
+    Returns the tail of LIST starting with the first element not  satisfying
+    the predicate PRED if such an element exists, and nil if no such element
+    is found.  PRED must accept one argument.  Only the top level of LIST is
+    searched.  If a tail is returned, it is eq to that part of LIST starting
+    with the element found, and so shares storage with LIST.
+
+    If the keyword argument :key is specified and its value  KEYFNC  is  not
+    nil,  KEYFNC  must  be a function that accepts one argument.  It will be
+    applied to every element of LIST before that element  is  tested.   When
+    unspecified or nil, it effectively defaults to the function identity.
+
+    EXAMPLES
+    (member-if-not #'atom '(a b c (d) (e f))) => ((d) (e f))
+    (member-if-not #'symbolp '((a) (b) (3) (4))) => ((a) (b) (3) (4))
+    (member-if-not #'symbolp '((a) (b) (3) (4)) :key #'car)
+      => ((3) (4))
+
+    SEE ALSO
+    CLtL 15:275, find, intersection, :key, member, member-if, position,
+    subsetp, tailp
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

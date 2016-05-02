@@ -1,0 +1,132 @@
+
+                                                      window-stream-colormap
+
+
+    FUNCTION
+    window-stream-colormap  -  get the colormap of a window-stream
+
+    Usage
+    window-stream-colormap WSTREAM
+
+    DESCRIPTION
+    Returns the colormap associated with  the  window-stream  WSTREAM.   The
+    colormap  is  specified by the :colormap argument when the window-stream
+    is created with make-window-stream.   setf  may  be  used  with  window-
+    stream-colormap to change the colormap associated with a window.
+
+    Depending on your window manager (if you run one), moving the mouse cur-
+    sor  into a window may change the installed server colormap as described
+    next.
+
+    Each pixel on the screen has an index associated with it.  The pixel  is
+    displayed in the color stored in the slot of the installed server color-
+    map denoted by the index.  Say a pixel has index 122, and  slot  122  of
+    the  installed  server  colormap  contains  the  color  orange.   If the
+    installed server colormap is replaced with a different server  colormap,
+    the  color  at  the pixel will change to whatever is in slot 122.  It is
+    unlikely that the color in that slot will be orange, so the pixel  color
+    will change when the installed server colormap is changed.
+
+    Each LISP colormap is associated with a specific server colormap.   Each
+    window-stream  has a LISP colormap associated with it, the LISP colormap
+    returned by this function.  If you are running an ICCCM compliant window
+    manager,  when the mouse cursor enters a window, the window manager will
+    check to see if the server colormap associated  with  the  window-stream
+    colormap  is the currently installed server colormap.  If it is not, the
+    window manager will install the new colormap in place of the current one
+    and  most  colors  on  the screen will change (producing a certain light
+    show effect).  When the mouse leaves a window (without  entering  a  new
+    window)  the  previously  installed server colormap will be reinstalled,
+    changing the colors back again.
+
+    It is to avoid this light show effect that we recommend using one color-
+    map only in COMMON WINDOWS, either the default one or another one.  How-
+    ever, you are free to use more than one  colormap,  if  the  light  show
+    effect is what you want.
+
+    If your window manager is not ICCCM compliant or you are not  running  a
+    window  manager, server colormaps are not automatically changed by mouse
+    actions.  You  must  call  install-colormap  and  uninstall-colormap  to
+    change  server colormaps.  You can hang these functions on mouse cursor-
+    in and cursor out methods to simulate the actions of a  ICCCM  compliant
+    window  manager.   (Note that other X clients can also change the server
+    colormap.)
+
+    EXAMPLES
+    (setf *my-win*
+      (make-window-stream :left 100 :bottom 100
+                          :width 200 :height 200
+                          :activate-p t :title "Just a Window"))
+
+    ;;  We create an array to store some colors.
+    (setq colors (make-array 10))
+    (dotimes (i 10)
+      (setf (elt colors i)(make-color :level (/ i 10))))
+
+    ;; We create a new colormap and install the colors in it.
+    (setq my-colormap (make-colormap :preallocate (list white black)))
+    (dotimes (i 10)
+      (install-color  (elt colors i) my-colormap))
+
+    ;;  Make MY-COLORMAP be the colormap of *MY-WIN*.
+    (setf (window-stream-colormap *my-win*)  my-colormap)
+
+    ;;  If the window manager is not ICCCM compliant, we can
+    ;;  modify the cursor in and cursor out methods
+    ;;  to install MY-COLORMAP when the cursor enters the frame.
+    ;;  If your window manager is ICCCM compliant, this step is
+    ;;  not necessary.
+    (defun inst-cm (ws &rest args) (declare (ignore args))
+      (install-colormap (window-stream-colormap ws)))
+    (defun uninst-cm (ws &rest args) (declare (ignore args))
+      (uninstall-colormap (window-stream-colormap ws)))
+    (modify-window-stream-method *my-win* :frame-mouse-cursor-in
+      :after 'inst-cm)
+    (modify-window-stream-method *my-win* :frame-mouse-cursor-out
+      :after 'uninst-cm)
+
+    ;;  You should see 10 circles, which will turn gray when you move the
+    ;;  mouse cursor into *MY-WIN*.  (Notice the colors in other
+    ;;  windows.  They will change too.)
+    (dotimes (i 10)
+      (draw-filled-circle
+       *my-win*
+       (make-position :x (* i 10) :y  (* i 10)) 50
+                      :color (elt colors i)))
+
+    SEE ALSO
+    install-color, install-colormap, make-color, make-colormap, uninstall-
+    colormap
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

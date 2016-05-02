@@ -1,0 +1,66 @@
+
+                                                         simple-bit-vector-p
+
+
+    FUNCTION
+    simple-bit-vector-p  -  test whether an object is a simple bit-vector
+
+    USAGE
+    simple-bit-vector-p object
+
+    DESCRIPTION
+    Returns true if OBJECT is a simple bit vector, and false  otherwise.   A
+    simple  bit  vector  has  no  fill  pointer, is not displaced to another
+    array, and is not adjustable.  The following identity holds:
+
+    (simple-bit-vector-p x) = (typep x 'simple-bit-vector)
+
+    EXAMPLES
+    (simple-bit-vector-p #*0101) => t
+
+    SEE ALSO
+    CLtL 6:76, about type specifiers, make-array, vector
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

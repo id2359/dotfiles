@@ -1,0 +1,132 @@
+
+                                                               install-color
+
+
+    FUNCTION
+    install-color  -  install a color into a LISP colormap
+
+    Usage
+    install-color COLOR [COLORMAP]
+
+    DESCRIPTION
+    Returns the number of colors  installed  in  COLORMAP  after  installing
+    COLOR  in  COLORMAP.   COLOR must be a color object.  COLORMAP must be a
+    colormap; its value defaults to  the  default  colormap,  the  value  of
+    *default-colormap*.
+
+    LISP colormaps serve as the interface between  COMMON  WINDOWS  and  the
+    server color handling system.  The server stores colors in server color-
+    maps.  Each LISP colormap has a  server  colormap  associated  with  it.
+    When  a  color is installed in the LISP colormap, it is at the same time
+    stored into the associated server colormap.
+
+    Colors must be installed before they  are  used,  but  the  system  will
+    automatically  install  an uninstalled color in the default colormap the
+    first time it is used.  Therefore, if you are using the  default  color-
+    map,  you  usually need not install colors explicitly.  (You might do so
+    if you are concerned that there may not be enough slots  in  the  server
+    colormap  to hold all the desired colors.)  But if you are using another
+    colormap, you must explicitly install all colors into it.
+
+    The number of colors you can install depends on the number of free slots
+    in  the  associated  X server colormap.  The size of server colormaps is
+    server-dependent.  The number of free slots in the default server color-
+    map,  the  one  associated  with  *default-colormap*,  depends  on other
+    clients and will likely be different each time you run COMMON WINDOWS  .
+    If  you  are using the default colormap, you may want to install all the
+    colors you need immediately so you will know at once whether  there  are
+    sufficient free slots to hold all the colors you want.
+
+    If no slot is available in the server colormap, an error with  condition
+    allocate-color-error will be signaled by this function.
+
+    As we said above, when an  uninstalled  color  is  used,  the  color  is
+    installed  into  the  default colormap.  At that time, if no slot in the
+    server colormap is available, an error will be signaled.
+
+    It is not an error to install an already  installed  color.   The  color
+    will simply be reinstalled in the colormap specified by COLORMAP.
+
+    EXAMPLES
+    ;; This is the simplest way to use colors.
+    (setf *my-win*
+            (make-window-stream :left 100 :bottom 100
+            :width 200 :height 200
+            :activate-p t :title "Just a Window"))
+
+    (setf *my-color* (make-color :red .3 :green .5 :blue .6))
+    (setf *plum* (make-color :name "plum"))
+
+    ;;  When we use *MY-COLOR* without explicitly installing it,
+    ;;  the system installs it into the default colormap.
+    (draw-filled-circle *my-win* (make-position :x 150 :y 150) 50
+                        :color *my-color*)
+
+    ;;  Although not strictly necessary, we can install *PLUM*
+    ;;  explicitly into the default colormap.  Note we do not
+    ;;  specify the optional colormap argument since its value
+    ;;  defaults to the default colormap.
+    (install-color *plum*)
+
+    ;; In this next, more complicated example, we store colors in our
+    ;; own colormap and associate this colormap with *my-win*.
+
+    ;; This will be an array to store some colors.
+    (setq colors (make-array 10))
+    (dotimes (i 10)
+      (setf (elt colors i)(make-color :level (/ i 10))))
+
+    ;; Create a new colormap and install the colors in it.
+
+    (setq my-colormap (make-colormap :preallocate (list white black)))
+
+    (dotimes (i 10)
+      (install-color  (elt colors i) my-colormap))
+
+    ;; Make my-colormap be the colormap of this window.
+
+    (setf (window-stream-colormap *my-win*)  my-colormap)
+
+    ;;  You should see 10 circles, which will turn gray when you move the
+    ;;  mouse cursor into *my-win*.  (Depending on your window
+    ;;  manager, you may have to call INSTALL-COLORMAP instead of
+    ;;  just moving the mouse into the window.)
+    (dotimes (i 10)
+      (draw-filled-circle
+       *my-win*
+       (make-position :x (* i 10) :y  (* i 10)) 50
+                      :color (elt colors i)))
+
+    SEE ALSO
+    about colors, install-colormap, make-color, make-colormap, uninstall-
+    colormap, window-stream-colormap
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                                       prog2
+
+
+    MACRO
+    prog2  -  evaluate forms sequentially, returning exactly one value from
+      the second form
+
+    USAGE
+    prog2 first-form second-form {form}*
+
+    DESCRIPTION
+    The first two  (required)  argument  forms  are  evaluated.   The  first
+    returned value from the SECOND-FORM is saved and the remaining forms are
+    evaluated sequentially.  When all have been evaluated, the single  saved
+    value  from  the SECOND-FORM is returned.  prog2 is useful when you wish
+    to evaluate a number of forms for their side effects and need some value
+    after one side effect form has executed.
+
+    prog2 returns only one value.   If  the  second  form  returns  multiple
+    values,  all but the first are discarded.  If the second form returns no
+    values, prog2 returns nil.
+
+    EXAMPLES
+    (prog2 (setq lis '(3 4 2 3 4 2 1))
+       (setq lis (sort lis #'<))
+       (setq lis (remove-duplicates lis)))
+       => (1 2 2 3 3 4 4)
+    lis => (1 2 3 4)
+    (prog2 (setq forget 10) (values)) => nil
+    (prog2 (setq x 1.5) (truncate x)) => 1
+    ;;  Contrast the last example with progn:
+    (progn (setq x 1.5) (truncate x)) => 1 0.5
+
+    SEE ALSO
+    CLtL 7:109, prog1, prog, prog*, progn, progv
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                               alphanumericp
+
+
+    FUNCTION
+    alphanumericp  -  test whether a character object is alphabetic or
+      numeric
+
+    USAGE
+    alphanumericp char
+
+    DESCRIPTION
+    Returns true if CHAR, which must be a character object, is either alpha-
+    betic  or  numeric,  and  false  otherwise.  The standard characters #\0
+    through #\9, #\a through #\z, and #\A through #\Z are  alphanumeric.   A
+    character with a non-zero bits attribute is never alphanumeric.  Whether
+    a character with non-zero font attribute is alphanumeric depends on  the
+    implementation  and  perhaps the font attribute value as well.  The fol-
+    lowing identity holds:
+
+    (alphanumericp x)
+      = (or (alpha-char-p x) (not (null (digit-char-p x))))
+
+    EXAMPLES
+    (alphanumericp #\a) => t
+    (alphanumericp #\Newline) => nil
+    (alphanumericp #\T) => t
+    (alphanumericp #\8) => t
+
+    SEE ALSO
+    CLtL 13:236, about type specifiers, alpha-char-p, both-case-p, digit-
+    char-p, graphic-char-p, lower-case-p, standard-char-p, upper-case-p
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

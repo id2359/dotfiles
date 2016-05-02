@@ -1,0 +1,66 @@
+
+                                                       window-stream-dashing
+
+
+    FUNCTION
+    window-stream-dashing  -  get the default dashing pattern for a
+      graphics-stream
+
+    Usage
+    window-stream-dashing GR-STREAM
+
+    DESCRIPTION
+    Returns the default dashing  pattern  of  GR-STREAM,  which  must  be  a
+    window-stream  or  a  bitmap-stream.   this  pattern will be used as the
+    value of the :dashing keyword argument when it is  unspecified  for  all
+    drawing  functions that take a dashing argument when they are applied to
+    GR-STREAM.  The dashing pattern may be a list of  positive  integers,  a
+    positive  integer,  or  nil.   nil indicates that a solid line should be
+    used. nil is the initial value of this function.  The value returned may
+    be changed with setf.
+
+    When not nil, the :dashing keyword argument of  a  drawing  function  is
+    interepreted  as  follows.   If  it  is a list, it specifies the dashing
+    pattern by saying how many pixels should be on and  off.   For  example,
+    the dashing pattern (1 2 3 4) says that one bit should be turned on fol-
+    lowed by 2 bits turned off followed by 3 bits turned on  followed  by  4
+    bits  turned  off,  and then the pattern repeated throughout the drawing
+    operation.  If the length of the list is odd, then the  dashing  pattern
+    cycles.   For example the list (1 2 3) would produce the dashing pattern
+    (1 on, 2 off, 3 on)  (1 off, 2 on, 3 off), etc.  A dashing pattern  that
+    consists  of  a  single  integer is a shorthand for the integer repeated
+    twice in the usual list representation.  For example, if DASHING  is  2,
+    then this is equivalent to the dashing pattern (22).
+
+    EXAMPLES
+    (setf *my-win*
+            (make-window-stream :left 100 :bottom 100
+            :width 200 :height 200
+            :activate-p t :title "Just a Window"))
+
+    (window-stream-dashing *my-win*) =>  nil
+    (setq (window-stream-dashing *my-win*) '(1 2 3 4))
+    (window-stream-dashing *my-win*) =>  (1 2 3 4)
+
+    SEE ALSO
+    window-stream-operation, window-stream-brush-width
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

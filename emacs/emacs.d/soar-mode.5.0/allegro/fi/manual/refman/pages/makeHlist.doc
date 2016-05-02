@@ -1,0 +1,66 @@
+
+                                                                   make-list
+
+
+    FUNCTION
+    make-list  -  make an initialized list of a given size
+
+    USAGE
+    make-list size [:initial-element fill]
+
+    DESCRIPTION
+    Returns a new list of SIZE elements, all initialized to FILL.  SIZE must
+    be  a non-negative integer.  FILL may be any Lisp object.  FILL defaults
+    to nil.
+
+    EXAMPLES
+    (make-list 4) => (nil nil nil nil)
+    (make-list 3 :initial-element 'x) => (x x x)
+
+    SEE ALSO
+    CLtL 15:268, list
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

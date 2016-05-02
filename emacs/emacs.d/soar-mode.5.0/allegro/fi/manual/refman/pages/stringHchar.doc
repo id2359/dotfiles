@@ -1,0 +1,66 @@
+
+                                                                 string-char
+
+
+    Type SPECIFIER
+    string-char  -  the data type comprising characters that may be elements
+      of a string
+
+    USAGE
+    string-char
+
+    DESCRIPTION
+    Specifies the data type string-char, which consists  of  all  characters
+    whose bits and font attributes are zero.  These characters may appear in
+    strings.
+
+    A character object may be an element of a string if and only if it is of
+    type   string-char.    All   standard   characters   (objects   of  type
+    standard-char) satisfy  string-char-p.   Other  implementation-dependent
+    characters may also satisfy string-char-p.
+
+    EXAMPLES
+    (typep #\x 'string-char) => t
+    (typep #\Meta-x 'string-char) => nil
+
+    SEE ALSO
+    CLtL 2:23, CLtL 4:43, about type specifiers, character, typep
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

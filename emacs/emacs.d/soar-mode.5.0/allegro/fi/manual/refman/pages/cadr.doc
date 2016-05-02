@@ -1,0 +1,66 @@
+
+                                                                        cadr
+
+
+    FUNCTION
+    cadr  -  get the CADR of a list
+
+    USAGE
+    cadr list
+
+    DESCRIPTION
+    This is a composition of the car and cdr functions:
+
+    (cadr lis) = (car (cdr lis))
+
+    The argument LIST must be of type list.
+
+    EXAMPLES
+    (cadr '(a b c d)) => b
+
+    SEE ALSO
+    CLtL 15:262, car, cdr
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

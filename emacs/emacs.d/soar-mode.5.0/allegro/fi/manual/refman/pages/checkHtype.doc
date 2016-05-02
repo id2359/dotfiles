@@ -1,0 +1,66 @@
+
+                                                                  check-type
+
+
+    MACRO
+    check-type  -  check the type of a generalized-variable reference
+
+    USAGE
+    check-type place type [string]
+
+    SIDE EFFECTS
+    A continuable error is signalled if the object found in  PLACE  that  is
+    not  of  the  type  TYPE.   If  this error is continued from, check-type
+    enters an interactive loop, asking the user for a new value to be stored
+    in PLACE, until this new value is of the appropriate type.
+
+    DESCRIPTION
+    Returns nil.  The argument PLACE must be a  generalized-variable  refer-
+    ence,  and  TYPE, which is not evaluated, must be a type specifier.  The
+    argument STRING may be an English description of the type that  will  be
+    used  in an error message.  If STRING is not supplied, the type specifi-
+    cation will be used to produce an appropriate string.  The error message
+    will  contain  a  description  of  the  type, the PLACE, and its current
+    value.  In  the  example,  the  factorial  function  is  defined,  using
+    check-type to ensure that the argument is an integer.
+
+    EXAMPLES
+    (defun fact (n)
+      (labels ((do-fact (n)
+                 (if (zerop n)
+                     1
+                     (* n (do-fact (1- n))))))
+        (check-type n integer)
+        (when (minusp n)
+            (progn (cerror "Please input a new value"
+                           "Only non-negative integers allowed.~%~
+                        ~D is negative" n)
+                   (do-fact (abs n)))
+            (do-fact n))))
+
+    <cl> (FACT 10)
+    3628800
+    <cl> (FACT 1.2)
+    Error: the value of n is 1.2, which is not of type integer.
+    Restart actions (select using :continue):
+     0: supply a new value of n.
+    [1] <cl> :CONTINUE
+    Type a form to be evaluated: 10
+    3628800
+    <cl>
+
+    SEE ALSO
+    CLtL 24:433, assert, *break-on-warnings*, break, ccase, cerror,
+    ctypecase, ecase, error, etypecase, warn
+
+
+
+
+
+
+
+
+
+
+
+

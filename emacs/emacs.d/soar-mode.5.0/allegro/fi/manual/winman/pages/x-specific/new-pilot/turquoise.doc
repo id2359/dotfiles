@@ -1,0 +1,66 @@
+
+                                                                   turquoise
+
+
+    FUNCTION
+    turquoise  -  the color turquoise
+
+    Usage
+    turquoise
+
+    DESCRIPTION
+    This is a constant, bound to the color turquoise.  The  color  is  read-
+    only, which means you cannot change it.
+
+    EXAMPLES
+    turquoise => #<Color: (rgb) 0.0, 0.0, 1.0, read-only: uninitialized>
+
+    SEE ALSO
+    black, blue, green, purple, red, white, yellow
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

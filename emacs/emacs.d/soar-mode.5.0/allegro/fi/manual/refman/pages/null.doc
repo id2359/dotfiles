@@ -1,0 +1,66 @@
+
+                                                                        null
+
+
+    Type SPECIFIER
+    null  -  the data type comprising the single object nil
+
+    Usage
+    null
+
+    DESCRIPTION
+    Specifies the data type consisting only of nil.
+
+    EXAMPLES
+    (typep nil 'null) => t
+
+    SEE ALSO
+    CLtL 2:34, CLtL 4:43, about type specifiers, nil, typep
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,132 @@
+
+                                                            reader syntax #,
+
+
+    READER SYNTAX
+    #,  -  representation of an object evaluated at load time
+
+    Usage
+    #,EXPR
+
+    DESCRIPTION
+    Reads as the object resulting from the evaluation of the expression fol-
+    lowing  it.  The expression EXPR may be any readable printed representa-
+    tion of a LISP object, or a form that evaluates to a LISP object.   This
+    reader macro may be used to read an object that has no printed represen-
+    tation, since the expression following ``#,'' is  EVALUATED  to  produce
+    the object read.
+
+    Evaluation occurs when the expression is read, UNLESS  the  compiler  is
+    reading  the  expression.   When compiling this syntactic form, the com-
+    piler will arrange that EXPR is evaluated when the file  being  compiled
+    is loaded.
+
+    When a ``#,'' syntactic form is being read by  the  interpreter,  it  is
+    indistinguishable from an expression preceded by ``#.''.  When compiling
+    a file, however, the expression following ``#,'' is evaluated  when  the
+    compiled  file  is later loaded, whereas the expression following ``#.''
+    is evaluated by the compiler when the form is read.   In  a  sense,  the
+    syntactic  form  #,EXPR  is  similar  to the form (eval-when (eval load)
+    EXPR), whereas #.EXPR is similar to (eval-when (eval compile) EXPR).
+
+    Note that when #,EXPR appears in a form that is evaluated, the EXPR  may
+    be  `evaluated  twice.'  It is evaluated when the reader evaluates it to
+    produce a LISP object, or when the expression is evaluated when the file
+    in which it appears is loaded.  This resulting LISP object might then be
+    evaluated again, unless it is, for example, within a quoted form.
+
+    This syntactic form may be useful to create data structures at read time
+    or  load  time to avoid creating them at run time.  In general, computa-
+    tional resources are less of a concern when a file is being loaded or  a
+    form is being read or compiled than when it is being evaluated in a run-
+    ning program.
+
+    EXAMPLES
+    ;;  (The set of objects without readable printed representations is
+    ;;  implementation-dependent, but hash-tables commonly have none.)
+    (setf *h* '#,(make-hash-table))
+      => #<EQL hash-table with 0 entries @ #x534f09>
+    ;;  The expression below produces the same result as that above,
+    ;;  but the hash-table is created when the expression is evaluated,
+    ;;  not when it is read or loaded from a file.
+    (setf *h* (make-hash-table))
+      => #<EQL hash-table with 0 entries @ #x535a12>
+
+    ;;;  Assume the following expressions are in a file.
+    (eval-when (eval) (defparameter *mode* :eval))
+    (eval-when (load) (defparameter *mode* :load))
+    (eval-when (compile) (defparameter *mode* :read))
+    (defun modes ()
+      (values #,*mode* #.*mode*))
+
+    ;;; When the file containing the above expressions is
+    ;;;   loaded uncompiled, we observe this behavior:
+    (modes) => :eval :eval
+
+
+    ;;; When the same file is loaded compiled, we observe this:
+    (modes) => :load :read
+
+    SEE ALSO
+    CLtL 22:356, about printing, about reading, eval-when, reader syntax #.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

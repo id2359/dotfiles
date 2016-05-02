@@ -1,0 +1,66 @@
+
+                                                                upper-case-p
+
+
+    FUNCTION
+    upper-case-p  -  test whether a character object is an uppercase letter
+
+    USAGE
+    upper-case-p char
+
+    DESCRIPTION
+    Returns true if CHAR, which must be a character object, is an  uppercase
+    alphabetic  character,  and  false otherwise.  The letters ``a'' through
+    ``z'' are lowercase, and the letters ``A'' through ``Z'' are uppercase.
+
+    EXAMPLES
+    (upper-case-p #\a) => nil
+    (upper-case-p #\Newline) => nil
+    (upper-case-p #\T) => t
+    (upper-case-p #\Control-X) => nil
+
+    SEE ALSO
+    CLtL 13:235, alphanumericp, both-case-p, char-downcase, char-upcase,
+    graphic-char-p, lower-case-p, standard-char-p
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

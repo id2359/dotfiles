@@ -1,0 +1,66 @@
+
+                                                         set-macro-character
+
+
+    FUNCTION
+    set-macro-character  -  make a character become a macro character
+
+    Usage
+    set-macro-character CHAR FUN [NON-TERMINATING-P [TABLE]]
+
+    SIDE EFFECTS
+    The argument CHAR becomes a macro character that calls the function  FUN
+    whenever it is read.
+
+    DESCRIPTION
+    Returns FUN, but this function is used for its side effects.  The  argu-
+    ment CHAR must be a character object.  It is made a macro character that
+    invokes FUN.
+
+    If the argument NON-TERMINATING-P is non- nil, then this  is  a  nonter-
+    minating macro character.  Such a character does not cause the reader to
+    stop accumulating a token, so it may be embedded in  a  token.   If  the
+    argument TABLE is provided, then the character will be a macro character
+    in that readtable.  The default for TABLE is the current readtable  (the
+    value of *readtable*).
+
+    The function FUN will be called with two arguments, corresponding to the
+    input stream and CHAR, the macro character.  The function may read addi-
+    tional characters from the input stream.  The function  must  return  no
+    value  or  one  value.  If no value is returned, the macro character and
+    any characters read by the function are discarded.  Otherwise, the value
+    returned will be taken by the reader to be the object represented by the
+    characters that were consumed in processing the macro character.
+
+    The macro-character function must not have any side effects (other  than
+    on  the  input  stream,  of  course), since it may be invoked repeatedly
+    while reading the same character from a stream.
+
+    EXAMPLES
+    ;;  Note that we set the #\] character function to the #\)
+    ;;  character function, so that a #\] will not be read as
+    ;;  part of the name of a symbol.
+
+    (defun read-bracketed-vector (stream character)
+      (declare (ignore character))
+      (apply #'vector (read-delimited-list #\] stream t)))
+    (set-macro-character #\] (get-macro-character #\) nil))
+    (set-macro-character #\[ #'read-bracketed-vector nil)
+    '[1 2 3] => #(1 2 3)
+    '[1 [2 [3]]] => #(1 #(2 #(3)))
+    (vectorp '[a b]) => t
+
+    SEE ALSO
+    CLtL 22:362, get-dispatch-macro-character, get-macro-character, make-
+    dispatch-macro-character, set-dispatch-macro-character, set-syntax-
+    from-char
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                        set-syntax-from-char
+
+
+    FUNCTION
+    set-syntax-from-char  -  copy the syntax of one character to another
+      character
+
+    Usage
+    set-syntax-from-char GOAL-CHAR SRC-CHAR [GOAL-READTABLE [SRC-READTABLE]]
+
+    SIDE EFFECTS
+    The syntactic character type of GOAL-CHAR in GOAL-READTABLE becomes  the
+    same as the syntactic character type of SRC-CHAR in SRC-READTABLE.
+
+    DESCRIPTION
+    The value returned is not defined, but this function  is  used  for  its
+    side  effects.  The default value for SRC-READTABLE is nil, which causes
+    the standard COMMON LISP readtable to be used, while the  default  value
+    for  GOAL-READTABLE is the current readtable (the value of *readtable*).
+    Only the syntactic character type of SRC-CHAR is copied, unless it is  a
+    macro  character,  in  which  case its macro definition function is also
+    copied.  If the source character is a constituent character, its  attri-
+    butes  as  understood  by the reader's token parser are NOT copied.  For
+    example, copying the syntax of #\- (the minus sign) to #\  (underscore)
+    would  not  cause  the  underscore to be recognized as a minus sign when
+    reading numbers.
+
+    Macro characters whose associated functions read input and search for  a
+    character  or  sequence  of characters acting as a closing delimiter may
+    not behave as expected when their syntax is copied to another character.
+    Although  the  exact behavior depends on the implementation, copying the
+    syntax of #\( to #\< will likely still require a closing #\) rather than
+    a #\>, since the function implementing the macro character #\( will rea-
+    sonably look for #\) to delimit the list.  On the  other  hand,  copying
+    the syntax of #\| to #\/ has a better chance of working, since the asso-
+    ciated function would reasonably look for a character matching the open-
+    ing delimiter.
+
+    EXAMPLES
+    (set-syntax-from-char #\{ #\( )
+    ;;  { now acts like a left parenthesis.
+    {car '{b c)) => b
+    ;;  The following restores the default syntax.
+    (setq *readtable* (copy-readtable nil))
+
+    SEE ALSO
+    CLtL 22:361, about reading, get-macro-character, get-dispatch-macro-
+    character read, read-byte, read-char, read-delimited-list, read-from-
+    string, read-line, set-macro-character, set-dispatch-macro-character
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

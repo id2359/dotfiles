@@ -1,0 +1,66 @@
+
+                                                        directory-namestring
+
+
+    FUNCTION
+    directory-namestring  -  get a representation of the directory part of a
+      pathname
+
+    USAGE
+    directory-namestring pathname
+
+    DESCRIPTION
+    Returns a string representing the directory part of PATHNAME, which must
+    be  a  pathname, string, symbol, or stream.  If PATHNAME is a stream, it
+    must be associated with a file.  Note that it  may  not  necessarily  be
+    possible  to  construct  a  valid namestring by concatenating the values
+    returned by host-namestring, directory-namestring,  and  file-namestring
+    on a given pathname.
+
+    EXAMPLES
+    ;; This example is hypothetical.
+    (directory-namestring
+     (make-pathname :host "franz"
+                    :directory "[cl.v030]"
+                    :name "cl"
+                    :type "exe"))
+      => "[cl.v030]/"
+
+    SEE ALSO
+    CLtL 23:417, enough-namestring, file-namestring, host-namestring,
+    namestring
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                   least-negative-long-float
+
+
+    CONSTANT
+    least-negative-long-float  -  negative long-float closest to zero
+
+    DESCRIPTION
+    Returns the value of the negative  long-float  number  nearest  to  (but
+    still  different from) zero.  This value is implementation-dependent but
+    is guaranteed not to be minus zero (if the implementation  has  distinct
+    signed floating-point zeroes) .
+
+    EXAMPLES
+    ;;  This value is implementation-dependent.
+    least-negative-long-float => -2.2250738585072027d-308
+
+    SEE ALSO
+    CLtL 12:232, about numeric constants
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

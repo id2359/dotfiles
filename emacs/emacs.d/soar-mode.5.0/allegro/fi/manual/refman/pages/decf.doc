@@ -1,0 +1,66 @@
+
+                                                                        decf
+
+
+    MACRO
+    decf  -  decrement a variable
+
+    USAGE
+    decf place [delta]
+
+    SIDE EFFECTS
+    The value of the variable PLACE is decremented by DELTA.
+
+    DESCRIPTION
+    Returns the result of decrementing the numeric  value  at  the  location
+    specified  by  the generalized variable PLACE.  The value is decremented
+    by DELTA, which defaults to 1.
+
+    EXAMPLES
+    (setq n 4) => 4
+    (decf n)  => 3
+    n => 3
+    (decf n #c(0 1.0)) => #c(3.0 -1.0)
+    n => #c(3.0 -1.0)
+
+    (setq n #c(2 3)) => #c(2 3)
+    (decf n 2) => #c(0 3)
+    n => #c(0 3)
+
+    SEE ALSO
+    CLtL 12:201, incf, setf, 1-, -
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

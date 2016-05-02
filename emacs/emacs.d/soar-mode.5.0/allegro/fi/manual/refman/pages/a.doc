@@ -1,0 +1,66 @@
+
+                                                                           +
+
+
+    VARIABLE
+    +  -  the previous form read by the top-level read-eval-print loop
+
+    Usage
+    +
+
+    DESCRIPTION
+    Bound to the previous form read by the top-level  read-eval-print  loop.
+    This  variable  exists  for the convenience of the user when interacting
+    with a COMMON LISP top level.  (Note: this variable is unconnected  with
+    the function + which is the generalized addition function.)
+
+    EXAMPLES
+    <cl> (SETQ FOO 3)
+    3
+    <cl> +
+    (setq foo 3)
+    <cl>
+
+    SEE ALSO
+    CLtL 20:325, ***, **, *, +++, ++, ///, //, /, -
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

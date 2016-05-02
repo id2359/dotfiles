@@ -1,0 +1,66 @@
+
+                                                                  vector-pop
+
+
+    FUNCTION
+    vector-pop  -  decrease the fill pointer of a vector by one
+
+    USAGE
+    vector-pop vector
+
+    SIDE EFFECTS
+    The value of the fill pointer of VECTOR is decreased by one,  unless  it
+    is already zero.
+
+    DESCRIPTION
+    Decrements the file pointer of VECTOR by one, then returns  the  element
+    indexed  by  the  new  file  pointer.   This element is no longer in the
+    active part of VECTOR, but is the formerly last active element.   It  is
+    an  error  if  VECTOR is not as vector with a fill pointer.  An error is
+    signaled if the fill pointer is zero when this function is called.
+
+    EXAMPLES
+    (let* ((w (make-array '(3)
+                          :initial-contents  '(a b c)
+                          :fill-pointer t ))
+           (former-fill-pointer (fill-pointer w)))
+      (vector-pop w)
+      (values former-fill-pointer w (fill-pointer w)))
+       => 3 #(a b) 2
+
+    SEE ALSO
+    CLtL 17:296, array-has-fill-pointer-p, :fill-pointer, fill-pointer,
+    make-array, vector-push, vector-push-extend
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

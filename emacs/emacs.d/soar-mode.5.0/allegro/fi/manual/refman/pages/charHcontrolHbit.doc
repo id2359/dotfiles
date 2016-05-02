@@ -1,0 +1,66 @@
+
+                                                            char-control-bit
+
+
+    CONSTANT
+    char-control-bit  -  weight of the control bit
+
+    DESCRIPTION
+    Evaluates to the integer weight assigned to the control bit of the  bits
+    attribute  of character objects. An implementation need not support this
+    particular bit. If it is supported, the value is 1.  If it is  not  sup-
+    ported, the value is 0.
+
+    EXAMPLES
+    ;;  The returned value is implementation-dependent:
+    char-control-bit => 1
+
+    SEE ALSO
+    CLtL 13:243, char-bit, char-bits, char-hyper-bit, char-meta-bit, char-
+    super-bit, set-char-bit
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

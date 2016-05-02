@@ -1,0 +1,66 @@
+
+                                                                make-package
+
+
+    FUNCTION
+    make-package  -  create a new package
+
+    USAGE
+    make-package package-name [:nicknames names] [:use packages]
+
+    DESCRIPTION
+    Returns a newly-created package named PACKAGE-NAME, which must either be
+    a  string or a symbol.  You may specify nicknames for the new package by
+    using the :nicknames keyword argument.  The argument  NAMES  must  be  a
+    list  of  strings  or  symbols. When a symbol is specified for a name or
+    nickname, the print name is used as the string.  When a string  is  sup-
+    plied, it must be in the desired case.  (Note that for standard symbols,
+    their print names are in upper case.) Neither the name nor the nicknames
+    can  denote  other  existing packages.  A continuable error will be sig-
+    nalled if there is such a conflict.
+
+    PACKAGES, the value of the :use keyword argument, should be  a  list  of
+    packages  or  strings or symbols denoting packages.  These packages will
+    be used (in the sense of use-package: their  exported  symbols  will  be
+    inherited)  by  the  new  package.   All  the  packages in the list must
+    already exist.  PACKAGES defaults to the list containing only  the  lisp
+    package.
+
+    EXAMPLES
+    ;;  The following form will create the FOO package if it does
+    ;;  not already exist.  The printed representation of a package object is
+    ;;  implementation-dependent.
+    (unless (find-package :foo)
+        (make-package :foo)) ; create the foo package
+
+    SEE ALSO
+    CLtL 11:183, in-package, use-package
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

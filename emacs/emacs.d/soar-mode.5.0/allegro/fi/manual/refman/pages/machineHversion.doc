@@ -1,0 +1,66 @@
+
+                                                             machine-version
+
+
+    FUNCTION
+    machine-version  -  get version of computer hardware currently running
+
+    Usage
+    machine-version
+
+    DESCRIPTION
+    Returns the string identifying the version of the hardware on which  you
+    are  running  COMMON  LISP.  The exact name is implementation-dependent.
+    If no appropriate value can be determined, machine-version returns nil.
+
+    EXAMPLES
+    ;;  The following returned value is implementation
+    ;;  and version-dependent.
+    (machine-version) => "Model 3"
+
+    SEE ALSO
+    CLtL 25:447, machine-instance, machine-type
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

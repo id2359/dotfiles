@@ -1,0 +1,66 @@
+
+                                                                   color-hue
+
+
+    FUNCTION
+    color-hue  -  get the hue of a color
+
+    Usage
+    color-hue COLOR
+
+    DESCRIPTION
+    This function returns the hue component of a color.  In  X,  colors  are
+    composed  of values specified for three fields, :red, :green, and :blue.
+    You may also define color using :hue, :saturation, and  :brightness,  or
+    :gray-level.   However  you define a color, it is stored as a mixture of
+    red, green, and blue.  The conversion is done  automatically  by  COMMON
+    WINDOWS.
+
+    You may also create colors using the values of  :hue,  :saturation,  and
+    :brightness, and you may access the hue component of a color, however it
+    was created.  COMMON WINDOWS will make the correct  conversions  to  rgb
+    values.
+
+    EXAMPLES
+    (setf *my-color*
+          (make-color-hsb :hue .25 :saturation .50 :brightness .75))
+    (color-hue *my-color*) => 0.25d0
+
+    SEE ALSO
+    about colors, color-blue, color-brightness, color-green, color-red,
+    color-saturation, make-color
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

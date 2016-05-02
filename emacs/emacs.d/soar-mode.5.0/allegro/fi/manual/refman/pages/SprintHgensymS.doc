@@ -1,0 +1,66 @@
+
+                                                              *print-gensym*
+
+
+    VARIABLE
+    *print-gensym*  -  variable which controls how uninterned symbols are
+      printed
+
+    DESCRIPTION
+    When this variable is true, the COMMON LISP printer will  print  symbols
+    that  have  no  home  package with the prefix #:.  When this variable is
+    false, the #: is not printed, and so uninterned  symbols  are  indistin-
+    guishable from internal symbols in the current package.
+
+    The initial value of this variable is t.
+
+    EXAMPLES
+    *print-gensym* => t
+    (let* ((*print-gensym* nil) (news (gensym)))
+      (print news) nil) => nil
+      PRINTS g14
+
+    (let* ((*print-gensym* t) (news (gensym)))
+      (print news) nil) => nil
+      PRINTS #:g15
+
+    SEE ALSO
+    CLtL 22:372, about printing, *print-array*, *print-base*, *print-case*,
+    *print-circle*, *print-escape*, *print-length*, *print-level*, *print-
+    pretty*, *print-radix*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

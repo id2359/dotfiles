@@ -1,0 +1,66 @@
+
+                                                                 fmakunbound
+
+
+    FUNCTION
+    fmakunbound  -  remove the global function definition of a symbol (des-
+      tructive)
+
+    USAGE
+    fmakunbound sym
+
+    SIDE EFFECTS
+    The global function definition of the symbol SYM is removed.
+
+    DESCRIPTION
+    Returns SYM.  This function is used for its side effects.
+
+    EXAMPLES
+    (defun foo (x) (car x)) => foo
+    (foo '(a b)) => a
+    (fmakunbound 'foo) => foo
+    ;;  foo no longer has a global function definition.
+    (foo '(a b c)) => ERROR
+    (symbol-function 'foo) => ERROR
+
+    SEE ALSO
+    CLtL 7:92, fboundp, makunbound, symbol-function
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

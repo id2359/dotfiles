@@ -1,0 +1,66 @@
+
+                                                                         red
+
+
+    FUNCTION
+    red  -  the color red
+
+    DESCRIPTION
+    This is a constant, bound to the color red.   The  color  is  read-only,
+    which means you cannot change it.
+
+    EXAMPLES
+    red => #<Color: (rgb) 1.0, 0.0, 0.0, read-only: uninitialized>
+
+    SEE ALSO
+    black, blue, green, purple, turquoise, white, yellow
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

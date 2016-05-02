@@ -1,0 +1,66 @@
+
+                                                                  copy-alist
+
+
+    FUNCTION
+    copy-alist  -  copy first and second level structure of a list
+
+    USAGE
+    copy-alist list
+
+    DESCRIPTION
+    Returns a new list containing a copy  of  the  first-  and  second-level
+    structure of LIST, which must be a cons or nil.  This means that succes-
+    sive cdrs of LIST are copied, and each successive car of the new list is
+    replaced by a copy if it is a cons.  As a result, corresponding elements
+    of both lists are equal, though not in general  eq.   This  function  is
+    often used to copy association lists.
+
+    EXAMPLES
+    (copy-alist '(a b . c)) => (a b . c)
+    (setq x '((a) ((b)))) => ((a) ((b)))
+    (setq y (copy-alist x)) => ((a) ((b)))
+    (eq (car x) (car y)) => nil
+    (eq (caadr x) (caadr y)) => t
+
+    SEE ALSO
+    CLtL 15:268, copy-list, copy-seq, copy-tree, eq, equal
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

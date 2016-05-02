@@ -1,0 +1,66 @@
+
+                                                                     clrhash
+
+
+    FUNCTION
+    clrhash  -  remove all entries from a hash-table (destructive)
+
+    USAGE
+    clrhash hash-table
+
+    SIDE EFFECTS
+    The hash-table HASH-TABLE is cleared of all entries.
+
+    DESCRIPTION
+    Removes all entries from HASH-TABLE, which must be of  type  hash-table,
+    and returns the empty table.
+
+    EXAMPLES
+    (hash-table-p (setq ht (make-hash-table :size 4))) => t
+    (setf (gethash 'quick ht) 'brown)
+    (setf (gethash 'fox ht) 'jumped)
+    (setf (gethash 'over ht) 'fence)
+    (hash-table-count ht) => 3
+    (clrhash ht) => #<EQL hash-table with 0 entries @ #x562f49>
+    (hash-table-count ht) => 0
+
+    SEE ALSO
+    CLtL 16:285, gethash, hash-table-count, hash-table-p, make-hash-table,
+    remhash
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

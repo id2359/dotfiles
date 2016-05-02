@@ -1,0 +1,66 @@
+
+                                                       multiple-values-limit
+
+
+    CONSTANT
+    multiple-values-limit  -  exclusive upper bound on number of values any
+      function may return
+
+    DESCRIPTION
+    This constant evaluates to the exclusive upper bound on  the  number  of
+    values   that   may   be   returned   by  a  function.   This  value  is
+    implementation-dependent, but must be at least 20 in any implementation.
+
+    EXAMPLES
+    ;;  This value is implementation-dependent.
+    multiple-values-limit => 500
+
+    SEE ALSO
+    CLtL 7:135, multiple-value-bind, multiple-value-call, multiple-value-
+    list, multiple-value-setq values-list
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

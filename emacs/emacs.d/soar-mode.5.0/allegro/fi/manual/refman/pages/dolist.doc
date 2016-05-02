@@ -1,0 +1,66 @@
+
+                                                                      dolist
+
+
+    MACRO
+    dolist  -  iterate over a list
+
+    USAGE
+    dolist (var listform [result]) {decl}* {tag | statement}*
+
+    DESCRIPTION
+    This macro iterates over the elements of a list.  It returns the  values
+    of RESULT (which must be a single form, not an implicit progn) or nil if
+    RESULT is unspecified.  At the time RESULT is evaluated, VAR is bound to
+    nil.
+
+    First, dolist evaluates LISTFORM (which should evaluate to a  list)  and
+    then  performs  one iteration for every element in it.  During the first
+    iteration, VAR is bound to the first element of LISTFORM.   During  sub-
+    sequent iterations, VAR is bound to subsequent elements.  In each itera-
+    tion, the body of the loop is evaluated after VAR is bound.  The body of
+    the  loop  is  an  implicit tagbody, so it may contain STATEMENTS (forms
+    which are executed sequentially) and TAGS,  symbols  or  integers  which
+    serve as labels for go forms.  The body may be preceded by declarations.
+    The construct as a whole is surrounded by an implicit block  named  nil,
+    and  thus  may  be  exited at any time with return, returning the values
+    specified by the return.
+
+    EXAMPLES
+    ;;  This form takes a list of strings and returns
+    ;;  a list of their lengths.
+    (let ((result nil))
+      (dolist (item '("charley" "david" "lois") (nreverse result))
+        (push (length item) result))) => (7 5 4)
+
+    SEE ALSO
+    CLtL 7:126, block, do, do*, dotimes, return, tagbody
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                             active-region-mouse-cursor-move
+
+
+    FUNCTION
+    active-region-mouse-cursor-move  -  get the list of functions called by
+      mouse-cursor-move method
+
+    Usage
+    active-region-mouse-cursor-move AREGION
+
+    DESCRIPTION
+    Returns  the  list  of  functions  that  will   be   called   when   the
+    mouse-cursor-move  method  for the active-region AREGION is called.  You
+    can replace this list by using setf,  or  modify  it  by  using  modify-
+    active-region-method.    Use   restore-default-active-region-method   to
+    restore the list to its default contents.  The default mouse-cursor-move
+    method   calls   the  function  default-active-region-mouse-cursor-move-
+    method.  The default method does nothing at all.
+
+    EXAMPLES
+    ;;  We make a window.
+    (setf *my-win*
+          (make-window-stream :left 100 :bottom 200
+                              :width 100 :height 100
+                              :activate-p t))
+    ;;  We put an active-region in it.
+    (setf *my-active*
+          (make-active-region
+           :left 0 :bottom 0 :width 100 :height 100
+           :parent *my-win*
+           :activate-p t
+           ))
+
+    (defun my-after-mouse-cursor-move (aregion mouse-state event)
+          (format  *standard-output*
+                   "Position: ~S ~% "
+                   (mouse-state-position mouse-state)))
+    (modify-active-region-method *my-active* :mouse-cursor-move
+                                  :after 'my-after-mouse-cursor-move)
+
+    ;;  Now whenever the mouse cursor moves within *my-active*,
+    ;;  we can monitor the mouse position .
+
+    ;;  We look at the list of functions.
+
+    (active-region-mouse-cursor-move *my-active*)
+      => (default-window-stream-mouse-cursor-move-method
+          my-after-mouse-cursor-move)
+
+    SEE ALSO
+    active-region-button, active-region-left-button-down, active-region-
+    left-button-up, active-region-middle-button-down, active-region-middle-
+    button-up, active-region-mouse-cursor-out, active-region-right-button-
+    down, active-region-right-button-up, control-mouse-cursor-move-events,
+    modify-active-region-method
+
+
+
+
+
+
+
+
+
+

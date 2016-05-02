@@ -1,0 +1,66 @@
+
+                                                    array-has-fill-pointer-p
+
+
+    FUNCTION
+    array-has-fill-pointer-p  -  test whether the given array has a fill
+      pointer
+
+    USAGE
+    array-has-fill-pointer-p array
+
+    DESCRIPTION
+    Returns true if ARRAY, which must be an array, has a fill pointer,  oth-
+    erwise  returns  false.  This function will always return false if ARRAY
+    is not one-dimensional.
+
+    EXAMPLES
+    (array-has-fill-pointer-p (vector 'a 'b 'c)) => nil
+    (array-has-fill-pointer-p (make-array '(5) :fill-pointer 3)) => t
+    (array-has-fill-pointer-p (make-array '(5 5))) => nil
+
+    SEE ALSO
+    CLtL 17:296, :fill-pointer, fill-pointer, make-array, vector-pop,
+    vector-push, vector-push-extend
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

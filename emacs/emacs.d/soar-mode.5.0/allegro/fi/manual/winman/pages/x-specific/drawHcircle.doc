@@ -1,0 +1,132 @@
+
+                                                                 draw-circle
+
+
+    FUNCTION
+    draw-circle  -  draw a circle on a graphic stream
+
+    Usage
+    draw-circle GR-STREAM POSITION RADIUS [:brush-width BRUSH-WIDTH]
+      [:operation OPERATION] [:color COLOR] [:dashing DASHING]
+
+    SIDE EFFECTS
+    A circle of radius RADIUS is drawn on the graphic stream GR-STREAM, cen-
+    tered around POSITION.
+
+    DESCRIPTION
+    Returns nil.  The argument RADIUS must be a real  number.  The  argument
+    POSITION  determines  a  POSITION  in  the  extent  coordinate system of
+    GR-STREAM.  For a function which  passes  the  position  data  structure
+    unbundled into its x and y components, see draw-circle-xy.
+
+    The keyword argument :brush-width is the width, in pixels, of the points
+    that  are drawn.  The default value is the value of window-stream-brush-
+    width applied to gr-stream.  The keyword argument  :operation  specifies
+    the  boolean  operation that will be used when the bits from the drawing
+    operation are combined with the bits on the graphic stream.  This  argu-
+    ment  defaults  to  the  value  of  window-stream-operation  applied  to
+    GR-STREAM.  All the sixteen standard boolean operations of  COMMON  LISP
+    are  supported.   The  keyword  argument  :color,  specifies the drawing
+    color, and defaults to the value returned  by  window-stream-foreground-
+    color applied to GR-STREAM.
+
+    The keyword argument :dashing is a  list  which  specifies  the  dashing
+    pattern  of the circle.  For example, the dashing pattern (1 2 3 4) says
+    that one bit should be turned on followed by 2 bits turned off  followed
+    by  3 bits turned on followed by 4 bits turned off, and then the pattern
+    repeated throughout the drawing operation.  If the length of the list is
+    odd,  then  the  dashing  pattern cycles.  For example the list '(1 2 3)
+    would produce the dashing pattern (1 on, 2 off, 3 on)  (1 off, 2  on,  3
+    off),  etc.   A  dashing  pattern that consists of a single integer is a
+    shorthand for the  list  consisting  of  the  pattern  followed  by  the
+    pattern.   For  example, if DASHING is 2, then this is equivalent to the
+    dashing pattern (2 2) .
+
+    The argument GR-STREAM may be either a window-stream  or  bitmap-stream.
+    These  are  the  only  two types of graphic streams, with the difference
+    between them being that  bitmap-streams  must  be  bitblted  to  window-
+    streams.
+
+    The function window-stream-draw-circle returns  the  list  of  functions
+    that  this  method  calls.   You  can change this list by using setf and
+    window-stream-draw-circle or by using modify-window-stream-method.   You
+    can  restore  the  list  to  its  original  default  state with restore-
+    default-window-stream-method.
+
+    The draw-circle method returns what is returned by the last function  in
+    the  list  of  functions called by the method. If this list has not been
+    changed from its initial value, draw-circle returns nil.
+
+    EXAMPLES
+    (setf *my-win*
+          (make-window-stream
+           :left 100
+           :bottom 100
+           :width 300
+           :height 300
+           :activate-p t :title "A"))
+
+    (draw-circle *my-win*
+                (make-position :x 150 :y 150)
+                50
+                :brush-width 2
+                )
+
+    SEE ALSO
+    draw-circle-xy, draw-filled-circle, draw-filled-circle-xy, draw-filled-
+    rectangle, draw-filled-rectangle-xy, draw-line, draw-line-xy, draw-
+    lines, draw-point, draw-point-xy, draw-points, draw-rectangle, draw-
+    rectangle-xy, draw-to, draw-to-xy, modify-window-stream-method,
+    restore-default-window-stream-method,
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

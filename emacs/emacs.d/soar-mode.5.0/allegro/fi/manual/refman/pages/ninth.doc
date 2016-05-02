@@ -1,0 +1,66 @@
+
+                                                                       ninth
+
+
+    FUNCTION
+    ninth  -  get the ninth element of a list
+
+    USAGE
+    ninth list
+
+    DESCRIPTION
+    Returns the ninth element of LIST, where the car of LIST  is  considered
+    to be the first element.  LIST must be a list.
+
+    Unlike the nth function, which uses  zero-origin  indexing,  ninth  uses
+    one-origin  indexing.   If the list has fewer than nine elements, nil is
+    returned.  setf may be used with ninth to replace the ninth element of a
+    list.
+
+    EXAMPLES
+    (ninth '(a b c d e f g h i j)) => i
+    (ninth '(a)) => nil
+    (setq lis '(a b c d e f g h i j)) => (a b c d e f g h i j)
+    (setf (ninth lis) 9) => 9
+    lis => (a b c d e f g h 9 j)
+
+    SEE ALSO
+    CLtL 15:266, car, eighth, elt, fifth, first, fourth, nth, second,
+    seventh, sixth, tenth, third
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                                 clear-input
+
+
+    FUNCTION
+    clear-input  -  clear buffered input from a stream
+
+    Usage
+    clear-input [STREAM]
+
+    SIDE EFFECTS
+    This function flushes buffered input associated with STREAM.  It may  be
+    used for clearing type-ahead from keyboard input.
+
+    DESCRIPTION
+    Returns nil.  This function is used for its side effects.  The  argument
+    STREAM,  if  supplied,  must  be a stream, nil, or t.  If it is nil, the
+    stream *standard-input* is used.  That is also  the  default  value  for
+    this argument.  If STREAM is T, then *terminal-io* is used.
+
+    If flushing input buffers is not meaningful for  the  specified  STREAM,
+    clear-input does nothing.
+
+    SEE ALSO
+    CLtL 22:380, *standard-input*, *terminal-io*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

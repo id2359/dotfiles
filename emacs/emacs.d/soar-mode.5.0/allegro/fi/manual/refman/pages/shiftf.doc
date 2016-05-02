@@ -1,0 +1,66 @@
+
+                                                                      shiftf
+
+
+    MACRO
+    shiftf  -  shift a new value in from the right (destructive)
+
+    USAGE
+    shiftf {place}+ newval
+
+    SIDE EFFECTS
+    The values in the locations specified by the generalized-variable refer-
+    ences PLACE are destructively modified.
+
+    DESCRIPTION
+    Returns the original value of the first PLACE, but this  macro  is  used
+    for  its  side effects.  The value of each generalized variable PLACE is
+    first determined and saved.  The form NEWVAL is then evaluated  and  its
+    value saved.  Then, the value of each PLACE, beginning with the leftmost
+    PLACE and proceeding to the right, is replaced by the saved value of the
+    PLACE immediately to its right.  The value of the last PLACE is replaced
+    by the saved value of NEWVAL.  The original value of the leftmost  PLACE
+    is  returned  by  shiftf.  Note that any subforms of each PLACE form are
+    evaluated only once.  The PLACES can be thought of as  forming  a  shift
+    register, with NEWVAL being shifted in from the right.
+
+    EXAMPLES
+    (setq x 1 y 2 z 3) => 3
+    (shiftf x y z 4) => 1
+    x => 2
+    y => 3
+    z => 4
+
+    (setq lis '(a b c)) => (a b c)
+    (shiftf (car lis) (cadr lis)) => a
+    lis => (b b c)
+
+    SEE ALSO
+    CLtL 7:97, psetf, rotatef, setf
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                                      number
+
+
+    Type SPECIFIER
+    number  -  the numerical data type
+
+    USAGE
+    number
+
+    DESCRIPTION
+    Specifies the data type consisting of integer, rational, floating-point,
+    and complex numbers.
+
+    EXAMPLES
+    (typep #C(2.0 3.5) 'number) => t
+    (typep 2 'number) => t
+
+    SEE ALSO
+    CLtL 2:13, CLtL 4:43, about type specifiers, complex, float, integer,
+    ratio, typep
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

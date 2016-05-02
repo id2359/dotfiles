@@ -1,0 +1,66 @@
+
+                                                                &environment
+
+
+    Lambda-List KEYWORD
+    &environment  -  bind lexical environment of a macro expansion
+
+    USAGE
+    &environment env-var
+
+    DESCRIPTION
+    Specifies that during macro expansion, ENV-VAR is to  be  bound  to  the
+    lexical  environment  in which the macro call is to be interpreted.  The
+    &environment lambda-list keyword introduces the sixth of seven  optional
+    lambda-list  parts, and may only appear in defmacro lambda-lists.  It is
+    mainly used by a macro that explicitly expands other macros within it in
+    order  to  compute  its  own  expansion  form.   To  do  this  it  calls
+    macroexpand with ENV-VAR  as  the  second  argument.   The  form  of  an
+    environment  is  implementation-dependent  and it is useful only in con-
+    junction with macroexpand.
+
+    EXAMPLES
+    (defmacro bar () 5) => bar
+    (defmacro foo (a &environment e)
+      `(list ,a (macroexpand '(bar) ',e))) => foo
+    (defmacro goo (a)
+      `(list ,a (macroexpand '(bar)))) => goo
+    (foo 1) => (1 5)
+    (macrolet ((bar () 6)) (foo 1)) => (1 6)
+    (macrolet ((bar () 6)) (goo 1)) => (1 5)
+
+    (defun walk (form &optional env)
+      (setq form (macroexpand form env))
+      (if (consp form)
+          (let ((functor (car form)))
+            (if (symbolp functor)
+                (let ((handler (get functor 'walk-handler)))
+                  (if handler
+                      (funcall handler form env)
+                    (cons functor (mapcar #'(lambda (expr)
+                                              (walk expr env))
+                                          (cdr form)))))
+              (mapcar #'(lambda (expr)
+                          (walk expr env))
+                      form)))
+        form))
+
+    (defmacro walk-macrolet (form &environment env)
+      `(mapcar #'(lambda (expr)
+                   (walk expr ',env))
+               ',form))
+
+    (setf (get 'macrolet 'walk-handler)
+          #'(lambda (form &optional env)
+              `(progn
+                 ,@(eval `(macrolet ,(cadr form)
+                            (walk-macrolet ,(cddr form)))))))
+
+    (walk '(car (macrolet ((car (x) `(cdr ,x))) (car '(1 2 3)))))
+      => (car (progn (cdr '(1 2 3))))
+    (car (macrolet ((car (x) `(cdr ,x))) (car '(1 2 3)))) => 2
+
+    SEE ALSO
+    CLtL 5:145, about forms, about lambda lists, defmacro, defun,
+    macroexpand
+

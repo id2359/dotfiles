@@ -1,0 +1,66 @@
+
+                                                                     apropos
+
+
+    FUNCTION
+    apropos  -  displays all symbols whose print name contains a specified
+      string
+
+    Usage
+    apropos STRING [PACKAGE]
+
+    DESCRIPTION
+    Returns no values but prints to *standard-output* information about  all
+    symbols  whose  print names contain STRING as a substring.  The specific
+    information is implementation-dependent but at  least  includes  whether
+    the  symbol  has  a function definition, the symbol's name, and whatever
+    dynamic value the symbol might have.
+
+    The argument STRING is normally a string, but it can also be  a  symbol.
+    In  that case its print name is used as the string to compare with other
+    symbols' print names.
+
+    If you specify PACKAGE then only those symbols accessible in that  pack-
+    age  will  be searched.  Since symbols may be available in a package via
+    more than one inheritance path, symbols may appear more than  once.   If
+    PACKAGE  is  not  specified or nil, all symbols (as with do-all-symbols)
+    are considered.  PACKAGE must be a package or nil.
+
+    EXAMPLES
+    ;;  The exact information is implementation-dependent:
+    (apropos 'cons (find-package :lisp)) PRINTS
+       acons (defined)
+       consp (defined)
+       defconstant (defined)
+       cons (defined)
+       constantp (defined)
+
+    SEE ALSO
+    CLtL 25:443, apropos-list, describe, documentation
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

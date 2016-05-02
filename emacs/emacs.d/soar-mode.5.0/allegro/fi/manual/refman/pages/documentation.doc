@@ -1,0 +1,66 @@
+
+                                                               documentation
+
+
+    FUNCTION
+    documentation  -  get a documentation string associated with a symbol
+
+    Usage
+    documentation SYMBOL DOC-TYPE
+
+    DESCRIPTION
+    Returns a documentation  string  associated  with  SYMBOL.   This  value
+    returned will be a string for type DOC-TYPE or nil if no string for that
+    documentation type exists.  The possible types of documentation  strings
+    are:  variable  (defined  by  defconstant,  defparameter,  and  defvar),
+    function  (defined  by  defun,   defmacro,   and   define-modify-macro),
+    structure  (defined  by  defstruct), type (defined by deftype), and setf
+    (defined by define-setf-method and defsetf).   You  may  use  setf  with
+    documentation to update documentation information.
+
+    EXAMPLES
+    (defvar *buttercup* :princess "The love of Westley.")
+    (documentation '*buttercup* 'variable)
+      => "The love of Westley"
+
+    SEE ALSO
+    CLtL 25:440, describe
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

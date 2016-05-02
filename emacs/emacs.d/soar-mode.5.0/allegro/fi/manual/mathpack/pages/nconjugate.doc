@@ -1,0 +1,66 @@
+
+                                                             math:nconjugate
+
+
+    FUNCTION
+    nconjugate  -  destructively replace a matrix or vector with its conju-
+      gate
+
+    USAGE
+    nconjugate x
+
+    DESCRIPTION
+    Returns X, which must be a matrix or vector, after each entry  has  been
+    replaced with its complex conjugate.  (Recall that the complex conjugate
+    of a+bi is a-bi.) If X is a  real  matrix  or  vector,  it  is  returned
+    unchanged.  If X has complex elements, they are replaced by their conju-
+    gates.
+
+    It is an error if X is not a matrix or vector.  (In particular, X cannot
+    be  a  number.   The related function conjugate accepts numbers as argu-
+    ments as well as matrices and vectors.)
+
+    EXAMPLES
+    (setq mat1 (make-matrix '((#c(1.0 2.0) #c(-3.0 0.0) #c(4.0 -1.0)))))
+    (print-matrix mat1) PRINTS
+      #c(1.0 2.0)  #c(-3.0 0.0) #c(4.0 -1.0)
+    (print-matrix (nconjugate mat1)) PRINTS
+      #c(1.0 -2.0)  #c(-3.0 0.0)  #c(4.0 1.0)
+    ;;  MAT1 is now changed:
+    (print-matrix mat1) PRINTS
+      #c(1.0 -2.0)  #c(-3.0 0.0)  #c(4.0 1.0)
+    ;;  NCONJUGATE works on vectors too.
+    (setq vec (make-array 2 :initial-contents '(1.0 #c(1.0 2.0))))
+      => #(1.0 #c(1.0 2.0))
+    (nconjugate vec) => #(1.0 #c(1.0 -2.0))
+    ;;  VEC is now changed:
+    vec => #(1.0 #c(1.0 -2.0))
+
+    SEE ALSO
+    conjugate, conjugate-transpose, nconjugate-transpose
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

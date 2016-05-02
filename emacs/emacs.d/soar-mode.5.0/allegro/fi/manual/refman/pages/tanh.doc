@@ -1,0 +1,66 @@
+
+                                                                        tanh
+
+
+    FUNCTION
+    tanh  -  get the hyperbolic tangent of a number
+
+    USAGE
+    tanh number
+
+    DESCRIPTION
+    Returns the hyperbolic tangent of NUMBER.
+
+    EXAMPLES
+    (tanh 0) => 0.0
+    (tanh 1) => 0.7615942
+
+    SEE ALSO
+    CLtL 12:209, acosh, atanh, atanh, cosh, sinh
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,132 @@
+
+                                                      window-stream-bound-to
+
+
+    FUNCTION
+    window-stream-bound-to  -  get the coordinate system used to position a
+      window
+
+    Usage
+    window-stream-bound-to WSTREAM
+
+    DESCRIPTION
+    Returns either :frame or :extent, depending on whether the window-stream
+    WSTREAM is positioned in the physical or the extent coordinate system of
+    its parent.
+
+    A window can be positioned with respect to either the  physical  or  the
+    extent  coordinate  system  of  its  parent.  If the positioning is with
+    respect to the physical coordinate system, the window will not move when
+    its parent is scrolled over its extent and the window will be visible as
+    long as it is contained within the outer dimensions of the  parent  win-
+    dow.   If  the positioning is with respect to the extent coordinate sys-
+    tem, the window will move when the parent is scrolled and only that por-
+    tion  contained in the parent's inner region will be visible.  Since the
+    two coordinate systems are  the  same  for  the  *root-window*  and  the
+    *root-window* cannot be scrolled, it makes no difference what coordinate
+    system is used if the parent is the *root-window*.
+
+    The coordinate system used  is  determined  when  the  window-stream  is
+    created  with  make-window-stream.  The :bound-to argument to that func-
+    tion takes values :extent (the default, indicating the  window  will  be
+    positioned  in  the  extent coordinate system) or :frame (indicating the
+    window will be positioned with respect to the physical  coordinate  sys-
+    tem).  The value chosen is returned by this function.
+
+    You may change the value returned with setf and  window-stream-bound-to.
+    If you do so, the window will be repositioned to the location in the new
+    coordinate system of  the  parent  specified  by  the  left  and  bottom
+    (returned by window-stream-left and window-stream-bottom) of WSTREAM.
+
+    EXAMPLES
+    (setq parent-win
+      (make-window-stream :left 100 :bottom 100 :width 300 :height 300
+                          :activate-p t :title "Parent"))
+
+    (setf (window-stream-scrollable-p parent-win) t)
+
+    ;;  We draw a circle in the parent window as a reference point.
+    (setq child-win
+      (make-window-stream :left 50 :bottom 50 :width 100 :height 100
+                          :parent parent-win :activate-p t :title "Child"))
+
+    (window-stream-bound-to child-win) => :extent
+    ;; The child window scrolls with the extent.
+    (scroll parent-win
+            (make-region
+             :left 100 :bottom 0 :width 300 :height 300))
+
+    ;; Scroll to the original region.
+    (scroll parent-win
+            (make-region :left 0 :bottom 0 :width 300 :height 300))
+
+    ;;  We change what CHILD-WIN is bound to.  CHILD-WIN may
+    ;;  move when this is done.
+    (setf (window-stream-bound-to child-win) :frame)
+
+    ;;  Now CHILD-WIN will not move when PARENT-WIN is scrolled.
+    (scroll parent-win
+            (make-region
+             :left 100 :bottom 0 :width 300 :height 300))
+
+    SEE ALSO
+    scroll, window-stream-parent
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

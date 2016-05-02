@@ -1,0 +1,66 @@
+
+                                                                      char/=
+
+
+    FUNCTION
+    char/=  -  assert that given characters are all different
+
+    USAGE
+    char/= {char}+
+
+    DESCRIPTION
+    Returns true if each CHAR is not equal to every  other  CHAR  specified,
+    and false otherwise.  Each CHAR must be a character object.  Two charac-
+    ters that differ in code, bits, or font attributes  are  considered  not
+    equal  by  this  function.   The  function char-not-equal is like char/=
+    except that it ignores case and bits attributes.
+
+    EXAMPLES
+    (char/= #\b #\b) => nil
+    (char/= #\b #\c) => t
+    (char/= #\b #\B) => t
+    (char-not-equal #\b #\B) => nil
+    (char/= #\b) => t
+    (char/= #\a #\b #\c) => t
+
+    SEE ALSO
+    CLtL 13:237, char-not-equal, char=, char>, char>=, char<, char<=, eq,
+    eql
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

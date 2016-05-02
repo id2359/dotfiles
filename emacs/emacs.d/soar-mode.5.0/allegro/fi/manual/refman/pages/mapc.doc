@@ -1,0 +1,66 @@
+
+                                                                        mapc
+
+
+    FUNCTION
+    mapc  -  map a function over elements of lists for side effects
+
+    USAGE
+    mapc fun {list}+
+
+    DESCRIPTION
+    This mapping function is similar to mapcar but it does not preserve  any
+    of  the  values  returned by FUN applied to the elements of the argument
+    lists.  mapc simply returns its first (required) LIST argument.  mapc is
+    primarily used with a function FUN that has side effects.
+
+    The argument FUN must be an object acceptable as the first  argument  to
+    apply  and  it  must accept as many arguments as there are lists.  It is
+    first passed the first elements (the cars) of all  the  lists  given  as
+    arguments.   The elements are passed in the order in which the lists are
+    specified.  Then the second elements are passed to FUN, and so on  until
+    the  end  of the shortest list given as an argument is reached, at which
+    point mapc returns.  Remaining elements of  longer  argument  lists  are
+    ignored.
+
+    EXAMPLES
+    (let ((result nil))
+      (mapc #'(lambda (lis1 lis2) (push (list lis1 lis2) result))
+            '(a b c) '(1 2 3))
+      result) => ((c 3) (b 2) (a 1))
+    (let ((result nil))
+      (mapc #'(lambda (lis1 lis2) (push (list lis1 lis2) result))
+            '(a b c) '(1 2 ))
+      result) => ((b 2) (a 1))
+
+    SEE ALSO
+    CLtL 7:128, map, mapcan, mapcar, mapcon, mapl, maplist
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

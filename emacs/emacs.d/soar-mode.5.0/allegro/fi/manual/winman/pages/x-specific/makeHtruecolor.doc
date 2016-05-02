@@ -1,0 +1,66 @@
+
+                                                              make-truecolor
+
+
+    FUNCTION
+    make-truecolor  -  create a truecolor object
+
+    Usage
+    make-truecolor [:red RED] [:green GREEN] [:blue BLUE] [:hue
+      HUE][:saturation SATURATION] [:brightness BRIGHTNESS] [:level LEVEL]
+
+    DESCRIPTION
+    Makes an object  of  type  truecolor.   Using  make-truecolor,  you  can
+    specify  a  truecolor  in one of three ways.  One way is to specify some
+    combination of the keyword arguments :red,  :green,  and  :blue,  giving
+    each  an  argument  that is a real number.  The second way is to specify
+    some combination of :hue, :saturation,  and  :brightness,  again  giving
+    each keyword argument a real number.  The third way is to simply specify
+    a real number for the :level keyword argument.
+
+    The first two ways of creating a truecolor are just alternative ways  of
+    doing  the  same  thing.   In other words, there is a one-to-one mapping
+    between the space of color objects We created with red, green, and blue,
+    and  the  space  of  color  objects We created with hue, saturation, and
+    brightness.  The third way, using the :level keyword  argument,  is  the
+    way  to  We  create  a  shade of gray.  While no error is signalled, you
+    should not mix specifications: either specify :red, :green,  and  :blue,
+    or  :hue, :saturation, and :brightness, or :level.  The result of mixing
+    specifications is undefined.
+
+    Truecolors store values of red, green, and blue.  values of hue, satura-
+    tion,  and  brightness  are calculated when necessary.  A gray level has
+    equal values for red, green, and blue, with all 0.0 being black and  all
+    1.0 being white.
+
+    You do not use truecolors directly, but  rather,  stuff  them  into  the
+    truecolor slot of color data objects.  You do this by using setf and the
+    function color-true applied to a color.
+
+    Likewise, you do not We create colors directly.  Instead, you We  create
+    a `colormap', which is an object that has a field that it is an array of
+    colors.  A colormap is analogous to an artist's palate.  Each  color  in
+    the array has a slot for a truecolor.
+
+    EXAMPLES
+    (setf *my-win*
+            (make-window-stream :left 100 :bottom 100
+            :width 200 :height 200
+            :activate-p t :title "Just a Window"))
+    ;;  We make a colormap of size 3.
+    ;;  The first two slots are black and white.
+    ;;  We will store our color in the third slot.
+    (multiple-value-setq (my-colormap my-colors)
+      (create-colormap 3))
+    ;;  We make our truecolor.   .5 :green .25 :blue .75)).
+    (setf *my-truecolor* (make-truecolor :red 1.0 :green 0.0 :blue 0.0))
+    ;;  We store it in the colormap.
+    (setf (color-true
+           (aref my-colors 2)) *my-truecolor*)
+
+    (draw-filled-circle *my-win* (make-position :x 150 :y 150) 50
+                        :color (aref colors 2))
+
+    SEE ALSO
+    'colors, colormap-size, colormap-colors, color-true, color-p, colormap-
+    p, create-colormap, truecolor-p, truecolor-red, truecolor-blue,

@@ -1,0 +1,66 @@
+
+                                                                 make-symbol
+
+
+    FUNCTION
+    make-symbol  -  create a new uninterned symbol
+
+    USAGE
+    make-symbol print-name
+
+    DESCRIPTION
+    Returns a new uninterned symbol whose print name  is  PRINT-NAME,  whose
+    value  and  function  bindings  are unbound,  and whose property list is
+    empty.  The symbol is not interned.  The string that  is  used  for  the
+    print  name  of  this new symbol may or may not be eq to PRINT-NAME.  In
+    other words, a copy of PRINT-NAME might actually  be  installed  as  the
+    print name of the symbol.
+
+    EXAMPLES
+    (setq x (make-symbol "abc")) => #:abc
+    (symbol-name x) => "abc"
+
+    SEE ALSO
+    CLtL 10:168, find-symbol, gensym, gentemp, intern
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

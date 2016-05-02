@@ -1,0 +1,66 @@
+
+                                                            hash-table-count
+
+
+    FUNCTION
+    hash-table-count  -  returns the number of entries in a hash table
+
+    USAGE
+    hash-table-count hash-table
+
+    DESCRIPTION
+    Returns the number of entries in HASH-TABLE, which must be a hash table.
+    A newly created or cleared hash-table has zero entries.
+
+    EXAMPLES
+    (hash-table-count (setq ht (make-hash-table :size 100))) => 0
+    (progn
+      (setf (gethash 'quick ht) 'brown)
+      (setf (gethash 'fox ht) 'jumped)
+      (setf (gethash 'over ht) 'fence)
+      (hash-table-count ht)) => 3
+    (progn (remhash 'fox ht) (hash-table-count ht)) => 2
+    (progn (clrhash ht) (hash-table-count ht)) => 0
+
+    SEE ALSO
+    CLtL 16:285, clrhash, gethash, hash-table-p, make-hash-table, remhash
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

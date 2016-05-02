@@ -1,0 +1,132 @@
+
+                                        window-stream-frame-mouse-cursor-out
+
+
+    FUNCTION
+    window-stream-frame-mouse-cursor-out  -  get the list of functions
+      called by the frame-mouse-cursor-out method
+
+    Usage
+    window-stream-frame-mouse-cursor-out WSTREAM
+
+    DESCRIPTION
+    Returns  the  list  of  functions  that  will   be   called   when   the
+    frame-mouse-cursor-out  method  for the window-stream WSTREAM is called.
+    The system calls this function when the mouse cursor moves from the win-
+    dow  frame  (the  borders and title region) to OUTSIDE the window.  (The
+    method is NOT called when the cursor moves from the frame to inside  the
+    window.) You do not (normally) call this function directly.
+
+    Note that enabling entent  scrolling  on  WSTREAM  (with  enable-window-
+    stream-extent-scrolling)  the system will replace the entire list with a
+    new list containing the function  x-common-windows::maybe-pop-up-scroll-
+    bar.   This function brings up scroll bars when necessary.  Thus, if you
+    want to add your own function to this method and you  intend  to  enable
+    scrolling,  you  should  add  the  functions after scrolling is enabled.
+    Also, if scrolling is disabled, the list  is  restored  to  its  initial
+    state, and your added functions are lost.
+
+    If scroll bars are not enabled, the list of functions initially contains
+    the single function default-window-stream-frame-mouse-cursor-out-method.
+    This function simply returns nil.  As we said  above,  if  scrolling  is
+    enabled,  the list contains the single function x-common-windows::maybe-
+    pop-up-scroll-bar.  In either case, you can add functions to (or  remove
+    functions  from)  this  list  with modify-window-stream-method.  You can
+    replace the entire list  with  window-stream-frame-mouse-cursor-out  and
+    setf.    (If   scrolling  is  enabled,  be  sure  to  include  x-common-
+    windows::maybe-pop-up-scroll-bar  in  the  new  list.)  restore-default-
+    window-stream-method  restores  the  list to its initial contents BEFORE
+    scrolling is enabled, so do not use that function if you want  scrolling
+    on WSTREAM.
+
+    EXAMPLES
+    ;;  We make a window.
+    (setf *my-win*
+          (make-window-stream :left 100 :bottom 200
+                              :width 100 :height 100
+                              :activate-p t))
+    ;;  The list contains one function.
+    (window-stream-frame-mouse-cursor-out *my-win*) =>
+    (default-window-stream-frame-mouse-cursor-out-method)
+
+    ;;  We enable extent scrolling on *MY-WIN*.
+    ;;  This changes the list.
+    (enable-window-stream-extent-scrolling *my-win*)
+    (window-stream-frame-mouse-cursor-out *my-win*)
+      => (x-common-windows::maybe-pop-up-scroll-bar)
+
+    ;;  We add another function to the list.
+    (defun my-after-frame-mouse-cursor-out (wstream mouse-state event)
+      (declare (ignore event))
+          (format  *standard-output*
+                   "Position: ~S ~% "
+                   (mouse-state-position mouse-state)))
+
+    (modify-window-stream-method *my-win* :frame-mouse-cursor-out
+                                  :after 'my-after-frame-mouse-cursor-out)
+
+    ;;  The list now contains two functions.
+    (window-stream-frame-mouse-cursor-out *my-win*)
+      => (x-common-windows::maybe-pop-up-scroll-bar
+              my-after-frame-mouse-cursor-out)
+
+    ;;  We disable scrolling.  Our added function is lost.
+    (disable-window-stream-extent-scrolling *my-win*)
+    (window-stream-frame-mouse-cursor-out *my-win*)
+      => (default-window-stream-frame-mouse-cursor-out-method)
+
+    ;;  We add our function again.
+    (modify-window-stream-method *my-win* :frame-mouse-cursor-out
+                                  :after 'my-after-frame-mouse-cursor-out)
+    (window-stream-frame-mouse-cursor-out *my-win*) =>
+    (default-window-stream-frame-mouse-cursor-out-method
+              my-after-frame-mouse-cursor-out)
+
+    ;;  Since scrolling is disabled, we can use
+    ;;  RESTORE-DEFAULT-WINDOW-STREAM-METHOD to return
+    ;;  to the initial state.
+    (restore-default-window-stream-method *my-win*
+      :frame-mouse-cursor-out)
+    (window-stream-frame-mouse-cursor-out *my-win*)
+      => (default-window-stream-frame-mouse-cursor-out-method)
+
+    SEE ALSO
+    disable-window-stream-extent-scrolling, enable-window-stream-extent-
+    scrolling, frame-mouse-cursor-out, modify-window-stream-method,
+    restore-default-window-stream-method
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

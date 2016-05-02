@@ -1,0 +1,66 @@
+
+                                                             *color-support*
+
+
+    VARIABLE
+    *color-support*  -  type of color display
+
+    DESCRIPTION
+    Evaluates to a keyword which tells COMMON WINDOWS  what  type  of  color
+    display  you are connected to.  This value is set when COMMON WINDOWS is
+    initialized.  There are three  possible  values,  corresponding  to  the
+    three  supported  color  systems: :staticgray (for monochrome machines),
+    :grayscale (for  gray  level  machines),  and  :pseudocolor  (for  color
+    machines).   If your server uses a different type of color support, COM-
+    MON WINDOWS may not run properly or may not support colors properly.
+
+    EXAMPLES
+    ;;  This is the value on a is monochrome machine.
+    *color-support* => :staticgray
+
+    SEE ALSO
+    about color, make-color
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                   window-stream-bury-notify
+
+
+    FUNCTION
+    window-stream-bury-notify  -  get the list of functions called by the
+      bury-notify method
+
+    Usage
+    window-stream-bury-notify STREAM
+
+    DESCRIPTION
+    Returns the list of functions that will be called when  the  bury-notify
+    method  for  the window-stream WSTREAM is called.  bury-notify is called
+    by the system when a common window is buried by the window manager,  not
+    by  COMMON  WINDOWS  itself.   You  do  not  (normally) call bury-notify
+    directly.
+
+    By default the list contains the single function  default-window-stream-
+    bury-notify-method.  This function does the work of updating COMMON WIN-
+    DOWS about the change in the window, so you should not  remove  it  from
+    the list.
+
+    You can change this list by using modify-window-stream-method or replace
+    it  entirely  by  using  setf.   If  you  replace the list, be sure that
+    default-window-stream-bury-notify-method is in the new  list.   You  can
+    restore  the  list  to  its  initial  state with restore-default-window-
+    stream-method.
+
+    EXAMPLES
+    (setf *my-win* (make-window-stream :left 100 :bottom 100
+                                       :width 200 :height 200
+                                       :activate-p t :title "Just a Window"))
+
+    (defun my-after-bury-notify (w) (format wstream "I have been buried ~%"))
+
+    ;;  The initial list returned contains one function.
+    (window-stream-bury-notify  *my-win*)
+      => (default-window-stream-bury-notify-method)
+
+    ;;  We add a new function and check the list again..
+    (modify-window-stream-method *my-win* :bury-notify
+                                 :after 'my-after-bury-notify)
+    (window-stream-bury-notify  *my-win*)
+      => (default-window-stream-bury-notify-method my-after-bury-notify)
+
+    ;;  We restore the list to its initial state.
+    (restore-window-stream-method *my-win* :bury-notify)
+    (window-stream-bury-notify  *my-win*)
+      => (default-window-stream-bury-notify-method)
+
+    SEE ALSO
+    bury, bury-notify, modify-window-stream-method, restore-window-stream-
+    method
+
+
+
+
+
+
+
+
+
+
+
+

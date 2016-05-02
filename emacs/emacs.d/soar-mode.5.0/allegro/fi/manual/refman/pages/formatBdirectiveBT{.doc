@@ -1,0 +1,66 @@
+
+                                                         format directive ~{
+
+
+    FORMAT DIRECTIVE
+    ~{  -  process control string repetitively
+
+    USAGE
+    ~count[:][@]&EOBRCstring~[:]&ECBRC
+
+    DESCRIPTION
+    Repeatedly processes STRING as a format control string  provided  it  is
+    not  empty,  otherwise  the next argument is used as STRING.  Processing
+    terminates when an iteration step begins for which there are no  remain-
+    ing  arguments  or  if COUNT is specified and COUNT iterations have been
+    done.  If ``~:}'' ends the directive instead of ``~}'' and COUNT is  not
+    specified as zero, then STRING is processed at least once, even if there
+    are no arguments.
+
+    The arguments may be taken from a list  specified  as  the  next  format
+    argument  or  from  a  list consisting of the remaining arguments at the
+    current level, depending on the ``:'' and ``@'' modifiers  given.   Each
+    iteration  step  uses  up as many of these arguments as would be used in
+    processing STRING just once.  If no modifiers are given, the next  argu-
+    ment  should be a list of arguments to be processed as if by a recursive
+    call to format.
+
+    If ``~:{'' starts the directive, the next argument should be a  list  of
+    sublists.   Upon  each iteration, arguments are taken from the next sub-
+    list, regardless of whether there are any unprocessed arguments  remain-
+    ing  on  the  previous  sublist.   If  ``~@{'' starts the directive, the
+    remaining arguments at the current level  are  used.   The  features  of
+    ``~:{'' and ``~@{'' are combined when ``~:@{'' starts the directive.  In
+    this case the remaining arguments at the current level are used as  sub-
+    lists.
+
+    This directive must nest properly with respect to other  format  control
+    structure  directives.   The  ``~^''  directive may be used to terminate
+    processing prematurely.
+
+    EXAMPLES
+    (format nil "~{ ~A = ~D~}" '(x 1 y 3 z 4))
+      => " x = 1 y = 3 z = 4"
+    (format nil "~2:@{ ~A = ~D~}" '(x 5 1) '(y 3) '(z 4))
+      => " x = 5 y = 3"
+
+    SEE ALSO
+    CLtL 22:403, format, format directive ~A, format directive ~D, format
+    directive ~^
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

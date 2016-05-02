@@ -1,0 +1,66 @@
+
+                                                         kill-common-windows
+
+
+    FUNCTION
+    kill-common-windows  -  stop execution of Common Windows and free
+      resources
+
+    Usage
+    kill-common-windows
+
+    SIDE EFFECTS
+    This function closes all windows, frees up all resources used by  COMMON
+    WINDOWS, and breaks the Lisp connection to the X server.  In addition it
+    flushes the queue of mouse and keyboard events.
+
+    DESCRIPTION
+    This function returns what the last function in the list  bound  to  the
+    global variable *kill-common-windows-actions* returns.  The intention is
+    that you can change the contents of this list, and  thus  customize  the
+    behavior  of the system.  In the default case, this list consists of the
+    single item default-kill-common-windows.  Since this function  does  the
+    crucial  work of killing COMMON WINDOWS you should insure that it is not
+    removed from the list.
+
+    After executing kill-common-windows, you should call  initialize-common-
+    windows to get COMMON WINDOWS running again.
+
+    If you try restart-common-windows  after  callling  kill-common-windows,
+    the  system  will  call  initialize-common-windows  instead.   (restart-
+    common-windows is meant to be used in cases where there is some  graphic
+    state to be preserved.  You can preserve your graphic state for a future
+    session by using excl:dumplisp, then using  restart-common-windows  when
+    you start up the dumped image again.)
+
+    EXAMPLES
+    (kill-common-windows)
+    (make-window-stream) => ERROR
+    ;;  you cannot make a window unless Common Windows is running.  You
+    ;;  must reinitialize Common Windows after killing them in order to
+    ;;  make a window.
+
+    SEE ALSO
+    *kill-common-windows-actions*, initialize-common-windows, restart-
+    common-windows
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

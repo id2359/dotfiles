@@ -1,0 +1,66 @@
+
+                                                          array-element-type
+
+
+    FUNCTION
+    array-element-type  -  get a type specifier for the elements of an array
+
+    USAGE
+    array-element-type array
+
+    DESCRIPTION
+    Returns a type specifier that is sufficiently general  to  describe  the
+    elements  of the array ARRAY.  Note that this function may return a type
+    more general than the type specified to make-array when  the  array  was
+    created.  Different implementations may return different types.
+
+    EXAMPLES
+    ;;  The following returned values are implementation-dependent:
+    (array-element-type (make-array '(2 3))) => t
+    (array-element-type (make-array '(4 5 6)
+                                    :element-type '(mod 8)))
+      => (unsigned-byte 8)
+    (array-element-type (make-array '(3 3)
+                                    :element-type 'double-float))
+      => double-float
+
+    SEE ALSO
+    CLtL 17:291, about type specifiers, array-dimension, array-dimensions,
+    array-in-bounds-p, array-rank, array-row-major-index, array-total-size,
+    make-array
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

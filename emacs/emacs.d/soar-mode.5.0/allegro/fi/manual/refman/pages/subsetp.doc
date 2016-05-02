@@ -1,0 +1,66 @@
+
+                                                                     subsetp
+
+
+    FUNCTION
+    subsetp  -  test whether one list is a subset of another
+
+    USAGE
+    subsetp list1 list2 [{:test | :test-not} pred] [:key keyfnc]
+
+    DESCRIPTION
+    This function treats lists as sets.  It returns true if every element of
+    the  list  LIST1  is  also an element of the list LIST2, and returns nil
+    otherwise.  More precisely, this function returns true if  and  only  if
+    every element of LIST1 is eql to an element of LIST2.
+
+    A test predicate other than eql may be used by specifying  PRED  as  the
+    value  of either the :test or the :test-not keyword argument.  PRED must
+    be a function that accepts two arguments (an element  of  LIST1  and  an
+    element of LIST2, passed in that order).  If PRED is the value of :test,
+    the elements match if PRED returns  true.   If  PRED  is  the  value  of
+    :test-not,  the elements match if PRED returns false.  It is an error to
+    supply both :test and :test-not keyword arguments.
+
+    If the keyword argument :key is specified and its value  KEYFNC  is  not
+    nil,  KEYFNC  must  be a function that accepts one argument.  It will be
+    applied to each element of each list  before  that  element  is  tested.
+    When  unspecified  or  nil,  it  effectively  defaults  to  the function
+    identity.
+
+    EXAMPLES
+    (subsetp '(1 2 3) '(4 5 6)) => nil
+    (subsetp '(1 2 3) '(2 3 4)) => nil
+    (subsetp '(1 2 3) '(1 2 3)) => t
+    (subsetp '(1 2 3) '(0 1 2 3 4)) => t
+    (subsetp '((b 2)) '((b 3) (c 4)) :key #'car) => t
+    (subsetp '(3 4) '(1 2) :test #'<) => nil
+    (subsetp '(3 4) '(1 2) :test #'>) => t
+    (subsetp '(1 2 3.2) '(1 2 3.0 4)) => nil
+    (subsetp '(1 2 3.2) '(1 2 3.0 4) :key 'round) => t
+
+    SEE ALSO
+    CLtL 15:279, adjoin, intersection, member, member-if, member-if-not,
+    nset-difference, set-difference, set-exclusive-or, union
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

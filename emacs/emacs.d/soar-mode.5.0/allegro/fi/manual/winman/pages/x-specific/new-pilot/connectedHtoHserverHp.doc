@@ -1,0 +1,66 @@
+
+                                                       connected-to-server-p
+
+
+    FUNCTION
+    connected-to-server-p  -  test whether COMMON WINDOWS is connected to
+      the server
+
+    Usage
+    connected-to-server-p
+
+    DESCRIPTION
+    Returns true if COMMON WINDOWS is connected to an X server  and  returns
+    false  otherwise.  COMMON WINDOWS must be connected to a server in order
+    to perform most operations (including, e.g, making  windows  with  make-
+    window-stream).
+
+    EXAMPLES
+    (kill-common-windows)
+    (connected-to-server-p) => nil
+    (initialize-common-windows)
+    (connected-to-server-p) => t
+
+    SEE ALSO
+    common-windows-host, initialize-common-windows, kill-common-windows
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

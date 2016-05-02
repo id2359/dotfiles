@@ -1,0 +1,66 @@
+
+                                                   defstruct option :include
+
+
+    DEFSTRUCT OPTION
+    :include  -  create one structure based on another
+
+    Usage
+    :include NAME {SLOT-DESCRIPTION}*
+
+    DESCRIPTION
+    This is a defstruct option used  to  incorporate  one  structure  within
+    another.   There may be no more than one :include option in a defstruct.
+    The argument NAME is the name of an existing structure,  whose  descrip-
+    tion  will be inherited by the one being defined.  None of the arguments
+    to this defstruct option are evaluated.
+
+    All slots defined by the included structure will exist in the  structure
+    being  defined.   Accessor  functions  for  the  included structure will
+    operate on the structure being defined.   Moreover,  accessor  functions
+    are  created  for  the  structure  being defined for each included slot.
+    Such accessor functions can be applied correctly only  to  instances  of
+    the new structure (and perhaps future structures that include it).
+
+    The structure :type options of the new structure and the included struc-
+    ture  must  be  consistent.   If  the  included  structure  specifies  a
+    representational type, the  new  structure  must  specify  an  identical
+    representational  type.   If  the  included  structure did not specify a
+    representational type, then the new structure must not  either.   If  no
+    representational  type  is specified, the structure NAME becomes a valid
+    type specifier and it will be a subtype of the included structure type.
+
+    It is possible to override the slot options inherited from the  included
+    structure, using the optional SLOT-DESCRIPTION arguments.  Slot descrip-
+    tions are of the form (SLOT-NAME  DEFAULT-INIT  OPTION1  VALUE1  OPTION2
+    VALUE2 ...) where SLOT-NAME is the name of a slot in the included struc-
+    ture, DEFAULT-INIT is the optional initial value  for  the  slot,  which
+    will  be  undefined  if not specified, and each OPTIONN/VALUEN pair is a
+    valid slot option (see defstruct).  A read-only  slot  in  the  included
+    structure  must  be read-only in the structure being defined.  If a type
+    is specified in the included structure,  the  overriding  type  must  be
+    identical to, or a subtype of, the original type.
+
+    EXAMPLES
+    (defstruct person name (age 25) (sex 'f)(degree 'ba))
+    (defstruct (professor (:include person (degree 'PhD))))
+    (setq new-prof (make-professor))
+      => #s(professor :name nil :age 25 :sex f :degree PhD)
+    (person-p new-prof) => t
+    (professor-p new-prof) => t
+    (person-age new-prof) => 25
+    (professor-age new-prof) => 25
+
+    SEE ALSO
+    CLtL 19:312, defstruct, defstruct-option :conc-name, defstruct-option
+    :constructor, defstruct option :copier, defstruct option :initial-
+    offset, defstruct option :named, defstruct option :predicate, defstruct
+    option :print-function, defstruct option :type
+
+
+
+
+
+
+
+

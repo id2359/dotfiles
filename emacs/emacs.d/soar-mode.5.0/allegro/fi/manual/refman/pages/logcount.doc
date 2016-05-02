@@ -1,0 +1,66 @@
+
+                                                                    logcount
+
+
+    FUNCTION
+    logcount  -  count number of 1 or 0 bits in an integer.
+
+    USAGE
+    logcount n
+
+    DESCRIPTION
+    Returns a non-negative integer giving the number bits in N that are 1 if
+    N  is  non-negative  and the number of bits that are 0 if N is negative.
+    The argument  N,  which  must  be  an  integer,  is  interpreted  as  if
+    represented  in  two's-complement  notation.   The  following identities
+    hold:
+
+    (logcount x) = (logcount (- (+ x 1)))
+                 = (logcount (lognot x))
+
+    EXAMPLES
+    (logcount 2) => 1
+    (logcount 7) => 3
+    (logcount -7) => 2
+    (logcount #b01011) => 3
+
+    SEE ALSO
+    CLtL 12:224, logbitp, lognot, logtest
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

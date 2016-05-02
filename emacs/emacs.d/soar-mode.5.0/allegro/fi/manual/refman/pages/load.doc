@@ -1,0 +1,132 @@
+
+                                                                        load
+
+
+    FUNCTION
+    load  -  read and evaluate each form in a file
+
+    USAGE
+    load file [:verbose verb] [:print pr] [:if-does-not-exist ifdne]
+
+    SIDE EFFECTS
+    Incurs any side effects resulting from side  effects  of  the  forms  in
+    FILE.  Typically these forms define (or redefine) functions, macros, and
+    variables.  Also, new packages may be created.
+
+    DESCRIPTION
+    Reads a file, evaluating each form in it, then returns a  non-nil  value
+    if the loading is successful, and nil otherwise.  The file may have been
+    compiled with compile-file or it may contain  LISP  source  expressions.
+    The  argument  FILE  must  be a pathname, string, or symbol specifying a
+    file to read, or a stream  to  read  from.   Typically,  the  forms  are
+    definitions  of functions, macros, and variables.  If the forms are com-
+    piled, they can usually be loaded more quickly.
+
+    When a file specification is given, it is merged with the defaults  (the
+    value  of  *default-pathname-defaults*).   If  the implementation uses a
+    file type to distinguish between compiled files and source files and the
+    file type remains unspecified after merging, an implementation-dependent
+    algorithm may be used to select the file to load.
+
+    The :verbose keyword argument determines  whether  information  will  be
+    printed as the load is taking place.  If its value VERB is non-nil, load
+    may print a message with a leading semicolon (the form of a comment)  on
+    the  *standard-output*  stream  to  report on what is being loaded.  The
+    exact form of the message is implementation-dependent, but normally con-
+    tains at least the source of expressions being loaded.  VERB defaults to
+    the value of *load-verbose*.
+
+    The :print keyword argument determines whether the value  of  each  form
+    will be printed to *standard-output* as it is evaluated.  This will hap-
+    pen if its value PR is non-nil.  PR defaults to nil.
+
+    Finally, the :if-does-not-exist keyword argument specifies what  happens
+    if  the  file  to  be loaded does not exist.  If its value IFDNE is nil,
+    load returns nil without signalling an error if the file does not exist.
+    If IFDNE is non-nil, which is the default, load signals an error when it
+    cannot find a file.
+
+    When load is called, it binds *package* to its current value.  Thus,  in
+    effect,  the  value  of  *package*  is saved while load is executing and
+    restored when load returns.   Therefore,  the  current  package  may  be
+    changed  by  forms  in  the  file  being loaded (normally with a call to
+    in-package) without changing the current package after the load has com-
+    pleted.
+
+    EXAMPLES
+    (with-open-file (out "junk" :direction :output
+                         :if-exists :supersede)
+      (prin1 '(setq x 10) out)
+      (prin1 '(defun foo () 2) out)) => nil
+    (setq x 9) => 9
+    (defun foo () 1) => foo
+    (list (foo) x) => (1 9)
+    (load "junk" :verbose nil) => t
+    (list (foo) x) => (2 10)
+
+
+    SEE ALSO
+    CLtL 23:426, compile-file, *load-verbose*, *package*, *standard-output*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                      menu-field-triple-list
+
+
+    FUNCTION
+    menu-field-triple-list  -  retrieve the field-triple-list of a menu
+      structure
+
+    Usage
+    menu-field-triple-list MENU
+
+    DESCRIPTION
+    Returns the field-triple-list component of MENU, which must be an object
+    that satisfies menu-p.
+
+    A field-triple-list is a specification of the choices and actions  of  a
+    menu.   Each  item  in  a field-triple-list is a list of three elements.
+    The first can either be a symbol or a string, and determines  what  will
+    be  displayed for this menu item.  The second can either be a symbol, or
+    a menu object that has been We created with pop-up-menu-choose.   If  it
+    is a symbol, then pop-up-menu-choose will return it, unevaluated if this
+    menu item is selected.  If it is a menu object, then  pop-up-menu-choose
+    will  treat  it as a "walking menu" item.  The third element in a triple
+    must be present, but is ignored by this implementation.
+
+    EXAMPLES
+    (setf *my-win*
+            (make-window-stream :left 100 :bottom 100
+            :width 200 :height 200
+            :activate-p t :title "Just a Window"))
+
+    (setf *my-menu*
+          (make-pop-up-menu
+           '(("Close" close "Close this window to an icon")
+             ("Move" move "Select to move this window"))
+           :title "My Menu"))
+
+    ;;  We pop up the menu.
+    (block nil
+           (set-mouse-position
+            (make-position :x 200 :y 200))
+           (let ((selection
+                  (pop-up-menu-choose *my-menu*)))
+             (case selection (close (deactivate *my-win*))
+                   (move (move *my-win* (get-position))))))
+
+    ;;  We Look at the field-triple-list for this menu.
+    (menu-field-triple-list *my-menu*)
+      => (("Close" CLOSE "Close this window to an icon")
+           ("Move" MOVE "Select to move this window"))
+
+    SEE ALSO
+     add-right-button-menu, menu-p, pop-up-menu-choose
+
+
+
+
+
+
+
+
+
+
+
+
+

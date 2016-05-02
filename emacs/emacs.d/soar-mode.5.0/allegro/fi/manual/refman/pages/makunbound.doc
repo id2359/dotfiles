@@ -1,0 +1,66 @@
+
+                                                                  makunbound
+
+
+    FUNCTION
+    makunbound  -  cause a symbol to become unbound
+
+    USAGE
+    makunbound sym
+
+    SIDE EFFECTS
+    The value associated with the visible inner dynamic binding of the vari-
+    able  SYM,  or  the  global  value if there is no inner binding, is made
+    undefined.  It is an error to subsequently try to access  the  value  of
+    the  unbound variable, although implementations are not required to sig-
+    nal this error.
+
+    DESCRIPTION
+    Returns the symbol SYM.  This function is used for its side effects.  If
+    removes  the  value associated with a dynamic binding of SYM, or removes
+    the global value if there is no inner binding.   Only  dynamic  bindings
+    and  global  values  are  affected.  Lexically-bound variables cannot be
+    made undefined.
+
+    EXAMPLES
+    (defvar *s* 10)
+    (let ((*s* 20))
+      (declare (special *s*))
+      (makunbound '*s*)
+      (boundp '*s*)) => nil
+    *s* => 10
+    (makunbound '*s*)
+    ;;  Now the symbol is no longer bound.
+    *s* => ERROR
+
+    SEE ALSO
+    CLtL 7:92, boundp, fmakunbound
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

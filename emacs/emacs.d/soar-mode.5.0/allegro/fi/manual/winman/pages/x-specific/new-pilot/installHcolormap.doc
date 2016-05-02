@@ -1,0 +1,132 @@
+
+                                                            install-colormap
+
+
+    FUNCTION
+    install-colormap  -  install a LISP colormap and its associated server
+      colormap
+
+    Usage
+    install-colormap COLORMAP
+
+    SIDE EFFECTS
+    The server colormap associated with the argument  COLORMAP  becomes  the
+    installed  server colormap.  Every pixel on the screen has an index into
+    the server colormap.  All these indices will  now  refer  to  the  newly
+    installed  colormap and windows put up by clients other than COMMON WIN-
+    DOWS (and perhaps some common windows too) will appear with colors  dif-
+    ferent than intended.
+
+    DESCRIPTION
+    Returns nil but this function is used for its side  effects.   The  LISP
+    colormap  denoted  by  the  COLORMAP argument becomes the installed LISP
+    colormap and its associated server colormap becomes the installed server
+    colormap.
+
+    Installing colormaps may be done automatically by the window manager, if
+    you are using a window managers.  When the mouse cursor enters a window,
+    window managers which are ICCCM compliant will automatically install the
+    server  colormap associated with the colormap returned by window-stream-
+    colormap applied to the window-steam.  Other window  managers  will  not
+    and  you  will have to call install-colormap directly.  (The only effect
+    of installing a LISP colormap is to cause the associated server colormap
+    to be installed.)
+
+    It is unusual, though permitted, to use more than one colormap in COMMON
+    WINDOWS.   We recommend that either you use the default colormap only or
+    you create a new colormap and use it only.   (The  default  colormap  is
+    defined  when  COMMON  WINDOWS  is  initialized.   It  is  the  value of
+    *default-colormap*)
+
+    The function uninstall-colormap is used to restore the colormap that was
+    in  force  before  the call to install-colormap.  ICCCM compliant window
+    managers will call this function when the mouse cursor exits a window.
+
+    EXAMPLES
+    (setf *my-win*
+      (make-window-stream :left 100 :bottom 100
+                          :width 200 :height 200
+                          :activate-p t :title "Just a Window Lois"))
+
+    ;; This will be an array to store some colors.
+    (setq colors (make-array 10))
+    (dotimes (i 10)
+      (setf (elt colors i)(make-color :level (/ i 10))))
+
+    ;; Create a new colormap and install the colors in it.
+
+    (setq my-colormap (create-colormap :preallocate (list white black)))
+
+    (dotimes (i 10)
+      (install-color  (elt colors i) my-colormap))
+
+    ;; Make my-colormap the current colormap used by the server.
+
+    (install-colormap  my-colormap)
+
+    ;; You should see circles in 10 shades of gray.
+    (dotimes (i 10)
+      (draw-filled-circle
+       *my-win*
+       (make-position :x (* i 10) :y  (* i 10)) 50
+                      :color (elt colors i)))
+
+    SEE ALSO
+    install-color, make-color, make-colormap, window-stream-colormap
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                                   copy-tree
+
+
+    FUNCTION
+    copy-tree  -  copy a tree of conses
+
+    USAGE
+    copy-tree object
+
+    DESCRIPTION
+    Returns a new tree of conses obtained by  recursively  copying  all  the
+    conses in OBJECT, provided it is a cons.  If OBJECT is not a cons, it is
+    simply returned.  Substructure sharing and circularities in  OBJECT  are
+    not preserved.
+
+    EXAMPLES
+    (setq x '((a b) (c (d e)))) => ((a b) (c (d e)))
+    (setq y (copy-tree x)) => ((a b) (c (d e)))
+    (cadadr x) => (d e)
+    (eq (cadadr x) (cadadr y)) => nil
+    (equal (cadadr x) (cadadr y)) => t
+
+    SEE ALSO
+    CLtL 15:269, copy-alist, copy-list, copy-seq
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

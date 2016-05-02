@@ -1,0 +1,66 @@
+
+                                                              unwind-protect
+
+
+    SPECIAL FORM
+    unwind-protect  -  evaluate forms with guaranteed postprocessing
+
+    USAGE
+    unwind-protect form {cleanup-form}*
+
+    DESCRIPTION
+    Returns the values of FORM, but only after the CLEANUP-FORMS  have  been
+    run.   FORM  is  protected  in  the  sense  that  the  cleanup forms are
+    evaluated sequentially even if in the process of evaluating  FORM  some-
+    thing happens which would ordinarily prevent the forms which follow from
+    being evaluated. Dynamic branches such as those caused by  a  throw  and
+    lexical branches, such as those cause by a return-from or a go are exam-
+    ples of what may happen.  Such events would normally prevent the sequen-
+    tial  evaluation  of  forms located later than than the form causing the
+    exit but in unwind-protect,  the  CLEANUP-FORMS  are  guaranteed  to  be
+    evaluated.   Even  if an error (or a break) in FORM throws the user into
+    the debugger, CLEANUP-FORMS will be evaluated, although not  until  Lisp
+    leaves  the  unwind-protect forms' context.  Note that the CLEANUP-FORMS
+    themselves are not protected unless they are  inside  of  the  protected
+    form  of  another  unwind-protect.   Therefore,  a throw or an error (or
+    something   else   which   prevents   sequential   evaluation   of   the
+    CLEANUP-FORMS)  in  one  of  the CLEANUP-FORMS may prevent evaluation of
+    later ones.
+
+    The CLEANUP-FORMS are evaluated only when  control  leaves  FORM,  which
+    may be any single Lisp form.  CLEANUP-FORMS may be any Lisp forms, which
+    are evaluated in an implicit progn.  The  values  of  the  CLEANUP-FORMS
+    (including  the  values of the last, normally returned by progn) are all
+    discarded.  CLEAN-UP-FORMS are evaluated for side effects only.
+
+    EXAMPLES
+    ;;  Create a macro similar to WITH-OPEN-FILE that insures that
+    ;;  the file is closed after processing.
+    (defmacro my-with-open-file ((var file &rest options) &rest body)
+      `(let ((,var (open ,file ,@options)))
+         (unwind-protect
+             (progn ,@body)
+           (close ,var)))) => my-with-open-file
+
+    (my-with-open-file (out "junk" :direction :output :if-exists :supersede)
+      (write-line "test1" out)
+      (write-line "test2" out)) => "test2"
+
+    SEE ALSO
+    CLtL 7:140, catch, go, return, return-from, throw
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,132 @@
+
+                                                                       float
+
+
+    Type SPECIFIER
+    float  -  the data type comprising floating-point numbers
+
+    Usage
+    {float | (float [{LOW | (LOW)} [{HIGH | (HIGH)}]])}
+
+    DESCRIPTION
+    Specifies a data type consisting of floating-point numbers  between  LOW
+    and  HIGH.  Either limit is considered exclusive if it appears in a list
+    by itself, otherwise it is considered inclusive.  The limits  should  be
+    specified  as  floating-point  numbers  or may be explicitly unspecified
+    using *.   Frequently,  implementations  are  less  restrictive  in  the
+    numeric format of the limits.
+
+    A float is a number consisting of a sign, a radix, a significand and  an
+    exponent.    It   is  mathematically  a  rational  number  of  the  form
+    S F ROUT--0.4MABOUT-E-POUT-0.4MABOUT- where S is the sign, +1 or  -1,  F
+    is     the     significand     which     is     an    integer    between
+    ROUT--0.4MABOUT-P-1OUT-0.4MABOUT- and  ROUT--0.4MABOUT-POUT-0.4MABOUT--1
+    inclusive,  R  is  the  radix  of  the internal representation, E is the
+    integer exponent.
+
+    The four  subtypes  of  float  in  increasing  precision  and  size  are
+    short-float,  single-float, double-float and long-float.  An implementa-
+    tion is  not,  however,  required  to  provide  four  distinct  internal
+    representations.   The following paragraphs briefly describe the proper-
+    ties that might be associated with these four floating-point types.
+
+    o+    short-float.  The smallest  floating-point  representation  with  a
+         recommended  minimum  precision  of  13 bits and a minimum exponent
+         size  of  5  bits.   (The  precision  in  bits  is  calculated   as
+         PLOGOUT-0.4mabout-2out--0.4mabout-B  and  the exponent size in bits
+         as logout-0.4mabout-2out--0.4mabout-(1+maxE) where maxE  represents
+         the largest exponent value of the representation.)
+
+    o+    single-float.  An intermediate-precision floating-point representa-
+         tion  with a recommended minimum precision of 24 bits and a minimum
+         exponent size of 5 bits.
+
+    o+    double-float.  Another intermediate-precision representation with a
+         recommended  minimum  precision  of  50 bits and a minimum exponent
+         size of 8 bits.
+
+    o+    long-float.  The  highest-precision  floating-point  representation
+         with  a  recommended  minimum  precision  of  50 bits and a minimum
+         exponent size of 8 bits.
+
+    If an implementation provides  only  a  single  distinct  floating-point
+    representation, it is considered to be single-float, and the other types
+    are equivalent to it.
+
+    If an implementation provides only two distinct floating-point represen-
+    tations,   they  may  be  considered  short-float  and  single-float  or
+    single-float and double-float.  In the former case, single-float will be
+    identical   to   double-float  and  long-float.   In  the  latter  case,
+    single-float is equivalent to short-float and double-float is equivalent
+    to long-float.
+
+    Lastly, if an implementation provides only three distinct floating-point
+    formats,  the  distinct  representations  may be considered short-float,
+    single-float,  and   double-float   (equivalent   to   long-float),   or
+    single-float (equivalent to short-float), double-float, and long-float.
+
+    The printed representation of a floating-point number  is  described  by
+    the following two patterns.
+
+         [SIGN] {DIGIT}* . {DIGIT}+ [EXPONENT-MARKER [SIGN] {DIGIT}+]
+
+         [SIGN] {DIGIT}+ [. {DIGIT}*] EXPONENT-MARKER [SIGN] {DIGIT}+
+
+    The SIGN is either of the characters  #\+  or  #\-,  DIGIT  may  be  any
+    decimal  digit character between #\0 and #\9, and EXPONENT-MARKER is one
+    of the letters #\s or #\S  for  short-float  numbers,  #\f  or  #\F  for
+    single-float  numbers,  #\d  or #\D for double-float numbers, #\l or #\L
+    for long-float numbers, or #\e or #\E for an unspecified  floating-point
+    subtype.   When  the  exponent  marker is either #\e or #\E, the printed
+    representation is read as a number of the type specified by the value of
+    *read-default-float-format*.   The decimal point #\.  is always required
+    in a floating-point number that has no exponent marker.
+
+    EXAMPLES
+    (setq x about-(2 2. 2.0 2e0)) => (2 2 2.0 2.0)
+    (mapcar #about-type-of x) => (fixnum fixnum single-float single-float)
+    (typep 0.4 about-(float 0.0 1.0)) => t
+    (subtypep about-rational about-float) => nil t
+    ;;  This last result is implementation-dependent.
+    (float-precision 2.0d0) => 53
+
+    SEE ALSO
+    CLtL 2:16, CLtL 4:43, CLtL 4:49, about type specifiers, double-float,
+    float-precision, long-float, number, rational, *read-default-float-
+    format*, short-float, single-float, specifiers, subtypep, type, type-of,
+    typep
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

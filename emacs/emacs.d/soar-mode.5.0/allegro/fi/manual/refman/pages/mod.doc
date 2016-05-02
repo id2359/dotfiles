@@ -1,0 +1,66 @@
+
+                                                                         mod
+
+
+    Type SPECIFIER
+    mod  -  specifies a type comprising non-negative integers that are less
+      than some number
+
+    Usage
+    (mod N)
+
+    DESCRIPTION
+    Specifies a data type consisting of non-negative integers less  than  N,
+    which  must  be  an  integer.   The  type specifiers (integer 0 N-1) and
+    (integer 0 (N)) are equivalent to (mod N).
+
+    EXAMPLES
+    (typep 8 '(mod 9)) => t
+    (typep 9 '(mod 9)) => nil
+    (subtypep '(mod 19) '(integer * (20))) => t t
+
+    SEE ALSO
+    CLtL 04:48, about type specifiers, integer, subtypep, type-of, typep
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

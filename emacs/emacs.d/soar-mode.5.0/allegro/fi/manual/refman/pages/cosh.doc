@@ -1,0 +1,66 @@
+
+                                                                        cosh
+
+
+    FUNCTION
+    cosh  -  calculate the hyperbolic cosine of a number
+
+    USAGE
+    cosh number
+
+    DESCRIPTION
+    Returns the hyperbolic cosine of NUMBER, which must be  a  number.   The
+    result may be real or complex.
+
+    EXAMPLES
+    (cosh 0) => 1.0
+    (cosh 1) => 1.5430806
+
+    SEE ALSO
+    CLtL 12:209, acosh, asinh, atanh, sinh, tanh
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

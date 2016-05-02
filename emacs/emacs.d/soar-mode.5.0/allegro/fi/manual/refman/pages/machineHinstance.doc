@@ -1,0 +1,66 @@
+
+                                                            machine-instance
+
+
+    FUNCTION
+    machine-instance  -  get particular instance of computer hardware
+      currently running
+
+    Usage
+    machine-instance
+
+    DESCRIPTION
+    Returns a string identifying the particular instance of the hardware  on
+    which  you  are running COMMON LISP.  Exactly what string is returned is
+    implementation-dependent.  A typical value is the machine serial number.
+    If no appropriate value can be determined, machine-instance returns nil.
+
+    EXAMPLES
+    ;;  The following result is implementation and
+    ;;  version-dependent.
+    (machine-instance) => "id: 301992146"
+
+    SEE ALSO
+    CLtL 25:447, machine-type, machine-version
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

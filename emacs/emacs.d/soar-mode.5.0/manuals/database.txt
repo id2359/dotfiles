@@ -1,0 +1,2136 @@
+97
+20
+Name
+200
+Site
+200
+Princ. Invest.
+200
+Occupation
+200
+E-mail
+200
+Address
+200
+Address 2
+200
+Telephone
+200
+FAX
+200
+Relation to Soar
+200
+Activity level in Soar
+200
+Current Projects
+200
+Current Projects 2
+200
+Soar systems developed
+200
+Soar systems developed 2
+200
+Systems responsible for
+200
+Systems responsible for 2
+200
+Last workshop invited to
+200
+Last workshop attended
+200
+Update
+200
+
+Name                       : Ajay K. Modi
+Site                       : Air Products and Chemicals, Inc.
+Princ. Invest.             : None
+Occupation                 : Research Engineer
+E-mail                     : modi@edrc.cmu.edu
+Address                    : Process Systems Group, Air Products and Chemicals\
+, Inc.
+Address 2                  : 7201 Hamilton Boulevard, Allentown, PA 18195-1501
+Telephone                  : (215) 481-2733
+FAX                        : (215) 481-2177
+Relation to Soar           : Former active user, currently interested non-user
+Activity level in Soar     : None
+Current Projects           : None
+Current Projects 2         : 
+Soar systems developed     : CPD-Soar, Interval-Soar
+Soar systems developed 2   : 
+Systems responsible for    : None
+Systems responsible for 2  : 
+Last workshop invited to   : Soar Workshop 9
+Last workshop attended     : Soar Workshop 8
+Update                     : 01/23/92
+
+Name                       : Floyd, Barry
+Site                       : Cal Poly, San Luis Obispo
+Princ. Invest.             : same
+Occupation                 : Assoc. Prof.
+E-mail                     : BFLOYD@MORPHEUS.CALPOLY.EDU  or BFLOYD@RND.GBA.NY\
+U.EDU
+Address                    : Management Dept., School of Business, Cal Poly,
+Address 2                  : San Luis Obispo, CA 93407
+Telephone                  : 805-756-6551
+FAX                        : 805-756-1473
+Relation to Soar           : Interested gadfly, potential new 'user'
+Activity level in Soar     : None, but increasing soon (new workstation now)
+Current Projects           : comprehension of diagrams in Business Systems
+Current Projects 2         : Analysis and Design
+Soar systems developed     : none
+Soar systems developed 2   : 
+Systems responsible for    : none
+Systems responsible for 2  : 
+Last workshop invited to   : none
+Last workshop attended     : none (boy this sounds sad, I;ll get there someday)
+Update                     : 01/23/92
+
+Name                       : Altmann, Erik
+Site                       : Carnegie Mellon University
+Princ. Invest.             : Newell, Allen
+Occupation                 : Grad. Student
+E-mail                     : altmann@cs.cmu.edu
+Address                    : School of Computer Science, CMU, 5000 Forbes Ave
+Address 2                  : Pittsburgh, PA 15213-3890
+Telephone                  : (412) 268-5728
+FAX                        : (412) 681-5739
+Relation to Soar           : researcher
+Activity level in Soar     : high
+Current Projects           : Integration of multiple forms of learning
+Current Projects 2         : 
+Soar systems developed     : Rail-Soar
+Soar systems developed 2   : 
+Systems responsible for    : TAQL (w. Gregg Yost)
+Systems responsible for 2  : 
+Last workshop invited to   : SoarW9
+Last workshop attended     : SoarW9
+Update                     : 2/5/92
+
+Name                       : Bates, Joseph
+Site                       : Carnegie Mellon University
+Princ. Invest.             : Bates, Joseph
+Occupation                 : Professor
+E-mail                     : joseph.bates@cs.cmu.edu
+Address                    : 5000 Forbes Avenue, Pittsburgh, PA 15213
+Address 2                  : 
+Telephone                  : 412-268-3725
+FAX                        : 412-681-5739
+Relation to Soar           : researcher on related project (broad agents in Oz)
+Activity level in Soar     : low, discussion with CMU Soar group
+Current Projects           : Oz - interactive fiction, dramatic virtual reality
+Current Projects 2         : 
+Soar systems developed     : 
+Soar systems developed 2   : 
+Systems responsible for    : 
+Systems responsible for 2  : 
+Last workshop invited to   : SoarW9
+Last workshop attended     : SoarW5 or SoarW6, at CMU
+Update                     : 01/23/92
+
+Name                       : Doorenbos, Bob
+Site                       : Carnegie Mellon University
+Princ. Invest.             : Newell, Allen
+Occupation                 : Grad Student
+E-mail                     : Robert.Doorenbos@cs.cmu.edu
+Address                    : School of Computer Science, CMU, Pgh PA 15213
+Address 2                  : 
+Telephone                  : (412) 268-3060
+FAX                        : 
+Relation to Soar           : researcher
+Activity level in Soar     : high
+Current Projects           : Dispatcher-Soar, Large System Effort
+Current Projects 2         : 
+Soar systems developed     : Soar/Database + lots of TAQL experiment tasks
+Soar systems developed 2   : 
+Systems responsible for    : Soar/Database
+Systems responsible for 2  : 
+Last workshop invited to   : SoarW9
+Last workshop attended     : SoarW9
+Update                     : 01/23/92
+
+Name                       : John, Bonnie E.
+Site                       : Carnegie Mellon University
+Princ. Invest.             : John, Bonnie E.
+Occupation                 : Research Scientist, Computer Science and Psycholo\
+gy
+E-mail                     : bej@cs.cmu.edu
+Address                    : School of Computer Science, CMU, Pgh, PA 15213
+Address 2                  : 
+Telephone                  : (412) 268-7182
+FAX                        : (412) 681-5739
+Relation to Soar           : PI
+Activity level in Soar     : high
+Current Projects           : Browser-Soar, HI-Soar(Nintendo TM), Soar Learnabi\
+lity and Useability
+Current Projects 2         : 
+Soar systems developed     : Browser-Soar, HI-Soar(Nintendo TM) 
+Soar systems developed 2   : 
+Systems responsible for    : none
+Systems responsible for 2  : 
+Last workshop invited to   : SoarW9
+Last workshop attended     : SoarW10
+Update                     : 01/23/92
+
+Name                       : Larkin, Jill
+Site                       : Carnegie Mellon University
+Princ. Invest.             : Larkin, Jill
+Occupation                 : Professor
+E-mail                     : jhl@andrew.cmu.edu
+Address                    : Dept of Psychology, Carneige Mellon University,
+Address 2                  : Pittsburgh, PA 15213
+Telephone                  : (412) 268 3785
+FAX                        : (987) 654-3210
+Relation to Soar           : PI
+Activity level in Soar     : high
+Current Projects           : 
+Current Projects 2         : 
+Soar systems developed     : 
+Soar systems developed 2   : 
+Systems responsible for    : 
+Systems responsible for 2  : 
+Last workshop invited to   : SoarW9
+Last workshop attended     : SoarW9
+Update                     : 01/23/92
+
+Name                       : Lehman, Jill
+Site                       : Carnegie Mellon University
+Princ. Invest.             : Newell, Allen and Lehman, Jill
+Occupation                 : Research Computer Scientist
+E-mail                     : jef@cs.cmu.edu
+Address                    : CMU School of Computer Science, Pittsburgh PA 152\
+13
+Address 2                  : 
+Telephone                  : 412-CMU-6246
+FAX                        : 412-CMU-5739
+Relation to Soar           : PI and researcher
+Activity level in Soar     : high
+Current Projects           : NL-Soar, EFH-Soar
+Current Projects 2         : 
+Soar systems developed     : NL-Soar
+Soar systems developed 2   : 
+Systems responsible for    : NL-Soar, EFH-Soar
+Systems responsible for 2  : 
+Last workshop invited to   : SoarW9
+Last workshop attended     : SoarW8
+Update                     : 01/23/92
+
+Name                       : Lewis, Richard
+Site                       : Carnegie Mellon University
+Princ. Invest.             : Newell, Allen
+Occupation                 : Grad Student
+E-mail                     : richard.lewis@cs.cmu.edu
+Address                    : School of Computer Science, Carnegie Mellon Unive\
+rsity
+Address 2                  : 5000 Forbes Ave, Pittsburgh, PA 15213-3890
+Telephone                  : (412) 268-2145
+FAX                        : 
+Relation to Soar           : researcher
+Activity level in Soar     : high
+Current Projects           : NL-Soar
+Current Projects 2         : 
+Soar systems developed     : NL-Soar, BI-Soar
+Soar systems developed 2   : 
+Systems responsible for    : NL-Soar
+Systems responsible for 2  : 
+Last workshop invited to   : SoarW9
+Last workshop attended     : SoarW9
+Update                     : 01/23/92
+
+Name                       : Li, Xiaoping
+Site                       : Carnegie Mellon University
+Princ. Invest.             : 
+Occupation                 : Grad. Student
+E-mail                     : xl04@cs.cmu.edu
+Address                    : SUPA, HbH 1113, CMU, Pittsburgh, PA 15213
+Address 2                  : 
+Telephone                  : (412)268-8717
+FAX                        : (412)268-7036
+Relation to Soar           : researcher
+Activity level in Soar     : high
+Current Projects           : Mathematical model formulation in Soar
+Current Projects 2         : 
+Soar systems developed     : MFS
+Soar systems developed 2   : 
+Systems responsible for    : MFS
+Systems responsible for 2  : 
+Last workshop invited to   : SoarW9
+Last workshop attended     : SoarW9
+Update                     : 01/23/92
+
+Name                       : McGinnis, Thomas
+Site                       : Carnegie Mellon University
+Princ. Invest.             : Newell, Allen
+Occupation                 : Research Programmer (university staff)
+E-mail                     : tfm+@cs.cmu.edu
+Address                    : School of Computer Science, Carnegie Mellon Unive\
+rsity
+Address 2                  : 5000 Forbes Avenue, Pittsburgh, PA 15213-3890
+Telephone                  : (412) 268-2627
+FAX                        : (412) 681-5739
+Relation to Soar           : Researcher, programmer (implementation)
+Activity level in Soar     : high
+Current Projects           : soar-bugs@cs.cmu.edu, Developer's Soar Interface
+Current Projects 2         : 
+Soar systems developed     : Implementation (debugging)
+Soar systems developed 2   : 
+Systems responsible for    : Implementation, Developer's Soar Interface
+Systems responsible for 2  : (Soar in X, soar-mode, taql-mode all with Frank R\
+itter)
+Last workshop invited to   : SoarW10
+Last workshop attended     : SoarW9
+Update                     : 01/23/92
+
+Name                       : Mertz, Joe
+Site                       : Carnegie Mellon University
+Princ. Invest.             : Larkin, Jill
+Occupation                 : Grad. Student
+E-mail                     : joseph.mertz@cs.cmu.edu
+Address                    : EPP, CMU, 5000 Forbes Ave, Pgh. PA, 15213
+Address 2                  : 
+Telephone                  : (412) 268-5617
+FAX                        : (412) 268-3757
+Relation to Soar           : researcher
+Activity level in Soar     : high
+Current Projects           : Assembly Tutorial Workbench
+Current Projects 2         : 
+Soar systems developed     : ATW-Soar
+Soar systems developed 2   : 
+Systems responsible for    : ATW-Soar
+Systems responsible for 2  : 
+Last workshop invited to   : SoarW10
+Last workshop attended     : SoarW10
+Update                     : 07/08/92
+
+Name                       : Milnes, Brian 
+Site                       : Carnegie Mellon University
+Princ. Invest.             : 
+Occupation                 : Research Programmer
+E-mail                     : Brian.Milnes@cs.cmu.edu
+Address                    : School Of Computer Science, Carnegie Mellon Unive\
+rsity
+Address 2                  : 5000 Forbes Ave., Pittsburgh, PA 15213-3890
+Telephone                  : 412-268-5663
+FAX                        : 412-681-5739
+Relation to Soar           : Research Programmer designing, specifying and con\
+structing Soar6
+Activity level in Soar     : high 
+Current Projects           : Soar6 
+Current Projects 2         : 
+Soar systems developed     : 
+Soar systems developed 2   : 
+Systems responsible for    : Soar6
+Systems responsible for 2  : 
+Last workshop invited to   : SoarW9
+Last workshop attended     : SoarW9
+Update                     : 01/23/92
+
+Name                       : Nelson, Greg
+Site                       : Carnegie Mellon University
+Princ. Invest.             : John, Bonnie & Lehman, Jill
+Occupation                 : Computer Science Graduate Student
+E-mail                     : ghn+@cs.cmu.edu
+Address                    : School of Computer Science, Carnegie Mellon Unive\
+rsity
+Address 2                  : Pittsburgh, PA 15213
+Telephone                  : (412) 268-7571
+FAX                        : 
+Relation to Soar           : researcher (?)
+Activity level in Soar     : low, increasing this semester
+Current Projects           : NTD-Soar, NL-Soar
+Current Projects 2         : 
+Soar systems developed     : 
+Soar systems developed 2   : 
+Systems responsible for    : 
+Systems responsible for 2  : 
+Last workshop invited to   : 
+Last workshop attended     : 
+Update                     : 01/23/92
+
+Name                       : Newell, Allen
+Site                       : Carnegie Mellon University
+Princ. Invest.             : Newell, Allen
+Occupation                 : Professor
+E-mail                     : allen.newell@cs.cmu.edu
+Address                    : School of Computer Science, Carnegie Mellon Unive\
+rsity,
+Address 2                  : 
+Telephone                  : (412) 268-2602
+FAX                        : (412) 681-5739
+Relation to Soar           : Principle investigator
+Activity level in Soar     : High
+Current Projects           : Helping everyone else, PSCM
+Current Projects 2         : 
+Soar systems developed     : Soar architecture
+Soar systems developed 2   : 
+Systems responsible for    : None
+Systems responsible for 2  : 
+Last workshop invited to   : SoarW9
+Last workshop attended     : SoarW9
+Update                     : 01/23/92
+
+Name                       : Pathak, Dhiraj K. 
+Site                       : Carnegie Mellon University
+Princ. Invest.             : Newell, Allen; Steier, David
+Occupation                 : Graduate Student
+E-mail                     : dkp@cs.cmu.edu
+Address                    : Robotics, Carnegie Mellon University, Pittsburgh,\
+ PA 15213
+Address 2                  : 
+Telephone                  : 412-268-8102
+FAX                        : none
+Relation to Soar           : researcher
+Activity level in Soar     : high
+Current Projects           : Soar/Mathematica
+Current Projects 2         : 
+Soar systems developed     : none
+Soar systems developed 2   : 
+Systems responsible for    : none
+Systems responsible for 2  : 
+Last workshop invited to   : SoarW9
+Last workshop attended     : none
+Update                     : 01/23/92
+
+Name                       : Peck, Virginia (Gin)
+Site                       : Carnegie Mellon University
+Princ. Invest.             : Newell, Allen
+Occupation                 : Graduate Student
+E-mail                     : vapeck@cs.cmu.edu
+Address                    : School of Computer Science, Carnegie Mellon Unive\
+rsity
+Address 2                  : 5000 Forbes Ave., Pittsburgh, PA 15213
+Telephone                  : (412) 268-3620
+FAX                        : 
+Relation to Soar           : researcher
+Activity level in Soar     : high
+Current Projects           : Browser-Soar
+Current Projects 2         : 
+Soar systems developed     : Browser-Soar
+Soar systems developed 2   : 
+Systems responsible for    : Browser-Soar
+Systems responsible for 2  : 
+Last workshop invited to   : SoarW9
+Last workshop attended     : SoarW9
+Update                     : 01/23/92
+
+Name                       : Pelton, Garrett
+Site                       : Carnegie Mellon University
+Princ. Invest.             : Newell, Allen
+Occupation                 : Grad. Student
+E-mail                     : gap@cs.cmu.edu
+Address                    : School of Computer Science, CMU, Pittsburgh,  Pa
+Address 2                  : 
+Telephone                  : (412) 268-2627
+FAX                        : (412) 681-1998
+Relation to Soar           : researcher
+Activity level in Soar     : high
+Current Projects           : Soar6, Draw-Soar
+Current Projects 2         : 
+Soar systems developed     : Draw-Soar, Soar5.2
+Soar systems developed 2   : 
+Systems responsible for    : Soar5.2
+Systems responsible for 2  : 
+Last workshop invited to   : SoarW10
+Last workshop attended     : SoarW9
+Update                     : 01/23/92
+
+Name                       : Polk, Thad
+Site                       : University of Pennsylvania
+Princ. Invest.             : 
+Occupation                 : Post doc
+E-mail                     : polk@cs.cmu.edu
+Address                    : Dept. of Psychology, Univ. of Pennsylvania,
+Address 2                  : 3815 Walnut St., Philadelphia, PA 19104-6196
+Telephone                  : (215) 573-3533
+FAX                        : 
+Relation to Soar           : researcher
+Activity level in Soar     : high
+Current Projects           : verbal reasoning, ASPM
+Current Projects 2         : 
+Soar systems developed     : VR-Soar, IR-Soar(Syl), SIR-Soar, Syl-Soar
+Soar systems developed 2   : 
+Systems responsible for    : VR-Soar, IR-Soar(Syl), SIR-Soar, Syl-Soar
+Systems responsible for 2  : 
+Last workshop invited to   : SoarW9
+Last workshop attended     : SoarW9
+Update                     : 10/05/92
+
+Name                       : Ritter, Frank E.
+Site                       : Carnegie Mellon University
+Princ. Invest.             : Jill Larkin is my advisor.
+Occupation                 : Grad student 5
+E-mail                     : ritter@cs.cmu.edu
+Address                    : Dept. of Psychology, CMU, 5000 Forbes Ave.
+Address 2                  : 
+Telephone                  : 412-268-2969
+FAX                        : 412-681-5739 (CS Dept fax)
+Relation to Soar           : researcher, DSI developer
+Activity level in Soar     : High
+Current Projects           : Soar/Protocol Analysis tool,  DSI
+Current Projects 2         : 
+Soar systems developed     : DSI, FOKIBOFIT-Soar, a version of Seibel-Soar
+Soar systems developed 2   : 
+Systems responsible for    : With Tom McGinnis & Mike Hucka: the DSI
+Systems responsible for 2  : 
+Last workshop invited to   : SoarW9
+Last workshop attended     : SoarW9
+Update                     : 5-Oct-92
+
+Name                       : Steier David
+Site                       : Carnegie Mellon University
+Princ. Invest.             : Newell, Allen ?
+Occupation                 : Research scientist
+E-mail                     : steier@edrc.cmu.edu
+Address                    : Eng. Design Research Center, CMU, Pgh, PA 15213
+Address 2                  : 
+Telephone                  : (412) 268-7863
+FAX                        : (412) 268-5229
+Relation to Soar           : researcher
+Activity level in Soar     : high
+Current Projects           : Interaction with external software systems
+Current Projects 2         : 
+Soar systems developed     : Designer-Meets-Soar, Cypress-Soar, Designer-Soar,
+Soar systems developed 2   : Merle-Soar, Soar/IBDE, Data-Soar, Builder-Soar
+Systems responsible for    : Same (can one develop a system and deny responsib\
+ility for it ?)
+Systems responsible for 2  : 
+Last workshop invited to   : Euro-Soar 5
+Last workshop attended     : Euro-Soar 5
+Update                     : 01/23/92
+
+Name                       : Tambe, Milind 
+Site                       : Carnegie Mellon University
+Princ. Invest.             : Newell, Allen
+Occupation                 : Research associate
+E-mail                     : tambe@cs.cmu.edu
+Address                    : School of Computer Science, Carnegie Mellon Unive\
+rsity
+Address 2                  : Pittsburgh, PA 15213-3890
+Telephone                  : (412)-268-7680
+FAX                        : (412)-681-1998
+Relation to Soar           : Researcher
+Activity level in Soar     : high
+Current Projects           : Efficient implementations (production mattch),
+Current Projects 2         : Large systems effort, Spatial reasoning in Soar
+Soar systems developed     : Gridworld-Soar 
+Soar systems developed 2   : 
+Systems responsible for    : 
+Systems responsible for 2  : 
+Last workshop invited to   : Soar-W9
+Last workshop attended     : Soar-W9
+Update                     : 01/23/92
+
+Name                       : Yost, Gregg
+Site                       : Carnegie Mellon University
+Princ. Invest.             : Newell, Allen
+Occupation                 : Grad. Student
+E-mail                     : gry+@cs.cmu.edu
+Address                    : Carnegie Mellon University Computer Science Depar\
+tment
+Address 2                  : 5000 Forbes Ave., Pittsburgh, PA 15213
+Telephone                  : (412) 268-3060
+FAX                        : 
+Relation to Soar           : researcher
+Activity level in Soar     : high
+Current Projects           : Rapid Task Acquisition
+Current Projects 2         : 
+Soar systems developed     : TAQL
+Soar systems developed 2   : 
+Systems responsible for    : TAQL
+Systems responsible for 2  : 
+Last workshop invited to   : SoarW9
+Last workshop attended     : SoarW9
+Update                     : 01/23/92
+
+Name                       : de Silva, Rujith
+Site                       : Carnegie Mellon University
+Princ. Invest.             : Newell, Allen
+Occupation                 : Grad Student
+E-mail                     : rudis+@cs.cmu.edu
+Address                    : 330 Stratford Ave Apt 4, Pittsburgh, PA 15232-1105
+Address 2                  : 
+Telephone                  : (412) 268-3620
+FAX                        : 
+Relation to Soar           : researcher
+Activity level in Soar     : medium
+Current Projects           : TAQL
+Current Projects 2         : 
+Soar systems developed     : 
+Soar systems developed 2   : 
+Systems responsible for    : 
+Systems responsible for 2  : 
+Last workshop invited to   : 
+Last workshop attended     : 
+Update                     : 01/23/92
+
+Name                       : Vera, Alonso
+Site                       : Carnegie Mellon University
+Princ. Invest.             : Newell, Allen
+Occupation                 : Post Doc
+E-mail                     : av0m@andrew.cmu.edu
+Address                    : 342 Spahr ST., Pittsburgh,  PA 15232
+Address 2                  : 
+Telephone                  : (412) 362-1535
+FAX                        : -
+Relation to Soar           : researcher
+Activity level in Soar     : high
+Current Projects           : HI-Soar
+Current Projects 2         : 
+Soar systems developed     : 
+Soar systems developed 2   : 
+Systems responsible for    : 
+Systems responsible for 2  : 
+Last workshop invited to   : SoarW9
+Last workshop attended     : SoarW9
+Update                     : 01/23/92
+
+Name                       : Simon, Tony
+Site                       : Georgia Tech, School of Psychology
+Princ. Invest.             : Simon, Tony
+Occupation                 : Professor
+E-mail                     : tonys@pravda.cc.gatech.edu
+Address                    : School of Psychology, Georgia Tech, Atlanta GA 30\
+332
+Address 2                  : 
+Telephone                  : (404) 894-2681 (CMU1)
+FAX                        : (404) 894-8905
+Relation to Soar           : researcher
+Activity level in Soar     : medium-high
+Current Projects           : Quantitative development*, Series completion**
+Current Projects 2         : 
+Soar systems developed     : Q-Soar*, SC-Soar**
+Soar systems developed 2   : 
+Systems responsible for    : 
+Systems responsible for 2  : 
+Last workshop invited to   : SoarW9
+Last workshop attended     : SoarW9
+Update                     : 01/23/92
+
+Name                       : Fox, John
+Site                       : Imperial Cancer Research Fund Laboratories
+Princ. Invest.             : Collaborator on cognitive modelling project ("AD \
+REM")
+Occupation                 : Principal scientist, running AI lab
+E-mail                     : J-Fox@UK.AC.ICRF
+Address                    : Lincoln's Inn Fields, London WC2A 3PX, UK
+Address 2                  : 
+Telephone                  : +71-269-3624
+FAX                        : +71-269-3185
+Relation to Soar           : Jointly leading modelling methodology project (@ \
+UCL)
+Activity level in Soar     : Medium (Project involves 3 people @ University Co\
+llege
+Current Projects           : SOAR reconstruction and analysis
+Current Projects 2         : 
+Soar systems developed     : SOAR 4 and SOAR 5 (reconstructions)
+Soar systems developed 2   : 
+Systems responsible for    : n/a ??
+Systems responsible for 2  : 
+Last workshop invited to   : Soar10
+Last workshop attended     : Eurosoar, Cambridge, UK
+Update                     : 01/23/92
+
+Name                       : Howes, Andrew
+Site                       : MRC Applied Psychology Unit
+Princ. Invest.             : Young, Richard
+Occupation                 : Junior Scientist
+E-mail                     : Andrew.Howes@mrc-apu.cam.ac.uk
+Address                    : 15 Chaucer Road, Cambridge, CB2 2EF
+Address 2                  : 
+Telephone                  : +44 223 355294
+FAX                        : +44 223 359062
+Relation to Soar           : researcher
+Activity level in Soar     : high
+Current Projects           : ta-soar
+Current Projects 2         : 
+Soar systems developed     : ta-soar
+Soar systems developed 2   : 
+Systems responsible for    : ta-soar
+Systems responsible for 2  : 
+Last workshop invited to   : SoarW9
+Last workshop attended     : none
+Update                     : 01/23/92
+
+Name                       : Young, Richard M
+Site                       : MRC Applied Psychology Unit
+Princ. Invest.             : Young, Richard M
+Occupation                 : Research Scientist
+E-mail                     : Richard.Young@mrc-apu.cam.ac.uk
+Address                    : 15 Chaucer Road, Cambridge CB2 2EF, UK
+Address 2                  : 
+Telephone                  : +44 (223) 355 294
+FAX                        : +44 (223) 359 062
+Relation to Soar           : Researcher
+Activity level in Soar     : medium
+Current Projects           : User modelling in HCI
+Current Projects 2         : Cognitive architecture for integrated user model
+Soar systems developed     : (with Andrew Howes) TA-Soar
+Soar systems developed 2   : (with Joyce Whittington) MEA-in-Soar
+Systems responsible for    : 
+Systems responsible for 2  : 
+Last workshop invited to   : SoarW9
+Last workshop attended     : SoarW9
+Update                     : 01/23/92
+
+Name                       : Banda, Carolyn
+Site                       : NASA - Ames Research Center
+Princ. Invest.             : Hartzell, E. James
+Occupation                 : Senior Analyst
+E-mail                     : banda@eos.arc.nasa.gov
+Address                    : NASA-Ames Research Center, M.S. 239-9;
+Address 2                  : Moffett Field, CA 94035
+Telephone                  : (415) 604-1334
+FAX                        : (415) 604-3954
+Relation to Soar           : interested gadfly (interested in SOAR's capabilit\
+ies
+Activity level in Soar     : none
+Current Projects           : MIDAS, Man-machine Integration Design and Analysis
+Current Projects 2         : 
+Soar systems developed     : None
+Soar systems developed 2   : 
+Systems responsible for    : Portions of MIDAS cognitive model
+Systems responsible for 2  : 
+Last workshop invited to   : ??
+Last workshop attended     : none
+Update                     : 01/23/92
+
+Name                       : Remington, Roger
+Site                       : NASA - Ames Research Center
+Princ. Invest.             : Remington, Roger
+Occupation                 : Research Psychologist
+E-mail                     : roger@eos.arc.nasa.gov
+Address                    : MS 262-2, Moffett Field, CA 94035
+Address 2                  : 
+Telephone                  : (415) 604-6243
+FAX                        : (415) 604-3227
+Relation to Soar           : Researcher; Funder
+Activity level in Soar     : low
+Current Projects           : NTD-Soar
+Current Projects 2         : 
+Soar systems developed     : 
+Soar systems developed 2   : 
+Systems responsible for    : 
+Systems responsible for 2  : 
+Last workshop invited to   : SoarW9
+Last workshop attended     : SoarW9
+Update                     : 01/23/92
+
+Name                       : Erickson, Jon
+Site                       : NASA Johnson Space Center
+Princ. Invest.             : none
+Occupation                 : Chief Scientist,Automation and Robotics
+E-mail                     : erickson@aio.jsc.nasa.gov
+Address                    : MC ER,NASA Johnson Space Ctr,Houston,TX,77058
+Address 2                  : 
+Telephone                  : (713) 483-1508
+FAX                        : (713) 483-3204
+Relation to Soar           : interested gadfly
+Activity level in Soar     : low
+Current Projects           : none
+Current Projects 2         : 
+Soar systems developed     : none
+Soar systems developed 2   : 
+Systems responsible for    : none
+Systems responsible for 2  : 
+Last workshop invited to   : SoarW10
+Last workshop attended     : none
+Update                     : 01/23/92
+
+Name                       : Okuno, Hiroshi G.
+Site                       : NTT Basic Research Laboratories
+Princ. Invest.             : Okuno, Hiroshi G.
+Occupation                 : Senior Research Engineer, Supervisor
+E-mail                     : okuno@nuesun.ntt.jp
+Address                    : 3-9-11 Midori-cho, Musashino, Tokyo 180 JAPAN
+Address 2                  : 
+Telephone                  : +81 (422) 59-3850
+FAX                        : +81 (422) 59-3943
+Relation to Soar           : user
+Activity level in Soar     : None
+Current Projects           : Multiple-Context reasoning, Parallel AI, distrubu\
+ted system
+Current Projects 2         : 
+Soar systems developed     : 
+Soar systems developed 2   : 
+Systems responsible for    : 
+Systems responsible for 2  : 
+Last workshop invited to   : none
+Last workshop attended     : none
+Update                     : 01/23/92
+
+Name                       : Ruiz, Dirk
+Site                       : Northwestern University
+Princ. Invest.             : ? I thought the PIs were Laird, Rosenbloom & Newe\
+ll.
+Occupation                 : Assistant Professor of Marketing
+E-mail                     : dirk@golem14.kellogg.nwu.edu
+Address                    : 2001 Sheridan Rd., Evanston IL  60208-2008
+Address 2                  : 
+Telephone                  : (708) 491-2713
+FAX                        : (708) 491-2498
+Relation to Soar           : Researcher.
+Activity level in Soar     : Currently low, soon to be high.
+Current Projects           : Models of human problem solving.
+Current Projects 2         : 
+Soar systems developed     : Model of three Tower of Hanoi protocols.
+Soar systems developed 2   : 
+Systems responsible for    : 
+Systems responsible for 2  : 
+Last workshop invited to   : SoarW9
+Last workshop attended     : SoarW9
+Update                     : 01/23/92
+
+Name                       : Amra, Nasir
+Site                       : Ohio State University
+Princ. Invest.             : Smith, Jack Jr.
+Occupation                 : Pathology Instructor and CIS Grad student
+E-mail                     : amra@med.ohio-state.edu
+Address                    : 571 Health Science Library,376 W. 10th , Columbus\
+, Ohio, 43210
+Address 2                  : 
+Telephone                  : (614)-292-8614
+FAX                        : (987) 654-3210
+Relation to Soar           : researcher
+Activity level in Soar     : medium
+Current Projects           : RedSoar(a participant)
+Current Projects 2         : 
+Soar systems developed     : RedSoar(a participant)
+Soar systems developed 2   : 
+Systems responsible for    : 
+Systems responsible for 2  : 
+Last workshop invited to   : SoarW9
+Last workshop attended     : SoarW9
+Update                     : 01/23/92
+
+Name                       : Bayazitoglu, Ayse
+Site                       : Ohio State University
+Princ. Invest.             : Smith, Jack W.
+Occupation                 : Grad. Student
+E-mail                     : bayazito@cis.ohio-state.edu
+Address                    : 228 Bolz Hall
+Address 2                  : 2036 Neil Ave., Columbus, OH 43210
+Telephone                  : (614) 292-9358
+FAX                        : 
+Relation to Soar           : researcher
+Activity level in Soar     : high
+Current Projects           : Pathology Expert project (Liver-Soar, Red-Soar)
+Current Projects 2         : 
+Soar systems developed     : Liver-Soar
+Soar systems developed 2   : 
+Systems responsible for    : Liver-Soar 
+Systems responsible for 2  : 
+Last workshop invited to   : SoarW9
+Last workshop attended     : SoarW9
+Update                     : 01/23/92
+
+Name                       : Johnson, Todd
+Site                       : Ohio State University
+Princ. Invest.             : 
+Occupation                 : Assistant Professor
+E-mail                     : tj@cis.ohio-state.edu
+Address                    : 376 W. 10th Ave Rm. 571 Columbus, Ohio 43210
+Address 2                  : 
+Telephone                  : (614) 292-3284
+FAX                        : 
+Relation to Soar           : Researcher
+Activity level in Soar     : Medium
+Current Projects           : Generic Task Tools, RedSoar, Pathex/Liver
+Current Projects 2         : 
+Soar systems developed     : RedSoar, Pathex/Liver, ER-Soar, Abd-Soar, Hyper-S\
+oar
+Soar systems developed 2   : 
+Systems responsible for    : 
+Systems responsible for 2  : 
+Last workshop invited to   : SoarW9
+Last workshop attended     : SoarW9
+Update                     : 01/23/92
+
+Name                       : Josephson, John
+Site                       : Ohio State University
+Princ. Invest.             : 
+Occupation                 : Research Scientist
+E-mail                     : jj@cis.ohio-state.edu
+Address                    : CIS Dept, 2036 Neil, Columbus, OH  43210>
+Address 2                  : 
+Telephone                  : (614) 292-0208
+FAX                        : (614) 292-1424
+Relation to Soar           : interested
+Activity level in Soar     : none personally, but others at site are active
+Current Projects           : causal reasoning, abduction, speech understanding
+Current Projects 2         : 
+Soar systems developed     : none
+Soar systems developed 2   : 
+Systems responsible for    : none
+Systems responsible for 2  : 
+Last workshop invited to   : Soar 91
+Last workshop attended     : Soar 91
+Update                     : 01/23/92
+
+Name                       : Smith, Jack
+Site                       : Ohio State University
+Princ. Invest.             : Smith, Jack
+Occupation                 : Associate Professor of Pathology & Comp.Info. Sys.
+E-mail                     : smith.30@osu.edu
+Address                    : Director, Division of Medical Informatics, 571 He\
+alth
+Address 2                  : Science Library, 376 West 10th Av, Columbus OH 43\
+210-1228
+Telephone                  : 614-292-8614
+FAX                        : 614-292-7072
+Relation to Soar           : PI, researcher
+Activity level in Soar     : high
+Current Projects           : Task specific architectures in PSCM/SOAR, Mediaic\
+al KBS in
+Current Projects 2         : PSCM/SOAR, Cog. modeling of problem-solving in me\
+dical domains
+Soar systems developed     : PATHEX/RED-SOAR  PATHEX/LIVER-SOAR
+Soar systems developed 2   : 
+Systems responsible for    : above
+Systems responsible for 2  : 
+Last workshop invited to   : SoarW9
+Last workshop attended     : SoarW9
+Update                     : 01/23/92
+
+Name                       : Greiner, Russell
+Site                       : Siemens Corporate Research
+Princ. Invest.             : Greiner, Russell
+Occupation                 : Research Scientist
+E-mail                     : greiner@learning.siemens.com
+Address                    : 755 College Road East, Princeton, NJ 08540
+Address 2                  : 
+Telephone                  : (609) 734-3627
+FAX                        : (609) 734-6565
+Relation to Soar           : interested gadfly
+Activity level in Soar     : very very low
+Current Projects           : formal analysis of speed-up learning,
+Current Projects 2         : applying learning techniques to KR tasks
+Soar systems developed     : -
+Soar systems developed 2   : 
+Systems responsible for    : -
+Systems responsible for 2  : 
+Last workshop invited to   : SoarW9
+Last workshop attended     : -
+Update                     : 01/23/92
+
+Name                       : Tessler, Shirley
+Site                       : Stanford
+Princ. Invest.             : 
+Occupation                 : Grad. student 
+E-mail                     : tessler@hpp.stanford.edu
+Address                    : c/o Aldo Ventures, Inc. 261 Hamilton Ave, Suite 2\
+14
+Address 2                  : Palo Alto, CA 94301
+Telephone                  : 415-322-2233
+FAX                        : 415-322-2918
+Relation to Soar           : Grad. student & interested observer
+Activity level in Soar     : low
+Current Projects           : 
+Current Projects 2         : 
+Soar systems developed     : 
+Soar systems developed 2   : 
+Systems responsible for    : 
+Systems responsible for 2  : 
+Last workshop invited to   : SoarW9
+Last workshop attended     : SoarW9
+Update                     : 01/23/92
+
+Name                       : Allen, Robert
+Site                       : Univ. of Delaware
+Princ. Invest.             : Allen, Robert
+Occupation                 : Assistant Professor of Mechanical Engineering
+E-mail                     : Allen@minnie.me.udel.edu
+Address                    : 126 Spencer Laboratory, Newark, DE 19716-3140
+Address 2                  : 
+Telephone                  : 302 451-2421
+FAX                        : 302 292-3619
+Relation to Soar           : interested gadfly 
+Activity level in Soar     : low
+Current Projects           : Design Problem Solving
+Current Projects 2         : 
+Soar systems developed     : 
+Soar systems developed 2   : 
+Systems responsible for    : 
+Systems responsible for 2  : 
+Last workshop invited to   : 
+Last workshop attended     : 
+Update                     : 01/23/92
+
+Name                       : Berger, Daniel
+Site                       : University of California, Berkeley
+Princ. Invest.             : Pirolli, Peter
+Occupation                 : Specialist, Academic Staff
+E-mail                     : berger@dewy.soe.berkeley.edu
+Address                    : School of Education/EMST Berkeley, CA 94720
+Address 2                  : 
+Telephone                  : 510-643-8858
+FAX                        : 510-643-3926
+Relation to Soar           : researcher
+Activity level in Soar     : at one time high, currently very low
+Current Projects           : 
+Current Projects 2         : 
+Soar systems developed     : Instructional Design Model
+Soar systems developed 2   : 
+Systems responsible for    : at least partially IDM above
+Systems responsible for 2  : 
+Last workshop invited to   : SoarW9
+Last workshop attended     : 
+Update                     : 2/5/92
+
+Name                       : Pirolli, Peter
+Site                       : University of California, Berkeley
+Princ. Invest.             : Pirolli, Peter
+Occupation                 : Professor
+E-mail                     : pirolli@cogsci.berkeley.edu
+Address                    : School of Education, U of C, Berkeley CA 94720
+Address 2                  : 
+Telephone                  : [510] 642-4206
+FAX                        : [510] 643-8245
+Relation to Soar           : PI, researcher
+Activity level in Soar     : medium
+Current Projects           : self-explanation and skill acquisition in program\
+ming
+Current Projects 2         : 
+Soar systems developed     : instructional design, learning to program 
+Soar systems developed 2   : 
+Systems responsible for    : see above
+Systems responsible for 2  : 
+Last workshop invited to   : SoarW9
+Last workshop attended     : SoarW7
+Update                     : 01/23/92
+
+Name                       : Recker, Mimi
+Site                       : University of California, Berkeley
+Princ. Invest.             : Pirolli, Peter
+Occupation                 : Gradual Student
+E-mail                     : mimi@soe.berkeley.edu
+Address                    : 4533 Tolman Hall/ School of Education
+Address 2                  : University of California, Berkeley, CA 94720
+Telephone                  : 510-642-4206
+FAX                        : 
+Relation to Soar           : interested gadfly
+Activity level in Soar     : low
+Current Projects           : modelling students' learning and problem solving
+Current Projects 2         : 
+Soar systems developed     : 
+Soar systems developed 2   : 
+Systems responsible for    : 
+Systems responsible for 2  : 
+Last workshop invited to   : SoarW9
+Last workshop attended     : The one at ISI
+Update                     : 01/23/92
+
+Name                       : Wharton, Cathleen
+Site                       : University of Colorado at Boulder
+Princ. Invest.             : Wharton, Cathleen
+Occupation                 : Graduate Student
+E-mail                     : cwharton@cs.colorado.edu
+Address                    : Department of Computer Science and Institute of
+Address 2                  : Cognitive Science, Campus Box 430, Boulder, CO 80\
+309-0430
+Telephone                  : (303) 492-7514
+FAX                        : (303) 492-2844
+Relation to Soar           : Researcher
+Activity level in Soar     : Medium-High
+Current Projects           : ATM-Soar, ExploreSoar
+Current Projects 2         : 
+Soar systems developed     : ATM-Soar, ExploreSoar
+Soar systems developed 2   : 
+Systems responsible for    : ATM-Soar, ExploreSoar
+Systems responsible for 2  : 
+Last workshop invited to   : SoarW9
+Last workshop attended     : SoarW9
+Update                     : 01/23/92
+
+Name                       : Aasman, Jans
+Site                       : PTT Research
+Princ. Invest.             : 
+Occupation                 : Researcher
+E-mail                     : J.Aasman@Research.ptt.nl
+Address                    : PTT Research, Duindoorn 31, Postbus 421,
+Address 2                  : 2260 AK Leidschendam, The Netherlands
+Telephone                  : 31 - 70 - 3323307
+FAX                        : 31 - 70 - 3329508
+Relation to Soar           : researcher
+Activity level in Soar     : high
+Current Projects           : Modelling Driver Behaviour
+Current Projects 2         : 
+Soar systems developed     : Driver Soar
+Soar systems developed 2   : 
+Systems responsible for    : Driver Soar
+Systems responsible for 2  : 
+Last workshop invited to   : SoarW9
+Last workshop attended     : SoarW6, all eurosoar1 to eursoar5
+Update                     : 03/10/92
+
+Name                       : Akyurek, Aladin
+Site                       : NISCALE, Netherlands
+Princ. Invest.             : Prof. Michon, John A.
+Occupation                 : Grad. Student
+E-mail                     : akyurek@rug.nl
+Address                    : NISCALE, Witte Singel 103
+Address 2                  : 2313 AA Leiden, The Netherlands
+Telephone                  : 
+FAX                        : 
+Relation to Soar           : researcher
+Activity level in Soar     : high
+Current Projects           : planning, architectures for general intelligence
+Current Projects 2         : 
+Soar systems developed     : means-ends planner
+Soar systems developed 2   : 
+Systems responsible for    : ?
+Systems responsible for 2  : 
+Last workshop invited to   : SoarW9 
+Last workshop attended     : SoarW9 
+Update                     : 10/05/92
+
+Name                       : Wierda, Marcel
+Site                       : University of Groningen
+Princ. Invest.             : 
+Occupation                 : Grad. Student, applied researcher
+E-mail                     : Wierda@rug.nl
+Address                    : TRC, PO Box 69, 9750 AB Haren, Holland         
+Address 2                  : 
+Telephone                  : +31-50636759 or +31-50636780
+FAX                        : +31-50636784    
+Relation to Soar           : researcher
+Activity level in Soar     : low,in coorperation with Jans Aasman
+Current Projects           : Multitasking, Perceptual processes
+Current Projects 2         : 
+Soar systems developed     : (Aasman:) Driver, Soar model of driving behavior
+Soar systems developed 2   : 
+Systems responsible for    : 
+Systems responsible for 2  : 
+Last workshop invited to   : SoarW9
+Last workshop attended     : Eurosoar1,2 and 3.
+Update                     : 01/23/92
+
+Name                       : Bhattacharyya, Sayan
+Site                       : University of Michigan
+Princ. Invest.             : Laird, John
+Occupation                 : Grad. Student
+E-mail                     : bhattach@dip.eecs.umich.edu
+Address                    : 1101 Beal Avenue,The Univ of Michigan, Ann Arbor \
+ MI 48109
+Address 2                  : 
+Telephone                  : (313) 763-5441
+FAX                        : 
+Relation to Soar           : interested student, planning to start work shortly
+Activity level in Soar     : low
+Current Projects           : 
+Current Projects 2         : 
+Soar systems developed     : 
+Soar systems developed 2   : 
+Systems responsible for    : 
+Systems responsible for 2  : 
+Last workshop invited to   : 
+Last workshop attended     : 
+Update                     : 01/23/92
+
+Name                       : Congdon, Clare Bates
+Site                       : University of Michigan
+Princ. Invest.             : Laird, John
+Occupation                 : Grad Student
+E-mail                     : congdon@engin.umich.edu
+Address                    : AI Lab, 1101 Beal Avenue, The University of Michi\
+gan,
+Address 2                  : Ann Arbor, MI 48109-2110
+Telephone                  : 313-763-1562
+FAX                        : 313-763-1260
+Relation to Soar           : previous life
+Activity level in Soar     : none
+Current Projects           : 
+Current Projects 2         : 
+Soar systems developed     : Lego-Soar
+Soar systems developed 2   : 
+Systems responsible for    : Is that different from 'developed'? I don't take \
+any
+Systems responsible for 2  : 
+Last workshop invited to   : SoarW9
+Last workshop attended     : SoarW7
+Update                     : 01/23/92
+
+Name                       : Covrigaru, Arie
+Site                       : University of Michigan
+Princ. Invest.             : Laird, John
+Occupation                 : Grad. Student
+E-mail                     : arie@eecs.umich.edu
+Address                    : 1101 Beal Ave, Ann Arbor, MI 48109-2122
+Address 2                  : 
+Telephone                  : 313-763-1255
+FAX                        : 313-763-1260
+Relation to Soar           : researcher
+Activity level in Soar     : high
+Current Projects           : Soar in NASA TileWorld
+Current Projects 2         : 
+Soar systems developed     : Worked on the development of Hero Soar
+Soar systems developed 2   : 
+Systems responsible for    : 
+Systems responsible for 2  : 
+Last workshop invited to   : SoarW9
+Last workshop attended     : SoarW8
+Update                     : 2/5/92
+
+Name                       : Herbsleb, James
+Site                       : University of Michigan
+Princ. Invest.             : Olson, Gary
+Occupation                 : postdoc at CSMIL
+E-mail                     : herbsleb@csmil.umich.edu
+Address                    : 2265 Stone Drive, Ann Arbor, MI 48105
+Address 2                  : 
+Telephone                  : (313) 763-9032
+FAX                        : (987) 654-3210
+Relation to Soar           : former user, potential user
+Activity level in Soar     : none currently
+Current Projects           : empirical research on collaborative design, use o\
+f diagrams
+Current Projects 2         : 
+Soar systems developed     : intelligent cognition orthosis 
+Soar systems developed 2   : 
+Systems responsible for    : 
+Systems responsible for 2  : 
+Last workshop invited to   : SoarW10
+Last workshop attended     : SoarW9
+Update                     : 01/23/92
+
+Name                       : Hucka, Michael
+Site                       : University of Michigan
+Princ. Invest.             : Laird, John E.
+Occupation                 : Graduate student
+E-mail                     : hucka@engin.umich.edu
+Address                    : 1101 Beal Ave, Ann Arbor, MI 48109-2110
+Address 2                  : 
+Telephone                  : 763-1254
+FAX                        : 
+Relation to Soar           : Graduate student doing research
+Activity level in Soar     : high
+Current Projects           : Interruption and resumption of tasks
+Current Projects 2         : 
+Soar systems developed     : Robo-Soar, (partly) Hero-Soar
+Soar systems developed 2   : 
+Systems responsible for    : Robo-Soar, Hero-Soar
+Systems responsible for 2  : 
+Last workshop invited to   : SoarW9
+Last workshop attended     : SoarW9
+Update                     : 01/23/92
+
+Name                       : Huffman, Scott
+Site                       : University of Michigan
+Princ. Invest.             : Laird, John
+Occupation                 : Grad. Student
+E-mail                     : huffman@engin.umich.edu
+Address                    : AI Lab, 1101 Beal Ave, Ann Arbor 48109-2110
+Address 2                  : 
+Telephone                  : 313-936-3667
+FAX                        : 313-763-1260
+Relation to Soar           : researcher
+Activity level in Soar     : high
+Current Projects           : Interactive Instruction Taking
+Current Projects 2         : 
+Soar systems developed     : NL*Robo-Soar
+Soar systems developed 2   : 
+Systems responsible for    : 
+Systems responsible for 2  : 
+Last workshop invited to   : SoarW9
+Last workshop attended     : SoarW9
+Update                     : 2/5/92
+
+Name                       : Kortenkamp, David
+Site                       : University of Michigan
+Princ. Invest.             : Laird, John
+Occupation                 : Grad student
+E-mail                     : korten@caen.engin.umich.edu
+Address                    : 1101 Beal Ave. Ann Arbor, MI 48109
+Address 2                  : 
+Telephone                  : (313) 763-9074
+FAX                        : ? (I should know this but don't)
+Relation to Soar           : gadfly
+Activity level in Soar     : none
+Current Projects           : robot spatial mapping (not in Soar, but may be)
+Current Projects 2         : 
+Soar systems developed     : none
+Soar systems developed 2   : 
+Systems responsible for    : none
+Systems responsible for 2  : 
+Last workshop invited to   : W10
+Last workshop attended     : W7
+Update                     : 01/23/92
+
+Name                       : Laird, John
+Site                       : University of Michigan
+Princ. Invest.             : Laird, John
+Occupation                 : Professor
+E-mail                     : laird@engin.umich.edu
+Address                    : 1101 Beal Ave, Ann Arbor MI, 48109-2110
+Address 2                  : 
+Telephone                  : (313) 747-1761
+FAX                        : (313) 763-1260
+Relation to Soar           : PI
+Activity level in Soar     : high
+Current Projects           : Soar (IFOR, interaction with the outside world)
+Current Projects 2         : 
+Soar systems developed     : Hero-Soar, Soar, recovery from incorrect knowledge
+Soar systems developed 2   : 
+Systems responsible for    : 
+Systems responsible for 2  : 
+Last workshop invited to   : SoarW10
+Last workshop attended     : SoarW9
+Update                     : 01/23/92
+
+Name                       : Miller, Craig
+Site                       : University of Michigan
+Princ. Invest.             : Laird, John
+Occupation                 : Grad. Student
+E-mail                     : cmiller@caen.engin.umich.edu
+Address                    : 1101 Beal Ave; Ann Arbor, MI 48109-2210
+Address 2                  : 
+Telephone                  : (313) 763-9074
+FAX                        : 
+Relation to Soar           : researcher
+Activity level in Soar     : medium
+Current Projects           : Concept acquisition
+Current Projects 2         : 
+Soar systems developed     : Model of human concept acquisition
+Soar systems developed 2   : 
+Systems responsible for    : 
+Systems responsible for 2  : 
+Last workshop invited to   : SoarW9
+Last workshop attended     : SoarW9
+Update                     : 01/23/92
+
+Name                       : Pearson, Douglas
+Site                       : University of Michigan
+Princ. Invest.             : Laird, John
+Occupation                 : Graduate Student (started 1990)
+E-mail                     : douglasp@caen.engin.umich.edu
+Address                    : 149 ATL, 1101 Beal Avenue, Ann Arbor MI 48109
+Address 2                  : 
+Telephone                  : (313) 763-1255
+FAX                        : (313) 763-1260
+Relation to Soar           : Researcher
+Activity level in Soar     : High
+Current Projects           : Error recovery, using Robo-Soar for testbed
+Current Projects 2         : 
+Soar systems developed     : None
+Soar systems developed 2   : 
+Systems responsible for    : Soar users database (this list !)
+Systems responsible for 2  : 
+Last workshop invited to   : SoarW9
+Last workshop attended     : SoarW9
+Update                     : 01/23/92
+
+Name                       : Weber, Gregory
+Site                       : University of Michigan
+Princ. Invest.             : ?
+Occupation                 : grad. student
+E-mail                     : gregoryw@eecs.umich.edu
+Address                    : 1370 McIntyre Drive, Ann Arbor, MI 48105-2409
+Address 2                  : 
+Telephone                  : (313) 747-2325
+FAX                        : none
+Relation to Soar           : researcher
+Activity level in Soar     : low
+Current Projects           : learning causal relations by experimentation
+Current Projects 2         : 
+Soar systems developed     : Thorndike's cat
+Soar systems developed 2   : 
+Systems responsible for    : none
+Systems responsible for 2  : 
+Last workshop invited to   : none
+Last workshop attended     : none
+Update                     : 01/23/92
+
+Name                       : Wiesmeyer, Mark
+Site                       : University of Michigan
+Princ. Invest.             : John E. Laird
+Occupation                 : Grad. Student
+E-mail                     : wiesmeye@caen.engin.umich.edu
+Address                    : 150 ATL Building, Ann Arbor MI 48190-2110
+Address 2                  : 
+Telephone                  : (313) 763-9074
+FAX                        : (313) 763-1260
+Relation to Soar           : Researcher
+Activity level in Soar     : High, but I don't chunk
+Current Projects           : Modeling Human Visual Attention
+Current Projects 2         : 
+Soar systems developed     : NOVA, a model of human visual attention
+Soar systems developed 2   : 
+Systems responsible for    : None
+Systems responsible for 2  : 
+Last workshop invited to   : SoarW9
+Last workshop attended     : SoarW9
+Update                     : 01/23/92
+
+Name                       : Wu, H.J. Paul
+Site                       : University of Michigan
+Princ. Invest.             : Laird, John
+Occupation                 : Graduate Student
+E-mail                     : pwu@engin.umich.edu
+Address                    : 1586 Murfin #10, Ann Arbor, MI 48105
+Address 2                  : 
+Telephone                  : (313) 763-1562
+FAX                        : (313) 763-1260
+Relation to Soar           : Researcher
+Activity level in Soar     : High
+Current Projects           : BUYER
+Current Projects 2         : 
+Soar systems developed     : BUYER
+Soar systems developed 2   : 
+Systems responsible for    : 
+Systems responsible for 2  : 
+Last workshop invited to   : SoarW9
+Last workshop attended     : SoarW9
+Update                     : 2/5/92
+
+Name                       : Yager, Eric
+Site                       : University of Michigan
+Princ. Invest.             : Laird, John
+Occupation                 : Graduate Student
+E-mail                     : esyager@caen.engin.umich.edu
+Address                    : 1101 Beal Ave, Ann Arbor, MI 48109-2210
+Address 2                  : 
+Telephone                  : (313) 747-0969
+FAX                        : (313) 763-1260
+Relation to Soar           : Researcher
+Activity level in Soar     : High
+Current Projects           : Resource Management
+Current Projects 2         : 
+Soar systems developed     : Robo-Soar, Model of adaptation to resource constr\
+aints
+Soar systems developed 2   : 
+Systems responsible for    : 
+Systems responsible for 2  : 
+Last workshop invited to   : SoarW9
+Last workshop attended     : SoarW9
+Update                     : 2/5/92
+
+Name                       : Churchill, Elizabeth
+Site                       : University of Nottingham
+Princ. Invest.             : Reichgelt, Han
+Occupation                 : Research Assistant
+E-mail                     : lizc@uk.ac.nott.psyc
+Address                    : 1234 Soar-workers Drive, Townsville  MI 56789
+Address 2                  : 
+Telephone                  : + 44 - 602 - 484848
+FAX                        : + 44 - 602 - 590339
+Relation to Soar           : Researcher 
+Activity level in Soar     : medium
+Current Projects           : Computational Models of User's Development of Men\
+tal Models
+Current Projects 2         : 
+Soar systems developed     : 
+Soar systems developed 2   : 
+Systems responsible for    : 
+Systems responsible for 2  : 
+Last workshop invited to   : Soar 10
+Last workshop attended     : None - only EuroSoar
+Update                     : 01/23/92
+
+Name                       : Reichgelt, Han
+Site                       : University of Nottingham
+Princ. Invest.             : Reichgelt, Han
+Occupation                 : Lecturer
+E-mail                     : han@psyc.nott.ac.uk
+Address                    : University Park, Nottingham NG7 2RD, England
+Address 2                  : 
+Telephone                  : +44 602 484848 ext 3587
+FAX                        : +44 602 590339
+Relation to Soar           : researcher, research team leader
+Activity level in Soar     : high
+Current Projects           : The effect of different device representations on\
+ people's
+Current Projects 2         : ability to interact in various way with the devic\
+e.
+Soar systems developed     : 
+Soar systems developed 2   : 
+Systems responsible for    : 
+Systems responsible for 2  : 
+Last workshop invited to   : SoarW10, EUROSoar-5
+Last workshop attended     : Not attended any American Soar Workshops, EUROSoa\
+r-5
+Update                     : 01/23/92
+
+Name                       : Krems, Josef F.
+Site                       : University of Regensburg
+Princ. Invest.             : ?
+Occupation                 : Ass. Professor, (Priv. Doz)
+E-mail                     : krems@vax1.rz.uni-regensburg.dbp.de
+Address                    : Univ. of Regensburg, Inst. of Psychology, D-8400 \
+Regensburg, Germany
+Address 2                  : 
+Telephone                  : (0941) 943-3769
+FAX                        : (0941) 943-2305
+Relation to Soar           : researcher
+Activity level in Soar     : medium
+Current Projects           : Skill-acquisition in scheduling-tasks, opportunis\
+tic planning
+Current Projects 2         : in debugging, knowledge acquisition for expert sy\
+stems
+Soar systems developed     : SCHED-SOAR: modelling skill-akquisition in schedu\
+ling
+Soar systems developed 2   : 
+Systems responsible for    : 
+Systems responsible for 2  : 
+Last workshop invited to   : EuroSoar5
+Last workshop attended     : EuroSoar5
+Update                     : 01/23/92
+
+Name                       : Nerb, Josef
+Site                       : University of Regensburg
+Princ. Invest.             : Krems, Josef
+Occupation                 : Student
+E-mail                     : nerb@vax1.rz.uni-regensburg.dbp.de
+Address                    : Soar-group, University of Regensburg 
+Address 2                  : 8400 Regensburg, W-Germany
+Telephone                  : + 49 941 943 3867
+FAX                        : 
+Relation to Soar           : Thesis work (UTC)
+Activity level in Soar     : high
+Current Projects           : Soar on Scheduling
+Current Projects 2         : 
+Soar systems developed     : one Prototype
+Soar systems developed 2   : 
+Systems responsible for    : "site manager"
+Systems responsible for 2  : 
+Last workshop invited to   : EURO-SOAR5
+Last workshop attended     : EURO-SOAR5
+Update                     : 01/23/92
+
+Name                       : Cho, Bonghan
+Site                       : University of Southern California
+Princ. Invest.             : Rosenbloom, Paul
+Occupation                 : Grad. Student 
+E-mail                     : bcho@isi.edu
+Address                    : 4676 Admiralty Way #950, Marina Del Rey, CA 90292
+Address 2                  : 
+Telephone                  : (310) 822-1511
+FAX                        : (310) 823-6714
+Relation to Soar           : researcher
+Activity level in Soar     : medium
+Current Projects           : Neuro-Soar
+Current Projects 2         : 
+Soar systems developed     : 
+Soar systems developed 2   : 
+Systems responsible for    : 
+Systems responsible for 2  : 
+Last workshop invited to   : SoarW9
+Last workshop attended     : SoarW9
+Update                     : 01/23/92
+
+Name                       : Johnson, Lewis
+Site                       : University of Southern California
+Princ. Invest.             : Rosenbloom, Paul
+Occupation                 : Project Leader
+E-mail                     : johnson@isi.edu
+Address                    : 4676 Admiralty Way, Marina del Rey, CA 90292-6695
+Address 2                  : 
+Telephone                  : (310) 822-1511
+FAX                        : (310) 823-6714
+Relation to Soar           : Researcher
+Activity level in Soar     : Low (soon to be high)
+Current Projects           : Will be on Intelligent Forces project, also curre\
+ntly
+Current Projects 2         : advising on VLBI Trainer, which will probably use\
+ Soar
+Soar systems developed     : None
+Soar systems developed 2   : 
+Systems responsible for    : None
+Systems responsible for 2  : 
+Last workshop invited to   : SoarW9
+Last workshop attended     : None
+Update                     : 01/23/92
+
+Name                       : Lee, Soowon 
+Site                       : University of Southern California
+Princ. Invest.             : Rosenbloom, Paul
+Occupation                 : Graduate student
+E-mail                     : swlee@isi.edu
+Address                    : Univ of Southern California, Information Sciences\
+ Institute
+Address 2                  : 4676 Admiralty Way, Marina del Rey, CA 90292
+Telephone                  : (310) 822-1511 x769
+FAX                        : (310) 823-6714
+Relation to Soar           : Researcher
+Activity level in Soar     : Medium
+Current Projects           : Planning
+Current Projects 2         : 
+Soar systems developed     : Function/arithmetic Package
+Soar systems developed 2   : 
+Systems responsible for    : Function/arithmetic Package
+Systems responsible for 2  : 
+Last workshop invited to   : SoarW9
+Last workshop attended     : SoarW9
+Update                     : 01/23/92
+
+Name                       : Rosenbloom, Paul S.
+Site                       : University of Southern California
+Princ. Invest.             : Rosenbloom, Paul S.
+Occupation                 : Associate Professor
+E-mail                     : Rosenbloom@isi.edu
+Address                    : USC/ISI, 4676 Admiralty Way, Marina del Rey, CA 9\
+0292
+Address 2                  : 
+Telephone                  : ISI: (310) 823-6714, Campus: (213) 740-7285
+FAX                        : ISI: (310)
+Relation to Soar           : PI
+Activity level in Soar     : high
+Current Projects           : Simulation agents, integrated learning, integrated
+Current Projects 2         : 
+Soar systems developed     : R1-Soar, memory operator, function/arithmetic
+Soar systems developed 2   : 
+Systems responsible for    : Memory operator
+Systems responsible for 2  : 
+Last workshop invited to   : SoarW10
+Last workshop attended     : SoarW9
+Update                     : 01/23/92
+
+Name                       : Smith, Ben
+Site                       : University of Southern California
+Princ. Invest.             : Rosenbloom, Paul
+Occupation                 : Grad Student
+E-mail                     : bdsmith@isi.edu
+Address                    : 4676 Admiralty Way, Marina del Rey, CA 90292-6695
+Address 2                  : 
+Telephone                  : (310) 822-1511
+FAX                        : 
+Relation to Soar           : researcher
+Activity level in Soar     : high
+Current Projects           : Learning to Use Physical Devices
+Current Projects 2         : 
+Soar systems developed     : 
+Soar systems developed 2   : 
+Systems responsible for    : 
+Systems responsible for 2  : 
+Last workshop invited to   : SoarW9
+Last workshop attended     : SoarW9
+Update                     : 01/23/92
+
+Name                       : Stobie, Iain
+Site                       : University of Southern California
+Princ. Invest.             : Rosenbloom, Paul
+Occupation                 : Grad. Student
+E-mail                     : stobie@usc.edu
+Address                    : PO Box 93974, Los Angeles, CA 90093
+Address 2                  : 
+Telephone                  : 213 664-1948
+FAX                        : 
+Relation to Soar           : 
+Activity level in Soar     : high
+Current Projects           : Navigation in Soar (gridworld-soar)
+Current Projects 2         : 
+Soar systems developed     : gridworld-soar
+Soar systems developed 2   : 
+Systems responsible for    : 
+Systems responsible for 2  : 
+Last workshop invited to   : SoarW9
+Last workshop attended     : 
+Update                     : 01/23/92
+
+Name                       : Leenes, Ronald
+Site                       : University of Twente
+Princ. Invest.             : Leenes, Ronald
+Occupation                 : Grad. Student etc.
+E-mail                     : romix@bsk.utwente.nl
+Address                    : P.O. Box 217, Enschede, 7500 AE, the Netherlands
+Address 2                  : 
+Telephone                  : +31 53 892616
+FAX                        : +31 53 356695
+Relation to Soar           : researcher
+Activity level in Soar     : low
+Current Projects           : Legal Reasoning in Soar
+Current Projects 2         : 
+Soar systems developed     : -
+Soar systems developed 2   : 
+Systems responsible for    : -
+Systems responsible for 2  : 
+Last workshop invited to   : SoarW10
+Last workshop attended     : EuroSoarW5
+Update                     : 01/23/92
+
+Name                       : Hopper, Chahira
+Site                       : WP-AFB, WL-Avionics Directorate
+Princ. Invest.             : 
+Occupation                 : Project Engineer
+E-mail                     : hoppercm@W1.WPAFB.AF.MIL
+Address                    : WL/AAAT-1, BLG 620, AreaB, WP-AFB, Dayton OH, 454\
+33-6543
+Address 2                  : 
+Telephone                  : (513) 255-7865
+FAX                        : (513) 476-4302
+Relation to Soar           : researcher and funder
+Activity level in Soar     : medium
+Current Projects           : visoar: vision using Soar
+Current Projects 2         : 
+Soar systems developed     : 
+Soar systems developed 2   : 
+Systems responsible for    : 
+Systems responsible for 2  : 
+Last workshop invited to   : SoarW9
+Last workshop attended     : SoarW9
+Update                     : 01/23/92
+
+Name                       : Johnson, Kathy
+Site                       : Ohio State University
+Princ. Invest.             : Smith, Jack
+Occupation                 : Grad. Student
+E-mail                     : kj@cis.ohio-state.edu
+Address                    : 376 W. 10th Ave. Rm 571, Columbus, OH 43228
+Address 2                  : 
+Telephone                  : (614) 292-9358
+FAX                        : (614) 292-7072
+Relation to Soar           : researcher
+Activity level in Soar     : medium
+Current Projects           : RedSoar, RedCoach
+Current Projects 2         : 
+Soar systems developed     : RedSoar, RedCoach
+Soar systems developed 2   : 
+Systems responsible for    : RedSoar, RedCoach
+Systems responsible for 2  : 
+Last workshop invited to   : SoarW10
+Last workshop attended     : SoarW10
+Update                     : 10/02/92
+
+Name                       : Scard, Nigel
+Site                       : DRA Portsdown
+Princ. Invest.             : 
+Occupation                 : Research Scientist
+E-mail                     : N_SCARD%UK.MOD.ARE_PN
+Address                    : Human Factors (CCA5/2), DRA Portsdown
+Address 2                  : Portsmouth, Hants, PO6 4AA, England
+Telephone                  : 0705 332015
+FAX                        : 0705 333543
+Relation to Soar           : Researcher
+Activity level in Soar     : High
+Current Projects           : Use of Soar for operator task modelling in highly
+Current Projects 2         : interactive tasks.
+Soar systems developed     : None (yet !)
+Soar systems developed 2   : 
+Systems responsible for    : None
+Systems responsible for 2  : 
+Last workshop invited to   : EuroSoar 92
+Last workshop attended     : EuroSoar 91
+Update                     : 07/08/92
+
+Name                       : Blandford, Ann
+Site                       : APU
+Princ. Invest.             : Young, Richard
+Occupation                 : 
+E-mail                     : ann.blandford@mrc-apu.cam.ac.uk
+Address                    : 
+Address 2                  : 
+Telephone                  : 
+FAX                        : 
+Relation to Soar           : 
+Activity level in Soar     : 
+Current Projects           : 
+Current Projects 2         : 
+Soar systems developed     : 
+Soar systems developed 2   : 
+Systems responsible for    : 
+Systems responsible for 2  : 
+Last workshop invited to   : 
+Last workshop attended     : 
+Update                     : 07/08/92
+
+Name                       : Mertz, Joe
+Site                       : Carnegie Mellon University
+Princ. Invest.             : Larkin, Jill
+Occupation                 : Grad. Student
+E-mail                     : joseph.mertz@cs.cmu.edu
+Address                    : EPP, CMU, 5000 Forbes Ave., Pgh. PA, 15213
+Address 2                  : 
+Telephone                  : (412) 268-5617
+FAX                        : (412) 268-3757 (FAX)
+Relation to Soar           : researcher
+Activity level in Soar     : high
+Current Projects           : Assembly Tutorial Workbench
+Current Projects 2         : 
+Soar systems developed     : ATW-Soar
+Soar systems developed 2   : 
+Systems responsible for    : ATW-Soar
+Systems responsible for 2  : 
+Last workshop invited to   : SoarW10
+Last workshop attended     : SoarW10
+Update                     : 03/10/92
+
+Name                       : Prietula, Michael
+Site                       : Carnegie Mellon University
+Princ. Invest.             : Prietula, Michael
+Occupation                 : Professor, Industrial Administration
+E-mail                     : mp2j@andrew.cmu.edu,
+Address                    : Grad School of Industrial Administration
+Address 2                  : CMU, Pittsburgh, PA 15213
+Telephone                  : 412-268-5067
+FAX                        : 412-268-6837
+Relation to Soar           : Reseacher (funded Soar research)
+Activity level in Soar     : medium
+Current Projects           : Plural-Soar, Radar-Soar, Barter-Soar
+Current Projects 2         : 
+Soar systems developed     : Merle-Soar (with D. Steier)
+Soar systems developed 2   : 
+Systems responsible for    : Plural-Soar, Radar-Soar, Barter-Soar
+Systems responsible for 2  : 
+Last workshop invited to   : SoarW10
+Last workshop attended     : SoarW7
+Update                     : 11/3/92
+
+Name                       : Golding, Andrew
+Site                       : Mitsubishi Electric Research Labs
+Princ. Invest.             : 
+Occupation                 : Research Scientist
+E-mail                     : golding@merl.com
+Address                    : 201 Broadway, 8th Floor, Cambridge MA 02139
+Address 2                  : 
+Telephone                  : (617) 621-7520
+FAX                        : (617) 621-7550
+Relation to Soar           : Former Soar researcher & currently interested gad\
+fly
+Activity level in Soar     : none
+Current Projects           : undecided
+Current Projects 2         : 
+Soar systems developed     : various prototype analogy systems
+Soar systems developed 2   : 
+Systems responsible for    : -
+Systems responsible for 2  : 
+Last workshop invited to   : SoarW10 (?)
+Last workshop attended     : SoarW9
+Update                     : 
+
+Name                       : Morelli, Ralph
+Site                       : Trinity College
+Princ. Invest.             : n/a
+Occupation                 : Associate Professor
+E-mail                     : ram@starbase.trincoll.edu
+Address                    : Department of Engineering & Computer Science
+Address 2                  : Trinity College, Hartford, CT 06106
+Telephone                  : 203-297-2220
+FAX                        : n/a
+Relation to Soar           : researcher
+Activity level in Soar     : high
+Current Projects           : Soar/ITS
+Current Projects 2         : 
+Soar systems developed     : n/a
+Soar systems developed 2   : 
+Systems responsible for    : n/a
+Systems responsible for 2  : 
+Last workshop invited to   : SoarW10
+Last workshop attended     : SoarW10
+Update                     : 11/3/92
+
+Name                       : Unruh, Amy
+Site                       : Stanford University and Texas Instruments
+Princ. Invest.             : 
+Occupation                 : semi-grad-student
+E-mail                     : unruh@cs.stanford.edu, unruh@csc.ti.com
+Address                    : SPDC, Texas Instruments, PO Box 655012, MS 461, 
+Address 2                  : Dallas, TX  75265
+Telephone                  : 214 995 0478
+FAX                        : 
+Relation to Soar           : researcher
+Activity level in Soar     : low
+Current Projects           : weak methods for abstraction
+Current Projects 2         : 
+Soar systems developed     : 
+Soar systems developed 2   : 
+Systems responsible for    : 
+Systems responsible for 2  : 
+Last workshop invited to   : SoarW10
+Last workshop attended     : SoarW9
+Update                     : 3-11-92 
+
+Name                       : Hsu, Wen-Ling
+Site                       : Siemens Corporate Research
+Princ. Invest.             : 
+Occupation                 : Assistant Professor, Research Scientist
+E-mail                     : hsu@siemens.siemens.com, Wen-Ling.Hsu@cs.cmu.edu
+Address                    : 755 College Rd. East, Princeton, NJ 08540
+Address 2                  : 
+Telephone                  : 609-734-6524
+FAX                        : 609-734-6565
+Relation to Soar           : interested gadfly 
+Activity level in Soar     : low
+Current Projects           : multi-agent system, distributed planning
+Current Projects 2         : 
+Soar systems developed     : 
+Soar systems developed 2   : 
+Systems responsible for    : -
+Systems responsible for 2  : 
+Last workshop invited to   : SoarW9
+Last workshop attended     : SoarW9
+Update                     : 3/11/92
+
+Name                       : Sengers, Phoebe
+Site                       : Carnegie Mellon University
+Princ. Invest.             : 
+Occupation                 : Grad Student
+E-mail                     : phoebe@cs.cmu.edu
+Address                    : School of Computer Science, Carnegie Mellon Unive\
+rsity
+Address 2                  : 5000 Forbes Ave.  Pittsburgh, PA 15232
+Telephone                  : (412) 268-3052
+FAX                        : (412) 661-6938
+Relation to Soar           : researcher/user
+Activity level in Soar     : medium
+Current Projects           : building a cat character in Soar
+Current Projects 2         : 
+Soar systems developed     : 
+Soar systems developed 2   : 
+Systems responsible for    : 
+Systems responsible for 2  : 
+Last workshop invited to   : 
+Last workshop attended     : 
+Update                     : 11/3/92
+
+Name                       : Park, Miran Choi
+Site                       : University of Southern California
+Princ. Invest.             : last, first
+Occupation                 : Grad. Student 
+E-mail                     : miranpar@aludra.usc.edu
+Address                    : 430 S. Berendo St. #24 L.A. CA90020
+Address 2                  : 
+Telephone                  : (213)388-7226
+FAX                        : (310)823-6714
+Relation to Soar           : researcher
+Activity level in Soar     : medium
+Current Projects           : Learning from Manual
+Current Projects 2         : 
+Soar systems developed     : 
+Soar systems developed 2   : 
+Systems responsible for    : 
+Systems responsible for 2  : 
+Last workshop invited to   : SoarW10
+Last workshop attended     : SoarW10
+Update                     : 11/3/92
+
+Name                       : Piersma, Ep H.
+Site                       : University of Groningen, Traffic Research Centre
+Princ. Invest.             : Good Question
+Occupation                 : Researcher
+E-mail                     : Piersma@Rug.NL.Bitnet
+Address                    : P.O.Box 69, 9750 AB Groningen, the Netherlands
+Address 2                  : 
+Telephone                  : +31 50 63 67 65  (+31 50 63 76 80 secr.)
+FAX                        : +31 50 63 67 80 
+Relation to Soar           : Site expert
+Activity level in Soar     : low
+Current Projects           : -
+Current Projects 2         : 
+Soar systems developed     : -
+Soar systems developed 2   : 
+Systems responsible for    : Driver/Soar (by Jans Aasman)
+Systems responsible for 2  : 
+Last workshop invited to   : SoarW10
+Last workshop attended     : SoarW7
+Update                     : 21/03/92
+
+Name                       : Conati, Cristina
+Site                       : Carnegie Mellon University
+Princ. Invest.             : Jill Lehman
+Occupation                 : Research Programmer
+E-mail                     : conati@cs.cmu.edu
+Address                    : Carnegie Mellon University, School of Computer Sc\
+ience,
+Address 2                  : CMU, 5000 Forbes Ave Pittsburgh, PA 15213-3890
+Telephone                  : (412) 268-3810
+FAX                        : (412) 681-5739 (FAX)
+Relation to Soar           : Researcher
+Activity level in Soar     : medium but increasing
+Current Projects           : Model of Education with Highly Interactive
+Current Projects 2         : Environments (Electric Field Hockey)
+Soar systems developed     : EFH-Soar
+Soar systems developed 2   : 
+Systems responsible for    : 
+Systems responsible for 2  : 
+Last workshop invited to   : SoarW10
+Last workshop attended     : SoarW10
+Update                     : 13/3/1992
+
+Name                       : Acharya Anurag 
+Site                       : Carnegie Mellon University
+Princ. Invest.             : Allen Newell
+Occupation                 : Grad. Student 
+E-mail                     : anurag.acharya@cs.cmu.edu
+Address                    : School of Computer Science Pittsburgh PA 15213
+Address 2                  : 
+Telephone                  : (412) 268-7555
+FAX                        : (412) 681-5739
+Relation to Soar           : Live and exist in the project, do parallel produc\
+tion system research
+Activity level in Soar     : medium
+Current Projects           : PPL (parallel production language)
+Current Projects 2         : 
+Soar systems developed     : none 
+Soar systems developed 2   : 
+Systems responsible for    : cparaops5, ppl
+Systems responsible for 2  : 
+Last workshop invited to   : SoarW10
+Last workshop attended     : SoarW9
+Update                     : 03/12/92 
+
+Name                       : Krishnan, Ramayya
+Site                       : Carnegie Mellon University
+Princ. Invest.             : Xiaoping Li, Krishnan, Ramayya, David Steier
+Occupation                 : Professor
+E-mail                     : rk2x@centro.soar.cs.cmu.edu
+Address                    : SUPA, CMU, Pittsburgh, PA 15213
+Address 2                  : 
+Telephone                  : (412) 268-2174
+FAX                        : (412) 268 7036
+Relation to Soar           : researcher/co-pi
+Activity level in Soar     : medium
+Current Projects           : MFS
+Current Projects 2         : 
+Soar systems developed     : 
+Soar systems developed 2   : 
+Systems responsible for    : 
+Systems responsible for 2  : 
+Last workshop invited to   : SoarW10
+Last workshop attended     : SoarW10
+Update                     : 3/30/92
+
+Name                       : Lerch, F. Javier
+Site                       : CMU
+Princ. Invest.             : Lerch, F. Javier
+Occupation                 : Professor
+E-mail                     : fl0c.cmu.edu
+Address                    : GSIA, CMU, PGH, PA 15213
+Address 2                  : 
+Telephone                  : (412) 268-5042
+FAX                        : (412) 268-6837
+Relation to Soar           : researcher
+Activity level in Soar     : low
+Current Projects           : Base-Rate Fallacy
+Current Projects 2         : 
+Soar systems developed     : Base-Rate
+Soar systems developed 2   : 
+Systems responsible for    : None
+Systems responsible for 2  : 
+Last workshop invited to   : SoarW10
+Last workshop attended     : SoarW10
+Update                     : 30/03/92
+
+Name                       : Kalp, Dirk
+Site                       : Carnegie Mellon University
+Princ. Invest.             : 
+Occupation                 : Research Programmer
+E-mail                     : kalp@cs.cmu.edu
+Address                    : School of Computer Science, Carnegie Mellon Unive\
+rsity,
+Address 2                  : 5000 Forbes Ave., Pittsburgh  PA 15213-3890
+Telephone                  : (412) 268-3648
+FAX                        : (412) 681-5739
+Relation to Soar           : involved with match technology
+Activity level in Soar     : medium
+Current Projects           : Unirete, ASPM
+Current Projects 2         : 
+Soar systems developed     : not involved in Soar application systems
+Soar systems developed 2   : 
+Systems responsible for    : 
+Systems responsible for 2  : 
+Last workshop invited to   : SoarW10
+Last workshop attended     : SoarW10
+Update                     : 3/30/92
+
+Name                       : Carley, Kathleen
+Site                       : Carnegie Mellon University
+Princ. Invest.             : last, first
+Occupation                 : Professor
+E-mail                     : kathleen.carley@cs.cmu.edu
+Address                    : Dept. of Social and Decision Sciences,
+Address 2                  : CMU, Pittsburgh PA 15213
+Telephone                  : (412) 268-3225
+FAX                        : (412) 268-6938
+Relation to Soar           : researcher
+Activity level in Soar     : low-medium
+Current Projects           : soar based social agents, artificial organizations
+Current Projects 2         : 
+Soar systems developed     : Plural-Soar
+Soar systems developed 2   : 
+Systems responsible for    : Artificial Organization Project
+Systems responsible for 2  : 
+Last workshop invited to   : SoarW10
+Last workshop attended     : don't remember
+Update                     : 30/3/92
+
+Name                       : Klahr, david
+Site                       : CMU
+Princ. Invest.             : 
+Occupation                 : Professor and Head, Psych Dept, CMU
+E-mail                     : dk5a@andrew.cmu.edu
+Address                    : 5000 Forbes AVe
+Address 2                  : 
+Telephone                  : (412) 268-3151
+FAX                        : 
+Relation to Soar           : Interested sometimes participant
+Activity level in Soar     : some talking, little doing
+Current Projects           : 
+Current Projects 2         : 
+Soar systems developed     : co authored paper with T. Simon & A. Newell on QC\
+-Soar
+Soar systems developed 2   : 
+Systems responsible for    : 
+Systems responsible for 2  : 
+Last workshop invited to   : SoarW10
+Last workshop attended     : not sure (about a year ago)
+Update                     : April 10
+
+Name                       : Scard, Nigel
+Site                       : DRA Portsdown
+Princ. Invest.             : last, first
+Occupation                 : Research Scientist
+E-mail                     : N_SCARD%UK.MOD.ARE_PN
+Address                    : Nigel Scard, Human Factors (CCA5/2), DRA 
+Address 2                  : Portsdown, Portsmouth, Hants, PO6 4AA, England.>
+Telephone                  : 0705 332015
+FAX                        : 0705 333543
+Relation to Soar           : Researcher
+Activity level in Soar     : high
+Current Projects           : Use of Soar for operator task modelling, in 
+Current Projects 2         : highly interactive tasks.
+Soar systems developed     : None (yet!)
+Soar systems developed 2   : 
+Systems responsible for    : None
+Systems responsible for 2  : 
+Last workshop invited to   : EuroSoar '92
+Last workshop attended     : EuroSoar '91
+Update                     : (08/07/92)
+
+Name                       : VanLehn, Kurt
+Site                       : LRDC, University of Pittsburgh
+Princ. Invest.             : self
+Occupation                 : Professor
+E-mail                     : vanlehn@cs.pitt.edu
+Address                    : 3939 O'Hara St., U. of Pgh, Pgh, 15260
+Address 2                  : 
+Telephone                  : (412)624-7458
+FAX                        : (412)624-3051
+Relation to Soar           : Working on ASPM: fitting discrete models to data
+Activity level in Soar     : none
+Current Projects           : ASPM
+Current Projects 2         : 
+Soar systems developed     : none
+Soar systems developed 2   : 
+Systems responsible for    : Deb, a model used to test ASPM
+Systems responsible for 2  : 
+Last workshop invited to   : ??
+Last workshop attended     : none
+Update                     : 14/7/92
+
+Name                       : Scarborough, Don
+Site                       : Brooklyn College
+Princ. Invest.             : 
+Occupation                 : 
+E-mail                     : dosbc@cunvym.bitnet
+Address                    : 309 Grove Road (Home address)
+Address 2                  : South Orange, NJ 07079
+Telephone                  : (201) 762-3482
+FAX                        : 
+Relation to Soar           : 
+Activity level in Soar     : 
+Current Projects           : 
+Current Projects 2         : 
+Soar systems developed     : 
+Soar systems developed 2   : 
+Systems responsible for    : 
+Systems responsible for 2  : 
+Last workshop invited to   : SoarW11
+Last workshop attended     : 
+Update                     : 10/05/92

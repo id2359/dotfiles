@@ -1,0 +1,66 @@
+
+                                                    math:double-float-matrix
+
+
+    FUNCTION
+    double-float-matrix  -  Coerce all matrix elements to be double-floats
+
+    USAGE
+    double-float-matrix matrix
+
+    DESCRIPTION
+    Returns  a  new  matrix  whose  array  element  type  (as  returned   by
+    array-element-type)  is double-float and whose elements are the elements
+    of MATRIX coerced to be double-floats.
+
+    Some functions,  such  as  inverse  and  determinant,  only  operate  on
+    matrices  whose array element type is one of single-float, double-float,
+    (complex single-float), or (complex double-float).  But matrices may  be
+    created  with  any  numerical  type  (or  even t) as their element type.
+    Matrices with inappropriate type cannot be passed to the functions  that
+    require  the  type  be from the list above.  Applying this function to a
+    matrix produces a matrix suitable for passing to those functions.   Note
+    that  MATRIX itself is unaffected by this function.  The returned matrix
+    does not share any storage with MATRIX.
+
+    It is an error if any element  of  MATRIX  cannot  be  coerced  to  type
+    double-float.   In  particular, no entry in MATRIX may be complex.  Some
+    bignums also cannot be coerced to be double floats.
+
+    EXAMPLES
+    (setq mat (make-matrix '((1 1/2) (1.0 3.0d0))))
+      => #2a((1 1/2) (1.0 3.0d0))
+    (array-element-type mat) => t
+    (setq mat1 (double-float-matrix mat))
+      => #2a((1.0d0 0.5d0) (1.0d0 3.0d0))
+    (array-element-type mat1) => double-float
+
+    ;;  We cannot apply this function to a matrix
+    ;;  any of whose elements are complex.
+    ;;
+    (double-float-matrix (make-matrix '((#c(1.0 1.0))))) => ERROR
+    ;;  The error message is:
+    ;;  Error: illegal argument to double-float: #c(1.0 1.0)
+    ;;
+    ;;  (Note the error is in DOUBLE-FLOAT, not DOUBLE-FLOAT-MATRIX.)
+
+    SEE ALSO
+    complex-double-float-matrix, complex-double-float-vector, complex-
+    single-float-matrix, complex-single-float-vector, double-float-vector,
+    single-float-matrix, single-float-vector
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                                     commonp
+
+
+    FUNCTION
+    commonp  -  test whether an object is a COMMON LISP data type
+
+    USAGE
+    commonp object
+
+    DESCRIPTION
+    Returns true if OBJECT is of a standard COMMON LISP data type, and false
+    otherwise.  A standard COMMON LISP data type is one required by the COM-
+    MON LISP specification.  Types defined using deftype may satisfy commonp
+    if the type-specifier expands to a standard COMMON LISP data type.  Note
+    that objects of some general types,  e.g. number or array, may or not be
+    commonp,  since  an  implementation  may have extended these types.  The
+    following identity holds:
+
+    (commonp x) = (typep x 'common)
+
+    EXAMPLES
+    (commonp 'a) => t
+    (commonp '1.2.3) => t
+    (commonp "xyz") => t
+
+    SEE ALSO
+    CLtL 6:76, about type specifiers
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

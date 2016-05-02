@@ -1,0 +1,66 @@
+
+                                                                   char-font
+
+
+    FUNCTION
+    char-font  -  get the font attribute of a character object
+
+    USAGE
+    char-font char
+
+    DESCRIPTION
+    Returns the font attribute of CHAR, which must be  a  character  object.
+    The  value returned is a non-negative integer that is strictly less than
+    char-font-limit.  The value returned is implementation-dependent.
+
+    EXAMPLES
+    ;;  The returned values are implementation-dependent:
+    (char-font #2\A) => 2
+    (char-font #\A) => 0
+    (char-font (code-char 1 2 3)) => 3
+
+    SEE ALSO
+    CLtL 13:240, char-bits, char-code, char-font-limit char-int, code-char
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

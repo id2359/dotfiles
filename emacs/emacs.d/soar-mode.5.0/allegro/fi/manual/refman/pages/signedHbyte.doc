@@ -1,0 +1,66 @@
+
+                                                                 signed-byte
+
+
+    Type SPECIFIER
+    signed-byte  -  specify a subtype of integers that can be represented by
+      a given number of bits.
+
+    USAGE
+    {signed-byte | (&Esigned-byte [n])}
+
+    DESCRIPTION
+    Specifies a data type consisting of  integers  that  can  be  stored  in
+    two's-complement form in N bits.  If K equals 2 raised to the power N-1,
+    then this type specifier is equivalent to (integer -K  K-1).   The  type
+    specifiers  (signed-byte  *)  or  just  signed-byte  are  equivalent  to
+    integer.
+
+    EXAMPLES
+    (typep #B1010 '(signed-byte 3)) => nil
+    (typep #B1010 '(signed-byte 5)) => t
+
+    SEE ALSO
+    CLtL 4:43, CLtL 4:48, about type specifiers, integer, subtypep, type-of,
+    typep, unsigned-byte
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

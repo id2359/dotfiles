@@ -1,0 +1,66 @@
+
+                                                       get-internal-run-time
+
+
+    FUNCTION
+    get-internal-run-time  -  get the current run time in Internal Time for-
+      mat
+
+    Usage
+    get-internal-run-time
+
+    DESCRIPTION
+    Returns an integer that is the amount of  time  spent  actually  working
+    since   LISP   was  started.   The  meaning  of  `actually  working'  is
+    implementation-dependent.  Possible interpretations include  CPU  cycles
+    (normalized,  as  necessary,  by  the clock rate), running time, or even
+    real time.  In any case, the value is supposed to represent time working
+    (rather than time elapsed, which is measured by get-internal-real-time).
+    Dividing     the     value     returned     by     the     value      of
+    internal-time-units-per-second  gives  the time in seconds.  The differ-
+    ence between the values returned by two calls to  this  function  should
+    reflect the amount of useful computational time expended between the two
+    calls.
+
+    EXAMPLES
+    ;;  This value is implementation- and situation-dependent.
+    (get-internal-run-time) => 3583
+
+    SEE ALSO
+    CLtL 25:446, get-internal-real-time, internal-time-units-per-second
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

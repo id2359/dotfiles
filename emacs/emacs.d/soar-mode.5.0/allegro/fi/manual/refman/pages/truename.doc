@@ -1,0 +1,66 @@
+
+                                                                    truename
+
+
+    FUNCTION
+    truename  -  convert pathname, string, symbol, or stream into fully
+      specified pathname of existing file
+
+    USAGE
+    truename object
+
+    DESCRIPTION
+    Returns a pathname equivalent to  OBJECT,  which  must  be  a  pathname,
+    string,  symbol,  or  stream  associated  with  an  existing file system
+    object.  In computing the returned pathname, OBJECT is  subject  to  any
+    file-name  translations  performed by the file system.  An error is sig-
+    nalled if no file corresponding to OBJECT can be found.
+
+    EXAMPLES
+    (pathnamep (truename "foo")) => ERROR
+    ;;  We tried to apply pathnamep to a non-existing file.
+    (truename "~dm/cvar") => #p"/usr/fridge/dm/cvar"
+    ;;  Note that the ~ is expanded to a full directory specification.
+    ;;  Such translations are file-system dependent.
+
+    SEE ALSO
+    CLtL 23:413, pathname, pathnamep, streamp, with-open-file
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

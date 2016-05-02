@@ -1,0 +1,66 @@
+
+                                                                    501-gray
+
+
+    VARIABLE
+    50%-gray  -  the color that is 50% gray
+
+    DESCRIPTION
+    The value of this variable is the color object whose color is 50%  gray.
+    This is one of several predefined colors.  It will produce gray on color
+    and graylevel machines.  On black and white machines, this color will be
+    black.
+
+    The color is the same as the color produced by using make-color with the
+    :level field set to .5, except that it is read-only.
+
+    As with all colors except black and white,  this  color  in  unitialized
+    when  COMMON WINDOWS starts up.  It is initialized (stored into a color-
+    map) the first time it is used or when install-color is called with this
+    color as an argument.
+
+    EXAMPLES
+    50%-gray => #<Gray: 0.5: unitialized>
+
+    SEE ALSO
+    black, blue, green, install-color, purple, red, turquoise, white, yellow
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

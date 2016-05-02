@@ -1,0 +1,66 @@
+
+                                                                      equalp
+
+
+    FUNCTION
+    equalp  -  test whether two objects are generally equivalent
+
+    USAGE
+    equalp x y
+
+    DESCRIPTION
+    Returns true if arguments X and Y are isomorphic in the sense of  equal,
+    but  the  criteria  are relaxed in three areas:  (1) characters are com-
+    pared using char-equal, so bits attributes and  case  are  ignored  (and
+    character  font  is  considered in an implementation-dependent way), (2)
+    type differences are ignored when comparing numbers,  and  (3)  any  two
+    arrays (for example, a general array and a string) are considered equalp
+    if they have the same rank and dimensions, and  if  their  corresponding
+    elements  are  equalp up to a fill pointer, if any.  (Array element-type
+    specializations are irrelevant.) Composite objects are  equalp  if  they
+    are  of the same type and their corresponding elements are equalp.  Sym-
+    bols are equalp only if they are eq.
+
+    Argument comparison is implemented recursively, and so may fail to  ter-
+    minate  for  self-referencing structures.  Objects that are eq or eql or
+    equal are necessarily equalp.
+
+    EXAMPLES
+    (equalp 'a 'a) => t
+    (equalp '(a b c) '(a b c)) => t
+    (equalp "HELLO" "hello") => t
+    (equalp 2.0d0 2) => t
+    (equalp #c(2.0d0 0) 2) => t
+    (setq ar1 (make-array 6 :initial-element 9 :fill-pointer 3))
+      => #(9 9 9)
+    (setq ar2 (make-array 3 :initial-element 9)) => #(9 9 9)
+    (equalp ar1 ar2) => t
+
+    SEE ALSO
+    CLtL 6:81, about equality, char-equal, eq, eql, equal
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

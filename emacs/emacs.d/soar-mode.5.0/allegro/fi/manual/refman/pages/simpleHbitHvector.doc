@@ -1,0 +1,66 @@
+
+                                                           simple-bit-vector
+
+
+    Type SPECIFIER
+    simple-bit-vector  -  the data type comprising simple arrays specialized
+      to hold bits
+
+    USAGE
+    {simple-bit-vector | (&Esimple-bit-vector [size])}
+
+    DESCRIPTION
+    Specifies a data type consisting of simple bit-vectors of  length  SIZE,
+    which  may  be  explicitly  unspecified using *.  This type specifier is
+    equivalent to (simple-array bit (SIZE)).  An array is a simple array  if
+    it  has  no  fill  pointer,  is  not adjustable, and is not displaced to
+    another array.
+
+    Bit vectors and strings are two array specializations provided by  every
+    implementation.
+
+    EXAMPLES
+    (type-of #*10101) => (simple-array bit (5))
+    (typep #*10101 '(simple-bit-vector 5)) => t
+    (subtypep '(simple-bit-vector 100)
+              '(simple-bit-vector *)) => t t
+
+    SEE ALSO
+    CLtL 4:43, CLtL 4:50, about type specifiers, array, bit, reader syntax
+    #*, subtypep, type-of, typep, vector, vector
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                                  *query-io*
+
+
+    VARIABLE
+    *query-io*  -  interactive input/output stream
+
+    DESCRIPTION
+    Evaluates to a stream to which user questions are sent  and  from  which
+    responses  are  read.  This is the preferred stream for user interaction
+    (as opposed to *standard-input* and *standard-output*), and is  used  by
+    functions such as yes-or-no-p.
+
+    EXAMPLES
+    Evaluating
+    (print (cons 'a (read *query-io*)) *query-io*)
+    with user input (b c d) causes (a b c d) to be written to the *query-io*
+    stream (usually the user's terminal) as a side effect.
+
+    SEE ALSO
+    CLtL 21:328, *debug-io*, *error-output*, *standard-output*, *terminal-
+    io*, *trace-output*, y-or-n-p, yes-or-no-p
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

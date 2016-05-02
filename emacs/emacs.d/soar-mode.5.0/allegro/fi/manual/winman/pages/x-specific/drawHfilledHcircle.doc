@@ -1,0 +1,66 @@
+
+                                                          draw-filled-circle
+
+
+    FUNCTION
+    draw-filled-circle  -  draw a filled circle on a graphic stream
+
+    Usage
+    draw-filled-circle GR-STREAM POSITION RADIUS [:color COLOR] [:operation
+      OPERATION]
+
+    SIDE EFFECTS
+    A filled circle  of  radius  RADIUS  is  drawn  on  the  graphic  stream
+    GR-STREAM, centered around POSITION.
+
+    DESCRIPTION
+    Returns nil.  The argument RADIUS must be a real  number.  The  argument
+    POSITION  determines  a  POSITION  in  the  extent  coordinate system of
+    GR-STREAM.  For a function which  passes  the  position  data  structure
+    unbundled into its x and y components, see draw-filled-circle-xy.
+
+    The keyword argument :operation specifies  the  boolean  operation  that
+    will  be used when the bits from the drawing operation are combined with
+    the bits on the graphic stream.  This argument defaults to the value  of
+    window-stream-operation  applied to GR-STREAM.  All the sixteen standard
+    boolean operations of COMMON LISP are supported.  The  keyword  argument
+    :color,  specifies the drawing color, and defaults to the value returned
+    by window-stream-foreground-color applied to GR-STREAM.
+
+    The argument GR-STREAM may be either a window-stream  or  bitmap-stream.
+    These  are  the  only  two types of graphic streams, with the difference
+    between them being that  bitmap-streams  must  be  bitblted  to  window-
+    streams.
+
+    The function window-stream-draw-filled-circle returns the list of  func-
+    tions  that  this  method calls.  You can change this list by using setf
+    and window-stream-draw-filled-circle or by  using  modify-window-stream-
+    method.   You  can  restore  the list to its original default state with
+    restore-default-window-stream-method.
+
+    The draw-filled-circle method returns what is returned by the last func-
+    tion in the list of functions called by the method. If this list has not
+    been changed from its initial value, draw-filled-circle returns nil.
+
+    EXAMPLES
+    (setf *my-win*
+          (make-window-stream
+           :left 100
+           :bottom 100
+           :width 300
+           :height 300
+           :activate-p t :title "A"))
+
+    (draw-filled-circle *my-win*
+                (make-position :x 150 :y 150) 50)
+
+    SEE ALSO
+    draw-circle, draw-circle-xy, draw-filled-circle-xy, draw-filled-
+    rectangle, draw-filled-rectangle-xy, draw-line, draw-line-xy, draw-
+    lines, draw-point, draw-point-xy, draw-points, draw-rectangle, draw-
+    rectangle-xy, draw-to, draw-to-xy, modify-window-stream-method,
+    restore-default-window-stream-method
+
+
+
+

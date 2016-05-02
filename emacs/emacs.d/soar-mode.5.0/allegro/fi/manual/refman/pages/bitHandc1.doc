@@ -1,0 +1,66 @@
+
+                                                                   bit-andc1
+
+
+    FUNCTION
+    bit-andc1  -  perform a bitwise logical `and' on the complement of a bit
+      array and another bit array
+
+    USAGE
+    bit-andc1 bit-array1 bit-array2 [result-array]
+
+    SIDE EFFECTS
+    If RESULT-ARRAY is provided as  an  argument,  then  it  will  hold  the
+    results  of  the  logical  operation and thus be modified.  RESULT-ARRAY
+    must be a bit array of the same rank and dimensions  as  the  other  two
+    arguments.
+
+    DESCRIPTION
+    Returns the bitwise logical `and' of the complement  of  BIT-ARRAY1  and
+    BIT-ARRAY2.   Both  must  be bit arrays of the same rank and dimensions.
+    The result is produced by performing the operation on corresponding ele-
+    ments  of  the two arrays.  If the optional argument RESULT-ARRAY is not
+    provided, a new bit array is created and returned.  The logical `and' of
+    a bit I complemented and a bit J is 1 if and only if I is 0 and J is 1.
+
+    EXAMPLES
+    ;;  #* is the reader macro for bit vectors.
+    (setq bit-arr (make-array 4 :element-type 'bit))
+    (bit-andc1 #*1100 #*1010 bit-arr) => #*0010
+    bit-arr => #*0010
+
+    SEE ALSO
+    CLtL 17:294, bit, bit-and, bit-andc2, bit-eqv, bit-ior, bit-nand, bit-
+    nor, bit-orc1, bit-orc2, bit-xor, boole, logandc1, logandc1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

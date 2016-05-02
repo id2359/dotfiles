@@ -1,0 +1,66 @@
+
+                                                           string-capitalize
+
+
+    FUNCTION
+    string-capitalize  -  capitalize words in a string
+
+    USAGE
+    string-capitalize string [:start sn] [:end en]
+
+    DESCRIPTION
+    Returns a new string that contains the same characters as STRING  except
+    that  the  first character of each word is replaced by the corresponding
+    uppercase character and  the  remaining  characters  of  each  word  are
+    replaced by corresponding lowercase letters.  STRING must be a string or
+    a symbol.  If it is a symbol, its print name is used.
+
+    The case conversions are done  provided  the  candidate  characters  are
+    case-modifiable.  Specifically, for the first character of each word, if
+    the character satisfies both-case-p, it is replaced in the result string
+    by  the  value of char-upcase applied to the character.  For every other
+    character in each word, if both-case-p is  satisfied  for  a  character,
+    that  character  is  replaced by the result of applying char-downcase to
+    that character.  In this context, a `word' is defined to be a  substring
+    of  alphanumeric  characters  (characters  that  satisfy  alphanumericp)
+    delimited at either end by a nonalphanumeric character or by the  begin-
+    ning or the end of the STRING.
+
+    To operate on a substring of STRING, specify the :start and :end keyword
+    arguments.  The :start keyword argument indicates the index of the first
+    character of the substring to  examine.   Its  value  defaults  to  zero
+    (indicating  the  first character).  The :end keyword argument specifies
+    an index one greater than the index of the last character to examine.  A
+    value of nil is equivalent to the default, the length of the string.
+
+    If STRING is a string with a fill pointer, only the active  elements  of
+    STRING  can  be  processed.   Regardless of the substring specified, the
+    returned string is the same length as (the active length of) STRING.
+
+    EXAMPLES
+    (string-capitalize "Are you SURE it's man-made?")
+      => "Are You Sure It'S Man-Made?"
+    ;; ("It'S" is correct.)
+    (string-capitalize "Are you SURE it's man-made?"
+                       :start 8 :end 17)
+      => "Are you Sure It'S man-made?"
+    (string-capitalize 'panIC) => "Panic"
+
+    SEE ALSO
+    CLtL 18:303, alphanumericp, both-case-p, char-downcase, char-upcase,
+    nstring-capitalize, string-downcase, string-upcase
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                    math:single-float-vector
+
+
+    FUNCTION
+    single-float-vector  -  Coerce all vector elements to be single-floats
+
+    USAGE
+    single-float-vector vector
+
+    DESCRIPTION
+    Returns  a  new  vector  whose  array  element  type  (as  returned   by
+    array-element-type)  is single-float and whose elements are the elements
+    of VECTOR coerced to be single-floats.
+
+    Some functions, such as inverse and determinant only operate on matrices
+    whose  array element type is one of single-float, double-float, (complex
+    single-float), or (complex double-float).  Although these  functions  do
+    not  take  vector  arguments,  the  result  of some operations involving
+    matrices and vectors (for example, diagonal-matrix, row-matrix,  *,  and
+    others)  have  an  element type which is the most general of the element
+    types of the arguments, so it is often useful to have all  matrices  and
+    vectors  have the same element type.  Vectors can, of course, be created
+    with any element type (or even t).  Applying this function to  a  vector
+    produces  a  vector  suitable for passing to those functions.  Note that
+    VECTOR itself is unaffected by this function.  The returned vector  does
+    not share any storage with VECTOR.
+
+    It is an error if any element  of  VECTOR  cannot  be  coerced  to  type
+    single-float.   In  particular, no entry in VECTOR may be complex.  Some
+    double-floats and bignums also cannot be coerced to be single floats.
+
+    EXAMPLES
+    (setq vec (make-array 4 :initial-contents '(1 1/2 3.0 3.0d0)))
+      => #(1 1/2 3.0 3.0d0)
+    (array-element-type vec) => t
+    (setq vec1 (single-float-vector vec))
+      => #(1.0 0.5 3.0 3.0)
+    (array-element-type vec1) => single-float
+
+    (single-float-vector
+       (make-array 1 :initial-contents '(#c(1.0 2.0)))) => ERROR
+    ;;  The complex entry cannot be coerced to type SINGLE-FLOAT.
+    ;;  The error message is:
+    ;;  Error: illegal argument to float: #c(1.0 2.0)
+    ;;  Note that the error is in FLOAT, not SINGLE-FLOAT-VECTOR.
+
+    SEE ALSO
+    complex-double-float-matrix, complex-double-float-vector, complex-
+    single-float-matrix, complex-single-float-vector, double-float-matrix,
+    double-float-vector, single-float-matrix
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

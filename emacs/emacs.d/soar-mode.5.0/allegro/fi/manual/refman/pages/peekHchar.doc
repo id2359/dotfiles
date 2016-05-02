@@ -1,0 +1,132 @@
+
+                                                                   peek-char
+
+
+    FUNCTION
+    peek-char  -  peek at the next character in a stream
+
+    Usage
+    peek-char [PEEK-TYPE [INPUT-STREAM [EOF-ERROR-P [EOF-VALUE [RECURSIVE-
+      P]]]]]
+
+    SIDE EFFECTS
+    When  the  argument  PEEK-TYPE  is  non-nil,  the  stream  pointer   for
+    INPUT-STREAM   may  be  advanced  (i.e.  characters  may  be  read  from
+    INPUT-STREAM).
+
+    DESCRIPTION
+    The behavior of this function depends  on  the  value  of  the  argument
+    PEEK-TYPE.   If  it  is nil (its default value), the next character that
+    would be read from INPUT-STREAM is returned but not actually  read.   By
+    `not actually read,' we mean that the stream pointer is still located at
+    that character and it will still be the next character read by read-char
+    or  some similar function.  If PEEK-TYPE is t, whitespace characters are
+    read from INPUT-STREAM (comments are NOT treated  as  whitespace),  then
+    the  next  character  that  would  be  read  is returned (but that first
+    nonwhitespace character is not actually read).  If PEEK-TYPE is a  char-
+    acter  object,  characters  not  char= to that character object are read
+    from INPUT-STREAM until the next character char= to  that  character  is
+    encountered.  That character is returned (but not actually read).
+
+    The argument INPUT-STREAM may be  any  input  stream,  t,  or  nil.   If
+    INPUT-STREAM  is nil, the stream read will be *standard-input*, which is
+    also  the  default  value  if  INPUT-STREAM  is   not   specified.    If
+    INPUT-STREAM is t, input is read from *terminal-io*.
+
+    The remaining optional arguments have their usual  input-function  mean-
+    ings.  EOF-ERROR-P controls what happens if peek-char encounters the end
+    of INPUT-STREAM while examining characters.  If this  argument  is  true
+    (which is the default), an error is signalled when the end of the stream
+    is seen.  Otherwise no error is signalled  and  EOF-VALUE  is  returned.
+    EOF-VALUE  defaults  to  nil.  The RECURSIVE-P argument should be nil or
+    non-nil as the call is a top-level or an embedded call.  It defaults  to
+    nil.
+
+    EXAMPLES
+    (with-open-file (out "afile"
+                         :direction :output
+                         :if-exists :supersede
+                         :if-does-not-exist :create)
+      (princ "yonder   is an   important   test" out))
+      => "yonder   is an   important   test"
+    (with-open-file (in "afile")
+      (list
+       (read in)
+       (peek-char nil in)
+       (read in)
+       (peek-char nil in)
+       (read in)
+       (peek-char t in)
+       (read in)
+       (peek-char #\t in)
+       (read in)))
+      => (yonder #\space is #\a an #\i important #\t test)
+
+
+
+
+    SEE ALSO
+    CLtL 22:379, clear-input, listen, parse-integer, read, read-byte, read-
+    char, read-char-no-hang, read-delimited-list, read-from-string, read-
+    line, read-preserving-whitespace, unread-char
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

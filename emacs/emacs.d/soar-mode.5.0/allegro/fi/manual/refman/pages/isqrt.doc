@@ -1,0 +1,66 @@
+
+                                                                       isqrt
+
+
+    FUNCTION
+    isqrt  -  get the integral square root of a non-negative integer
+
+    USAGE
+    isqrt n
+
+    DESCRIPTION
+    Returns the greatest integer less than or equal to  the  exact  positive
+    square root of N.  The argument N must be a non-negative integer.
+
+    EXAMPLES
+    (isqrt 16) => 4
+    (isqrt 12) => 3
+
+    SEE ALSO
+    CLtL 12:205, sqrt
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

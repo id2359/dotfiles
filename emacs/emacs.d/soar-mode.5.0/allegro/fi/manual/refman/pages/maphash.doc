@@ -1,0 +1,66 @@
+
+                                                                     maphash
+
+
+    FUNCTION
+    maphash  -  map a function over every entry of a hash table
+
+    USAGE
+    maphash fun ht
+
+    DESCRIPTION
+    This function maps a function over all the entries in a hash table.  The
+    function  FUN is applied to two arguments, the key and the corresponding
+    value, for each entry.  The order in which the entries are processed  is
+    undefined.   After  all the entries have been processed, maphash returns
+    nil.  The argument HT must be a hash table.
+
+    This function is called for the side effects of FUN, but  care  must  be
+    exercised  in  modifying  the  hash  table with this function since such
+    modifications may cause unpredictable results.  However  two  operations
+    are  guaranteed  to  work correctly and consistently: removing the entry
+    being processed by applying remhash to the key argument passed  to  FUN,
+    and  replacing  the  value  associated with the current entry by doing a
+    setf of gethash on the key argument.
+
+    EXAMPLES
+    (hash-table-p (setq ht (make-hash-table))) => t
+    (let (klist)
+      (setf (gethash 'quick ht) 'brown)
+      (setf (gethash 'fox ht) 'jumped)
+      (setf (gethash 'over ht) 'fence)
+      (maphash #'(lambda (k v) (setq klist (cons k klist))) ht)
+      (sort klist #'string<))
+      => (fox over quick)
+
+    SEE ALSO
+    CLtL 16:285, gethash, hash-table-p, make-hash-table, remhash, setf
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

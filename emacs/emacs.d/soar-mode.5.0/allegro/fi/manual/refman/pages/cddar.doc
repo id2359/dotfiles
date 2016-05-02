@@ -1,0 +1,66 @@
+
+                                                                       cddar
+
+
+    FUNCTION
+    cddar  -  get the CDDAR of a list
+
+    USAGE
+    cddar list
+
+    DESCRIPTION
+    This is a composition of the car and cdr functions:
+
+    (cddar lis) = (cdr (cdr (car lis)))
+
+    The argument LIST must be of type list.
+
+    EXAMPLES
+    (cddar '((a b c) d)) => (c)
+
+    SEE ALSO
+    CLtL 15:262, car, cdr
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

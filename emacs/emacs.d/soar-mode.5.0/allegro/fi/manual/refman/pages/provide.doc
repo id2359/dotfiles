@@ -1,0 +1,66 @@
+
+                                                                     provide
+
+
+    FUNCTION
+    provide  -  add a module name to the *modules* list
+
+    USAGE
+    provide module-name
+
+    DESCRIPTION
+    What is returned is implementation-dependent, but this function is  used
+    for  its side-effects.  The argument MODULE-NAME must be either a string
+    or a symbol (in which case the print name of the symbol is used).   This
+    string  is  added to the list bound to the global variable *modules*, if
+    it was not already there.  Module names are compared using string=.
+
+    The modules facility in COMMON LISP consists of two  functions,  provide
+    and  require, and the global variable *modules*.  When require is called
+    with a module name as an argument, it checks *modules*  to  see  if  the
+    module  name  is  already  on  the  list  (and thus, presumably, already
+    loaded) and if it is not, it loads the file denoted by the module  name.
+    require  does  not change the value of *modules*.  provide, on the other
+    hand, adds its argument (the print name of its argument if it is a  sym-
+    bol)  to  the  *modules*  list, if it is not already there, but does not
+    load any files.  Therefore, a provide form is normally put in one of the
+    files  that  are  loaded  with a module.  The recommended order of forms
+    heading such a file is provide,  in-package,  shadow,  export,  require,
+    use-package, then import.
+
+    EXAMPLES
+    (provide :euclid)
+    (if (find :euclid *modules* :test #'string=) 'yes 'no) => yes
+
+    SEE ALSO
+    CLtL 11:188, *modules*, require
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

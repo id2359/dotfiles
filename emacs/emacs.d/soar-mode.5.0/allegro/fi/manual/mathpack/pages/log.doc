@@ -1,0 +1,66 @@
+
+                                                                    math:log
+
+
+    FUNCTION
+    log  -  get the logarithm of a number or matrix
+
+    Usage
+    log VALUE BASE
+
+    DESCRIPTION
+    This standard Common Lisp function has been modified to accept matrix as
+    well  as  scalar  values for the argument VALUE.  When VALUE is a scalar
+    (i.e. a number), this function works just as when Allegro Matrix is  not
+    loaded:  returning the logarithm of the specified value in the specified
+    BASE (which defaults to e, the base of  the  natural  logarithm)  in  an
+    appropriate numerical format.  When VALUE is a square matrix whose array
+    element type is one  of  single-float,  double-float,  (complex  single-
+    float),  (complex  double-float),  the  matrix  which  is the log of the
+    matrix VALUE in base BASE is returned.  The log of a matrix  is  defined
+    below.   It  is an error if VALUE is not a number or a matrix.  If VALUE
+    is a matrix, it is an error if VALUE is not square, if it has  an  array
+    element  type  other than the four listed above, or if its log cannot be
+    calculated  for  any  reason  (usually  because  the  matrix  cannot  be
+    inverted).
+
+    The log (or any such function applied to a matrix) is calculated as fol-
+    lows.  A transformation matrix T and its inverse , T-inv, are calculated
+    such that T-inv*x*T is diagonal (that is, the off diagonal elements  are
+    zero).  T is the matrix of eigenvectors where the vectors are the column
+    of the matrix.  The function eigen-vectors returns a matrix  whose  rows
+    are  the  eigenvectors, so T is the result of (ntranspose (eigen-vectors
+    x)).  The diagonal elements of T-inv*value*T are replaced with their log
+    to base BASE and the modified diagonal matrix is retransformed by multi-
+    plying on the left by T and on the right by T-inv.  Note that NO  check-
+    ing  is done to ensure that the diagonalized matrix is actually diagonal
+    (that is, that the off-diagonal elements are zero to machine  accuracy).
+    Only  if  the  diagonalization  process actually fails will any error be
+    signaled.  Note further that there may be more than one possible  result
+    (because  of  branch cuts, etc.), but only one result matrix, calculated
+    as described, is returned.
+
+    The returned matrix has the same floating-point precision as the  matrix
+    VALUE  but  is  always  complex.  (The internal calculations are done as
+    complex double-floats.  Even if VALUE is a real matrix, the log  of  its
+    diagonalized values may be complex.)
+
+    EXAMPLES
+    ;;  We only show LOG applied to matrices here:
+    (setq mat (make-matrix '((1.0 2.0) (-3.0 4.0))))
+    (print-matrix mat) PRINTS
+      1.0  2.0
+      -3.0 4.0
+    ;;  LOG will not work on a matrix whose element type is T:
+    (log mat) => ERROR
+    ;;  The error message is:
+    ;;  Error: Non-float matrix to function computed by diagonalization
+    ;;  Now we set the element type of the matrix passed to LOG:
+    (print-matrix (log (single-float-matrix mat))) PRINTS
+      #c(0.6407884 3.330669e-16)   #c(0.6806722 -2.220446e-16)
+      #c(-1.0210084 1.1102231e-16) #c(1.6617967 -3.8857806e-16)
+
+    SEE ALSO
+    atan, cos, exp, expt sin, sqrt
+
+

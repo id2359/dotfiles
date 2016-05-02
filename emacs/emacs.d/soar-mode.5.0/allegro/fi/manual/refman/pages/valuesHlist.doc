@@ -1,0 +1,66 @@
+
+                                                                 values-list
+
+
+    FUNCTION
+    values-list  -  return multiple values, given a list
+
+    USAGE
+    values-list list
+
+    DESCRIPTION
+    Returns the elements of LIST as multiple values.  The following identity
+    holds:
+
+    (values-list list) = (apply #'values list)
+
+    EXAMPLES
+    (values-list '(a b c d e f)) => a b c d e f
+
+    SEE ALSO
+    CLtL 7:135, values, multiple-value-list, multiple-value-call, multiple-
+    value-bind, multiple-value-setq
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

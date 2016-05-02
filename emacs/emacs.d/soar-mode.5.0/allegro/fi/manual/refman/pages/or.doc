@@ -1,0 +1,66 @@
+
+                                                                          or
+
+
+    Type SPECIFIER
+    or  -  specify the union of given data types
+
+    Usage
+    (or {TYPE}*)
+
+    DESCRIPTION
+    Specifies a data type consisting of those objects that are of  at  least
+    one  of  the given TYPES.  When an object is being checked by typep, the
+    TYPES are processed left to right until one is found that contains it.
+
+    EXAMPLES
+    (typep 2 '(or float (satisfies evenp))) => t
+    (typep 3 '(or float (satisfies evenp))) => nil
+    (typep 2 '(or)) => nil
+
+    SEE ALSO
+    CLtL 04:45, about type specifiers, and, typep
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

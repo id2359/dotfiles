@@ -1,0 +1,66 @@
+
+                                            math:complex-single-float-vector
+
+
+    FUNCTION
+    complex-single-float-vector  -  Coerce all vector elements to be complex
+      single-floats
+
+    USAGE
+    complex-single-float-vector vector
+
+    DESCRIPTION
+    Returns  a  new  vector  whose  array  element  type  (as  returned   by
+    array-element-type) is (complex single-float) and whose elements are the
+    elements of VECTOR coerced to be complex single-floats.
+
+    Some functions, such as inverse and determinant only operate on matrices
+    whose  array element type is one of single-float, double-float, (complex
+    single-float), or (complex double-float).  Although these  functions  do
+    not  take  vector  arguments,  the  result  of some operations involving
+    matrices and vectors (for example, diagonal-matrix, row-matrix,  *,  and
+    others)  have  an  element type which is the most general of the element
+    types of the arguments, so it is often useful to have all  matrices  and
+    vectors  have the same element type.  Vectors can, of course, be created
+    with any element type (or even t).  Applying this function to  a  vector
+    produces  a  vector  suitable for passing to those functions.  Note that
+    VECTOR itself is unaffected by this function.  The returned vector  does
+    not share any storage with VECTOR.
+
+    It is an error if any element  of  VECTOR  cannot  be  coerced  to  type
+    (complex  single-float).   Some  bignums  and double floats cannot be so
+    coerced.
+
+    EXAMPLES
+    (setq vec (make-array 4 :initial-contents '(1 1/2 3.0 3.0d0)))
+      => #(1 1/2 3.0 3.0d0)
+    (array-element-type vec) => t
+    (setq vec1 (complex-single-float-vector vec))
+      => #(#c(1.0 0.0) #c(0.5 0.0) #c(3.0 0.0) #c(3.0 0.0))
+    (array-element-type vec1) => (complex single-float)
+
+    SEE ALSO
+    complex-double-float-matrix, complex-double-float-vector, complex-
+    single-float-matrix, double-float-matrix, double-float-vector, single-
+    float-matrix, single-float-vector
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

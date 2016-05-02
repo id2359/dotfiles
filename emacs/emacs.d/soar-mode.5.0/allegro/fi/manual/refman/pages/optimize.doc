@@ -1,0 +1,66 @@
+
+                                                                    optimize
+
+
+    DECLARATION SPECIFIER
+    optimize  -  advise the compiler to optimize for specified qualities
+
+    USAGE
+    optimize {quality | (quality importance)}*
+
+    SIDE EFFECTS
+    The COMMON LISP system is advised that each QUALITY should be  optimized
+    according to a relative measure of qualitative importance.
+
+    DESCRIPTION
+    A form containing optimize is  a  declaration  specifier  and  can  only
+    appear  in  declare  or proclaim forms.  The declaration is advisory and
+    affects compilation only.  Several `qualities' are defined that  may  be
+    assigned   a  relative  qualitative  importance  while  compiling  forms
+    affected by the declaration or proclamation.   Some  standard  qualities
+    are  speed,  space,  safety,  and  compilation-speed.  The speed quality
+    affects  the  run-time  speed  of  compiled  code.   space  affects  the
+    compiled-code  size  and run-time space utilization.  The safety quality
+    reflects  concern  about  run-time  robustness   against   errors,   and
+    compilation-speed  specifies  the importance of the speed of compilation
+    itself.
+
+    Obviously, the different qualities have mutual interaction.   For  exam-
+    ple,  making both speed and safety of equally high importance may defeat
+    to some degree compliance with both criteria.  The  IMPORTANCE  of  each
+    quality  is  specified  by associating with it a non-negative integer in
+    the range from 0 to 3 inclusive.  (That is the  suggested  range.   Some
+    implementations  may  use a different range.)  A value of zero indicates
+    that the associated quality has little importance.   A  value  of  three
+    indicates  that  the  quality has great importance.  Note that the exact
+    effect is not at all defined and the same values of qualities  may  pro-
+    duce  very different code from the point of view of these qualities.  Of
+    course, in any implementation, correct code with correct  inputs  should
+    still  produce  the same result (up to other implementation differences)
+    at any setting of the optimization qualities.  Thus, you may  find  that
+    one  implementation  turns  off argument-count checking when speed is 3,
+    while another may also require safetytobe 0, and yet another  may  check
+    the  argument  count  in  all  compiled code regardless of the values of
+    speed or safety.  Further, implementations are free to ignore any of the
+    four qualities (meaning that identical code is produced for any value of
+    the quality, everything else being equal).
+
+    The form (QUALITY 3) may be abbreviated as QUALITY.
+
+    EXAMPLES
+    ;;  The declaration in the defun shadows the proclamation,
+    ;;  so the function MY-LENGTH (which returns the length os
+    ;;  a list) will be compiled with SPEED 3, SAFETY 0 as well
+    ;;  as SPACE 3 and COMPILATION-SPEED it default or previous
+    ;;  value.
+    (proclaim '(optimize space (speed 2) (safety 2)))
+    (defun my-length (lis)
+      (declare (optimize (safety 0) speed))
+      (do ((i 0 (+ i 1))
+           (templis lis (cdr templis)))
+          ((null templis) i)))
+
+    SEE ALSO
+    CLtL 9:160, about declarations, declaration, ftype, function, ignore,
+    inline, notinline, type
+

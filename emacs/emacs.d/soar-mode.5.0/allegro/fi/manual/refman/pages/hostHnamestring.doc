@@ -1,0 +1,66 @@
+
+                                                             host-namestring
+
+
+    FUNCTION
+    host-namestring  -  get the host component of a pathname
+
+    USAGE
+    host-namestring pathname
+
+    DESCRIPTION
+    Returns a string representing the host component of PATHNAME, which must
+    be  a  pathname, string, symbol, or stream.  If PATHNAME is a stream, it
+    must be, or have been, open to a file.
+
+    Not all the pathname components may be meaningful in any given implemen-
+    tation.   It  may not necessarily be possible to construct a valid name-
+    string  by  concatenating  the  values  returned   by   host-namestring,
+    directory-namestring, and file-namestring on a given pathname.
+
+    EXAMPLES
+    (host-namestring (make-pathname :host "franz" :device "sys$disk"
+                                    :directory "[cl.v020]"
+                                    :name "cl" :type "exe")) => "franz"
+
+    SEE ALSO
+    CLtL 23:417, directory-namestring, enough-namestring, file-namestring,
+    namestring, parse-namestring
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

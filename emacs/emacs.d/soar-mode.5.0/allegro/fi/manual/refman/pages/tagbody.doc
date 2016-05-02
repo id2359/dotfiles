@@ -1,0 +1,66 @@
+
+                                                                     tagbody
+
+
+    SPECIAL FORM
+    tagbody  -  set up an environment allowing gotos
+
+    USAGE
+    tagbody {tag | stmt}*
+
+    DESCRIPTION
+    Returns nil after the  last  STMT  is  processed.   The  statements  are
+    evaluated  sequentially,  except for symbols and integers, which are not
+    evaluated but serve as tags.  Anywhere within the tagbody, a  label  may
+    be  jumped  to  by means of go.  The scope of the labels in a tagbody is
+    lexical, and their extent is dynamic.  A label in a tagbody  shadows  an
+    identical  label in an outer tagbody.  A go to a label transfers control
+    to the innermost lexically-visible such label.
+
+    Some COMMON LISP forms, including do, do*, dotimes,  dolist,  prog,  and
+    prog* provide an implicit tagbody around their body forms.
+
+    EXAMPLES
+    (let ((x 0))
+      (tagbody loop (incf x)(if (< x 10)(go loop)))x ) => 10
+
+    (let ((x 0))
+      (tagbody
+         (apply #'(lambda (num) (if (= num 0) (go loop1) (go loop2)))
+                (list x))
+       loop1 (setq x 5) (go end)
+       loop2 (setq x 10)
+       end)
+      x) => 5
+
+    SEE ALSO
+    CLtL 7:130, block, go, let, prog
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

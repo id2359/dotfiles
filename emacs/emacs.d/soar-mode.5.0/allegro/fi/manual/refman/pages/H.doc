@@ -1,0 +1,66 @@
+
+                                                                           -
+
+
+    VARIABLE
+    -  -  the current form being read by the top-level read-eval-print loop
+
+    Usage
+    -
+
+    DESCRIPTION
+    The form currently being read by  the  top-level  read-eval-print  loop.
+    This  variable  exists  for the convenience of the user when interacting
+    with a COMMON LISP top level.  (Note: this variable is unconnected  with
+    the function - which is the generalized subtraction function.)
+
+    EXAMPLES
+    (car -) => car
+
+    SEE ALSO
+    CLtL 20:325, ***, **, +++, ++, +, ///, //, /
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                                         get
+
+
+    FUNCTION
+    get  -  retrieve a property value from the property list
+
+    USAGE
+    get symbol indicator [default]
+
+    DESCRIPTION
+    Returns the value which is paired with INDICATOR on the property list of
+    SYMBOL, and returns DEFAULT if no such pair is found.  The property list
+    is searched for a pair whose key is eq to INDICATOR.  If  no  such  pair
+    exists,  DEFAULT  is  returned.   If  DEFAULT  is  not specified, nil is
+    returned.
+
+    There is no way to distinguish  between  a  property  found  with  value
+    DEFAULT and DEFAULT being returned because no property was found.  (But,
+    as the last example shows, if DEFAULT is an object which CANNOT  be  the
+    value  of  a property, then DEFAULT being returned means the property is
+    not present on the list.  In the example, DEFAULT is a  symbol  returned
+    by gensym created when get is called.)
+
+    setf may be used with get to change the value of a property on the  pro-
+    perty  list  or  to  add  a new property.  setf does not use the DEFAULT
+    value although it is not an error to specify  it.   Other  macros  asso-
+    ciated  with setf, such as incf and push, may use the default value when
+    used in conjunction with get in the following  way.   When  the  default
+    value  is  provided and the property indicator is not found, the default
+    value is used as if were the value associated with  the  indicator,  the
+    value  is  modified,  then  it  is stored on the property list under the
+    given indicator.
+
+    The following identity holds:
+
+    (get s p) = (getf (symbol-plist s) p)
+
+    EXAMPLES
+    (setf (symbol-plist 'customers)
+      '(:smith (bonus1 basic) :jones (bonus2 basic)))
+      => (:smith (bonus1 basic) :jones (bonus2 basic))
+    (get 'customers :smith) => (bonus1 basic)
+    (get 'customers :jones) => (bonus2 basic)
+    (get 'customers :green) => nil
+    (setf (get 'customers :green) '(basic)) => (basic)
+    (get 'customers :green) => (basic)
+    (push  'bonus3 (get 'customers :green 'foo)) => (bonus3 basic)
+    (get 'customers :white 'not-a-customer) => not-a-customer
+    (push 'bonus1 (get 'customers :white '(basic))) => (bonus1 basic)
+
+    (defun prop? (symbol indicator &aux (none (gensym)))
+      "Always returns NIL if there is no property with
+      the given INDICATOR on SYMBOL"
+      (not (eq (get symbol indicator none) none)))
+
+    SEE ALSO
+    CLtL 10:164, get-properties, getf, setf, symbol-plist
+
+
+
+
+
+
+
+

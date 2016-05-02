@@ -1,0 +1,66 @@
+
+                                                                     nreconc
+
+
+    FUNCTION
+    nreconc  -  nconc two lists, reversing the first list in place (destruc-
+      tive)
+
+    USAGE
+    nreconc list1 list2
+
+    SIDE EFFECTS
+    The argument LIST1 is destroyed.
+
+    DESCRIPTION
+    Returns a list formed by destructively reversing LIST1 and concatenating
+    the  result  and  LIST2.   Both  arguments must be lists.  The following
+    identity holds:
+
+    (nreconc x y) = (nconc (nreverse x) y)
+
+    nreconc may or may not modify its first argument.  (The second  argument
+    is  not modified.)  Therefore, it is advisable to use setq to change the
+    value of a variable given as the first argument to nreconc.
+
+    EXAMPLES
+    (setq x '(a b c)) => (a b c)
+    (setq y '(d e)) => (d e)
+    (nreconc x y) => (c b a d e)
+    x => (a d e)
+
+    SEE ALSO
+    CLtL 15:269, append, nconc, revappend
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

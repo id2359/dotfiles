@@ -1,0 +1,66 @@
+
+                                                         format directive ~?
+
+
+    FORMAT DIRECTIVE
+    ~?   -  process argument as recursively called control string
+
+    USAGE
+    ~[@]?
+
+    DESCRIPTION
+    Processes the next format argument,  which  must  be  a  string,  as  an
+    indirect format control string and then resumes normal processing of the
+    current control string.  The argument which is the indirect string  nor-
+    mally must be followed by another argument (a list) which supplies argu-
+    ments to it, but if the ``@'' modifier is  given,  the  indirect  string
+    consumes  arguments  from  the same list that the current control string
+    uses.
+
+    This directive must nest properly with respect to other  format  control
+    structure  directives.   The  ``~^''  directive may be used to terminate
+    processing of the indirect string and  resume  processing  the  original
+    string after the ``~?'' directive.
+
+    EXAMPLES
+    (format nil "~? ~A" "~D ~D" '(3 4) 'foo)
+      => "3 4 foo"
+    (format nil "~@? ~A" "~D ~D" 3 4 'foo)
+      => "3 4 foo"
+
+    SEE ALSO
+    CLtL 22:399, format, format directive ~A, format directive ~D, format
+    directive ~^
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

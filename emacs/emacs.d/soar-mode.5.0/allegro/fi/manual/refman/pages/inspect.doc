@@ -1,0 +1,66 @@
+
+                                                                     inspect
+
+
+    FUNCTION
+    inspect  -  interactively examine and modify an object
+
+    Usage
+    inspect OBJECT
+
+    DESCRIPTION
+    Returns no value but allows you to interactively inspect a  data  struc-
+    ture,  with  means  to  examine or modify its components, perhaps recur-
+    sively.  The details of interaction are implementation-dependent.
+
+    EXAMPLES
+    The user who types in
+
+    (inspect 'cons)
+
+    would  see  something  like  this  in  response  (the  exact   form   is
+    implementation-dependent):
+
+    The symbol cons @ #x39301a
+      which is an external symbol in the LISP package
+       0 value --------> ..unbound..
+       1 package ------> The LISP package
+       2 function -----> #<Function CONS @ #x1a3081>
+       3 name ---------> A simple-string (4) "CONS"
+       4 plist --------> (comp::.args. ...), a list with 6 elements
+       5 hash ---------> Bit field: #x020b
+       6 flags --------> Bit field: #x2000
+
+    SEE ALSO
+    CLtL 25:442, describe, documentation
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

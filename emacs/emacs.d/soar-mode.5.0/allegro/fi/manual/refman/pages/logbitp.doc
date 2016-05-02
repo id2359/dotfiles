@@ -1,0 +1,66 @@
+
+                                                                     logbitp
+
+
+    FUNCTION
+    logbitp  -  test whether a specific bit is 1
+
+    USAGE
+    logbitp index n
+
+    DESCRIPTION
+    Returns true if the bit of N of index INDEX is 1, and  false  otherwise.
+    The  specified  bit  is  the  one  whose weight is 2 raised to the power
+    INDEX.  Both arguments must be integers; INDEX must be non-negative.   N
+    is interpreted as if represented in two's-complement notation.  The fol-
+    lowing identity holds:
+
+    (logbitp index n) = (ldb-test (byte 1 index) n)
+
+    EXAMPLES
+    (logbitp 0 3) => t
+    (logbitp 2 3) => nil
+    (logbitp 2 5) => t
+
+    SEE ALSO
+    CLtL 12:224, integer-length, ldb-test, logcount, logtest
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

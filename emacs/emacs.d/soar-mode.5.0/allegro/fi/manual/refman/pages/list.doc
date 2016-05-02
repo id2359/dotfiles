@@ -1,0 +1,66 @@
+
+                                                                        list
+
+
+    Type SPECIFIER
+    list  -  the data type comprising nil and cons
+
+    Usage
+    list
+
+    DESCRIPTION
+    Specifies the data type list, which includes conses and the  empty  list
+    () (or nil).
+
+    The printed representation of a list is a  collection  of  LISP  objects
+    surrounded  by parentheses.  How a list is printed depends on the values
+    of the variables *print-length* and *print-level*.  Elements of the list
+    left  out  because *print-level* is too small are replaced by suspension
+    points (...).  Elements left out because *print-level* is too small  are
+    replaced by sharp signs (#).  A printed representation containing either
+    cannot be read.
+
+    EXAMPLES
+    (typep '(a b) 'list) => t
+    (typep nil 'list) => t
+    (typep '(a . b) 'list) => t
+
+    SEE ALSO
+    CLtL 2:26, CLtL 4:43, about type specifiers, cons, nil, typep
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                                        getf
+
+
+    FUNCTION
+    getf  -  retrieve a specified property value from a property list
+
+    USAGE
+    getf place indicator [default]
+
+    DESCRIPTION
+    Searches the property list stored  in  PLACE  for  an  indicator  eq  to
+    INDICATOR.   If  it is found, then its associated value is returned.  If
+    it is not found and DEFAULT is specified, then DEFAULT is returned; oth-
+    erwise  nil  is  returned.   Note  that  there  is no way to distinguish
+    between an absent property and one whose value is DEFAULT.  (But, as the
+    last example shows, if DEFAULT is an object which CANNOT be the value of
+    a property, then DEFAULT  being  returned  means  the  property  is  not
+    present  on  the  list.  In the example, DEFAULT is a symbol returned by
+    gensym created when getf is called.)
+
+    setf may be used with getf, but then PLACE must be a form acceptable  to
+    setf.   Using  setf adds a new indicator-value pair to the property list
+    kept in PLACE, or updates an existing pair.   DEFAULT  is  ignored  when
+    getf is used with setf, but it is used when other macros associated with
+    setf, such as push and incf are used with getf.
+
+    EXAMPLES
+    (setf score
+      '(jim 10 john 33 david 11 cathy 6 kevin 22))
+       => (jim 10 john 33 david 11 cathy 6 kevin 22)
+    (getf score 'jim) => 10
+    (setf (getf score 'bill) 0) => 0
+    (getf score 'bill) => 0
+    (incf (getf score 'bill)) => 1
+    (getf score 'bill) => 1
+    (getf score 'lois) => nil
+    (getf score 'lois 'not-in-game) => not-in-game
+    (incf (getf score 'lois 0)) => 1
+    (getf score 'lois) => 1
+
+    (defun prop? (place indicator &aux (none (gensym)))
+      "Always returns NIL if there is no property with
+      the given INDICATOR in PLACE."
+      (not (eq (getf place indicator none) none)))
+
+    SEE ALSO
+    CLtL 10:166, get, get-properties, setf
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                      mouse-cursor-x-hotspot
+
+
+    FUNCTION
+    mouse-cursor-x-hotspot  -
+
+    Usage
+    mouse-cursor-x-hotspot X
+
+    DESCRIPTION
+    Returns the horizontal component of  the  hotspot  of  the  mouse-cursor
+    CURSOR.   The hotspot of a mouse cursor is the location, with respect to
+    the bitmap of the mouse cursor, of the cursor when viewed  as  a  single
+    point.   For  example, the hotspot might be at the tip of a mouse cursor
+    that comes to a point.
+
+    This accessor has meaning only when applied to mouse  cursors  that  are
+    bitmaps, and not the predefined mouse cursors provided by X.
+
+    EXAMPLES
+    (setq w (make-window-stream :activate-p t :title "My Window"))
+
+    (setf (window-stream-mouse-cursor w)
+      (make-mouse-cursor
+       :foreground-color black
+       :background-color white
+       :y-hotspot 10
+       :source-index 3
+       :mask-index 3
+       ))
+
+    (defun my-left-button-down (wstream &rest args)
+          (declare (ignore  args))
+          (draw-point wstream  (mouse-position wstream)
+                      :brush-width 5))
+
+    (modify-window-stream-method w :left-button-down
+                                 :after about-my-left-button-down)
+
+
+    SEE ALSO
+    active-region-mouse-cursor, flush-mouse-cursor, flushHmouseHcursor,
+    mouse-cursor-x-hotspot, mouse-cursor-y-hotspot
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

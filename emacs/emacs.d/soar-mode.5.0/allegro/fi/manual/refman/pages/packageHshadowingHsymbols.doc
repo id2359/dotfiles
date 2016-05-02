@@ -1,0 +1,66 @@
+
+                                                   package-shadowing-symbols
+
+
+    FUNCTION
+    package-shadowing-symbols  -  get list of shadowing symbols for a pack-
+      age
+
+    USAGE
+    package-shadowing-symbols package
+
+    DESCRIPTION
+    Returns a list of all symbols that have been declared  to  be  shadowing
+    symbols  in  PACKAGE.   PACKAGE  must  be a package.  A symbol becomes a
+    shadowing symbol only by calls  to  shadow  or  shadowing-import.   Such
+    calls  may  be  implicit in the way the implementation handles name con-
+    flict errors.  All of the symbols  in  the  shadowing-symbols  list  are
+    present in PACKAGE.
+
+    All name conflicts with a symbol on this list will be resolved in  favor
+    of the shadowing symbol without error or warning.  An error will be sig-
+    nalled only if a symbol with the same print name  as  a  symbol  on  the
+    shadowing-symbols list is imported with import.
+
+    EXAMPLES
+    ;;  The printed representation of a package object
+    ;;  is implementation dependent:
+    (or (find-package :geometry) (make-package :geometry))
+      => #<the GEOMETRY package, 0 internal, 0 external>
+    (shadow 'times :geometry) => t
+    (package-shadowing-symbols (find-package :geometry))
+      => (geometry::times)
+
+    SEE ALSO
+    CLtL 11:184, find-package, import, shadow, shadowing-import
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

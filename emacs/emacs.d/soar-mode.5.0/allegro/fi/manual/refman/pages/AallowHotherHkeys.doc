@@ -1,0 +1,66 @@
+
+                                                           &allow-other-keys
+
+
+    Lambda-List KEYWORD
+    &allow-other-keys  -  permit unmatched keyword arguments
+
+    USAGE
+    &allow-other-keys
+
+    DESCRIPTION
+    Specifies that, when binding keyword parameters  during  a  function  or
+    macro  call (see &key), keyword-value argument pairs that do not match a
+    keyword argument defined in the function or macro lambda list  when  the
+    function or macro was defined will be permitted.  The same effect may be
+    achieved at run time by including the keyword :allow-other-keys followed
+    by  a  non-nil  value  in the argument list.  &allow-other-keys may only
+    appear in the lambda  list  if  &key  also  appears.   The  location  of
+    &allow-other-keys  in  the lambda list is immediately following the key-
+    word arguments specifiers (whose syntax is defined in the &key entry).
+
+    Normally it is an error if a keyword argument fails to match  a  one  of
+    the  keyword arguments specified when the function or macro was defined.
+    It may be useful to avoid this error in cases where an argument list  is
+    passed  to several different functions (or macros) or passed on from one
+    function (or macro) to another.
+
+    If &key is preceded in the lambda-list by  &rest  or  &body,  specifying
+    that the remaining unprocessed arguments be bound as a list to a parame-
+    ter variable, then all keyword-value argument pairs (both those matching
+    and  those  not matching keyword arguments specified in the lambda list)
+    will be included in this list and in that way be accessible to the func-
+    tion  or  macro.   If  &rest  is  not  used,  the additional (unmatched)
+    keyword-values pairs are NOT accessible to the function or macro.
+
+    EXAMPLES
+    (defun foo (a &rest z &key ((:bar b)))
+      (list a b z)) => foo
+    ;;  Calling foo with the keyword :why causes an error:
+    (foo 1 :bar 2 :why 'because) => ERROR
+    ;;  Using :allow-other-keys permits unexpected keyword arguments:
+    (foo 1 :bar 2 :why 'because :allow-other-keys t)
+      => (1 2 (:bar 2 :why because :allow-other-keys t))
+    ;;  Redefining foo with &allow-other-keys also prevents an error:
+    (defun foo (a &rest z &key ((:bar b)) &allow-other-keys)
+      (list a b z)) => foo
+    (foo 1 :bar 2 :why 'because)
+      => (1 2 (:bar 2 :why because))
+
+    SEE ALSO
+    CLtL 5:59, about keywords, about lambda-list, :allow-other-keys, &body,
+    defun, defmacro, &key, list &rest,
+
+
+
+
+
+
+
+
+
+
+
+
+
+

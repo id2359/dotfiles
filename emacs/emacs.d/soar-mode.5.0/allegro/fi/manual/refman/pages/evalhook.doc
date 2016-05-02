@@ -1,0 +1,132 @@
+
+                                                                    evalhook
+
+
+    FUNCTION
+    evalhook  -  evaluate a form in the context of hook functions, but
+      bypassing them at the top level
+
+    USAGE
+    evalhook form evalhookfn applyhookfn [env]
+
+    DESCRIPTION
+    Returns the result of evaluating FORM.  For the duration of this evalua-
+    tion,  the variable *evalhook* is bound to EVALHOOKFN and *applyhook* is
+    bound to APPLYHOOKFN, except at the level of  FORM,  where  the  use  of
+    these  hooks  is  bypassed.   That  is, the hooks are bypassed when FORM
+    itself is evaluated, but not for its subsidiary evaluations and applica-
+    tions.
+
+    The function EVALHOOKFN is used to replace the normal evaluation  opera-
+    tion,  while  the  function  APPLYHOOKFN  is  used to replace the normal
+    function-application operation.  In addition to whatever else  they  do,
+    each  of these functions take over the responsibility for evaluating the
+    forms they are passed.  The values they return are  interpreted  as  the
+    result  of evaluating the corresponding form or applying the given func-
+    tion to its arguments.  The function EVALHOOKFN must be  a  function  of
+    two arguments, a form to be evaluated, and an environment, which is ini-
+    tially ENV, which defaults to nil.  The function APPLYHOOKFN must  be  a
+    function of three arguments, a function, a list of arguments, and and an
+    environment.  It is  only  used  when  `ordinary'  functions  are  being
+    applied.   Examples  of  non-ordinary  functions in this context include
+    apply, funcall, the mapping functions, and eval  and  macroexpand,  when
+    they invoke macro-expansion functions.
+
+    EXAMPLES
+    ;;  This simple example shows that the evalhook function skips
+    ;;  the initial evaluation, is applied to the next level of
+    ;;  evaluations and then skips deeper levels.
+    (defun eh (form &optional env)
+      (format t "hook used with ~d~%" form)
+      (eval form))
+    (evalhook '(+ (* 2 3) (/ (- 9 1) 4) 5) #'eh nil) => 13
+      PRINTS
+    hook used with (* 2 3)
+    hook used with (/ (- 9 1) 4)
+    hook used with 5
+
+    ;;  The next example shows a more complex application
+    ;;  of EVALHOOK.
+    (defvar *level* 0)
+    (defun my-trace (form)
+      (let ((*evalhook* 'my-eval-hook-fun))
+        (eval form)))
+    ;;  We compile MY-TRACE so that the EVAL form in the LAMBDA
+    ;;  expression is not interpreted and thus not traced.
+    (compile 'my-trace)
+    (defun my-eval-hook-fun (form &optional env)
+      (let (val (*level* (+ *level* 3)))
+        (format *trace-output* "~%~V@T==>~S" *level* form )
+        (setq val
+              (evalhook form #'my-eval-hook-fun nil env))
+        (format *trace-output* "~%~V@T~S"  *level* val )
+        val))
+    (my-trace '(car '(a b c))) => a
+      PRINTS
+    (car '(a b c))
+    ==>(car '(a b c))
+       ==>'(a b c)
+          (a b c)
+       a
+    a
+
+    SEE ALSO
+    CLtL 20:323, *applyhook*, apply, applyhook, *evalhook*, eval
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

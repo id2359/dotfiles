@@ -1,0 +1,132 @@
+
+                                                                      bitblt
+
+
+    FUNCTION
+    bitblt  -  transfer a bit pattern
+
+    Usage
+    bitblt SOURCE SOURCE-LFT SOURCE-BOT DEST DEST-LFT DEST-BOT [WIDTH
+      [HEIGHT [OPERATION [CLIP-REGION [REPLICATE]]]]]
+
+    SIDE EFFECTS
+    get the bit values of SOURCE are combined with the bit values  on  DEST,
+    using OPERATION, thereby destructively changing the bit values on DEST.
+
+    DESCRIPTION
+    Returns, as multiple values, the width and height  of  that  portion  of
+    SOURCE that was actually bitblted.
+
+    Conceptually, that portion of SOURCE whose left and bottom are specified
+    by  SOURCE-LFT  and  SOURCE-BOT, is laid over that portion of DEST whose
+    left and bottom are specified by DEST-LFT and DEST-BOT.  A value of  (0,
+    0) for the -LFT and -BOT arguments indicates the lower left hand corner.
+    The objects SOURCE and DEST can each be either bitmaps,  bitmap-streams,
+    or window-streams.  Only window-streams are viewable, however.
+
+    The optional arguments WIDTH and HEIGHT default to the  values  for  the
+    width  and height of the source image.  They may be used, in conjunction
+    with SOURCE-LFT and SOURCE-BOT, to delimit any desired rectangular  area
+    within  SOURCE.   The optional argument CLIP-REGION, is a region defined
+    with respect to the extent coordinate system of DEST.  It acts like  the
+    clipping  region  of  a  window-stream.  In other words, no bits on DEST
+    will be affected outside of this  region.   A  value  of  nil  means  no
+    restriction  comes  from  bitblt.   (The  clipping region of the window-
+    stream itself affects the action of bitblt, of course.)
+
+    The optional argument REPLICATE can be nil (the default) or non-nil.  If
+    it  is  non-nil,  the argument DEST will be tiled with copies of SOURCE,
+    until the clipping region (defined above)  is  completely  covered.   To
+    tile  the  entire  viewable  portion  of the window, specify CLIP-REGION
+    (which must be given a value when REPLICATE is specified) to be nil.
+
+    Finally, the optional argument OPERATION may be used to specify the log-
+    ical  operation  used for combining the bits.  All 16 boolean operations
+    are supported.  The default is boole-1.  Note  that  boolean  operations
+    associated  with  either  SOURCE  or  DEST  (such  as  a  window-stream-
+    operation) are ignored by bitblt.  bitblt uses  either  boole-1  or  the
+    operation specified as the value of the OPERATION argument.
+
+    EXAMPLES
+    ;;  We create a bitmap-stream.
+    (setf *my-bitmap-stream*
+          (make-bitmap-stream
+           :width 51
+           :height 51))
+
+    ;;  We create a window.
+
+    (setf *my-win*
+          (make-window-stream
+           :left 0
+           :width 200
+           :bottom 100
+           :height 200
+           :activate-p t :title "Window #1"))
+
+    (draw-line *my-win*
+              (make-position :x 10 :y 10)
+              (make-position :x 30 :y 40) :brush-width 1)
+
+    ;;  We transfer *my-win* to *my-bitmap-stream*.
+
+    (bitblt *my-win* 0 0 *my-bitmap-stream* 0 0)
+
+    (clear *my-win*)
+
+    ;;  now transfer the image back again
+
+    (bitblt *my-bitmap-stream* 0 0 *my-win* 0 0)
+
+    SEE ALSO
+    copy-bitmap, expand-bitmap, expr-to-bitmap, flush-bitmap, make-bitmap,
+    minimize-bitmap, rotate-bitmap, save-bitmap, window-stream-clipping-
+    region
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

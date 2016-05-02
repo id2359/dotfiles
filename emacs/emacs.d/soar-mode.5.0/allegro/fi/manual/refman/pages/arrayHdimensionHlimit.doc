@@ -1,0 +1,66 @@
+
+                                                       array-dimension-limit
+
+
+    CONSTANT
+    array-dimension-limit  -  upper exclusive bound on each dimension of an
+      array
+
+    DESCRIPTION
+    Evaluates to an integer that is one larger than the maximum  size  of  a
+    dimension of an array.  This value is implementation-dependent, but must
+    be at least 1024.
+
+    EXAMPLES
+    ;;  Implementation-dependent value:
+    array-dimension-limit => 16777216
+
+    SEE ALSO
+    CLtL 17:290, array-rank-limit, array-total-size-limit
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

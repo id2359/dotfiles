@@ -1,0 +1,66 @@
+
+                                                                      floatp
+
+
+    FUNCTION
+    floatp  -  test whether an object is a floating-point number
+
+    USAGE
+    floatp object
+
+    DESCRIPTION
+    Returns true if OBJECT is a floating-point number, and false  otherwise.
+    The following identity holds:
+
+    (floatp x) = (typep x 'float)
+
+    EXAMPLES
+    (floatp 4.4) => t
+    (floatp 4.) => nil
+    (floatp 4) => nil
+    (floatp -3.45D0) => t
+
+    SEE ALSO
+    CLtL 6:75, about type specifiers, type-of, typep
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

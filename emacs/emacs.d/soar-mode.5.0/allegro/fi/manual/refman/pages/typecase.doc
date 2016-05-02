@@ -1,0 +1,66 @@
+
+                                                                    typecase
+
+
+    MACRO
+    typecase  -  select consequents to evaluate based on the type of a key
+
+    USAGE
+    typecase keyform {(type {form}*)}*
+
+    DESCRIPTION
+    Returns the values of the last FORM evaluated in the selected clause  or
+    nil, if no clause is selected. A clause is a list of a type specifier or
+    the symbol otherwise  followed  by  any  number  of  forms.  KEYFORM  is
+    evaluated and returns a key.  The key is then compared sequentially with
+    the unevaluated TYPES until one is  found  that  is  either  the  symbol
+    otherwise  or  a type-specifier of a type to which the key belongs. Each
+    of the FORMS in that clause is evaluated, in order, and typecase returns
+    whatever  is returned by the last form evaluated. If no appropriate TYPE
+    is found, typecase returns nil.
+
+    EXAMPLES
+    (let ((x 4.0))
+      (typecase x
+        ((integer -3 3) "A small integer")
+        (integer "Must be an integer")
+        ((or complex single-float) "Must be complex or single float")
+        (float (setf x (round x))
+               "It was a float, but now it's an integer")
+        (t "argument wasn't even a number")))
+      => "Must be complex or single float"
+
+    SEE ALSO
+    CLtL 7:118, case, cond, ctypecase, etypecase
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

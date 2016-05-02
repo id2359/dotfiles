@@ -1,0 +1,66 @@
+
+                                                      array-total-size-limit
+
+
+    CONSTANT
+    array-total-size-limit  -  exclusive upper bound on total size in an ar-
+      ray
+
+    DESCRIPTION
+    Set to an integer that is one larger than the maximum  allowable  number
+    of  elements  in  an array.  This value is implementation-dependent, but
+    must be at least 1024.
+
+    EXAMPLES
+    ;;  The returned value is implementation-dependent.
+    array-total-size-limit => 16777216
+
+    SEE ALSO
+    CLtL 17:290, array-dimension-limit, array-rank-limit
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

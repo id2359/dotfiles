@@ -1,0 +1,666 @@
+
+                                                              about printing
+
+
+    NOTES
+    about printing  -  the LISP printer
+
+    DESCRIPTION
+    The purpose of the LISP printer is to generate a printed  representation
+    for  a LISP object, and print the characters of the representation to an
+    output stream.  The basic output function write essentially embodies the
+    LISP  printer.   Printed  representations  may  be broadly classified as
+    readable and not readable.  Readable printed representations can be read
+    by  the  LISP  reader  to  produce  a  LISP object.  Nonreadable printed
+    representations cannot be read to produce a LISP object.
+
+    The purpose of the LISP printer is to produce  a  representation,  as  a
+    string  of characters, of LISP objects.  This representation can be used
+    by LISP programs and by humans.
+
+    When the printed representation of an object is read, the result  is  an
+    object  that  is equal to the original object printed.  There are excep-
+    tions to this rule.  Some objects have printed representations that can-
+    not  be  read  (e.g. readtables in most implementations).  Under certain
+    conditions, some objects are printed in a form that cannot be read (e.g.
+    arrays  printed  when  *print-array*  is nil).  And some objects are not
+    printed in a way that uniquely identifies  them  (e.g.  uninterned  sym-
+    bols),  and  when read therefore produce objects not equal to the object
+    printed.  Not all objects may be printed in a way that can be read prop-
+    erly   if   certain  global  variables  have  certain  values  (e.g.  if
+    *print-escape* is nil).
+
+    Not all LISP objects have printed representations  that  can  be  inter-
+    preted  by  read  to  reproduce a LISP object equal to the original LISP
+    object.  The set of these objects is implementation-dependent.   A  LISP
+    object  of  type  number,  character,  symbol, string, or cons is always
+    printed in such a way that it can be read.  Uninterned symbols  are  not
+    read back uniquely.  When the global variable *print-gensym* is non-nil,
+    the printed representation of an uninterned symbol is such that when  it
+    is  read  a  new  uninterned symbol with the same print name is created.
+    When *print-gensym* is nil, uninterned symbols are printed  as  if  they
+    were  interned.   The global variables *print-circle* and *print-gensym*
+    must both be non-nil for the printer to distinguish  between  uninterned
+    symbols with the same print name within a single expression.
+
+    Objects of type array are only printed in a form that  can  be  read  if
+    *print-array*  is  non-nil.   With the exception of strings and bit vec-
+    tors, specialized arrays lose  their  specialization  when  printed  and
+    later read.  Printed representations of non-simple arrays always read as
+    simple  arrays.   Objects  of  types  random-state  and  pathname   have
+    implementation-dependent  printed  representations  that are nonetheless
+    readable (at least in the same implementation).  The printed representa-
+    tion of structures that are defined by defstruct may or may not be read-
+    able, depending on the nature of a user-supplied print function, if any.
+
+    The  following  paragraphs  describe  how  different  LISP  objects  are
+    printed.
+
+    o+
+      INTEGERS.  First, if *print-radix* is non-nil and *print-base* is  not
+      decimal, a radix specifier is printed (see *print-radix* for details).
+      If the integer is negative, a minus sign ``-'' is printed.   Then  the
+      absolute  value  of  the  integer is printed in the radix specified by
+      *print-base*.  Zero is always represented as ``0'', and is not signed.
+      If  *print-radix*  is  non-nil  and  *print-base* is decimal, a period
+      ``.'' is printed.
+
+    o+
+      RATIOS.  A radix specifier is printed if *print-radix* is non-nil.   A
+      minus sign is printed if the ratio is negative.  The absolute value of
+      the numerator is then printed, followed by a slash ``/'', followed  by
+      the  absolute value of the denominator.  The numerator and denominator
+      for a given ratio are printed in the base  specified  by  *print-base*
+      and  are  derived  from  a  ratio  using  the  functions numerator and
+      denominator, implying that ratios are printed in reduced form.
+
+    o+
+      FLOATING-POINT NUMBERS.  If float-sign returns -1 for the number being
+      printed,  a minus sign is printed.  This is followed by the magnitude,
+      printed in either of two ways depending on its range.  There  are  two
+      ranges:  those magnitudes M such that M is zero or 10-3 < M < 10+7 and
+      those magnitudes M' in the complementary range.
+
+      If the magnitude is in the range of  M,  it  may  be  printed  as  the
+      integral part of the floating-point number followed by a decimal point
+      ``.'', followed by the fractional part.  There is at least  one  digit
+      in  both  the integral and fractional parts of the printed representa-
+      tion.  If the format of the number is not of  the  type  specified  by
+      *read-default-float-format*, the exponent marker for the format of the
+      number is printed followed by the digit ``0''.  The integral and frac-
+      tional parts are always printed in decimal.
+
+      Numbers whose magnitude is in the range of M' are  printed  in  scien-
+      tific  notation.  The number is first scaled such that it is between 1
+      (inclusive) and 10 (exclusive).  This fractional part is then  printed
+      with  a  single  digit,  a  decimal  point, and at least one following
+      digit.  The exponent marker appropriate to the floating-point type  of
+      the  number  is then printed.  (If the floating-point type is the same
+      as that specified by the  value  of  *read-default-float-format*,  the
+      default  exponent  marker  is  printed.) Following this is printed the
+      integral decimal power of ten by which the scaled fractional part must
+      be multiplied to equal the original number.
+
+      The exponent  marker  is  one  of  the  letters  ``s''  or  ``S''  for
+      short-float numbers, ``f'' or ``F'' for single-float numbers, ``d'' or
+      ``D'' for double-float numbers, ``l'' or ``L'' for long-float numbers,
+      or  ``e''  or  ``E'' (the default exponent markers) for numbers of the
+      type specified by the current value of *read-default-float-format*.
+
+    o+
+      COMPLEX NUMBERS.  Complex numbers  are  printed  with  the  characters
+      ``#C''  or  ``#c'', followed by an open parenthesis ``('', the printed
+      representation of the real part, one space, the imaginary part, then a
+      closing parenthesis ``)''.
+
+    o+
+      CHARACTERS.  A character may print either `as  itself'  or  using  the
+      reader  syntax ``#\''.  If *print-escape* is non-nil, characters print
+      using the ``#\'' syntax (described under reader macro ``#\'').  Other-
+      wise,  the character is printed literally: for example, #\newline will
+      print in such a way that the next character printed would appear on  a
+      new line.
+
+    o+
+      SYMBOLS.  The printing of symbols are controlled by five printer vari-
+      ables:  *print-case*,  *print-circle*, *print-escape*, *print-gensym*,
+      and *print-pretty.  The variable *print-case* always controls the case
+      in  which  uppercase  characters in a print name are printed.  (Normal
+      symbols  have  print  names  that  are   entirely   uppercase.)   When
+      *print-escape*  is nil, the characters of the print name of the symbol
+      are printed without any additional characters.  Otherwise, backslashes
+      ``\''  and vertical bars ``|'' are included in the printed representa-
+      tion so that the printed symbol can be read as a symbol eq to the  one
+      being  printed.   The reader always treats tokens as either numbers or
+      symbols (see about reading).  If a symbol would otherwise  be  printed
+      and  mistakenly  read as a potential number, the escape characters are
+      used as appropriate.  Escape characters are also used when  the  print
+      name contains letters other than uppercase letters.  The current value
+      of *print-base* is assumed to be the value  of  *read-base*  when  the
+      printed representation is read.
+
+      A package qualifier is printed if the symbol is in the  keyword  pack-
+      age,  or if the symbol is not accessible (that is, not present and not
+      inherited) in the current package.  In the former case, a single colon
+      precedes  the  keyword  symbol's  print  name.   In the latter case, a
+      single-colon package qualifier is used if the symbol  is  external  in
+      its  home  package,  otherwise  a  double-colon  package  qualifier is
+      printed.  The package name used to print such a  qualified  symbol  is
+      its home package.
+
+      A symbol with no home package is printed using the reader macro syntax
+      ``#:''  followed  by  the  symbol's  print name, if *print-gensym* and
+      *print-escape* are both non-nil.  Otherwise, such an uninterned symbol
+      is printed with no distinguishing prefix at all.  If *print-circle* is
+      non-nil, unique uninterned symbols with the same print name in a  sin-
+      gle  printed expression are distinguished using the #N# and #N= reader
+      macro syntax.
+
+      The symbol nil may print as () if  *print-escape*  and  *print-pretty*
+      are both non-nil.
+
+    o+
+      STRINGS.  If *print-escape* is non-nil, strings are printed as a  dou-
+      ble  quote  character  ``"'' followed by the literal characters of the
+      string, terminated by ``"''.  If there are any ``"'' characters in the
+      string,  they  are  preceded  by  a  backslash  ``\''.  Otherwise, the
+      literal characters of the string are  output  without  any  additional
+      characters.   Only  those characters below a string's fill pointer are
+      printed.  The value of the variable *print-array* has no effect on the
+      printing of strings.
+
+    o+
+      CONSES.  Conses are always printed preferring list notation  over  dot
+      notation.   The  variables  *print-level*  and  *print-length* control
+      printing of conses.
+
+    o+
+      BIT VECTORS.  A bit vector is usually printed using the ``#*''  reader
+      macro  syntax,  which is followed by the bits of the bit vector begin-
+      ning with the lowest-order bit (the first bit element).  If,  however,
+      the  variable  *print-array* is nil, a bit vector is printed using the
+      ``#<'' reader macro syntax, which cannot be read.  Only those bits  of
+      a bit vector below its fill pointer, if any, are printed.  The size of
+      the bit vector is not indicated.
+
+    o+
+      VECTORS.  All other vectors are  normally  printed  using  the  ``#(''
+      reader macro syntax.  These two characters are followed by the printed
+      representations of the ordered elements of the vector  beginning  with
+      the first element, each element separated by whitespace from the next.
+      (Whitespace will be a single space when *print-pretty* is nil, but may
+      include  a  newline  and  spaces  or tabulation when *print-pretty* is
+      non-nil.) The printed representation of the last element of the vector
+      is followed by a closing parenthesis character ``)''.
+
+      The variables *print-level* and *print-length* affect the printing  of
+      vectors.   If  *print-array*  is  nil,  a  vector is printed using the
+      unreadable ``#<'' reader macro syntax.  Only those elements of a  vec-
+      tor below its fill pointer, if any, are printed.
+
+    o+
+      ARRAYS.  All other arrays are normally printed using the  #NA  or  #NA
+      reader  macro  syntax.   The  value  printed for N will be the decimal
+      value of the dimensionality of the array.  The elements  of  an  array
+      are  printed  in  row-major  order as a nested structure of sequences,
+      each sequence enumerating the elements of its corresponding  dimension
+      in  order.   The depth to which the sequences are nested is the dimen-
+      sionality of the array.  The sequence that follows #NA is suitable  as
+      the value of the :initial-contents argument to make-array.  Except for
+      the innermost sequences, the nested sequences comprising  the  printed
+      representation of an array will be lists.  If the array is specialized
+      to contain bits or string characters, the innermost sequences  may  be
+      printed  as  bit  vectors  or  as  strings.   Otherwise, the innermost
+      sequences will also be lists.  If *print-array* is nil,  an  array  is
+      printed using the unreadable ``#<'' reader macro syntax.
+
+    EXAMPLES
+    (write 10 :radix t :base 10.) PRINTS 10.
+    (write 10 :radix t :base 20.) PRINTS #20ra
+
+    (write (- 100/24)) PRINTS -25/6
+    (write (- 100/24) :radix t :base 12.) PRINTS #12r-21/6
+
+    (setf *read-default-float-format* 'single-float)
+    (write 4.567F-2) PRINTS 0.04567
+    ;; The format of the next results are implementation-dependent.
+    (write 4.567L6) PRINTS 4567000.0d0
+    (write 123.89D-12) PRINTS 1.2389d-10
+
+    (write #C(5/2 1.34S5)) PRINTS #c(2.5 134000.0)
+    (write #C(89 9/47)) PRINTS #c(89 9/47)
+
+    (write-to-string #\space :escape nil) => " "
+    (write-to-string #\space :escape t) => "#\\space"
+
+    (write 'cute-symbol :escape nil) PRINTS cute-symbol
+    (write 'cute-symbol :escape t) PRINTS cute-symbol
+    (write '|Cuter symbol| :escape nil) PRINTS Cuter symbol
+    (write '|Cuter symbol| :escape t) PRINTS |Cuter symbol|
+
+    (write "A string." :escape nil) PRINTS A string.
+    (write "A string." :escape t) PRINTS "A string."
+    (write "A string." :escape t :array nil) PRINTS "A string."
+
+    (write '(1 . (2 . (3 . 4)))) PRINTS (1 2 3 . 4)
+
+    (write #*010101 :array t) PRINTS #*010101
+    (write #*010101 :array t :escape nil) PRINTS #*010101
+    ;; The printed representation is implementation-dependent:
+    (write #*010101 :array nil) PRINTS #<Bit-vector @ #x4d76e9>
+
+    (write '#(0 1 #(2 #(3))) :array t) PRINTS #(0 1 #(2 #(3)))
+    ;; The printed representation is implementation-dependent:
+    (write '#(0 1 #(2 #(3))) :array nil) PRINTS #<Vector @ #x589ffe>
+
+    (write '#2A((1 2) (3 4)) :array t) PRINTS #2a((1 2) (3 4))
+    ;; The printed representation is implementation-dependent:
+    (write '#2A((1 2) (3 4)) :array nil) PRINTS #<Array, rank 2>
+
+    SEE ALSO
+    CLtL 22:365, equal, print, *print-array*, *print-base*, *print-case*,
+    *print-circle*, *print-escape*, *print-gensym*, *print-length*, *print-
+    level*, *print-pretty*, *print-radix*, write,
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

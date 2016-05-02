@@ -1,0 +1,66 @@
+
+                                                      get-internal-real-time
+
+
+    FUNCTION
+    get-internal-real-time  -  get the current time in Internal Time format
+
+    Usage
+    get-internal-real-time
+
+    DESCRIPTION
+    Returns the value of the current time as an  integer  in  Internal  Time
+    format.  Internal Time format is an implementation-dependent representa-
+    tion of time, with the units and time zero depending  (usually)  on  the
+    supplied  hardware.   This  function  is usually used to measure elapsed
+    time.  Dividing the difference of the returned values from two calls  to
+    get-internal-real-time  by  the  value of internal-time-units-per-second
+    gives the time elapsed between the two calls in seconds.
+
+    EXAMPLES
+    ;;  This value is implementation- and time-dependent.
+    (get-internal-real-time) => 3287320490
+
+    SEE ALSO
+    CLtL 25:446, get-internal-run-time, internal-time-units-per-second
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

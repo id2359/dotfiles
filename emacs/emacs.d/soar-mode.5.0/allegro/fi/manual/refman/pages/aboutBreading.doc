@@ -1,0 +1,666 @@
+
+                                                               about reading
+
+
+    NOTES
+    about reading  -  the LISP reader
+
+    DESCRIPTION
+    The purpose of the LISP reader is  to  read  characters  from  an  input
+    stream,  interpret  them as the printed representation of a LISP object,
+    and then to create and return such an object.  The basic input  function
+    read  IS  the  LISP reader.  Printed representations are produced by the
+    LISP printer, embodied in the function print.
+
+    When the printed representation of an object is read, the result  is  an
+    object  that  is equal to the original object printed.  There are excep-
+    tions to this rule.  Some objects have printed representations that can-
+    not  be  read  (e.g. readtables in most implementations).  Under certain
+    conditions, some objects are printed in a form that cannot be read (e.g.
+    arrays  printed  when  *print-array*  is nil).  And some objects are not
+    printed in a way that uniquely identifies  them  (e.g.  uninterned  sym-
+    bols),  and  when read therefore produce objects not equal to the object
+    printed.  Any object may not be printed in a way that can be read  prop-
+    erly   if   certain  global  variables  have  certain  values  (e.g.  if
+    *print-escape* is nil).
+
+    Not all LISP objects have printed representations  that  can  be  inter-
+    preted  by  read to reproduce the LISP object.  The set of these objects
+    is  implementation-dependent.   All  LISP  objects  of   types   number,
+    character,  symbol,  string,  and  cons are always printed in such a way
+    that they can be read.  Uninterned symbols are not read  back  uniquely.
+    When   the  global  variable  *print-gensym*  is  non-nil,  the  printed
+    representation of an uninterned symbol is such that when it  is  read  a
+    new  uninterned symbol with the same print name is always created.  When
+    *print-gensym* is nil, uninterned symbols are printed as  if  they  were
+    interned.   The  global variables *print-circle* and *print-gensym* must
+    both be non-nil for the printer to distinguish between  uninterned  sym-
+    bols with the same print name within a single expression.
+
+    Objects of type array are only printed in a form that  can  be  read  if
+    *print-array*  is  non-nil.   With the exception of strings and bit vec-
+    tors, specialized arrays lose  their  specialization  when  printed  and
+    later read.  Printed representations of non-simple arrays always read as
+    simple  arrays.   Objects  of  types  random-state  and  pathname   have
+    implementation-dependent  printed  representations  that are nonetheless
+    readable (at least in the same implementation).  The printed representa-
+    tion of structures that are defined by defstruct may or may not be read-
+    able, depending on the nature of a user-supplied print function, if any.
+
+    The LISP reader is a parameterized recursive-descent parser.  The funda-
+    mental   parameters  affecting  the  reader  are  the  global  variables
+    *read-base*, *read-default-float-format*, and *read-suppress*,  and  the
+    current  readtable  (the value of the global variable *readtable*).  The
+    readtable is a LISP object that embodies the  syntactic  type  of  every
+    character  that  may  be read from an input stream using read-char.  The
+    reader dispatches on the syntactic type of each character read from  the
+    input  stream.   When  characters  are  read,  they  are either ignored,
+    dispatched to reader macro functions, or assembled into syntactic  units
+    called  tokens.  Tokens are interpreted either as numbers or as symbols,
+    if they are well-formed.  (Printed representations  of  all  other  LISP
+    objects  are  implemented  using  reader  macro  characters.) Ill-formed
+    tokens signal an error.
+
+    The valid syntactic types of  characters  are  WHITESPACE,  CONSTITUENT,
+    SINGLE  ESCAPE,  MULTIPLE  ESCAPE, MACRO, and ILLEGAL.  Macro characters
+    may be TERMINATING or NONTERMINATING with respect  to  tokens.   Consti-
+    tuent characters have attributes.
+
+    Of the standard and semistandard  characters,  #\space,  #\tab,  #\page,
+    #\newline,  #\return, and #\linefeed are of type WHITESPACE in the stan-
+    dard readtable.  The characters #\", #\', #\(, #\), #\,,  #\;,  and  #\`
+    are  TERMINATING  MACRO  characters.   The  character  #\#  is  the only
+    NONTERMINATING MACRO character.  The characters  #\\  and  #\|  are  the
+    SINGLE-ESCAPE  and  MULTIPLE-ESCAPE characters, respectively.  All other
+    standard  and  semistandard  characters   (including   #\backspace   and
+    #\rubout) are CONSTITUENT characters.
+
+    Of the constituent characters, #\: is the  package  marker.   Characters
+    #\backspace  and  #\rubout  may  only appear in a token if preceded by a
+    single-escape character.  The characters #\+, #\-, #\/, #\.,  #\D,  #\d,
+    #\E,  #\e,  #\F, #\f, #\L, #\l, #\S, and #\s are all alphabetic and have
+    additional obvious meanings in tokens representing numbers.  The charac-
+    ter #\.  has meaning in representing a cons (see the entry for the ``(''
+    reader syntax).  The characters #\A through #\Z, #\a  through  #\z,  and
+    #\0  through  #\9  are  all  alphabetic and may also be digit characters
+    depending upon the radix of the numeric representation.   All  remaining
+    constituent characters are purely alphabetic.
+
+    The following paragraphs describe in some detail the algorithm  used  by
+    the LISP reader, which can be skipped by the casual reader.  These para-
+    graphs constitute a program for the reader.  The reader begins  at  step
+    1.
+
+    1  When at end-of-file in the input stream, either signal  an  error  or
+       return the end-of-file value (as specified to read).  Otherwise, read
+       one character ch.  Branch to one of the following substeps  according
+       to the syntactic type of ch.
+
+       1.1
+          ILLEGAL.  Signal an error.
+
+       1.2
+          WHITESPACE.  Discard the character and repeat step 1.
+
+       1.3
+          MACRO.  Apply the function associated with the reader macro  char-
+          acter.   The  function may return zero or one value.  If the func-
+          tion returns no value, repeat step 1.  If the function returns one
+          value, return that value as the object read (the read operation is
+          now complete).
+
+          The reader-macro function  may  read  characters  from  the  input
+          stream;  the  first  character  available  will  be  the character
+          immediately following  the  macro  character.   The  function  may
+          invoke    the    LISP    reader    recursively    (via   read   or
+          read-preserving-whitespace, for example).
+
+       1.4
+          SINGLE ESCAPE.  Read the next character lit, but if end-of-file is
+          encountered,  signal an error.  The character lit is treated as an
+          alphabetic constituent character.  (No  case  conversion  is  per-
+          formed,  contrary to the standard treatment of constituent charac-
+          ters in step 1.6 below.) Discard ch and use lit to begin  a  token
+          by proceeding to step 2.
+
+       1.5
+          MULTIPLE ESCAPE.  Discard ch and begin to accumulate a token (with
+          no characters) by proceeding to step 3.
+
+       1.6
+          CONSTITUENT.  If the character ch is a lowercase  letter,  convert
+          it  to  uppercase.   The  character ch begins a token.  Proceed to
+          step 2.
+
+    2  When at end-of-file, go to step 4.  Otherwise, continue to accumulate
+       a  token by reading a NEW character ch.  Branch to one of the follow-
+       ing substeps according to the syntactic type of ch.  (In  this  step,
+       the  reader  is accumulating a token and it is not within a multiple-
+       escape sequence.)
+
+       2.1
+          ILLEGAL.  Signal an error.
+
+       2.2
+          WHITESPACE.  Terminate the current token.  If the reader is  being
+          called via read-preserving-whitespace, the whitespace character ch
+          is `unread' (using unread-char) back onto the input stream, other-
+          wise it is discarded.  Proceed to step 4.
+
+       2.3
+          NONTERMINATING MACRO.  If ch is a lowercase character, convert  it
+          to  uppercase.  Add the character to the current token, and repeat
+          step 2.  (This treatment  is  identical  to  the  treatment  of  a
+          constituent character.)
+
+       2.4
+          TERMINATING MACRO.  Terminate the current token.  `Unread' charac-
+          ter ch using unread-char.  Proceed to step 4.
+
+       2.5
+          SINGLE ESCAPE.  Read the next character lit, but if end-of-file is
+          encountered,  signal an error.  The character lit is treated as an
+          alphabetic constituent character.  (No  case  conversion  is  per-
+          formed,  contrary to the standard treatment of constituent charac-
+          ters in step 2.7 below.) Discard ch and add  lit  to  the  current
+          token.  Repeat step 2.
+
+       2.6
+          MULTIPLE ESCAPE.  Proceed to step 3.
+
+       2.7
+          CONSTITUENT.  If ch is a lowercase character, convert it to upper-
+          case.  Add the character to the current token, and repeat step 2.
+
+    3  When at end-of-file, signal an error.  Otherwise, continue to process
+       a  multiple-escape sequence by reading a NEW character ch.  Branch to
+       one of the following substeps according to the syntactic type of  ch.
+       (In  this step, the reader is accumulating a token and it is inside a
+       multiple-escape sequence.)
+
+       3.1
+          ILLEGAL.  Signal an error.
+
+       3.2
+          WHITESPACE.  Treat ch as an alphabetic constituent  character  and
+          add it to the current token.  Repeat step 3.
+
+       3.3
+          MACRO.  Treat ch as an alphabetic constituent character and add it
+          to the current token.  Repeat step 3.
+
+       3.4
+          SINGLE ESCAPE.  Read the next character lit, but if end-of-file is
+          encountered,  signal an error.  The character lit is treated as an
+          alphabetic constituent character.  (No  case  conversion  is  per-
+          formed.) Discard ch and add lit to the current token.  Repeat step
+          3.
+
+       3.5
+          MULTIPLE ESCAPE.  Proceed to step 2.
+
+       3.6
+          CONSTITUENT.  Treat ch as an alphabetic constituent character  and
+          add  it  to  the current token.  (No case conversion is performed,
+          contrary to the standard treatment of constituent characters  out-
+          side of a multiple-escape sequence.) Repeat step 3.
+
+    4  One complete token has been read.  The token is  interpreted  as  the
+       printed  representation of a LISP object.  If the token is not legal,
+       signal an error.  Otherwise, return the represented object.
+
+    Once a token has been accumulated, it is interpreted as either a  poten-
+    tial  number  or  a  symbol.   (All  other LISP data types are read with
+    reader macros.) The syntax for numbers is more general than  the  actual
+    syntax accepted by COMMON LISP, hence the term POTENTIAL NUMBER.
+
+    Any token that is not a potential number,  and  that  does  not  consist
+    entirely  of periods (``.'') is a symbol.  Any token that is a potential
+    number but not an actual number is a reserved  token.   Reserved  tokens
+    are treated in an implementation-dependent manner.
+
+    A potential number is a token with the following attributes.
+
+    o+
+      The token is composed only of digit characters, the  ``+''  and  ``-''
+      signs,  the  ratio sign ``/'', decimal points (``.''), the `extension'
+      characters ``^'' or ``'', and the number markers.  Number markers for
+      actual numbers are the floating-point exponent characters.  Only char-
+      acters that are letters and which are not adjacent to  another  letter
+      can be number markers.  A letter in this case is presumed to be one of
+      the the characters ``A'' through ``Z'' or ``a'' through ``z'', exclud-
+      ing  those  characters that have meaning as digits in the radix of the
+      number representation.
+
+    o+
+      The token contains one or more digit  characters.   Depending  on  the
+      radix  of  the  number  representation,  some  letters  are treated as
+      digits.  If the token contains a decimal point, no letter  is  treated
+      as a digit.
+
+    o+
+      The token begins with a digit, either sign character, a decimal point,
+      or either extension character.
+
+    o+
+      The token does not end with a sign character.
+
+    A potential number may  not  contain  any  escape  characters  since  an
+    escaped  character is always treated as a solely alphabetic constituent.
+    An error is signalled if an actual number is not  representable  in  the
+    implementation.   No  error  is signalled for floating-point representa-
+    tions that are more precise than the implementation  allows:  truncation
+    or rounding is performed silently.
+
+    When the value of *read-base* is greater than 10,  some  letters  become
+    digits.  When any such letter appears in a token that may be interpreted
+    as either a potential number or a symbol, the letter is  always  treated
+    as a digit character rather than as a number marker.
+
+    A token consisting of just one period character (``.'') is  accepted  as
+    part  of the printed representation of a cons.  Any other token consist-
+    ing of just periods signals an error.
+
+    When a token cannot be interpreted as a potential number, it  is  inter-
+    preted  as  a  symbol.   Symbol  tokens may contain one or two unescaped
+    colon characters ``:''.  In the case of a single colon,  it  may  appear
+    embedded within the token or as the first or last character.  When it is
+    the first character, the rest of the token is interpreted as a symbol in
+    the keyword package.  When the colon is embedded in the token, that part
+    of the token before the colon specifies the package name of  the  symbol
+    and  that  part  after  the colon specifies the name of the symbol.  The
+    token represents an external symbol of the given  name  accessible  from
+    the  given  package.   In  the case of two colons, they must appear jux-
+    taposed and embedded within the token.  The token is again considered as
+    two  parts:  a  package name and a symbol name.  The token represents an
+    internal symbol of the given name in the given package.   If  the  token
+    contains  no  unescaped colons, the entire token is the name of a symbol
+    in the current package.  Tokens that contain an unescaped colon  as  the
+    last  character  signal an error.  In all cases where an unescaped colon
+    is valid, the other parts of the token must not have  the  syntax  of  a
+    potential number.
+
+    EXAMPLES
+    (setf *print-circle* t
+          *print-gensym* t)
+
+    ;;  Arrays printed with *PRINT-ARRAY* NIL cannot be read.
+    (read-from-string (write-to-string '#2a("abc" "def") :array nil))
+      => ERROR
+    ;;  Uninterned symbols printed with *PRINT-GENSYM* NIL read back
+    ;;  as interned symbols.
+    (read-from-string (write-to-string '(#1=#.(gensym) #1#)
+                                       :circle nil :gensym nil))
+      => (g75 g75)
+    ;;  Uninterned symbols lose their uniqueness when printed with
+    ;;  *PRINT-CIRCLE* NIL and read back.
+    (read-from-string (write-to-string '(#1=#.(gensym) #1#)
+                                       :circle nil :gensym t))
+      => (#:g77 #:g77)
+    ;;  Only when printed with both *PRINT-CIRCLE* and *PRINT-GENSYM*
+    ;;  non-NIL are uninterned symbols, within a single expression,
+    ;;  read back properly.
+    (read-from-string (write-to-string '(#1=#.(gensym) #1#)
+                                       :circle t :gensym t))
+      => (#1=#:g79 #1#)
+
+    ;;  Symbols are EQUAL only if EQ.
+    (eq (read-from-string (write-to-string 'my-symbol))
+        'my-symbol) => t
+    ;;  Reading back a printed representation creates an EQUAL object.
+    (equal (read-from-string (write-to-string "my-string"))
+           "my-string") => t
+
+    ;;; Examples of potential numbers.
+    8888Q0
+    25.7E0^35.7
+    35
+    2/5a+4/5b^3-5/7c^4
+
+    ;;; Examples of symbols.
+    4.5+
+    sig.exp
+    25!
+
+    SEE ALSO
+    CLtL 22:334, equal, read, *read-base*, *read-default-float-format*,
+    read-preserving-whitespace, *read-suppress*, *readtable*, unread-char
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

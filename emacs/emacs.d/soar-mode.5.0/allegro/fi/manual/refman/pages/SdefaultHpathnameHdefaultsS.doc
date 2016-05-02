@@ -1,0 +1,66 @@
+
+                                                 *default-pathname-defaults*
+
+
+    VARIABLE
+    *default-pathname-defaults*  -  pathname containing default pathname
+      components
+
+    USAGE
+    *default-pathname-defaults*
+
+    DESCRIPTION
+    Returns the pathname containing the default pathname  components.   This
+    global  variable is used by most functions that need default information
+    when given an incomplete pathname.
+
+    EXAMPLES
+    ;;  The printed representation of pathnames is
+    ;;  implementation-dependent.
+    (setq *default-pathname-defaults*
+      (make-pathname :directory "tools")) => #p"tools/"
+    (equalp (pathname-directory
+             (merge-pathnames
+              (make-pathname :name "fun" :type "lisp")))
+            (pathname-directory *default-pathname-defaults*)) => t
+
+    SEE ALSO
+    CLtL 23:416, make-pathname, merge-pathnames, parse-namestring,
+    pathname-directory
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

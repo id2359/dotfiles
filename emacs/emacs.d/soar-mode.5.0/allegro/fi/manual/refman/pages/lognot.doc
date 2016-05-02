@@ -1,0 +1,66 @@
+
+                                                                      lognot
+
+
+    FUNCTION
+    lognot  -  bitwise logical `not'
+
+    USAGE
+    lognot n
+
+    DESCRIPTION
+    Returns the bitwise logical `not' of its  argument,  which  must  be  an
+    integer.  The  argument and the result are interpreted as if represented
+    in two's-complement notation.
+
+    EXAMPLES
+    (lognot 2) => -3
+
+    (setf *print-base* 2
+          *print-radix* t)
+    ;;  (Since bitwise logical operations interpret integers as
+    ;;  half-infinite, the result is negative, which in two's-
+    ;;  complement representation has an infinite string of 1's
+    ;;  to the right, that is toward higher-order bits.  The
+    ;;  number #b-110 would be represented in two's-complement
+    ;;  as ...11111010.)
+    (lognot #b0101) => #b-110
+    (ldb (byte 4 0) #b-110) => #b1010
+    (logbitp 100 #b-110) => t
+
+    SEE ALSO
+    CLtL 12:223, boole, logand, logandc1, logandc2, logbitp, logcount,
+    logeqv, logior, lognand, lognor, logorc1, logorc2, logtest, logxor
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                               unuse-package
+
+
+    FUNCTION
+    unuse-package  -  remove some packages from the use-list of a specified
+      package
+
+    USAGE
+    unuse-package packages-to-unuse [package]
+
+    DESCRIPTION
+    Returns t after removing PACKAGES-TO-UNUSE from  the  list  of  packages
+    used  by  PACKAGE.   PACKAGE  must  be a package, string, or symbol, and
+    PACKAGES-TO-UNUSE may be  a  single  package  specification  (a  package
+    object  or  a  string  or  symbol naming a package) or a list of package
+    specifications.  The print name of any symbol is used as the  string  to
+    identify  a package.  PACKAGE defaults to the current package (the value
+    of *package*).
+
+    EXAMPLES
+    ;;  The printed representation of package objects
+    ;;  is implementation-dependent.
+    <cl> (IN-PACKAGE :MY-PACKAGE)
+    #<The MY-PACKAGE package, 0 internal, 0 external>
+    <cl> (setq my-sym 3)
+    3
+    <cl> (EXPORT 'MY-SYM)
+    t
+    <cl> (IN-PACKAGE :YOUR-PACKAGE)
+    #<The YOUR-PACKAGE package, 0 internal, 0 external>
+    <cl> (USE-PACKAGE :MY-PACKAGE)
+    t
+    <cl> MY-SYM
+    3
+    <cl> (UNUSE-PACKAGE :MY-PACKAGE :YOUR-PACKAGE)
+    t
+    <cl> MY-SYM
+    Error: Attempt to take the value of the unbound symbol my-sym
+    [1] <cl>
+    ;;  The error was signalled becase the symbol MY-SYM is
+    ;;  no longer visible in YOUR-PACKAGE.
+
+    SEE ALSO
+    CLtL 11:187, *package*, use-package
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

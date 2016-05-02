@@ -1,0 +1,66 @@
+
+                                                                *print-base*
+
+
+    VARIABLE
+    *print-base*  -  variable that determines radix in which rationals are
+      printed
+
+    DESCRIPTION
+    Evaluates to the radix in which rationals will be printed.  *print-base*
+    must  be an integer greater than or equal to 2 and less than or equal to
+    36.  For radices larger than ten, digits beyond  9  are  indicated  with
+    letters  of  the  alphabet.   In base 15, for example, a or A represents
+    ten, b or B eleven, c or C  twelve  and  so  on.   (Thus,  in  base  36,
+    thirty-five is represented by z or Z.)
+
+    The initial value of this variable  is  ten.   (We  give  the  value  in
+    English  since whatever the value of this variable, its value is printed
+    as `10.')
+
+    Floating-point numbers are always printed in base ten regardless of  the
+    value of this variable.
+
+    EXAMPLES
+    (let ((*print-base* 2)) (write-to-string 2)) => "10"
+    (let ((*print-base* 2)) (write-to-string 1/2)) => "1/10"
+    (let ((*print-base* 10)) (write-to-string 2)) => "2"
+    (let ((*print-base* 10)) (write-to-string 1/2)) => "1/2"
+
+    SEE ALSO
+    CLtL 22:371, about printing, *print-array*, *print-case*, *print-
+    circle*, *print-escape*, *print-gensym*, *print-length*, *print-level*,
+    *print-pretty*, *print-radix*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,230 @@
+	       INTRODUCTION TO THE SOAR-CMU ENVIRONMENT
+		    Logistics you'll want to know
+
+		   Bob Doorenbos and Virginia Peck
+
+		  created: Mon Jan 20 10:33:12 1992
+	     last modified: vapeck Tue Jan 21 21:32:37 1992
+
+       /afs/cs/project/soar/member/vapeck/new.people/fact.sheet
+
+-------
+WHAT'S THIS?
+This document lists various facts, people, guidelines, and pointers to
+life in the Soar environment at CMU.  It is aimed toward newcomers to
+the Soar group here but should also be useful for more peripheral
+people, like grad students doing elective projects or temporary
+visitors.  It can also be useful as a reference for existing users on
+what to expect on other machines. It was compiled by Bob Doorenbos and
+Gin Peck in Winter '91-92, with comments from Allen Newell and Frank
+Ritter.
+
+-------
+WHO CAN I TALK TO?
+If you've gotten this far, you've obviously been in contact with
+someone already (a project leader, an advisor, etc.) in the Soar
+group.  This person will tell you details on the how-do-I-learn,
+what-do-I-learn, and who's-going-to-teach-me questions.  There's been
+a strong interest recently on how people learn Soar; in order to
+find out what the difficulties are in the learning process, you may be
+asked if we can monitor your progress.
+
+Gin Peck and Bob Doorenbos are currently volunteering as the contact
+people if you have general or logistical questions.  They can point
+you in the right direction, explain acronyms and Soar buzz words, and
+refer you to other sources for even better answers to your questions.
+(Gin Peck, vapeck@cs, 7205 Wean, x3620; Bob Doorenbos, doorenbs@cs,
+8101 Wean, x3060)
+
+-------
+WHO'S THE SYSTEM PERSON-IN-THE-KNOW?
+Tom McGinnis, tfm@cs.  He can help with machine problems, accounts,
+and Soar bugs.  He's an all-around helpful person; it pays to
+be nice to him.
+
+-------
+WHO'S MARGE?  
+Marge Profeta, mp3r@cs, Allen and Bonnie's secretary.  She keeps track
+of the library of Soar documents and papers, arranges mass events, and
+tracks down advisors.
+
+-------
+I DON'T UNDERSTAND SOMETHING.  NOW WHAT?
+In order of preference,
+1) Ask a contact person
+2) Ask the other one
+3) Ask Tom McGinnis
+4) Ask at a Hacker's Lunch
+5) Mail to soar-bugs@cs
+
+
+-------
+HOW DO MOST PEOPLE RUN SOAR?  
+There's no one typical environment for programming Soar.  Some people
+run Soar in a regular shell window and edit code in a gnu-emacs.  Some
+people work completely in a gnu-emacs, editing code in one buffer and
+running Soar in another.  You can flip back and forth between the two
+buffers when in Soar-mode.  Then there's TAQL-mode, for easy editing
+of TAQL code in gnu-emacs, and Soar in X (SX) for a visual
+display of Soar runs.  If you want to use any of these tools or need
+help setting up a fancy environment, contact a contact person or Tom
+(tfm@cs).
+
+-------
+WHERE DO MOST PEOPLE PUT THEIR SOAR CODE?
+On the andrew file system, since it's the easiest place to store code
+when using multiple machines.  Most members of the project have a
+/afs/cs/project/soar/member/<userid> directory.
+
+-------
+DO WE HAVE PROJECT MEETINGS?
+Yes, two every week.  Both are confirmed weekly by email.  
+
+Hackers' Lunch, Tuesday, noon - 1 pm, 5120 Wean (the small conference
+room next to Allen's office).  Informal, get help with coding problems, 
+throw ideas around, bring lunch and questions.
+
+Soar Lunch, Thursday, noon - 1:30 pm, 4605 Wean.  Presentations of
+research, roundtable discussions, practice talks.  This is the big
+meeting of the week.
+		
+-------
+WHAT ARE THE VARIOUS MAILING LISTS? 
+	soar-cmu@cs   	Soar people at CMU, plus a few others
+	soar-group@cs 	Everyone, everywhere, doing Soar, and then some
+	soar-doc@cs	Documentation bug reports. 
+	soar-bugs@cs	Bug reports, help requests, etc.  If you're not 
+                        sure where to send, send here.
+	soar-taql@cs	Experienced TAQL users
+
+-------
+WHAT ARE THE SOAR WORKSHOPS?  
+Every 8 months, the Soar community gets together for a 2-3 day
+workshop.  Typical format includes lots of short presentations,
+discussion sessions, and demos.  There's usually 60-80 people in
+attendance and the site rotates between Michigan, CMU, USC-ISI,
+and Ohio State.  Everyone from CMU goes and usually doesn't want to
+talk about Soar for days afterwards.  The latest one is Soar 10,
+February 7-9, 1992, at Michigan.  All transparencies from the
+workshops are collected, copied, and handed out in bound form to the
+participants.  Ask an "older" Soarer if you would like to see an
+overview of what goes on.
+
+There's also the European version called Euro-Soar, and CMU usually
+sends a few representatives.  Soar is being used and developed
+literally world-wide -- even in Fiji, which leads to the obvious
+suggestion for where the next workshop should be.
+
+
+-------
+IS THERE A BIBLIOGRAPHY OF SOAR PAPERS?
+Check out /afs/cs/project/soar/member/biblio/soar.bib for a list of
+most Soar papers.
+
+-------
+WOW, THAT'S A LOT OF PAPERS.  IS THERE A SUGGESTED READINGS LIST FOR
+GENERAL REFERENCE OR PEOPLE JUST MILDLY INTERESTED IN SOAR?
+Allen compiled a list just for that purpose.  The latest version is
+available on-line as /afs/cs/project/soar/member/biblio/suggested.{doc,ps}
+
+-------
+HOW CAN I FIND OUT WHAT BUGS ARE ALREADY KNOWN TO EXIST IN SOAR?
+Send mail to soarhack@cs with the "Subject:" line "bug list".  You
+will receive an automatic reply consisting of the current bug list,
+one-line-per-bug.  There are other keywords you can use for the 
+subject line as well:
+
+ Subject Line                         Action
+   Subject: help                        Returns list of subject keywords
+   Subject: keywords                    Returns list of subject keywords
+   Subject: bug list                    Returns the current Bug List.
+   Subject: bug references <N>          Returns the mail messages cross-
+					  referenced to bug number <N>,
+					  where <N> is an integer.
+   Subject: digest                      Returns a short-form of the Bug
+					  List (one line per entry),
+					  sorted in priority-order.
+   Subject: priority summary            Same as "digest", above.
+   Subject: bug summary                 Same as "digest", above.
+   Subject: <anything else>             Is delivered to soarhack@cs.cmu.edu.
+
+-------
+HOW COME I CAN'T FIND A MACHINE TO RUN SOAR?  THEY ALL LOOK BUSY.
+The Soar computing environment is unique, in that our pool of shared
+machines aren't located in a lab but are instead spread out into
+members' offices.  Though a machine may sit on person X's desk, it's
+not that person's private machine - the cycles belong to everyone in
+the group.  As a member of the Soar group, you should have accounts on
+most, if not all, of the Soar machines and can run Soar jobs on any
+Soar machine that's free.
+
+BUT even with all the machines around here, it's difficult to find a
+free one.  It's easier after 5pm, but sometimes people leave Soar jobs
+running during the night too.  You'll want to run on either a
+Decstation 3100 or 5000, NOT on an RT.  
+
+Centro.soar is a special case.  Most people in the group read their
+mail and bboards, etc. on Centro, so it's usually quite crowded.
+Running Soar on Centro is usually a no-no.
+
+
+-------
+GUIDELINES FOR FINDING A PLACE TO RUN SOAR?
+
+1. Guess a machine to try.  One heuristic you can use is to finger at
+each machine (using /afs/cs/project/soar/bin/pmstat or the fingerps
+command in /afs/cs/user/ritter/.soar-aliases) and look for one
+with very few users.  Another heuristic is to try machines with large
+idle times, but this is iffy, since the accuracy of idle times varies
+from machine to machine.  Try the 5000s before trying the 3100s, since
+they are faster.  
+
+2a.  If you choose to try a 5000...
+	 Mixo.soar.cs		Rick Lewis	  	 96 Meg
+	 Sacro.soar.cs		Jill Lehman	 	 96 Meg
+	 Salta.soar.cs		Thad Polk	 	 96 Meg
+	 Shamo.soar.cs		Frank Ritter	 	 32 Meg 
+	 Spino.soar.cs		David Steier	 	 96 Meg
+	 Stego.soar.cs		Bob Doorenbos	 	128 Meg 
+	 Styraco.soar.cs	Gregg Yost	 	 32 Meg 
+	 Triceratops.soar.cs	Gary Pelton	 	 96 Meg
+
+This is what the configurations will look like in the "near future",
+as of 1/19/92. Although we have not done the experiments, it should be
+possible to run at least two Soar jobs on a 96 Meg machine, even
+conceivably three Soar jobs.  Once we find out, then running a job on
+the 96 Meg machines when another Soar job is present will be okay --
+BUT until then, follow the one-running-Soar-per-machine rule as listed
+below.
+
+Exceptions...Use Frank Ritter's machine (Shamo) and Gregg Yost's
+machine (Styraco) as last resort, because they only have 32 Meg.  Bob
+Doorenbos' machine (Stego) may be running VERY large programs and you
+should never run when one of these is running.  Use the 'top' command
+to check before you run Soar.
+
+2b. If you choose to try a 3100...
+	 Phyto.soar.cs		Jill Larkin		 24 Meg
+	 Pisano.soar.cs		Brian Milnes		 24 Meg
+	 Plateo.soar.cs		Alonso Vera		 24 Meg
+	 Probacto.soar.cs	Virginia Peck		 24 Meg
+	 Psittaco.soar.cs	Xiaoping Li		 24 Meg
+	 Ptero.soar.cs		Thomas McGinnis		 24 Meg
+         Taj.soar.cs		Dhiraj Pathak		 24 Meg
+
+When you telnet over to a 3100, first type 'ps ua' and look for
+another Soar job.  If there's no running Soar, check if someone is
+working on the console (either by idle time or by checking active
+processes).  Starting up Soar can really slow down the console to the
+point of annoying the owner.  If the coast is clear, then go ahead and
+start up Soar.
+
+We know it's confusing.  Good luck in your quest.
+
+-------
+ANYTHING ELSE? 
+Of course, lots, but you can just ask us when a question arises.  This
+document subject to constant revision. 
+
+-------
+THE END

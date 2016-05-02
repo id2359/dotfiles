@@ -1,0 +1,66 @@
+
+                                                                         nth
+
+
+    FUNCTION
+    nth  -  get the NTH element of a list
+
+    USAGE
+    nth n list
+
+    DESCRIPTION
+    Returns the NTH element of LIST, where N is an integer greater  than  or
+    equal  to  zero.   Indexing  is zero-origin, so if N is zero, the car of
+    LIST is returned.  If N is greater than or equal to the length of  LIST,
+    then nil is returned.
+
+    nth may be used with setf to change an element of a list.  In that case,
+    the argument N must be less than the length of the list.
+
+    EXAMPLES
+    (nth 2 '(a b c)) => c
+    (nth 3 '(a b c)) => nil
+    (nth 9 '(a b c)) => nil
+    (nth 0 '(a b c)) => a
+    (setq lis '(0 1 2 3)) => (0 1 2 3)
+    (setf (nth 2 lis) 'c) => (0 1 c 3)
+    lis => (0 1 c 3)
+
+    SEE ALSO
+    CLtL 15:265, car, eighth, elt, fifth, first, fourth, ninth, second,
+    seventh, sixth, tenth, third
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

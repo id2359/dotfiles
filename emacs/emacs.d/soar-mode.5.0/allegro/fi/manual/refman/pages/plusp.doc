@@ -1,0 +1,66 @@
+
+                                                                       plusp
+
+
+    FUNCTION
+    plusp  -  test whether a number is greater than zero
+
+    USAGE
+    plusp number
+
+    DESCRIPTION
+    Returns true if NUMBER is strictly  greater  than  0,  false  otherwise.
+    NUMBER  must  be  a  real  number.   If  an  implementation has separate
+    representations for positive and negative  zero,  neither  will  satisfy
+    this predicate.
+
+    EXAMPLES
+    (plusp 0.1) => t
+    (plusp 0/5) => nil
+    (plusp -3) => nil
+    (plusp *least-positive-short-float*) => t
+    (plusp 0) => nil
+
+    SEE ALSO
+    CLtL 12:196, minusp, zerop
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                                      common
+
+
+    Type SPECIFIER
+    common  -  the data type common
+
+    USAGE
+    common
+
+    DESCRIPTION
+    Specifies the data type  common,  which  consists  of  all  COMMON  LISP
+    objects.
+
+    EXAMPLES
+    (typep 2.34 'common) => t
+    (subtypep 'common 't) => t t
+
+    SEE ALSO
+    CLtL 2:35, CLtL 4:43, about type specifiers, subtype, t, typep
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

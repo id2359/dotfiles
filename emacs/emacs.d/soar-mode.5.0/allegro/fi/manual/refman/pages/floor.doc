@@ -1,0 +1,66 @@
+
+                                                                       floor
+
+
+    FUNCTION
+    floor  -  truncate a number towards negative infinity
+
+    USAGE
+    floor number [divisor]
+
+    DESCRIPTION
+    Returns two values: the result, Q, of truncating the quotient of  NUMBER
+    and  DIVISOR  towards negative infinity, and the remainder, R.  In other
+    words, the largest integer less than or equal to the quotient of  NUMBER
+    and  DIVISOR  is  returned, along with the difference between NUMBER and
+    the product of Q and DIVISOR.  DIVISOR defaults to 1, so if  DIVISOR  is
+    not  provided, the first returned value is the largest integer less than
+    or equal to NUMBER.
+
+    The arguments NUMBER and DIVISOR  must  both  be  real  numbers,  either
+    integer  or floating-point.  The format of R, the second returned value,
+    follows the rules of floating-point contagion.  It will be an integer if
+    both arguments are integers.
+
+    EXAMPLES
+    (floor .99) => 0 0.99
+    (floor -1.5) => -2 0.5
+    (floor 3 2) => 1 1
+    (floor 1/2 1/2) => 1 0
+
+    SEE ALSO
+    CLtL 12:215, ceiling, ffloor, round, truncate
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

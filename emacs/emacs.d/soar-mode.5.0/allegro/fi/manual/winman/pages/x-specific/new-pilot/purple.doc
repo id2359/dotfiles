@@ -1,0 +1,66 @@
+
+                                                                      purple
+
+
+    FUNCTION
+    purple  -  the color purple
+
+    DESCRIPTION
+    This is a constant, bound to the color purple.  The color is  read-only,
+    which means you cannot change it.
+
+    EXAMPLES
+    purple => #<Color: (rgb) 1.0, 0.0, 1.0, read-only: uninitialized>
+
+    SEE ALSO
+    black, blue, green, red, turquoise, white, yellow
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

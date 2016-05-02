@@ -1,0 +1,66 @@
+
+                                                                 char-upcase
+
+
+    FUNCTION
+    char-upcase  -  convert character to uppercase equivalent
+
+    USAGE
+    char-upcase char
+
+    DESCRIPTION
+    Returns the uppercase version of CHAR  provided  one  exists,  otherwise
+    returns  CHAR  itself.  If CHAR, which must be a character object, has a
+    different code attribute than the returned character, then  lower-case-p
+    is  true  of  CHAR.  The font and bits attributes of CHAR may affect the
+    action taken, but will not be changed in the returned character.
+
+    EXAMPLES
+    (char-upcase #\a) => #\A
+    (char-upcase #\T) => #\T
+    (upper-case-p (char-upcase #\a)) => t
+
+    SEE ALSO
+    CLtL 13:241, alpha-char-p, char-downcase, lower-case-p, upper-case-p
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                                    identity
+
+
+    FUNCTION
+    identity  -  return the argument unchanged
+
+    Usage
+    identity OBJECT
+
+    DESCRIPTION
+    Returns OBJECT.  This function is used mainly as  a  default  value  for
+    functional arguments.
+
+    EXAMPLES
+    (identity 'cons) => cons
+    (map 'vector 'identity '(ted sharon catie)) => #(ted sharon catie)
+    (apply 'identity (list 20)) => 20
+
+    SEE ALSO
+    CLtL 25:448
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

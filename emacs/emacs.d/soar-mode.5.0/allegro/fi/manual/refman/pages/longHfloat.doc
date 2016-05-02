@@ -1,0 +1,66 @@
+
+                                                                  long-float
+
+
+    Type SPECIFIER
+    long-float  -  the data type long-float
+
+    USAGE
+    {long-float | (&Elong-float [{low | (low)} [{high | (high)}]])}
+
+    DESCRIPTION
+    Specifies a data type consisting of long-format  floating-point  numbers
+    between  LOW  and  HIGH.   Either  limit  is  considered exclusive if it
+    appears in a list by itself, otherwise it is considered inclusive.   The
+    limits  should be specified as long-format floating-point numbers or may
+    be explicitly unspecified using *.  Frequently, implementations are less
+    restrictive in the numeric format of the limits.
+
+    The long-float type is the subtype of  float  with  greatest  precision.
+    The  COMMON LISP standard allows considerable COMMON LISP freedom in the
+    implementation of floats.   It  is  possible  that  long-float  will  be
+    equivalent to double-float for example.  You may discover the details of
+    the implementation you are using with  functions  like  float-precision,
+    which  returns  the  number  of  digits  in the internal representation.
+    Floating-point numbers of this type may be expressed using the  exponent
+    marker  L  or  l  (lowercase  L).   If the value of *read-default-float-
+    format* is long-float, the exponent markers e and E  also  signify  long
+    floats.
+
+    EXAMPLES
+    (typep 0.4l1 '(long-float 0.0 1.0)) => t
+    (subtypep 'long-float 'float) => t t
+    ;;  This last result is implementation-dependent.
+    (float-precision 2.0L0) => 53
+
+    SEE ALSO
+    CLtL 2:16, CLtL 4:43, CLtL 4:49, about type specifiers, double-float,
+    float, float-precision, short-float, single-float, subtypep, type-of,
+    typep
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

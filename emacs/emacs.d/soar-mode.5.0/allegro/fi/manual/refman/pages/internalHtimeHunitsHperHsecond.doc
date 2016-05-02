@@ -1,0 +1,66 @@
+
+                                              internal-time-units-per-second
+
+
+    CONSTANT
+    internal-time-units-per-second  -  number of internal units per second
+      in the internal representation of time
+
+    DESCRIPTION
+    The value of this constant is the integer that  is  the  implementation-
+    dependent  number  of  internal time units in one second.  The functions
+    get-internal-real-time and get-internal-run-time  return  integers  that
+    represent time in internal units.
+
+    EXAMPLES
+    ;;  This value is implementation-dependent.
+    internal-time-units-per-second => 1000
+
+    SEE ALSO
+    CLtL 25:446, get-internal-real-time, get-internal-run-time
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

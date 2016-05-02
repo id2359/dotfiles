@@ -1,0 +1,66 @@
+
+                                                            math:copy-matrix
+
+
+    FUNCTION
+    copy-matrix  -  get a copy of a matrix
+
+    USAGE
+    copy-matrix matrix
+
+    DESCRIPTION
+    Returns a copy of MATRIX, which must be a matrix.  The elements  of  the
+    copy  have  the  same values as the elements of MATRIX but no storage is
+    common to both matrices.
+
+    This function works on matrices only.  It cannot be used to copy a  vec-
+    tor.  (The Common Lisp function copy-seq may be used to copy vectors.)
+
+    EXAMPLES
+    (setq mat1 (make-matrix '((1.0 1.3) (2.2 4.6))))
+    (print-matrix mat1) PRINTS
+       1.0 1.3
+       2.2 4.6
+    (setq mat2 (copy-matrix mat1))
+    (print-matrix mat2) PRINTS
+       1.0 1.3
+       2.2 4.6
+
+    ;;  No storage is shared by MAT1 and MAT2, so if we
+    ;;  modify MAT1, MAT2 is unchanged.
+    (setf (aref mat1 0 0) 222.2)
+    (print-matrix mat1) PRINTS
+       222.2 1.3
+       2.2   4.6
+    (print-matrix mat2) PRINTS
+       1.0 1.3
+       2.2 4.6
+
+    SEE ALSO
+    concatenate-matrix
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

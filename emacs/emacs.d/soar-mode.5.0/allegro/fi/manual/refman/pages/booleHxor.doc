@@ -1,0 +1,66 @@
+
+                                                                   boole-xor
+
+
+    CONSTANT
+    boole-xor  -  specify bitwise logical `exclusive or' operation
+
+    DESCRIPTION
+    Used as the first argument to  boole  to  specify  the  bitwise  boolean
+    `exclusive or' operation.
+
+    EXAMPLES
+    (setf *print-base* 2
+          *print-radix* t)
+    ;;  (The printer drops leading zeros when printing integers.
+    ;;  The printed number #b110 is equivalent to #b0110.)
+    (boole boole-xor #b1100 #b1010) => #b110
+
+    SEE ALSO
+    CLtL 12:222, boole, boole-1, boole-2, boole-and, boole-andc1, boole-
+    andc2, boole-c1, boole-c2, boole-clr, boole-eqv, boole-ior, boole-nand,
+    boole-nor, boole-orc1, boole-orc2, boole-set
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

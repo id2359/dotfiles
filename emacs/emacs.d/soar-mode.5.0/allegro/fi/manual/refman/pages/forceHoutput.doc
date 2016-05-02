@@ -1,0 +1,66 @@
+
+                                                                force-output
+
+
+    FUNCTION
+    force-output  -  initiates sending all buffered output to its destina-
+      tion
+
+    Usage
+    force-output [STREAM]
+
+    SIDE EFFECTS
+    Initiates completion of all outstanding (buffered) output operations  to
+    STREAM
+
+    DESCRIPTION
+    Returns nil and initiates writing of any buffered output data to STREAM.
+    This  function  differs  from finish-output in that it does not wait for
+    completion or acknowledgement before  returning  nil.   This  function's
+    behavior  and  effect  may  differ among implementations, and among dif-
+    ferent types of streams in a single implementation.
+
+    The argument STREAM may be a stream, nil, or  t.   If  it  is  nil,  the
+    stream used is *standard-output*, which is also the default.  If it is t
+    the stream used is *terminal-io*.
+
+    EXAMPLES
+    (force-output) => nil
+
+    SEE ALSO
+    CLtL 22:384, clear-output, finish-output
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

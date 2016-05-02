@@ -1,0 +1,66 @@
+
+                                                                  boole-orc1
+
+
+    CONSTANT
+    boole-orc1  -  specify bitwise logical `or' operation, complementing
+      operand one
+
+    DESCRIPTION
+    Used as the first argument to boole to specify the bitwise boolean  `or'
+    operation  that  complements  its  first operand (the second argument to
+    boole).
+
+    EXAMPLES
+    (setf *print-base* 2
+          *print-radix* t)
+    ;;  (Since bitwise logical operations interpret integers as
+    ;;  half-infinite, the result is negative, which in two's-
+    ;;  complement representation has an infinite string of 1's
+    ;;  to the right, that is toward higher-order bits.  The
+    ;;  number #b-101 would be represented in two's-complement
+    ;;  as ...11111011.)
+    (boole boole-orc1 #b1100 #b1010) => #b-101
+    (ldb (byte 4 0) #b-101) => #b1011
+    (logbitp 100 #b-101) => t
+
+    SEE ALSO
+    CLtL 12:222, boole, boole-1, boole-2, boole-and, boole-andc1, boole-
+    andc2, boole-c1, boole-c2, boole-clr, boole-eqv, boole-ior, boole-nand,
+    boole-nor, boole-orc2, boole-set, boole-xor
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

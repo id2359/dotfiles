@@ -1,0 +1,66 @@
+
+                                                            font-installed-p
+
+
+    FUNCTION
+    font-installed-p  -  test whether a certain font is installed
+
+    Usage
+    font-installed-p SERVER-NAME
+
+    DESCRIPTION
+    Returns the alist in the list of installed fonts for the font if a  font
+    with  the  server  name  specified  is installed; otherwise returns nil.
+    SERVER-NAME must be a string.  Font server names are normally very long.
+    They  concatenate  many  attributes of a font, separating the names with
+    hyphens.  The server is  used  to  identify  the  font  to  the  server.
+    Installed  fonts  can  be  opened  using open-font.  Fonts can be opened
+    without being installed with open-font-named.
+
+    EXAMPLES
+    ;;  The *SYSTEM-FONT* on your system may be different.
+    (assoc :font-descriptor (font-attributes *system-font*))
+      => (:FONT-DESCRIPTOR .
+    "-adobe-courier-medium-r-normal--12-120-75-75-m-70-iso8859-1")
+    (font-installed-p
+    "-adobe-courier-medium-r-normal--12-120-75-75-m-70-iso8859-1")
+      => t
+
+    SEE ALSO
+    install-font, installed-fonts, open-font, open-named-font
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

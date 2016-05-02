@@ -1,0 +1,66 @@
+
+                                                                       trace
+
+
+    MACRO
+    trace  -  print information about each call to specified functions
+
+    Usage
+    trace {FUNCTION-NAME}*
+
+    SIDE EFFECTS
+    Trace information  about  each  function  FUNCTION-NAME  is  printed  to
+    *trace-output*.
+
+    DESCRIPTION
+    When no arguments are provided, returns a list  of  functions  that  are
+    currently  being  traced.   When arguments are provided, trace is called
+    for its side effects, and not for the value it  returns.  (The  language
+    does  not  specify  what  that  value  should be.) The arguments are not
+    evaluated.  All implementations must accept function names as arguments.
+    Individual  implementations  may accept additional argument forms.  Each
+    time any of the named functions is called, information about the call is
+    printed  to the stream that is the value of *trace-output*.  The printed
+    information includes at least the arguments with which the function  was
+    called  and  the  value returned, if any.  Functions that are open-coded
+    may not generate trace output.  It is not an error to invoke trace on  a
+    function  that  is currently being traced, but doing so might generate a
+    warning.
+
+    To discontinue tracing a particular function, call untrace with the name
+    of  that  function  as  one  of its arguments.  To terminate tracing all
+    currently traced functions, call untrace with no arguments.
+
+    EXAMPLES
+    (defun square-it (some-number)
+           (* some-number some-number)) => square-it
+    (defun add-two-numbers (num1 num2)
+      (+ (square-it num1) num2)) => add-two-numbers
+    (trace square-it add-two-numbers) => (square-it add-two-numbers)
+    (add-two-numbers 2 3) => 7
+
+    And the following is printed to the value of *trace-output*:
+
+    0: (add-two-numbers 2 3)
+       1: (square-it 2)
+       1: returned 4
+    0: returned 7
+
+    SEE ALSO
+    CLtL 25:440, *trace-output*, untrace
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

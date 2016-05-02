@@ -1,0 +1,66 @@
+
+                                                                  array-rank
+
+
+    FUNCTION
+    array-rank  -  get the number of dimensions of an array
+
+    USAGE
+    array-rank array
+
+    DESCRIPTION
+    Returns the number of dimensions of ARRAY.
+
+    EXAMPLES
+    (array-rank (make-array nil)) => 0
+    (array-rank (make-array '(4 6))) => 2
+    (array-rank (make-array '(1 2 3 4 5 6))) => 6
+
+    SEE ALSO
+    CLtL 17:292, array-dimension, array-dimensions, array-rank-limit,
+    array-total-size, make-array
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

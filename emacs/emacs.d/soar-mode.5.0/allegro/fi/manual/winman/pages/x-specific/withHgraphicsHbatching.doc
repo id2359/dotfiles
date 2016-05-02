@@ -1,0 +1,66 @@
+
+                                                      with-graphics-batching
+
+
+    MACRO
+    with-graphics-batching  -  buffer some graphic commands for the X server
+
+    Usage
+    with-graphics-batching {FORM}*
+
+    SIDE EFFECTS
+    For the (dynamic) duration of the with-graphics-batching form, each FORM
+    that  is  a graphics operation is buffered.  The graphics operations are
+    sent to X when Lisp's buffer fills up, or immediately when  the  dynami-
+    cally  outermost  with-graphics-batching  is  exited, either normally or
+    abnormally.
+
+    DESCRIPTION
+    Returns the last FORM.  When with-graphics-batching is  not  in  effect,
+    each  graphics  operation  is  sent  to X immediately without buffering.
+    When a lot of graphics is being done, this macro  speeds  up  processing
+    significantly.
+
+    EXAMPLES
+    (setf *my-win*
+            (make-window-stream :left 100 :bottom 100
+            :width 200 :height 200
+            :activate-p t :title "Just a Window"))
+
+    (with-graphics-batching
+     (dotimes (i 50)
+              (draw-point *my-win*
+                          (make-position :x (* 2 i)
+                                         :y (* 2 i))))
+     (draw-circle-xy *my-win* 50 50 30))
+
+    SEE ALSO
+    force-graphics-output
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

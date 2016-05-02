@@ -1,0 +1,66 @@
+
+                                                       array-row-major-index
+
+
+    FUNCTION
+    array-row-major-index  -  gets the row-major index of an array element
+      given its subscripts
+
+    USAGE
+    array-row-major-index array {subscript}*
+
+    DESCRIPTION
+    Returns the index of the given array element according to row-major ord-
+    ering.   Each  SUBSCRIPT  must  be  a non-negative integer less than the
+    corresponding dimension in ARRAY, and the  total  number  of  subscripts
+    must equal the rank of the array.  This function ignores fill pointers.
+
+    EXAMPLES
+    (array-row-major-index (make-array '(3 4)) 2 3) => 11
+    (array-row-major-index
+      (make-array '(15) :fill-pointer 12) 13) => 13
+    (array-row-major-index (make-array nil)) => 0
+
+    SEE ALSO
+    CLtL 17:293, array-dimension, array-dimensions, array-in-bounds, array-
+    rank, array-total-size, make-array
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

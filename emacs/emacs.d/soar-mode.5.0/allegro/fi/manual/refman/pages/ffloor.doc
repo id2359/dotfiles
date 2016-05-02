@@ -1,0 +1,66 @@
+
+                                                                      ffloor
+
+
+    FUNCTION
+    ffloor  -  truncate a number toward negative infinity and convert the
+      result to a floating-point number
+
+    USAGE
+    ffloor number [divisor]
+
+    DESCRIPTION
+    Returns two values, Q and R.  Q is the result of truncating the quotient
+    of  NUMBER and DIVISOR towards negative infinity, coerced to a float.  R
+    is the difference between NUMBER and Q times DIVISOR.  That is,
+
+    r = NUMBER - q*DIVISOR
+
+    The result of truncating a number toward negative infinity is the  larg-
+    est integer less than or equal to the number.
+
+    If DIVISOR is not specified, it defaults to 1.  In that case, the  floor
+    of NUMBER is returned as the first value.
+
+    The format of the first returned value is a float with the  same  format
+    as  NUMBER  (a single-float if NUMBER is rational).  The second returned
+    value follows the rules of floating-point contagion (applied before Q is
+    converted to a float).  Therefore, the second value may be an integer if
+    both of the arguments are integers.
+
+    NUMBER and DIVISOR must both be real numbers, either integer,  rational,
+    or floating-point.
+
+    EXAMPLES
+    (ffloor 5.3) => 5.0 0.3
+    (ffloor 3.5d0) => 3.0d0 0.5d0
+    (ffloor 5 2) => 2.0 1
+    (ffloor 5 -2) => -3.0 -1
+    (ffloor -5 2) => -3.0 1
+    (ffloor -5 -2) => 2.0 -1
+    (ffloor -5.2 2) => -3.0 0.8
+
+    SEE ALSO
+    CLtL 12:217, fceiling, floor, fround, ftruncate, mod
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

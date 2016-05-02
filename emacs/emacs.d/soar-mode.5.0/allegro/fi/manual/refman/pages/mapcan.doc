@@ -1,0 +1,66 @@
+
+                                                                      mapcan
+
+
+    FUNCTION
+    mapcan  -  map a function over elements of lists, destructively con-
+      catenating the results
+
+    USAGE
+    mapcan fun {list}+
+
+    DESCRIPTION
+    Returns a list consisting of the results of applying FUN  to  successive
+    elements  of  the  lists given as arguments.  Specifically, FUN is first
+    applied to the first elements (cars) of all the  lists  given  as  argu-
+    ments,  passed  in  the  same  order  as the list arguments, then to the
+    second elements of all the  lists,  continuing  until  the  end  of  the
+    shortest  list  is  reached  (at  which point, remaining elements of any
+    longer list arguments are ignored).  The value (only the first value  if
+    multiple  values  are  returned  by  FUN) of each call to FUN is stored.
+    These values must all be lists.  When the shortest list (which  may,  of
+    course,  be nil) is exhausted, all of the stored values are concatenated
+    with nconc and the resulting list is returned as the  value  of  mapcan.
+    The  argument  FUN  must be a function that accepts as many arguments as
+    there are lists.
+
+    This function differs from mapcar only in  the  way  that  the  returned
+    value  is  created.   mapcar  creates the list to be returned with list.
+    FUN may therefore return any Lisp object.  mapcan creates the list to be
+    returned  with  nconc,  and thus FUN may only return a list.  One conse-
+    quence of this difference is that mapcan may be used as a filter,  since
+    nil  values  returned  by  FUN will not appear in the result list.  Note
+    that nconc is  a  destructive  function,  which  may  modify  the  lists
+    returned by FUN.
+
+    EXAMPLES
+    (mapcan #'list
+            '(a b c)
+            '(1 2 3)
+            '(alpha beta gamma))
+       => (a 1 alpha b 2 beta c 3 gamma)
+
+    (mapcan #'(lambda (n) (and (plusp n) (list n))) '(1 -2 3 -4 5))
+       => (1 3 5)
+
+    ;;  Contrast the last result with mapcar
+    ;;  called with the same arguments:
+    (mapcar #'(lambda (n) (and (plusp n) n)) '(1 -2 3 -4 5))
+       => (1 nil 3 nil 5)
+
+    ;;  The following is an identity:
+    (mapcan fun args ...)
+       = (apply #'nconc (mapcar fun args ...))
+
+    SEE ALSO
+    CLtL 7:128, map, mapc, mapcar, mapcon, mapl, maplist
+
+
+
+
+
+
+
+
+
+

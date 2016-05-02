@@ -1,0 +1,66 @@
+
+                                                                      append
+
+
+    FUNCTION
+    append  -  make a new list with given lists of elements
+
+    USAGE
+    append {lists}*
+
+    DESCRIPTION
+    Returns a new list whose elements are  the  top-level  elements  of  the
+    argument  LISTS.   The  elements appear in the same order they appear in
+    the LISTS.  Each argument must be a true list (i.e. the final  cdr  must
+    be  nil) except the last, which can be any LISP object.  The new list is
+    formed by copying the top-level list structures  of  all  but  the  last
+    argument,  which  becomes  the  cdr  of  the last constructed cons cell.
+    append called with no arguments returns nil.  append  called  with  only
+    one  argument  returns  that argument.  Otherwise, append returns a true
+    list if the last argument is a true list and a dotted list otherwise.
+
+    EXAMPLES
+    (append '(1 2) '() '(3 4 5)) => (1 2 3 4 5)
+    (append '(a b c) 'd) => (a b c . d)
+    (append) => nil
+    (append 'a) => a
+    (append '(1 2) '(a . b)) => (1 2 a . b)
+    (append '(0 1 2) nil) => (0 1 2)
+
+    SEE ALSO
+    CLtL 15:268, concatenate, copy-list, list, list*, nconc
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

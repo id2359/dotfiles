@@ -1,0 +1,132 @@
+
+                                                          uninstall-colormap
+
+
+    FUNCTION
+    uninstall-colormap  -  uninstall a a LISP and server colormap
+
+    Usage
+    uninstall-colormap COLORMAP
+
+    SIDE EFFECTS
+    The installed server colormap (the one  which  displays  colors  on  the
+    screen)  is  changed.   Most displayed colors on the screen will also be
+    changed.
+
+    DESCRIPTION
+    Returns nil but this function is called for  its  side  effects.   Every
+    LISP  colormap  has  a server colormap associated with it.  The argument
+    COLORMAP must be a LISP colormap.  If  the  server  colormap  associated
+    with  COLORMAP is the installed server colormap (the one used to display
+    colors on the screen), that server colormap is uninstalled.  The  previ-
+    ously  installed LISP colormap and its associated server colormap become
+    the installed colormaps.
+
+    It is unusual to have more than one LISP colormap, so this  function  is
+    usually  never  called.  Even if you do use more than one LISP colormap,
+    you may not have  to  call  this  function  since  many  window-managers
+    (specifically those that are ICCCM compliant) will install and uninstall
+    LISP (and associated server) colormaps automatically as the  mouse  move
+    about  the  screen.   (Each window-stream has a colormap associated with
+    it, returned by the functiom window-stream-colormap.  That  colormap  is
+    installed  by the window manager when the mouse cursor enters the window
+    and uninstalled when the cursor leaves the window.)
+
+    If your window manager is not ICCCM compliant or you do not use a window
+    manager,  you  can  call this function yourself to uninstall a colormap.
+    To simulate the ICCCM compliant window manager behavior,  you  can  hang
+    this  function  on window-stream mouse cursor our (or frame mouse cursor
+    out) methods so it will be called when the mouse leaves a window.
+
+    It is not an error to apply this function to a  colormap  which  is  not
+    currently installed.  Doing so has no effect, however.
+
+    EXAMPLES
+    (setf *my-win*
+      (make-window-stream :left 100 :bottom 100
+                          :width 200 :height 200
+                          :activate-p t :title "Just a Window Lois"))
+
+    ;; This will be an array to store some colors.
+    (setq colors (make-array 10))
+    (dotimes (i 10)
+      (setf (elt colors i)(make-color :level (/ i 10))))
+
+    ;; Create a new colormap and install the colors in it.
+
+    (setq my-colormap (create-colormap :preallocate (list white black)))
+
+    (dotimes (i 10)
+      (install-color  (elt colors i) my-colormap))
+
+    ;; Make my-colormap the current colormap used by the server.
+    (install-colormap  my-colormap)
+
+    ;; You should see circles in 10 shades of gray.
+    (dotimes (i 10)
+      (draw-filled-circle
+       *my-win*
+       (make-position :x (* i 10) :y  (* i 10)) 50
+                      :color (elt colors i)))
+
+    ;;  Uninstall the colormap.  The colors of the circles
+    ;;  should change.  There new colors are undefined.
+    (uninstall-colormap my-colormap)
+
+    SEE ALSO
+    install-color, install-colormap, make-color, make-colormap, window-
+    stream-colormap
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

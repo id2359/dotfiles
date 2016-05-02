@@ -1,0 +1,132 @@
+
+                                                           mouse-cursor-move
+
+
+    METHOD
+    mouse-cursor-move  -  respond to a mouse-cursor-move event
+
+    Usage
+    mouse-cursor-move OBJECT MOUSE-STATE TRANSITION
+
+    DESCRIPTION
+    The system calls this method whenever the mouse cursor enters  into  the
+    region  occupied  by  an  object  that responds to mouse events, and the
+    object is not occluded by any other  window-streams  or  active-regions.
+    The argument OBJECT must be either a WINDOW STREAM, or an ACTIVE REGION.
+
+    To monitor mouse-move events for every window-stream  and  active-region
+    would  be  computationally expensive.  Thus no move events are generated
+    unless the function control-mouse-cursor-move-events  has  already  been
+    called with OBJECT as an argument.
+
+    When a move-event occurs, the mouse-cursor-move method calls the list of
+    functions  returned by either window-stream-mouse-cursor-move or active-
+    region-mouse-cursor-move, depending on the type of the object.
+
+    The  argument  MOUSE-STATE  is  a  mouse-state  and  the  the   argument
+    TRANSITION  is  a  mouse  event.   In  the  case of the mouse-cusor-move
+    method, the mouse event is the constant *mouse-cursor-move-event*.   The
+    POSITION  component  of  MOUSE-STATE  is  the  position of the mouse, in
+    extent coordinates, at the time when the event occurred.
+
+    WHether an  object  (a  window-stream  or  an  active-region)  generates
+    mouse-cursor-move  events depends on whether the function control-mouse-
+    cursor-move-event has been called with the correct arguments.   See  the
+    description  of  that  function  for complete details.  It allows you to
+    enable and disable catching of cursor move events,  and  further  allows
+    you to specify whether you want all such events or a subset.
+
+    Assuming control-mouse-cursor-move-events has been called so  that  move
+    events  are  caught, an event will be generated when the sursor moves in
+    OBJECT.  Thus, the first event will be generated soon (VERY soon)  after
+    the  cursor  enters  OBJECT.   At that time, the list of functions asso-
+    ciated with the mouse-cursor-move method is called.  This list  defaults
+    to  nil,  so  that no action is taken.  For a particular object, you can
+    use window-stream-mouse-cursor-move  or  active-region-mouse-cursor-move
+    to  get  the list of functions that the method calls.  You can customize
+    the mouse-cursor-move method by changing this list.  Do  this  by  using
+    modify-window-stream-method   or   modify-active-region-method,   or  by
+    replacing the list entirely with setf.  You can restore the list to  its
+    original  default  state  with  restore-default-window-stream-method  or
+    restore-default-active-region-method, as appropriate.
+
+    The mouse-cursor-move method returns what is returned by the last  func-
+    tion in the list of functions called by the method. If this list has not
+    been changed from its initial value, mouse-cursor-move returns nil.
+
+    EXAMPLES
+    ;;  We define a mouse-cursor-move-method.
+    (defun my-mouse-cursor-move (wstream mouse-state event)
+      (declare (ignore event))
+      (format wstream "Cursor is now out. ~%"))
+
+    ;;  We make a window and hang a mbutton method on it.
+    (setf *my-win*
+          (make-window-stream
+           :left 100 :bottom 100
+           :width 200 :height 200
+           :activate-p  t))
+    (modify-window-stream-method *my-win* :mouse-cursor-move
+                                 :after 'my-mouse-cursor-move)
+
+    ;;  the list of functions that the method calls
+    (window-stream-mouse-cursor-move *my-win*)
+      => (default-window-stream-mouse-cursor-move-method
+           my-mouse-cursor-move)
+
+    SEE ALSO
+    button, left-button-down, left-button-up, middle-button-down, middle-
+    button-up, modify-active-region-method, modify-window-stream-method,
+    mouse-cursor-in, restore-default-active-region-method, restore-default-
+    window-stream-method, right-button-down, right-button-up
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

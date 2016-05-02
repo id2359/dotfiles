@@ -1,0 +1,66 @@
+
+                                                                    subtypep
+
+
+    FUNCTION
+    subtypep  -  test whether one type is subtype of another
+
+    USAGE
+    subtypep type2 type2
+
+    DESCRIPTION
+    This function attempts to determine the relationship between two  types.
+    Two  values  are returned.  If TYPE1 is definitely a subtype of TYPE2, t
+    and t are returned.  If TYPE1 is definitely NOT a subtype of TYPE2,  nil
+    and  t  are returned.  If the relationship cannot be determined, nil and
+    nil are returned.  The second value value indicates the certainty of the
+    first value returned.
+
+    EXAMPLES
+    (subtypep 'integer 'number) => t t
+    (subtypep 'integer 'integer) => t t
+    (subtypep 'integer 'float) => nil t
+    (subtypep '(satisfies plusp) '(satisfies oddp)) => nil nil
+
+    SEE ALSO
+    CLtL 6:72, about type specifiers, type-of, typep
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

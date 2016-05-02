@@ -1,0 +1,66 @@
+
+                                                                          eq
+
+
+    FUNCTION
+    eq  -  test whether arguments denote the same object
+
+    USAGE
+    eq x y
+
+    DESCRIPTION
+    Returns true if arguments  X  and  Y  are  implementationally  identical
+    objects.   (Being  eq  means that the arguments refer to the same memory
+    address.) Note that eq is a stringent  test:  objects  having  the  same
+    printed representation are not necessarily eq.  Moreover, constants that
+    are eq in compiled code may not be eq in interpreted code.
+
+    Numbers and characters cannot be reliably or portably be  compared  with
+    eq.   They  should  instead  be  compared with eql, or = for numbers and
+    char= for characters.
+
+    EXAMPLES
+    (eq 'a 'a) => t
+    (eq (cons 'a nil) (cons 'a nil)) => nil
+
+    SEE ALSO
+    CLtL 6:77, about equality, eql, equal, equalp
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                                   read-line
+
+
+    FUNCTION
+    read-line  -  read characters terminated by newline
+
+    Usage
+    read-line [INPUT-STREAM [EOF-ERROR-P [EOF-VALUE [RECURSIVE-P]]]]
+
+    SIDE EFFECTS
+    Positions the stream pointer at the next  position  after  the  newline.
+    The next input operation will thus read the next object from the stream.
+
+    DESCRIPTION
+    Returns two values: a character string constructed out of the characters
+    read,  and  a  flag  that  is nil unless the line was terminated with an
+    end-of-file rather than a newline.  This function reads successive char-
+    acters  from INPUT-STREAM, without interruption, until a #\newline char-
+    acter is read or the end of the stream is encountered.  The #\newline is
+    discarded.
+
+    The value of INPUT-STREAM must be a stream.  If it is not specified,  or
+    is specified as nil, the value of INPUT-STREAM is the value of the vari-
+    able *standard-input*.  If the argument INPUT-STREAM is specified as  t,
+    the value of INPUT-STREAM is the value of the variable *terminal-io*.
+
+    The argument EOF-ERROR-P controls what  happens  when  the  end  of  the
+    INPUT-STREAM  is reached.  (If the stream is open to a file, the end-of-
+    file is the end of the stream.  If the stream is reading from a  string,
+    the  end  of  the  string  is  the  end  of  the stream.  The concept is
+    straightforwardly extended to specialized streams.) If the value of  the
+    argument  is  t,  the  default,  an error is signalled.  However, if the
+    value of the argument is nil, then in most situations an  error  is  not
+    signalled.  Instead,  the  read-line function terminates and returns the
+    value of EOF-VALUE.  EOF-VALUE defaults to nil.
+
+    The argument RECURSIVE-P indicates whether or not this  is  a  recursive
+    call to read-line.  Whether a call to read is recursive need to be known
+    for three reasons.  First, referents #N= for the syntactic forms #N# are
+    unique  to  the outermost expression being read.  Second, whether or not
+    to preserve whitespace is a  property  of  the  outermost  call  to  the
+    reader,  either read or read-preserving-whitespace.  Third, encountering
+    the end of a stream has a different meaning in a recursive call than  in
+    a  top-level  call, since encountering the end of a stream in the middle
+    of a printed representation is ALWAYS and error.
+
+    EXAMPLES
+    (with-open-file (out "newfile" :direction :output
+                         :if-exists :overwrite
+                         :if-does-not-exist :create)
+      (format out "now is the time~%" )
+      (format out "to come~% to the aid" )
+      (format out  "of the country" ))
+
+    (setq in (open "newfile" :direction :input))
+    (read-line in nil 'done) => "now is the time" nil
+    (read-line in nil 'done) => "to come"
+    (read-line in nil 'done) => "to the aidof the country"
+    (read-line in nil 'done) => done
+    (close in)
+
+    SEE ALSO
+    CLtL 22:378, about reading, read, read-byte, read-char, read-char-no-
+    hang, read-delimited-list, read-from-string, read-preserving-whitespace,
+    write-line

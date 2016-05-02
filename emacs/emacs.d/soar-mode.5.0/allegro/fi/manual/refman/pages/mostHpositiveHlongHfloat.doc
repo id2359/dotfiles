@@ -1,0 +1,66 @@
+
+                                                    most-positive-long-float
+
+
+    CONSTANT
+    most-positive-long-float  -  the long-float closest to positive infinity
+
+    DESCRIPTION
+    This constant evaluates to the value of the long-float number nearest to
+    (but   still   different   from)   positive  infinity.   This  value  is
+    implementation-dependent.
+
+    EXAMPLES
+    ;;  This value is implementation-dependent.
+    most-positive-long-float => 4.4942328371557866d+307
+
+    SEE ALSO
+    CLtL 12:232, about numeric constants
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

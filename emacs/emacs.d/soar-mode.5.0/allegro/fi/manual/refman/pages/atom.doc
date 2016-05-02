@@ -1,0 +1,66 @@
+
+                                                                        atom
+
+
+    Type SPECIFIER
+    atom  -  the data type comprising everything but conses
+
+    Usage
+    atom
+
+    DESCRIPTION
+    Specifies the data type consisting of non-conses.
+
+    EXAMPLES
+    (typep 'a 'atom) => t
+    (typep '(a) 'atom) => nil
+
+    SEE ALSO
+    CLtL 4:43, about type specifiers, atom, cons, typep
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

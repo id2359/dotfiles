@@ -1,0 +1,66 @@
+
+                                                          vector-push-extend
+
+
+    FUNCTION
+    vector-push-extend  -  store into a vector at the fill pointer, making
+      necessary adjustment to vector length
+
+    USAGE
+    vector-push-extend element vector [extension]
+
+    SIDE EFFECTS
+    The argument VECTOR will contain the  argument  ELEMENT  stored  at  the
+    location in the vector indexed by the fill pointer, and the value of the
+    fill pointer is increased by one.
+
+    DESCRIPTION
+    The action of this function depends on the value  of  the  fill  pointer
+    when  the  function  is  called.   If  the fill pointer is less than the
+    length of VECTOR, ELEMENT is stored into VECTOR at the location  denoted
+    by  the value of the fill pointer, the fill pointer is incremented by 1,
+    and the index of ELEMENT (the former  value  of  the  fill  pointer)  is
+    returned.  The argument EXTENSION is ignored in this case.
+
+    If the fill pointer equals the length of VECTOR, then vector-push-extend
+    tries  to  adjust the length of VECTOR, increasing it by EXTENSION if an
+    integer value is specified for that argument, or by  an  implementation-
+    dependent amount if EXTENSION is not specified.  Then, ELEMENT is stored
+    into VECTOR, the fill pointer in incremented, and the index  of  ELEMENT
+    is  returned, just as above.  VECTOR can only be extended if it is adju-
+    stable (that is if the :adjustable keyword argument  to  make-array  was
+    specified  true  when  VECTOR  was  created).   An error is signalled if
+    VECTOR is not adjustable and needs to be extended.  It is also an  error
+    if VECTOR does not have a fill pointer.
+
+    EXAMPLES
+    (setq my-vec (make-array '(4) :initial-contents '(a b c nil)
+                             :adjustable t :fill-pointer 3))
+      => #(a b c)
+    (vector-push-extend 'd my-vec 2) => 3
+    my-vec => #(a b c d)
+    (array-dimension my-vec 0) => 4
+    (vector-push-extend 'e my-vec 2) => 4
+    my-vec => #(a b c d e)
+    (array-dimension my-vec 0) => 6
+
+    SEE ALSO
+    CLtL 17:296, :adjustable, adjust-array, array-has-fill-pointer-p,
+    :fill-pointer, fill-pointer, make-array, vector-pop, vector-push
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

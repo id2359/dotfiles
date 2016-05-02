@@ -1,0 +1,66 @@
+
+                                                                       round
+
+
+    FUNCTION
+    round  -  round a number to the nearest integer
+
+    USAGE
+    round number [divisor]
+
+    DESCRIPTION
+    Returns two values, Q and R.  Q is the integer result  of  rounding  the
+    quotient  of NUMBER and DIVISOR.  R is the difference between NUMBER and
+    Q times DIVISOR.  That is
+
+    r = NUMBER - q*DIVISOR
+
+    The result of rounding a number is the integer closest in value  to  the
+    number.   If  a number is equidistant between two integers (that is, has
+    fractional part 0.5 exactly), the result is the nearest even integer.
+
+    If DIVISOR is not specified, it defaults to 1, so the  first  result  is
+    NUMBER rounded.
+
+    The format of the second returned value follows the rules  of  floating-
+    point  contagion.  Therefore, the second value may be an integer if both
+    of the arguments are integers.
+
+    Both arguments must  be  real  numbers,  either  integer,  rational,  or
+    floating-point.
+
+    EXAMPLES
+    (round .99) => 1 -0.001
+    (round -1.5) => -2 0.5
+    (round 3 2) => 2 -1
+
+    SEE ALSO
+    CLtL 12:215, ceiling, floor, fround, truncate
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

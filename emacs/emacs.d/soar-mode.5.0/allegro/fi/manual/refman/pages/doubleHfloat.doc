@@ -1,0 +1,66 @@
+
+                                                                double-float
+
+
+    Type SPECIFIER
+    double-float  -  the data type double-float
+
+    USAGE
+    {double-float | (&Edouble-float [{low | (low)} [{high | (high)}]])}
+
+    DESCRIPTION
+    Specifies a data type consisting of double-format floating-point numbers
+    between  LOW  and  HIGH.   Either  limit  is  considered exclusive if it
+    appears in a list by itself, otherwise it is considered inclusive.   The
+    limits should be either specified as double-float floating-point numbers
+    or explicitly unspecified with *.  Frequently, implementations are  less
+    restrictive in the numeric format of the limits.
+
+    The double-float type is the next-to-largest precision subtype of float.
+    It is intended that numbers of this type be precise to at least fourteen
+    decimal places.  The COMMON LISP standard allows considerable freedom in
+    the  implementation of floats.  It is possible that double-float will be
+    equivalent to long-float, for example.  You may discover the details  of
+    the  implementation  you  are using with functions like float-precision,
+    which returns the number of digits in the internal representation.   The
+    printed  representation  of  a double-float uses exponent marker d or D.
+    If *read-default-float-format* is double-float, the exponent marker e or
+    E is equivalent to d or D, and it need not be included with the number.
+
+    EXAMPLES
+    (typep 0.4d1 '(double-float 0.0 1.0)) => t
+    (subtypep 'double-float 'float) => t t
+    ;; This last result is implementation-dependent.
+    (float-precision 2.0d0) => 53
+
+    SEE ALSO
+    CLtL 2:16, CLtL 4:43, CLtL 4:49, about type specifiers, float, float-
+    precision, long-float, *read-default-float-format*, short-float,
+    single-float
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

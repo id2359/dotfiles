@@ -1,0 +1,66 @@
+
+                                                    get-output-stream-string
+
+
+    FUNCTION
+    get-output-stream-string  -  get characters most recently written to a
+      string output stream
+
+    USAGE
+    get-output-stream-string stream
+
+    SIDE EFFECTS
+    The STREAM is reset to contain no characters.
+
+    DESCRIPTION
+    Returns a string containing all characters written to STREAM  since  the
+    last call to this function (or the creation of the stream, if this func-
+    tion has not been called with STREAM before).  The argument STREAM  must
+    have been created with make-string-output-stream.
+
+    EXAMPLES
+    (let* ((in (make-string-input-stream "Hello"))
+           (out (make-string-output-stream)))
+      (prin1 (read in) out)
+      (values (get-output-stream-string out)
+              (get-output-stream-string out)))
+       => "Hello" ""
+
+    SEE ALSO
+    CLtL 21:330, make-string-input-stream, make-string-output-stream, open,
+    read, with-open-file
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

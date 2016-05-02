@@ -1,0 +1,66 @@
+
+                                               *kill-common-windows-actions*
+
+
+    VARIABLE
+    *kill-common-windows-actions*  -  list of functions called by kill-
+      common-windows
+
+    DESCRIPTION
+    Bound to the list of functions that are called,  in  order,  when  kill-
+    common-windows  is  called.   (Actually,  the  list contains the symbols
+    which denote the functions, not the function  objects  themselves.)  The
+    functions are called with no arguments.  itself takes no arguments.)
+
+    The initial value of this variable is the  list  containing  the  single
+    function  default-kill-common-windows.   This  function does the work of
+    killing COMMON WINDOWS so it MUST be in the list.  You should add  other
+    functions  with  push  or  append and remove them with remove.  (You may
+    replace    the    entire    list,    of    course,    so     long     as
+    default-kill-common-windows is included.)
+
+    EXAMPLES
+    ;;  The default value of the list:
+    *kill-common-windows-actions* => (default-kill-common-windows)
+    ;;  We define another function and add it to the list:
+    (defun my-res (&rest args) (declare (ignore args))
+      (format t "Killing Common Windows Now.~%"))
+    (push 'my-res *kill-common-windows-actions*)
+    *kill-common-windows-actions*
+      => (my-res default-kill-common-windows)
+
+    SEE ALSO
+    *initialize-common-windows-actions*, kill-common-windows, *make-window-
+    stream-actions*, *restart-common-windows-actions*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

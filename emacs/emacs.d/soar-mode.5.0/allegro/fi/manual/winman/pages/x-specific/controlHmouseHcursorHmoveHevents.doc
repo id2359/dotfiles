@@ -1,0 +1,666 @@
+
+                                            control-mouse-cursor-move-events
+
+
+    FUNCTION
+    control-mouse-cursor-move-events  -  enable catching of mouse-cursor-
+      move events
+
+    Usage
+    control-mouse-cursor-move-events OBJECT [:pointer-motion PM] [:button-
+      motion BM] [:hint HT] [:last-only-p LOP]
+
+    SIDE EFFECTS
+    If both the :pointer-motion and the :button-motion arguments are nil, no
+    mouse  cursor  move events are caught for OBJECT.  If either argument is
+    given a (correct, as described below) non-nil value, mouse  cursor  move
+    events  that  conform  to the specifications of the arguments are caught
+    and the mouse-cursor-move method is run when the event is handled.
+
+    DESCRIPTION
+    Returns the value of OBJECT, but this function  is  used  for  its  side
+    effects.   Because  mouse cursor move events happen so frequently if you
+    use the mouse at all, they tend to swamp the event handler.   Therefore,
+    you must specify which mouse-cursor-move events you wish to have caught.
+    This function allows you to turn on and turn off catching of mouse  cur-
+    sor move events for window-streams and active-regions.  OBJECT must be a
+    window-stream or an active-region.   Note  that  move  events  are  only
+    caught  in  the inner region of a window.  Move events are not generated
+    in the frame.
+
+    Catching of events will be turned off if both  the  :pointer-motion  and
+    the  :button-motion arguments are specified nil.  (It is not an error to
+    call these functions with those arguments nil on  an  OBJECT  for  which
+    mouse  cursor  move  events are already ignored.) The default values for
+    both of these arguments is nil.
+
+    If you want mouse cursor move events  to  be  caught,  you  may  specify
+    whether  any  motion will generate an event or just motion when a button
+    is also down.  If the :pointer-motion argument is given a non-nil value,
+    cursor motion will generate an event regardless of the state of the but-
+    tons on the mouse.   If  the  :pointer-motion  button  is  non-nil,  the
+    :button-motion argument is ignored.
+
+    If the :pointer-motion argument is  specified  nil,  mouse  cursor  move
+    events  will  be  caught  when the mouse is moved while a button is also
+    down.  If the :button-motion argument is specified  t,  any  button  (or
+    combination  of  buttons) can be down to enable catching of move events.
+    If the argument is specified as a list of  numbers  specifying  buttons,
+    with  the  left  button  being 1 and the right button (on a three button
+    mouse) being 3, move events are caught only if one of the buttons speci-
+    fied is down when the mouse is moved.
+
+    The :hint argument allows you to control how many events are caught.  If
+    it  is  specified  non-nil,  after  one event is caught, no more will be
+    caught in OBJECT until the cursor leaves  (and  re-enters)  OBJECT,  the
+    button  state  changes,  or  either mouse-position or get-mouse-state is
+    called with OBJECT as an argument.  The default value for the  :hint  is
+    nil.
+
+    The :last-only-p argument allows you to ignore many of the  move  events
+    of  the queue (remember, they come thick and fast when the mouse is mov-
+    ing in OBJECT and the :hint argument is nil).  If the :last-only-p argu-
+    ment  is specified non-nil (its default value is t), when LISP processes
+    a move event, it looks for other move events on the same object  on  the
+    queue  and processes the latest one, throwing all the earlier ones away.
+    This will save on computation time and is what is wanted for many appli-
+    cations.
+
+    EXAMPLES
+    ;;  We assume that *MY-WIN* is an already defined window.
+    ;;  The following enables catching all move events:
+    (control-mouse-cursor-move-events *my-win*
+                                      :pointer-motion t)
+
+    ;;  The following only catches events when the middle
+    ;;  button is down when the cursor is moved:
+    (control-mouse-cursor-move-events *my-win*
+                                      :button-motion '(2))
+
+    ;;  Setting the :HINT argument to T requires specific action
+    ;;  after a move event has been caught to catch another:
+    (control-mouse-cursor-move-events *my-win*
+                                      :pointer-motion t
+                                      :hint t)
+    ;;  After the first event, polling the mouse state will
+    ;;  allow the next move event to be caught:
+    (get-mouse-state *my-win*)
+
+    ;;  In all the above cases, only the latest event on the queue
+    ;;  is processed since the :LAST-ONLY-P argument has its default
+    ;;  value of T.  The following will allow all move events
+    ;;  (generated only when some button is down, since
+    ;;  :POINTER-MOTION is NIL and :BUTTON-MOTION is T:
+    (control-mouse-cursor-move-events *my-win*
+                                      :pointer-motion nil
+                                      :button-motion T
+                                      :last-only-p nil)
+
+    ;;  The following turns off catching move events:
+    (control-mouse-cursor-move-events *my-win*
+                                      :pointer-motion nil
+                                      :button-motion nil)
+
+    ;;  Not specifying any keyword argument also turns off
+    ;;  catching move events since :POINTER-MOTION and
+    ;;  :BUTTON-MOTION bith default to NIL.
+    (control-mouse-cursor-move-events *my-win*)
+
+    SEE ALSO
+    active-region-mouse-cursor-move, mouse-cursor-move, window-stream-
+    mouse-cursor-move
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

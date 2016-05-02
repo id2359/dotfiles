@@ -1,0 +1,66 @@
+
+                                                  most-positive-single-float
+
+
+    CONSTANT
+    most-positive-single-float  -  the single-float closest to positive in-
+      finity
+
+    DESCRIPTION
+    This constant evaluates to the value of the single-float number  nearest
+    to  (but  still  different  from)  positive infinity.  The value of this
+    constant is implementation-dependent.
+
+    EXAMPLES
+    ;;  This value is implementation-dependent.
+    most-positive-single-float => 3.4028232e+38
+
+    SEE ALSO
+    CLtL 12:232, about numeric constants
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

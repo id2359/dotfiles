@@ -1,0 +1,132 @@
+
+                                                                       array
+
+
+    Type SPECIFIER
+    array  -  the data type array
+
+    USAGE
+    {array | (&Earray [element-type [dimensions]])}
+
+    DESCRIPTION
+    Specifies a data type consisting of arrays with element  type  given  by
+    ELEMENT-TYPE  and dimensions given by DIMENSIONS.  Both ELEMENT-TYPE and
+    DIMENSIONS may be explicitly unspecified using *.  DIMENSIONS may either
+    be  a non-negative integer giving the number of dimensions, or a list of
+    non-negative integers (any of which may be unspecified using *).  In the
+    latter  case,  the length of the list is the number of dimensions in the
+    array and each element of the list is the  number  of  elements  in  the
+    corresponding dimension of the array.
+
+    An array can have many dimensions and it can be created so that its size
+    can  be  changed  dynamically.   The  RANK  of an array is the number of
+    dimensions, also called AXES.  An array with zero for any dimension  has
+    zero  elements,  while  an array with zero rank has exactly one element.
+    Two arrays may share elements by DISPLACING one to the other.  A  VECTOR
+    is  a  one-dimensional array, and may have a FILL POINTER, an index into
+    the vector identifying the active elements of the vector. The  value  of
+    the fill pointer is the index one beyond the last active element.  (Only
+    active elements are normally printed, for example.)  Vectors  of  string
+    characters  are called STRINGS and vectors of the integer values 0 and 1
+    are called BIT VECTORS.  If an array has  no  fill  pointer,  cannot  be
+    enlarged  or  shrunk dynamically, and is not displaced to another array,
+    it is known as a SIMPLE array.  Note that strings and  bit  vectors  are
+    the  only specializations of arrays mandated by the COMMON LISP specifi-
+    cation.  All other specializations are extensions.
+
+    There are two printed representations of arrays.  Which is used  depends
+    on  the  value of the variable *print-array*.  If *print-array* is true,
+    arrays are printed using the #NA syntax (where N is an integer  indicat-
+    ing  the number of dimensions of the array), followed by a nested struc-
+    ture of sequences denoting  the  contents  of  the  array.   Specialized
+    arrays have their own printed representations: strings are surrounded by
+    double quotes, vectors use ``#('', and bit vectors use ``#*''.   Whether
+    all  the  elements of the array are printed depends on the values of the
+    variables *print-level* and *print-length*.  If these restrict printing,
+    elements left out will be indicated with suspension points (``...'') and
+    deeper levels left out will be indicated with a sharp sign (``#'').   If
+    printed with the #NA syntax, the array can be read back in as long as no
+    suspension points or sharp signs stand in for elements.  Note  that  the
+    printed  representation of arrays may not indicate some specializations.
+    Thus, nonsimple arrays cannot be distinguished  from  simple  arrays  by
+    looking  at  the printed representation.  The printing of strings is not
+    affected  by   the   values   of   *print-array*,   *print-length*,   or
+    *print-level*.   The  printing  of  bit  vectors  is not affected by the
+    values of *print-length*, or *print-level*.
+
+    If *print-array* is nil, the printed representation of an array is  some
+    implementation-dependent  string  starting  with ``#<'', which cannot be
+    read.   The  information  provided  in  this  case  is   implementation-
+    dependent.
+
+    EXAMPLES
+    (type-of (make-array '(3 4 5) :adjustable t)) => (array t (3 4 5))
+    (subtypep '(array integer '(3 4 5)) '(array integer *)) => t t
+    (subtypep '(array) '(array t)) => nil t
+    (subtypep '(array t) '(array)) => t t
+    (let ((*print-array* t) (*print-length* 5) (*print-level* 1))
+      (values
+       (write-to-string (make-array 4 :initial-element 2))
+       (write-to-string (make-array '(6 2) :initial-element 1))))
+      => "#(2 2 2 2 2)" "#2a(# # # # # ...)"
+    ;;  The exact form of the printed representation
+    ;;  is implementation-dependent:
+    (let ((*print-array* nil))
+      (write-to-string (make-array '(2 2)))) => "#<Array, rank 2 @ #x3b1081>"
+
+    SEE ALSO
+    CLtL 2:28, CLtL 4:43, CLtL 4:46, about type specifiers, array-rank-
+    limit, make-array, simple-array, simple-vector, subtypep, type-of,
+    typep, vector
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

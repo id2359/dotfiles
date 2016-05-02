@@ -1,0 +1,66 @@
+
+                                                                    rational
+
+
+    Type SPECIFIER
+    rational  -  the data type comprising exact rational numbers
+
+    Usage
+    {rational | (rational [{LOW | (LOW)} [{HIGH | (HIGH)}]])}
+
+    DESCRIPTION
+    Specifies a data type consisting of rational  numbers  between  LOW  and
+    HIGH.   Either  limit is considered exclusive if it appears in a list by
+    itself, otherwise it is considered  inclusive.   The  limits  should  be
+    specified  as rationals or must be explicitly unspecified using *.  Fre-
+    quently, implementations are less restrictive in the numeric  format  of
+    the limits.
+
+    ratio and integer are mutually  exclusive  subtypes  of  rational.   The
+    canonical  representation  of a rational number in LISP is an integer if
+    the value is integral, and otherwise a ratio reduced  to  simplest  form
+    with a positive denominator.
+
+    EXAMPLES
+    (setq x '(#B111/10 #O10/3 #9R10/3 3/30))
+      => (7/2 8/3 3 1/10)
+    (mapcar #'type-of x) => (ratio ratio fixnum ratio)
+    (typep 4/5 '(rational 0 1)) => t
+    (subtypep 'integer 'rational) => t t
+
+    SEE ALSO
+    CLtL 4:43, CLtL 4:49, about type specifiers, complex, float, integer,
+    ratio, subtypep, type-of, typep
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

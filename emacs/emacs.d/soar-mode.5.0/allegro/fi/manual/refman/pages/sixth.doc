@@ -1,0 +1,66 @@
+
+                                                                       sixth
+
+
+    FUNCTION
+    sixth  -  get the sixth element of a list
+
+    USAGE
+    sixth list
+
+    DESCRIPTION
+    Returns the sixth element of LIST, where the car of LIST  is  considered
+    to be the first element.  LIST must be a list.
+
+    Unlike the nth function, which uses zero-origin indexing, this  function
+    uses  one-origin indexing.  If the list has fewer than six elements, nil
+    is returned.  setf may be used with sixth to replace the  sixth  element
+    of a list.
+
+    EXAMPLES
+    (sixth '(a b c d e f g h i j)) => f
+    (sixth '(a)) => nil
+    (setq lis '(a b c d e f g h i j)) => (a b c d e f g h i j)
+    (setf (sixth lis) 6) => 6
+    lis => (a b c d e 6 g h i j)
+
+    SEE ALSO
+    CLtL 15:266, car, eighth, elt, fifth, first, fourth, ninth, nth, second,
+    seventh, tenth, third
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                         stream-element-type
+
+
+    FUNCTION
+    stream-element-type  -  get the type of object that may be read from, or
+      written to, a stream
+
+    USAGE
+    stream-element-type stream
+
+    DESCRIPTION
+    Returns a type specifier indicating the kinds of  objects  that  can  be
+    read from, or written to, STREAM, which must be a stream.  In principle,
+    streams can handle any LISP object, but streams created with open or any
+    other  standard  COMMON  LISP function handle only objects that are sub-
+    types of character or integer.  (Different  implementations  may  extend
+    stream creation functions to handle other types of object.)
+
+    EXAMPLES
+    (stream-element-type *standard-input*) => string-char
+    (stream-element-type (make-string-output-stream)) => string-char
+    (stream-element-type (open "foo" :element-type '(unsigned-byte 8)))
+      => (unsigned-byte 8)
+
+    SEE ALSO
+    CLtL 21:332, about type specifiers, make-broadcast-stream, make-
+    concatenated-stream, make-echo-stream, make-string-input-stream, make-
+    string-output-stream, make-string-output-stream, make-synonym-stream,
+    make-two-way-stream, open, streamp
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

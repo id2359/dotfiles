@@ -1,0 +1,66 @@
+
+                                                                find-package
+
+
+    FUNCTION
+    find-package  -  return a package by name
+
+    USAGE
+    find-package package-name
+
+    DESCRIPTION
+    Returns the package whose name or nickname is PACKAGE-NAME if it exists,
+    and  otherwise  returns nil.  The argument PACKAGE-NAME must be a string
+    or a symbol.  If it  is  a  symbol,  its  print  name  is  used  as  the
+    PACKAGE-NAME.   Package  names  are   compared respecting case, that is,
+    using string=.
+
+    EXAMPLES
+    ;;  The printed representation of a package
+    ;;  object is implementation-dependent.
+    (unless (find-package :geometry) (make-package :geometry))
+    (find-package 'geometry) => #<The geometry package>
+
+    SEE ALSO
+    CLtL 11:183, make-package
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

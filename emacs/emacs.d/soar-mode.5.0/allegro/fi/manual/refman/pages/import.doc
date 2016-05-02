@@ -1,0 +1,66 @@
+
+                                                                      import
+
+
+    FUNCTION
+    import  -  cause symbols to become internal in a package
+
+    USAGE
+    import symbols [package]
+
+    SIDE EFFECTS
+    All of the SYMBOLS are made internal to the package PACKAGE.
+
+    DESCRIPTION
+    Returns t.  The argument SYMBOLS is either a list of symbols or a single
+    symbol.  The  argument  PACKAGE  must  be  a package and defaults to the
+    current package (the value of *package*).  Once you've called this func-
+    tion  you  will  no longer have to refer to any of the symbols listed in
+    SYMBOLS with the  qualified-name  (colon)  syntax  (when  the  value  of
+    *package* is PACKAGE).
+
+    After importing a symbol into a package, the symbol is directly  present
+    in the package.  To `unimport' a symbol, one must unintern it.
+
+    If a symbol is already present in the package, import does  nothing  for
+    that  symbol.   The status of a symbol in other packages is not affected
+    by import.  An imported symbol retains its original home package.
+
+    If a different symbol with the same print name as one of the symbols  in
+    SYMBOLS  is  already accessible in PACKAGE when import is called, a con-
+    tinuable error is signalled.  Note that the error is signalled  even  if
+    the  symbol  already  accessible  is  on  the shadowing-symbols list for
+    PACKAGE.  The conflict will be resolved in some implementation-dependent
+    manner.   The  possible  resolutions  are as follows.  If the accessible
+    symbol is inherited, the symbol being imported may shadow the  inherited
+    symbol.   If  the accessible symbol is present in the package, it may be
+    uninterned in favor of the symbol to be imported.  Or, the import opera-
+    tion  (for the symbol with the name conflict) may be aborted in favor of
+    the symbol already accessible.
+
+    EXAMPLES
+    ;;  Create a package.
+    (unless (find-package :foo) (make-package :foo))
+    ;;  Intern a symbol in it.
+    (intern "F1" (find-package :foo)) => foo::f1 nil
+    ;;  See that the symbol is internal.
+    (find-symbol "F1" (find-package :foo)) => foo::f1 :internal
+    ;;  Make it accessible to other packages.
+    (export 'foo::F1 (find-package :foo)) => t
+    ;;  Import it into current package.
+    (import 'foo:f1) => t
+    ;;  It's still an external in foo.
+    (find-symbol "F1" (find-package :foo)) => f1 :external
+    ;;  It's now accessible to current package.
+    (find-symbol "F1") => f1 :internal
+
+    SEE ALSO
+    CLtL 11:186, export, *package*, shadow, shadowing-import, unintern
+
+
+
+
+
+
+
+

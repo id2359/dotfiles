@@ -1,0 +1,66 @@
+
+                                                                     rotatef
+
+
+    MACRO
+    rotatef  -  end-around shift of generalized variables (destructive)
+
+    USAGE
+    rotatef {place}*
+
+    SIDE EFFECTS
+    The values in the locations specified by the generalized-variable refer-
+    ences PLACE are destructively modified.
+
+    DESCRIPTION
+    Returns nil.  This macro is used for its side  effects.   The  value  of
+    each  generalized  variable  PLACE is first determined and saved.  Then,
+    the value of each PLACE, beginning with the leftmost PLACE and  proceed-
+    ing  to  the  right, is replaced by the saved value of the PLACE immedi-
+    ately to its right.  The value of the last  PLACE  is  replaced  by  the
+    saved  value  of  the first (leftmost) PLACE.  Note that any subforms of
+    each PLACE form are evaluated only once.  The PLACES can be  thought  of
+    as  forming  a shift register, with the first value being rotated around
+    to the end.
+
+    EXAMPLES
+    (setq x 1 y 2 z 3)
+    (rotatef x y z) => nil
+    x => 2
+    y => 3
+    z => 1
+
+    SEE ALSO
+    CLtL 7:99, psetf, setf, shiftf
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,132 @@
+
+                                                                      symbol
+
+
+    Type SPECIFIER
+    symbol  -  the data type comprising symbols
+
+    USAGE
+    symbol
+
+    DESCRIPTION
+    Specifies the data type symbol.  Symbols are one of the fundamental data
+    types  in COMMON LISP, and for that reason, we will discuss them at some
+    length in this entry.  There are several issues to cover: the attributes
+    of  a  symbol,  the package of a symbol, and the allowable names of sym-
+    bols.
+
+    Symbols have the following attributes associated with them:  a  name,  a
+    package,  a  value, a function or macro definition, and a property list.
+    The name is also called the print name.
+
+    The print name of a symbol is a  string.   Given  the  symbol,  you  can
+    obtain  the print name with the function symbol-name.  Given the string,
+    you can obtain the symbol AS LONG AS the symbol  is  accessible  in  the
+    current  package.   If the symbol is not accessible, its print name must
+    by prepended with its  package  name  followed  by  one  or  two  colons
+    (depending  on  whether  the symbol is or is not exported from the pack-
+    age).  Note that when the reader reads an object which it interprets  as
+    a symbol, it looks for a symbol with that name accessible in the current
+    package (or the package identified  with  a  package  prefix).   If  the
+    reader  does not find such a symbol and their is no package qualifier or
+    a double colon package qualifier, the reader creates a new  symbol  with
+    the  given print name and interns it in the current package or the pack-
+    age identified with the double colon package qualifier.  (If the  reader
+    is  unable  to  find  a symbol with a single colon package qualifier, it
+    will signal an error.  If it were to create the symbol,  it  would  also
+    have to export it and the reader will not do that.)
+
+    Most symbols `belong' to particular package.  This package is called the
+    symbol's  home  package  and is the value of the function symbol-package
+    applied to the symbol.  This concept sounds more important than  it  is.
+    The  home  package  is mostly used to provide a value for symbol-package
+    and to tell the printer how to represent the symbol (whether  to  use  a
+    package  qualifier  or  the  the uninterned symbol reader macro (``#:'')
+    when printing the print name of the symbol).  Symbols need not have home
+    packages.    Such   symbols   are   called   uninterned  and  for  them,
+    symbol-package returns nil.  It is an  indication  of  the  disjointness
+    between  the  concept  of home package and the general package system in
+    COMMON LISP that an uninterned symbol may be internal in  some  package.
+    (See the entry on unintern for an example.)
+
+    Symbols have property lists associated with them.  A  property  list  is
+    typically  a  list whose even elements (the first element is index zero,
+    so is an even element) is a symbol denoting the property type and  whose
+    odd  elements  are the values associated with the symbols.  (Implementa-
+    tions need not require that the even elements be symbols,  but  that  is
+    the  usual thing to do.)  The property list of a symbol is obtained with
+    the function symbol-plist.  The property list is a  global  value  asso-
+    ciated  with  a  symbol.   There  is  no concept of local property lists
+    shadowing global ones, as there is with both  the  values  and  function
+    objects  associated  with symbols.  Generally, the default property list
+    is nil.
+
+    Symbols have values associated with them.  More precisely,  symbols  are
+    used  to  denote  variables and variables have values.  What variable is
+    denoted by a symbol depends on the lexical environment and the  symbol's
+    lexical binding, special binding, and global value.  See the entry about
+    scope and extent for more information.   Generally,  when  a  symbol  is
+    evaluated,  the  value  of  the  variable it denotes is returned.  If no
+    variable is denoted, the symbol is unbound and it is an error to try  to
+    evaluate  it.   The  function symbol-value retrieves the global value or
+    the value of the visible special binding of a symbol.  It cannot see  or
+    retrieve any lexical value.
+
+    Symbols have function objects associated with them.  Normally, these are
+    objects  created  with  defun or defmacro but they can be lambda expres-
+    sions or other functional objects.  As with variables, a symbol can have
+    both  a  global  value and a lexical value seen within the scope of some
+    form.  When a symbol is encountered as the car of a list which is  being
+    evaluated,  the  value  of  the  function  slot  (lexical  or global, as
+    appropriate) is used as the function object  which  is  applied  to  the
+    arguments  in  the  remainder of the list.  The function symbol-function
+    retrieves the global function value of a  symbol.   It  cannot  retrieve
+    lexical function values.
+
+    Finally, there is the question of what a  symbol  can  be  named.   This
+    issue  is  treated in great detail in the entry about reading.  Briefly,
+    when the reader reads the printed representation of a  LISP  object,  it
+    determines  whether  what it has read is a reader macro of some sort (in
+    which case what is `read' is what is returned by the function associated
+    with  the  reader macro) or a symbol or number.  Reader macros generally
+    start with characters like #\#, #\', #\(, and  some  others.  Everything
+    else  is  either a symbol or a number.  The complete (and lengthy) story
+    of what can be a number and what can be a symbol is fully  explained  in
+    the  about  reading  entry.   Numbers  are things that look like numbers
+    (made up of a sign at the front, digits, perhaps a  decimal  point,  and
+    perhaps an exponent letter specifier and an exponent.  But other charac-
+    ters may be part of a number,  and,  if  the  value  of  *read-base*  is
+    greater  than  ten, some alphabetic letters become digits.  In any case,
+    symbols do are things which are not numbers.   Some  characters  strings
+    (most  notably  the  period #\.) are reserved so neither a single period
+    nor several periods can alone be a symbol.  Othe reserved characters are
+    parentheses, colons, and semicolons, but otherwise almost anything goes.
+    Lowercase letters in a symbol name will be converted to uppercase in the
+    internal  representation  unless  they are escaped.  Even the rules men-
+    tioned can be broken if  the  name  is  surrounded  by  #\|  characters.
+    Again, see about reading for more information.
+
+    EXAMPLES
+    (typep 'x 'symbol) => t
+    (typep "x" 'symbol) => nil
+
+    SEE ALSO
+    CLtL 2:23, CLtL 4:43, about reading, about scope and extent, about type
+    specifiers, symbol-function, symbol-name, symbolp, symbol-package,
+    symbol-plist, symbol-value, typep
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

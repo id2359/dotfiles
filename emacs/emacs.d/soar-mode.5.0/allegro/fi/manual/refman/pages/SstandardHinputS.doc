@@ -1,0 +1,66 @@
+
+                                                            *standard-input*
+
+
+    VARIABLE
+    *standard-input*  -  usual or default input stream
+
+    DESCRIPTION
+    Evaluating to an input stream that is used as the default for many input
+    functions  (for example, read and read-char).  Input for the interactive
+    top-level loop is normally taken from this stream.
+
+    EXAMPLES
+    Evaluating
+
+    (cons 'a (read *standard-input*))
+
+    with user input (b c d) returns (a b c d).
+
+    SEE ALSO
+    CLtL 21:327, *debug-io*, *error-output*, *query-io*, read, read-char,
+    *standard-output*, streamp, *terminal-io*, *trace-output*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

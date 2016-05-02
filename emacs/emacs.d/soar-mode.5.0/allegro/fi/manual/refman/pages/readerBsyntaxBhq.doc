@@ -1,0 +1,66 @@
+
+                                                            reader syntax #'
+
+
+    READER SYNTAX
+    #'  -  representation of a function form
+
+    Usage
+    #'EXPR
+
+    DESCRIPTION
+    Reads EXPR as if it were the wrapped by the function special form.  That
+    is, #'obj reads as (function obj).
+
+    EXAMPLES
+    (multiple-value-setq (*f* *g*)
+      (let ((i 0))
+        (values #'(lambda () (incf i))
+                '(lambda () (incf i)))))
+    (defvar i 100)
+    (funcall *f*) => 1
+    (funcall *f*) => 2
+    (funcall *g*) => 101
+    (funcall *g*) => 102
+
+    SEE ALSO
+    CLtL 22:354, about printing, about reading, about scope and extent,
+    function
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

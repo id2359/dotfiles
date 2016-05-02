@@ -1,0 +1,66 @@
+
+                                                                       princ
+
+
+    FUNCTION
+    princ  -  output representation of an object to a stream without escape
+      characters
+
+    Usage
+    princ OBJECT [STREAM]
+
+    SIDE EFFECTS
+    A representation of OBJECT without any escape characters is  written  to
+    STREAM.
+
+    DESCRIPTION
+    Returns OBJECT, but this function is used for its  side  effects.   This
+    function  differs from prin1 in that no escape characters are output and
+    the printed representation may not necessarily be acceptable to read  or
+    read  back as an equal object.  That is, this function effectively binds
+    *print-escape* to false when outputting the  printed  representation  of
+    OBJECT.  The following code equivalence holds:
+
+    (princ object stream) = (write object :stream stream :escape nil)
+
+    The argument STREAM may be a stream which accepts output, or STREAM  may
+    be  t  or  nil.   If STREAM is nil, output will go to *standard-output*,
+    which is also the default value if STREAM is not specified.   If  STREAM
+    is t, output goes to *terminal-io*.
+
+    EXAMPLES
+    (prin1 "this is a test") => "this is a test"
+      PRINTS "this is a test"
+    (princ "this is a test") => "this is a test"
+      PRINTS this is a test
+    (prin1 #\newline) => #\newline
+      PRINTS #\newline
+    (princ #\newline) => #\newline
+
+    ;;  A new line is printed.
+
+    SEE ALSO
+    CLtL 22:383, *print-escape*, prin1, prin1-to-string, princ-to-string,
+    print, write
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

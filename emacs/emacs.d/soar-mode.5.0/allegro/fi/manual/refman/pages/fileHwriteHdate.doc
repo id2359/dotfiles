@@ -1,0 +1,66 @@
+
+                                                             file-write-date
+
+
+    FUNCTION
+    file-write-date  -  returns the time of creation or last modification of
+      a file
+
+    USAGE
+    file-write-date pathname
+
+    DESCRIPTION
+    Returns an integer in Universal Time format  representing  the  time  at
+    which  the file given by PATHNAME was created or last modified, provided
+    this information is available.  Returns  nil  if  this  time  cannot  be
+    determined.   The  argument  PATHNAME  must  be  a  pathname, string, or
+    stream.
+
+    EXAMPLES
+    ;;  In the example, we write a file in May, and then use
+    ;;  FILE-WRITE-DATE to check this.
+    (with-open-file (out "junk" :direction :output
+                         :if-exists :supersede)
+      (prin1 'foo out))
+
+    (fifth (multiple-value-list
+            (decode-universal-time (file-write-date "junk")))) => 5
+
+    SEE ALSO
+    CLtL 23:424, decode-universal-time, file-author, file-length, get-
+    universal-time, with-open-file
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

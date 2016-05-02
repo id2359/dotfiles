@@ -1,0 +1,66 @@
+
+                                                          adjustable-array-p
+
+
+    FUNCTION
+    adjustable-array-p  -  test whether an array is adjustable
+
+    USAGE
+    adjustable-array-p array
+
+    DESCRIPTION
+    Returns true if ARRAY is adjustable, otherwise returns false.  An  array
+    is adjustable only if it is created with make-array with the :adjustable
+    keyword argument non-nil.  ARRAY must be an array.
+
+    EXAMPLES
+    (adjustable-array-p (make-array '(3 4))) => nil
+    (adjustable-array-p (make-array '(3 4) :adjustable t)) => t
+    (adjustable-array-p (vector 2 3 4)) => nil
+
+    SEE ALSO
+    CLtL 17:293, adjust-array, array-dimension, array-dimensions, array-
+    element-type, array-in-bounds, array-rank, array-total-size, make-array
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

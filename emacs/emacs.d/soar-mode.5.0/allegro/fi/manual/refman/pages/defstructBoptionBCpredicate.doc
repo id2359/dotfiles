@@ -1,0 +1,66 @@
+
+                                                 defstruct option :predicate
+
+
+    DEFSTRUCT OPTION
+    :predicate  -  control creation of a predicate for a structure
+
+    Usage
+    :predicate [NAME]
+
+    DESCRIPTION
+    This is a defstruct option that controls whether a predicate is  defined
+    and  what its name will be.  Structures may only have type predicates if
+    they are named.  (See defstruct option :named, defstruct option  :type).
+    Unnamed  structures  must not specify this option, or specify it as nil.
+    The default type predicate name is formed by  concatenating  -p  to  the
+    name  of  the  structure,  but  this  keyword  option allows the user to
+    specify the name.  If the argument NAME is nil, then no  type  predicate
+    is  defined  for  this  structure.  If the argument is not supplied, the
+    default name is used.  Otherwise, NAME will be the name  of  the  predi-
+    cate.
+
+    EXAMPLES
+    (defstruct (book (:predicate isa-book)) title length) => book
+    (setq my-book (make-book :title "Joy of Cooking" :length 400))
+      => #s(book :title "Joy of Cooking" :length 400)
+    (isa-book my-book) => t
+
+    (defstruct (coord (:type vector)) x y) => coord  ;; not named
+    (setq position (make-coord :x 4 :y 5)) => #(4 5)
+    (coord-p position) => ERROR
+    ;;  The error is generate since only named structures
+    ;;  can have type predicates.
+
+    SEE ALSO
+    CLtL 19:312, defstruct, defstruct-option :conc-name, defstruct-option
+    :constructor, defstruct option :copier, defstruct option :include,
+    defstruct option :initial-offset, defstruct option :named, defstruct
+    option :print-function, defstruct option :type
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

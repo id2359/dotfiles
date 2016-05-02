@@ -1,0 +1,66 @@
+
+                                                             string-downcase
+
+
+    FUNCTION
+    string-downcase  -  convert string to lowercase
+
+    USAGE
+    string-downcase string [:start sn] [:end en]
+
+    DESCRIPTION
+    Returns a new string that contains the same characters as STRING  except
+    that all uppercase characters are replaced by their corresponding lower-
+    case characters.  STRING must be a string or a symbol.  If it is a  sym-
+    bol, its print name is used as the string.
+
+    The  characters  of  the  returned  string  are  produced  by   applying
+    char-downcase to the characters of STRING.
+
+    To operate on a substring of STRING, specify the :start and :end keyword
+    arguments.  The :start keyword argument indicates the index of the first
+    character of the substring to  examine.   Its  value  defaults  to  zero
+    (indicating  the  first character).  The :end keyword argument specifies
+    an index one greater than the index of the last character to examine.  A
+    value of nil is equivalent to the default, the length of the string.
+
+    If STRING is a string with a fill pointer, only the active  elements  of
+    STRING  can  be  processed.   Regardless of the substring specified, the
+    returned string is the same length as (the active length of) STRING.
+
+    EXAMPLES
+    (string-downcase "Are you SURE it's man-made?")
+      => "are you sure it's man-made?"
+    (string-downcase "Are you SURE it's man-made?" :start 8 :end 17)
+      => "Are you sure it's man-made?"
+    (string-downcase 'panIC) => "panic"
+
+    SEE ALSO
+    CLtL 18:303, char-downcase, char-upcase, nstring-downcase, string-
+    capitalize, string-upcase
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

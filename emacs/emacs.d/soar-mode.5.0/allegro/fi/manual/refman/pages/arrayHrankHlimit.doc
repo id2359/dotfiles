@@ -1,0 +1,66 @@
+
+                                                            array-rank-limit
+
+
+    CONSTANT
+    array-rank-limit  -  exclusive upper bound on array dimensionality
+
+    DESCRIPTION
+    Evaluates to an integer that is one larger than  the  maximum  allowable
+    rank  for an array.  The rank of an array is defined to be the number of
+    dimensions of the array.  This value  is  implementation-dependent,  but
+    must be at least 8.
+
+    EXAMPLES
+    ;;  The returned value is implementation-dependent.
+    array-rank-limit => 65536
+
+    SEE ALSO
+    CLtL 17:289, array-dimension-limit, array-total-size-limit
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

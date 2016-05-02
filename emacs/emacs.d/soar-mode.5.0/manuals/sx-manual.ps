@@ -1,0 +1,2809 @@
+%!PS-Adobe-2.0
+%%Title: sx-manual.mss
+%%DocumentFonts: (atend)
+%%Creator: Thomas McGinnis and Scribe 7(1700)
+%%CreationDate: 30 September 1992 14:09
+%%Pages: (atend)
+%%EndComments
+% PostScript Prelude for Scribe.
+/BS {/SV save def 0.0 792.0 translate .01 -.01 scale} bind def
+/ES {showpage SV restore} bind def
+/SC {setrgbcolor} bind def
+/FMTX matrix def
+/RDF {WFT SLT 0.0 eq 
+  {SSZ 0.0 0.0 SSZ neg 0.0 0.0 FMTX astore}
+  {SSZ 0.0 SLT neg sin SLT cos div SSZ mul SSZ neg 0.0 0.0 FMTX astore}
+  ifelse makefont setfont} bind def
+/SLT 0.0 def
+/SI { /SLT exch cvr def RDF} bind def
+/WFT /Courier findfont def
+/SF { /WFT exch findfont def RDF} bind def
+/SSZ 1000.0 def
+/SS { /SSZ exch 100.0 mul def RDF} bind def
+/AF { /WFT exch findfont def /SSZ exch 100.0 mul def RDF} bind def
+/MT /moveto load def
+/XM {currentpoint exch pop moveto} bind def
+/UL {gsave newpath moveto dup 2.0 div 0.0 exch rmoveto
+   setlinewidth 0.0 rlineto stroke grestore} bind def
+/LH {gsave newpath moveto setlinewidth
+   0.0 rlineto
+   gsave stroke grestore} bind def
+/LV {gsave newpath moveto setlinewidth
+   0.0 exch rlineto
+   gsave stroke grestore} bind def
+/BX {gsave newpath moveto setlinewidth
+   exch
+   dup 0.0 rlineto
+   exch 0.0 exch neg rlineto
+   neg 0.0 rlineto
+   closepath
+   gsave stroke grestore} bind def
+/BX1 {grestore} bind def
+/BX2 {setlinewidth 1 setgray stroke grestore} bind def
+/PB {/PV save def newpath translate
+    100.0 -100.0 scale pop /showpage {} def} bind def
+/PE {PV restore} bind def
+/GB {/PV save def newpath translate rotate
+    div dup scale 100.0 -100.0 scale /showpage {} def} bind def
+/GE {PV restore} bind def
+/FB {dict dup /FontMapDict exch def begin} bind def
+/FM {cvn exch cvn exch def} bind def
+/FE {end /original-findfont /findfont load def  /findfont
+   {dup FontMapDict exch known{FontMapDict exch get} if
+   original-findfont} def} bind def
+/BC {gsave moveto dup 0 exch rlineto exch 0 rlineto neg 0 exch rlineto closepath clip} bind def
+/EC /grestore load def
+/SH /show load def
+/MX {exch show 0.0 rmoveto} bind def
+/W {0 32 4 -1 roll widthshow} bind def
+/WX {0 32 5 -1 roll widthshow 0.0 rmoveto} bind def
+/RC {100.0 -100.0 scale
+612.0 0.0 translate
+-90.0 rotate
+.01 -.01 scale} bind def
+/URC {100.0 -100.0 scale
+90.0 rotate
+-612.0 0.0 translate
+.01 -.01 scale} bind def
+/RCC {100.0 -100.0 scale
+0.0 -792.0 translate 90.0 rotate
+.01 -.01 scale} bind def
+/URCC {100.0 -100.0 scale
+-90.0 rotate 0.0 792.0 translate
+.01 -.01 scale} bind def
+%%EndProlog
+%%Page: 0 1
+BS
+0 SI
+14 /Times-Bold AF
+20033 13898 MT
+(SX: A Graphical Display and Interface)SH
+24796 15576 MT
+(for Soar in X Windows)SH
+11 /Times-Roman AF
+19248 18133 MT
+(For SX release 5.4, accompanying Soar 5.2.2 and higher)SH
+9 SS 
+28530 20524 MT
+(*)SH
+40499 XM
+(**)SH
+11 SS 
+21961 20887 MT
+(Frank E. Ritter)SH
+29255 XM
+(and Thomas F. McGinnis)SH
+23748 23641 MT
+(ritter@cs.cmu.edu tfm@cs.cmu.edu)SH
+28457 26395 MT
+(February 1992)SH
+9 SS 
+26154 34347 MT
+(*)SH
+11 SS 
+26604 34710 MT
+(Psychology Department)SH
+9 SS 
+24921 35724 MT
+(**)SH
+11 SS 
+25821 36087 MT
+(School of Computer Science)SH
+25509 37464 MT
+(Carnegie Mellon University)SH
+25644 38841 MT
+(Pittsburgh, PA 15213-3890)SH
+14 /Times-Bold AF
+29075 43859 MT
+(Abstract)SH
+11 /Times-Roman AF
+8280 46416 MT
+(This document provides an overview of the Developmental Soar Interface \050D.S.I.\051.  It)
+39 W( serves as a manual)38 W
+8280 47612 MT
+(of how)
+213 W( to load, run, and use the Soar in X graphic display window and Soar Command Interpreter)214 W
+8280 48808 MT
+(modules of)
+80 W( the D.S.I.  The SX display provides a graphic depiction of the dynamic structure of running)79 W
+8280 50004 MT
+(Soar models.  It includes a preliminary)
+6 W( tool for depicting static descriptions of Soar programs.  It is driven)7 W
+8280 51200 MT
+(by a pop-up)
+354 W( menu and dialog boxes.  Users can click on Soar objects to examine them.  The)353 W
+8280 52396 MT
+(accompanying Soar Command Interpreter accepts keyword and single-character commands to)
+159 W( run and)160 W
+8280 53592 MT
+(examine Soar.)SH
+21405 58480 MT
+(Copyright)SH
+/Symbol SF
+26142 XM
+(\323)SH
+/Times-Roman SF
+27286 XM
+(1992 F.)
+275 W( E. Ritter & T. McGinnis)SH
+9280 61955 MT
+(This work was sponsored in part by a training grant from the Air Force Office of Scientific)
+71 W( Research,)70 W
+8280 63151 MT
+(Bolling AFB, DC; and in part)
+128 W( by the Avionics Laboratory, Wright Research and Development Center,)129 W
+8280 64347 MT
+(Aeronautical Systems Division \050AFSC\051, U. S. Air Force,)
+84 W( Wright-Patterson AFB, OH 45433-6543 under)83 W
+8280 65543 MT
+(Contract F33615-90-C-1465, Arpa Order No. 7597.)SH
+9280 67841 MT
+(The views and conclusions contained in this document are those of the authors and should)
+197 W( not be)198 W
+8280 69037 MT
+(interpreted as representing the official policies, either expressed or implied, of the U.S. Government.)SH
+ES
+%%Page: 0 2
+BS
+0 SI
+11 /Times-Roman AF
+27600 7955 MT
+(Distribution Notes)SH
+8159 50 27600 8155 UL
+9280 10434 MT
+(Separate documents are available for the)
+28 W( companion pieces of software mentioned here, soar-mode and)27 W
+8280 11811 MT
+(taql-mode, which modify GNU-Emacs to more directly support programming in Soar though)
+28 W( a structured)29 W
+8280 13188 MT
+(editor with useful commands such as automatic production loading and match set displays.)SH
+9280 15667 MT
+(The Developmental Soar Interface is placed in the public domain.  You are free to copy it as)
+33 W( you wish.)32 W
+8280 17044 MT
+(The Developmental Soar Interface and all of its)
+101 W( parts: Soar in X \050SX\051, taql-mode, and soar-mode, \050like)102 W
+8280 18421 MT
+(Soar itself\051 are made available AS IS, and)
+74 W( Carnegie Mellon University, the University of Michigan, and)73 W
+8280 19798 MT
+(its developers, make no warranty about the software or its performance.  Please contact soar-)424 W
+8280 21175 MT
+(bugs@cs.cmu.edu for more information or to report problems.)SH
+9280 23654 MT
+(Some of the supporting software comes with different copyright conditions. In particular, you)
+104 W( should)103 W
+8280 25031 MT
+(note that SX uses a graphical user interface)
+14 W( tool called Garnet.  While the extensions and modifications to)15 W
+8280 26408 MT
+(Garnet and the SX displays)
+339 W( themselves are in the public domain, Garnet requires a site license;)338 W
+8280 27785 MT
+(information is available from garnet@cs.cmu.edu.)
+185 W( Also,)
+646 W( soar-mode and taql-mode use several utility)186 W
+8280 29162 MT
+(programs that are protected under the Free Software Foundation's Copyleft agreement.)SH
+ES
+%%Page: 1 3
+BS
+0 SI
+10 /Times-Roman AF
+54580 4286 MT
+(1)SH
+16 /Times-Bold AF
+8280 8272 MT
+(1. New concepts on the PSCM level and beyond)SH
+14 SS 
+8280 12531 MT
+(1.1. Design Principles)SH
+11 /Times-Roman AF
+9280 14225 MT
+(The Developmental Soar Interface \050D.S.I.\051 adds)
+63 W( several new concepts to Soar: the idea of interlocking)62 W
+8280 15602 MT
+(tools, problem space statistics, a macrocycle, and hooks.  In addition to)
+9 W( these new concepts there are three)10 W
+8280 16979 MT
+(principles that guided the design of the interface and that can)
+60 W( serve as heuristics for your explorations in)59 W
+8280 18356 MT
+(using it:)SH
+/Symbol SF
+10249 20873 MT
+(\267)SH
+/Times-Roman SF
+11030 XM
+(Menu driven for novices, keystrokes)
+117 W( for experts -- Each component \050graphic display, soar-)118 W
+21809 50 11030 21073 UL
+11030 22069 MT
+(mode, taql-mode\051 can be menu driven and keystroke driven.  Menus)
+92 W( lay the commands out)91 W
+11030 23265 MT
+(for you, you need not memorize them.  Each menu also displays the equivalent keystroke)144 W
+11030 24461 MT
+(shortcuts. If)
+427 W( you don't know how to)
+76 W( do something, you can check the menus.  The graphic)75 W
+11030 25657 MT
+(display menu)
+123 W( is available by clicking the middle mouse button, and then selecting an item)124 W
+11030 26853 MT
+(with any mouse button.  In soar- and taql-modes, Control-C Control-M \050^c^m\051 will bring up)48 W
+11030 28049 MT
+(a menu of commands and sub-menus. Their items can be selected by typing their first letter.)55 W
+11030 29245 MT
+(Further explanations and key binding information can be obtained by typing a)
+181 W( ? or SPC.)180 W
+11030 30441 MT
+(After the command is executed, the keybinding is echoed in the message area.)SH
+/Symbol SF
+10249 32335 MT
+(\267)SH
+/Times-Roman SF
+11030 XM
+(Synonyms --)
+167 W( The D.S.I. has been designed to accept multiple entry points and names for)168 W
+4646 50 11030 32535 UL
+11030 33531 MT
+(commands. Many)
+589 W( commands can be executed in a variety of windows, with a variety of)157 W
+11030 34727 MT
+(names. You)
+595 W( can choose the way that best suits you, and the work that you are)
+160 W( currently)161 W
+11030 35923 MT
+(doing. For)
+329 W( example, you can init-soar by typing)
+27 W( to the command interpreter ":init", "init" \050as)26 W
+11030 37119 MT
+(long as the variable init)
+213 W( is unbound\051, or \050init-soar\051, by selecting init-soar on the graphic)214 W
+11030 38315 MT
+(display pop-up menu, by typing "i" on the graphic)
+162 W( display window itself, or by typing in)161 W
+11030 39511 MT
+(Emacs, ESC-x init-soar.)SH
+/Symbol SF
+10249 41405 MT
+(\267)SH
+/Times-Roman SF
+11030 XM
+(Consistent -- Each command across the multiple possible entry points is consistent: they)203 W
+4646 50 11030 41605 UL
+11030 42601 MT
+(share the same name, or when appropriate, they use \050so far\051 single letter)
+245 W( abbreviations.)244 W
+11030 43797 MT
+(While several toolkits are used, only one designer has integrated them, so)
+195 W( while perhaps)196 W
+11030 44993 MT
+(screwy, a method to the madness should also be observable.)SH
+14 /Times-Bold AF
+8280 47011 MT
+(1.2. Interlocking Tools)SH
+11 /Times-Roman AF
+9280 50523 MT
+(In the D.S.I., while each of the tools can stand)
+43 W( alone, they also know about the others, and can interact)42 W
+8280 51900 MT
+(appropriately with them.  For example, commands)
+257 W( executed from the menu on the graphic display)258 W
+8280 53277 MT
+(window can request buffers to appear in Emacs.  \050In the best of all possible worlds, if the other tool is not)19 W
+8280 54654 MT
+(present, something)
+138 W( appropriate still happens.\051 Similarly, commands in GNU-Emacs soar-mode can run)139 W
+8280 56031 MT
+(commands in Soar directly.  In each tool and across tools, some care has been taken to provide multiple)68 W
+8280 57408 MT
+(entry points.  That is, each command is available in)
+101 W( each tool and often in a variety of appropriate and)102 W
+8280 58785 MT
+(similar ways.  For example,)
+19 W( there are several ways to run the init-soar command; one can type)18 W
+/Times-Italic SF
+50283 XM
+(\050init-soar\051)SH
+/Times-Roman SF
+(,)SH
+/Times-Italic SF
+8280 60162 MT
+(:init)SH
+/Times-Roman SF
+(, or)52 W
+/Times-Italic SF
+11959 XM
+(init)SH
+/Times-Roman SF
+13754 XM
+(to the Soar Command Interpreter, choose)52 W
+/Times-Italic SF
+32485 XM
+(Init)SH
+/Times-Roman SF
+34340 XM
+(on the graphic display)
+52 W( menu, or type an "i" on)53 W
+8280 61539 MT
+(the graphic)
+53 W( display window.  Help is provided with each tool to facilitate learning the other entry points.)52 W
+8280 62916 MT
+(For example, the graphic menu item for init-soar)
+238 W( includes a listing of the other expressions of this)239 W
+8280 64293 MT
+(command in the other modules.)SH
+9280 66772 MT
+(This interlocking functionality is not fully exploited currently; it will be)
+23 W( developed in further work, and)22 W
+8280 68149 MT
+(can be used by users interested in extending the interface.)SH
+ES
+%%Page: 2 4
+BS
+0 SI
+10 /Times-Roman AF
+6120 4286 MT
+(2)SH
+14 /Times-Bold AF
+6120 8138 MT
+(1.3. PSCM Level Statistics)SH
+11 /Times-Roman AF
+7120 11650 MT
+(Previously, Soar statistics)
+93 W( did not include many statistics on the problem space level.  These are now)94 W
+6120 13027 MT
+(tabulated, and are available by calling the function)138 W
+/Times-Italic SF
+29734 XM
+(pscm-stats)SH
+/Times-Roman SF
+(, and by observation in various displays,)137 W
+6120 14404 MT
+(such as the "Previously fired operators" in each problem space.  The internal counters)
+132 W( are reinitialized)133 W
+6120 15781 MT
+(with)SH
+/Times-Italic SF
+8351 XM
+(\050reset-pscm-stats\051)SH
+/Times-Roman SF
+16506 XM
+(\050also called by)SH
+/Times-Italic SF
+23195 XM
+(\050restart-soar\051)SH
+/Times-Roman SF
+(\051.)SH
+14 /Times-Bold AF
+6120 17799 MT
+(1.4. Macrocycles)SH
+11 /Times-Roman AF
+7120 21311 MT
+(Often users will want to run more than 1 decision cycle at a time and)
+120 W( to specify how long to run in)119 W
+6120 22688 MT
+(terms other than decision cycles, such as for 3 operator applications.  The)
+27 W( macrocycle command has been)28 W
+6120 24065 MT
+(created to support this desire.)
+87 W( The)
+448 W( macrocycle command also supports the graphic displays:  after each)86 W
+6120 25442 MT
+(macrocycle the object examination windows)
+211 W( are automatically updated.  The main display is always)212 W
+6120 26819 MT
+(updated.)SH
+7120 29298 MT
+(There are 3 macrocycle parameters: what to run,)
+95 W( how many of them to run, and as protection against)94 W
+6120 30675 MT
+(infinite loops, the maximum number of decision cycles allowed per attempt.  There are currently)
+100 W( seven)101 W
+6120 32052 MT
+(macrocycles types.  Two are familiar, decision and elaboration.  Macrocycles based on)
+9 W( these types merely)8 W
+6120 33429 MT
+(run N cycles of the appropriate type.)
+167 W( The)
+610 W( remaining ones are based on problem space objects: goal,)168 W
+6120 34806 MT
+(problem-space, state, operator and chunk.)
+42 W( Macrocycles)
+358 W( based on these count the number of selections of)41 W
+6120 36183 MT
+(these types.  For example, a macrocycle "2:operator" would run until two operators)
+142 W( had been selected)143 W
+6120 37560 MT
+(\050without regard to which problem space\050s\051 they were in\051.)
+12 W( The)
+298 W( final parameter, macrocycle-max-dc, limits)11 W
+6120 38937 MT
+(how many decision cycles allowed per macrocycle.  If this value is exceeded, the macrocycle will simply)31 W
+6120 40314 MT
+(\050and cleanly\051)
+77 W( stop.  For example, a macrocycle-max-dc of 2 would often stop prematurely a macrocycle)76 W
+6120 41691 MT
+(of 2 goals.)SH
+7120 44170 MT
+(Macrocycles can be initiated in many ways.  The macrocycle parameters)
+91 W( can be set by choosing "Set)92 W
+6120 45547 MT
+(macrocycle parameters" from)
+281 W( the main graphic display menu, or by calling in the Soar Command)280 W
+6120 46924 MT
+(Interpreter the function)91 W
+/Times-Italic SF
+16868 XM
+(\050set-macrocycle\051)SH
+/Times-Roman SF
+(. In)
+458 W( the Soar Command Interpreter, typing ":m", "m", or "\050m\051")92 W
+6120 48301 MT
+(will run 1 macrocycle.  In the graphic display, typing "m", "M", or <space> will run it.  You can also run)30 W
+6120 49678 MT
+(a macrocycle from the main)
+66 W( graphic display menu. Shortcuts are provided to run ahead to the next goal,)67 W
+6120 51055 MT
+(problem-space, state and operator.  The graphic)
+189 W( display and the new command interpreter accept the)188 W
+6120 52432 MT
+(letters)SH
+/Times-Italic SF
+9083 XM
+(g)SH
+/Times-Roman SF
+(,)SH
+/Times-Italic SF
+10183 XM
+(p)SH
+/Times-Roman SF
+(,)SH
+/Times-Italic SF
+11283 XM
+(s)SH
+/Times-Roman SF
+11986 XM
+(and)SH
+/Times-Italic SF
+13849 XM
+(o)SH
+/Times-Roman SF
+14674 XM
+(as commands to run ahead to the next goal, problem-space, state and operator.)SH
+14 /Times-Bold AF
+6120 54450 MT
+(1.5. Hooks)SH
+11 /Times-Roman AF
+7120 57962 MT
+(The D.S.I. supports three new hooks.  \050A hook is a place to hang either a function, or)
+9 W( a list of functions,)10 W
+6120 59339 MT
+(that get executed after a specific corresponding event occurs.\051  These hooks are called)
+213 W( after Soar is)212 W
+6120 60716 MT
+(initialized \050)62 W
+/Times-Italic SF
+(init-soar-hook)SH
+/Times-Roman SF
+(\051, after a decision cycle is run \050)62 W
+/Times-Italic SF
+(after-dc-hook)SH
+/Times-Roman SF
+(\051, and after a macrocycle has been)62 W
+6120 62093 MT
+(run \050)18 W
+/Times-Italic SF
+(after-macrocycle-hook)SH
+/Times-Roman SF
+(\051. They)
+311 W( are implemented as Common Lisp variables, so)
+18 W( you can put functions)17 W
+6120 63470 MT
+(or lambda expressions on them just as you would add to any list.)SH
+7120 65949 MT
+(For example:)SH
+/Courier SF
+8760 67475 MT
+(\050setf init-soar-hook)SH
+12720 68589 MT
+(\050push 'soarresetsyntax init-soar-hook\051\051)SH
+/Times-Roman SF
+7120 71068 MT
+(There is not a hook provided)
+119 W( to run after each elaboration cycle because it is already available from)120 W
+ES
+%%Page: 3 5
+BS
+0 SI
+10 /Times-Roman AF
+54580 4286 MT
+(3)SH
+11 SS 
+8280 7955 MT
+(Soar-IO:)SH
+/Courier SF
+10920 10420 MT
+(\050set-input-mapping \050your-function\051\051)SH
+ES
+%%Page: 4 6
+BS
+0 SI
+10 /Times-Roman AF
+6120 4286 MT
+(4)SH
+ES
+%%Page: 5 7
+BS
+0 SI
+10 /Times-Roman AF
+54580 4286 MT
+(5)SH
+16 /Times-Bold AF
+8280 8272 MT
+(2. The SX graphic display)SH
+11 /Times-Roman AF
+9280 11890 MT
+(The SX)
+21 W( graphic display makes visual representations of Soar real in a sense not available before, actual)20 W
+8280 13267 MT
+(triangles get drawn for each and every)
+70 W( problem space \050unless you hide them, which you can do\051, circles)71 W
+8280 14644 MT
+(for operators, and so on.  While our initial hope and perhaps your first reaction)
+2 W( is that this standardizes the)1 W
+8280 16021 MT
+(visual representation of Soar, this is not the)
+86 W( case.  You should not view the current display a canonical,)87 W
+8280 17398 MT
+(but as an approximation.  Further work and your suggestions will shape it, as well as its own inherent)122 W
+8280 18775 MT
+(successes and failures.)SH
+9280 21254 MT
+(You can iconify and)
+115 W( and change the size of all SX windows with your window manager.  However,)116 W
+/Times-Bold SF
+8280 22631 MT
+(you must not delete any windows with your window manager.)88 W
+/Times-Roman SF
+38403 XM
+(If you do so, you)
+88 W( will have to restart)87 W
+29760 50 8280 22831 UL
+8280 24008 MT
+(SX.)SH
+14 /Times-Bold AF
+8280 26026 MT
+(2.1. Symbology)SH
+11 /Times-Roman AF
+9280 29538 MT
+(Selected context item.)
+32 W( The)
+308 W( context element last added to the stack, such as a state or problem space, is)33 W
+9809 50 9280 29738 UL
+8280 30915 MT
+(treated as the "selected" context element and is shaded.  Clicking on a context element that is not)
+142 W( the)141 W
+8280 32292 MT
+(latest one added \050i.e., not "selected"\051 will select it and display its)
+189 W( name.  When Soar is running, the)190 W
+8280 33669 MT
+(graphic window will scroll to make the selected context object visible if auto-scroll is)
+66 W( set to t.  It can be)65 W
+8280 35046 MT
+(set either with the "DSI & Soar parameters" dialog)
+18 W( box or by the code as shown in the default .sx-init.lisp)19 W
+8280 36423 MT
+(file included as an appendix. There is a small performance penalty to use this.)SH
+9280 38902 MT
+(A window displaying)
+28 W( the selected item can be created by typing "e" for examine on the display \050also :e)27 W
+8280 40279 MT
+(or e in the Command)
+73 W( Interpreter\051, by selecting the "Examine selected item" option on the pop-up menu,)74 W
+9 SS 
+28178 41293 MT
+(1)SH
+11 SS 
+8280 41656 MT
+(or by double-clicking on the desired object)170 W
+28628 XM
+(. Items)
+615 W( in bold text in these windows can)
+170 W( be clicked on)171 W
+8280 43033 MT
+(themselves to create further examination windows.  The traced attribute values that would normally)
+116 W( be)115 W
+8280 44410 MT
+(displayed in a trace are displayed as the objects name when it is created, and)
+119 W( used as the window title)120 W
+8280 45787 MT
+(when the object is examined.  They are not updated after they have been displayed.)SH
+9280 48266 MT
+(Examination windows contents are always updated after)
+305 W( every macrocycle and by default every)304 W
+8280 49643 MT
+(decision cycle and elaboration cycle.  They can also be updated)
+12 W( by calling)13 W
+/Times-Italic SF
+41303 XM
+(update)SH
+/Times-Roman SF
+44585 XM
+(or)SH
+/Times-Italic SF
+45789 XM
+(up)SH
+/Times-Roman SF
+47177 XM
+(in the SCI.  There)13 W
+8280 51020 MT
+(is no such thing as a free update, so if a user wishes to update less often, they can do)
+48 W( two things. For the)47 W
+9 SS 
+54630 52034 MT
+(2)SH
+11 SS 
+8280 52397 MT
+(short term)
+60 W( they can de-select "Always update windows" from the)61 W
+/Times-Italic SF
+37827 XM
+(DSI and Soar parameters)61 W
+/Times-Roman SF
+49619 XM
+(dialog box.)61 W
+8280 53774 MT
+(For a long term change put)SH
+/Times-Italic SF
+20438 XM
+(\050set-update-always nil\051)SH
+/Times-Roman SF
+30886 XM
+(in your .sx-init.lisp file.)SH
+9280 56253 MT
+(Modifying the graphic display's behavior.)
+142 W( Use)
+417 W( the menu item "Set parameters."  Selecting this will)141 W
+19111 50 9280 56453 UL
+8280 57630 MT
+(create a dialog box where you can set the behavior of PSCM object's names, the Soar watch level, and a)47 W
+8280 59007 MT
+(few other items of interest. It will be added to as the D.S.I. develops.)SH
+9280 61486 MT
+(Goals. Goals)
+329 W( are displayed as large circles.)
+54 W( Their)
+381 W( id is displayed by default.  Their type \050impasse and)53 W
+2841 50 9280 61686 UL
+8280 62863 MT
+(attribute, e.g.  operator no-change\051 is displayed on their creation.  This)
+9 W( gets smaller when a problem space)10 W
+8280 64240 MT
+(is selected to make room for the triangle \050this is not perfect, but looks ok until we find a better answer\051.)SH
+10800 50 8280 67130 UL
+7 SS 
+9180 68631 MT
+(1)SH
+9 SS 
+9530 68958 MT
+(The sensitivity of the system to click speed can be adjusted by setting the variable)6 W
+/Times-Italic SF
+39345 XM
+(double-click-time)SH
+/Times-Roman SF
+45875 XM
+(\050default: 1 s\051.  Its value is)5 W
+8280 69972 MT
+(the maximum time difference in ms between the two clicks of a double-click.)SH
+7 SS 
+9180 71673 MT
+(2)SH
+9 SS 
+9530 72000 MT
+(When this is not selected, the displays are updated only every decision cycle, not after elaboration cycles.)SH
+ES
+%%Page: 6 8
+BS
+0 SI
+10 /Times-Roman AF
+6120 4286 MT
+(6)SH
+11 SS 
+7120 7955 MT
+(Problem spaces.)
+69 W( Problem)
+344 W( spaces are displayed as triangles.  Their names are displayed on their upper)68 W
+7217 50 7120 8155 UL
+6120 9332 MT
+(left hand corners.  Any traced attributes)
+78 W( are displayed after the name separated by a colon.  Two mouse)79 W
+6120 10709 MT
+(actions are important to problem spaces.  A single left-down click will grab a visible)
+65 W( problem space and)64 W
+6120 12086 MT
+(allow you to move it until you let up.  This click also selects the problem space)
+69 W( as the selected item.  A)70 W
+6120 13463 MT
+(double left click will select the problem space and then create an)
+26 W( examiner window of the problem space.)25 W
+6120 14840 MT
+(The bold text in these windows can be moused)
+15 W( to create further examination windows of goals, operators,)16 W
+6120 16217 MT
+(and states, and of their substructures.)SH
+7120 18696 MT
+(Problem space positions can be initialized before a run by explicitly creating them.  This can)
+78 W( be done)77 W
+6120 20073 MT
+(with functions put)
+103 W( in your .sx-init.lisp file.  See the default.sx-init.lisp file in the SX directory for code)104 W
+6120 21450 MT
+(you can cut and paste, which is also "Appendix I" in this manual)
+49 W( \050hardcopy or on-line\051.  A configuration)48 W
+6120 22827 MT
+(can be saved with)
+15 W( the menu command "Write a file of PSs out", found under the submenu of "Build static)16 W
+6120 24204 MT
+(items".)SH
+7120 26683 MT
+(Most often it is desirable for problem)
+56 W( spaces to stay in the same place on the screen across and during)55 W
+6120 28060 MT
+(runs. This)
+343 W( is be done by "anchoring" them.)
+34 W( This means that they will appear in the same place each time)35 W
+6120 29437 MT
+(they are entered.  Anchored problem)
+93 W( spaces are indicated by an asterisk \050*\051 on their bottom left corner.)92 W
+6120 30814 MT
+(However, this can be overridden at explicit problem)
+51 W( space creation time in your .sx-init.lisp by using the)52 W
+6120 32191 MT
+(keyword :anchored nil when you create them, or later by clicking on the anchored button available)
+40 W( in the)39 W
+6120 33568 MT
+(problem space's display window.  The default behavior for anchoring problem)
+57 W( spaces is set by changing)58 W
+6120 34945 MT
+(the)SH
+/Times-Italic SF
+7767 XM
+(*default-ps-anchored*)SH
+/Times-Roman SF
+18090 XM
+(variable to t)
+28 W( or nil.  You can set it in your .sx-init.lisp file, or later by setting it)27 W
+6120 36322 MT
+(by hand; for example:)SH
+/Courier SF
+8760 37848 MT
+(;; indicate default anchoring)SH
+8760 38962 MT
+(\050setf *default-ps-anchored* nil\051)SH
+/Times-Roman SF
+7120 41441 MT
+(If you want)
+153 W( to hide the "*" when giving a demo or shooting a video, you can do so by calling the)154 W
+6120 42818 MT
+(function sx::hide-anchors, giving it an argument of t or)
+39 W( nil, to hide or unhide the anchors.  They will stay)38 W
+6120 44195 MT
+(hidden until you call the function with a t argument, or take a snapshot.)SH
+7120 46674 MT
+(If there are two copies of the same problem space on the screen,)
+152 W( one ephemeral and one anchored,)153 W
+6120 48051 MT
+(chunks will appear in the anchored space.  If a chunk references two problem spaces,)
+28 W( it will be arbitrarily)27 W
+6120 49428 MT
+(placed on one of them.)SH
+7120 51907 MT
+(If you want a problem space to be invisible, you are probably attempting to do)
+90 W( something on the sly,)91 W
+6120 53284 MT
+(but we attempt to support you.  It is not easy to hide something as big as a PS, but you can do so if)
+62 W( you)61 W
+6120 54661 MT
+(plan ahead.)
+89 W( You)
+455 W( must create it and make it invisible before you run, by modifying the following code,)90 W
+6120 56038 MT
+(and putting it in your .sx-init.lisp file.  If a visible problem space is called by a hidden one I don't know)58 W
+6120 57415 MT
+(what would happen, nor could I think of how to honestly display it.  If you select operators)
+38 W( in that space,)39 W
+6120 58792 MT
+(they appearsomewhere on the screen.  We therefore suggest that you avoid this hack.)SH
+/Courier SF
+9420 60318 MT
+(\050in-package "SX"\051)SH
+9420 61432 MT
+(\050s-value \050create-problem-space nil nil  'exhaustion\051)SH
+15360 62546 MT
+(:anchored t\051)SH
+9420 63660 MT
+(\050s-value sx::exhaustion :invisible t\051)SH
+9420 64774 MT
+(\050in-package "USER"\051)SH
+/Times-Roman SF
+7120 67253 MT
+(States. States)
+275 W( are displayed as squares.  Their name is not displayed by default.)SH
+2903 50 7120 67453 UL
+7120 69732 MT
+(Operators. Operators)
+275 W( are displayed as small circles.  Their name is displayed by default.)SH
+4611 50 7120 69932 UL
+ES
+%%Page: 7 9
+BS
+0 SI
+10 /Times-Roman AF
+54580 4286 MT
+(7)SH
+11 SS 
+9280 7955 MT
+(Chunks. Chunks)
+293 W( are displayed as a dark black box on the decision cycle that they are)
+18 W( created, and later)17 W
+3637 50 9280 8155 UL
+8280 9332 MT
+(as a hollow box.  When chunks fire, they)
+18 W( explode, and will beep if)19 W
+/Times-Italic SF
+38015 XM
+(chunk-beep-on-fire)SH
+/Times-Roman SF
+46737 XM
+(is t.  They can also)19 W
+8280 10709 MT
+(be set to display their id when they fire or)
+62 W( are created \050this is turned off by default\051.  In order to make it)61 W
+8280 12086 MT
+(clear which chunks fired, the explosion overlay remains until the beginning)
+120 W( of the next decision cycle.)121 W
+8280 13463 MT
+(Similarly, chunks remain dark after their creation until the beginning of the next decision cycle.)SH
+9280 15942 MT
+(Loading chunks.)
+46 W( If)
+321 W( you want to load productions into Soar)
+46 W( and have them appear as chunks, you need)45 W
+7378 50 9280 16142 UL
+8280 17319 MT
+(to do, in order, three things:)SH
+10480 19711 MT
+(1.)SH
+11580 XM
+(Soar \050and SX\051 expects to see chunk id's on the)54 W
+/Times-Italic SF
+32952 XM
+(*chunks*)SH
+/Times-Roman SF
+37435 XM
+(variable. You)
+383 W( can setf or append)55 W
+11580 20907 MT
+(to it.)SH
+10480 22801 MT
+(2.)SH
+11580 XM
+(Calling the function)143 W
+/Times-Italic SF
+21084 XM
+(initialize-chunks)SH
+/Times-Roman SF
+28774 XM
+(will then create bricks for the production names on)142 W
+11580 23997 MT
+(*chunks*, and it will also ptrace them so that when they fire the chunks will explode.)SH
+14 /Times-Bold AF
+8280 26015 MT
+(2.2. Pop-up menu commands)SH
+9 /Times-Roman AF
+54630 27571 MT
+(3)SH
+11 SS 
+9280 27934 MT
+(The graphic display window's pop-up menu can be selected by clicking the)
+165 W( middle mouse button.)164 W
+8280 29311 MT
+(Once displayed, the menu items can be selected with any mouse button. Each item consists of a "menu)94 W
+8280 30688 MT
+(label" followed by the)
+175 W( character equivalent\050s\051 \050if any\051 available by typing on the graphic window, or)174 W
+8280 32065 MT
+(typed to the command interpreter. If multiple commands are available, they are separated)
+3 W( by a "|" between)4 W
+8280 33442 MT
+(types and by commas within a type.  For example, the item for macrocycle:)SH
+/Courier-Bold SF
+8280 36346 MT
+(Macrocycle m,SPC|:m,\050m\051)1320 W
+/Times-Roman SF
+8280 39645 MT
+(indicates that the macrocycle)
+100 W( can be run by typing "m" or a space to the graphic window, or by typing)101 W
+9 SS 
+10340 40659 MT
+(4)SH
+11 SS 
+8280 41022 MT
+(":m")SH
+11065 XM
+(or "\050m\051" to the Soar Command Interpreter.)SH
+/Symbol SF
+10249 44037 MT
+(\267)SH
+/Times-Bold SF
+11030 XM
+(1 Decision)
+58 W( d)
+883 W( | N, :d)58 W
+/Times-Roman SF
+21276 XM
+(-- Run one decision cycle.  N is any number)
+58 W( typed into the command)57 W
+11030 45233 MT
+(interpreter \050e.g., 1 or 23\051.)SH
+/Symbol SF
+10249 47127 MT
+(\267)SH
+/Times-Bold SF
+11030 XM
+(1 Elaboration)
+SH( r)
+825 W( | :r)SH
+/Times-Roman SF
+20988 XM
+(-- Run one elaboration cycle.)SH
+/Symbol SF
+10249 49021 MT
+(\267)SH
+/Times-Bold SF
+11030 XM
+(Set Macrocycle)
+517 W( |\050set-macrocycle\051)1342 W
+/Times-Roman SF
+29065 XM
+(-- This provides a)
+517 W( dialog box for setting the)518 W
+11030 50217 MT
+(macrocycles parameters of macrocycle type, number of)
+26 W( repetitions, and maximum number of)25 W
+11030 51413 MT
+(decision cycles before a forced break.)SH
+/Symbol SF
+10249 53307 MT
+(\267)SH
+/Times-Bold SF
+11030 XM
+(Macrocycle m)
+909 W( SPC | :m, \050m\051)84 W
+/Times-Roman SF
+25884 XM
+(-- Run one macrocycle.  After running,)
+84 W( update any display)85 W
+11030 54503 MT
+(windows open.  See above section on macrocycles for more details.)SH
+/Symbol SF
+10249 56397 MT
+(\267)SH
+/Times-Bold SF
+11030 XM
+(Run Continuously |\050d\051)45 W
+/Times-Roman SF
+21892 XM
+(-- Run \050d\051.)
+45 W( Can)
+363 W( be stopped by typing <CR> to either the SCI or the)44 W
+11030 57593 MT
+(SX graphic display.)SH
+/Symbol SF
+10249 59487 MT
+(\267)SH
+/Times-Bold SF
+11030 XM
+("--------------")SH
+/Times-Roman SF
+17651 XM
+(-- Separator.  Nothing happens if this is clicked.)SH
+/Symbol SF
+10249 61381 MT
+(\267)SH
+/Times-Bold SF
+11030 XM
+(Examine selected item)
+155 W( e)
+981 W( |:e)156 W
+/Times-Roman SF
+25488 XM
+(-- Create an examination window on the selected \050shaded\051)156 W
+11030 62577 MT
+(object. Items)
+493 W( in bold text in these windows can be clicked on themselves to create)
+109 W( further)108 W
+11030 63773 MT
+(examination windows.)SH
+10800 50 8280 66116 UL
+7 SS 
+9180 67617 MT
+(3)SH
+9 SS 
+9530 67944 MT
+(By default the menu will stay up until it is iconified or exited. If "Menus be static" is de-selected on the "DSI and)
+126 W( Soar)127 W
+8280 68958 MT
+(parameters" dialog box, the menu will disappear after selection.)SH
+7 SS 
+9180 70659 MT
+(4)SH
+9 SS 
+9530 70986 MT
+(Users can also just type "m"; the Soar Command Interpreter also accepts the symbol without the colon on the front, as long)
+11 W( as)10 W
+8280 72000 MT
+(the uncolonized symbol does not have a value.)SH
+ES
+%%Page: 8 10
+BS
+0 SI
+10 /Times-Roman AF
+6120 4286 MT
+(8)SH
+11 /Symbol AF
+8089 8080 MT
+(\267)SH
+/Times-Bold SF
+8870 XM
+(Init Soar)
+SH( i)
+825 W( |:init)SH
+/Times-Roman SF
+17211 XM
+(-- Call init-soar.)SH
+/Symbol SF
+8089 9974 MT
+(\267)SH
+/Times-Bold SF
+8870 XM
+(Continuous Match set)
+73 W( |:cms)898 W
+/Times-Roman SF
+23306 XM
+(-- Provide a continuous description of the production match)74 W
+8870 11170 MT
+(set. MS)
+275 W( is run and the the results are put in a popup Emacs buffer after each macrocycle.)SH
+/Symbol SF
+8089 13064 MT
+(\267)SH
+/Times-Bold SF
+8870 XM
+(Set parameters)191 W
+/Times-Roman SF
+16642 XM
+(-- Pops up a dialog box to let you set various Soar and)
+191 W( graphic display)190 W
+8870 14260 MT
+(parameters.)SH
+/Symbol SF
+8089 16154 MT
+(\267)SH
+/Times-Bold SF
+8870 XM
+(Set learning)
+SH( |\050learn\051)825 W
+/Times-Roman SF
+19316 XM
+(-- Pops up a dialog box to let you set learning parameters.)SH
+/Symbol SF
+8089 18048 MT
+(\267)SH
+/Times-Bold SF
+8870 XM
+(Write N1)
+77 W( trace)78 W
+/Times-Roman SF
+16400 XM
+(-- Writes out information for Paul Newell's graphic display \050only available)78 W
+8870 19244 MT
+(in non-release versions of SX\051.)SH
+/Symbol SF
+8089 21138 MT
+(\267)SH
+/Times-Bold SF
+8870 XM
+(Take snapshot of screen)
+18 W( |:snap)1136 W
+/Times-Roman SF
+24713 XM
+(-- Take a snapshot of the SX display window and)
+18 W( offer to)17 W
+8870 22334 MT
+(print it.)
+67 W( The)
+410 W( following variables are used when taking the snapshot.  They can be set in the)68 W
+8870 23530 MT
+(user's .sx-init.lisp file.  Their default values are shown below.)SH
+/Courier SF
+11510 25758 MT
+(;; Command to print the file on the local)SH
+11510 26872 MT
+(;; printer. CMU Psych uses "laser", or goes)SH
+11510 27986 MT
+(;; to Wean to pick it up.)SH
+11510 29100 MT
+(\050setf snap-print-command "lpr"\051)SH
+11510 31328 MT
+(;; Default directory to dump stuff into.)SH
+11510 32442 MT
+(;; Can be changed in dialog box during snapshot.)SH
+11510 33556 MT
+(\050setf snap-directory "/tmp/"\051)SH
+11510 35784 MT
+(;; Default name of file to dump into.)SH
+11510 36898 MT
+(;; Can be changed in dialog box during snapshot.)SH
+11510 38012 MT
+(\050setf snap-file "sx-dump"\051)SH
+/Symbol SF
+8089 41960 MT
+(\267)SH
+/Times-Bold SF
+8870 XM
+(Load TAQL)
+SH( |\050load-taql\051)825 W
+/Times-Roman SF
+21276 XM
+(-- Do what needs to be done to load TAQL.)SH
+/Symbol SF
+8089 43854 MT
+(\267)SH
+/Times-Bold SF
+8870 XM
+(Static display sub-menu)12 W
+/Times-Roman SF
+20428 XM
+(-- Provides a set of commands for manipulating the graphic display)11 W
+8870 45050 MT
+(as a static view of Soar's problem spaces.  It includes commands to:)SH
+8 /Symbol AF
+10977 46388 MT
+(\267)SH
+11 /Times-Roman AF
+11620 46538 MT
+(Create a problem space icon,)SH
+8 /Symbol AF
+10977 48282 MT
+(\267)SH
+11 /Times-Roman AF
+11620 48432 MT
+(Indicate calling order by connecting it to another problem space,)SH
+8 /Symbol AF
+10977 50176 MT
+(\267)SH
+11 /Times-Roman AF
+11620 50326 MT
+(Remove connections between problem spaces,)SH
+8 /Symbol AF
+10977 52070 MT
+(\267)SH
+11 /Times-Roman AF
+11620 52220 MT
+(Write out a file that when loaded in a fresh SX image will)
+23 W( recreate the current problem)24 W
+11620 53416 MT
+(space configuration.)SH
+/Symbol SF
+8089 55310 MT
+(\267)SH
+/Times-Bold SF
+8870 XM
+(Help)SH
+/Times-Roman SF
+11407 XM
+(-- Provides a short list of directions of how to get more help.)SH
+/Symbol SF
+8089 57204 MT
+(\267)SH
+/Times-Bold SF
+8870 XM
+(Exit menu)SH
+/Times-Roman SF
+14004 XM
+(-- Hide the menu.)SH
+14 /Times-Bold AF
+6120 59222 MT
+(2.3. Miscellaneous commands)SH
+11 /Times-Roman AF
+7120 62734 MT
+(These miscellaneous commands are used internally in the graphic display.  Some of them)
+20 W( are useful for)19 W
+6120 64111 MT
+(putting on hooks, or for building tools to put on hooks.)SH
+7120 66590 MT
+(\050defun attribute-value symbol attribute\051.  Returns the value of ATTRIBUTE for SYMBOL.)SH
+17656 50 7120 66790 UL
+7120 69069 MT
+(\050defun context-object-attribute-value-pairs symbol\051.)
+285 W( This)
+560 W( returns the attribute)
+285 W( values pairs for the)286 W
+23447 50 7120 69269 UL
+6120 70446 MT
+(PSCM object SYMBOL.)SH
+ES
+%%Page: 9 11
+BS
+0 SI
+10 /Times-Roman AF
+54580 4286 MT
+(9)SH
+11 SS 
+9280 7955 MT
+(\050defun decision-cycle-count\051 & \050defun elaboration-cycle-count\051. Return the appropriate count.)SH
+12673 50 9280 8155 UL
+14230 50 23359 8155 UL
+9280 10434 MT
+(\050defun find-chunk-ps chunk-name\051.)
+185 W( Finds)
+460 W( the first)
+185 W( problem space that occurs in CHUNK-NAME's)184 W
+16037 50 9280 10634 UL
+8280 11811 MT
+(conditions. If)
+299 W( a problem space is not accessible)
+12 W( in the chunk's conditions, it returns the top-level problem)13 W
+8280 13188 MT
+(space.)SH
+9280 15667 MT
+(\050defun get-wmparts object\051.)
+178 W( Returns)
+453 W( a list of strings corresponding to the WME's)
+178 W( of OBJECT.  If)177 W
+12603 50 9280 15867 UL
+8280 17044 MT
+(OBJECT is not provided, the soar:top-goal is used.)SH
+9280 19523 MT
+(\050defun load-taql\051.)
+182 W( Does)
+457 W( whatever is necessary to load TAQL on your system.)
+182 W( In)
+640 W( general, it loads)183 W
+7878 50 9280 19723 UL
+8280 20900 MT
+(load.lisp out of)
+276 W( the TAQL directory indicated by the value of soar:taql-home-directory.  Your site)275 W
+8280 22277 MT
+(administrator will set this, and you can reset it in your .soar-init.lisp file, or in your .sx-init.lisp file.)SH
+9280 24756 MT
+(\050defun soar-read-n header &optional \050min 0\051 \050max 100\051\051.)
+58 W( Reads)
+333 W( a number in between)
+58 W( MIN and MAX)59 W
+25510 50 9280 24956 UL
+8280 26133 MT
+(using HEADER to prompt the user.)SH
+ES
+%%Page: 10 12
+BS
+0 SI
+10 /Times-Roman AF
+6120 4286 MT
+(10)SH
+ES
+%%Page: 11 13
+BS
+0 SI
+10 /Times-Roman AF
+54080 4286 MT
+(11)SH
+16 /Times-Bold AF
+8280 8272 MT
+(3. The new Soar Command Interpreter)SH
+11 /Times-Roman AF
+9280 11890 MT
+(The SX)
+32 W( display must be run with the new Soar Command Interpreter.  \050It is just another lisp read-eval-)31 W
+8280 13267 MT
+(print loop, or REPL.\051  In addition to providing a)
+136 W( better command interpreter and one tailored to Soar,)137 W
+8280 14644 MT
+(there is a more important reason for using it.  User input \050such as mouse clicks\051 may generate X window)42 W
+8280 16021 MT
+(events that influence the SX windows, even if they are not directed at the it \050such)
+253 W( as covering or)254 W
+8280 17398 MT
+(uncovering an overlapping window\051. All of these events have to be handled by SX.)
+58 W( This)
+390 W( happens in the)57 W
+8280 18775 MT
+(hidden parts of the Soar Command)
+118 W( Interpreter. While some of the features of the top level Lisp REPL)119 W
+8280 20152 MT
+(provided by the vendor may be lost \050but they can be readily)
+94 W( added back by extending the SCI\051, several)93 W
+8280 21529 MT
+(more powerful)
+95 W( ones are gained.  In addition to handling window events, the Soar Command Interpreter)96 W
+8280 22906 MT
+(provides a prompt and commands more useful to Soar developers.)SH
+14 /Times-Bold AF
+8280 24924 MT
+(3.1. The prompt)SH
+11 /Times-Roman AF
+9280 28436 MT
+(The prompt of)
+144 W( the Soar Command Interpreter consists of 3 fields: a Soar Command Interpreter title)143 W
+8280 29813 MT
+(\050"sci"\051, characters indicating the current reader)
+95 W( syntax, and the current package.  The read table in Soar)96 W
+8280 31190 MT
+(interprets commas as preference syntax; Lisp normally interprets them as part of the backquote)
+14 W( macro.  In)13 W
+8280 32567 MT
+(the prompt, "ls" indicates that the Lisp interpretation is used, while "ss" indicates)
+68 W( that the Soar syntax is)69 W
+8280 33944 MT
+(used. For)
+769 W( example,)
+247 W( the prompt "<SCI ls:user>" indicates that you are running the Soar Command)246 W
+8280 35321 MT
+(Interpreter, the reader is set to Lisp syntax, and the current package is the user package.)
+71 W( This)
+418 W( prompt is)72 W
+8280 36698 MT
+(easily changed by setting the)
+79 W( variable)78 W
+/Times-Italic SF
+25552 XM
+(opal:grepl-prompt-function)SH
+/Times-Roman SF
+38065 XM
+(to the function you wish to print your)78 W
+8280 38075 MT
+(prompt.)SH
+14 /Times-Bold AF
+8280 40093 MT
+(3.2. Action keywords)SH
+11 /Times-Roman AF
+9280 43605 MT
+(Action keywords, which specify an action for the interpreter or Soar to take, begin with a)
+21 W( colon \050:\051, and)22 W
+8280 44982 MT
+(sometimes take an argument, such as a file to load.  All these words are also accepted without)
+63 W( the colon)62 W
+8280 46359 MT
+(unless they have been given a value \050i.e., bound)
+36 W( in Lisp\051.  In that case, the value is returned instead.  The)37 W
+8280 47736 MT
+(following action keywords are currently supported:)SH
+/Symbol SF
+10249 49314 MT
+(\267)SH
+/Times-Bold SF
+11030 XM
+(any number N)SH
+/Times-Roman SF
+18089 XM
+(-- Runs Soar N macrocycles, i.e. \050m N\051.)SH
+/Symbol SF
+10249 51208 MT
+(\267)SH
+/Times-Bold SF
+11030 XM
+(:ts, :c & :comma)SH
+/Times-Roman SF
+19121 XM
+(-- Toggles the comma syntax reading between Soar and Lisp syntax.)SH
+/Symbol SF
+10249 53102 MT
+(\267)SH
+/Times-Bold SF
+11030 XM
+(:cgd)SH
+/Times-Roman SF
+13368 XM
+(-- Calls create-graphic-display.  This often useful when the SX display gets wedged.  It)47 W
+11030 54298 MT
+(must often be called twice to really clear things out.)SH
+/Symbol SF
+10249 56192 MT
+(\267)SH
+/Times-Bold SF
+11030 XM
+(:? & :help)SH
+/Times-Roman SF
+16071 XM
+(-- Prints out a help message listing the keywords and their effects.)SH
+/Symbol SF
+10249 58086 MT
+(\267)SH
+/Times-Bold SF
+11030 XM
+(:exit & :quit)SH
+/Times-Roman SF
+17109 XM
+(-- Exits the Soar Command Interpreter cleanly, leaving you in Lisp.)SH
+/Symbol SF
+10249 59980 MT
+(\267)SH
+/Times-Bold SF
+11030 XM
+(:e or e)187 W
+/Times-Roman SF
+14796 XM
+(-- Pops up an examination window on the)
+187 W( currently selected PSCM level object.)188 W
+11030 61176 MT
+(Items in bold text in these windows)
+376 W( can be clicked on themselves to create further)375 W
+11030 62372 MT
+(examination windows.)SH
+/Symbol SF
+10249 64266 MT
+(\267)SH
+/Times-Bold SF
+11030 XM
+(:m or m)27 W
+/Times-Roman SF
+15172 XM
+(-- Runs 1 macrocycle.  The default value for a macrocycle is 1 decision cycle.  Any)28 W
+11030 65462 MT
+(open windows on PSCM items are updated each macrocycle.)SH
+/Symbol SF
+10249 67356 MT
+(\267)SH
+/Times-Bold SF
+11030 XM
+(:pack)SH
+/Times-Roman SF
+13973 XM
+(-- Sets the Lisp package to the name of the package it is given.  The)
+40 W( name be a string,)39 W
+11030 68552 MT
+(quoted or unquoted symbol, or a keyword.)SH
+/Symbol SF
+10249 70446 MT
+(\267)SH
+/Times-Bold SF
+11030 XM
+(:redo)SH
+/Times-Roman SF
+13809 XM
+(-- Redoes the last successful command.)SH
+ES
+%%Page: 12 14
+BS
+0 SI
+10 /Times-Roman AF
+6120 4286 MT
+(12)SH
+11 /Symbol AF
+8089 8080 MT
+(\267)SH
+/Times-Bold SF
+8870 XM
+(:snap)SH
+/Times-Roman SF
+11825 XM
+(-- Sets)
+112 W( up taking a snapshot.  It will query you for a file name, delete the old file if)113 W
+8870 9276 MT
+(necessary, take a snapshot, and then ask you if you would like to print it.)
+205 W( The)
+683 W( graphic)204 W
+8870 10472 MT
+(version pops up a dialog box to)
+11 W( get the file name \050the non-graphic version accepts three types)12 W
+8870 11668 MT
+(of file names: a <CR> will give you)
+51 W( the default, a number will create that numbered version)50 W
+8870 12864 MT
+(of the default name, and anything will be used as a new file name.\051)
+146 W( Before)
+568 W( you take the)147 W
+8870 14060 MT
+(picture, a title is put up)
+77 W( on the graphical display.  The printing command is set to "lpr" as a)76 W
+8870 15256 MT
+(default value.  This can be set in your .soar-init.lisp)
+159 W( file, for example, \050setf sx:snap-print-)160 W
+8870 16452 MT
+(command "csprint"\051.)SH
+8870 18609 MT
+(You can see what came)
+288 W( out with)287 W
+/Times-Italic SF
+25452 XM
+(preview)SH
+/Times-Roman SF
+(, a program at CMU at least, for displaying)287 W
+8870 19805 MT
+(postscript output on your screen.)SH
+8870 21962 MT
+(If you aren't at CMU you might try)
+55 W( one of the following \050all available via anonymous ftp at)56 W
+8870 23158 MT
+(uunet.uu.net in the X/contrib directory.\051)SH
+11070 24910 MT
+(pageview)SH
+11070 26106 MT
+(xdvi)SH
+11070 27302 MT
+(texx)SH
+11070 28498 MT
+(xtex)SH
+/Symbol SF
+8089 30375 MT
+(\267)SH
+/Times-Bold SF
+8870 XM
+(:update or :up)SH
+/Times-Roman SF
+15929 XM
+(-- Updates all windows, including examiner windows as best it can.)SH
+/Symbol SF
+8089 32269 MT
+(\267)SH
+/Times-Bold SF
+8870 XM
+(anything else)SH
+/Times-Roman SF
+15288 XM
+(-- Gets read, evaluated, and printed.)SH
+14 /Times-Bold AF
+6120 34287 MT
+(3.3. Changes to Soar's textual trace)SH
+11 /Times-Roman AF
+7120 35981 MT
+(Consider the line of trace shown below representing a composite of all possible lines.)SH
+10 SS 
+8806 37501 MT
+(23 ==> G: g234 \050\050val1\051 \050val2\051 name\051)SH
+8120 38606 MT
+(24 P: p355 \050do-demo\051)SH
+11 SS 
+6120 40195 MT
+(In addition to moving the name out in front, the DSI offers 5 parameters that change the trace.)SH
+8320 41648 MT
+(1.)SH
+9420 XM
+(pgs-real-tab will insert)
+52 W( a real tab between the DC counter and the rest of the line when it is)51 W
+5252 50 9420 41848 UL
+9420 42844 MT
+(set to t \050default nil\051.  By default Soar inserts up to 4 spaces to create a filled "tab".)SH
+8320 44738 MT
+(2.)SH
+9420 XM
+(pgs-show-spaces will put a "." in the indentation)
+56 W( for each level down you are in the calling)57 W
+7452 50 9420 44938 UL
+9420 45934 MT
+(hierarchy when it is set to t \050default is nil\051.  The default behavior is to just put spaces.)SH
+8320 47828 MT
+(3.)SH
+9420 XM
+(pgs-tab-size determines how many space to indent for)
+15 W( each level down in the goal stack you)14 W
+5314 50 9420 48028 UL
+9420 49024 MT
+(are. The)
+275 W( default is 3.)SH
+8320 50918 MT
+(4.)SH
+9420 XM
+(pgs-goal-leader is the leading)
+33 W( string inserted in front of each goal.  The default is "==>".  If)34 W
+6840 50 9420 51118 UL
+9420 52114 MT
+(pgs-tab-size is set to 2 or 1, this should be made correspondingly shorter.)SH
+8320 54008 MT
+(5.)SH
+9420 XM
+(pgs-pscm-id if t \050the default\051 indicates that the id)
+134 W( of the object should be included in the)133 W
+5438 50 9420 54208 UL
+9420 55204 MT
+(trace. If)
+275 W( there is no name, the id is always used as the name.)SH
+7120 57683 MT
+(If all the paramters were changed, the following trace could result:)SH
+10 SS 
+8806 59203 MT
+(23<TAB> . . => G: g234 \050\050val1\051 \050val2\051 name\051 24<TAB> . . .  P: do-demo \050\051)SH
+ES
+%%Page: 13 15
+BS
+0 SI
+10 /Times-Roman AF
+54080 4286 MT
+(13)SH
+16 /Times-Bold AF
+8280 8272 MT
+(4. Getting help)SH
+14 SS 
+8280 10290 MT
+(4.1. On-line help & manuals)SH
+11 /Times-Roman AF
+9280 13802 MT
+(Help is provided in several places:)SH
+/Symbol SF
+10249 15981 MT
+(\267)SH
+/Times-Roman SF
+11030 XM
+(If you get lost, you can select)
+67 W( HELP on the pop-up menu on the graphic display, and it will)68 W
+11030 17177 MT
+(direct you to more detailed help.)SH
+/Symbol SF
+10249 19071 MT
+(\267)SH
+/Times-Roman SF
+11030 XM
+(Each of the Emacs modes has)
+219 W( menu items \050under ^c^m\051 that will lead you to complete)218 W
+11030 20267 MT
+(on-line documentation for Soar, TAQL, and the modes themselves.)SH
+/Symbol SF
+10249 22161 MT
+(\267)SH
+/Times-Roman SF
+11030 XM
+(You can get help on TAQL constructs and Soar commands by typing C-c D when in)
+40 W( Emacs.)41 W
+11030 23357 MT
+(Other ways to find out more information about a particular command)
+18 W( are available from their)17 W
+11030 24553 MT
+(manuals.)SH
+/Symbol SF
+10249 26447 MT
+(\267)SH
+/Times-Roman SF
+11030 XM
+(Postscript and text versions of the manuals for each of the parts of the D.S.I.)
+57 W( \050this D.S.I./SX)58 W
+11030 27643 MT
+(manual, soar-mode, and taql-mode\051 are also available in the distribution)
+10 W( directory.  These can)9 W
+11030 28839 MT
+(be printed out locally and cherished.  You)
+112 W( can find this directory by looking at the on-line)113 W
+11030 30035 MT
+(version and noting its directory.)SH
+14 /Times-Bold AF
+8280 32053 MT
+(4.2. Getting Unstuck)SH
+11 /Times-Roman AF
+9280 35565 MT
+(Getting out of trouble.)
+219 W( The)
+494 W( graphic display window is still)
+219 W( under development, and may produce)218 W
+10495 50 9280 35765 UL
+8280 36942 MT
+(unusual output, or may stop in its tracks, slamming you into the)
+89 W( passenger compartment.  But it is now)90 W
+8280 38319 MT
+(tending to fail safe, although messy.)
+13 W( For)
+299 W( example, excising single chunks shouldn't do you any harm, but)12 W
+8280 39696 MT
+(might not remove them from the screen.)SH
+9280 42175 MT
+(There are a series of actions you can take to rein it back)
+135 W( in.  In any case,)136 W
+/Times-Bold SF
+43660 XM
+(you must not delete the)136 W
+11420 50 43660 42375 UL
+8280 43552 MT
+(graphic display or)
+146 W( any SX windows with your window manager.)145 W
+/Times-Roman SF
+40499 XM
+(If you do this, you will have to)145 W
+31379 50 8280 43752 UL
+8280 44929 MT
+(restart Soar.  In increasing order of power, danger, and inconvenience some safe fixes are:)SH
+10480 47343 MT
+(1.)SH
+11580 XM
+(Popping out)
+51 W( of the break will often work, and just means you can't do what you tried then.)52 W
+11580 48539 MT
+(For example, pscm-stats used to break when)
+119 W( it was called before Soar had run a decision)118 W
+11580 49735 MT
+(cycle. After)
+275 W( that it worked fine.)SH
+10480 51629 MT
+(2.)SH
+11580 XM
+("\050init-soar\051" will solve)
+139 W( most problems without destroying the graphic display window, so)140 W
+11580 52825 MT
+(you should first attempt to use it.)SH
+10480 54719 MT
+(3.)SH
+11580 XM
+(":cgd" or \050sx:create-graphic-display\051 will sometimes work and will sometimes cause an)228 W
+11580 55915 MT
+(error. Sticky)
+343 W( problems may)
+34 W( require destroying the window and creating it twice.  \050The first)35 W
+11580 57111 MT
+(window destruction)
+54 W( may cause an error that you have to pop around, :pop in Allegro based)53 W
+11580 58307 MT
+(Soar, and :d? in Lucid based)
+87 W( Soar.\051  The graphic representation of problem-spaces created)88 W
+11580 59503 MT
+(via the static display and chunks will be lost.  Problem spaces can be recreated by)
+25 W( reloading)24 W
+11580 60699 MT
+(the code that defines them, and chunks added back with)SH
+/Times-Italic SF
+36413 XM
+(initialize-chunks)SH
+/Times-Roman SF
+(.)SH
+10480 62593 MT
+(4.)SH
+11580 XM
+(":sxl graphic-display" will reload)
+162 W( the whole graphic-display file, and should cleanup any)163 W
+11580 63789 MT
+(mess. You)
+305 W( will loose track of all chunks unless you include them as you would new chunks)14 W
+11580 64985 MT
+(\050see the following section on loading chunk files\051 and the SX display may run more slowly.)SH
+10480 66879 MT
+(5.)SH
+11580 XM
+(Simply closing the window, or turning off the graphic)
+151 W( display with the "Set Parameters")152 W
+11580 68075 MT
+(dialog box, or typing "\050setf soar:graphic-trace? nil\051", will)
+147 W( often let you continue running.)146 W
+11580 69271 MT
+(You do of course lose the use of the display....)SH
+10480 71165 MT
+(6.)SH
+11580 XM
+(The functions \050user:quit-sx\051 and \050user:sx-quit\051 when called will quit)
+464 W( the command)465 W
+ES
+%%Page: 14 16
+BS
+0 SI
+10 /Times-Roman AF
+6120 4286 MT
+(14)SH
+11 SS 
+9420 7955 MT
+(interpreter. They)
+481 W( are handy, for example, when the SX display comes up and has trouble)102 W
+9420 9151 MT
+(catching the X server for some)
+59 W( reason, and puts you in a break.  In this case, eachtime you)60 W
+9420 10347 MT
+(break out, the SX display tries to)
+15 W( connect again, and as it gets another error, throws you into)14 W
+9420 11543 MT
+(another break.)SH
+14 /Times-Bold AF
+6120 13561 MT
+(4.3. Known Bugs)SH
+11 /Times-Roman AF
+7120 17073 MT
+(The graphic display was developed on)
+175 W( a Dec PMax with Allegro Common Lisp running under the)176 W
+6120 18450 MT
+(Mach operating)
+178 W( system with X11R4.  It is only dependent on having X11R4, a Common Lisp, CLX)177 W
+6120 19827 MT
+(\050Common Lisp in X\051. It is designed to be independent of machine)
+70 W( type, operating system, and Common)71 W
+6120 21204 MT
+(Lisp implementation.  We)
+19 W( are upon occasion surprised when porting to another combination.  You should)18 W
+6120 22581 MT
+(budget some time for unexpected problems when porting it to a new combination.)SH
+7120 25060 MT
+(In the Graphic display.)SH
+10080 50 7120 25260 UL
+7120 27539 MT
+(** There are certain PSCM level sequences that are not often seen)
+209 W( in Soar programs that are not)210 W
+6120 28916 MT
+(correctly handled by SX.  Two state selections in a row would be a typical example.)SH
+7120 31395 MT
+(** Setting TAQL Verbose)
+172 W( doesn't completely work on the status menu.  It can set and unset taql-)171 W
+6120 32772 MT
+(verbose, but there is not)
+69 W( a hook within TAQL to note changes in the dialog box if they are done in load)70 W
+6120 34149 MT
+(files or by hand with a function call.)SH
+7120 36628 MT
+(** You have to work in the USER package for)
+15 W( the WM walker to run correctly.  \050That is not to say that)14 W
+6120 38005 MT
+(you can not have code in other packages, just that when you WM walk, you have to have the current)137 W
+6120 39382 MT
+(package set to USER.  If you don't)
+44 W( know what a package is, you are probably safe.  You can find out by)43 W
+6120 40759 MT
+(typing "*package*".\051)SH
+7120 43238 MT
+(Interactions with soar-mode.  None known.)SH
+12615 50 7120 43438 UL
+7120 45717 MT
+(Interactions with taql-mode.  None known.)SH
+12433 50 7120 45917 UL
+7120 48196 MT
+(Common Lisp and Soar.)SH
+10756 50 7120 48396 UL
+7120 50675 MT
+(SX was initially designed with)
+55 W( Allegro Common Lisp v3.1.  If you compile it with another Lisp, error)56 W
+6120 52052 MT
+(messages may appear indicating extensions that are)
+14 W( necessary, or changes in functionality.  Any problems)13 W
+6120 53429 MT
+(should of course be forwarded to soar-bugs@cs.cmu.edu.)SH
+ES
+%%Page: 15 17
+BS
+0 SI
+10 /Times-Roman AF
+54080 4286 MT
+(15)SH
+16 /Times-Bold AF
+8280 8272 MT
+(5. Loading and running the Graphic Display)SH
+14 SS 
+8280 13527 MT
+(5.1. Required information)SH
+11 /Times-Roman AF
+9280 17039 MT
+(Loading the SX Graphic Display.)
+54 W( The)
+329 W( graphic display should be available)
+54 W( at your site as a slightly \050!\051)55 W
+14971 50 9280 17239 UL
+8280 18416 MT
+(larger Soar image.  It will will not include TAQL and)
+28 W( may not include the latest patches.  Because it may)27 W
+8280 19793 MT
+(move around in the Soar file hierarchy and shake uncontrollably, you should)
+550 W( contact soar-)551 W
+8280 21170 MT
+(bugs@cs.cmu.edu or your local site maintainer to get its current location.)SH
+9280 23649 MT
+(Your .login file.)SH
+7088 50 9280 23849 UL
+9280 26128 MT
+(It would be wise to put)
+10 W( the following commands in your .login.  They allow your Soar image to get big.)9 W
+8280 27505 MT
+(With SX it will be even bigger than it normally is \050~17 Meg + your code\051.)SH
+/Courier SF
+21480 29031 MT
+(limit datasize unlimited)SH
+21480 30145 MT
+(limit stacksize unlimited)SH
+/Times-Roman SF
+9280 32624 MT
+(Running on another machine.)
+10 W( If)
+285 W( you are running Soar+sx image)
+10 W( on another machine, before starting up)11 W
+13044 50 9280 32824 UL
+8280 34001 MT
+(or loading, you should type to a shell on your display machine:)SH
+/Courier SF
+10920 35527 MT
+(xhost othermachine.name.etc)SH
+9 /Times-Roman AF
+50127 37643 MT
+(5)SH
+11 SS 
+9280 38006 MT
+(Similarly, on the machine you are telnetted to you should set the display to be your machine:)SH
+/Courier SF
+10920 39532 MT
+(setenv DISPLAY plateo.soar.cs.cmu.edu:0.0)SH
+14 /Times-Bold AF
+8280 41550 MT
+(5.2. Optional information)SH
+11 /Times-Roman AF
+9280 45062 MT
+(Optimizing speed.)
+36 W( You)
+311 W( may find it worth)
+36 W( your while to put a copy of the SX image on your local disk)35 W
+8102 50 9280 45262 UL
+8280 46439 MT
+(to get a performance boost \050one user reports a 2x speed)
+81 W( up in load time by having it locally\051.  You will)82 W
+8280 47816 MT
+(also get a speed up if you turn auto-scrolling off)
+58 W( with)57 W
+/Times-Italic SF
+32591 XM
+(\050set-auto-scroll nil\051)57 W
+/Times-Roman SF
+(, and only update the examiner)57 W
+8280 49193 MT
+(windows every decision cycle by calling)SH
+/Times-Italic SF
+26424 XM
+(\050set-always-update nil\051)SH
+/Times-Roman SF
+(.)SH
+9280 51672 MT
+(Init files.  The last thing SX does as it is started up is to load initialization files in order for)SH
+3972 50 9280 51872 UL
+/Symbol SF
+10249 53990 MT
+(\267)SH
+/Times-Roman SF
+11030 XM
+(your lisp \050with a Lisp dependent name, e.g, Allegro loads .clinit.cl\051,)SH
+/Symbol SF
+10249 55884 MT
+(\267)SH
+/Times-Roman SF
+11030 XM
+(Soar \050.soar-init.lisp\051, and)SH
+/Symbol SF
+10249 57778 MT
+(\267)SH
+/Times-Roman SF
+11030 XM
+(the SX portion of the D.S.I. \050.sx-init.lisp\051.)SH
+9280 60257 MT
+(These files are loaded from what lisp sees as your)
+173 W( home directory.  On certain machines \050e.g., the)174 W
+8280 61634 MT
+(Pmaxen at CMU\051, this is your directory on the local machine even if you set your)
+158 W( home directory to)157 W
+8280 63011 MT
+(another machine or remote file service.  This is quickly solved by)
+32 W( having each local machine file point to)33 W
+8280 64388 MT
+(a common file, such as one on afs.)SH
+9280 66867 MT
+(In your SX initialization file you)
+1 W( may set or reset the various parameters that control it.  The .sx-init.lisp)SH
+10800 50 8280 70172 UL
+7 SS 
+9180 71673 MT
+(5)SH
+9 SS 
+9530 72000 MT
+(Pmaxen, at least at CMU, appear to prefer not having the trailing ".0".)SH
+ES
+%%Page: 16 18
+BS
+0 SI
+10 /Times-Roman AF
+6120 4286 MT
+(16)SH
+11 SS 
+6120 7955 MT
+(file in the release directory \050Appendix I\051 contains a)
+75 W( list of these along with documentation strings.  You)76 W
+6120 9332 MT
+(can just copy this into your home directory, or include it in your own file and edit it.)SH
+7120 11811 MT
+(Your .cshrc file.)
+32 W( These)
+307 W( above commands are well suited for creating aliases)
+32 W( for in your .cshrc file, and)31 W
+7210 50 7120 12011 UL
+6120 13188 MT
+(forgetting. For)
+433 W( examples, see the cshrc-additions file in the SX distribution directory.  Similarly, if you)80 W
+6120 14565 MT
+(put these commands in your .xinitrc file, they will be executed each time you start up X.)SH
+7120 17044 MT
+(Performance cost.)SH
+7940 50 7120 17244 UL
+7120 19523 MT
+(The SX display is large more than slow, so it ends up being mostly)
+31 W( disk \050virtual memory\051 bound rather)30 W
+6120 20900 MT
+(than CPU bound.  Available)
+44 W( memory ends up being more important than processor speed.  Running on a)45 W
+6120 22277 MT
+(3100 with 20 Meg of memory there is currently a relative)
+118 W( slow down between SX and a plain Soar of)117 W
+6120 23654 MT
+(6.1x, but only a relative slow down of 1.8x with 24 Meg of memory.)
+78 W( On)
+433 W( machines with 32 M, there is)79 W
+6120 25031 MT
+(only a 1.4x slow down.  This is with)
+41 W( relatively unoptimized code \050e.g., no function timing done yet\051, and)40 W
+6120 26408 MT
+(most of the remaining development will be outside of the display loop \050e.g., creating new examination)118 W
+6120 27785 MT
+(displays\051, so we expect this time decrement to remain constant, or decrease slightly.  We probably)
+71 W( can't)70 W
+6120 29162 MT
+(get this number under 1.)SH
+7120 31641 MT
+(We suggest using TWM as your window manager.  It takes up less memory than)
+40 W( other managers, such)41 W
+6120 33018 MT
+(as mwm.  SoarX should work correctly on all)
+35 W( window managers, although slower under some than under)34 W
+6120 34395 MT
+(others.)SH
+14 /Times-Bold AF
+6120 36413 MT
+(5.3. Common strategies)SH
+11 /Times-Roman AF
+7120 39925 MT
+(We anticipate that the following actions will prove useful and be used often:)SH
+/Symbol SF
+8089 42104 MT
+(\267)SH
+/Times-Roman SF
+8870 XM
+(Typing spaces ahead.  The graphic display will accept multiple keystrokes \050in order\051,)
+48 W( so you)49 W
+8870 43300 MT
+(may type 4 spaces to move ahead 4 macrocycles \050e.g., at 2 operator applications apiece\051,)
+76 W( or)75 W
+8870 44496 MT
+(you may type 5 r's to move 5 elaboration cycles ahead.)SH
+/Symbol SF
+8089 46390 MT
+(\267)SH
+/Times-Roman SF
+8870 XM
+(Opening an examiner window for watching WM.  The windows are smart about how the)
+41 W( are)42 W
+8870 47586 MT
+(updated, so you can open up a examiner window on the top)
+220 W( level state and watch how)219 W
+8870 48782 MT
+(Soar-IO modifies it.  Similarly,)
+66 W( you could open up a window on just the important structure)67 W
+8870 49978 MT
+(being passed back and forth.)
+211 W( If)
+695 W( the WM in an examiner is removed from memory, the)210 W
+8870 51174 MT
+(window stops displaying it.  If a context element is deselected, a bar is put across it.)SH
+/Symbol SF
+8089 53068 MT
+(\267)SH
+/Times-Roman SF
+8870 XM
+(It is)
+42 W( often convenient to run Soar and the SX windows on one machine, and display them on)43 W
+8870 54264 MT
+(another.)SH
+ES
+%%Page: 17 19
+BS
+0 SI
+10 /Times-Roman AF
+54080 4286 MT
+(17)SH
+16 /Times-Bold AF
+8280 8272 MT
+(6. Installing the SX displays at a Remote Site)SH
+11 /Times-Roman AF
+9280 11890 MT
+(To install SoarX at a remote site:)SH
+10480 14282 MT
+(1.)SH
+11580 XM
+(Starting in your local directory where you want to install the SX)
+299 W( display code \050e.g.,)298 W
+11580 15478 MT
+(/tOSU/soar/sx/5.3\051, open an FTP)
+265 W( connection to Centro.soar.cs.cmu.edu [128.2.242.245].)266 W
+11580 16674 MT
+(Login as "anonymous", using your address as passwd \050e.g., "user@machine.site.edu"\051.)SH
+10480 18568 MT
+(2.)SH
+11580 XM
+(Change to the directory /afs/cs.cmu.edu/project/soar/5.2/2/public)SH
+11580 19764 MT
+(\050cd /afs/cs.cmu.edu/project/soar/5.2/2/public\051. NB: You will not be able to)
+336 W( cd to any)335 W
+11580 20960 MT
+(directory between /afs and .../public.)SH
+10480 22854 MT
+(3.)SH
+11580 XM
+(Set file type to binary \050binary\051.)SH
+10480 24748 MT
+(4.)SH
+11580 XM
+(Retrieve the file all-sx.5.3.1.tar.Z \050retrieve all-sx.5.3.1.tar.Z\051.)
+244 W( Close the FTP connection)245 W
+11580 25944 MT
+(\050quit\051. This)
+737 W( file is approximately .5 meg.  The final uncompressed, untared, compiled)230 W
+11580 27140 MT
+(distribution will come to approximately 9 meg plus)
+62 W( an image, which runs about 17 M on a)63 W
+11580 28336 MT
+(pmaxen.)SH
+10480 30230 MT
+(5.)SH
+11580 XM
+(Uncompress it \050uncompress all-sx.5.3.1.tar.Z\051 and untar it \050tar)
+231 W( xf all-sx.5.3.1.tar\051.  You)230 W
+11580 31426 MT
+(should find the following)
+57 W( five lisp files and four bitmap files: build-sx.lisp, g1.lisp, g2.lisp,)58 W
+11580 32622 MT
+(g3.lisp, all-sx.lisp, garnet.cursor, hourglass.cursor, garnet.mask,)
+107 W( hourglass.mask.  You will)106 W
+11580 33818 MT
+(also get an example .sx-init.lisp file called default.sx-init.lisp, examples of things you)
+109 W( can)110 W
+11580 35014 MT
+(put in your .cshrc in dsi-cshrc-additions, postscript and doc versions)
+94 W( of this manual, and a)93 W
+11580 36210 MT
+(checkout script.)SH
+10480 38104 MT
+(6.)SH
+11580 XM
+(After the D.S.I. files have been installed at a local site, the variables at the front of build-)99 W
+11580 39300 MT
+(sx.lisp need to be modified for your local site.)SH
+10480 41194 MT
+(7.)SH
+11580 XM
+(Load build-sx.lisp into a running Soar.  \050It probably isn't worth compiling itself\051.)SH
+10480 43088 MT
+(8.)SH
+11580 XM
+(Note that the compiled versions of the files \050and the images made with them are dependent)51 W
+11580 44284 MT
+(on the operating system, lisp version, machine type,)
+77 W( and display surface \050e.g., Sun console)78 W
+11580 45480 MT
+(or Pmax console\051.  If you are)
+21 W( compiling at a site with only one machine type, then you need)20 W
+11580 46676 MT
+(not move)
+180 W( the compiled files or images to subdirectories.  If you have multiple machine)181 W
+11580 47872 MT
+(types at your site, we suggest putting the compiled files and images)
+85 W( in subdirectories such)84 W
+11580 49068 MT
+(as {machine}/{os}/{lisp-version}/{display-surface}.)SH
+10480 50962 MT
+(9.)SH
+11580 XM
+(You will build the Soar+sx image by calling \050build-sx\051.)
+12 W( It)
+300 W( loads and then compiles in order:)13 W
+11580 52158 MT
+(g1, g2, g3, and all-sx.  Compile time on a Dec Pmax 5000 is under 1 hour.)SH
+9930 54052 MT
+(10.)SH
+11580 XM
+(The loads of the uncompiled files will slow it down.  Eventually, it will be faster for you to)37 W
+11580 55248 MT
+(restart Soar, and call it)
+22 W( again: It's smart about write dates.  Build-sx only recompiles what it)23 W
+11580 56444 MT
+(needs to.  When it loads compiled files on the 2nd or 3rd go-round, it runs much faster.)SH
+9930 58338 MT
+(11.)SH
+11580 XM
+(We hope the compile will not generate any warnings.  They are)
+98 W( solely in the Garnet code)97 W
+11580 59534 MT
+(and reference kr:method and values that)
+248 W( are not used.  A complete list is included as)249 W
+11580 60730 MT
+(compiler-warnings.txt. If)
+411 W( you see)
+68 W( additional ones, please let us know, even if it appears to)67 W
+11580 61926 MT
+(run successfully.)SH
+9930 63820 MT
+(12.)SH
+11580 XM
+(If you would like to build an image \050which is probably a smart)
+9 W( thing to do\051, you can only do)10 W
+11580 65016 MT
+(so by calling the function \050dump-sx\051, which will prompt you for a file name to put)
+185 W( the)184 W
+11580 66212 MT
+(image in.)SH
+9930 68106 MT
+(13.)SH
+11580 XM
+(You should put the dsi-manual files in the soar-mode/manuals directory.)SH
+9930 70000 MT
+(14.)SH
+11580 XM
+(You may check out the installation and receive a)
+318 W( tutorial by following the script in)319 W
+11580 71196 MT
+(checkout.script.)SH
+ES
+%%Page: 18 20
+BS
+0 SI
+10 /Times-Roman AF
+6120 4286 MT
+(18)SH
+ES
+%%Page: 19 21
+BS
+0 SI
+10 /Times-Roman AF
+54080 4286 MT
+(19)SH
+16 /Times-Bold AF
+27834 8272 MT
+(Appendix I)SH
+23656 9680 MT
+(Example .sx-init.lisp file)SH
+10 /Courier-Bold AF
+8280 13017 MT
+(;;;; -*- Mode: Lisp -*-)SH
+8280 14148 MT
+(;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;)SH
+8280 15279 MT
+(;;;;)SH
+8280 16410 MT
+(;;;; File)
+SH( :)
+6600 W( default.sx-init.lisp)SH
+8280 17541 MT
+(;;;; Author)
+SH( :)
+5400 W( Frank Ritter)SH
+8280 18672 MT
+(;;;; Created On)
+SH( :)
+3000 W( Thu Aug 23 13:01:27 1990)SH
+8280 19803 MT
+(;;;; Last Modified By: Frank Ritter)SH
+8280 20934 MT
+(;;;; Last Modified On: Fri Mar 20 16:19:00 1992)SH
+8280 22065 MT
+(;;;; Update Count)
+SH( :)
+1800 W( 104)SH
+8280 23196 MT
+(;;;; Soar Version)
+SH( :)
+1800 W( 5.2.2)SH
+8280 24327 MT
+(;;;; Taql Version)
+SH( :)
+1800 W( 3.1.4)SH
+8280 25458 MT
+(;;;;)SH
+8280 26589 MT
+(;;;; PURPOSE)SH
+8280 27720 MT
+(;;;; Example)
+1800 W( init code either put in .sx-init.lisp, or loaded from)SH
+8280 28851 MT
+(;;;; there.  Currently also used in the scs25 NL-soar demo.  None of this)SH
+8280 29982 MT
+(;;;; should bomb, but not all the variables are necessarily used at this time)SH
+8280 31113 MT
+(;;;; or in your system.)SH
+8280 32244 MT
+(;;;;)SH
+8280 33375 MT
+(;;;; TABLE OF CONTENTS)SH
+8280 34506 MT
+(;;;; I.)
+1800 W( User)
+3000 W( setable variables)SH
+8280 35637 MT
+(;;;; II.)
+1800 W( Problem-space)
+2400 W( creation)SH
+8280 36768 MT
+(;;;; III. Some)
+1800 W( code for running demos)SH
+8280 37899 MT
+(;;;;)SH
+8280 39030 MT
+(;;;; Copyright 1990, Frank Ritter.)SH
+8280 40161 MT
+(;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;)SH
+8280 42423 MT
+(;; necessary if you don't preface variable and command names with sx:)SH
+8280 43554 MT
+(;; otherwise all variables in this file are sx:)SH
+8280 44685 MT
+(\050eval-when \050eval load compile\051)SH
+9480 45816 MT
+(\050in-package "SX"\051\051)SH
+8280 48078 MT
+(;;;)SH
+8280 49209 MT
+(;;; I.)
+2400 W( Some)
+3000 W( user setable variables)SH
+8280 50340 MT
+(;;;)SH
+8280 51471 MT
+(;;; Remove the comments around the ones you want to change, and set their)SH
+8280 52602 MT
+(;;; new values as indicated by the comments.)SH
+8280 54864 MT
+(;; When T \050default nil\051, chunks beep when they fire.)SH
+8280 55995 MT
+(;; \050setq sx:chunk-beep-on-fire nil\051)SH
+8280 58257 MT
+(;; If t \050default is nil\051, user is assumed to know how to use static menu,)SH
+8280 59388 MT
+(;; and is not prompted with what to do each time.)SH
+8280 60519 MT
+(;; \050setf static-menu-expert nil\051)SH
+8280 62781 MT
+(;;; default locations of problem-spaces)SH
+8280 63912 MT
+(;; \050setq sx:*ps-locations*)SH
+8280 65043 MT
+(;; '\050)
+3600 W( \05065 . 85\051)SH
+8280 66174 MT
+(;; \05065)
+5400 W( . 210\051)SH
+8280 67305 MT
+(;; \05065)
+5400 W( . 335\051)SH
+8280 68436 MT
+(;; \05065)
+5400 W( . 460\051)SH
+8280 69567 MT
+(;; \05065)
+5400 W( . 585\051)SH
+8280 70698 MT
+(;; \05065)
+5400 W( . 710\051)SH
+8280 71829 MT
+(;; \05065)
+5400 W( . 835\051)SH
+ES
+%%Page: 20 22
+BS
+0 SI
+10 /Times-Roman AF
+6120 4286 MT
+(20)SH
+/Courier-Bold SF
+6120 7874 MT
+(;; \050300)
+3600 W( . 85\051)SH
+6120 9005 MT
+(;; \050325)
+3600 W( . 210\051)SH
+6120 10136 MT
+(;; \050325)
+3600 W( . 335\051)SH
+6120 11267 MT
+(;; \050325)
+3600 W( . 460\051)SH
+6120 12398 MT
+(;; \050325)
+3600 W( . 585\051)SH
+6120 13529 MT
+(;; \050325)
+3600 W( . 710\051)SH
+6120 14660 MT
+(;; \050325)
+4800 W( . 835\051  \051\051)SH
+6120 15791 MT
+(;; this is also necessary if you change the initial-goal-location:)SH
+6120 16922 MT
+(;; \050setq sx:initial-goal-location \050first sx:*ps-locations*\051\051)SH
+6120 20315 MT
+(;;; user variables for setting up snapshots)SH
+6120 21446 MT
+(;; \050setf sx:snap-print-command "lpr"\051)SH
+6120 22577 MT
+(;; \050setf sx:snap-dump-directory "/tmp/"\051)SH
+6120 23708 MT
+(;; \050setf sx:snap-dump-file "sx-dump"\051)SH
+6120 25970 MT
+(;; Directory to put dumped file of static PS's in.)SH
+6120 27101 MT
+(;; \050setq sx:static-dump-directory "/tmp/"\051)SH
+6120 29363 MT
+(;; Operators to never display, or to display just once)SH
+6120 30494 MT
+(;; \050setf sx:*show-never-op-names* nil\051)SH
+6120 31625 MT
+(;; \050setf sx:*show-never-ps-names* nil\051)SH
+6120 32756 MT
+(;; \050setf sx:*show-once-op-names* nil\051)SH
+6120 35018 MT
+(;; \050push "wait"  sx:*show-once-op-names*\051)SH
+6120 36149 MT
+(;; \050push "wait"  sx:*show-never-ps-names*\051)SH
+6120 38411 MT
+(;; Set the auto-scroll whenever you wish)SH
+6120 39542 MT
+(;; \050set-auto-scroll t\051)SH
+6120 41804 MT
+(;; Set the always-update whenever you wish)SH
+6120 42935 MT
+(;; \050set-always-update t\051)SH
+6120 45197 MT
+(;; Max time in ms for a double click)SH
+6120 46328 MT
+(;; \050setf sx:double-click-time 1000\051)SH
+6120 48590 MT
+(;; Should problem spaces come up anchored by default \050initially nil\051)SH
+6120 49721 MT
+(;; \050setf sx:*default-ps-anchored* nil\051)SH
+6120 51983 MT
+(;; Show goals' ids)SH
+6120 53114 MT
+(;;\050setq sx:default-goal-id-visible nil\051)SH
+6120 55376 MT
+(;; Show problem spaces' ids)SH
+6120 56507 MT
+(;\050setq sx:default-problem-space-id-visible t\051)SH
+6120 58769 MT
+(;; Show state's ids)SH
+6120 59900 MT
+(;\050setq sx:default-state-id-visible nil\051)SH
+6120 62162 MT
+(;; Show chunk's ids when they fire or are created)SH
+6120 63293 MT
+(;\050setq sx:default-chunk-id-visible nil\051)SH
+6120 65555 MT
+(;; Show operator's ids \050t is default\051)SH
+6120 66686 MT
+(;\050setq sx:default-operator-id-visible t\051)SH
+6120 68948 MT
+(;; Uses more memory but prettier \050nil is default\051)SH
+6120 70079 MT
+(;\050setf sx:double-buffer-windows-p nil\051)SH
+6120 72341 MT
+(;; MODIFYING THE TRACE)SH
+ES
+%%Page: 21 23
+BS
+0 SI
+10 /Times-Roman AF
+54080 4286 MT
+(21)SH
+/Courier-Bold SF
+8280 7874 MT
+(;; You can make the trace get smaller by \0501\051 setting tab-size to 2)SH
+8280 9005 MT
+(;; \050or even 1\051, and making the goal-leader correspodingly smaller.)SH
+8280 10136 MT
+(;; \0502\051 Setting pgs-real-tab to t has the trace move over a tab after printing)SH
+8280 11267 MT
+(;; out the dc, rather than to col 4 \050what soar does now\051.  \0503\051 you can not)SH
+8280 12398 MT
+(;; printout the pscm object's ids by setting pgs-pscm-id to nil.)SH
+8280 13529 MT
+(;;)SH
+8280 14660 MT
+(;; \050setq pgs-tab-size 3\051)SH
+8280 15791 MT
+(;; \050setq pgs-goal-leader "==>"\051)SH
+8280 16922 MT
+(;; \050setq pgs-real-tab nil\051)SH
+8280 18053 MT
+(;; \050setq pgs-pscm-id t\051)SH
+8280 21446 MT
+(;; Make the menus disappear after selection \050nil is default\051)SH
+8280 22577 MT
+(;; can only be set in init file this way; otherwise must be done via menu)SH
+8280 23708 MT
+(;\050setf sx:menus-disappear-after-selection nil\051)SH
+8280 25970 MT
+(;; make some new commands for the DSI command interpreter)SH
+8280 27101 MT
+(;\050setq opal:*grepl-conditions*)SH
+8280 28232 MT
+(; \050append)
+3000 W( '\050)600 W
+8280 29363 MT
+(; \050\050opal:grepl-test)
+600 W( :sx sx\051)SH
+8280 30494 MT
+(; ":sx,)
+1200 W( :user, :soar will set the package to the keyword \050or symbol\051.")SH
+8280 31625 MT
+(; \050in-package)
+1200 W( "SX"\051\051)SH
+8280 32756 MT
+(; \050\050opal:grepl-test)
+600 W( :soar soar\051)SH
+8280 33887 MT
+(; nil)1200 W
+8280 35018 MT
+(; \050in-package)
+1200 W( "SOAR"\051\051)SH
+8280 36149 MT
+(; \050\050opal:grepl-test)
+600 W( :user user\051)SH
+8280 37280 MT
+(; nil)1200 W
+8280 38411 MT
+(; \050in-package)
+1200 W( "USER"\051\051)SH
+8280 39542 MT
+(; \051)1200 W
+8280 40673 MT
+(; opal::*grepl-conditions*\051\051)8400 W
+8280 42935 MT
+(;; GC PARAMETERS)SH
+8280 44066 MT
+(;; It is not clear to us at this point that changing your GC parameters)SH
+8280 45197 MT
+(;; is worth while for relatively small images.  The SX image, despite its)SH
+8280 46328 MT
+(;; apparent size, does not appear to be aided by such changes.)SH
+8280 49721 MT
+(;;;)SH
+8280 50852 MT
+(;;; II. Example)
+2400 W( problem-space creation)SH
+8280 51983 MT
+(;;;)SH
+8280 53114 MT
+(;;; Normal)
+600 W( users would be well served to comment this out...)SH
+8280 55376 MT
+(;\050defun create-nl-demo-problem-spaces nil)SH
+8280 56507 MT
+(; "Create)
+600 W( the problem-spaces for the CMU SCS-25 demo")SH
+8280 57638 MT
+(; ;;)
+600 W( this gets called in demo-load.lisp when you are running nl-soar)SH
+8280 58769 MT
+(; \050interactive-create-problem-space)
+600 W( 'top-ps nil)SH
+8280 59900 MT
+(; :anchored)
+6000 W( t\051)SH
+8280 61031 MT
+(; \050interactive-create-problem-space)
+600 W( comprehension 'nil)SH
+8280 62162 MT
+(; :anchored)
+6000 W( t\051)SH
+8280 63293 MT
+(; \050interactive-create-problem-space)
+600 W( 'language nil)SH
+8280 64424 MT
+(; :anchored)
+6000 W( t\051)SH
+8280 65555 MT
+(; \050interactive-create-problem-space)
+600 W( 'link nil)SH
+8280 66686 MT
+(; :anchored)
+6000 W( t\051)SH
+8280 67817 MT
+(; \050interactive-create-problem-space)
+600 W( 'constraint-check nil)SH
+8280 68948 MT
+(; :anchored)
+6000 W( t\051)SH
+8280 70079 MT
+(; \050interactive-create-problem-space)
+600 W( 'referent nil)SH
+8280 71210 MT
+(; :anchored)
+6000 W( t\051)SH
+ES
+%%Page: 22 24
+BS
+0 SI
+10 /Times-Roman AF
+6120 4286 MT
+(22)SH
+/Courier-Bold SF
+6120 7874 MT
+(; \050interactive-create-problem-space)
+600 W( 'exhaustion nil)SH
+6120 9005 MT
+(; :anchored)
+6000 W( t\051)SH
+6120 10136 MT
+(; \050s-value)
+600 W( sx::exhaustion :invisible t\051)SH
+6120 11267 MT
+(; \051)SH
+6120 13529 MT
+(;;;)SH
+6120 14660 MT
+(;;; III.)
+2400 W( Some)
+1800 W( code for running demos)SH
+6120 15791 MT
+(;;;)SH
+6120 18053 MT
+(;\050in-package "USER"\051)SH
+6120 19184 MT
+(;)SH
+6120 20315 MT
+(;\050defun redemo \050\051)SH
+6120 21446 MT
+(; \050init-soar\051)SH
+6120 22577 MT
+(; \050excise-chunks\051)SH
+6120 23708 MT
+(; \050d 1\051\051)SH
+6120 25970 MT
+(;; export them in case you're in the sx package)SH
+6120 28232 MT
+(;\050in-package "SX"\051)SH
+6120 30494 MT
+(;\050defun run-demo \050\051 \050user::run-demo\051\051)SH
+6120 31625 MT
+(;\050defun reinit \050\051 \050user::reinit\051\051)SH
+ES
+%%Page: i 25
+BS
+0 SI
+10 /Times-Roman AF
+54802 4286 MT
+(i)SH
+16 /Times-Bold AF
+25591 8272 MT
+(Table of Contents)SH
+12 SS 
+8280 9796 MT
+(1. New concepts on the PSCM level and beyond)SH
+54480 XM
+(1)SH
+10 SS 
+9780 11186 MT
+(1.1. Design Principles)SH
+54580 XM
+(1)SH
+9780 12266 MT
+(1.2. Interlocking Tools)SH
+54580 XM
+(1)SH
+9780 13346 MT
+(1.3. PSCM Level Statistics)SH
+54580 XM
+(2)SH
+9780 14426 MT
+(1.4. Macrocycles)SH
+54580 XM
+(2)SH
+9780 15506 MT
+(1.5. Hooks)SH
+54580 XM
+(2)SH
+12 SS 
+8280 17030 MT
+(2. The SX graphic display)SH
+54480 XM
+(5)SH
+10 SS 
+9780 18420 MT
+(2.1. Symbology)SH
+54580 XM
+(5)SH
+9780 19500 MT
+(2.2. Pop-up menu commands)SH
+54580 XM
+(7)SH
+9780 20580 MT
+(2.3. Miscellaneous commands)SH
+54580 XM
+(8)SH
+12 SS 
+8280 22104 MT
+(3. The new Soar Command Interpreter)SH
+53880 XM
+(11)SH
+10 SS 
+9780 23494 MT
+(3.1. The prompt)SH
+54080 XM
+(11)SH
+9780 24574 MT
+(3.2. Action keywords)SH
+54080 XM
+(11)SH
+9780 25654 MT
+(3.3. Changes to Soar's textual trace)SH
+54080 XM
+(12)SH
+12 SS 
+8280 27178 MT
+(4. Getting help)SH
+53880 XM
+(13)SH
+10 SS 
+9780 28568 MT
+(4.1. On-line help & manuals)SH
+54080 XM
+(13)SH
+9780 29648 MT
+(4.2. Getting Unstuck)SH
+54080 XM
+(13)SH
+9780 30728 MT
+(4.3. Known Bugs)SH
+54080 XM
+(14)SH
+12 SS 
+8280 32252 MT
+(5. Loading and running the Graphic Display)SH
+53880 XM
+(15)SH
+10 SS 
+9780 33642 MT
+(5.1. Required information)SH
+54080 XM
+(15)SH
+9780 34722 MT
+(5.2. Optional information)SH
+54080 XM
+(15)SH
+9780 35802 MT
+(5.3. Common strategies)SH
+54080 XM
+(16)SH
+12 SS 
+8280 37326 MT
+(6. Installing the SX displays at a Remote Site)SH
+53880 XM
+(17)SH
+8280 38850 MT
+(Appendix I. Example .sx-init.lisp file)SH
+53880 XM
+(19)SH
+ES
+%%Trailer
+%%Pages: 25
+%%DocumentFonts: Times-Roman Times-Bold Symbol Courier-Bold Times-Italic Courier

@@ -1,0 +1,66 @@
+
+                                                                      pprint
+
+
+    FUNCTION
+    pprint  -  output an object to a stream in a pretty format
+
+    Usage
+    pprint OBJECT [STREAM]
+
+    SIDE EFFECTS
+    The argument OBJECT is written to STREAM.
+
+    DESCRIPTION
+    Returns no values, but is used for its side effect, which is  to  output
+    OBJECT  to  the  output  stream with *print-pretty* bound to true.  This
+    function (like print) outputs OBJECT using escape characters in  such  a
+    way  that  it  can  be read back in again (thus effectively also binding
+    *print-escape* to true).  It also outputs a newline before  the  object.
+    It  differs  from  print, however, in that it does not output a trailing
+    space and it may insert innocuous whitespace in the printed  representa-
+    tion of OBJECT so that it looks pretty.
+
+    The argument STREAM may be a stream that accepts output, or  STREAM  may
+    be  t  or  nil.   If STREAM is nil, output will go to *standard-output*,
+    which is also the default value if STREAM is not specified.   If  STREAM
+    is t, output goes to *terminal-io*.
+
+    EXAMPLES
+    ;;  Here is some possible output from PPRINT.
+    (defun fact (n) (cond ((= n 1) 1) (t (* n (fact (1- n))))))
+    (pprint #'fact) PRINTS
+    (lambda (n)
+      (block fact
+        (cond ((= n 1)
+               1)
+              (t
+               (* n (fact (1- n)))))))
+    ;;  PRINT prints thus.
+    (print #'fact) PRINTS
+    (lambda (n) (block fact (cond ((= n 1) 1) (t (* n (fact (1- n)))))))
+
+    SEE ALSO
+    CLtL 22:383, *print-escape*, *print-pretty*, prin1, princ-to-string,
+    print, write
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

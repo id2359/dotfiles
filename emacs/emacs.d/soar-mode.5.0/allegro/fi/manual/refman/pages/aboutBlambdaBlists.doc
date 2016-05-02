@@ -1,0 +1,198 @@
+
+                                                          about lambda lists
+
+
+    NOTES
+    about lambda lists  -  fundamentals of function and macro argument pro-
+      cessing
+
+    USAGE
+    ([&whole macro-call-var]
+     {required-var}*
+     [&optional {ovar | (var [initform [svar]])}*]
+     [{&rest | &body | .} var]
+     [&key {kvar | ({kvar | (keyword var)} [initform [svar]])}*
+           [&allow-other-keys]]
+     [&environment env-var]
+     [&aux {local-var | (local-var [initform])}*])
+
+    DESCRIPTION
+    A LAMBDA LIST is a list that describes the processing of arguments to  a
+    function or a macro.  In particular, a lambda list specifies the mechan-
+    ism for binding formal parameters to actual arguments.
+
+    A lambda list may appear in a lambda expression, in a  function  defini-
+    tion  with  defun,  flet,  or  labels,  and  in  a macro definition with
+    defmacro or macrolet.  Lambda lists also appear  in  forms  that  define
+    macro-like  control  constructs  such  as  defsetf,  usually  with  some
+    restrictions.  Forms that define functions,  such  as  the  :constructor
+    option  to  defstruct,  also  incorporate  lambda  lists,  sometimes  in
+    idiosyncratic ways.  A lambda expression is a list whose car is the sym-
+    bol lambda.  A lambda expression is NOT a form-it cannot be meaningfully
+    evaluated.  Lambda expressions embody function  definitions  (see  about
+    lambda).  Lambda lists in macro definitions may be nested.
+
+    With respect to argument processing, functions  differ  from  macros  in
+    that function arguments are evaluated before parameter binding and macro
+    arguments are not.  In evaluating a function call, the first element  of
+    the  function  call  form (see about forms), which must be a symbol or a
+    lambda expression, identifies the function.  The remaining elements  are
+    evaluated  to produce the arguments, and then the function is applied to
+    them.  This application  binds  function  parameters  to  the  arguments
+    according  to  the  lambda list.  In evaluating a macro call, the entire
+    macro-call form is passed unevaluated to the  expansion  function  asso-
+    ciated with the macro (see macro-function and macroexpand).  (This func-
+    tion also receives a lexical environment as its  second  argument.)  The
+    expansion  function  returns  another  form,  which is then evaluated in
+    place of the  macro  call.   Whether  the  original  arguments  will  be
+    evaluated depends entirely on the nature of the expanded form.
+
+    At the top level of the lambda list, each element is either a  parameter
+    specifier  or  a LAMBDA-LIST KEYWORD.  Lambda-list keywords begin with &
+    and control interpretation of the parameter  specifiers.   (Keywords  of
+    this  kind  are completely unrelated to true keywords, which are symbols
+    in the keyword package.  A lambda-list keyword is merely a special  sym-
+    bol  recognized  in  a  lambda  list.   See about keywords.) A parameter
+    specifier is either a symbol or a list.
+
+    In the usage section above, identifiers ending in VAR within a parameter
+    specifier represent symbols that may be used as parameter variable names
+    inside the function or macro definition.  A KEYWORD may be any symbol in
+    the  keyword package, that is any symbol name with a leading colon, such
+    as :test.  Also, an INITFORM, which may be any form, is used to initial-
+    ize a parameter variable when there is no corresponding argument.  When-
+    ever an INITFORM is evaluated, it may refer to a variable in any parame-
+    ter  specifier  preceding  it,  and  may  rely on the fact that no other
+    parameter variables (including its own) have  yet  been  bound.   Actual
+    arguments  are  bound to parameter variables left to right in the lambda
+    list.
+
+    Lambda lists associated with macros and macro-like constructs are called
+    defmacro lambda lists, and generally have more features than those asso-
+    ciated with functions.  These include the lambda-list  keywords  &whole,
+    &body,  and  &environment,  which  are  not permitted in function lambda
+    lists.  Also, such lambda lists have a feature known  as  DESTRUCTURING.
+    This  allows  the  lambda  list to be `dotted' with a parameter name (in
+    other words, to end with a period followed by a symbol), which serves as
+    an  abbreviation  for  &rest  (Q.V.).   More  importantly, destructuring
+    allows a defmacro lambda list to contain a  hierarchy  of  lambda  lists
+    capable of acting as a template for arguments with complex structure.  A
+    lambda list may appear in place of any parameter name that may be  bound
+    to  an  argument,  so long as it occurs where a non-defmacro lambda list
+    permits a parameter name but prohibits a list, in other words, in  place
+    of  a  REQUIRED-VAR  or  VAR  parameter.  An argument list supplied to a
+    macro must be structurally similar  (isomorphic)  to  its  lambda  list.
+    Destructuring is not supported for function lambda lists.
+
+    Parameters are generally bound lexically, but dynamic bindings  will  be
+    made  if  the  variable  has been proclaimed special (for example either
+    implicitly by defvar or explicitly by  proclaim).   Often  a  form  that
+    includes  a  lambda  list  will  allow declarations before its body (see
+    about declarations).  A special declaration of a parameter variable will
+    make  its  binding  dynamic.  Parameter bindings have indefinite extent.
+    Upon return or nonlocal exit from the function or macro,  the  parameter
+    bindings  are  normally  undone,  but  a  closure  may be generated that
+    `freezes' the bindings.  (See function and about scope and extent.)
+
+    The lambda list may be broken down into seven main parts, any or all  of
+    which  may be empty.  Ordering of these parts with respect to each other
+    is significant: the order in which the parts are shown in the usage sec-
+    tion above is correct.  One of the most heavily used parts is the second
+    (given on the second line), which, if not empty, specifies the  required
+    parameters.  When the function or macro is entered, the REQUIRED-VAR are
+    processed left to right, and bound to the arguments left to right.  Each
+    lambda-list element up to the next lambda-list keyword or the end of the
+    lambda list is a required parameter.  Once a required argument  is  pro-
+    cessed,  it becomes unavailable to later parts of the lambda list, which
+    inherit only remaining unprocessed arguments.  It is an error  if  there
+    are  more  required  parameters  than  arguments,  or if the lambda list
+    specifies only required parameters and there  are  more  arguments  than
+    parameters.
+
+    The other parts of the lambda list are described elsewhere.  See &whole,
+    &optional,  &rest,  &body,  &key,  &allow-other-keys,  &environment, and
+    &aux.  A complete list of the allowable lambda-list keywords is kept  in
+    the constant lambda-list-keywords.  The constant lambda-parameters-limit
+    is a number representing the exclusive upper  bound  on  the  number  of
+    distinct parameter names that may appear in a single lambda list.
+
+    EXAMPLES
+
+    Here is a lambda expression used as a function object that  returns  the
+    sum of two required arguments, multiplied by four:
+
+    ((lambda (x y) (* 4 (+ x y))) 5 6) => 44
+
+    Here is a macro with nested lambda lists, all  of  whose  arguments  are
+    required.   It  does  nothing  more than return the `flattened' argument
+    list, stripped of its structure:
+
+    (defmacro m ((a b (c)) (d) e)
+      (list 'list a b c d e)) => m
+    (m (1 2 (3)) (4) 5) => (1 2 3 4 5)
+    (m ('(a1 a2) 'b1 ('c1)) ('(d1 d2 d3)) '(e1 e2))
+      => ((a1 a2) b1 c1 (d1 d2 d3) (e1 e2))
+
+    The following example shows a function whose  various  lambda-list  ele-
+    ments are exercised in a series of function calls.
+
+    (defun foo (w
+                &optional (x 4)
+                &rest r
+                &key y (z x)
+                &aux (a w))
+      (list w x y z r a)) => foo
+
+    (foo 2) => (2 4 nil 4 nil 2)
+    (foo 2 3) => (2 3 nil 3 nil 2)
+    (foo :y 5)  => (:y 5 nil 5 nil :y)
+    (foo 2 8 :y 5) => (2 8 5 8 (:y 5) 2)
+    (foo 2 8 :z 10 :y 9 :z 7) => (2 8 9 10 (:z 10 :y 9 :z 7) 2)
+
+    SEE ALSO
+    CLtL 5:57, about forms, about keywords, about lambda, about scope and
+    extent, &allow-other-keys, &aux, &body, defmacro, defun, &environment,
+    function, macro-function, macroexpand, &key, lambda-list-keywords,
+    lambda-parameters-limit, &optional, &rest, &whole
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                               pathname-type
+
+
+    FUNCTION
+    pathname-type  -  get the type component of a pathname
+
+    USAGE
+    pathname-type path
+
+    DESCRIPTION
+    Returns the type component of PATH.  The type is one  of  the  six  com-
+    ponents of a pathname (the other five are device, directory, host, name,
+    and version).  PATH must be a pathname, string, symbol, or stream.   (If
+    PATH  is  a  stream, it must be, or have been, open to a file.) The type
+    component of a pathname is implementation-dependent, but  it  may  be  a
+    string,  nil,  or  :wild.   nil  indicates that the type is unspecified;
+    :wild is a type that `matches' any type when the pathname it appears  in
+    is  used  in  a  directory-search  operation  such  as that performed by
+    directory.
+
+    EXAMPLES
+    ;;  The following example refers to a file on a VMS file system.
+    (pathname-type "pleiades::sys$sysdisk:[sys0.sysexe]lisp.exe;0")
+      => "EXE"
+
+    SEE ALSO
+    CLtL 23:417, make-pathname, pathname, pathname-device, pathname-
+    directory, pathname-host, pathname-name, pathname-version
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

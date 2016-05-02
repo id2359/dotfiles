@@ -1,0 +1,132 @@
+
+                                                                       boole
+
+
+    FUNCTION
+    boole  -  apply a boolean operation to two arguments
+
+    USAGE
+    boole op n1 n2
+
+    DESCRIPTION
+    Returns the result of applying the boolean operation specified by OP  to
+    the arguments N1 and N2, which must be integers.
+
+    Arguments and results are treated as if represented in  two's-complement
+    notation.   Therefore,  negative  numbers  are  half-infinite  with  1's
+    stretching to the left (toward higher-order bits) forever; -1, for exam-
+    ple,  is ...11111.  Positive numbers are half-infinite with 0's stretch-
+    ing to the left forever; 0 is therefore ...00000.  As an example of  the
+    effect of this representation, the boole-and operation applied to -1 and
+    any other value returns that value.  This representation of integers may
+    be  used to represent countably infinite sets by mapping elements of the
+    set to nonnegative integers.  The index of a  bit  in  an  integer  then
+    represents the corresponding element of the set.
+
+    The argument OP may be given as a constant beginning with  boole-.   The
+    only  valid values for OP are the values of these constants.  (Of course
+    OP may be any expression that evaluates to an  appropriate  value.)  The
+    constants are listed below in the form of a truth table.
+
+                N1                  0      0      1      1
+                N2                  0      1      0      1
+
+                boole-clr           0      0      0      0
+                boole-set           1      1      1      1
+                boole-1             0      0      1      1
+                boole-2             0      1      0      1
+                boole-c1            1      1      0      0
+                boole-c2            1      0      1      0
+                boole-and           0      0      0      1
+                boole-ior           0      1      1      1
+                boole-xor           0      1      1      0
+                boole-eqv           1      0      0      1
+                boole-nand          1      1      1      0
+                boole-nor           1      0      0      0
+                boole-andc1         0      1      0      0
+                boole-andc2         0      0      1      0
+                boole-orc1          1      1      0      1
+                boole-orc2          1      0      1      1
+
+    All sixteen possible boolean operations on two arguments are available.
+
+    The ten operations where both arguments are used  (i.e.  not  boole-clr,
+    boole-set,  boole-1,  boole-2,  boole-c1, and boole-c2, all of which use
+    only one or neither of the arguments) have equivalents in functions such
+    as logand, logior, etc.  Those functions are preferred to boole when the
+    operation is known beforehand, since the code is easier to read.   boole
+    is useful when the operation needs to be chosen at runtime.
+
+    EXAMPLES
+    (setf *print-base* 2
+          *print-radix* t)
+
+    (boole boole-and #b101 #b1100) => #b100
+    (boole boole-ior #b101 #b110) => #b111
+    (boole boole-xor #b1101 #b0001) => #b1100
+
+    ;;  (Since bitwise logical operations interpret integers as
+    ;;  half-infinite, the following result is negative, which in two's-
+    ;;  complement representation has an infinite string of 1's
+    ;;  to the right, that is toward higher-order bits.  The
+    ;;  number #b-1101 would be represented in two's-complement
+    ;;  as ...111110011.)
+    (boole boole-c1 #b1100 #b1010) => #b-1101
+    (ldb (byte 4 0) #b-1101) => #b11
+    (logbitp 100 #b-1101) => t
+
+    SEE ALSO
+    CLtL 12:222, ash, boole-1, boole-2, boole-and, boole-andc1, boole-andc1,
+    boole-c1, boole-c2, boole-clr, boole-eqv, boole-ior, boole-nand, boole-
+    nor, boole-orc1, boole-orc2, boole-set, boole-xor, logand, logandc1,
+    logandc2, logbitp, logcount, logeqv, logior, lognand, lognor, lognot,
+    logorc1, logorc2, logtest, logxor
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

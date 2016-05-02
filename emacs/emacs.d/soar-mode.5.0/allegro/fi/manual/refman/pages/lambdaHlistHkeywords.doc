@@ -1,0 +1,66 @@
+
+                                                        lambda-list-keywords
+
+
+    CONSTANT
+    lambda-list-keywords  -  list of all lambda-list keywords
+
+    DESCRIPTION
+    This constant evaluates to a list of  all  valid  lambda-list  keywords,
+    including  those  used  only by defmacro and those added in a particular
+    implementation.  Thus, the exact list is  implementation-dependent,  but
+    must have as a subset the list shown in the example.
+
+    EXAMPLES
+    (subsetp '(&optional &rest &key &aux &body &whole
+               &allow-other-keys &environment)
+             lambda-list-keywords) => t
+
+    SEE ALSO
+    CLtL 5:65, about lambda lists, &allow-other-keys, &aux, &body, defmacro,
+    defun, &environment, &key, &optional, &rest, &whole
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

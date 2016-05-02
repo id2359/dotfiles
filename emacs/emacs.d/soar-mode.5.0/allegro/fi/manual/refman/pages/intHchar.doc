@@ -1,0 +1,66 @@
+
+                                                                    int-char
+
+
+    FUNCTION
+    int-char  -  get the character encoded by an integer
+
+    USAGE
+    int-char n
+
+    DESCRIPTION
+    Returns the character object encoded by N if possible,  and  nil  other-
+    wise.   If  int-char  returns  a character, then N, which must be a non-
+    negative integer, is equal to the value  of  char-int  applied  to  that
+    character.  The value returned by int-char is implementation-dependent.
+
+    EXAMPLES
+    (int-char (char-int #\a)) => #\a
+    ;;  The following returned values are implementation-dependent.
+    (int-char 97) => #\a
+    (int-char 65) => #\A
+    (int-char 321) => #\Control-A
+    (int-char 65857) => #1\Control-A
+
+    SEE ALSO
+    CLtL 13:242, char-code, char-int
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

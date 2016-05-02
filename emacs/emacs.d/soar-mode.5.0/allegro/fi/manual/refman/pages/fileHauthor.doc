@@ -1,0 +1,66 @@
+
+                                                                 file-author
+
+
+    FUNCTION
+    file-author  -  get the author of a file
+
+    USAGE
+    file-author file
+
+    DESCRIPTION
+    Returns a string containing the name of the author of FILE provided this
+    information  is  available,  and  returns nil otherwise.  FILE must be a
+    pathname, a string, or a stream that is (or was) open to a file.
+
+    The exact meaning of this  function  is  implementation-dependent,  and,
+    indeed, this function may not be meaningful in some implementations.
+
+    EXAMPLES
+    (file-author "junk") => "teddy"
+
+    SEE ALSO
+    CLtL 23:424, file-length, file-write-date
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                                     deftype
+
+
+    MACRO
+    deftype  -  define a new type specifier abbreviation
+
+    USAGE
+    deftype name lambda-list {declaration | doc-string}* {form}*
+
+    SIDE EFFECTS
+    The type associated with NAME, if any, is redefined.
+
+    DESCRIPTION
+    Defines a  new  type  specifier,  NAME,  abbreviating  another  (usually
+    longer)  type specifier that is obtained by an expansion process similar
+    to macro expansion, and returns NAME.  LAMBDA-LIST may contain &optional
+    and &rest parameters. Otherwise, interpretation follows defmacro, except
+    that if no initial value is specified for  an  &optional  parameter,  it
+    defaults  to  *,  not nil.  (* indicates unspecified type-specialization
+    information.) Declarations may be made in  the  DECLARATION  (see  about
+    declarations)  part.  The optional string DOC-STRING is attached to NAME
+    as a documentation string of type type (see the function documentation).
+
+    The body of the expansion function is given by the zero or  more  FORMS,
+    which  are  executed  as if enclosed in a progn construct.  The value of
+    the last form is taken to be  the  type  specifier  that  the  new  type
+    abbreviates.
+
+    EXAMPLES
+    (deftype seq () '(or list vector)) => seq
+    (and (typep "abcde" 'seq) (typep '(a b c) 'seq)) => t
+
+    (deftype modulo (n) `(integer 0 (,n))) => modulo
+    (typep 3 '(modulo 10)) => t
+    (typep 12 '(modulo 10)) => nil
+
+
+    SEE ALSO
+    CLtL 4:50, about lambda lists, about declarations, about lambda lists,
+    about type specifiers, defmacro, documentation, typep
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                                     remhash
+
+
+    FUNCTION
+    remhash  -  remove a hash-table entry (destructive)
+
+    USAGE
+    remhash key hash-table
+
+    SIDE EFFECTS
+    The hash-table entry for KEY is removed.
+
+    DESCRIPTION
+    Removes from HASH-TABLE any entry for KEY, and returns a predicate value
+    that  is  true  if  and only such an entry was found (and removed).  KEY
+    succeeds.  The argument HASH-TABLE must be of type hash-table,  but  KEY
+    may be any LISP object.
+
+    EXAMPLES
+    (setq ht (make-hash-table))
+    (remhash 'quick ht) => nil
+    (progn
+      (setf (gethash 'quick ht) 'brown)
+      (setf (gethash 'fox ht) 'jumped)
+      (setf (gethash 'over ht) 'fence)
+      (list (gethash 'quick ht) (gethash 'fox ht)
+       (remhash 'fox ht) (gethash 'fox ht)))
+      => (brown jumped t nil)
+    (hash-table-count ht) => 2
+    (remhash 'quick ht) => t
+    (hash-table-count ht) => 1
+
+    SEE ALSO
+    CLtL 16:284, clrhash, gethash, hash-table-count, hash-table-p, list,
+    make-hash-table, maphash, progn, setf
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

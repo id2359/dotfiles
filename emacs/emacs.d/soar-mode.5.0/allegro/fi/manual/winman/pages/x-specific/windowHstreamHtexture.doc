@@ -1,0 +1,66 @@
+
+                                                       window-stream-texture
+
+
+    FUNCTION
+    window-stream-texture  -  the background texture of a window-stream
+
+    Usage
+    window-stream-texture WSTREAM
+
+    DESCRIPTION
+    Returns the bitmap that defines the  background  texture  of  a  window-
+    stream,  or nil, if no background texture is defined.  (If no background
+    texture is defined, the color  which  is  the  value  of  window-stream-
+    background-color  wioll  fill the inner region of the window-stream.) In
+    beta, textures will be white and black, at bitmap values 0 and 1 respec-
+    tively.  You can use setf to change the texture.
+
+    EXAMPLES
+    (setf *my-win*
+            (make-window-stream :left 100 :bottom 100
+            :width 200 :height 200
+            :activate-p t :title "Just a Window"))
+    (window-stream-texture *my-win*) => nil
+
+    SEE ALSO
+    make-window-stream, window-stream-background-color
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

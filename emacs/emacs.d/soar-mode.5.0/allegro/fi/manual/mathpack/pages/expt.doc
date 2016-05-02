@@ -1,0 +1,132 @@
+
+                                                                   math:expt
+
+
+    FUNCTION
+    expt  -  raise a number or matrix to a power
+
+    Usage
+    expt BASE POWER
+
+    DESCRIPTION
+    This standard Common Lisp function has been modified to accept a  matrix
+    as  well as a scalar as the first argument BASE.  (POWER must still be a
+    number.) When the argument is a scalar (i.e. a  number),  this  function
+    works  just as when Allegro Matrix is not loaded: returning the value of
+    BASE raised to POWER in an appropriate numerical format.  When  given  a
+    square  matrix whose element type (as returned by array-element-type) is
+    one of  single-float,  double-float,  (complex  single-float),  (complex
+    double-float),  the  matrix which is the matrix BASE raised to the power
+    POWER is returned.  The definition of raising a matrix  to  a  power  is
+    given  below.   It  is an error if BASE is not a number or a matrix.  If
+    BASE is a matrix, it is an error if BASE is not square,  if  it  has  an
+    array  element  type other than the four listed above (unless POWER is a
+    non-negative integer, in which case any matrix type is permitted), or if
+    the  value  of  BASE raised to POWER cannot be calculated for any reason
+    (usually because the matrix cannot be inverted).
+
+    BASE raised to POWER when BASE is a matrix is calculated as follows.  If
+    POWER  is  a  non-negative  integer,  BASE  is  multiplied by itself the
+    appropriate number of times using ordinary multiplication.  (If POWER is
+    zero,  the  identity  matrix  is  returned.  If POWER is one, the matrix
+    itself is returned.  And so on.) If POWER is any other  value,  BASE  is
+    diagonalized  as  follows.   A transformation matrix T and its inverse ,
+    T-inv, are calculated such that T-inv*base*T is diagonal (that  is,  the
+    off  diagonal  elements are zero). T is the matrix of eigenvectors where
+    the vectors are the column of the matrix.   The  function  eigen-vectors
+    returns  a matrix whose rows are the eigenvectors, so T is the result of
+    (ntranspose   (eigen-vectors   base)).    The   diagonal   elements   of
+    T-inv*base*T  are  replaced  with  the value returned by (expt <diagonal
+    element> power) and the modified diagonal  matrix  is  retransformed  by
+    multiplying  on  the  left by T and on the right by T-inv.  Note that NO
+    checking is done to ensure that  the  diagonalized  matrix  is  actually
+    diagonal  (that  is,  that the off-diagonal elements are zero to machine
+    accuracy).  Only if the diagonalization process actually fails will  any
+    error  be signaled.  Note further that there may be more than one possi-
+    ble result (because of branch cuts, etc.), but only one  result  matrix,
+    calculated as described, is returned.
+
+    The returned matrix is of the same floating-point type as  the  argument
+    matrix  BASE.   However,  if  POWER  is  anything  except a non-negative
+    integer, the returned matrix is  complex.   (The  reason  is  that  many
+    values  of  POWER cause the result to be complex.  Rather than trying to
+    figure out whether the result is or is not theoretically real, the  com-
+    plex matrix is returned.  If all the imaginary parts approximate machine
+    accuracy, the result may be theoretically real.) Note too that  a  POWER
+    of  -1  will return the inverse of BASE, however the function inverse is
+    faster and more accurate.
+
+    EXAMPLES
+    ;;  We only show EXPT applied to matrices here:
+    (setq mat (make-matrix '((1.0 2.0) (-3.0 4.0))))
+    (print-matrix mat) PRINTS
+      1.0  2.0
+      -3.0 4.0
+    ;;  EXPT will not work on a matrix whose element type is T
+    ;;  unless POWER is a non-negative integer:
+    (expt mat -2.5) => ERROR
+    ;;  The error message is:
+    ;;  Error: Non-float matrix to function computed by diagonalization
+    ;;  Now we set the element type of the matrix passed to EXPT:
+    (print-matrix (expt (single-float-matrix mat) -2.5)) PRINTS
+      #c(0.03911294 4.6837536e-16)   #c(-0.057906948 -3.105155e-16)
+      #c(0.086860426 2.3462135e-16)  #c(-0.04774748 -4.6837536e-16)
+    ;;  Note that the result is complex.
+
+    ;;  If POWER is a non-negative integer, the element type
+    ;;  is not a factor:
+    (print-matrix (expt mat 3)) =>
+      -35.0 30.0
+      -45.0 10.0
+
+    SEE ALSO
+    atan, cos, exp, log, sin, sqrt
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

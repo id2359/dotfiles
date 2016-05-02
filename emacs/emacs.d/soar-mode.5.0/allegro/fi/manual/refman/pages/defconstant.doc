@@ -1,0 +1,66 @@
+
+                                                                 defconstant
+
+
+    MACRO
+    defconstant  -  declare a symbol to hold a constant value
+
+    USAGE
+    defconstant name initform [doc-string]
+
+    DESCRIPTION
+    Proclaims the variable NAME to be special, assigns the value of INITFORM
+    to  it,  makes it henceforth read-only, and returns NAME.  It is usually
+    used to declare and initialize globally-defined  constants  at  the  top
+    level.   Otherwise  it  is  like a defparameter with a guarantee, to the
+    compiler, for example, that the value  of  NAME  will  not  change.   If
+    specified,  a  documentation string DOC-STRING of type variable is asso-
+    ciated with NAME.  It is an error for NAME to  have  a  special  binding
+    when  defconstant is evaluated.  Either assignment or dynamic binding of
+    NAME becomes an error.  (Lexical bindings are not possible since NAME is
+    declared special.)
+
+    EXAMPLES
+    (defconstant pi-over-2 (/ pi 2.0)) => pi-over-2
+    (defconstant soupcon (* 3 smidgens)
+      "Fuzzy precision cooking measure equivalence") => soupcon
+
+    SEE ALSO
+    CLtL 5:68, about scope and extent, documentation, defparameter, defvar,
+    proclaim, special
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

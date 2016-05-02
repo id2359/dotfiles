@@ -1,0 +1,66 @@
+
+                                                                   make-char
+
+
+    FUNCTION
+    make-char  -  create a character with specified bits and font
+
+    USAGE
+    make-char char [bits [font]]
+
+    DESCRIPTION
+    Returns a character object with the same code attribute as CHAR, a  bits
+    attribute of BITS, and a font attribute of FONT, provided such a charac-
+    ter is possible, and returns nil otherwise.  The argument CHAR must be a
+    character  object.   The  optional  arguments BITS and FONT must be non-
+    negative integers.  Both default to 0.   If  BITS  and  FONT  are  zero,
+    make-char will always successfully return a character with the same code
+    as CHAR.
+
+    EXAMPLES
+    ;;  These examples assume the implementation supports
+    ;;  the control bit attribute:
+    (make-char #\Control-\A) => #\A
+    (make-char #\Control-\a) => #\a
+
+    SEE ALSO
+    CLtL 13:240, char-bits, char-code, char-font, char-int, code-char
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

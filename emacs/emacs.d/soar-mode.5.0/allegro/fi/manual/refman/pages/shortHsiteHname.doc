@@ -1,0 +1,66 @@
+
+                                                             short-site-name
+
+
+    FUNCTION
+    short-site-name  -  get the short name of the physical location of your
+      hardware
+
+    Usage
+    short-site-name
+
+    DESCRIPTION
+    Returns the string that identifies the shorter version of  the  name  of
+    the  physical  location  of  the machine on which you are running COMMON
+    LISP.  If the information is not available, nil is returned.   The  pre-
+    cise string returned is implementation-dependent.
+
+    EXAMPLES
+    ;; The followinging result is implementation-dependent.
+    (short-site-name) => "fridge.franzinc"
+
+    SEE ALSO
+    CLtL 25:448, long-site-name
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

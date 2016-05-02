@@ -1,0 +1,66 @@
+
+                                                         do-external-symbols
+
+
+    MACRO
+    do-external-symbols  -  iterate over all external symbols of a package
+
+    USAGE
+    do-external-symbols (var [package [result-form]]) {declaration}*
+      {tag | statement}*
+
+    DESCRIPTION
+    Allows iteration over all the external symbols in PACKAGE.  The variable
+    VAR is bound on each iteration to a symbol.  Symbols are processed in no
+    particular order.  When RESULT-FORM is evaluated, VAR is still bound and
+    has the value nil.  If no RESULT-FORM is present, the result of the call
+    is nil.  PACKAGE must be a package object.  It defaults to the value  of
+    *package*.
+
+    The body is implicitly enclosed in a block named  nil  so  you  may  use
+    return  to exit the loop prematurely.  It is also enclosed in a tagbody,
+    so go may be used to jump to a TAG.  (A tag is a symbol or an integer.)
+
+    Note that the effects of this call are unpredictable if the execution of
+    the body of the loop affects which external symbols are contained in the
+    package.
+
+    EXAMPLES
+    ;;  The following counts the external symbols in the Lisp package.
+    ;;  Note the number may vary slightly between implementations.
+    (let ((symnum 0))
+      (do-external-symbols  (loopvar (find-package :lisp) symnum)
+                (setq symnum (1+ symnum)))) => 775
+
+    SEE ALSO
+    CLtL 11:187, block, do-all-symbols, do-symbols, go, *package*, tagbody,
+    return
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

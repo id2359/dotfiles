@@ -1,0 +1,66 @@
+
+                                                                        asin
+
+
+    FUNCTION
+    asin  -  get the arc sine of a number
+
+    USAGE
+    asin number
+
+    DESCRIPTION
+    Returns the arc sine of NUMBER; that is, a number in radians whose  sine
+    is  NUMBER.   The argument may be of any number type, including complex.
+    The result may be complex, as in cases when the absolute value of NUMBER
+    is greater than 1.
+
+    There are two portions to the branch cut for asin.  One lies  along  the
+    negative  real axis from -1 (inclusive) to negative infinity, continuous
+    with the second quadrant, and the other lies  along  the  positive  real
+    axis from 1 (inclusive) to positive infinity, continuous with the fourth
+    quadrant.  The range consists of points in the complex plane whose  real
+    part  is  between -J/2 (including the end point if the imaginary part is
+    non-negative), and J/2 (including the end point if the imaginary part is
+    nonpositive).
+
+    EXAMPLES
+    (asin 1/2) => 0.5235988
+    (asin 0) => 0.0
+    (asin 3) => #c(1.5707964 -1.7627472)
+    (asin .8) => 0.92729527
+
+    SEE ALSO
+    CLtL 12:207, acos, atan, cos, sin, tan
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

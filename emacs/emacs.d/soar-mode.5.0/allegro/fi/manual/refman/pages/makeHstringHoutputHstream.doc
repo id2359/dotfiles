@@ -1,0 +1,66 @@
+
+                                                   make-string-output-stream
+
+
+    FUNCTION
+    make-string-output-stream  -  make an output stream that writes to a
+      string
+
+    USAGE
+    make-string-output-stream
+
+    DESCRIPTION
+    Returns an output stream that writes its output to a string.  The  func-
+    tion  get-output-stream-string will return a string containing the char-
+    acters output to the string-output-stream and  will  reset  the  string-
+    output-stream to its initial empty state.
+
+    EXAMPLES
+    (let* ((in (make-string-input-stream "Hello"))
+           (out (make-string-output-stream))
+           (io (make-two-way-stream in out)))
+      (prin1 (read io) io)
+      (get-output-stream-string out))
+      => "Hello"
+
+    SEE ALSO
+    CLtL 21:330, get-output-stream-string, make-string-input-stream, make-
+    broadcast-stream, make-concatenated-stream, make-echo-stream, make-
+    string-input-stream, make-synonym-stream, make-two-way-stream, open
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

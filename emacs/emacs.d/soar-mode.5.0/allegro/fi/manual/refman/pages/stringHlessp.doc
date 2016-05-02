@@ -1,0 +1,66 @@
+
+                                                                string-lessp
+
+
+    FUNCTION
+    string-lessp  -  test whether one string is lexicographically less than
+      another, ignoring case
+
+    USAGE
+    string-lessp string1 string2 [:start1 s1] [:end1 e1] [:start2 s2]
+      [:end2 e2]
+
+    DESCRIPTION
+    Returns nil if the string  specified  by  STRING1  is  lexicographically
+    greater than or equal to the string specified by STRING2.  Otherwise the
+    value returned is the length of the longest common  prefix  of  the  two
+    strings (that is the index of the first position where the corresponding
+    characters in the two strings differ).  Differences in case are  ignored
+    when  comparing characters.  (This function considers two characters the
+    same if they satisfy char-equal.  The corresponding case-sensitive func-
+    tion  is  string<.) The arguments STRING1 and STRING2 must be strings or
+    symbols.  If a symbol is supplied, its print name is used as the string.
+
+    The first string is less than the second if the first is a proper prefix
+    of  the  second,  or  if  in  the first character position at which they
+    differ, the character from the first string is less than (in  the  sense
+    of  char-lessp) the character from the second string.  The second string
+    is a proper prefix of the first if it is shorter and all its  characters
+    are the same as the corresponding characters in the first string (in the
+    sense of char-equal).
+
+    To operate on a substring of STRING1, use the :start1 and :end1  keyword
+    arguments.   The  :start1  keyword  argument  specifies the index of the
+    first character of the substring  of  STRING1  to  examine.   Its  value
+    defaults  to  zero  (indicating the first character).  The :end1 keyword
+    argument specifies an index one greater than the index of the last char-
+    acter of STRING1 to examine. A value of nil is equivalent to the default
+    value, the length of the string.  Note that if STRING1 is a string  with
+    a  fill  pointer,  only  the active elements of STRING1 can be compared.
+    These remarks also apply to the :start2  and  :end2  keyword  arguments,
+    which  specify  the  starting  and  ending  indices  of the substring of
+    STRING2.  The index returned when this function returns a non-nil  value
+    is  an  index  into  the  substring  of the first string relative to the
+    beginning of the entire string.
+
+    EXAMPLES
+    (string-lessp "goodbye" "hello") => 0
+    (string-lessp "hello" "howdy") => 1
+    (string-lessp "beauty" "beast") => nil
+    (string-lessp "fauna" "flora"
+                  :start1 1 :start2 3) => 1
+    (string-lessp "short" "shorter") => 5
+    (string-lessp "Hello" "hello") => nil
+
+    SEE ALSO
+    CLtL 18:302, char-equal, char-lessp, string-equal, string-greaterp,
+    string-not-equal, string-not-greaterp, string-not-lessp, string<
+
+
+
+
+
+
+
+
+

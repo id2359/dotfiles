@@ -1,0 +1,132 @@
+
+                                                             font-attributes
+
+
+    FUNCTION
+    font-attributes  -  get the attributes of a font
+
+    Usage
+    font-attributes FONT
+
+    DESCRIPTION
+    Returns an alist  which  lists  font  attributes  and  their  associated
+    values.  FONT must be a font installed in COMMON WINDOWS.
+
+    Each font in X has a unique server name associated with it.   This  name
+    is very long.  It concatenates most information about a font, separating
+    pieces of information with hyphens.  One such name is
+    -adobe-courier-medium-r-normal--12-120-75-75-m-70-iso8859-1
+
+    This name tells us that the foundry (the company that produced the font)
+    is  Adobe;  the  family is Courier; the weight is medium; and so on (all
+    the attributes are given in the example section).
+
+    Note that fonts are stored in COMMON WINDOWS with another alist  set  up
+    when the font is installed.  That alist, returned by installed-fonts, is
+    not the same as this alist and, indeed, need not have  the  same  values
+    for  attributes.   The  attributes  in the installed-fonts are specified
+    when the font is installed.  The attributes in this list are parsed from
+    the server name.
+
+    EXAMPLES
+    ;;  The *SYSTEM-FONT* may differ in your system.  We have
+    ;;  placed comments describing the attributes before some
+    ;;  entries. (Note: the server name contains no information
+    ;;  for some attributes.)
+    (font-attributes *system-font*) =>
+    ;;  The compnay which produced the font:
+    ((:foundry . "adobe")
+    ;;  The name of the font:
+    (:family . :courier)
+    ;;  The thickness of the pen (:light, :bold, :medium, etc.):
+    (:weight . :medium)
+    ;;  The slant of the pen (roman is straight, italic is slanted
+    ;;  right, etc:
+    (:slant . :roman)
+    ;;  How close the letters are together:
+    (:setwidth-name . "normal")
+    (:add-style-name)
+    ;;  The actual size on the screen, in pixels:
+    (:pixel-size . 12)
+    ;;  The size (in tenths of points) the font was designed to
+    ;;  be (a point is 1/72 of an inch:
+    (:point-size . 120)
+    ;;  The x-pixels-per-inch for which the font is designed:
+    (:resolution-x . 75)
+    ;;  The y-pixels-per-inch for which the font is designed:
+    (:resolution-y . 75)
+    ;;  The letter spacing (monospace: every letter has the
+    ;;  same width; proportional: letters have different widths):
+    (:spacing . :monospaced)
+    ;;  The average width of a letter (in tenths of points):
+    (:average-width . 70)
+    (:font-name-registry)
+    (:char-set-registry . "iso8859")
+    (:char-set-encoding . "1")
+    ;;  The unique server name:
+    (:font-descriptor .
+    "-adobe-courier-medium-r-normal--12-120-75-75-m-70-iso8859-1"))
+
+    SEE ALSO
+    font-baseline, font-character-height, font-character-width installed-
+    fonts, install-font, open-font, open-named-font
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

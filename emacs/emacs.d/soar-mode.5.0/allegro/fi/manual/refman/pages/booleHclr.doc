@@ -1,0 +1,66 @@
+
+                                                                   boole-clr
+
+
+    CONSTANT
+    boole-clr  -  specify bitwise logical `clear' operation
+
+    DESCRIPTION
+    Used as the first argument to  boole  to  specify  the  bitwise  boolean
+    operation that returns 0.
+
+    EXAMPLES
+    (setf *print-base* 2
+          *print-radix* t)
+    ;;  Bits of the result are always all cleared.
+    (boole boole-clr #b1100 #b1010) => #b0
+
+    SEE ALSO
+    CLtL 12:222, boole, boole-1, boole-2, boole-and, boole-andc1, boole-
+    andc2, boole-c1, boole-c2, boole-eqv, boole-ior, boole-nand, boole-nor,
+    boole-orc1, boole-orc2, boole-set, boole-xor
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

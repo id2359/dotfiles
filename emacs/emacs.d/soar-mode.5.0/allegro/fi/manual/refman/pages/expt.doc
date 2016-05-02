@@ -1,0 +1,66 @@
+
+                                                                        expt
+
+
+    FUNCTION
+    expt  -  raise a number to a power
+
+    USAGE
+    expt base power
+
+    DESCRIPTION
+    Returns the result of raising BASE to POWER.  Rational numbers raised to
+    integer  powers  will  give  back rationals.  If POWER is the value 0 of
+    type integer, then the result will be 1 coerced to the type of BASE.  If
+    POWER  is  the value of 0 in some other type, then the result is 1 after
+    the application of the standard contagion rules.  (Note,  however,  that
+    it  is an error to raise a non-integer 0 value for BASE to the 0 power.)
+    Otherwise, an appropriate value will be returned, whether it be an exact
+    number, a floating-point approximation, or perhaps a complex number.
+
+    The range of the function expt is the entire complex plane.  As a  func-
+    tion  of  the  argument POWER, there is no branch cut.  As a function of
+    the argument BASE, the branch cut for expt is continuous with the second
+    quadrant,  and  lies  on  the  negative  real axis.  The domain does not
+    include the origin.
+
+    EXAMPLES
+    (expt 2 3) => 8
+    (expt 8 1/3) => 2.0
+    (expt -1 1/2) => #c(0.0 1.0)
+
+    SEE ALSO
+    CLtL 12:203, CLtL 12:211, exp, log, sqrt
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

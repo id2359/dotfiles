@@ -1,0 +1,66 @@
+
+                                                            draw-triangle-xy
+
+
+    FUNCTION
+    draw-triangle-xy  -  draw a triangle on a graphic stream
+
+    Usage
+    draw-triangle-xy GR-STREAM X1 Y1 X2 Y2 X3 Y3 [:brush-width BRUSH-WIDTH]
+      [:color COLOR] [:operation OPERATION] [:dashing DASHING]
+
+    SIDE EFFECTS
+    A triangle, determined by the given coordinates, is drawn on the graphic
+    stream  GR-STREAM.   which  must  be either a window-stream or a bitmap-
+    stream.  The three vertices of the  triangle  are  the  points  (X1,Y1),
+    (X2,Y2), (X3,Y3).
+
+    DESCRIPTION
+    Returns nil.  The argument GR-STREAM may be either  a  window-stream  or
+    bitmap-stream.   The  arguments  X1,  Y1, X2, Y2, X3, and Y3 must all be
+    real numbers. All coordinates are give respect to the extent  coordinate
+    system  of GR-STREAM.  For a function which specifies the coordinates of
+    the triangle in terms of positions, use draw-triangle.  for
+
+    The keyword argument :brush-width is the width, in pixels, of the points
+    that  are drawn.  The default value is the value of window-stream-brush-
+    width applied to  gr-stream.   the  value  of  window-stream-brush-width
+    applied  to  gr-stream.   The  keyword argument :operation specifies the
+    boolean operation that will be used  when  the  bits  from  the  drawing
+    operation  are combined with the bits on the graphic stream.  This argu-
+    ment  defaults  to  the  value  of  window-stream-operation  applied  to
+    GR-STREAM.   All  the sixteen standard boolean operations of COMMON LISP
+    are supported.  The  keyword  argument  :color,  specifies  the  drawing
+    color,  and  if not specified, uses the color returned by window-stream-
+    foreground-color.
+
+    The keyword argument :dashing is a  list  which  specifies  the  dashing
+    pattern  of the circle.  For example, the dashing pattern (1 2 3 4) says
+    that one bit should be turned on followed by 2 bits turned off  followed
+    by  3 bits turned on followed by 4 bits turned off, and then the pattern
+    repeated throughout the drawing operation.  If the length of the list is
+    odd,  then  the  dashing  pattern cycles.  For example the list '(1 2 3)
+    would produce the dashing pattern (1 on, 2 off, 3 on)  (1 off, 2  on,  3
+    off),  etc.   A  dashing  pattern that consists of a single integer is a
+    shorthand for the  list  consisting  of  the  pattern  followed  by  the
+    pattern.   For  example, if DASHING is 2, then this is equivalent to the
+    dashing pattern (2 2) .
+
+    Note that draw-triangle-xy, and all the related  triangle-drawing  func-
+    tions, are not methods.  This makes them different from all of the other
+    drawing functions, which are  currently  implemented  as  methods.   The
+    draw-triangle family CANNOT be customized for each graphics stream.
+
+    EXAMPLES
+    (setf *my-win*
+            (make-window-stream :left 100 :bottom 100
+            :width 200 :height 200
+            :activate-p t :title "Just a Window"))
+
+    (draw-triangle-xy *my-win*
+                           10 10 50 50 25 100)
+
+    SEE ALSO
+    draw-circle, draw-circle-xy, draw-filled -circle, draw-filled-rectangle,
+    draw-filled-rectangle-xy, draw-filled-triangle-xy, draw-line, draw-
+    line-xy, draw-lines, draw-point, draw-point-xy, draw-points, draw-

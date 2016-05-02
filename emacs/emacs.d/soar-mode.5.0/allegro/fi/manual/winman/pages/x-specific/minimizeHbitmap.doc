@@ -1,0 +1,66 @@
+
+                                                             minimize-bitmap
+
+
+    FUNCTION
+    minimize-bitmap  -  get the brightness of a color
+
+    Usage
+    minimize-bitmap BITMAP [BORDER]
+
+    DESCRIPTION
+    Returns a new bitmap with as much peripheral whitespace removed as  pos-
+    sible.   If  called  with BORDER 0 the new bitmap will have at least one
+    non-zero bit on each edge.  The optional  argument  BORDER  must  be  an
+    interger  greater  than  or  equal  to 0 (the default).  A border of the
+    specified size will be put around the minimized bitmap.
+
+    EXAMPLES
+    (setf *my-bitmap*  (make-bitmap :width 50 :height 50))
+    ;;  Fill in a small square area in the middle of the bitmap.
+    (dotimes (i 10)
+      (setf (bitmap-bit *my-bitmap* (+ i 20) (+ i 20)) 1))
+
+    ;;  Now return a bitmap with the whitespace trimmed, except
+    ;;  for a two-pixel border.
+    (setf *lil-bit* (minimize-bitmap *my-bitmap* 2))
+    (bitmap-width *lil-bit*) => 14
+    (bitmap-height *lil-bit*) => 14
+
+    SEE ALSO
+    bitmap-bit, make-bitmap, rotate-bitmap
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

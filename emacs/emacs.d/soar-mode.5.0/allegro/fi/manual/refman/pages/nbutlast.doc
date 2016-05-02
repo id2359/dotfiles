@@ -1,0 +1,66 @@
+
+                                                                    nbutlast
+
+
+    FUNCTION
+    nbutlast  -  cut into list, getting all elements except a specified
+      number at the end (destructive)
+
+    USAGE
+    nbutlast list [n]
+
+    SIDE EFFECTS
+    LIST may be modified.
+
+    DESCRIPTION
+    Returns and modifies LIST so that it contains all but the  last  N  ele-
+    ments.   nbutlast changes the cdr of the N+1st cons from the end of LIST
+    to nil.  If N is greater than or equal to the number of elements in LIST
+    then  nil  is  returned and the argument is unchanged.  N defaults to 1.
+    LIST must be a true (not a dotted) list.
+
+    nbutlast returns nil, leaving its LIST  argument  unmodified,  if  N  is
+    greater  than or equal to the number of elements in LIST.  Therefore, it
+    is advisable to use setq to change the value  of  a  variable  given  to
+    nbutlast.
+
+    EXAMPLES
+    (setq a '(r s t u v)) => (r s t u v)
+    ;;  Since the argument to NBUTLAST may not itself change, you  should
+    ;;  use SETQ, as in the following.
+    (setq a (nbutlast a)) => (r s t u)
+    a => (r s t u)
+
+    (nbutlast '(r s t u v) 5) => nil
+    (nbutlast '()) => nil
+    (nbutlast '(x)) => nil
+
+    SEE ALSO
+    CLtL 15:271, butlast, endp
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

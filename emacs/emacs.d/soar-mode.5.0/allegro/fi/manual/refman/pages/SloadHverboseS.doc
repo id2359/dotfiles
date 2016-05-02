@@ -1,0 +1,66 @@
+
+                                                              *load-verbose*
+
+
+    VARIABLE
+    *load-verbose*  -  controls whether to print a message upon loading a
+      file
+
+    USAGE
+    *load-verbose*
+
+    DESCRIPTION
+    If bound to a non-nil value, the load function will print a  message  to
+    the  stream *standard-output* upon loading a file.  This global variable
+    contains the default value of the load function's :verbose keyword argu-
+    ment.   The  exact nature of the message is implementation-dependent but
+    normally contains the name of the file being loaded.
+
+    The initial value of *load-verbose* is implementation-dependent.
+
+    EXAMPLES
+    ;;  When the following form is evaluated, subsequent calls to
+    ;;  LOAD with only one argument will not print any messages:
+
+    (setq *load-verbose* nil) => nil
+
+    SEE ALSO
+    CLtL 23:426, load, *standard-output*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

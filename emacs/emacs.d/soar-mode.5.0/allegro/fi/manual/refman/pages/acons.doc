@@ -1,0 +1,66 @@
+
+                                                                       acons
+
+
+    FUNCTION
+    acons  -  add an element to the front of an association list
+
+    USAGE
+    acons key datum a-list
+
+    DESCRIPTION
+    Returns a new cons cell representing the association  list  A-LIST  with
+    the  dotted pair (KEY .  DATUM) added to the front of it.  The following
+    identity holds:
+
+    (acons x y a) = (cons (cons x y) a)
+
+    EXAMPLES
+    (acons 'c 3 '((b . 2) (a . 1))) => ((c . 3) (b . 2) (a . 1))
+    (acons "tic" "tac" nil) => (("tic" . "tac"))
+
+    SEE ALSO
+    CLtL 15:279, assoc, cons, copy-alist, pairlis, rassoc
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

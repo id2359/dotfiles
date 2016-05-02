@@ -1,0 +1,66 @@
+
+                                                         format directive ~<
+
+
+    FORMAT DIRECTIVE
+    ~<  -  process control string with text justification
+
+    USAGE
+    ~mincol,colinc,minpad,padchar[:][@]<seg0~n,w[:];seg1~;...~;segn~>
+
+    DESCRIPTION
+    Processes the specified segments as format control  strings  and  prints
+    the  resulting  text  segments  in  a  field at least MINCOL (default 0)
+    columns wide such that they are evenly spaced and justified according to
+    the  ``:''  and  ``@''  modifiers  given.   A segment is one of a set of
+    strings separated by ``~;'' and ending in ``~>''.  Spacing  is  done  by
+    printing  at  least  MINPAD  (default 0) copies of the padding character
+    padchar (default the space character `` '') between  segments.   If  the
+    resulting  total  width  is  larger  than MINCOL, then the actual output
+    width is MINCOL + K*COLINC (where COLINC defaults to 1) for the smallest
+    integer K that accommodates all the resulting text.
+
+    If no modifiers are given, the last segment is right  justified  in  the
+    field,  and the first segment is left justified provided it is different
+    from the last segment.  Padding is added before the first segment if the
+    ``:''  modifier is given, and after the last segment if the ``@'' modif-
+    ier is given.  If both modifiers are given, padding  is  added  at  both
+    ends.
+
+    If the first segment ends with a directive of the form
+
+         ~N,W:;
+
+    instead of ``~;'', all the segments  are  processed  as  format  control
+    strings,  but  the  output  field is initially constructed using all the
+    segments except the first.  Then if the text resulting  from  the  other
+    segments  fits  on  the  current output line with at least N (default 0)
+    characters to spare, that text is  printed  and  the  first  segment  is
+    discarded.   Otherwise the text is printed anyway, but the text from the
+    first segment is printed before it.  Normally this is  useful  when  the
+    first  segment  prints a newline.  If W is specified, it is taken as the
+    line width, otherwise a value  for  W  is  determined  from  the  output
+    stream.  If such a value is unavailable and W is unspecified, the number
+    72 is used.
+
+    This directive must nest properly with respect to other  format  control
+    structure  directives.   The  ``~^''  directive may be used to terminate
+    processing prematurely, with the result that only  the  completely  pro-
+    cessed segments are justified.
+
+    EXAMPLES
+    (format nil "~11,<~A~;~R~>?" "What" 4)     => "What   four?"
+    (format nil "~11,:<~A~;~R~>?" "What" 4)    => "  What four?"
+    (format nil "~11,,3:@<~A~;~R~>?" "What" 4) => "   What   four   ?"
+    (format nil "~%;; ~@{~<~%;; ~1,22:;~A~>~^ ~}" "This" "code"
+      "is" "intentionally" "obscure," "but" "the" "comments"
+      "are" "nice.") =>
+    "
+    ;; This code is
+    ;; intentionally
+    ;; obscure, but the
+    ;; comments are nice."
+
+    SEE ALSO
+    CLtL 22:404, format, format directive ~A, format directive ~R, format
+    directive ~%, format directive ~{, format directive ~^

@@ -1,0 +1,132 @@
+
+                                                            reader syntax #+
+
+
+    READER SYNTAX
+    #+  -  conditionally reads an expression
+
+    Usage
+    #+FEATURE EXPR
+
+    DESCRIPTION
+    Reads the next expression EXPR if the `feature' represented  by  FEATURE
+    is  `true.'  Otherwise,  the  entire  syntactic form, including EXPR, is
+    ignored, as if it were whitespace.  The rules that determine  whether  a
+    feature is `true' are implementation-dependent.
+
+    The FEATURE expression is inductively defined to be either a symbol or a
+    logical  expression  composed  from  the  functions  and, or, and not on
+    FEATURE expressions.  A feature that is a symbol is `true' if  and  only
+    if  the  symbol  is a member of the list that is the value of the global
+    variable *features*.  Membership in this list is not  strictly  defined.
+    In  some implementations, the symbol is read while *package* is bound to
+    the keyword package or otherwise interpreted as  being  in  the  keyword
+    package  in  the absence of a package qualifier.  The membership test is
+    then made with eq.  In other implementations there is no implicit  pack-
+    age  qualification  and  symbols are simply tested for membership in the
+    *features* list using eq.
+
+    The truth of a boolean expression of features  is  determined  by  first
+    substituting  t  or nil for each feature symbol.  If a feature symbol is
+    `true,' it is replaced by t; otherwise, it is replaced by nil.   If  the
+    result  of  evaluating  the boolean expression following these substitu-
+    tions is non-nil, then the boolean expression  of  features  is  `true,'
+    otherwise it is false.
+
+    Note that since this is a reader macro, conditionalization  is  done  at
+    read time.  The mechanism by which this reader macro operates is as fol-
+    lows.  First the FEATURE form is read and  processed.   If  the  feature
+    expression  is  `true,'  then the following expression EXPR is read nor-
+    mally.  Otherwise, the special variable *read-suppress* is  bound  to  a
+    non-nil value while reading EXPR.
+
+    EXAMPLES
+    (setf *features* (delete 'chelation *features*))
+
+    (list #+chelation :complexes
+          #-chelation :free-ions) => :free-ions
+
+    (pushnew 'chelation *features*)
+
+    (list #+chelation :complexes
+          #-chelation :free-ions) => :complexes
+
+    (defvar *deionizer* 0)
+    (defvar *still* 0)
+    #+chelation #.(incf *deionizer*)
+    #-chelation #.(incf *still*)
+    *deionizer* => 1
+    *still* => 0
+
+    ;; This example is implementation-dependent.
+    (list '#1= #-#|yes|#quickening #. (gensym)
+          #+ #|no|# #. ' quickening #. (gentemp) '#1#)
+      => (t90 t90)
+
+
+
+    SEE ALSO
+    CLtL 22:358, about printing, about reading, *features*, *read-suppress*,
+    reader syntax #-
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

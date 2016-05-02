@@ -1,0 +1,66 @@
+
+                                                                    unexport
+
+
+    FUNCTION
+    unexport  -  change external symbols to internal in a package
+
+    USAGE
+    unexport symbols [package]
+
+    DESCRIPTION
+    Returns t after changing the status of each  of  the  specified  SYMBOLS
+    that  were external in PACKAGE to internal in that package.  If a symbol
+    is in PACKAGE but is already internal (not exported),  UNEXPORT  applied
+    to  it  does  nothing.  If the symbol is not accessible in PACKAGE (that
+    is, to access it a package qualifier with either a single  or  a  double
+    colon  must  be prefixed to the symbol name), an error is signalled.  It
+    is also an error to try to unexport any symbol in  the  keyword  package
+    since all keyword are intended to be external.
+
+    SYMBOLS may be a single symbol or a list of symbols. PACKAGE must  be  a
+    package  object.   PACKAGE defaults to the current package, the value of
+    *package*.
+
+    EXAMPLES
+    ;;  The printed representation of a package object
+    ;;  is implementation dependent.
+    ;;  We create a symbol in MY-PACKAGE.
+    (in-package :my-package)
+      => #<The MY-PACKAGE package, 0 internal, 0 external>
+    (setq my-sym 3 my-other-sym 5)
+    my-sym => 3
+    my-other-sym => 5
+
+    ;;  We change packages to YOUR-PACKAGE.
+    (in-package :your-package)
+      => #<The YOUR-PACKAGE package, 0 internal, 0 external>
+    ;;  MY-SYM is not exported from MY-PACKAGE so referring to
+    ;;  it with a single colon qualifier.
+    my-package:my-sym => ERROR
+    ;;  When we EXPORT MY-SYM  and MY-OTHER-SYM (note the double
+    ;;  colon in the form), the single colon qualifier works.
+    (export '(my-package::my-sym my-package::my-other-sym) :my-package)
+    my-package:my-sym => 3
+    my-package:my-other-sym => 5
+    ;;  We IMPORT MY-OTHER-SYM into YOUR-PACKAGE.
+    (import 'my-package:my-other-sym)
+    ;;  When we UNEXPORT MY-SYM and MY-OTHER-SYM again.  We can
+    ;;  no longer use a single colon with MY-SYM but MY-OTHER-SYM
+    ;;  is still available.
+    (unexport '(my-package:my-sym my-package:my-other-sym) :my-package)
+    my-package:my-sym => ERROR
+    my-other-sym => 5
+
+    SEE ALSO
+    CLtL 11:186, export, import, *package*
+
+
+
+
+
+
+
+
+
+

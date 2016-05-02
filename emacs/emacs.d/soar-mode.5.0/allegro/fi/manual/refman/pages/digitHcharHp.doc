@@ -1,0 +1,66 @@
+
+                                                                digit-char-p
+
+
+    FUNCTION
+    digit-char-p  -  test whether a character object is a digit of a given
+      radix
+
+    USAGE
+    digit-char-p char [radix]
+
+    DESCRIPTION
+    Returns the non-negative integer value of CHAR, considered as a digit in
+    radix  RADIX.  Returns nil if CHAR is not a valid single-digit character
+    for RADIX.  The potential valid digit characters are #\0 through #\9 and
+    #\A  through  #\Z  (or  equivalently, #\a through #\z), representing the
+    values 10through 35.  RADIX must be a non-negative integer.  It defaults
+    to  10.   (Some  implementations signal an error if RADIX is not a legal
+    radix, that is an integer from 2 to 36 inclusive.)  Only  those  numbers
+    and letters whose weight is strictly less than RADIX are actually valid.
+    For them, DIGIT-CHAR-P returns their value.  For  the  others  (and  any
+    other character), it returns nil.  CHAR must be a character.
+
+    Using the default radix of 10, the characters #\0 through #\9 are digits
+    whose  values  (also called weights) are 0 through 9, respectively.  For
+    RADIX equal 19, the characters #\0 through #\9 and #\A through  #\I  (or
+    #\a through #\i) have values 0 through 18.
+
+    EXAMPLES
+    (digit-char-p #\9) => 9
+    (digit-char-p #\a) => nil
+    (digit-char-p #\a 16) => 10
+    (digit-char-p #\9 8) => nil
+    (digit-char-p #\$) => nil
+
+    SEE ALSO
+    CLtL 13:236, alpha-char-p, alphanumericp, both-case-p, digit-char,
+    graphic-char-p, lower-case-p, standard-char-p, upper-case-p
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

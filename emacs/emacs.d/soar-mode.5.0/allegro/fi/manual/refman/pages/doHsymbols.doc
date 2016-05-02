@@ -1,0 +1,66 @@
+
+                                                                  do-symbols
+
+
+    MACRO
+    do-symbols  -  iterate over all symbols of a package
+
+    USAGE
+    do-symbols (var [package [result-form]]) {declaration}* {tag | state-
+      ment}*
+
+    DESCRIPTION
+    Allows iteration over all the symbols in PACKAGE.  The variable  VAR  is
+    bound  on  each iteration to a symbol.  Symbols are processed in no par-
+    ticular order.  When RESULT-FORM is evaluated, VAR is  still  bound  and
+    has the value nil.  If no RESULT-FORM is present, the result of the call
+    is nil.  PACKAGE must be a package object.  It defaults to the value  of
+    *package*.
+
+    The body is implicitly enclosed in a block named  nil  so  you  may  use
+    return  to exit the loop prematurely.  It is also enclosed in a tagbody,
+    so go may be used to jump to a TAG.  (A tag is a symbol or an integer.)
+
+    Note that the effects of this call are unpredictable if the execution of
+    the body of the loop affects which symbols are contained in PACKAGE.
+
+    EXAMPLES
+    ;;  The following form checks for the occurrence of a symbol.
+    (let ((sym-to-find (symbol-name :car)))
+      (do-symbols (sym (find-package :lisp) nil)
+        (if (string= (symbol-name sym) sym-to-find)
+            (return t)))) => t
+    (let ((sym-to-find (symbol-name :foo)))
+      (do-symbols (sym (find-package :lisp) nil)
+        (if (string= (symbol-name sym) sym-to-find)
+            (return t)))) => nil
+
+    SEE ALSO
+    CLtL 11:187, block, do-all-symbols, do-external-symbols, go, *package*,
+    tagbody, return
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

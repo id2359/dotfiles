@@ -1,0 +1,66 @@
+
+                                                          *macroexpand-hook*
+
+
+    VARIABLE
+    *macroexpand-hook*  -  name of macro-expansion interface hook function
+
+    USAGE
+    *macroexpand-hook*
+
+    DESCRIPTION
+    This special symbol evaluates to the hook function for macro  expansion.
+    Its  value  is normally the symbol funcall, but some implementations may
+    use another function.  The value must be acceptable as the first  (func-
+    tion) argument to apply or funcall.
+
+    The value of this  symbol  is  applied  to  three  arguments,  a  macro-
+    expansion function, a macro-call form and an environment.  The result of
+    this application must return the expansion of the macro-call form.  This
+    is  the  mechanism  used  by  macroexpand-1  to expand a macro call, and
+    macroexpand-1 in turn is used by the evaluator eval  when  a  macro-call
+    form is evaluated.
+
+    One possible use of a hook function is to cache macro expansions to gain
+    speed in the interpreter.
+
+    EXAMPLES
+    ;;  The standard value is funcall:
+    *macroexpand-hook* => funcall
+
+    SEE ALSO
+    CLtL 8:152, eval, funcall, macroexpand, macroexpand-1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

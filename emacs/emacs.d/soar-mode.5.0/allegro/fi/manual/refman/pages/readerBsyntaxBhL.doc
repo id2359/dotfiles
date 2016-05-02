@@ -1,0 +1,66 @@
+
+                                                            reader syntax #<
+
+
+    READER SYNTAX
+    #<  -  signals an error during read
+
+    Usage
+    #N<...>
+
+    DESCRIPTION
+    When the reader encounters the character ``#'', followed by an  optional
+    unsigned decimal digit string, followed by ``<'', an error is signalled.
+
+    When the printer prints an object that  cannot  later  be  read,  it  is
+    printed  using  this  syntax.   The set of objects for which there is no
+    printed representation is implementation-dependent.  However,  the  LISP
+    objects  of  types  hash-table, readtable, package, stream, and function
+    have no defined printed representation in COMMON  LISP.   These  objects
+    may be printed using the ``#<'' syntax.
+
+    EXAMPLES
+    ;;  The printed representation is implementation-dependent.
+    ;;  (An implementation may have a readable printed
+    ;;  representation for hash-tables.)
+    (copy-readtable) => #<readtable @ #x655aa1>
+    #<readtable @ #x655aa1> => ERROR
+
+    SEE ALSO
+    CLtL 22:360, about printing, about reading
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

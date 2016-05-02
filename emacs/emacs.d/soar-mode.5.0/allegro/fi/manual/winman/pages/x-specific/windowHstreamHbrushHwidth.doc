@@ -1,0 +1,66 @@
+
+                                                   window-stream-brush-width
+
+
+    FUNCTION
+    window-stream-brush-width  -  get the default drawing operation brush
+      width for a window-stream or bitmap-stream
+
+    Usage
+    window-stream-brush-width GR-STREAM
+
+    DESCRIPTION
+    Returns the default brush width for  drawing  operations  on  GR-STREAM,
+    which  must be either a winow-stream or a bitmap-stream.  Unfilled draw-
+    ing functions have a :brush-width keyword argument  that  specifies  the
+    width of the line which will draw the particular figure.  If no value is
+    specified for that argument, its default value is taken from this  func-
+    tion.   The  value  returned  by this function is initially 1 and may be
+    changed with setf.
+
+    EXAMPLES
+    (setf *my-win*
+            (make-window-stream :left 100 :bottom 100
+            :width 200 :height 200
+            :activate-p t :title "Just a Window"))
+
+    (window-stream-brush-width *my-win*) => 1
+    (setf (window-stream-brush-width *my-win*) 5) => 5
+    (window-stream-brush-width *my-win*) => 5
+
+    SEE ALSO
+    window-stream-operation
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                              char-hyper-bit
+
+
+    CONSTANT
+    char-hyper-bit  -  weight of the hyper bit of characters
+
+    DESCRIPTION
+    Evaluates to the integer weight assigned to the hyper bit  of  the  bits
+    attribute  of character objects.  An implementation need not support the
+    hyper bit.  If it does, the value of this constant is  8.   If  it  does
+    not, the value is 0.
+
+    EXAMPLES
+    ;;  The following result is implementation-dependent:
+    char-hyper-bit => 8
+
+    SEE ALSO
+    CLtL 13:243, char-bit, char-bits, char-control-bit, char-meta-bit,
+    char-super-bit, set-char-bit
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

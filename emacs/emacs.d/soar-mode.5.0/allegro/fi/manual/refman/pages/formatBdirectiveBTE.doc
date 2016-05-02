@@ -1,0 +1,132 @@
+
+                                                         format directive ~E
+
+
+    FORMAT DIRECTIVE
+    ~E  -  print floating-point number in exponential notation
+
+    USAGE
+    ~width,round,ewidth,scale,overflowchar,padchar,echar[@]E
+
+    DESCRIPTION
+    Prints the next format argument as a floating-point number  in  exponen-
+    tial notation, unless it is a complex number or a non-numeric object, in
+    which case the format ~WIDTHD is used.  If the argument is rational, the
+    value  printed  is  of  type  single-float.  Note that to print the com-
+    ponents of a complex number using this directive, the real and imaginary
+    parts  must  be printed separately using ``~E'' twice in the format con-
+    trol string with the real and imaginary parts as separate  format  argu-
+    ments.
+
+    The prefix parameters are summarized below.
+
+         WIDTH - total field width (default is variable width)
+         ROUND - number  of  digits  after  decimal  point  (default  is  no
+         constraint)
+         EWIDTH - number of digits in  the  exponent  (default  is  variable
+         width)
+         SCALE - number of digits before decimal point, or  zeros  after  it
+         (default 1)
+         OVERFLOWCHAR - printed when field  is  too  small  (default  is  to
+         expand field)
+         PADCHAR - fills out field on the left (default the space  character
+         `` '')
+         ECHAR - begins exponent field (default is to use what prin1 uses)
+
+    If WIDTH is specified, the argument is printed in  a  field  of  exactly
+    WIDTH characters.  Enough copies of PADCHAR (default the space character
+    `` '') are printed at the beginning of the output, if necessary, to  pad
+    the  field  on  the  left, and then the sign is printed if the number is
+    negative or if the ``@'' modifier is given.
+
+    After possible padding and sign, a number and an exponent  are  printed.
+    The  number  consists  of a string of digits containing a single decimal
+    point.  The exponent consists of an exponent marker  character,  then  a
+    plus or minus sign, and then EWIDTH digits representing the power of ten
+    by which the preceding number must be multiplied to  yield  the  rounded
+    magnitude  of  the  format  argument.   If  EWIDTH  is  unspecified, the
+    exponent is printed using the minumum number of  digits.   The  exponent
+    marker  is  ECHAR, if specified, otherwise it is the same one that prin1
+    would use (based on the value of *read-default-float-format*).
+
+    The number preceding the exponent is scaled and rounded depending on the
+    integers  SCALE  and  ROUND;  note  that  the number and exponent always
+    determine the true rounded magnitude of the format argument.   If  SCALE
+    (default  1)  is zero, the digit string output consists of a single zero
+    (if the field is wide enough), a decimal point, and then  ROUND  digits.
+    If  SCALE  is positive, it is the number of significant digits to appear
+    before the decimal point, with ROUND - SCALE + 1 digits appearing  after
+    it;  in  this case SCALE must be less than ROUND + 2.  If SCALE is nega-
+    tive, let N be its absolute value.  The digit string output consists  of
+    a  single  zero (if the field is wide enough), a decimal point, N zeros,
+    and then ROUND - N significant digits; in this case N must be less  than
+    ROUND.   During  rounding, if the scaled value is the same distance from
+    the values obtained by rounding up and down, the implementation is  free
+    to use either one.
+
+    If the field is too narrow to print using the requested format,  and  if
+    OVERFLOWCHAR  is  specified,  the output consists of WIDTH copies of it.
+    In the absence of OVERFLOWCHAR, the field may be  wider  than  WIDTH  to
+    accommodate all the necessary digits.
+
+    If ROUND is not specified, the largest integer is  chosen  for  it  such
+    that  the  constraints  imposed  by WIDTH and SCALE are respected and no
+    trailing zeros appear except when the fraction is zero, in which case  a
+    single  trailing  zero  is  permitted.  If WIDTH is unspecified, then no
+    padding occurs and the field is  wide  enough  to  accommodate  all  the
+    necessary digits.  If WIDTH, ROUND, and EWIDTH are unspecified, the out-
+    put produced is identical to that produced by prin1  when  it  prints  a
+    nonzero number less than 10-3 or greater than or equal to 10+7.  This is
+    ordinary free-format exponential-notation output.
+
+    EXAMPLES
+    (defun etest (x)
+      (format nil "~10,3,2,2@E%~10,2,2,,'x,'>,'^E%~9,3,,-2E%~9E"
+              x x x x x)) => etest
+    (etest 1234.0)    => "+12.34e+02%>>1.23^+03% 0.001e+6% 1.234e+3"
+    (etest 0.007E16)  => "+70.00e+12%>>7.00^+13%0.007e+16%  7.0e+13"
+    (etest 1.23456)   => "+12.35e-01%>>1.23^+00% 0.001e+3%1.2346e+0"
+    (etest -1.23456)  => "-12.35e-01%>-1.23^+00%-0.001e+3%-1.235e+0"
+    (etest 500.0L123) => "+50.00d+124%xxxxxxxxxx%.005d+128% 5.0d+125"
+
+    SEE ALSO
+    CLtL 22:392, format, format directive ~D, format directive ~F, format
+    directive ~G, prin1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

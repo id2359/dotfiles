@@ -1,0 +1,66 @@
+
+                                                             pathname-device
+
+
+    FUNCTION
+    pathname-device  -  get the device component of a pathname
+
+    USAGE
+    pathname-device path
+
+    DESCRIPTION
+    Returns the device component of PATH.  The device is one of the six com-
+    ponents  of  a pathname (the other five are directory, host, name, type,
+    and version).  PATH must be a pathname, string, symbol, or stream.   (If
+    PATH is a stream, it must be, or have been, open to a file.)
+
+    The device component of a pathname is implementation-dependent, but  may
+    be nil or :wild.  nil indicates that the device is unspecified; :wild is
+    a device component that  `matches'  any  device  when  the  pathname  it
+    appears  in  is  used  in a directory-search operation such as that per-
+    formed by directory.
+
+    EXAMPLES
+    ;;  The following example refers to a file on a VMS file system.
+    (pathname-device "pleiades::sys$sysdisk:[sys0.sysexe]lisp.exe;0")
+      => "SYS$SYSDISK"
+
+    SEE ALSO
+    CLtL 23:417, make-pathname, pathname, pathname-directory, pathname-host,
+    pathname-name, pathname-type, pathname-version
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

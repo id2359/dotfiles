@@ -1,0 +1,66 @@
+
+                                                                    bit-orc2
+
+
+    FUNCTION
+    bit-orc2  -  perform a bitwise logical `or' of a bit array and the com-
+      plement of another bit array
+
+    USAGE
+    bit-orc2 bit-array1 bit-array2 [result-array]
+
+    SIDE EFFECTS
+    If RESULT-ARRAY is provided as  an  argument,  then  it  will  hold  the
+    results  of  the  logical  operation and thus be modified.  RESULT-ARRAY
+    must be a bit array of the same rank and dimensions  as  the  other  two
+    arguments.
+
+    DESCRIPTION
+    Returns the bitwise logical `or' of BIT-ARRAY1  and  the  complement  of
+    BIT-ARRAY2.   Both  must  be bit arrays of the same rank and dimensions.
+    The result is produced by performing the operation on corresponding ele-
+    ments  of  the two arrays.  If the optional argument RESULT-ARRAY is not
+    provided, a new bit array is created and returned.  The logical `or'  of
+    a bit I and a bit J complemented is 0 if and only if I is 0 and J is 1.
+
+    EXAMPLES
+    ;;  #* is the reader macro for bit vectors.
+    (setq bit-arr (make-array 4 :element-type 'bit))
+    (bit-orc2 #*1100 #*1010 bit-arr) => #*1101
+    bit-arr => #*1101
+
+    SEE ALSO
+    CLtL 17:294, bit, bit-and, bit-andc1, bit-andc1, bit-andc2, bit-eqv,
+    bit-ior, bit-nand, bit-nor, bit-orc1, bit-xor, boole, logorc2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

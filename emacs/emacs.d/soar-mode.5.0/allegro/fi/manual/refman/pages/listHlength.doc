@@ -1,0 +1,66 @@
+
+                                                                 list-length
+
+
+    FUNCTION
+    list-length  -  get length of a list
+
+    USAGE
+    list-length list
+
+    DESCRIPTION
+    Returns the number of elements in LIST, or  nil  if  LIST  is  circular.
+    LIST must be a list.  list-length differs from length in that length may
+    fail to return when applied to circular lists.
+
+    EXAMPLES
+    (list-length nil) => 0
+    (list-length '(x y (x y))) => 3
+    (setq a '(x y z)) => (x y z)
+    (rplacd (last a) a) => (z x y z x y z x y z ...)
+    (list-length a) => nil
+
+    SEE ALSO
+    CLtL 15:265, endp, length, *print-circle*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

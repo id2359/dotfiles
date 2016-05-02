@@ -1,0 +1,198 @@
+
+                                                               make-colormap
+
+
+    FUNCTION
+    make-colormap  -  create a colormap
+
+    Usage
+    make-colormap [:preallocate PA] [:copy-from CF] [:use-default-server-
+      colormap UDSC]
+
+    DESCRIPTION
+    Returns a LISP colormap, a LISP data structure which  is  the  interface
+    between  colors  and  the server colormap.  One LISP colormap is defined
+    when COMMON WINDOWS is initialized.  It is called the  default  colormap
+    and  is  bound to the variable *default-colormap*.  The default colormap
+    is sufficient for most applications.  Unless you need  lots  (more  than
+    100)  colors on the screen at once or have an unusual application, there
+    is no need to create a new colormap.
+
+    We will describe the whole picture briefly.  At any  time,  there  is  a
+    server  colormap  installed  in the server.  (We ignore here cases where
+    more than one server colormap can be installed.)  This  colormap  has  a
+    number  of  slots  which  hold  colors.  The number is dependent on your
+    monitor, but let us assume your monitor will support 256 colors.   Thus,
+    there  are  256  slots  in  the server colormap, numbered from 0 to 255.
+    Every pixel on the screen has an index associated with it with  a  value
+    from  0  to 255.  The server will display that pixel in the color stored
+    in the slot of the installed colormap denoted by the index.
+
+    The problem is that the server colormap is shared among all the  running
+    X clients.  Clients can grab slots for their own use, storing the colors
+    they want into the slots.  Therefore, there is no way  to  know  exactly
+    how  many  or  which slots will be available to COMMON WINDOWS (which is
+    just another client as far as the server is concerned) until COMMON WIN-
+    DOWS  is initialized.  And, the number of slots and the slots themselves
+    will be different every time you connect to the server.  Therefore,  the
+    color  interface  in COMMON WINDOWS cannot depend on knowing how many or
+    which slots in the server colormap will be used.
+
+    If you do not need many colors (no more than tens of colors, say),  this
+    uncertainty  will usually not affect you.  There are (usually) that many
+    slots available in the installed  server  colormap  and  COMMON  WINDOWS
+    grabs them each time it connects to the server.  But if you need lots of
+    colors (even all 256), you cannot get them  from  the  installed  server
+    colormap  since  other clients will be using some.  So you must define a
+    new server colormap and tale all its slots.  This function allows you to
+    create  new server colormaps.  The LISP colormap is just an interface to
+    this new server colormap.
+
+    There are three keyword arguments to make-colormap but you  should  only
+    use  the  first two listed.  (The third, :use-default-server-colormap is
+    for uses internal to COMMON WINDOWS.  You should never specify  a  value
+    for  that  argument.)   The  two arguments that you can use allow you to
+    preallocate read-only colors at the front of the new server colormap and
+    to copy colors already defined in another server colormap.
+
+    The default value for the :preallocate argument is nil, but we  STRONGLY
+    recommend that you specify a list at least containing white and black as
+    the first two elements.  The reason is that when this  new  colormap  is
+    installed, every pixel on the screen will take its colors from it.  Thus
+    windows, even those not put up by COMMON WINDOWS, will be  displayed  in
+    colors  from  the  colormap rather than the colors the client originally
+    intended.  Preserving white and black in the first two  slots  at  least
+    preserves  those  colors  (since  they are in the first two slots of the
+    default server colormap).  Which should go first depends on you  screen.
+    On  Suns,  white  normally  goes first.  But if you get the order wrong,
+    windows that use balck and white will  reverse  polarity  but  still  be
+    readable.
+
+
+    The default value for the :copy-from argument  is  also  nil.   You  may
+    specify  a  LISP  colormap as a value instead of nil.  In that case, all
+    the colors installed (by LISP) in the LISP colormap will be copied  into
+    the  new  colormap  (the  copying will preserve read-only and read-write
+    attributes of colors).  Colors defined in the server colormap associated
+    with the LISP colormap will not be copied unless they were put there via
+    the LISP colormap value of this argument.  This argument is  useful  for
+    the  following  case.   Suppose you need 60 colors adn you are trying to
+    install them in the default  colormap.   After  43  are  installed,  the
+    server  colormap  associated with the default LISP colormap fills up, so
+    you need to create a new colormap.  Rather than redoing  the  43  colors
+    you  installed  already, you can specify *default-colormap* as the value
+    of the :copy-from argument and the 43 colors will be installed first  in
+    the new colormap.  You can then continue with number 44.
+
+    After the colormap has been created, you must install new colors into it
+    explicitly with install-color, specifying the new colormap as the second
+    argument.  If you simply use the new color  without  installing  it,  it
+    will  be  installed in the default colormap, perhaps causing an error if
+    its associated server colormap is full.
+
+    You can make your new colormap the installed server  colormap  (the  one
+    which  will be referred to associate colors with the pixel index values)
+    with the function install-colormap.  The situation is somewhat more com-
+    plicated, however.  If you are running a ICCCM compliant window manager,
+    when the mouse cursor enters a common window, the server colormap  asso-
+    ciated   with   the   window's   colormap   (the   value   returned   by
+    window-stream-colormap applied to the  window-stream)  will  become  the
+    installed  server  colormap.   If  you  have  such a window manager, you
+    should be sure that every common window has  the  new  colormap  as  the
+    value  of  window-stream-colormap.  If you do not do this, the installed
+    server colormap will constantly change, producing a light show effect on
+    the  screen.  Note that even if you set up every common window properly,
+    other X window may change the colormap when the cursor enters them  any-
+    way.   This is an artifact of X and you may have to modify other clients
+    if you need to get around it.
+
+    EXAMPLES
+    (setf *my-win*
+      (make-window-stream :left 100 :bottom 100
+                          :width 200 :height 200
+                          :activate-p t :title "Just a Window Lois"))
+
+    ;;  We create be an array to store some colors.
+    (setq colors (make-array 10))
+    (dotimes (i 10)
+      (setf (elt colors i)(make-color :level (/ i 10))))
+
+    ;;  We create a new colormap and install the colors in it.
+
+    (setq my-colormap (make-colormap :preallocate (list white black)))
+    (dotimes (i 10)
+      (install-color  (elt colors i) my-colormap))
+
+    ;;  We make MY-COLORMAP be the colormap of *MY-WIN*.
+    (setf (window-stream-colormap *my-win*)  my-colormap)
+
+    ;;  You should see 10 circles, which will turn gray when the
+    ;;  new colormap becomes the installed colormap.  Depending on
+    ;;  your window manager, this may happen automatically when the
+    ;;  cursor enters the window.  To ensure it, we call
+    ;;  INSTALL-COLORMAP explicitly.
+    (dotimes (i 10)
+      (draw-filled-circle
+       *my-win*
+       (make-position :x (* i 10) :y  (* i 10)) 50
+                      :color (elt colors i)))
+    (install-colormap my-colormap)
+
+    SEE ALSO
+    *default-colormap*, install-color, install-colormap, uninstall-colormap
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

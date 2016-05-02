@@ -1,0 +1,66 @@
+
+                                               *maximum-mouse-cursor-height*
+
+
+    VARIABLE
+    *maximum-mouse-cursor-height*  -  upper bound on the height of a mouse
+      cursor
+
+    DESCRIPTION
+    Bound to a number which is the maximum height for mouse cursor  bitmaps.
+    (Mouse cursors are defined with bitmaps.)
+
+    EXAMPLES
+    ;;  This value may be different in your version.
+    *maximum-mouse-cursor-height* => 1024
+
+    SEE ALSO
+    make-mouse-cursor, *maximum-mouse-cursor-width*, *minimum-mouse-cursor-
+    height*, *minimum-mouse-cursor-width*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

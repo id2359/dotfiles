@@ -1,0 +1,66 @@
+
+                                                                        sbit
+
+
+    FUNCTION
+    sbit  -  get a specified bit in a bit array
+
+    USAGE
+    sbit sbit-array {subscript}*
+
+    DESCRIPTION
+    Returns the bit that is stored at the location in  SBIT-ARRAY  indicated
+    by  the  subscripts.   Each  SUBSCRIPT  must  be  a  valid subscript for
+    SBIT-ARRAY, and the total number of subscripts must equal  the  rank  of
+    the  array.   SBIT-ARRAY must be a simple array of bits.  A simple array
+    is not displaced to another array, does not have a fill pointer, and  is
+    not  dynamically  adjustable in size.  This function can be used in con-
+    junction with setf to destructively replace an element of a bit array.
+
+    When operating on a simple bit array, this function is identical to aref
+    or bit.  This function may, however, be faster than aref and bit in many
+    implementations.
+
+    EXAMPLES
+    (setq bit-arr (make-array '(2 3) :element-type 'bit
+                                     :initial-contents '(#*011 #*101)))
+    (sbit bit-arr 1 2) => 1
+    (bit bit-arr 1 2) => 1
+    (setf (sbit bit-arr 1 2) 0) => 0
+    (sbit bit-arr 1 2) => 0
+
+    SEE ALSO
+    CLtL 17:293, aref, bit, make-array
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

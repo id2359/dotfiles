@@ -1,0 +1,57 @@
+                      Keyboard commands for running Soar
+
+         Operations on productions and regions:
+          Load production           C-c e
+          Load production
+            and go to Soar          C-c C-e
+          Smatches a production     C-c m
+          Excise a production       C-c x
+          Print a Soar object
+            or production           C-c p
+
+          Load region               C-c r
+          Load region
+            and go to Soar          C-c C-r
+          Load file into Soar       C-c l
+
+         Movement commands:
+          Beginning of prod.        ESC C-a
+          End of prod.              ESC C-e
+          Zwitch to Soar            C-c C-z  (with arg, goes to end)
+                                    C-c b    (toggle between buffers)
+
+         Running commands:
+          Start up a Soar process   ESC-x soar
+          Interupt Soar             C-c C-c
+          Pop out of single break   C-d
+
+          Send (d arg) to Soar       C-c .
+          Send (run arg) to Soar     C-c ,
+         The  two  preceeding  commands both use the same default arg.
+         It is initially 1, that is: (d 1) and (run 1).  It is updated
+         after  each  use.  An arg of 0 (e.g., C-u 0 C-c .) resets the
+         default to nil (i.e., (d) and (run)).
+
+         TAQL Construct commands:
+          Insert TC template        C-c C-t
+          Expand TC template        ESC-e
+          Expand TC template        C-u ESC-e
+           (just surrounding
+            sub-clause)
+          Add new sub-clause        C-c C-a
+          Fixup a TC                C-c C-f    (reindent, etc.)
+
+         General editing commands:
+          Undo                      C-/       (repeatable)
+          Autocomplete words        ESC-/     (everywhere)
+                                    TAB       (During TC expansions)
+          Insert date stamp         C-c C-d
+         Help functions:
+          Get a menu of commands    C-c C-m
+          Find unbalanced ()'s      C-c )
+          Get documentation on
+              a function or TC      C-c d
+          Abort any command         C-g
+          Simple taql-mode help     C-h f taql-mode
+          Documentation             C-c C-m d  (popup menu, then Docs)
+          List of keybindings       C-h m

@@ -1,0 +1,66 @@
+
+                                                                        &aux
+
+
+    Lambda-List KEYWORD
+    &aux  -  bind auxiliary local variables
+
+    USAGE
+    &aux {local-var | (local-var [initform])}*
+
+    DESCRIPTION
+    Specifies the binding and initialization of  auxiliary  local  variables
+    during  a  function  or macro call.  The &aux lambda-list keyword intro-
+    duces the last of seven optional lambda-list parts.  It serves only as a
+    convenient  way to set up local variable bindings without using the let*
+    special form.  It is followed by zero or more parameter specifiers, each
+    of which is either a symbol or a list.
+
+    After all the preceding parts of the lambda-list have been processed and
+    all  the  arguments  bound,  the &aux parameter specifiers are processed
+    left-to-right.  Each LOCAL-VAR is bound to  nil,  or  to  the  value  of
+    INITFORM, which may be any form, if it appears.  As with let*, the vari-
+    ables are bound sequentially and later INITFORMS may use variables bound
+    in earlier ones.
+
+    EXAMPLES
+    (defun foo (a  b &aux x (y a) (z (cons y b)))
+      (list a b x y z)) => foo
+    (foo 1 2) => (1 2 nil 1 (1 . 2))
+
+    SEE ALSO
+    CLtL 5:63, about lambda lists, defmacro, defun, let*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

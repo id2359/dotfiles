@@ -1,0 +1,66 @@
+
+                                                                 make-string
+
+
+    FUNCTION
+    make-string  -  make a simple string of a given size
+
+    USAGE
+    make-string size [:initial-element elem]
+
+    DESCRIPTION
+    Returns a simple string that is  SIZE  characters  in  length.   If  you
+    specify  a  character  object  ELEM as the value of the :initial-element
+    keyword argument, each character of the string will  be  initialized  to
+    it.   If  the  initial element is not specified, the initial contents of
+    the string are implementation-dependent.
+
+    EXAMPLES
+    (make-string 6 :initial-element #\Space) => "      "
+    (make-string 20 :initial-element #\X) => "XXXXXXXXXXXXXXXXXXXX"
+
+    SEE ALSO
+    CLtL 18:302, make-array, make-sequence
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

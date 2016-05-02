@@ -1,0 +1,66 @@
+
+                                                                         max
+
+
+    FUNCTION
+    max  -  get the number among the arguments closest to positive infinity
+
+    USAGE
+    max {n}+
+
+    DESCRIPTION
+    Returns the maximum, i.e., the number that is closest to positive infin-
+    ity, among all the arguments, which must all be real numbers.  Implemen-
+    tations are relatively free with regard to  the  type  of  the  returned
+    value.   It  is  always permitted to return the largest value as is.  If
+    two arguments have the same value but are of differing  types,  say  one
+    rational   and  one  double-float,  either  may  be  returned.   If  any
+    floating-point numbers appear in the arguments,  an  implementation  may
+    coerce  the  result  to  be  a floating-point number even if the largest
+    value is rational.  But if any coercion is done, the result  will  be  a
+    floating-point  number  in  the  widest format appearing in the argument
+    list.
+
+    EXAMPLES
+    (max 5 2) => 5
+    (max 5 2.0) => 5
+    (max 5.0 2 ) => 5.0
+    (max 2.0d0 5.0s0) => 5.0s0
+    (max 2.0s0 5.0d0) => 5.0d0
+
+    SEE ALSO
+    CLtL 12:198,min,
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

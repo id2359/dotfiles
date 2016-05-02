@@ -1,0 +1,66 @@
+
+                                                                 both-case-p
+
+
+    FUNCTION
+    both-case-p  -  test whether a character object comes in uppercase and
+      lowercase
+
+    USAGE
+    both-case-p char
+
+    DESCRIPTION
+    Returns true if CHAR, which must be a character object, is an  uppercase
+    (lowercase)  letter  with  a corresponding lowercase (uppercase) letter,
+    and false otherwise.  The characters #\a through #\z are lowercase,  and
+    the characters #\A through #\Z are uppercase.  In theory, a letter (of a
+    non-Roman font, for example) may be neither lowercase nor uppercase.   A
+    character with a nonzero bits attribute is never both-case-p.
+
+    EXAMPLES
+    (both-case-p #\a) => t
+    (both-case-p #\newline) => nil
+    (both-case-p #\T) => t
+    (both-case-p #\control-X) => nil
+
+    SEE ALSO
+    CLtL 13:235, about type specifiers, alphanumericp, char-downcase, char-
+    upcase, graphic-char-p, lower-case-p, standard-char-p, upper-case-p
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

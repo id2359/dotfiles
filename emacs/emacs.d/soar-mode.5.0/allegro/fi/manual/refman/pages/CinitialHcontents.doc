@@ -1,0 +1,66 @@
+
+                                                           :initial-contents
+
+
+    KEYWORD ARGUMENT
+    :initial-contents  -  keyword argument for make-array and adjust-array
+      specifying the contents
+
+    USAGE
+    :initial-contents contents
+
+    DESCRIPTION
+    This keyword option may be used with either make-array or  adjust-array.
+    This keyword option provides a way of initializing the array with values
+    that are not all the same.  For a zero-dimensional  array,  CONTENTS  is
+    the  single element.  Otherwise, the argument is in the form of a nested
+    structure of sequences.  The length of the  sequence  is  equal  to  the
+    first  dimension.   Each element of the sequence is nested structure for
+    the remaining dimensions of the array.
+
+    When this keyword argument is used with adjust-array, it  specifies  the
+    entire contents of the returned array.
+
+    EXAMPLES
+    (setq A (make-array '(2 3) :adjustable t
+                        :initial-contents '((a b c) (1 2 3))))
+      => #2a((a b c) (1 2 3))
+    (setq B (adjust-array A '(3 4)
+                          :initial-contents
+                          '((d e f g) (h i j k) (l m n o))))
+      => #2a((d e f g) (h i j k) (l m n o))
+
+    SEE ALSO
+    CLtL 17:287, :adjustable, adjust-array, :displaced-index-offset,
+    :displaced-to, :element-type, :fill-pointer, :initial-element, make-
+    array
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

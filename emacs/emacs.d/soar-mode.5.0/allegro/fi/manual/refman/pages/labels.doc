@@ -1,0 +1,66 @@
+
+                                                                      labels
+
+
+    SPECIAL FORM
+    labels  -  define local functions
+
+    USAGE
+    labels ({(name lambda-list {decl | doc-string}* {fun-form}*)}*) {decl}*
+      {form}*
+
+    DESCRIPTION
+    The labels construct is used to evaluate a sequence of forms within  the
+    lexical  context  of specific local function definitions. labels returns
+    the values of the last form evaluated in its body (those forms following
+    the function definitions).
+
+    The first subform of a labels construct is  a  list  of  local  function
+    definitions.   Each definition has a form analogous to that of an impli-
+    cit defun, consisting of a name (which must be a symbol), a lambda list,
+    optional  declarations  and  a  documentation  string, and a sequence of
+    forms that constitute the body of the function.   The  lambda  list  can
+    contain  &optional,  &rest,  and  &key parameters.  Only those three are
+    specified in COMMON LISP: THE LANGUAGE, but many  implementations  allow
+    &aux and &allow-other-keys as well.
+
+    The scope of the locally-defined function names  includes  the  function
+    definitions  themselves  in  addition  to  the  body forms of the labels
+    construct.  Thus it is possible to define functions  that  are  mutually
+    recursive.  (It is here that labels differs from flet.  In an flet form,
+    locally-defined function names are not visible to the  function  defini-
+    tions themselves.) If a locally-defined function has the same name as an
+    outer lexically-defined function or  a  globally-defined  function,  the
+    local  definition  shadows  the  outer  definition throughout the entire
+    labels form.
+
+    The forms in the body of the labels are  evaluated  sequentially  as  if
+    enclosed  by progn.  In some implementations, declarations are permitted
+    before the body  forms  and  following  the  function  definitions  that
+    constitute  the  first  subform of the labels construct (as indicated in
+    the Usage template).  This follows the spirit  but  not  the  letter  of
+    COMMON  LISP: THE LANGUAGE and may not be supported in every implementa-
+    tion.  Any function name within the body forms that is the same as  that
+    of  one  of  the  locally-defined functions refers to the local function
+    definition rather than any global or outer  lexical  definition.   (This
+    applies  to  symbols  appearing in the function position of a list or as
+    the argument to the function special form.  As  the  first  argument  to
+    funcall or apply, the symbol name must be preceded by ``#''', NOT just a
+    quote, for the local function definition to be seen.)
+
+    EXAMPLES
+    (flet ((cons (a b)
+             (cons b a)))
+      (cons 1 (labels ((list (&rest e)
+                         (list-sub e))
+                       (list-sub (lis)
+                         (if (endp lis)
+                             nil
+                           (cons (car lis)
+                                 (list-sub (cdr lis))))))
+                (list 2 3 4))))
+      => ((((nil . 4) . 3) . 2) . 1)
+
+    SEE ALSO
+    CLtL 7:113, defun, flet, macrolet
+

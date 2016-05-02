@@ -1,0 +1,66 @@
+
+                                                                     streamp
+
+
+    FUNCTION
+    streamp  -  test whether an object is a stream
+
+    USAGE
+    streamp object
+
+    DESCRIPTION
+    Returns true if OBJECT is of type stream, and false otherwise.
+
+    The following identity holds:
+
+    (streamp x) = (typep x 'stream)
+
+    EXAMPLES
+    (streamp *query-io*) => t
+    (streamp (make-string-output-stream)) => t
+    (streamp "standard-input") => nil
+
+    SEE ALSO
+    CLtL 21:332, input-stream-p, output-stream-p
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

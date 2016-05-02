@@ -1,0 +1,66 @@
+
+                                                                       merge
+
+
+    FUNCTION
+    merge  -  merge two sequences together according to a predicate (des-
+      tructive)
+
+    Usage
+    merge RESULT-TYPE SEQUENCE1 SEQUENCE2 PRED [:key KEYFNC]
+
+    SIDE EFFECTS
+    The arguments may be destroyed in the process of merging.
+
+    DESCRIPTION
+    Returns a sequence of type RESULT-TYPE that  contains  the  elements  of
+    SEQUENCE1  and  SEQUENCE2  interleaved together according to PRED.  PRED
+    should be a function of two arguments that returns true if and  only  if
+    the  first  argument is strictly less than the second according to what-
+    ever metric is appropriate.
+
+    The length of the result sequence is the sum of the lengths of the argu-
+    ment sequences and every element in each argument sequence appears some-
+    where in the  result  sequence.   Further,  order  within  the  argument
+    sequences  is  preserved.   For example, if X1 and X2 are different ele-
+    ments of SEQUENCE1, with X1 preceding X2, X1  will  precede  X2  in  the
+    result sequence.
+
+    The exact algorithm  for  merge  is  implementation-dependent,  but  the
+    effect  will  be  the  same as the following algorithm.  merge starts by
+    comparing the first element  of  SEQUENCE1  and  the  first  element  of
+    SEQUENCE2.   If,  according  to  the  predicate,  one should precede the
+    other, that one becomes the first element of the  result  sequence,  and
+    the next element of that sequence is compared with the unchosen element.
+    For example, if X1 is the first element of SEQUENCE1 and Y1 is the first
+    element in SEQUENCE2, X1 and Y1 are compared with PRED.  If PRED returns
+    true when passed X1 and Y1, X1 is placed on the result sequence, and the
+    same  process  is repeated with X2, the second element of SEQUENCE1, and
+    Y1.  If both elements are the  same  according  to  PREDICATE  (that  is
+    PREDICATE returns false for both orderings of the elements), the element
+    from SEQUENCE1 is chosen.  When the end  of  one  of  the  sequences  is
+    reached,  all  the remaining elements of the other sequence are appended
+    to  the  result  sequence.   Note  that  the  result  sequence  is   not
+    necessarily  ordered  (by  PRED),  since  ordering  within each argument
+    sequence is unchanged.  However, if both argument sequences are  already
+    ordered by PRED, the result sequence will also be ordered by PRED.
+
+    If the keyword argument :key is specified and its value  KEYFNC  is  not
+    nil,  KEYFNC  must  be a function that accepts one argument.  It will be
+    applied to each element of SEQUENCE before that element is tested.  When
+    unspecified or nil, it effectively defaults to the function identity.
+
+    The result sequence will have type RESULT-TYPE, which must be a  subtype
+    of  sequence.   All  the  elements  must  be  of  the  correct  type  if
+    RESULT-TYPE specializes the type of elements of the result sequence.
+
+    EXAMPLES
+    (merge 'list '(a c d f h) '(b e g) #'string<)
+       => (a b c d e f g h)
+    (merge 'list '(p n) '(z a b c d e) #'string<)
+       => (p n z a b c d e)
+
+    SEE ALSO
+    CLtL 14:260, :key, sort
+
+

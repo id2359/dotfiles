@@ -1,0 +1,66 @@
+
+                                                                   translate
+
+
+    FUNCTION
+    translate  -
+
+    Usage
+    translate WINDOW X-OFFSET Y-OFFSET
+
+    SIDE EFFECTS
+
+
+    DESCRIPTION
+
+
+    EXAMPLES
+    (setq w
+      (make-window-stream :left 100 :bottom 100
+                          :width 200 :height 200
+                          :activate-p t :title "A Window"))
+
+    (draw-filled-circle-xy w 100 100 50)
+
+    (translate w 50 50)
+
+    (draw-filled-circle-xy w 100 100 50)
+
+    SEE ALSO
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                                   rassoc-if
+
+
+    FUNCTION
+    rassoc-if  -  return from an association list the first key-datum pair
+      where the datum satisfies a test
+
+    USAGE
+    rassoc-if pred a-list
+
+    DESCRIPTION
+    Returns the first pair in the association list A-LIST such that the  cdr
+    of  the  pair  satisfies  the predicate PRED, or nil if there is no such
+    pair.  PRED must accept one argument.  This is a variant of  the  rassoc
+    function  and  the  complement of assoc-if: whereas assoc-if finds a key
+    which satisfies PRED, rassoc-if finds a datum which satisfies PRED.
+
+    EXAMPLES
+    (setq x '((a . 4) (d . 3) (c . 1) (d . 2)))
+      => ((a . 4) (d . 3) (c . 1) (d . 2))
+    (rassoc-if #'numberp x) => (a . 4)
+    (rassoc-if #'symbolp x) => nil
+    (rassoc-if #'oddp x) => (d . 3)
+
+    SEE ALSO
+    CLtL 15:281, acons, assoc, assoc-if, assoc-if-not, rassoc, rassoc-if-not
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

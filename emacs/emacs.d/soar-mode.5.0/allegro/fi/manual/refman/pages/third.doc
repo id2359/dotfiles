@@ -1,0 +1,66 @@
+
+                                                                       third
+
+
+    FUNCTION
+    third  -  get the third element of a list
+
+    USAGE
+    third list
+
+    DESCRIPTION
+    Returns the third element of LIST, where the car of LIST  is  considered
+    to be the first element.  LIST must be a list.
+
+    Unlike the nth function, which uses zero-origin indexing, this  function
+    uses  one-origin  indexing.   If the list has fewer than three elements,
+    nil is returned.  setf may be used with third to replace the third  ele-
+    ment of a list.
+
+    EXAMPLES
+    (third '(a b c d e f g h i j)) => c
+    (third '(a)) => nil
+    (setq lis '(a b c d e f g h i j)) => (a b c d e f g h i j)
+    (setf (third lis) 3) => 3
+    lis => (a b 3 d e f g h i j)
+
+    SEE ALSO
+    CLtL 15:266, car, eighth, elt, fifth, first, fourth, ninth, nth, second,
+    seventh, sixth, tenth
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                           list-all-packages
+
+
+    FUNCTION
+    list-all-packages  -  get a list of all packages currently defined
+
+    USAGE
+    list-all-packages
+
+    DESCRIPTION
+    Returns a list of all currently existing packages.  The elements of  the
+    returned  list  are  package  objects,  not  package  names  (which  are
+    strings).
+
+    The exact list returned depends on the implementation and (obviously) on
+    what  you  have done.  The example shows what packages will exist in any
+    implementation.
+
+    EXAMPLES
+    (subsetp
+      (list (find-package :lisp)
+            (find-package :user)
+            (find-package :keyword)
+            (find-package :system))
+      (list-all-packages)) => t
+
+    SEE ALSO
+    CLtL 11:184, find-package
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

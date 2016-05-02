@@ -1,0 +1,66 @@
+
+                                                    lisp-implementation-type
+
+
+    FUNCTION
+    lisp-implementation-type  -  get the name of the COMMON LISP implementa-
+      tion
+
+    Usage
+    lisp-implementation-type
+
+    DESCRIPTION
+    Returns the string that identifies the generic name of  the  implementa-
+    tion  of  COMMON  LISP in which it is evaluated. If no appropriate value
+    can be found, lisp-implementation-type returns nil.   The  exact  string
+    returned is (most assuredly) implementation-dependent.
+
+    EXAMPLES
+    ;;  The returned value is implementation-dependent.
+    (lisp-implementation-type) => "Allegro CL"
+
+    SEE ALSO
+    CLtL 25:447, dribble, lisp-implementation-version
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

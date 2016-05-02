@@ -1,0 +1,66 @@
+
+                                                                math:set-row
+
+
+    FUNCTION
+    set-row  -  change a specified row of a matrix
+
+    USAGE
+    set-row matrix row vector
+
+    DESCRIPTION
+    Returns MATRIX after destructively changing the row specified by ROW  to
+    have  the  elements  of  VECTOR.   ROW  must be an integer.  Recall that
+    indexing is zero-origin, so ROW must be between zero (inclusive) and the
+    number of rows of MATRIX (exclusive).
+
+    VECTOR must be a vector with as many elements as MATRIX has  rows.   The
+    elements  of  VECTOR  must  be  of  an  appropriate type to be stored in
+    MATRIX.   Thus,  if  the  element  type  of  MATRIX  (as   returned   by
+    array-element-type) is single-float, VECTOR cannot contain elements that
+    cannot be coerced to be single-floats.
+
+    It is an error if MATRIX is not a matrix, VECTOR is not a vector, ROW is
+    not  an  integer,  ROW specifies a non-existent row of MATRIX, or VECTOR
+    has length different from the number of columns of MATRIX.
+
+    EXAMPLES
+    (setq mat (make-matrix '((1.0 2.0) (3.0 4.0)) 'single-float))
+    (print-matrix mat) PRINTS
+      1.0 2.0
+      3.0 4.0
+    (setq vec (make-array 2 :initial-contents '(-10.0 -10.0)))
+      => #(-10.0 -10.0)
+    (print-matrix (set-row mat 0 vec)) PRINTS
+      -10.0 -10.0
+      3.0   4.0
+    (print-matrix (set-row mat 1 vec)) PRINTS
+      -10.0 -10.0
+      -10.0 -10.0
+    ;;  MAT is now totally modified:
+    (print-matrix mat) PRINTS
+      -10.0 -10.0
+      -10.0 -10.0
+
+    ;;  It is an error to specify a non-existent row of MAT:
+    (set-row mat 2 vec) => ERROR
+    ;;  The error message is:
+    ;;  Error: Bad row specifier (or not that many rows)
+    ;;  in set-row
+
+    ;;  Since MAT has element type SINGLE-FLOAT, it is an error
+    ;;  to try to use SET-COLUMN with a vector containing
+    ;;  a DOUBLE-FLOAT:
+    (setq vec1 (make-array 2 :initial-contents '(10 #c(1.0 1.0))))
+      => #(10 5.0d0)
+    (set-row mat 1 vec1) => ERROR
+    ;;  The error message is:
+    ;;  Error: illegal argument to float: #c(1.0 1.0)
+
+    SEE ALSO
+    column, row, set-column
+
+
+
+
+

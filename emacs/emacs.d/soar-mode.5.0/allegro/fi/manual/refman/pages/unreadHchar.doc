@@ -1,0 +1,66 @@
+
+                                                                 unread-char
+
+
+    FUNCTION
+    unread-char  -  push a character back onto the input stream
+
+    Usage
+    unread-char CHAR [STREAM]
+
+    SIDE EFFECTS
+    The next character read from STREAM will be CHAR.
+
+    DESCRIPTION
+    Returns nil, but this function is used for its side effects.  Successive
+    calls  to  unread-char must be interspersed with calls to read-char, the
+    consequence being that at most  one  character  may  be  unread  from  a
+    stream.   The  argument STREAM may be a stream, nil, or t.  If STREAM is
+    nil, the default, then the value of *standard-input* is  the  stream  to
+    which  the  character  is  pushed  back.  If  STREAM  is t, the value of
+    *terminal-io* is the stream.
+
+    EXAMPLES
+    <cl> (SETQ MY-STRING (MAKE-STRING-INPUT-STREAM "FRED"))
+    #<string input stream  @ #x56e8d1>
+    <cl> (READ-CHAR MY-STRING)
+    #\f
+    <cl> (READ MY-STRING)
+    red
+    <cl> (SETQ MY-STRING (MAKE-STRING-INPUT-STREAM "FRED"))
+    #<string input stream  @ #x56ea59>
+    <cl> (READ-CHAR MY-STRING)
+    #\f
+    <cl> (UNREAD-CHAR #\F MY-STRING)
+    nil
+    <cl> (READ MY-STRING).
+    fred
+    <cl>
+
+    SEE ALSO
+    CLtL 22:379, clear-input, listen, parse-integer, peek-char, read, read-
+    byte, read-char, read-char-no-hang, read-from-string, read-line
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

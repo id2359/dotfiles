@@ -1,0 +1,66 @@
+
+                                                              math:conjugate
+
+
+    FUNCTION
+    conjugate  -  get the complex conjugate of a number, matrix, or vector
+
+    Usage
+    conjugate X
+
+    DESCRIPTION
+    This standard Common Lisp function has been modified  to  accept  matrix
+    and  vector  as well as scalar arguments.  When the argument is a scalar
+    (i.e. a number), this function works just as when Allegro Matrix is  not
+    loaded: returning the complex conjugate of its argument.  When the argu-
+    ment is a vector or a matrix, a new vector or matrix  is  returned  each
+    element  of  which is the complex conjugate of the corresponding element
+    of the argument vector or matrix.
+
+    Recall that the complex conjugate of the complex number  a+bi  is  a-bi.
+    Conjugation is an identity operation for non-complex numbers, so if X is
+    a real number, it is returned.  If X is a real vector or matrix, a  copy
+    of  it is returned.  The function nconjugate is a destructive version of
+    conjugate that works on matrices and vectors only.
+
+    EXAMPLES
+    ;;  Our examples deal with matrices and vectors only.
+    (setq mat (make-matrix '((1.0 #c(1.0 2.0)) (#c(3.0 -4.0) 7.0))))
+    (print-matrix mat) PRINTS
+      1.0          #c(1.0 2.0)
+      #c(3.0 -4.0) 7.0
+    (setq mat1 (conjugate mat))
+    (print-matrix mat1) PRINTS
+      1.0          #c(1.0 -2.0)
+      #c(3.0 4.0)  7.0
+    (setq vec (make-array 2 :initial-contents
+                             '(#c(1.0 1.0) #c(2.0 -2.0))))
+      => #(#c(1.0 1.0) #c(2.0 -2.0))
+    (conjugate vec) => #(#c(1.0 -1.0) #c(2.0 2.0))
+
+    SEE ALSO
+    conjugate-transpose, nconjugate, nconjugate-transpose
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                   format directive ~newline
+
+
+    FORMAT DIRECTIVE
+    ~newline  -  print or ignore newline character and following whitespace
+
+    USAGE
+    ~[:][@]&ENEWL
+
+    DESCRIPTION
+    Prints or ignores a #\newline character and the  non-newline  whitespace
+    following it according to the modifiers.
+
+    ~newline  Ignores the newline and the whitespace following it.
+
+    ~:newline Ignores the newline, but prints the whitespace following it.
+
+    ~@newline Prints the newline, but ignores the whitespace following it.
+
+    Typically, this directive is used to make a format control  string  look
+    nice within indented LISP code.
+
+    EXAMPLES
+    (format t "Try to line up this line~%with this ~
+               one~@
+               and this one.
+               This line I don't care about.~%") => nil
+    PRINTS
+    Try to line up this line
+    with this one
+    and this one.
+               This line I don't care about.
+
+    SEE ALSO
+    CLtL 22:398, format, format directive ~%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

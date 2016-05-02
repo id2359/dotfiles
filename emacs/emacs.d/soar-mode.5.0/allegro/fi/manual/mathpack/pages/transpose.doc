@@ -1,0 +1,66 @@
+
+                                                              math:transpose
+
+
+    FUNCTION
+    transpose  -  get the transpose of a matrix
+
+    USAGE
+    transpose matrix
+
+    DESCRIPTION
+    Returns a new matrix which is the transpose of MATRIX.  The transpose of
+    an  NXM  is a MXN matrix whose I,JTH element is the J,ITH element of the
+    original matrix.  The argument MATRIX is unchanged by this function  and
+    the  returned (transposed) matrix does not share any space with the ori-
+    ginal matrix.  The related function ntranspose destructively replaces  a
+    square  matrix  with  its  transpose.  It is an error if MATRIX is not a
+    matrix.  In particular, it is an error to try to transpose a vector.
+
+    The element type (as  returned  by  array-element-type)  of  the  result
+    matrix is the same as the element type of the argument MATRIX.
+
+    EXAMPLES
+    (setq mat1 (make-matrix '((#c(1.0 2.0) #c(1.3 -4.6))
+                              (#c(-2.0 1.7) #c(-6.4 -5.5)))))
+
+    (print-matrix mat1) PRINTS
+       #c(1.0 2.0)   #c(1.3 -4.6)
+       #c(-2.0 1.7)  #c(-6.4 -5.5)
+
+    (print-matrix (transpose mat1)) PRINTS
+       #c(1.0  2.0)  #c(-2.0 1.7)
+       #c(1.3 -4.6)  #c(-6.4 -5.5)
+
+    (setq mat2 (make-matrix '((1.0 1.3) (2.2 4.6))))
+    (print-matrix mat2) PRINTS
+       1.0 1.3
+       2.2 4.6
+    (print-matrix (transpose mat2)) PRINTS
+       1.0 2.2
+       1.3 4.6
+
+    (setq mat3 (make-matrix '((1 #c(5.0 2.0) 1/2 3.0))))
+    (print-matrix mat3) PRINTS
+       1           #c(5.0 2.0) 1/2         3.0
+    (print-matrix (transpose mat3)) PRINTS
+       1
+       #c(5.0 2.0)
+       1/2
+       3.0
+
+    SEE ALSO
+    conjugate, conjugate-transpose, nconjugate, nconjugate-transpose,
+    ntranspose
+
+
+
+
+
+
+
+
+
+
+
+

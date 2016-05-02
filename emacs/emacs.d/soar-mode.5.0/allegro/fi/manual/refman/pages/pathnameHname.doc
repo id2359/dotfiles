@@ -1,0 +1,66 @@
+
+                                                               pathname-name
+
+
+    FUNCTION
+    pathname-name  -  get the name component of a pathname
+
+    USAGE
+    pathname-name path
+
+    DESCRIPTION
+    Returns the name component of PATH.  The name is one  of  the  six  com-
+    ponents of a pathname (the other five are device, directory, host, type,
+    and version).  PATH must be a pathname, string, symbol, or stream.   (If
+    PATH is a stream, it must be, or have been, open to a file.)
+
+    The name component of a pathname is implementation-dependent, but may be
+    nil  or  :wild.   nil indicates that the name is unspecified; :wild is a
+    name which `matches' any name when the pathname it appears in is used in
+    a directory-search operation such as that performed by directory.
+
+    EXAMPLES
+    ;;  The following example refers to a file on a VMS file system.
+    (pathname-name "pleiades::sys$sysdisk:[sys0.sysexe]lisp.exe;0")
+      => "LISP"
+
+    SEE ALSO
+    CLtL 23:417, make-pathname, pathname, pathname-device, pathname-
+    directory, pathname-host, pathname-type, pathname-version
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

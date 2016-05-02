@@ -1,0 +1,66 @@
+
+                                                                     compile
+
+
+    FUNCTION
+    compile  -  compile a lisp function or lambda expression
+
+    Usage
+    compile NAME [DEFINITION]
+
+    SIDE EFFECTS
+    This function alters the  global  function  definition  associated  with
+    NAME, if NAME is a symbol other than nil.
+
+    DESCRIPTION
+    If the argument DEFINITION is supplied, it must be a lambda  expression,
+    and  it  will  be  compiled.   If the argument NAME is nil, the compiled
+    function object is returned.  If NAME is any other symbol, then the com-
+    piled  function  object  will  become  the global function definition of
+    NAME, and NAME is returned.  Then applying symbol-function to NAME  will
+    return the compiled function object.
+
+    If DEFINITION is not supplied, NAME must be a symbol whose global  func-
+    tion definition is a lambda expression.  This definition is compiled and
+    the global function definition associated with the symbol is replaced by
+    the compiled function object.  The symbol NAME is returned.
+
+    EXAMPLES
+    (defun square (n)
+      (if (not (numberp n))
+          (error "~n must be a number. ~%.")
+          (* n n)))
+
+    (symbol-function 'square)
+      => (lambda (n)
+           (block square
+             (if (not (numberp n))
+                 (error "~n must be a number. ~%.")
+                 (* n n))))
+    (compile 'square) => square
+    (compiled-function-p 'square) => nil
+    ;;  The printed representation is implementation-dependent.
+    (symbol-function 'square) => #<Function SQUARE @ #x563891>
+
+    SEE ALSO
+    CLtL 25:438, about lambda, compile-file, compiled-function-p,
+    disassemble, function, symbol-function
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

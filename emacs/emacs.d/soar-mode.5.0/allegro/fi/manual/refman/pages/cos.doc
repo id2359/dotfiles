@@ -1,0 +1,66 @@
+
+                                                                         cos
+
+
+    FUNCTION
+    cos  -  calculate the cosine of the argument.
+
+    USAGE
+    cos radians
+
+    DESCRIPTION
+    Returns the cosine of RADIANS.  The argument is a number interpreted  in
+    radians.  Complex numbers are acceptable.
+
+    EXAMPLES
+    (cos (/ pi 2)) => 0.0d0
+    (cos 0) => 1.0
+
+    SEE ALSO
+    CLtL 12:207, acos, acosh, asin, asinh, atan, atanh, cis, cosh, sin,
+    sinh, tan, tanh
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

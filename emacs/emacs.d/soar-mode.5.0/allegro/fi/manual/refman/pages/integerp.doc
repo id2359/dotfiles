@@ -1,0 +1,66 @@
+
+                                                                    integerp
+
+
+    FUNCTION
+    integerp  -  test whether an object is an integer
+
+    USAGE
+    integerp object
+
+    DESCRIPTION
+    Returns true if OBJECT is an integer, and false otherwise.  The  follow-
+    ing identity holds:
+
+    (integerp x) = (typep x 'integer)
+
+    EXAMPLES
+    (integerp -2) => t
+    (integerp -2.) => t
+    (integerp -2.0) => nil
+    (integerp most-positive-fixnum) => t
+    ;;  Bignums satisfy integerp
+    (integerp (+ 20 most-positive-fixnum)) => t
+
+    SEE ALSO
+    CLtL 6:74, typep
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

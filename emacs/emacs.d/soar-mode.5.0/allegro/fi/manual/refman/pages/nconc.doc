@@ -1,0 +1,66 @@
+
+                                                                       nconc
+
+
+    FUNCTION
+    nconc  -  make a list using up given lists of elements (destructive)
+
+    USAGE
+    nconc {list}*
+
+    SIDE EFFECTS
+    Each LIST argument but the last is modified.
+
+    DESCRIPTION
+    Returns a list whose elements appear in the same order as  the  elements
+    of the argument LISTS, taken in order of specification.  The new list is
+    formed by changing the cdr of the last cons cell in  each  LIST  (except
+    the  last) to point to the next argument LIST.  nconc called with a sin-
+    gle argument returns that argument.   nconc  called  with  no  arguments
+    returns nil.  The arguments must be lists.
+
+    nconc always modifies its arguments (except the last), if necessary.  If
+    the first argument is a variable that evaluates to nil, the value of the
+    variable will not be changed. Therefore, it is usually advisable to  use
+    setq  to  change  the value of a variable given as the first argument to
+    nconc.
+
+    EXAMPLES
+    (nconc '(1 2) '() '(3 4 5)) => (1 2 3 4 5)
+    (setq a '(w x)) => (w x)
+    (setq b '(1 2)) => (1 2)
+    (nconc a b)  => (w x 1 2)
+    a => (w x 1 2)
+    b => (1 2)
+    (let ((*print-circle* t))
+      (nconc a b)) => (w x . #1=(1 2 . #1#))
+
+    SEE ALSO
+    CLtL 15:269, append, concatenate, copy-list, list, nreconc
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

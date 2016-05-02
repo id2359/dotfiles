@@ -1,0 +1,66 @@
+
+                                                                      shadow
+
+
+    FUNCTION
+    shadow  -  put a symbol on the shadowing-symbols list of a package
+
+    USAGE
+    shadow symbols [package]
+
+    SIDE EFFECTS
+    The state of the package system  is  changed,  and  package  consistency
+    rules  no  longer hold.  If a symbol is present in PACKAGE with the same
+    name as any symbol in SYMBOLS, it is added to the list of shadowing sym-
+    bols  of  PACKAGE.  For every other symbol in SYMBOLS, a new symbol with
+    the same name is interned in PACKAGE and added to its list of  shadowing
+    symbols.
+
+    DESCRIPTION
+    Returns t, but this function is used for its side effects.   SYMBOLS  is
+    either  a  list of symbols or a single symbol.  PACKAGE is a package and
+    defaults to the current package (the value of *package*).
+
+    For each symbol specified by the SYMBOLS argument, PACKAGE  is  searched
+    for  a symbol with the same print name.  If such a symbol is found, what
+    happens depends on whether the symbol is present in PACKAGE or  accessi-
+    ble  by  inheritance from another package.  If it is present in PACKAGE,
+    the only action is to add the symbol to the shadowing-symbols  list  for
+    PACKAGE (returned by package-shadowing-symbols).  If it is accessible by
+    inheritance, then a new symbol with the same print name  is  created  in
+    PACKAGE  and  all future references to a symbol with the same print name
+    in PACKAGE will refer to the new  symbol  and  not  the  inherited  one.
+    Again, the symbol is placed on the shadowing-symbols list for PACKAGE.
+
+    If no symbol is found with the same print name, a new symbol is  created
+    in  PACKAGE  and  the  symbol is added to the shadowing-symbols list for
+    PACKAGE.
+
+    Once a symbol is on the shadowing-symbols list for a package, name  con-
+    flicts  caused  by using another package or by exporting a symbol from a
+    used package will automatically (without error or warning)  be  resolved
+    in  favor  of  the  shadowing  symbol.   Only  explicitly importing (via
+    import) a symbol with the same print  name  from  another  package  will
+    cause an error to be signalled.
+
+    Shadowing should be used with caution since  package  consistency  rules
+    are not preserved across this operation.
+
+    EXAMPLES
+    (in-package :japan) => #<The JAPAN package>
+    (intern "VCR") => vcr nil
+    (setf vcr 'Sony) => sony
+    (export '(vcr Sony)) => t
+    (in-package :usa :use '(:japan :lisp))
+      => #<The USA package>
+    (find-symbol "VCR") => vcr :inherited
+    vcr => sony
+    (shadow 'vcr) => t
+    (setf vcr 'Magnavox) => magnavox
+    (find-symbol "VCR") => vcr :internal
+    vcr => magnavox
+    japan:vcr => sony
+
+    SEE ALSO
+    CLtL 11:186, import, package-shadowing-symbols, *package*, shadowing-
+    import

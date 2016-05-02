@@ -1,0 +1,66 @@
+
+                                                    make-concatenated-stream
+
+
+    FUNCTION
+    make-concatenated-stream  -  make an input stream that reads successive
+      streams
+
+    USAGE
+    make-concatenated-stream {stream}*
+
+    DESCRIPTION
+    Returns an input-only stream that  that  is  the  concatenation  of  the
+    STREAMS.   The first stream is read until an end-of-file is reached, and
+    then the second, and so on, for each of the streams.  Each  STREAM  must
+    be  a  stream.   If  no STREAMS are specified, reading from the returned
+    stream results in an immediate end-of-file.
+
+    EXAMPLES
+    (let* ((i1 (make-string-input-stream "beginning "))
+           (i2 (make-string-input-stream "middle "))
+           (i3 (make-string-input-stream "end"))
+           (i4 (make-concatenated-stream i1 i2 i3)))
+      (list (read i4) (read i4) (read i4)))
+      => (beginning middle end)
+
+    SEE ALSO
+    CLtL 21:329, make-broadcast-stream, make-echo-stream, make-string-
+    input-stream, make-string-input-stream, make-string-output-stream,
+    make-synonym-stream, make-two-way-stream, open
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

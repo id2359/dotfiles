@@ -1,0 +1,66 @@
+
+                                                                   pathnamep
+
+
+    FUNCTION
+    pathnamep  -  test whether an object is a pathname
+
+    USAGE
+    pathnamep object
+
+    DESCRIPTION
+    Returns true if OBJECT is a pathname, and returns false otherwise.   The
+    following identity holds:
+
+    (pathnamep x) = (typep x 'pathname)
+
+    EXAMPLES
+    (pathnamep *default-pathname-defaults*) => t
+    (pathnamep "foo") => nil
+    (pathnamep (pathname "foo")) => t
+
+    SEE ALSO
+    CLtL 23:416, make-pathname, pathname
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

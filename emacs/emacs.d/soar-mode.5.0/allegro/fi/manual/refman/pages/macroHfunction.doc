@@ -1,0 +1,66 @@
+
+                                                              macro-function
+
+
+    FUNCTION
+    macro-function  -  get a symbol's macro-expansion function
+
+    USAGE
+    macro-function symbol
+
+    DESCRIPTION
+    Returns the macro-expansion function of SYMBOL if SYMBOL's global  func-
+    tion  definition is a macro definition, and nil otherwise.  The argument
+    SYMBOL must be a symbol.  Local macro definitions (produced by macrolet)
+    are not seen by this function.
+
+    The expansion function returned by macro-function is a function  of  two
+    arguments  (the  macro-call  form  and the environment) that returns the
+    macro expansion for the call.  You may use setf with  macro-function  to
+    change a global macro definition.  Doing so erases any existing macro OR
+    function definition.  (defmacro can also be used to set the global func-
+    tion definition to be a macro.)
+
+    Since implementations may implement special forms as macros, this  func-
+    tion  may  return  non-nil  when  its argument is a special form.  Also,
+    implementations may implement macros as special  forms  as  long  as  an
+    equivalent  macro  definition  is  also  provided.  In either case, both
+    macro-function and special-form-p return non-nil and  setf  may  not  be
+    used to change the definition.
+
+    Macro calls to standard macros are portable, but their  macro-expansions
+    are  not.   This  is  because the expansions may contain implementation-
+    specific code.
+
+    EXAMPLES
+    (defmacro add (&rest args) `(+ ,@args ))
+    (compile 'add)
+    ;;  The printed form of the returned
+    ;;  value is implementation-dependent.
+    (macro-function 'add) => #<Function add @ #x3a45c1>
+
+    (defun my-car nil nil)
+    (macrolet ((my-car (lis) `(car ,lis)))
+      (macro-function 'my-car)) => nil
+
+    SEE ALSO
+    CLtL 8:144, defmacro, macroexpand, macroexpand-1, macrolet
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

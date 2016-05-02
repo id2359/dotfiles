@@ -1,0 +1,66 @@
+
+                                                    most-negative-long-float
+
+
+    CONSTANT
+    most-negative-long-float  -  the long-float closest to negative infinity
+
+    DESCRIPTION
+    This constant evaluates to the value of the long-float number nearest to
+    (but  still  different  from)  negative  infinity.   The  value  of this
+    constant is implementation-dependent.
+
+    EXAMPLES
+    ;;  This value is implementation-dependent.
+    most-negative-long-float => -4.4942328371557866d+307
+
+    SEE ALSO
+    CLtL 12:232, about numeric constants
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

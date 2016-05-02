@@ -1,0 +1,66 @@
+
+                                                               simple-vector
+
+
+    Type SPECIFIER
+    simple-vector  -  the data type comprising simple vectors
+
+    USAGE
+    {simple-vector | (&Esimple-vector [size])}
+
+    DESCRIPTION
+    Specifies a data type consisting of simple vectors  (see  vector)  of  a
+    size  given by the non-negative integer SIZE.  A simple vector is a vec-
+    tor that has no fill pointer, is not adjustable, and is not displaced to
+    another  array.   This specifier is equivalent to (simple-array t SIZE).
+    SIZE may be explicitly unspecified using *.  A list specifier  that  has
+    an asterisk in place of SIGN may be replaced by simple-vector.
+
+    EXAMPLES
+    (subtypep 'simple-vector 'vector) => t t
+    (subtypep '(simple-vector 5) '(vector (mod 16) 5)) => nil t
+
+    SEE ALSO
+    CLtL 04:44, about type specifiers, reader syntax #(, subtypep, type-of,
+    typep, vector
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

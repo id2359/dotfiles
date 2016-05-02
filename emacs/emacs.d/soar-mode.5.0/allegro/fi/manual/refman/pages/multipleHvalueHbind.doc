@@ -1,0 +1,66 @@
+
+                                                         multiple-value-bind
+
+
+    MACRO
+    multiple-value-bind  -  bind variables to multiple values and evaluate
+      forms in the lexical context of the bindings
+
+    USAGE
+    multiple-value-bind ({var}*) values-form {decl}* {form}*
+
+    DESCRIPTION
+    The multiple-value-bind construct is similar to let in  that  FORMS  are
+    evaluated  within  the  lexical scope of the variable bindings. It first
+    evaluates the VALUES-FORM and then binds the returned values, in  order,
+    to  the  variables  VAR.   If  there are more variables than values, the
+    extra variables are bound to nil.  If there are more values  than  vari-
+    ables, the excess values are discarded.
+
+    The bindings are each established as lexical or  special  in  accordance
+    with  any  special  declarations within the multiple-value-bind form and
+    any special declarations made with  proclaim,  defvar,  or  defparameter
+    which  are  in  effect when the multiple-value-bind form is evaluated or
+    compiled.   After the bindings are established, the FORMS are  evaluated
+    sequentially,  as  if in a progn.  A variable in the forms whose name is
+    the same as one of the variables VAR uses the local binding rather  than
+    an  outer  lexical binding or global value.  multiple-value-bind returns
+    whatever values the last FORM returns.
+
+    EXAMPLES
+    (multiple-value-bind (x y)
+        (floor 4.5)
+      (declare (integer x)
+               (float y))
+      (* x y)) => 2.0
+
+    (multiple-value-bind (a b c)
+        (values 'alpha 'beta )
+      (list a b c))  => (alpha beta nil)
+
+    (multiple-value-bind (significand exponent sign)
+        (decode-float pi)
+      (* sign (scale-float significand exponent )))
+      => 3.141592653589793d0
+
+    (defvar *x* 11) => *x*
+    (defun myfunc (y z)
+      ;;  y is special and z is not.
+      (declare (special y))
+      (multiple-value-bind (*x* y z)
+          ;; *x* and z are special and y is not.
+          (values 2 3 5)
+        (declare (special z))
+        (other-func))) => myfunc
+    (defun other-func ()
+      (list *x* y z)) => other-func
+    (myfunc 23 29) => (2 23 5)
+
+    SEE ALSO
+    CLtL 7:136, let, multiple-value-call, progn
+
+
+
+
+
+

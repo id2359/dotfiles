@@ -1,0 +1,66 @@
+
+                                                                       quote
+
+
+    SPECIAL FORM
+    quote  -  Return the argument, without evaluating it
+
+    USAGE
+    quote arg
+
+    DESCRIPTION
+    Returns ARG without evaluating it. ARG may be any Lisp object. The stan-
+    dard readtable defines the apostrophe (or single quote) character ' as a
+    macro such that the form that follow ' is read as if it were  the  argu-
+    ment to quote.
+
+    EXAMPLES
+    (quote 43) => 43
+    (quote (a b c) ) => (a b c)
+    (quote (car biglist)) => (car biglist)
+    '(car biglist) => (car biglist)
+
+    SEE ALSO
+    CLtL 7:86, function,
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

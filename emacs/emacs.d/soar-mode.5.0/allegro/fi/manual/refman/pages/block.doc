@@ -1,0 +1,66 @@
+
+                                                                       block
+
+
+    SPECIAL FORM
+    block  -  evaluate sequence of forms within a structure allowing non-
+      local exits
+
+    USAGE
+    block name {form}*
+
+    DESCRIPTION
+    Returns the values of the last FORM, but the purpose of using  block  is
+    to  create a structure which allows nonlocal exits.  The first argument,
+    NAME must be a symbol and serves as the name, or tag, for the block.  It
+    is  not  evaluated.  The remaining FORMS are evaluated sequentially, but
+    if a return-from that refers to the block by NAME (or a return when NAME
+    is  nil)  is  encountered, then the block is immediately exited with the
+    value or values given by the return-from or  return  expression  as  its
+    value or values.  The scope of the name of the block is lexical, and its
+    extent is dynamic.
+
+    EXAMPLES
+    (block fred
+      (setq x 10)
+      (loop (incf x) (if (> x 20) (return-from fred x)))) => 21
+
+    ;;  The following function sorts a list of weights, but
+    ;;  exits if too many are out of bounds.  Note that two values
+    ;;  are returned when the lot is rejected.
+
+    (defun lot-sorter (item-weights min-weight max-weight)
+      (let ((reject 0) (reject-lim (* 0.3 (length item-weights))))
+        (block weight-check
+          (sort (mapcar #'(lambda (weight)
+                            (if (or (< weight min-weight)
+                                    (> weight max-weight))
+                                (incf reject))
+                            (if (> reject reject-lim)
+                                (return-from weight-check
+                                  (values reject "bad-batch")))
+                            weight)
+                        item-weights) #'>))))
+
+    (setq w-min 4.5 w-max 6.5 lot '(4.2 4.4 5.6 7.2 2.5 6.4 6.0))
+    (lot-sorter lot w-min w-max) => 3 "bad-batch"
+    (setq w-min 3.5)
+    (lot-sorter lot w-min w-max) =>  (7.2 6.4 6.0 5.6 4.4 4.2 2.5)
+
+    SEE ALSO
+    CLtL 7:119, catch, return, return-from, throw
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

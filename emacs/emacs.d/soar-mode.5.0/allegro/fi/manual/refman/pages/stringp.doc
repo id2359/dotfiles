@@ -1,0 +1,66 @@
+
+                                                                     stringp
+
+
+    FUNCTION
+    stringp  -  test whether an object is a string
+
+    USAGE
+    stringp object
+
+    DESCRIPTION
+    Returns true if OBJECT is a string, and false otherwise.
+
+    The following identity holds:
+
+    (stringp x) = (typep x 'string)
+
+    EXAMPLES
+    (stringp "do you like string peas?") => t
+    (stringp "") => t
+    (stringp #\a) => nil
+    (stringp (string #\a)) => t
+    (stringp 'pea) => nil
+    (stringp (string 'pea)) => t
+    (stringp (symbol-name 'pea)) => t
+    (stringp (make-array '(10) :element-type 'string-char
+                         :initial-element #\space
+                         :fill-pointer 5)) => t
+
+    SEE ALSO
+    CLtL 6:75, make-string, string
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

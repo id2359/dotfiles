@@ -1,0 +1,66 @@
+
+                                                                    function
+
+
+    Type SPECIFIER
+    function  -  the data type comprising functions
+
+    Usage
+    {function | (function ({ARG-TYPE}*) VALUE-TYPE)}
+
+    DESCRIPTION
+    Specifies a data type consisting of functions with  each  argument  type
+    given by each ARG-TYPE and with a return type given by VALUE-TYPE.  This
+    type specifier may be used for declaration only and not  discrimination.
+    The  ARG-TYPES  indicate  argument  types  that  may  be passed, and the
+    lambda-list keywords &optional, &rest, and &key may appear  among  them.
+    VALUE-TYPE  may be any type specifier, including a values type specifier
+    to indicate the return types of a multiple-valued function.
+
+    Technically, a function is anything that you  can  pass  to  funcall  or
+    apply.   Objects of type function are procedures that take arguments and
+    return values, and they include compiled functions.  A function  may  be
+    represented  by  a  symbol  (see symbol-function) or a lambda-expression
+    (see about lambda).
+
+    The printed representation  of  a  function  object  is  implementation-
+    dependent.   Interpreted  functions may be represented by a lambda list.
+    Or it may be represented using the #< syntax  (which  cannot  be  read).
+    Compiled function objects are usually represented with the #< syntax.
+
+    Note that the type specifier function may only be used for  declaration.
+    A  declaration  specifier  function  is also defined by COMMON LISP: THE
+    LANGUAGE.  Unfortunately, the function declaration specifier is  defined
+    in  terms  of  the  ftype  declaration specifier using the function type
+    specifier with a different syntax.  In particular, the form of  specifi-
+    cation  of  multiple  return  values is left in doubt.  The two possible
+    forms of the function type specifier are
+
+    (function ({ARG-TYPE}*) RESULT-TYPE)
+
+    and
+
+    (function ({ARG-TYPE}*) {RESULT-TYPE}*)
+
+    In the former, multiple values  are  indicated  using  the  values  type
+    specifier; in the latter, they are indicated by separate type specifiers
+    for each value.  Implementations may accept one or both of  these  forms
+    for the function type specifier.
+
+    EXAMPLES
+    In the example which follows the VALUE-TYPE for truncate  has  a  values
+    type-specifier  but  that  for  round  does  not, even though round also
+    returns more than one value.
+
+    (defun foo (x y &optional z)
+      (declare (ftype (function (fixnum &optional single-float) integer) round)
+               (ftype (function (float ratio) (values integer float)) truncate))
+      (if z
+          (round  y z)
+          (+ (round (+ x y)) (truncate (* y 1.1) 5/7)))) => foo
+
+    SEE ALSO
+    CLtL 4:43, CLtL 4:47, about lambda, about type specifiers, compiled-
+    function, declare, ftype, function, &key, &rest, &optional, symbol-
+    function, type-of, typep, values
+

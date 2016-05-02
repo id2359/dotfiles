@@ -1,0 +1,66 @@
+
+                                                                       print
+
+
+    FUNCTION
+    print  -  output a newline, a printed representation of an object such
+      that it can be read back, and a space in that order
+
+    Usage
+    print OBJECT [STREAM]
+
+    SIDE EFFECTS
+    A newline, the printed representation of OBJECT, and a space are written
+    to STREAM.
+
+    DESCRIPTION
+    Returns OBJECT, but this function is used for its  side  effects.   This
+    function  outputs  to  STREAM characters that represent OBJECT.  This is
+    usually done in such a way that the object may be read back  with  read.
+    It  effectively  binds  *print-escape* to true while printing OBJECT.  A
+    newline is output before the representation of OBJECT, and  a  space  is
+    output after it.
+
+    The argument STREAM may be a stream that accepts output, or  STREAM  may
+    be  t nil.  If STREAM is nil, output goes to *standard-output*, which is
+    also the default value if STREAM is not specified.  If STREAM is t, out-
+    put goes to *terminal-io*.
+
+    EXAMPLES
+    ;;  Note the new line before the printed output.
+    (print "this is a test") => "this is a test"
+      PRINTS
+    "this is a test"
+    (prin1 "this is a test") => "this is a test"
+      PRINTS "this is a test"
+    (princ "this is a test") => "this is a test"
+      PRINTS this is a test
+
+    SEE ALSO
+    CLtL 22:383, about printing, *print-escape*, prin1, prin1-to-string,
+    princ, princ-to-string, write, write-to-string
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

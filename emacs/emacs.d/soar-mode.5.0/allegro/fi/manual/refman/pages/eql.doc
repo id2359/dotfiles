@@ -1,0 +1,66 @@
+
+                                                                         eql
+
+
+    FUNCTION
+    eql  -  test whether two objects are conceptually identical
+
+    USAGE
+    eql x y
+
+    DESCRIPTION
+    Returns true if arguments X and Y are eq  (implementationally  identical
+    objects),  or if they are numbers of the same value and type, or charac-
+    ter objects representing the same character.  eql is provided in  COMMON
+    LISP to cover the latter two cases, since such objects are in some sense
+    the same but need not be eq in an implementation.  eql  is  the  default
+    comparison  predicate  used  by the sequence functions that act based on
+    comparison of sequence elements and other  objects.   (Examples  include
+    count, remove, substitute, and many others.)
+
+    Not all objects having the same printed representation are eql.  (Copies
+    of  conses and lists are not eql to one another, for example.) Moreover,
+    constants which are eql in compiled code may not be eql  in  interpreted
+    code.  Any two objects that are eq are necessarily eql.
+
+    EXAMPLES
+    (eql 'a 'a) => t
+    (eql 2.0 2.0) => t
+    (eql #c(1.0 2.0) #c(1.0 2.0)) => t
+    (eql #\a #\a) => t
+    (eql (cons 'a 'b) (cons 'a 'b)) => nil
+
+    SEE ALSO
+    CLtL 6:78, about equality, eq, equal, equalp
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

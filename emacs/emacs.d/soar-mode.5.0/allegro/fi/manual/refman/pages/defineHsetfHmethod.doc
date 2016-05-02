@@ -1,0 +1,132 @@
+
+                                                          define-setf-method
+
+
+    MACRO
+    define-setf-method  -  define an update function for a generalized vari-
+      able
+
+    USAGE
+    define-setf-method access-fn lambda-list {decl | doc-string}* {form}*
+
+    SIDE EFFECTS
+    Creates an update function for modifying generalized-variable references
+    of the form (ACCESS-FN ...) with setf.
+
+    DESCRIPTION
+    Returns the name of the access function ACCESS-FN,  but  this  macro  is
+    used for its side effects.
+
+    Unlike defsetf, no restriction is made that ACCESS-FN be a  function  or
+    macro  that  evaluates  all of its arguments.  The LAMBDA-LIST describes
+    the  subforms  of  the  generalized-variable  reference.   Lambda   list
+    destructuring  is  supported  in  the  same manner as for defmacro.  The
+    variables in the lambda list are bound to subforms of  the  generalized-
+    variable  expression  directly, not to temporary variables bound to such
+    subforms as for the complex form of defsetf.
+
+    The result of evaluating all of the forms FORM of the macro must be five
+    values that characterize a setf method.
+
+    The first two of the five values returned are a list of temporary  vari-
+    ables  and  a  list  of forms to bind to those temporary variables.  The
+    third  returned value is a list of variables which will be  stored  into
+    the  generalized variable.  This list almost always consists of one ele-
+    ment.  The fourth value is called the STORING FORM  and  is  code  which
+    will  be used to compute the new value of the generalized variable. This
+    code may refer to any of the temporary variables, and  must  return  the
+    store  variables as its values.  The fifth value is called the ACCESSING
+    FORM and returns the value of the generalized variable.  Both the  stor-
+    ing  form  and the accessing form may be evaluated multiple times and so
+    should be free of side effects other than modifying  the  value  of  the
+    generalized  variable.  The temporary variables and store variables must
+    be generated unique to each invocation of the setf method.
+
+    EXAMPLES
+    (defun tail (lis)
+      (cdr lis))
+
+    (define-setf-method tail (lis)
+      (let* ((temp-var (gensym))            ; temp var for list
+             (store-var (gensym)))          ; temp var for new tail
+        (values
+         (list temp-var)                    ; temporary variables
+         (list lis)                         ; value forms
+         (list store-var)                   ; store variables
+         `(progn
+            (rplacd ,temp-var ,store-var)
+            ,store-var);; storing form
+         `(cdr ,temp-var))))
+
+    (setq my-list '(a b c)) => (a b c)
+    (tail my-list) => (b c)
+    (setf (tail my-list) '(x y z)) => (x y z)
+    my-list => (a x y z)
+
+
+
+    SEE ALSO
+    CLtL 7:105, define-modify-macro, defsetf, get-setf-method, get-setf-
+    method-multiple-value
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

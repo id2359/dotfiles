@@ -1,0 +1,66 @@
+
+                                                         format directive ~^
+
+
+    FORMAT DIRECTIVE
+    ~^  -  terminate processing of enclosing control string prematurely
+
+    USAGE
+    ~test1,test2,test3[:]^
+
+    DESCRIPTION
+    Terminates the immediately surrounding ``~<'', ``~{'', or ``~?'' control
+    structure  directive if there are no arguments remaining to be processed
+    and the test specified by the prefix parameters, if  any,  is  met.   If
+    there is no such surrounding structure, this escape construct terminates
+    the entire formatting operation.
+
+    When there are no remaining arguments, whether termination occurs or not
+    depends  on the prefix parameters.  With no parameters specified, termi-
+    nation is guaranteed.  If only TEST1 is specified, termination occurs if
+    it  is  zero.  If only TEST1 and TEST2 are specified, termination occurs
+    if they are equal.  If all three parameters are  specified,  termination
+    occurs  if TEST1 < TEST2 < TEST3.  Typically, at least one of the prefix
+    parameters is specified as ``#'' or ``V'' for the test is to be useful.
+
+    If ``~^'' causes termination from within a  ``~<''  directive,  segments
+    processed  up  to that point are still formatted and justified, but nei-
+    ther the segment it appears in nor the segments after it  are  processed
+    any  further.   (Thus justification is based only on those segments pro-
+    cessed.) If it causes termination from within  a  ``~{''  directive  for
+    which  the ``:'' modifier is given (which implies a sublist of arguments
+    for each iteration step), the current iteration step is  terminated  and
+    the  next  step  begins  right away.  In this case, the entire iteration
+    process can be terminated by using ``~:^'' instead of ``~^''.
+
+    If ``~^'' appears in an indirect control string  being  processed  by  a
+    ``~?''  directive,  and  that  string  does  not enclose it in ``~{'' or
+    ``~<'' constructs, termination causes processing of the indirect  string
+    to  cease, and then to resume after the ``~?''.  If ``~^'' causes termi-
+    nation within the ``~['' or ``~('' constructs, all processing up to that
+    point  is properly reflected in the output, the construct is terminated,
+    and the search continues  up  and  out  for  the  immediately  enclosing
+    ``~<'', ``~{'', or ``~?'' directive, if any.
+
+    EXAMPLES
+    (format nil "Bears ~D~^, Cards ~D" 7)   => "Bears 7"
+    (format nil "Bears ~D~^, Cards ~D" 7 6) => "Bears 7, Cards 6"
+    (format nil "OK.~@?  Now what? " "~^  You have ~R." 4)
+      => "OK.  You have four.  Now what? "
+    (format nil "~%;; ~@{~<~%;; ~1,22:;~A~>~^ ~}" "This" "code"
+      "is" "intentionally" "obscure," "but" "the" "comments"
+      "are" "nice.") =>
+    "
+    ;; This code is
+    ;; intentionally
+    ;; obscure, but the
+    ;; comments are nice."
+    (setq sandwich "Inside - ~#[nothing~; ~A~; ~A and ~A~:;~
+      ~@{~#[~; and~] ~A~^,~}~]." x nil) => nil
+    (format nil sandwich "bacon" "lettuce" "tomato")
+      => "Inside -  bacon, lettuce, and tomato."
+
+    SEE ALSO
+    CLtL 22:406, format, format directive ~(, format directive ~<, format
+    directive ~?, format directive ~[, format directive ~{
+

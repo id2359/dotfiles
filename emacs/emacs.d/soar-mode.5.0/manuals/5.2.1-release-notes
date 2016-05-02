@@ -1,0 +1,786 @@
+To: soar-group@PTERO.SOAR.CS.CMU.EDU, soar-export@PTERO.SOAR.CS.CMU.EDU,
+        soar-export-by-parts@PTERO.SOAR.CS.CMU.EDU
+Cc: soar-archive@CENTRO.SOAR.CS.CMU.EDU
+Subject: *Release Announcement* -- Soar 5.2.1
+Date: Wed, 24 Jul 91 01:31:06 EDT
+From: Thomas.McGinnis@PTERO.SOAR.CS.CMU.EDU
+
+ Greetings,
+
+ Soar 5.2.1 is now available from CMU in either of the following
+places:
+
+ /afs/cs.cmu.edu/project/soar/5.2/1/Soar.5.2.1.tar
+ /afs/cs.cmu.edu/project/soar/5.2/1/compressedSoar.5.2.1.tar.Z
+
+ *Reminder*: If you used to FTP these files by connection to
+Natasha.mach.cs.cmu.edu, you should probably now connect to
+Centro.soar.cs.cmu.edu [128.2.242.245]. Your passwd should be
+the same as it was on Natasha.
+
+ As usual, those on the export mailing lists can expect a/some large
+piece/s of mail soon.
+
+ 5.2.1 Release notes follow.
+
+ Very truly yours,
+ Tom.
+
+-------- Enclosure
+This letter accompanies the release of Soar 5.2.1. You must recompile
+Soar with this release. This release supercedes all previous 5.2
+releases and patches. You should not be including any patches with
+this release at this time.
+
+The major change in this release, which is why a re-compile is
+required, is that the not-ify algorithm in chunking has changed. The
+5.2.0 not-ify had a heuristic function to recognize when 2 identifiers
+should be different.  This heuristic function depended upon both
+identifiers being in a value slot with the same attribute. This had
+many bad characteristics. The 5.2.1 not-ify algorithm includes in the
+trace all the nots that are actually tested. These nots are those
+included in the chunk. Thus only the identifiers that are tested 
+to be not equal in the sub-goal are tested to be not equal in the
+chunk.
+
+An additional but more modest set of of changes prepares Soar to work
+with the Developmental Soar Interface (DSI), which will be released
+later this month.  Depending upon your Lisp, you may get some
+undefined function warnings at compile time.  The actual calls to
+these functions are guarded by a variable that the DSI sets when it is
+loaded.  Thus in a standard Soar system these functions are never
+invoked, and Gary has shown to our satisfaction that there is no
+appreciable slow down based on these phantom function calls.
+
+A document showing the user level features available from the DSI
+inclusions within this release is attached.
+
+This release fixes a number of bugs. Only the new bugs fixed are
+listed below.
+
+As always the list of current bugs can be gotten by sending email to
+soar-bugs@cs.cmu.edu with the word "buglist" in the header.  To get
+all the correspondence about a bug (which will usually include the
+patch associated with any User Library addition) you send mail to
+soar-bugs with the words "bug-references" followed by the bug # in the
+Subject: line. You should automatically be sent all the information
+for the bug.
+
+Gary and Tom
+
+-------- DSI feature Description
+
+
+                MACROCYCLES
+
+Often users will want to run more than 1 decision cycle at a time
+specifying how long to run in terms other than decision cycles, such
+as for 3 operator applications.  The macrocycle command has been
+created to support this.  The macrocycle command also supports the
+graphic displays: after each macrocycle the object examination windows
+are automatically updated.  The main display is always updated.
+
+There are 3 macrocycle parameters: what to run (macrocycle-type), how
+many of them to run (macrocycle-n), and as protection against infinite
+loops, the maximum number of decision cycles allowed per macrocycle
+attempt (macrocycle-max-dc).  There are currently seven macrocycles
+types.  Two are familiar, decision and elaboration.  Macrocycles based
+on these types merely run N cycles of the appropriate type.  The
+remaining ones are based on problem space objects: goal,
+problem-space, state, operator and chunk.  Macrocycles based on these
+count the number of selections of these types.  For example, a
+macrocycle "2:operator" would run until two operators had been
+selected (without regard to which problem space(s) they were in).  The
+final parameter, macrocycle-max-dc, limits how many decision cycles
+allowed per macrocycle.  If this value is exceeded, the macrocycle
+will simply (and cleanly) stop.  For example, a macrocycle-max-dc of 2
+would often stop prematurely a macrocycle of 2 goals.
+
+The macrocycle parameters can be set by choosing "Set macrocycle
+parameters" from the main graphic display menu, or by calling in the
+Soar Command Interpreter the function @i[(set-macrocycle)].
+
+Macrocycles can be initiated in many ways.  In the Command
+Interpreter, typing ":m", "m", or "(m)" will run 1 macrocycle.  In the
+graphic display, typing "m", "M", or <space> will run it.  You can
+also run a macrocycle from the main graphic display menu.
+
+                HOOKS
+
+Soar supports three new hooks.  (A hook is a place to hang either a
+function, or a list of functions that get executed after a specific
+corresponding event occurs.)  These hooks are checked after Soar is
+initialized (init-soar-hook), after a decision cycle is run
+(after-dc-hook), and after a macrocycle has been run
+(after-macrocycle-hook).  They are implemented as Common Lisp
+variables, so you can put functions or lambda expressions on them just
+as you would add to any list.
+
+For example:
+
+    (setf init-soar-hook (push 'soarresetsyntax init-soar-hook))
+
+
+There is not a hook provided to run after each elaboration cycle
+because it is already available from Soar-IO:
+
+  (set-input-mapping (your-function))
+
+                MISCELLANEOUS COMMANDS
+
+Many are used internally in the graphic display.  Some of them are
+useful for putting on hooks, or for building tools to put on hooks.
+
+(defun attribute-value symbol attribute)
+  Returns the value of ATTRIBUTE for SYMBOL.
+
+(defun context-object-name symbol)
+  Gets the value of attribute ^name of context object SYMBOL.
+
+(defun context-object-name-p symbol)
+  A predicate that returns T if SYMBOL has a attribute name with a value.
+
+(defun decision-cycle-count) & (defun elaboration-cycle-count)
+  Both return the decision cycle and elaboration cycle count cycle count.
+
+(defun find-production-ps chunk-or-production)
+  Finds the problem space that CHUNK-OR-PRODUCTION belongs to.  If a
+  problem space is not accessable by name in the production's conditions,
+  it tries to find the problem space based on operator name (if the DSI is
+  loaded), or else the top-level problem space is returned.  If passed nil,
+  it returns nil."
+
+(defun soar-read-n header &optional (min 0) (max 100))
+  Will read in and return a number, prompting with header.  The number will
+  not be accepted if it is not within [min max], and the user will be
+  reprompted until it is.
+
+(defmacro r)
+  Shortens the run command.
+
+(defun sp? symbol)
+  SP? returns T if SYMBOL is a Soar production.
+
+(defun toggle-soarsyntax)
+  Toggles the value of soarsyntax between T (Soar) and nil (Lisp).
+
+(defun wm-structure? symbol)
+  Returns T iff SYMBOL is an id of a WME.  For example, the G1 is often
+  such a SYMBOL.
+
+****************
+                UPDATES TO EXISTING COMMANDS
+
+(defun last-chunk &key (print-p t))
+  Now returns the last chunk instead of nil, and can not print out its
+  value if you wish.
+
+(defun ms)
+  Now does not print out two trailing CR's as it prints out the match set.
+
+(defmacro preferences &optional (object top-goal) (attribute operator)
+                                 &key (return-p nil) (print-p t) )
+  Finds within OBJECT (defaults to highest meta-level goal if not
+  passed) preferences for ATTRIBUTE (defaults to operator).  However,
+  like Foodland, we know what you want.  If only OBJECT is passed, it is
+  treated as the ATTRIBUTE.  For example, (preferences operator) is a
+  valid call, equivalent to (preferences) that will search the
+  bottom-level goal for operator preferences.  (preferences g23 state)
+  is an example where both optional arguments are provided.
+
+(defun spr &rest items)
+  SPR has ben expanded in two ways.
+   1) if the variable soar:spr-line-p is t (the default), spr
+      places a blank line between each item. Otherwise not. 
+   2) SPR now prints WME's when passed them, but wm descriptions 
+      must now be in lists.
+
+
+
+-------- Fixed Bugs
+
+------------------------------------------------------------------------------
+Number: 353
+Report Date: 17-Jul-91
+Reported by: Todd R Johnson <tj@cis.ohio-state.edu>
+Status: ** Fixed **
+Cross Reference: 16Jul91-15.33.58 16Jul91-16.15.14 16Jul91-16.32.55
+Priority: 5
+Synopsis:
+Soar gets into an infinite loop when a negated condition with a not
+is the last condition in a production.
+
+Comments:
+Fixed in 5.2.1
+------------------------------------------------------------------------------
+Number: 352
+Report Date: 17-Jul-91
+Reported by: Richard Young <richard.young@mrc-applied-psychology.cambridge.ac.uk>
+Status: ** Fixed **
+Cross Reference: 16Jul91-09.31.44 16Jul91-10.24.46
+Priority: 5
+Synopsis:
+Support is not given correctly for some internal chunks.
+
+Comments:
+None.
+------------------------------------------------------------------------------
+Number: 351
+Report Date: 17-Jul-91
+Reported by: Garrett.Pelton@CENTRO.SOAR.CS.CMU.EDU
+Status: ** Fixed **
+Cross Reference: 15Jul91-23.13.06 16Jul91-11.25.00
+Priority: 5
+Synopsis:
+Loading TAQL twice gets a strange internal TAQL error.
+
+Comments:
+Fixed in 3.1.4
+------------------------------------------------------------------------------
+Number: 350
+Report Date: 10-Jul-91
+Reported by: unruh@sumex-aim.stanford.edu
+Status: User-Library
+Cross Reference: 09Jul91-18.07.43 10Jul91-10.50.52
+Priority: 5
+Synopsis:
+time in print-stats explained
+
+Comments:
+None.
+------------------------------------------------------------------------------
+Number: 349
+Report Date: 10-Jul-91
+Reported by: Frank Ritter <fr07+@andrew.cmu.edu>
+Status: ** Fixed **
+Cross Reference: 09Jul91-16.24.02
+Priority: 5
+Synopsis:
+Misc 5.2.1 DSI changes.
+
+Comments:
+None.
+------------------------------------------------------------------------------
+Number: 343
+Report Date: 10-Jul-91
+Reported by: Iain Stobie <stobie%aludra.usc.edu@usc.edu>
+Status: ** Fixed **
+Cross Reference: 05Jul91-16.08.47 08Jul91-11.30.06 08Jul91-11.03.56
+Priority: 5
+Synopsis:
+Output not sending TC of output structure to user.
+
+Comments:
+fixed in 5.2.1
+------------------------------------------------------------------------------
+Number: 342
+Report Date: 10-Jul-91
+Reported by: Todd R Johnson <tj@cis.ohio-state.edu>
+Status: ** Fixed **
+Cross Reference: 01Jul91-18.30.44 08Jul91-16.31.36 08Jul91-17.30.34 10Jul91-12.07.\
+11 10Jul91-12.45.40
+Priority: 5
+Synopsis:
+Chunks only partially variablized
+
+Comments:
+None.
+------------------------------------------------------------------------------
+Number: 341
+Report Date: 5-Jul-91
+Reported by: Robert.Doorenbos@CENTRO.SOAR.CS.CMU.EDU
+Status: Fixed
+Cross Reference: 03Jul91-17.35.00
+Priority: 5
+Synopsis:
+Garbage collector duplicated calls to working memory removal. It
+Actually walked each edge in the graph to be deleted. It did detect
+cycles but did that with an O(N) test so the entire algorithm
+was O(N**3) rather than O(N). this has been fixed.
+
+Comments:
+None.
+------------------------------------------------------------------------------
+Number: 337
+Report Date: 3-Jul-91
+Reported by: Todd R Johnson <tj@cis.ohio-state.edu>
+Status: Fixed
+Cross Reference: 01Jul91-12.39.17
+Priority: 5
+Synopsis:
+change more proclaims
+
+Comments:
+None.
+------------------------------------------------------------------------------
+Number: 336
+Report Date: 26-Jun-91
+Reported by: Milind.Tambe@TITANO.SOAR.CS.CMU.EDU
+Status: Fixed
+Cross Reference: 07May91-10.22.32
+Priority: 3
+Synopsis:
+show right and left tokens independently
+
+Comments:
+I think I got it right Milind and it will be in 5.3
+------------------------------------------------------------------------------
+Number: 335
+Report Date: 26-Jun-91
+Reported by: Garrett.Pelton@NATASHA.MACH.CS.CMU.EDU
+Status: ** Fixed **
+Cross Reference: 08May91-11.06.50
+Priority: 5
+Synopsis:
+Operator proposal productions should not be op-apped
+
+Comments:
+Fixed in TAQL 3.1.4
+------------------------------------------------------------------------------
+Number: 333
+Report Date: 26-Jun-91
+Reported by: Gregg.Yost@NATASHA.MACH.CS.CMU.EDU
+Status: Fixed
+Cross Reference: 29May91-17.57.00
+Priority: 2
+Synopsis:
+Limits on TABTO should not exist.
+
+Comments:
+None.
+------------------------------------------------------------------------------
+Number: 332
+Report Date: 26-Jun-91
+Reported by: Frank Ritter <fr07+@andrew.cmu.edu>
+Status: Fixed
+Cross Reference: 06Jun91-17.11.42 12Jun91-10.23.09
+Priority: 5
+Synopsis:
+Newer version of spr
+
+Comments:
+None.
+------------------------------------------------------------------------------
+Number: 330
+Report Date: 26-Jun-91
+Reported by: Frank Ritter <fr07+@andrew.cmu.edu>
+Status: ** Fixed **
+Cross Reference: 12Jun91-10.24.26
+Priority: 3
+Synopsis:
+spr will not handle wm timetags
+
+Comments:
+Fixed in TAQL 3.1.4
+------------------------------------------------------------------------------
+Number: 329
+Report Date: 26-Jun-91
+Reported by: Frank Ritter <fr07+@andrew.cmu.edu>
+Status: Fixed
+Cross Reference: 12Jun91-11.03.12
+Priority: 5
+Synopsis:
+sp object test
+
+Comments:
+None.
+------------------------------------------------------------------------------
+Number: 327
+Report Date: 26-Jun-91
+Reported by: rosenblo@ISI.EDU
+Status: Fixed
+Cross Reference: 13Jun91-13.31.57 13Jun91-14.06.59 17Jun91-11.33.37 17Jun91-14.58.\
+27 05Jul91-09.45.33
+Priority: 5
+Synopsis:
+not tests within negated conditions disappear from chunks.
+
+Comments:
+done
+------------------------------------------------------------------------------
+Number: 324
+Report Date: 26-Jun-91
+Reported by: arie@zip.eecs.umich.edu
+Status: Fixed
+Cross Reference: 19Jun91-21.49.14
+Priority: 5
+Synopsis:
+add soar::@ to the shadowing imports for ccl
+
+Comments:
+None.
+------------------------------------------------------------------------------
+Number: 323
+Report Date: 26-Jun-91
+Reported by: John Laird <laird@caen.engin.umich.edu>
+Status: Fixed
+Cross Reference: 21Jun91-10.33.49
+Priority: 5
+Synopsis:
+The working memory element being backtraced should be on the same line
+as the production name rather than on the line above.
+
+Comments:
+done
+------------------------------------------------------------------------------
+Number: 322
+Report Date: 26-Jun-91
+Reported by: Erik Altmann <altmann@NATASHA.MACH.CS.CMU.EDU>
+Status: Fixed
+Cross Reference: 21Jun91-11.24.40 10Jul91-11.14.54 10Jul91-11.42.00 10Jul91-12.08.\
+57
+Priority: 5
+Synopsis:
+:overwrite option doesn't can leave stuff at the end. :supersede
+is the normal desired option. :append would also be nice.
+
+Comments:
+:supersede implemented, :append is not
+------------------------------------------------------------------------------
+Number: 319
+Report Date: 26-Jun-91
+Reported by: John Laird <laird@caen.engin.umich.edu>
+Status: Fixed
+Cross Reference: 24Jun91-08.53.11
+Priority: 5
+Synopsis:
+Default production rule changes
+
+Comments:
+John both sets of changes have been made.
+------------------------------------------------------------------------------
+Number: 318
+Report Date: 6-May-91
+Reported by: Erik Altmann <altmann@TRICERATOPS.SOAR.CS.CMU.EDU>
+Status: ** Fixed **
+Cross Reference: 29Apr91-13.41.51
+Priority: 5
+Synopsis:
+Unlinked conditions cause terrible chunks
+
+Comments:
+None.
+------------------------------------------------------------------------------
+Number: 314
+Report Date: 6-May-91
+Reported by: AAS <@BITNET.CC.CMU.EDU:AAS@RUG.NL>
+Status: ** Fixed **
+Cross Reference: 29Apr91-16.15.00
+Priority: 5
+Synopsis:
+make-constant-symbol not exported
+
+Comments:
+None.
+------------------------------------------------------------------------------
+Number: 313
+Report Date: 6-May-91
+Reported by: Robert.Doorenbos@NATASHA.MACH.CS.CMU.EDU
+Status: ** Fixed **
+Cross Reference: 24Apr91-21.04.00 03Jul91-13.28.00 03Jul91-12.46.37
+Priority: 4
+Synopsis:
+Negated test on constant fails.
+
+Comments:
+Chunking now does not automatically assume that id's are identifiers
+Thus it will not always variablize them. This solves this problem but
+creates a chunk with an unattached condition. For the negated condition
+is not attached to any of the previous conditions, since attachment is
+only through identifiers.
+------------------------------------------------------------------------------
+Number: 309
+Report Date: 6-May-91
+Reported by: Frank Ritter <fr07+@andrew.cmu.edu>
+Status: ** Fixed **
+Cross Reference: 23Apr91-16.31.16
+Priority: 5
+Synopsis:
+Miscelaneous changes to Soar for DSI
+
+Comments:
+None.
+------------------------------------------------------------------------------
+Number: 308
+Report Date: 6-May-91
+Reported by: Garrett.Pelton@NATASHA.MACH.CS.CMU.EDU
+Status: ** Fixed **
+Cross Reference: 16Apr91-10.01.33
+Priority: 5
+Synopsis:
+Duplicate default rules
+
+Comments:
+        default*pass-back-success &
+        default*generic*implement*evaluation-operator*evaluation-partial-success-i\
+f-partial-success-look-ahead-state-found
+------------------------------------------------------------------------------
+Number: 304
+Report Date: 6-May-91
+Reported by: Soowon Lee <swlee@ISI.EDU>
+Status: ** Fixed **
+Cross Reference: 02Apr91-22.07.22 03Apr91-12.02.06 03Apr91-12.32.51 03Apr91-14.54.\
+14 03Apr91-15.32.26 03Apr91-16.04.52 04Apr91-21.57.10 09Apr91-01.23.13 09Apr91-10.\
+31.26 09Apr91-11.18.40 27Jun91-14.38.00 27Jun91-16.23.32
+Priority: 5
+Synopsis:
+Reorder doesn't handle multi attributes on goal objects
+
+Comments:
+None.
+------------------------------------------------------------------------------
+Number: 302
+Report Date: 6-May-91
+Reported by: Frank Ritter <fr07+@andrew.cmu.edu>
+Status: ** Fixed **
+Cross Reference: 31Mar91-22.04.40
+Priority: 5
+Synopsis:
+M is not for TAQL
+
+Comments:
+Fixed in TAQL 3.1.4
+------------------------------------------------------------------------------
+Number: 301
+Report Date: 6-May-91
+Reported by: Frank Ritter <fr07+@andrew.cmu.edu>
+Status: ** Fixed **
+Cross Reference: 29Mar91-18.34.51 01Apr91-10.34.07
+Priority: 3
+Synopsis:
+Export all TAQL functions and macros
+
+Comments:
+Fixed in TAQL 3.1.4
+------------------------------------------------------------------------------
+Number: 297
+Report Date: 26-Mar-91
+Reported by: Robert.Doorenbos@NATASHA.MACH.CS.CMU.EDU
+Status: ** Fixed **
+Cross Reference: 15Mar91-16.42.00
+Priority: 2
+Synopsis:
+print-stats obviously giving bad information
+
+Comments:
+None.
+------------------------------------------------------------------------------
+Number: 284
+Report Date: 11-Mar-91
+Reported by: arie@zip.eecs.umich.edu
+Status: ** Fixed **
+Cross Reference: 21Feb91-12.12.51
+Priority: 5
+Synopsis:
+Common Lisp Compatibility problems with 18-Feb-91 patches
+
+Comments:
+Fixed
+------------------------------------------------------------------------------
+Number: 282
+Report Date: 11-Mar-91
+Reported by: Iain Stobie <stobie%aludra.usc.edu@usc.edu>
+Status: ** Fixed **
+Cross Reference: 18Feb91-16.26.28
+Priority: 4
+Synopsis:
+get-output-data should be testing for a symbol before getting
+stuff off it's property list
+
+Comments:
+In next patches
+------------------------------------------------------------------------------
+Number: 281
+Report Date: 11-Mar-91
+Reported by: Frank Ritter <fr07+@andrew.cmu.edu>
+Status: ** Fixed **
+Cross Reference: 15Feb91-16.30.12
+Priority: 2
+Synopsis:
+A last chunk routine that returns a value rather than just printing
+out the last-chunk
+
+Comments:
+Added in next patch file
+------------------------------------------------------------------------------
+Number: 278
+Report Date: 11-Feb-91
+Reported by: Erik Altmann <altmann@PLEURO.SOAR.CS.CMU.EDU>
+Status: ** Fixed **
+Cross Reference: 09Feb91-13.21.39 12Feb91-08.21.30 13Feb91-09.11.54 13Feb91-09.14.\
+04 13Feb91-10.37.13
+Priority: 2
+Synopsis:
+pi in TAQL doesn't take the second argument.
+
+Comments:
+Fixed in TAQL 3.1.4
+------------------------------------------------------------------------------
+Number: 252
+Report Date: 10-Dec-90
+Reported by: Brian.Milnes@NATASHA.MACH.CS.CMU.EDU
+Status: ** Fixed **
+Cross Reference: 05Dec90-17.09.48
+Priority: 3
+Synopsis:
+compilation order problem. utility whould be moved forward. as macros.lisp uses eqp
+which is defined there.
+
+Comments:
+None.
+------------------------------------------------------------------------------
+Number: 249
+Report Date: 10-Dec-90
+Reported by: David.Steier@NATASHA.MACH.CS.CMU.EDU
+Status: ** Fixed **
+Cross Reference: 03Dec90-16.28.00
+Priority: 5
+Synopsis:
+Default production needs to be modified
+default*selection*implement*evaluation-operator*augment-operator-with-evaluation-t\
+ype-final-all-objects-novalue
+add test for selection space.
+
+Comments:
+None.
+------------------------------------------------------------------------------
+Number: 245
+Report Date: 28-Nov-90
+Reported by: arie@zip.eecs.umich.edu
+Status: ** Fixed **
+Cross Reference: 27Nov90-10.46.37
+Priority: 3
+Synopsis:
+Change all proclaims for ANSI compatibility
+
+Comments:
+None.
+------------------------------------------------------------------------------
+Number: 227
+Report Date: 16-Oct-90
+Reported by: Michael Hucka <hucka@caen.engin.umich.edu>
+Status: ** Fixed **
+Cross Reference: 30Sep90-16.36.45
+Priority: 7
+Synopsis:
+TI Compatibility problems and solutions
+
+Comments:
+Fixed in the sources wait for release.
+------------------------------------------------------------------------------
+Number: 222
+Report Date: 26-Sep-90
+Reported by: Arie Covrigaru <arie@dip.eecs.umich.edu>
+Status: ** Fixed **
+Cross Reference: 18Sep90-18.56.22
+Priority: 4
+Synopsis:
+Current proclaims are not ANSI CL
+
+Comments:
+None.
+------------------------------------------------------------------------------
+Number: 221
+Report Date: 26-Sep-90
+Reported by: Gregg.Yost@NATASHA.MACH.CS.CMU.EDU
+Status: ** Fixed **
+Cross Reference: 18Sep90-14.28.00
+Priority: 4
+Synopsis:
+How to tell if there exists a production with a specific name.
+
+Comments:
+sp? production-name works
+------------------------------------------------------------------------------
+Number: 218
+Report Date: 26-Sep-90
+Reported by: dirk@golem14.kellogg.nwu.edu
+Status: ** Fixed **
+Cross Reference: 14Sep90-14.18.46
+Priority: 5
+Synopsis:
+Required success and/or prohibit failure are both numeric and symbolic
+
+Comments:
+Fixed in TAQL 3.1.4
+------------------------------------------------------------------------------
+Number: 213
+Report Date: 11-Sep-90
+Reported by: Gregg.Yost@NATASHA.MACH.CS.CMU.EDU
+Status: ** Fixed **
+Cross Reference: 06Sep90-18.28.00
+Priority: 2
+Synopsis:
+excise-task excises *last-pname* if no task productions.
+
+Comments:
+Can't duplicate
+------------------------------------------------------------------------------
+Number: 186
+Report Date: 14-Aug-90
+Reported by: Robert.Doorenbos@NATASHA.MACH.CS.CMU.EDU
+Status: ** Fixed **
+Cross Reference: 13Aug90-17.10.00 05Nov90-14.43.56 26Mar91-11.48.05 19Apr91-15.02.\
+00
+Priority: 7
+Synopsis:
+Soar doesn't print strings the way Bob wants it to.
+Text not properly handled in Soar. Not included with Quotes in chunks
+in particular.
+
+Comments:
+None.
+------------------------------------------------------------------------------
+Number: 184
+Report Date: 13-Aug-90
+Reported by: AKYUREK%RUG.NL@vma.CC.CMU.EDU
+Status: ** Fixed **
+Cross Reference: 12Aug90-13.31.00
+Priority: 3
+Synopsis:
+"item" causes name conflicts on the macintosh. 
+
+Comments:
+Could be what else is loaded but "item" is a pretty common word so
+we should handle it.
+------------------------------------------------------------------------------
+Number: 183
+Report Date: 13-Aug-90
+Reported by: Arie
+Status: ** Fixed **
+Cross Reference: 11Aug90-16.40.25
+Priority: 3
+Synopsis:
+Macro version of in-package means a change in how we handle ANSI lisp
+
+Comments:
+Fixed for next release
+------------------------------------------------------------------------------
+Number: 182
+Report Date: 13-Aug-90
+Reported by: Arie Covrigaru
+Status: ** Fixed **
+Cross Reference: 11Aug90-16.29.26
+Priority: 5
+Synopsis:
+Ansi Lisp in-pacakage doesn't create a package
+
+Comments:
+None.
+------------------------------------------------------------------------------
+Number: 148
+Report Date: 18-Jul-90
+Reported by: Brian.Milnes@NATASHA.MACH.CS.CMU.EDU
+Status: ** Fixed **
+Cross Reference: 16Jul90-17.13.41 16Jul90-17.28.27
+Priority: 5
+Synopsis:
+negative conjunctions in first condition should be handled by TAQL
+
+Comments:
+Fixed in TAQL 3.1.4
+------------------------------------------------------------------------------
+
+
+-------- End of Enclosure
+

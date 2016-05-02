@@ -1,0 +1,66 @@
+
+                                                                      signum
+
+
+    FUNCTION
+    signum  -  get the sign of a number
+
+    USAGE
+    signum number
+
+    DESCRIPTION
+    For a non-complex NUMBER, returns zero if the number  is  zero,  one  if
+    NUMBER  is  positive, and minus one if NUMBER is negative.  The returned
+    value is of the same LISP type as NUMBER.  For a complex-valued  NUMBER,
+    this  function  returns a complex number with the same phase but of unit
+    magnitude with components of the same floating-point type  as  those  of
+    NUMBER.   (If NUMBER is a complex rational, the result will be a complex
+    single float.)
+
+    The following identity holds:
+
+    (signum number) =
+       (if (zerop number) number (/ number (abs number)))
+
+    EXAMPLES
+    (signum -5) => -1
+    (signum 2/3) => 1
+    (signum #c(7.5 10.0)) => #c(0.6 0.8)
+
+    SEE ALSO
+    CLtL 12:206, abs, phase
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

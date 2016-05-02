@@ -1,0 +1,66 @@
+
+                                                                       throw
+
+
+    SPECIAL FORM
+    throw  -  transfer control to a catching form
+
+    USAGE
+    throw tag result
+
+    SIDE EFFECTS
+    Control is transferred to the most recently activated catch whose tag is
+    eq to TAG.
+
+    DESCRIPTION
+    Causes the most recently activated catch whose tag is eq to TAG to  exit
+    and  to  return RESULT.  TAG and RESULT are evaluated.  An error is sig-
+    nalled if, in the dynamic environment in which the throw  occurs,  there
+    is no catch with a tag eq to TAG.
+
+    EXAMPLES
+    (defun catch-tester (x)
+      (throw x 'done)) => catch-tester
+    (catch 'foo (catch-tester 'foo)) => done
+
+    SEE ALSO
+    CLtL 7:142, catch, unwind-protect
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

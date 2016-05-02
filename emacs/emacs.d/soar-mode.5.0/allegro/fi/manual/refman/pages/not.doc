@@ -1,0 +1,66 @@
+
+                                                                         not
+
+
+    Type SPECIFIER
+    not  -  specify the complement of a data type
+
+    Usage
+    (not TYPE)
+
+    DESCRIPTION
+    Specifies a data type consisting of those objects that are  not  of  the
+    given TYPE.
+
+    EXAMPLES
+    (typep 2 '(not float)) => t
+    (typep 2 '(not integer)) => nil
+
+    SEE ALSO
+    CLtL 4:44, about type specifiers, and, float, integer, or, typep
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

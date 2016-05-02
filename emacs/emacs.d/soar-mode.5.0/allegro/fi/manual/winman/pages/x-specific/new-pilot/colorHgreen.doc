@@ -1,0 +1,66 @@
+
+                                                                 color-green
+
+
+    FUNCTION
+    color-green  -  get the green of a color
+
+    Usage
+    color-green COLOR
+
+    DESCRIPTION
+    This function returns the green component of a color.  In X, colors  are
+    composed  of values specified for three fields, :red, :green, and :blue.
+    You may also define color using :hue, :saturation, and  :brightness,  or
+    :gray-level.   However  you define a color, it is stored as a mixture of
+    red, green, and blue.  The conversion is done  automatically  by  COMMON
+    WINDOWS.
+
+    You may use setf with this function to change the green component  of  a
+    read-write  color.   Is  is  an  error to try to change a component of a
+    read-only color.
+
+    EXAMPLES
+    (setf *my-color*
+          (make-color-rgb :red .25 :green .50 :blue .75))
+
+    (color-green *my-color*) => 0.5d0
+
+    (setf (color-blue blue) .5) => ERROR
+
+    (color-green
+     (make-color :hue .2 :saturation .4 :brightness .5)) => .5
+
+    SEE ALSO
+    about colors, color-blue, color-brightness, color-hue, color-red,
+    color-rgb-blue, color-saturation, gray-level, make-color, set-color
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

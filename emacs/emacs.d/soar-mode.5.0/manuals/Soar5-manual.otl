@@ -1,0 +1,718 @@
+@Comment{OUTLINE of /afs/cs/project/soar/member/doc/manuals/soar-5.2/manual.mss by Scribe 7(1700) on 15 January 1991 at 18:34}
+ Preface                                                  1 /afs/cs/project/soar/member/doc/manuals/soar-5.2/preface.mss, line 11
+                              CHAPTER-PREFACE             1 /afs/cs/project/soar/member/doc/manuals/soar-5.2/preface.mss, line 12
+ Mailing Lists                                            2 /afs/cs/project/soar/member/doc/manuals/soar-5.2/preface.mss, line 37
+                              mailing-lists               2 /afs/cs/project/soar/member/doc/manuals/soar-5.2/preface.mss, line 38
+1. Introduction                                           3 /afs/cs/project/soar/member/doc/manuals/soar-5.2/intro.mss, line 2
+                              INTRO                       3 /afs/cs/project/soar/member/doc/manuals/soar-5.2/intro.mss, line 3
+  1.1. Overview                                           3 /afs/cs/project/soar/member/doc/manuals/soar-5.2/intro.mss, line 137
+  1.2. How to read this manual                            3 /afs/cs/project/soar/member/doc/manuals/soar-5.2/intro.mss, line 178
+2. The Problem Space Level                                5 /afs/cs/project/soar/member/doc/manuals/soar-5.2/pslev.mss, line 9
+                              ch-prob-spac                5 /afs/cs/project/soar/member/doc/manuals/soar-5.2/pslev.mss, line 10
+  2.1. Overview                                           5 /afs/cs/project/soar/member/doc/manuals/soar-5.2/pslev.mss, line 15
+                              ch-prob-spac-over           5 /afs/cs/project/soar/member/doc/manuals/soar-5.2/pslev.mss, line 16
+                              blocks-problem-space 2-1    5 /afs/cs/project/soar/member/doc/manuals/soar-5.2/pslev.mss, line 55
+                              blocksworldstate 2-2        5 /afs/cs/project/soar/member/doc/manuals/soar-5.2/pslev.mss, line 80
+                              blocks-impasse 2-3          5 /afs/cs/project/soar/member/doc/manuals/soar-5.2/pslev.mss, line 175
+                              blocks-hierarchy 2-4        5 /afs/cs/project/soar/member/doc/manuals/soar-5.2/pslev.mss, line 237
+  2.2. The Problem Space Computational Model              6 /afs/cs/project/soar/member/doc/manuals/soar-5.2/pslev.mss, line 270
+                              ch-prob-spac-prob           6 /afs/cs/project/soar/member/doc/manuals/soar-5.2/pslev.mss, line 271
+    2.2.1. PSCM functions                                 6 /afs/cs/project/soar/member/doc/manuals/soar-5.2/pslev.mss, line 288
+                              ch-prob-spac-pscm           6 /afs/cs/project/soar/member/doc/manuals/soar-5.2/pslev.mss, line 289
+    2.2.2. Implementing PSCM functions: Architecture or   6 /afs/cs/project/soar/member/doc/manuals/soar-5.2/pslev.mss, line 442
+                              ch-prob-spac-impl-psc       6 /afs/cs/project/soar/member/doc/manuals/soar-5.2/pslev.mss, line 443
+  2.3. Encoding a task                                    7 /afs/cs/project/soar/member/doc/manuals/soar-5.2/pslev.mss, line 486
+                              ch-prob-spac-impl-tas       7 /afs/cs/project/soar/member/doc/manuals/soar-5.2/pslev.mss, line 487
+    2.3.1. An example task: The Blocks World              7 /afs/cs/project/soar/member/doc/manuals/soar-5.2/pslev.mss, line 536
+                              ch-prob-spac-exam           7 /afs/cs/project/soar/member/doc/manuals/soar-5.2/pslev.mss, line 537
+                              Blocks-state 2-5            7 /afs/cs/project/soar/member/doc/manuals/soar-5.2/pslev.mss, line 564
+    2.3.2. Blocks World knowledge                         7 /afs/cs/project/soar/member/doc/manuals/soar-5.2/pslev.mss, line 567
+                              ch-prob-spac-bloc           7 /afs/cs/project/soar/member/doc/manuals/soar-5.2/pslev.mss, line 568
+    2.3.3. PSCM trace of Blocks World                     7 /afs/cs/project/soar/member/doc/manuals/soar-5.2/pslev.mss, line 675
+3. Semantics of the Symbol Level                          9 /afs/cs/project/soar/member/doc/manuals/soar-5.2/symlev.mss, line 9
+                              ch-abst-symb                9 /afs/cs/project/soar/member/doc/manuals/soar-5.2/symlev.mss, line 10
+  3.1. Overview                                           9 /afs/cs/project/soar/member/doc/manuals/soar-5.2/symlev.mss, line 15
+                              symb-over                   9 /afs/cs/project/soar/member/doc/manuals/soar-5.2/symlev.mss, line 16
+                              soar-structure 3-1          9 /afs/cs/project/soar/member/doc/manuals/soar-5.2/symlev.mss, line 197
+  3.2. Working memory                                     9 /afs/cs/project/soar/member/doc/manuals/soar-5.2/symlev.mss, line 200
+                              ch-abst-symb-work           9 /afs/cs/project/soar/member/doc/manuals/soar-5.2/symlev.mss, line 201
+                              soar-wm-structure 3-2       9 /afs/cs/project/soar/member/doc/manuals/soar-5.2/symlev.mss, line 231
+  3.3. Recognition memory                                10 /afs/cs/project/soar/member/doc/manuals/soar-5.2/symlev.mss, line 284
+                              ch-abst-symb-reco          10 /afs/cs/project/soar/member/doc/manuals/soar-5.2/symlev.mss, line 285
+  3.4. Preference memory                                 10 /afs/cs/project/soar/member/doc/manuals/soar-5.2/symlev.mss, line 324
+                              ch-abst-symb-pref          10 /afs/cs/project/soar/member/doc/manuals/soar-5.2/symlev.mss, line 325
+                              soar-pref 3-3              10 /afs/cs/project/soar/member/doc/manuals/soar-5.2/symlev.mss, line 400
+  3.5. Preference processing                             11 /afs/cs/project/soar/member/doc/manuals/soar-5.2/symlev.mss, line 542
+                              ch-abst-symb-pref-p        11 /afs/cs/project/soar/member/doc/manuals/soar-5.2/symlev.mss, line 543
+                              decisioncycle 3-4          11 /afs/cs/project/soar/member/doc/manuals/soar-5.2/symlev.mss, line 609
+    3.5.1. Preference semantics                          11 /afs/cs/project/soar/member/doc/manuals/soar-5.2/symlev.mss, line 612
+                              perf-pref-sema             11 /afs/cs/project/soar/member/doc/manuals/soar-5.2/symlev.mss, line 613
+  3.6. Impasses and subgoals                             13 /afs/cs/project/soar/member/doc/manuals/soar-5.2/symlev.mss, line 769
+                              ch-abst-symb-impa          13 /afs/cs/project/soar/member/doc/manuals/soar-5.2/symlev.mss, line 770
+    3.6.1. Impasses                                      13 /afs/cs/project/soar/member/doc/manuals/soar-5.2/symlev.mss, line 783
+                              preference-impasses        13 /afs/cs/project/soar/member/doc/manuals/soar-5.2/symlev.mss, line 784
+    3.6.2. Elimination of impasses                       13 /afs/cs/project/soar/member/doc/manuals/soar-5.2/symlev.mss, line 877
+                              elim-impa                  13 /afs/cs/project/soar/member/doc/manuals/soar-5.2/symlev.mss, line 878
+    3.6.3. Subgoal results                               13 /afs/cs/project/soar/member/doc/manuals/soar-5.2/symlev.mss, line 963
+                              subgoalresults             13 /afs/cs/project/soar/member/doc/manuals/soar-5.2/symlev.mss, line 964
+                              result 3-5                 13 /afs/cs/project/soar/member/doc/manuals/soar-5.2/symlev.mss, line 1009
+    3.6.4. Types of subgoals                             14 /afs/cs/project/soar/member/doc/manuals/soar-5.2/symlev.mss, line 1097
+  3.7. Learning                                          14 /afs/cs/project/soar/member/doc/manuals/soar-5.2/symlev.mss, line 1128
+                              ch-abst-symb-lear          14 /afs/cs/project/soar/member/doc/manuals/soar-5.2/symlev.mss, line 1131
+  3.8. Input and output                                  14 /afs/cs/project/soar/member/doc/manuals/soar-5.2/symlev.mss, line 1161
+                              ch-abst-symb-inpu          14 /afs/cs/project/soar/member/doc/manuals/soar-5.2/symlev.mss, line 1162
+  3.9. Default knowledge                                 14 /afs/cs/project/soar/member/doc/manuals/soar-5.2/symlev.mss, line 1193
+                              ch-abst-symb-defa          14 /afs/cs/project/soar/member/doc/manuals/soar-5.2/symlev.mss, line 1194
+  3.10. Encoding a task                                  14 /afs/cs/project/soar/member/doc/manuals/soar-5.2/symlev.mss, line 1204
+                              ch-abst-symb-impl          14 /afs/cs/project/soar/member/doc/manuals/soar-5.2/symlev.mss, line 1205
+    3.10.1. Initialization                               15 /afs/cs/project/soar/member/doc/manuals/soar-5.2/symlev.mss, line 1232
+                              ch-abst-symb-init          15 /afs/cs/project/soar/member/doc/manuals/soar-5.2/symlev.mss, line 1233
+    3.10.2. Proposal of the operator to perform the tas  15 /afs/cs/project/soar/member/doc/manuals/soar-5.2/symlev.mss, line 1254
+                              ch-abst-symb-prop-ope      15 /afs/cs/project/soar/member/doc/manuals/soar-5.2/symlev.mss, line 1255
+    3.10.3. Proposal of the initial problem space        15 /afs/cs/project/soar/member/doc/manuals/soar-5.2/symlev.mss, line 1285
+                              ch-abst-symb-prop-ini      15 /afs/cs/project/soar/member/doc/manuals/soar-5.2/symlev.mss, line 1286
+    3.10.4. Proposal of the initial state                15 /afs/cs/project/soar/member/doc/manuals/soar-5.2/symlev.mss, line 1318
+                              ch-abst-symb-prop-ini      15 /afs/cs/project/soar/member/doc/manuals/soar-5.2/symlev.mss, line 1319
+    3.10.5. Operator proposal                            15 /afs/cs/project/soar/member/doc/manuals/soar-5.2/symlev.mss, line 1352
+                              ch-abst-symb-oper-pro      15 /afs/cs/project/soar/member/doc/manuals/soar-5.2/symlev.mss, line 1353
+    3.10.6. Operator comparison                          15 /afs/cs/project/soar/member/doc/manuals/soar-5.2/symlev.mss, line 1390
+                              ch-abst-symb-oper-com      15 /afs/cs/project/soar/member/doc/manuals/soar-5.2/symlev.mss, line 1391
+    3.10.7. Operator application: External               15 /afs/cs/project/soar/member/doc/manuals/soar-5.2/symlev.mss, line 1450
+                              ch-abst-symb-oper-app      15 /afs/cs/project/soar/member/doc/manuals/soar-5.2/symlev.mss, line 1451
+    3.10.8. Operator termination                         16 /afs/cs/project/soar/member/doc/manuals/soar-5.2/symlev.mss, line 1493
+    3.10.9. Termination of task operator                 16 /afs/cs/project/soar/member/doc/manuals/soar-5.2/symlev.mss, line 1578
+                              ch-abst-symb-dete          16 /afs/cs/project/soar/member/doc/manuals/soar-5.2/symlev.mss, line 1579
+    3.10.10. Operator application: Internal              16 /afs/cs/project/soar/member/doc/manuals/soar-5.2/symlev.mss, line 1625
+                              ch-abst-symb-inte          16 /afs/cs/project/soar/member/doc/manuals/soar-5.2/symlev.mss, line 1628
+    3.10.11. Subgoaling and default productions          16 /afs/cs/project/soar/member/doc/manuals/soar-5.2/symlev.mss, line 1679
+                              ch-abst-symb-subg          16 /afs/cs/project/soar/member/doc/manuals/soar-5.2/symlev.mss, line 1680
+    3.10.12. Chunking                                    18 /afs/cs/project/soar/member/doc/manuals/soar-5.2/symlev.mss, line 1921
+                              ch-abst-symb-chun          18 /afs/cs/project/soar/member/doc/manuals/soar-5.2/symlev.mss, line 1922
+4. Syntax of the Symbol Level                            19 /afs/cs/project/soar/member/doc/manuals/soar-5.2/perform.mss, line 2
+                              performance                19 /afs/cs/project/soar/member/doc/manuals/soar-5.2/perform.mss, line 3
+  4.1. Working memory                                    19 /afs/cs/project/soar/member/doc/manuals/soar-5.2/perform.mss, line 85
+                              perf-work                  19 /afs/cs/project/soar/member/doc/manuals/soar-5.2/perform.mss, line 86
+    4.1.1. Objects and augmentations                     19 /afs/cs/project/soar/member/doc/manuals/soar-5.2/perform.mss, line 98
+                              perf-obje                  19 /afs/cs/project/soar/member/doc/manuals/soar-5.2/perform.mss, line 99
+    4.1.2. Goal contexts                                 19 /afs/cs/project/soar/member/doc/manuals/soar-5.2/perform.mss, line 178
+                              perf-goal-cont             19 /afs/cs/project/soar/member/doc/manuals/soar-5.2/perform.mss, line 179
+    4.1.3. Preferences                                   19 /afs/cs/project/soar/member/doc/manuals/soar-5.2/perform.mss, line 209
+                              perf-pref                  19 /afs/cs/project/soar/member/doc/manuals/soar-5.2/perform.mss, line 210
+  4.2. Production memory                                 19 /afs/cs/project/soar/member/doc/manuals/soar-5.2/perform.mss, line 244
+                              perf-reco                  19 /afs/cs/project/soar/member/doc/manuals/soar-5.2/perform.mss, line 245
+    4.2.1. The semantics of productions                  19 /afs/cs/project/soar/member/doc/manuals/soar-5.2/perform.mss, line 263
+                              perf-sema                  19 /afs/cs/project/soar/member/doc/manuals/soar-5.2/perform.mss, line 264
+    4.2.2. The condition side                            20 /afs/cs/project/soar/member/doc/manuals/soar-5.2/perform.mss, line 305
+                              perf-cond                  20 /afs/cs/project/soar/member/doc/manuals/soar-5.2/perform.mss, line 306
+      4.2.2.1. Linked conditions                         20 /afs/cs/project/soar/member/doc/manuals/soar-5.2/perform.mss, line 339
+                              perf-link                  20 /afs/cs/project/soar/member/doc/manuals/soar-5.2/perform.mss, line 340
+      4.2.2.2. Acceptable preferences                    20 /afs/cs/project/soar/member/doc/manuals/soar-5.2/perform.mss, line 353
+                              perf-acce                  20 /afs/cs/project/soar/member/doc/manuals/soar-5.2/perform.mss, line 354
+      4.2.2.3. Variables                                 20 /afs/cs/project/soar/member/doc/manuals/soar-5.2/perform.mss, line 380
+                              perf-vari                  20 /afs/cs/project/soar/member/doc/manuals/soar-5.2/perform.mss, line 381
+      4.2.2.4. Disjunctions of constants                 20 /afs/cs/project/soar/member/doc/manuals/soar-5.2/perform.mss, line 409
+                              perf-disj                  20 /afs/cs/project/soar/member/doc/manuals/soar-5.2/perform.mss, line 410
+      4.2.2.5. Predicates                                20 /afs/cs/project/soar/member/doc/manuals/soar-5.2/perform.mss, line 431
+                              perf-pred                  20 /afs/cs/project/soar/member/doc/manuals/soar-5.2/perform.mss, line 432
+      4.2.2.6. Conjunctive conditions                    20 /afs/cs/project/soar/member/doc/manuals/soar-5.2/perform.mss, line 478
+                              perf-conj                  20 /afs/cs/project/soar/member/doc/manuals/soar-5.2/perform.mss, line 479
+      4.2.2.7. Negated conditions                        20 /afs/cs/project/soar/member/doc/manuals/soar-5.2/perform.mss, line 501
+                              perf-nega-cond             20 /afs/cs/project/soar/member/doc/manuals/soar-5.2/perform.mss, line 502
+      4.2.2.8. Negated conjunctions of conditions        20 /afs/cs/project/soar/member/doc/manuals/soar-5.2/perform.mss, line 527
+                              perf-nega-conj             20 /afs/cs/project/soar/member/doc/manuals/soar-5.2/perform.mss, line 528
+    4.2.3. The action side                               21 /afs/cs/project/soar/member/doc/manuals/soar-5.2/perform.mss, line 553
+                              perf-act                   21 /afs/cs/project/soar/member/doc/manuals/soar-5.2/perform.mss, line 554
+      4.2.3.1. Creating preferences                      21 /afs/cs/project/soar/member/doc/manuals/soar-5.2/perform.mss, line 566
+      4.2.3.2. Production actions                        21 /afs/cs/project/soar/member/doc/manuals/soar-5.2/perform.mss, line 651
+                              perf-addi                  21 /afs/cs/project/soar/member/doc/manuals/soar-5.2/perform.mss, line 652
+    4.2.4. Efficiency issues                             21 /afs/cs/project/soar/member/doc/manuals/soar-5.2/perform.mss, line 765
+                              PROD-WORK-MEM-efficie      21 /afs/cs/project/soar/member/doc/manuals/soar-5.2/perform.mss, line 766
+  4.3. Impasses and subgoals                             22 /afs/cs/project/soar/member/doc/manuals/soar-5.2/perform.mss, line 860
+                              perf-impa                  22 /afs/cs/project/soar/member/doc/manuals/soar-5.2/perform.mss, line 861
+    4.3.1. Goal and impasse object augmentations         22 /afs/cs/project/soar/member/doc/manuals/soar-5.2/perform.mss, line 902
+                              perf-goal-impa             22 /afs/cs/project/soar/member/doc/manuals/soar-5.2/perform.mss, line 903
+5. Learning                                              23 /afs/cs/project/soar/member/doc/manuals/soar-5.2/chunking.mss, line 2
+                              chapter-chunking           23 /afs/cs/project/soar/member/doc/manuals/soar-5.2/chunking.mss, line 3
+  5.1. Chunk creation                                    23 /afs/cs/project/soar/member/doc/manuals/soar-5.2/chunking.mss, line 69
+                              CHUNKING-CHUNK-CREATI      23 /afs/cs/project/soar/member/doc/manuals/soar-5.2/chunking.mss, line 70
+  5.2. Determining conditions and actions                23 /afs/cs/project/soar/member/doc/manuals/soar-5.2/chunking.mss, line 138
+                              CHUNKING-DETERMINING-      23 /afs/cs/project/soar/member/doc/manuals/soar-5.2/chunking.mss, line 139
+    5.2.1. Determining a chunk's actions                 23 /afs/cs/project/soar/member/doc/manuals/soar-5.2/chunking.mss, line 151
+    5.2.2. Tracing the creation and reference of workin  23 /afs/cs/project/soar/member/doc/manuals/soar-5.2/chunking.mss, line 169
+    5.2.3. Determining a chunk's conditions              23 /afs/cs/project/soar/member/doc/manuals/soar-5.2/chunking.mss, line 205
+  5.3. Variablizing identifiers                          23 /afs/cs/project/soar/member/doc/manuals/soar-5.2/chunking.mss, line 251
+                              CHUNKING-VARIABLIZING      23 /afs/cs/project/soar/member/doc/manuals/soar-5.2/chunking.mss, line 252
+  5.4. Ordering conditions                               24 /afs/cs/project/soar/member/doc/manuals/soar-5.2/chunking.mss, line 294
+                              CHUNKING-ORDERING-CON      24 /afs/cs/project/soar/member/doc/manuals/soar-5.2/chunking.mss, line 295
+  5.5. Refractory inhibition of chunks                   24 /afs/cs/project/soar/member/doc/manuals/soar-5.2/chunking.mss, line 313
+                              CHUNKING-REFRACTORY-I      24 /afs/cs/project/soar/member/doc/manuals/soar-5.2/chunking.mss, line 314
+  5.6. Overgeneralization                                24 /afs/cs/project/soar/member/doc/manuals/soar-5.2/chunking.mss, line 326
+                              CHUNKING-OVER-GENERAL      24 /afs/cs/project/soar/member/doc/manuals/soar-5.2/chunking.mss, line 327
+6. Input and Output                                      26 /afs/cs/project/soar/member/doc/manuals/soar-5.2/io.mss, line 2
+                              IO                         26 /afs/cs/project/soar/member/doc/manuals/soar-5.2/io.mss, line 3
+  6.1. Overview                                          26 /afs/cs/project/soar/member/doc/manuals/soar-5.2/io.mss, line 96
+                              io-fig 6-1                 26 /afs/cs/project/soar/member/doc/manuals/soar-5.2/io.mss, line 130
+  6.2. Text I/O                                          26 /afs/cs/project/soar/member/doc/manuals/soar-5.2/io.mss, line 155
+                              IO-TEXT-IO                 26 /afs/cs/project/soar/member/doc/manuals/soar-5.2/io.mss, line 156
+    6.2.1. Text structures                               26 /afs/cs/project/soar/member/doc/manuals/soar-5.2/io.mss, line 187
+                              IO-TEXT-STRUCTURES         26 /afs/cs/project/soar/member/doc/manuals/soar-5.2/io.mss, line 188
+                              IO-TEXT-SAMPLE 6-2         26 /afs/cs/project/soar/member/doc/manuals/soar-5.2/io.mss, line 221
+    6.2.2. The text I/O environment in working wemory    26 /afs/cs/project/soar/member/doc/manuals/soar-5.2/io.mss, line 241
+                              IO-TEXT-ENVIRONMENT        26 /afs/cs/project/soar/member/doc/manuals/soar-5.2/io.mss, line 242
+    6.2.3. Activating text I/O                           27 /afs/cs/project/soar/member/doc/manuals/soar-5.2/io.mss, line 395
+                              IO-ACTIVATING-TEXT         27 /afs/cs/project/soar/member/doc/manuals/soar-5.2/io.mss, line 396
+    6.2.4. Text input                                    27 /afs/cs/project/soar/member/doc/manuals/soar-5.2/io.mss, line 414
+                              IO-TEXT-INPUT              27 /afs/cs/project/soar/member/doc/manuals/soar-5.2/io.mss, line 415
+      6.2.4.1. Character mode and carriage-control mode  27 /afs/cs/project/soar/member/doc/manuals/soar-5.2/io.mss, line 465
+      6.2.4.2. Saving text input                         27 /afs/cs/project/soar/member/doc/manuals/soar-5.2/io.mss, line 523
+                              IO-SAVING-TEXT             27 /afs/cs/project/soar/member/doc/manuals/soar-5.2/io.mss, line 524
+                              IO-SAVE-TEXT-FIG 6-3       27 /afs/cs/project/soar/member/doc/manuals/soar-5.2/io.mss, line 577
+      6.2.4.3. The readtable                             27 /afs/cs/project/soar/member/doc/manuals/soar-5.2/io.mss, line 581
+                              IO-READTABLE               27 /afs/cs/project/soar/member/doc/manuals/soar-5.2/io.mss, line 582
+                              IO-READTABLE-CHART 6-4     27 /afs/cs/project/soar/member/doc/manuals/soar-5.2/io.mss, line 627
+      6.2.4.4. Breaking a Soar run                       28 /afs/cs/project/soar/member/doc/manuals/soar-5.2/io.mss, line 706
+    6.2.5. Text output                                   28 /afs/cs/project/soar/member/doc/manuals/soar-5.2/io.mss, line 737
+      6.2.5.1. Carriage-control text objects             28 /afs/cs/project/soar/member/doc/manuals/soar-5.2/io.mss, line 821
+      6.2.5.2. Setting tabs                              28 /afs/cs/project/soar/member/doc/manuals/soar-5.2/io.mss, line 853
+      6.2.5.3. Write expansion functions                 28 /afs/cs/project/soar/member/doc/manuals/soar-5.2/io.mss, line 872
+                              IO-WRITE-EXPANSION         28 /afs/cs/project/soar/member/doc/manuals/soar-5.2/io.mss, line 873
+    6.2.6. Redirecting text I/O                          29 /afs/cs/project/soar/member/doc/manuals/soar-5.2/io.mss, line 937
+                              IO-REDIRECTING-TEXT        29 /afs/cs/project/soar/member/doc/manuals/soar-5.2/io.mss, line 938
+  6.3. General I/O                                       29 /afs/cs/project/soar/member/doc/manuals/soar-5.2/io.mss, line 1000
+                              IO-GENERAL                 29 /afs/cs/project/soar/member/doc/manuals/soar-5.2/io.mss, line 1001
+    6.3.1. Input and output structures                   29 /afs/cs/project/soar/member/doc/manuals/soar-5.2/io.mss, line 1029
+                              IO-STRUCTURES              29 /afs/cs/project/soar/member/doc/manuals/soar-5.2/io.mss, line 1030
+    6.3.2. General input                                 29 /afs/cs/project/soar/member/doc/manuals/soar-5.2/io.mss, line 1109
+                              IO-GENERAL-INPUT           29 /afs/cs/project/soar/member/doc/manuals/soar-5.2/io.mss, line 1110
+      6.3.2.1. Using input functions                     29 /afs/cs/project/soar/member/doc/manuals/soar-5.2/io.mss, line 1136
+      6.3.2.2. User-defined input functions              29 /afs/cs/project/soar/member/doc/manuals/soar-5.2/io.mss, line 1157
+                              IO-INPUT-FUNCTIONS         29 /afs/cs/project/soar/member/doc/manuals/soar-5.2/io.mss, line 1158
+      6.3.2.3. Input interface functions                 29 /afs/cs/project/soar/member/doc/manuals/soar-5.2/io.mss, line 1193
+                              IO-INPUT-INTERFACE         29 /afs/cs/project/soar/member/doc/manuals/soar-5.2/io.mss, line 1194
+      6.3.2.4. Simple examples of general input          30 /afs/cs/project/soar/member/doc/manuals/soar-5.2/io.mss, line 1354
+    6.3.3. General output                                31 /afs/cs/project/soar/member/doc/manuals/soar-5.2/io.mss, line 1492
+                              IO-GENERAL-OUTPUT          31 /afs/cs/project/soar/member/doc/manuals/soar-5.2/io.mss, line 1493
+      6.3.3.1. Using output functions                    31 /afs/cs/project/soar/member/doc/manuals/soar-5.2/io.mss, line 1523
+      6.3.3.2. Output mappings                           31 /afs/cs/project/soar/member/doc/manuals/soar-5.2/io.mss, line 1542
+                              IO-OUTPUT-MAPPINGS         31 /afs/cs/project/soar/member/doc/manuals/soar-5.2/io.mss, line 1543
+      6.3.3.3. User-defined output functions             31 /afs/cs/project/soar/member/doc/manuals/soar-5.2/io.mss, line 1571
+                              IO-OUTPUT-FUNCTIONS        31 /afs/cs/project/soar/member/doc/manuals/soar-5.2/io.mss, line 1572
+      6.3.3.4. Output interface functions                31 /afs/cs/project/soar/member/doc/manuals/soar-5.2/io.mss, line 1580
+                              IO-OUTPUT-INTERFACE        31 /afs/cs/project/soar/member/doc/manuals/soar-5.2/io.mss, line 1581
+      6.3.3.5. A simple example of general output        31 /afs/cs/project/soar/member/doc/manuals/soar-5.2/io.mss, line 1608
+      6.3.3.6. Using a multi-level output structure      31 /afs/cs/project/soar/member/doc/manuals/soar-5.2/io.mss, line 1662
+                              IO-output-example-2        31 /afs/cs/project/soar/member/doc/manuals/soar-5.2/io.mss, line 1663
+7. Default Knowledge                                     33 /afs/cs/project/soar/member/doc/manuals/soar-5.2/default.mss, line 2
+                              Default                    33 /afs/cs/project/soar/member/doc/manuals/soar-5.2/default.mss, line 3
+  7.1. The top context                                   33 /afs/cs/project/soar/member/doc/manuals/soar-5.2/default.mss, line 105
+                              defa-topc                  33 /afs/cs/project/soar/member/doc/manuals/soar-5.2/default.mss, line 106
+  7.2. Responding to impasses                            33 /afs/cs/project/soar/member/doc/manuals/soar-5.2/default.mss, line 124
+                              defa-defa                  33 /afs/cs/project/soar/member/doc/manuals/soar-5.2/default.mss, line 125
+    7.2.1. Multi-choice impasses                         33 /afs/cs/project/soar/member/doc/manuals/soar-5.2/default.mss, line 134
+                              defa-mult                  33 /afs/cs/project/soar/member/doc/manuals/soar-5.2/default.mss, line 135
+    7.2.2. Operator no-change impasses                   33 /afs/cs/project/soar/member/doc/manuals/soar-5.2/default.mss, line 164
+                              defa-no-chan               33 /afs/cs/project/soar/member/doc/manuals/soar-5.2/default.mss, line 165
+    7.2.3. Other no-change impasses                      33 /afs/cs/project/soar/member/doc/manuals/soar-5.2/default.mss, line 193
+                              defa-no-chan-impa          33 /afs/cs/project/soar/member/doc/manuals/soar-5.2/default.mss, line 194
+    7.2.4. Constraint-failure impasses                   33 /afs/cs/project/soar/member/doc/manuals/soar-5.2/default.mss, line 212
+                              defa-cons                  33 /afs/cs/project/soar/member/doc/manuals/soar-5.2/default.mss, line 213
+  7.3. The selection space for multi-choice impasses     33 /afs/cs/project/soar/member/doc/manuals/soar-5.2/default.mss, line 237
+                              defa-look                  33 /afs/cs/project/soar/member/doc/manuals/soar-5.2/default.mss, line 238
+    7.3.1. The evaluate-object operator                  33 /afs/cs/project/soar/member/doc/manuals/soar-5.2/default.mss, line 282
+                              defa-eval-obje-oper        33 /afs/cs/project/soar/member/doc/manuals/soar-5.2/default.mss, line 283
+      7.3.1.1. Evaluation objects                        34 /afs/cs/project/soar/member/doc/manuals/soar-5.2/default.mss, line 354
+                              defa-eval-obje             34 /afs/cs/project/soar/member/doc/manuals/soar-5.2/default.mss, line 355
+      7.3.1.2. Applying the evaluate-object operator     34 /afs/cs/project/soar/member/doc/manuals/soar-5.2/default.mss, line 421
+                              defa-appl                  34 /afs/cs/project/soar/member/doc/manuals/soar-5.2/default.mss, line 422
+    7.3.2. The evaluation subgoal                        34 /afs/cs/project/soar/member/doc/manuals/soar-5.2/default.mss, line 442
+      7.3.2.1. State copying                             34 /afs/cs/project/soar/member/doc/manuals/soar-5.2/default.mss, line 456
+                              statecopying               34 /afs/cs/project/soar/member/doc/manuals/soar-5.2/default.mss, line 457
+      7.3.2.2. State copying example                     35 /afs/cs/project/soar/member/doc/manuals/soar-5.2/default.mss, line 656
+      7.3.2.3. Operator copying                          35 /afs/cs/project/soar/member/doc/manuals/soar-5.2/default.mss, line 719
+                              op-copy                    35 /afs/cs/project/soar/member/doc/manuals/soar-5.2/default.mss, line 720
+    7.3.3. Computing evaluations                         35 /afs/cs/project/soar/member/doc/manuals/soar-5.2/default.mss, line 749
+                              defa-comp-eval             35 /afs/cs/project/soar/member/doc/manuals/soar-5.2/default.mss, line 750
+      7.3.3.1. Computing numeric evaluations             35 /afs/cs/project/soar/member/doc/manuals/soar-5.2/default.mss, line 757
+                              defa-comp-nume-eval-1      35 /afs/cs/project/soar/member/doc/manuals/soar-5.2/default.mss, line 758
+      7.3.3.2. Comparing numeric evaluations             35 /afs/cs/project/soar/member/doc/manuals/soar-5.2/default.mss, line 790
+                              defa-comp-nume-eval-2      35 /afs/cs/project/soar/member/doc/manuals/soar-5.2/default.mss, line 791
+      7.3.3.3. Computing symbolic evaluations            36 /afs/cs/project/soar/member/doc/manuals/soar-5.2/default.mss, line 814
+                              defa-comp-symb-eval-1      36 /afs/cs/project/soar/member/doc/manuals/soar-5.2/default.mss, line 815
+      7.3.3.4. Default evaluations                       36 /afs/cs/project/soar/member/doc/manuals/soar-5.2/default.mss, line 898
+                              defa-eval                  36 /afs/cs/project/soar/member/doc/manuals/soar-5.2/default.mss, line 899
+      7.3.3.5. Novalue evaluations                       36 /afs/cs/project/soar/member/doc/manuals/soar-5.2/default.mss, line 920
+                              defa-nova                  36 /afs/cs/project/soar/member/doc/manuals/soar-5.2/default.mss, line 921
+    7.3.4. Halting Soar with success or failure          36 /afs/cs/project/soar/member/doc/manuals/soar-5.2/default.mss, line 953
+                              defa-succ                  36 /afs/cs/project/soar/member/doc/manuals/soar-5.2/default.mss, line 954
+  7.4. Operator subgoaling                               36 /afs/cs/project/soar/member/doc/manuals/soar-5.2/default.mss, line 991
+                              defa-oper                  36 /afs/cs/project/soar/member/doc/manuals/soar-5.2/default.mss, line 992
+  7.5. Execution monitoring                              36 /afs/cs/project/soar/member/doc/manuals/soar-5.2/default.mss, line 1024
+                              defa-moni                  36 /afs/cs/project/soar/member/doc/manuals/soar-5.2/default.mss, line 1025
+8. Encoding A Task in Soar                               37 /afs/cs/project/soar/member/doc/manuals/soar-5.2/encoding-task.mss, line 2
+                              encoding-task              37 /afs/cs/project/soar/member/doc/manuals/soar-5.2/encoding-task.mss, line 3
+  8.1. Task representation                               37 /afs/cs/project/soar/member/doc/manuals/soar-5.2/encoding-task.mss, line 102
+    8.1.1. Object representation issues                  37 /afs/cs/project/soar/member/doc/manuals/soar-5.2/encoding-task.mss, line 109
+                              CH-GETTING-STARTED-ex      37 /afs/cs/project/soar/member/doc/manuals/soar-5.2/encoding-task.mss, line 110
+      8.1.1.1. Constants                                 37 /afs/cs/project/soar/member/doc/manuals/soar-5.2/encoding-task.mss, line 143
+                              enco-cons                  37 /afs/cs/project/soar/member/doc/manuals/soar-5.2/encoding-task.mss, line 144
+      8.1.1.2. Predicates                                37 /afs/cs/project/soar/member/doc/manuals/soar-5.2/encoding-task.mss, line 210
+      8.1.1.3. Functional overloading                    38 /afs/cs/project/soar/member/doc/manuals/soar-5.2/encoding-task.mss, line 262
+      8.1.1.4. Disjunctive tests                         38 /afs/cs/project/soar/member/doc/manuals/soar-5.2/encoding-task.mss, line 283
+    8.1.2. State representation issues                   38 /afs/cs/project/soar/member/doc/manuals/soar-5.2/encoding-task.mss, line 336
+                              enco-stat-repr             38 /afs/cs/project/soar/member/doc/manuals/soar-5.2/encoding-task.mss, line 337
+  8.2. Initialization                                    39 /afs/cs/project/soar/member/doc/manuals/soar-5.2/encoding-task.mss, line 575
+                              traceinitialization        39 /afs/cs/project/soar/member/doc/manuals/soar-5.2/encoding-task.mss, line 576
+    8.2.1. Starting up soar                              39 /afs/cs/project/soar/member/doc/manuals/soar-5.2/encoding-task.mss, line 582
+    8.2.2. Initializing Soar to run a task               39 /afs/cs/project/soar/member/doc/manuals/soar-5.2/encoding-task.mss, line 666
+                              subsec-init-soar           39 /afs/cs/project/soar/member/doc/manuals/soar-5.2/encoding-task.mss, line 667
+  8.3. Proposal of the operator to perform the task      40 /afs/cs/project/soar/member/doc/manuals/soar-5.2/encoding-task.mss, line 896
+  8.4. Subgoal creation for operator application         41 /afs/cs/project/soar/member/doc/manuals/soar-5.2/encoding-task.mss, line 1030
+  8.5. Problem space proposal for subgoal                41 /afs/cs/project/soar/member/doc/manuals/soar-5.2/encoding-task.mss, line 1076
+                              GET-START-problem-spa      41 /afs/cs/project/soar/member/doc/manuals/soar-5.2/encoding-task.mss, line 1077
+  8.6. Problem space refinement                          41 /afs/cs/project/soar/member/doc/manuals/soar-5.2/encoding-task.mss, line 1118
+  8.7. Proposal of the initial state                     41 /afs/cs/project/soar/member/doc/manuals/soar-5.2/encoding-task.mss, line 1130
+  8.8. Operator proposal                                 42 /afs/cs/project/soar/member/doc/manuals/soar-5.2/encoding-task.mss, line 1203
+                              ENCODING-OP-CREATION       42 /afs/cs/project/soar/member/doc/manuals/soar-5.2/encoding-task.mss, line 1204
+  8.9. Operator comparison                               42 /afs/cs/project/soar/member/doc/manuals/soar-5.2/encoding-task.mss, line 1258
+  8.10. Operator application                             43 /afs/cs/project/soar/member/doc/manuals/soar-5.2/encoding-task.mss, line 1538
+                              ENCODING-OP-APPLICATI      43 /afs/cs/project/soar/member/doc/manuals/soar-5.2/encoding-task.mss, line 1539
+  8.11. Operator termination                             44 /afs/cs/project/soar/member/doc/manuals/soar-5.2/encoding-task.mss, line 1690
+  8.12. Task operator termination                        44 /afs/cs/project/soar/member/doc/manuals/soar-5.2/encoding-task.mss, line 1794
+                              GET-START-goals            44 /afs/cs/project/soar/member/doc/manuals/soar-5.2/encoding-task.mss, line 1795
+  8.13. Using lookahead search                           45 /afs/cs/project/soar/member/doc/manuals/soar-5.2/encoding-task.mss, line 1855
+                              lookahead                  45 /afs/cs/project/soar/member/doc/manuals/soar-5.2/encoding-task.mss, line 1856
+    8.13.1. State copying                                45 /afs/cs/project/soar/member/doc/manuals/soar-5.2/encoding-task.mss, line 1867
+                              tracestatecopy             45 /afs/cs/project/soar/member/doc/manuals/soar-5.2/encoding-task.mss, line 1868
+    8.13.2. Operator application                         45 /afs/cs/project/soar/member/doc/manuals/soar-5.2/encoding-task.mss, line 1922
+    8.13.3. Evaluating states                            45 /afs/cs/project/soar/member/doc/manuals/soar-5.2/encoding-task.mss, line 1944
+    8.13.4. Search control                               45 /afs/cs/project/soar/member/doc/manuals/soar-5.2/encoding-task.mss, line 1992
+9. Top-Level Variables and Functions                     48 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 2
+                              variables-functions        48 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 3
+  9.1. Soar global variables                             48 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 114
+    9.1.1. @b(*chunk-free-problem-spaces*)               48 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 117
+                              *chunk-free-problem-s      48 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 118
+    9.1.2. @b(*default-user-select*)                     48 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 139
+                              *default-user-select*      48 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 140
+    9.1.3. @b(*max-chunk-conditions*)                    48 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 148
+                              *max-chunk-conditions      48 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 149
+    9.1.4. @b(*max-elaborations*)                        48 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 155
+                              *max-elaborations*         48 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 156
+    9.1.5. @b[*mem-array-size*]                          48 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 165
+                              *mem-array-size*           48 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 166
+    9.1.6. @b[*pfired*]                                  48 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 178
+                              *pfired*                   48 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 179
+    9.1.7. @b(*spo-default-depth*)                       48 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 188
+                              *spo-default-depth*        48 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 189
+    9.1.8. @b(*subgoal-tabs*)                            48 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 195
+                              *subgoal-tabs*             48 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 196
+    9.1.9. @b(*warning*)                                 48 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 204
+                              *warning*                  48 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 205
+    9.1.10. @b(*watch-free-problem-spaces*)              48 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 211
+                              *watch-free-problem-s      48 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 212
+  9.2. Initializing Soar                                 48 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 219
+    9.2.1. init-soar                                     48 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 222
+                              init-soar                  48 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 223
+    9.2.2. restart-soar                                  48 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 234
+                              restart-soar               48 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 235
+  9.3. Setting the initial environment                   48 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 248
+    9.3.1. init-context [G] [P] [S] [O]                  48 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 253
+                              init-context               48 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 254
+    9.3.2. init-task                                     48 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 278
+                              init-task                  48 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 279
+    9.3.3. init-wm [X] [*]                               48 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 301
+                              init-wm                    48 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 302
+    9.3.4. learn [A] [*]                                 49 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 347
+    9.3.5. lispsyntax                                    49 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 353
+                              lispsyntax                 49 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 354
+    9.3.6. set-learning-choice                           49 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 362
+                              set-learning-choice        49 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 363
+    9.3.7. set-user-select                               49 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 374
+                              set-user-select            49 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 375
+    9.3.8. soar-menu "string" L                          49 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 387
+                              soar-menu                  49 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 388
+    9.3.9. soarsyntax                                    49 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 409
+                              soarsyntax                 49 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 410
+    9.3.10. soarsyntaxp                                  49 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 417
+                              soarsyntaxp                49 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 418
+    9.3.11. user-select [X]                              49 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 426
+                              user-select                49 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 427
+  9.4. Loading productions                               49 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 467
+    9.4.1. load "filename"                               49 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 470
+                              load                       49 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 471
+    9.4.2. start-default                                 49 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 480
+                              start-default              49 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 481
+    9.4.3. stop-default                                  49 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 495
+                              stop-default               49 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 496
+  9.5. Running and breaking Soar                         49 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 509
+    9.5.1. d [N]                                         49 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 512
+                              d                          49 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 513
+    9.5.2. pbreak [X] [*]                                49 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 526
+                              pbreak                     49 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 527
+    9.5.3. run [N] [X]                                   50 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 599
+                              run                        50 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 600
+    9.5.4. run-task [N]                                  50 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 686
+                              run-task                   50 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 687
+    9.5.5. unpbreak [X] [*]                              50 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 703
+                              unpbreak                   50 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 704
+  9.6. Tracing decisions, productions, and objects       50 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 741
+    9.6.1. decide-trace [X]                              50 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 744
+                              decide-trace               50 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 745
+    9.6.2. ptrace [X] [*]                                50 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 787
+                              ptrace                     50 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 788
+    9.6.3. trace-attributes L                            51 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 888
+                              trace-attributes           51 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 889
+    9.6.4. unptrace [X] [*]                              51 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 923
+                              unptrace                   51 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 924
+    9.6.5. untrace-attributes L                          51 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 936
+                              untrace-attributes         51 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 937
+    9.6.6. watch [N] [T]                                 51 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 947
+                              watch                      51 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 948
+  9.7. Displaying working memory                         52 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1077
+    9.7.1. back-trace [I] [G]                            52 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1080
+                              back-trace                 52 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1081
+    9.7.2. pgs                                           52 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1201
+                              pgs                        52 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1202
+    9.7.3. po I                                          52 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1229
+                              po                         52 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1230
+    9.7.4. spo I [* D]                                   52 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1263
+                              spo                        52 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1264
+    9.7.5. spr X [*]                                     53 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1285
+                              spr                        53 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1286
+    9.7.6. ppwm [X] [*]                                  53 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1302
+                              ppwm                       53 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1303
+    9.7.7. sppwm [X] [*]                                 53 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1321
+                              sppwm                      53 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1322
+    9.7.8. swm N [*]                                     53 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1340
+                              swm                        53 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1341
+    9.7.9. wm N [*]                                      53 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1355
+                              wm                         53 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1356
+  9.8. Displaying preference memory                      53 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1375
+    9.8.1. preferences O A                               53 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1378
+                              preferences                53 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1379
+    9.8.2. tally O A                                     53 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1400
+                              tally                      53 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1401
+  9.9. Displaying production memory                      53 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1437
+    9.9.1. ms                                            53 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1440
+                              ms                         53 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1441
+    9.9.2. full-matches P [*]                            53 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1467
+                              full-matches               53 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1468
+    9.9.3. memories [N]                                  54 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1529
+    9.9.4. pfired [D]                                    54 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1535
+                              pfired                     54 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1536
+    9.9.5. pi P [N]                                      54 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1557
+                              pi                         54 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1558
+    9.9.6. pm P [*]                                      54 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1581
+                              pm                         54 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1582
+    9.9.7. smatches P [*]                                54 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1603
+                              smatches                   54 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1604
+    9.9.8. spm P [*]                                     54 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1625
+                              spm                        54 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1626
+    9.9.9. spr X [*]                                     54 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1646
+  9.10. Displaying other information                     54 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1672
+    9.10.1. print-stats                                  54 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1675
+                              print-stats                54 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1676
+    9.10.2. soarnews                                     55 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1761
+                              soarnews                   55 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1762
+  9.11. Changing working memory                          55 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1773
+    9.11.1. init-context [G] [P] [S] [O]                 55 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1776
+    9.11.2. init-wm [X] [*]                              55 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1782
+    9.11.3. pop-goal [X]                                 55 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1788
+                              pop-goal                   55 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1789
+  9.12. Changing preference memory                       55 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1839
+    9.12.1. pop-goal [X]                                 55 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1842
+    9.12.2. smake X                                      55 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1848
+                              smake                      55 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1849
+    9.12.3. sremove N [*]                                55 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1873
+                              sremove                    55 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1874
+  9.13. Changing production memory                       55 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1893
+    9.13.1. excise P [*]                                 55 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1896
+                              excise                     55 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1897
+    9.13.2. excise-chunks                                55 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1910
+    9.13.3. excise-task                                  55 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1916
+                              excise-task                55 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1917
+    9.13.4. op-apps L                                    55 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1931
+                              op-apps                    55 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1932
+    9.13.5. op-apps-undo L                               55 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1948
+                              op-apps-undo               55 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1949
+    9.13.6. sp X                                         55 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1963
+                              sp                         55 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1964
+  9.14. Justifications                                   55 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1983
+    9.14.1. last-justification                           55 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1986
+                              last-justification         55 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1987
+    9.14.2. list-justifications ["filename"]             56 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1995
+                              list-justifications        56 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1996
+  9.15. Learning                                         56 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 2007
+    9.15.1. excise-chunks                                56 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 2010
+                              excise-chunks              56 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 2011
+    9.15.2. last-chunk                                   56 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 2027
+                              last-chunk                 56 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 2028
+    9.15.3. learn [A] [*]                                56 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 2052
+                              VF-learn                   56 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 2053
+    9.15.4. list-chunks ["filename"]                     56 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 2095
+                              list-chunks                56 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 2096
+    9.15.5. set-learning-choice                          56 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 2109
+  9.16. Input and output                                 56 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 2122
+                              VAR-FUNC-io                56 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 2124
+    9.16.1. set-break-char X                             56 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 2126
+                              set-break-char             56 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 2127
+    9.16.2. set-carriage-control X                       56 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 2141
+                              set-carriage-control       56 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 2142
+    9.16.3. set-char-mode X                              56 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 2158
+                              set-char-mode              56 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 2159
+    9.16.4. set-input-functions L                        56 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 2173
+                              set-input-functions        56 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 2174
+    9.16.5. set-macro-character X Y Z R                  56 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 2209
+                              set-macro-character        56 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 2210
+    9.16.6. set-output-mappings L                        56 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 2232
+                              set-output-mappings        56 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 2233
+    9.16.7. set-text-input X                             57 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 2252
+                              set-text-input             57 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 2253
+    9.16.8. set-text-input-stream X                      57 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 2264
+                              set-text-input-stream      57 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 2265
+    9.16.9. set-text-output X                            57 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 2276
+                              set-text-output            57 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 2277
+    9.16.10. set-text-output-stream X                    57 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 2288
+                              set-text-output-strea      57 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 2289
+    9.16.11. set-tab-settings N [*]                      57 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 2300
+                              set-tab-settings           57 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 2301
+  9.17. Increasing and checking efficiency               57 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 2313
+    9.17.1. multi-attributes L                           57 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 2316
+                              multi-attributes           57 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 2317
+    9.17.2. memories [N]                                 57 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 2338
+                              memories                   57 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 2339
+    9.17.3. print-stats                                  57 /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 2359
+I. Glossary of Terms                                     58 /afs/cs/project/soar/member/doc/manuals/soar-5.2/glossary.mss, line 2
+                              APP-GLOSSARY               58 /afs/cs/project/soar/member/doc/manuals/soar-5.2/glossary.mss, line 3
+II. Templates for Common PSCM Operations                 59 /afs/cs/project/soar/member/doc/manuals/soar-5.2/app-temp.mss, line 2
+                              app-temp                   59 /afs/cs/project/soar/member/doc/manuals/soar-5.2/app-temp.mss, line 3
+ References                                              61 /afs/cs/project/soar/member/doc/manuals/soar-5.2/bib.mss, line 2
+ Index                                                   67 Scribef04797, line 3
+ Function Summary and Index                              69 /afs/cs/project/soar/member/doc/manuals/soar-5.2/func-sum.mss, line 2
+                              func-sum                   69 /afs/cs/project/soar/member/doc/manuals/soar-5.2/func-sum.mss, line 3
+ Table of Contents                                       70 Scribec04797, line 2
+ List of Figures                                          2 Scribee04797, line 3
+	Alphabetic Listing of Cross-Reference Tags and Labels
+
+Tag or Label Name                    Page   Label Value  Source file Location
+-----------------------------------------------------------------------------
+*CHUNK-FREE-PROBLEM-SPACES*            48       9.1.1  /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 118
+*DEFAULT-USER-SELECT*                  48       9.1.2  /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 140
+*MAX-CHUNK-CONDITIONS*                 48       9.1.3  /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 149
+*MAX-ELABORATIONS*                     48       9.1.4  /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 156
+*MEM-ARRAY-SIZE*                       48       9.1.5  /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 166
+*PFIRED*                               48       9.1.6  /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 179
+*SPO-DEFAULT-DEPTH*                    48       9.1.7  /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 189
+*SUBGOAL-TABS*                         48       9.1.8  /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 196
+*WARNING*                              48       9.1.9  /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 205
+*WATCH-FREE-PROBLEM-SPACES*            48      9.1.10  /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 212
+APP-GLOSSARY                           58           I  /afs/cs/project/soar/member/doc/manuals/soar-5.2/glossary.mss, line 3
+APP-TEMP                               59          II  /afs/cs/project/soar/member/doc/manuals/soar-5.2/app-temp.mss, line 3
+BACK-TRACE                             52       9.7.1  /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1081
+BLOCKS-HIERARCHY                        5         2-4  /afs/cs/project/soar/member/doc/manuals/soar-5.2/pslev.mss, line 237
+BLOCKS-IMPASSE                          5         2-3  /afs/cs/project/soar/member/doc/manuals/soar-5.2/pslev.mss, line 175
+BLOCKS-PROBLEM-SPACE                    5         2-1  /afs/cs/project/soar/member/doc/manuals/soar-5.2/pslev.mss, line 55
+BLOCKS-STATE                            7         2-5  /afs/cs/project/soar/member/doc/manuals/soar-5.2/pslev.mss, line 564
+BLOCKSWORLDSTATE                        5         2-2  /afs/cs/project/soar/member/doc/manuals/soar-5.2/pslev.mss, line 80
+CH-ABST-SYMB                            9           3  /afs/cs/project/soar/member/doc/manuals/soar-5.2/symlev.mss, line 10
+CH-ABST-SYMB-CHUN                      18     3.10.12  /afs/cs/project/soar/member/doc/manuals/soar-5.2/symlev.mss, line 1922
+CH-ABST-SYMB-DEFA                      14         3.9  /afs/cs/project/soar/member/doc/manuals/soar-5.2/symlev.mss, line 1194
+CH-ABST-SYMB-DETE                      16      3.10.9  /afs/cs/project/soar/member/doc/manuals/soar-5.2/symlev.mss, line 1579
+CH-ABST-SYMB-IMPA                      13         3.6  /afs/cs/project/soar/member/doc/manuals/soar-5.2/symlev.mss, line 770
+CH-ABST-SYMB-IMPL                      14        3.10  /afs/cs/project/soar/member/doc/manuals/soar-5.2/symlev.mss, line 1205
+CH-ABST-SYMB-INIT                      15      3.10.1  /afs/cs/project/soar/member/doc/manuals/soar-5.2/symlev.mss, line 1233
+CH-ABST-SYMB-INPU                      14         3.8  /afs/cs/project/soar/member/doc/manuals/soar-5.2/symlev.mss, line 1162
+CH-ABST-SYMB-INTE                      16     3.10.10  /afs/cs/project/soar/member/doc/manuals/soar-5.2/symlev.mss, line 1628
+CH-ABST-SYMB-LEAR                      14         3.7  /afs/cs/project/soar/member/doc/manuals/soar-5.2/symlev.mss, line 1131
+CH-ABST-SYMB-OPER-APPL                 15      3.10.7  /afs/cs/project/soar/member/doc/manuals/soar-5.2/symlev.mss, line 1451
+CH-ABST-SYMB-OPER-COMP                 15      3.10.6  /afs/cs/project/soar/member/doc/manuals/soar-5.2/symlev.mss, line 1391
+CH-ABST-SYMB-OPER-PROP                 15      3.10.5  /afs/cs/project/soar/member/doc/manuals/soar-5.2/symlev.mss, line 1353
+CH-ABST-SYMB-PREF                      10         3.4  /afs/cs/project/soar/member/doc/manuals/soar-5.2/symlev.mss, line 325
+CH-ABST-SYMB-PREF-P                    11         3.5  /afs/cs/project/soar/member/doc/manuals/soar-5.2/symlev.mss, line 543
+CH-ABST-SYMB-PROP-INIT-PROB            15      3.10.3  /afs/cs/project/soar/member/doc/manuals/soar-5.2/symlev.mss, line 1286
+CH-ABST-SYMB-PROP-INIT-STAT            15      3.10.4  /afs/cs/project/soar/member/doc/manuals/soar-5.2/symlev.mss, line 1319
+CH-ABST-SYMB-PROP-OPER                 15      3.10.2  /afs/cs/project/soar/member/doc/manuals/soar-5.2/symlev.mss, line 1255
+CH-ABST-SYMB-RECO                      10         3.3  /afs/cs/project/soar/member/doc/manuals/soar-5.2/symlev.mss, line 285
+CH-ABST-SYMB-SUBG                      16     3.10.11  /afs/cs/project/soar/member/doc/manuals/soar-5.2/symlev.mss, line 1680
+CH-ABST-SYMB-WORK                       9         3.2  /afs/cs/project/soar/member/doc/manuals/soar-5.2/symlev.mss, line 201
+CH-GETTING-STARTED-EXAMPLE1            37       8.1.1  /afs/cs/project/soar/member/doc/manuals/soar-5.2/encoding-task.mss, line 110
+CH-PROB-SPAC                            5           2  /afs/cs/project/soar/member/doc/manuals/soar-5.2/pslev.mss, line 10
+CH-PROB-SPAC-BLOC                       7       2.3.2  /afs/cs/project/soar/member/doc/manuals/soar-5.2/pslev.mss, line 568
+CH-PROB-SPAC-EXAM                       7       2.3.1  /afs/cs/project/soar/member/doc/manuals/soar-5.2/pslev.mss, line 537
+CH-PROB-SPAC-IMPL-PSCM                  6       2.2.2  /afs/cs/project/soar/member/doc/manuals/soar-5.2/pslev.mss, line 443
+CH-PROB-SPAC-IMPL-TASK                  7         2.3  /afs/cs/project/soar/member/doc/manuals/soar-5.2/pslev.mss, line 487
+CH-PROB-SPAC-OVER                       5         2.1  /afs/cs/project/soar/member/doc/manuals/soar-5.2/pslev.mss, line 16
+CH-PROB-SPAC-PROB                       6         2.2  /afs/cs/project/soar/member/doc/manuals/soar-5.2/pslev.mss, line 271
+CH-PROB-SPAC-PSCM                       6       2.2.1  /afs/cs/project/soar/member/doc/manuals/soar-5.2/pslev.mss, line 289
+CHAPTER-CHUNKING                       23           5  /afs/cs/project/soar/member/doc/manuals/soar-5.2/chunking.mss, line 3
+CHAPTER-PREFACE                         1              /afs/cs/project/soar/member/doc/manuals/soar-5.2/preface.mss, line 12
+CHUNKING-CHUNK-CREATION                23         5.1  /afs/cs/project/soar/member/doc/manuals/soar-5.2/chunking.mss, line 70
+CHUNKING-DETERMINING-CONDITIONS        23         5.2  /afs/cs/project/soar/member/doc/manuals/soar-5.2/chunking.mss, line 139
+CHUNKING-ORDERING-CONDITIONS           24         5.4  /afs/cs/project/soar/member/doc/manuals/soar-5.2/chunking.mss, line 295
+CHUNKING-OVER-GENERALIZATION           24         5.6  /afs/cs/project/soar/member/doc/manuals/soar-5.2/chunking.mss, line 327
+CHUNKING-REFRACTORY-INHIBITION         24         5.5  /afs/cs/project/soar/member/doc/manuals/soar-5.2/chunking.mss, line 314
+CHUNKING-VARIABLIZING-IDENTIFIERS      23         5.3  /afs/cs/project/soar/member/doc/manuals/soar-5.2/chunking.mss, line 252
+D                                      49       9.5.1  /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 513
+DECIDE-TRACE                           50       9.6.1  /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 745
+DECISIONCYCLE                          12         3-4  /afs/cs/project/soar/member/doc/manuals/soar-5.2/symlev.mss, line 609
+DEFA-APPL                              34     7.3.1.2  /afs/cs/project/soar/member/doc/manuals/soar-5.2/default.mss, line 422
+DEFA-COMP-EVAL                         35       7.3.3  /afs/cs/project/soar/member/doc/manuals/soar-5.2/default.mss, line 750
+DEFA-COMP-NUME-EVAL-1                  35     7.3.3.1  /afs/cs/project/soar/member/doc/manuals/soar-5.2/default.mss, line 758
+DEFA-COMP-NUME-EVAL-2                  35     7.3.3.2  /afs/cs/project/soar/member/doc/manuals/soar-5.2/default.mss, line 791
+DEFA-COMP-SYMB-EVAL-1                  36     7.3.3.3  /afs/cs/project/soar/member/doc/manuals/soar-5.2/default.mss, line 815
+DEFA-CONS                              33       7.2.4  /afs/cs/project/soar/member/doc/manuals/soar-5.2/default.mss, line 213
+DEFA-DEFA                              33         7.2  /afs/cs/project/soar/member/doc/manuals/soar-5.2/default.mss, line 125
+DEFA-EVAL                              36     7.3.3.4  /afs/cs/project/soar/member/doc/manuals/soar-5.2/default.mss, line 899
+DEFA-EVAL-OBJE                         34     7.3.1.1  /afs/cs/project/soar/member/doc/manuals/soar-5.2/default.mss, line 355
+DEFA-EVAL-OBJE-OPER                    33       7.3.1  /afs/cs/project/soar/member/doc/manuals/soar-5.2/default.mss, line 283
+DEFA-LOOK                              33         7.3  /afs/cs/project/soar/member/doc/manuals/soar-5.2/default.mss, line 238
+DEFA-MONI                              36         7.5  /afs/cs/project/soar/member/doc/manuals/soar-5.2/default.mss, line 1025
+DEFA-MULT                              33       7.2.1  /afs/cs/project/soar/member/doc/manuals/soar-5.2/default.mss, line 135
+DEFA-NO-CHAN                           33       7.2.2  /afs/cs/project/soar/member/doc/manuals/soar-5.2/default.mss, line 165
+DEFA-NO-CHAN-IMPA                      33       7.2.3  /afs/cs/project/soar/member/doc/manuals/soar-5.2/default.mss, line 194
+DEFA-NOVA                              36     7.3.3.5  /afs/cs/project/soar/member/doc/manuals/soar-5.2/default.mss, line 921
+DEFA-OPER                              36         7.4  /afs/cs/project/soar/member/doc/manuals/soar-5.2/default.mss, line 992
+DEFA-SUCC                              36       7.3.4  /afs/cs/project/soar/member/doc/manuals/soar-5.2/default.mss, line 954
+DEFA-TOPC                              33         7.1  /afs/cs/project/soar/member/doc/manuals/soar-5.2/default.mss, line 106
+DEFAULT                                33           7  /afs/cs/project/soar/member/doc/manuals/soar-5.2/default.mss, line 3
+ELIM-IMPA                              13       3.6.2  /afs/cs/project/soar/member/doc/manuals/soar-5.2/symlev.mss, line 878
+ENCO-CONS                              37     8.1.1.1  /afs/cs/project/soar/member/doc/manuals/soar-5.2/encoding-task.mss, line 144
+ENCO-STAT-REPR                         38       8.1.2  /afs/cs/project/soar/member/doc/manuals/soar-5.2/encoding-task.mss, line 337
+ENCODING-OP-APPLICATION                43        8.10  /afs/cs/project/soar/member/doc/manuals/soar-5.2/encoding-task.mss, line 1539
+ENCODING-OP-CREATION                   42         8.8  /afs/cs/project/soar/member/doc/manuals/soar-5.2/encoding-task.mss, line 1204
+ENCODING-TASK                          37           8  /afs/cs/project/soar/member/doc/manuals/soar-5.2/encoding-task.mss, line 3
+EXCISE                                 55      9.13.1  /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1897
+EXCISE-CHUNKS                          56      9.15.1  /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 2011
+EXCISE-TASK                            55      9.13.3  /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1917
+FULL-MATCHES                           53       9.9.2  /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1468
+FUNC-SUM                               69              /afs/cs/project/soar/member/doc/manuals/soar-5.2/func-sum.mss, line 3
+GET-START-GOALS                        44        8.12  /afs/cs/project/soar/member/doc/manuals/soar-5.2/encoding-task.mss, line 1795
+GET-START-PROBLEM-SPACE                41         8.5  /afs/cs/project/soar/member/doc/manuals/soar-5.2/encoding-task.mss, line 1077
+INIT-CONTEXT                           48       9.3.1  /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 254
+INIT-SOAR                              48       9.2.1  /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 223
+INIT-TASK                              48       9.3.2  /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 279
+INIT-WM                                48       9.3.3  /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 302
+INTRO                                   3           1  /afs/cs/project/soar/member/doc/manuals/soar-5.2/intro.mss, line 3
+IO                                     26           6  /afs/cs/project/soar/member/doc/manuals/soar-5.2/io.mss, line 3
+IO-ACTIVATING-TEXT                     27       6.2.3  /afs/cs/project/soar/member/doc/manuals/soar-5.2/io.mss, line 396
+IO-FIG                                 26         6-1  /afs/cs/project/soar/member/doc/manuals/soar-5.2/io.mss, line 130
+IO-GENERAL                             29         6.3  /afs/cs/project/soar/member/doc/manuals/soar-5.2/io.mss, line 1001
+IO-GENERAL-INPUT                       29       6.3.2  /afs/cs/project/soar/member/doc/manuals/soar-5.2/io.mss, line 1110
+IO-GENERAL-OUTPUT                      31       6.3.3  /afs/cs/project/soar/member/doc/manuals/soar-5.2/io.mss, line 1493
+IO-INPUT-FUNCTIONS                     29     6.3.2.2  /afs/cs/project/soar/member/doc/manuals/soar-5.2/io.mss, line 1158
+IO-INPUT-INTERFACE                     29     6.3.2.3  /afs/cs/project/soar/member/doc/manuals/soar-5.2/io.mss, line 1194
+IO-OUTPUT-EXAMPLE-2                    31     6.3.3.6  /afs/cs/project/soar/member/doc/manuals/soar-5.2/io.mss, line 1663
+IO-OUTPUT-FUNCTIONS                    31     6.3.3.3  /afs/cs/project/soar/member/doc/manuals/soar-5.2/io.mss, line 1572
+IO-OUTPUT-INTERFACE                    31     6.3.3.4  /afs/cs/project/soar/member/doc/manuals/soar-5.2/io.mss, line 1581
+IO-OUTPUT-MAPPINGS                     31     6.3.3.2  /afs/cs/project/soar/member/doc/manuals/soar-5.2/io.mss, line 1543
+IO-READTABLE                           27     6.2.4.3  /afs/cs/project/soar/member/doc/manuals/soar-5.2/io.mss, line 582
+IO-READTABLE-CHART                     27         6-4  /afs/cs/project/soar/member/doc/manuals/soar-5.2/io.mss, line 627
+IO-REDIRECTING-TEXT                    29       6.2.6  /afs/cs/project/soar/member/doc/manuals/soar-5.2/io.mss, line 938
+IO-SAVE-TEXT-FIG                       27         6-3  /afs/cs/project/soar/member/doc/manuals/soar-5.2/io.mss, line 577
+IO-SAVING-TEXT                         27     6.2.4.2  /afs/cs/project/soar/member/doc/manuals/soar-5.2/io.mss, line 524
+IO-STRUCTURES                          29       6.3.1  /afs/cs/project/soar/member/doc/manuals/soar-5.2/io.mss, line 1030
+IO-TEXT-ENVIRONMENT                    26       6.2.2  /afs/cs/project/soar/member/doc/manuals/soar-5.2/io.mss, line 242
+IO-TEXT-INPUT                          27       6.2.4  /afs/cs/project/soar/member/doc/manuals/soar-5.2/io.mss, line 415
+IO-TEXT-IO                             26         6.2  /afs/cs/project/soar/member/doc/manuals/soar-5.2/io.mss, line 156
+IO-TEXT-SAMPLE                         26         6-2  /afs/cs/project/soar/member/doc/manuals/soar-5.2/io.mss, line 221
+IO-TEXT-STRUCTURES                     26       6.2.1  /afs/cs/project/soar/member/doc/manuals/soar-5.2/io.mss, line 188
+IO-WRITE-EXPANSION                     28     6.2.5.3  /afs/cs/project/soar/member/doc/manuals/soar-5.2/io.mss, line 873
+LAST-CHUNK                             56      9.15.2  /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 2028
+LAST-JUSTIFICATION                     56      9.14.1  /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1987
+LISPSYNTAX                             49       9.3.5  /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 354
+LIST-CHUNKS                            56      9.15.4  /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 2096
+LIST-JUSTIFICATIONS                    56      9.14.2  /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1996
+LOAD                                   49       9.4.1  /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 471
+LOOKAHEAD                              45        8.13  /afs/cs/project/soar/member/doc/manuals/soar-5.2/encoding-task.mss, line 1856
+MAILING-LISTS                           2              /afs/cs/project/soar/member/doc/manuals/soar-5.2/preface.mss, line 38
+MEMORIES                               57      9.17.2  /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 2339
+MS                                     53       9.9.1  /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1441
+MULTI-ATTRIBUTES                       57      9.17.1  /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 2317
+OP-APPS                                55      9.13.4  /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1932
+OP-APPS-UNDO                           55      9.13.5  /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1949
+OP-COPY                                35     7.3.2.3  /afs/cs/project/soar/member/doc/manuals/soar-5.2/default.mss, line 720
+PBREAK                                 49       9.5.2  /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 527
+PERF-ACCE                              20     4.2.2.2  /afs/cs/project/soar/member/doc/manuals/soar-5.2/perform.mss, line 354
+PERF-ACT                               21       4.2.3  /afs/cs/project/soar/member/doc/manuals/soar-5.2/perform.mss, line 554
+PERF-ADDI                              21     4.2.3.2  /afs/cs/project/soar/member/doc/manuals/soar-5.2/perform.mss, line 652
+PERF-COND                              20       4.2.2  /afs/cs/project/soar/member/doc/manuals/soar-5.2/perform.mss, line 306
+PERF-CONJ                              20     4.2.2.6  /afs/cs/project/soar/member/doc/manuals/soar-5.2/perform.mss, line 479
+PERF-DISJ                              20     4.2.2.4  /afs/cs/project/soar/member/doc/manuals/soar-5.2/perform.mss, line 410
+PERF-GOAL-CONT                         19       4.1.2  /afs/cs/project/soar/member/doc/manuals/soar-5.2/perform.mss, line 179
+PERF-GOAL-IMPA                         22       4.3.1  /afs/cs/project/soar/member/doc/manuals/soar-5.2/perform.mss, line 903
+PERF-IMPA                              22         4.3  /afs/cs/project/soar/member/doc/manuals/soar-5.2/perform.mss, line 861
+PERF-LINK                              20     4.2.2.1  /afs/cs/project/soar/member/doc/manuals/soar-5.2/perform.mss, line 340
+PERF-NEGA-COND                         20     4.2.2.7  /afs/cs/project/soar/member/doc/manuals/soar-5.2/perform.mss, line 502
+PERF-NEGA-CONJ                         20     4.2.2.8  /afs/cs/project/soar/member/doc/manuals/soar-5.2/perform.mss, line 528
+PERF-OBJE                              19       4.1.1  /afs/cs/project/soar/member/doc/manuals/soar-5.2/perform.mss, line 99
+PERF-PRED                              20     4.2.2.5  /afs/cs/project/soar/member/doc/manuals/soar-5.2/perform.mss, line 432
+PERF-PREF                              19       4.1.3  /afs/cs/project/soar/member/doc/manuals/soar-5.2/perform.mss, line 210
+PERF-PREF-SEMA                         11       3.5.1  /afs/cs/project/soar/member/doc/manuals/soar-5.2/symlev.mss, line 613
+PERF-RECO                              19         4.2  /afs/cs/project/soar/member/doc/manuals/soar-5.2/perform.mss, line 245
+PERF-SEMA                              19       4.2.1  /afs/cs/project/soar/member/doc/manuals/soar-5.2/perform.mss, line 264
+PERF-VARI                              20     4.2.2.3  /afs/cs/project/soar/member/doc/manuals/soar-5.2/perform.mss, line 381
+PERF-WORK                              19         4.1  /afs/cs/project/soar/member/doc/manuals/soar-5.2/perform.mss, line 86
+PERFORMANCE                            19           4  /afs/cs/project/soar/member/doc/manuals/soar-5.2/perform.mss, line 3
+PFIRED                                 54       9.9.4  /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1536
+PGS                                    52       9.7.2  /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1202
+PI                                     54       9.9.5  /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1558
+PM                                     54       9.9.6  /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1582
+PO                                     52       9.7.3  /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1230
+POP-GOAL                               55      9.11.3  /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1789
+PPWM                                   53       9.7.6  /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1303
+PREFERENCE-IMPASSES                    13       3.6.1  /afs/cs/project/soar/member/doc/manuals/soar-5.2/symlev.mss, line 784
+PREFERENCES                            53       9.8.1  /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1379
+PRINT-STATS                            54      9.10.1  /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1676
+PROD-WORK-MEM-EFFICIENCY               21       4.2.4  /afs/cs/project/soar/member/doc/manuals/soar-5.2/perform.mss, line 766
+PTRACE                                 50       9.6.2  /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 788
+RESTART-SOAR                           48       9.2.2  /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 235
+RESULT                                 14         3-5  /afs/cs/project/soar/member/doc/manuals/soar-5.2/symlev.mss, line 1009
+RUN                                    50       9.5.3  /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 600
+RUN-TASK                               50       9.5.4  /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 687
+SET-BREAK-CHAR                         56      9.16.1  /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 2127
+SET-CARRIAGE-CONTROL                   56      9.16.2  /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 2142
+SET-CHAR-MODE                          56      9.16.3  /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 2159
+SET-INPUT-FUNCTIONS                    56      9.16.4  /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 2174
+SET-LEARNING-CHOICE                    49       9.3.6  /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 363
+SET-MACRO-CHARACTER                    56      9.16.5  /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 2210
+SET-OUTPUT-MAPPINGS                    56      9.16.6  /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 2233
+SET-TAB-SETTINGS                       57     9.16.11  /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 2301
+SET-TEXT-INPUT                         57      9.16.7  /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 2253
+SET-TEXT-INPUT-STREAM                  57      9.16.8  /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 2265
+SET-TEXT-OUTPUT                        57      9.16.9  /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 2277
+SET-TEXT-OUTPUT-STREAM                 57     9.16.10  /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 2289
+SET-USER-SELECT                        49       9.3.7  /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 375
+SMAKE                                  55      9.12.2  /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1849
+SMATCHES                               54       9.9.7  /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1604
+SOAR-MENU                              49       9.3.8  /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 388
+SOAR-PREF                              10         3-3  /afs/cs/project/soar/member/doc/manuals/soar-5.2/symlev.mss, line 400
+SOAR-STRUCTURE                          9         3-1  /afs/cs/project/soar/member/doc/manuals/soar-5.2/symlev.mss, line 197
+SOAR-WM-STRUCTURE                       9         3-2  /afs/cs/project/soar/member/doc/manuals/soar-5.2/symlev.mss, line 231
+SOARNEWS                               55      9.10.2  /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1762
+SOARSYNTAX                             49       9.3.9  /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 410
+SOARSYNTAXP                            49      9.3.10  /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 418
+SP                                     55      9.13.6  /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1964
+SPM                                    54       9.9.8  /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1626
+SPO                                    52       9.7.4  /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1264
+SPPWM                                  53       9.7.7  /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1322
+SPR                                    53       9.7.5  /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1286
+SREMOVE                                55      9.12.3  /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1874
+START-DEFAULT                          49       9.4.2  /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 481
+STATECOPYING                           34     7.3.2.1  /afs/cs/project/soar/member/doc/manuals/soar-5.2/default.mss, line 457
+STOP-DEFAULT                           49       9.4.3  /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 496
+SUBGOALRESULTS                         13       3.6.3  /afs/cs/project/soar/member/doc/manuals/soar-5.2/symlev.mss, line 964
+SUBSEC-INIT-SOAR                       39       8.2.2  /afs/cs/project/soar/member/doc/manuals/soar-5.2/encoding-task.mss, line 667
+SWM                                    53       9.7.8  /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1341
+SYMB-OVER                               9         3.1  /afs/cs/project/soar/member/doc/manuals/soar-5.2/symlev.mss, line 16
+TALLY                                  53       9.8.2  /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1401
+TRACE-ATTRIBUTES                       51       9.6.3  /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 889
+TRACEINITIALIZATION                    39         8.2  /afs/cs/project/soar/member/doc/manuals/soar-5.2/encoding-task.mss, line 576
+TRACESTATECOPY                         45      8.13.1  /afs/cs/project/soar/member/doc/manuals/soar-5.2/encoding-task.mss, line 1868
+UNPBREAK                               50       9.5.5  /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 704
+UNPTRACE                               51       9.6.4  /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 924
+UNTRACE-ATTRIBUTES                     51       9.6.5  /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 937
+USER-SELECT                            49      9.3.11  /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 427
+VAR-FUNC-IO                            56        9.16  /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 2124
+VARIABLES-FUNCTIONS                    48           9  /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 3
+VF-LEARN                               56      9.15.3  /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 2053
+WATCH                                  51       9.6.6  /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 948
+WM                                     53       9.7.9  /afs/cs/project/soar/member/doc/manuals/soar-5.2/var-func.mss, line 1356

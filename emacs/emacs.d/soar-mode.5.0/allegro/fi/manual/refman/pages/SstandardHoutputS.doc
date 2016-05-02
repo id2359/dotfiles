@@ -1,0 +1,66 @@
+
+                                                           *standard-output*
+
+
+    VARIABLE
+    *standard-output*  -  usual or default output stream
+
+    USAGE
+    *standard-output*
+
+    DESCRIPTION
+    evaluates to an output stream that is used as the default for many  out-
+    put  functions  (for  example,  print  and  write-char).  Output for the
+    interactive top-level loop is normally sent to this stream.
+
+    EXAMPLES
+    Evaluating
+
+    (print '(a b c d) *standard-output*)
+
+    at the top-level causes (a b c d) to be written to the *standard-output*
+    stream (usually the user's display) as a side effect.
+
+    SEE ALSO
+    CLtL 21:327, *debug-io*, *error-output*, *query-io*, read, read-char,
+    *standard-input*, streamp, *terminal-io*, *trace-output*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                                    defmacro
+
+
+    MACRO
+    defmacro  -  define a macro
+
+    USAGE
+    defmacro name lambda-list {declaration | doc-string}* {form}*
+
+    SIDE EFFECTS
+    Redefines the global function definition for the symbol NAME.
+
+    DESCRIPTION
+    Causes the global symbol NAME  to  be  given  a  macro  definition,  and
+    returns the symbol NAME.  You may redefine the existing macro definition
+    for any function or macro symbol, whether user- or  system-defined,  but
+    not  for a symbol that names a special form.  (Note that implementations
+    are permitted to implement special forms as macros, and vice versa.)
+
+    The LAMBDA-LIST specifies the arguments to the macro.  Declarations  may
+    be  specified  in  the  DECLARATION  (see about declarations) part.  The
+    optional string DOC-STRING becomes associated with NAME as a  documenta-
+    tion  string  of  type function (see documentation).  It may appear only
+    once, and if it does, it must be followed by at least  one  FORM,  or  a
+    declaration.
+
+    The macro definition consists of an expansion function which is  defined
+    in  the global (null) lexical environment, meaning that lexically-scoped
+    entities outside the defmacro form  that  would  normally  be  lexically
+    visible are not visible from within the expansion function.  The body of
+    the expansion function is given by the zero or  more  FORMS,  which  are
+    executed  as  if  enclosed  in  a progn construct.  When a macro-call is
+    evaluated, the expansion function (see  macro-function)  is  effectively
+    applied  to  a list of the unevaluated arguments to the macro call form,
+    returning a form which is then evaluated in place  of  the  macro  call.
+    Macros  support  the  lambda-list  keywords &body, &whole, and &env, not
+    available to functions.  Macros also support lambda-list destructuring.
+
+    EXAMPLES
+
+    Here is a simple macro synonymous with the + function.
+
+    (defmacro add (&rest args)
+      (cons '+ args)) => add
+    (add) => 0
+    (add 1 2 3) => 6
+
+    Here is a macro that uses lambda-list destructuring, all of whose  argu-
+    ments  are required.  It does nothing more than return the argument list
+    stripped of its structure.
+
+    (defmacro m ((a b (c)) (d) e)
+      (list 'list a b c d e)) => m
+    (m (1 2 (3)) (4) 5) => (1 2 3 4 5)
+    (m ('(a1 a2) 'b1 ('c1)) ('(d1 d2 d3)) '(e1 e2))
+      => ((a1 a2) b1 c1 (d1 d2 d3) (e1 e2))
+
+    SEE ALSO
+    CLtL 8:145, about forms, about generalized variables, about lambda
+    lists, about special forms, defun, macro-function, macrolet
+
+
+
+
+

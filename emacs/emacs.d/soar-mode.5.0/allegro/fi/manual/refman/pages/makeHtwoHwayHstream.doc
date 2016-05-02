@@ -1,0 +1,66 @@
+
+                                                         make-two-way-stream
+
+
+    FUNCTION
+    make-two-way-stream  -  make a bidirectional stream
+
+    USAGE
+    make-two-way-stream instream outstream
+
+    DESCRIPTION
+    Returns a bidirectional stream that reads input from INSTREAM and writes
+    output to OUTSTREAM.
+
+    EXAMPLES
+    (let* ((in (make-string-input-stream "Hello"))
+           (out (make-string-output-stream))
+           (io (make-two-way-stream in out)))
+      (prin1 (read io) io)
+      (get-output-stream-string out))
+      => "Hello"
+
+    SEE ALSO
+    CLtL 21:329, make-broadcast-stream, make-concatenated-stream, make-
+    echo-stream, make-echo-stream, make-string-input-stream, make-string-
+    input-stream, make-string-output-stream, make-string-output-stream,
+    make-synonym-stream, open
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

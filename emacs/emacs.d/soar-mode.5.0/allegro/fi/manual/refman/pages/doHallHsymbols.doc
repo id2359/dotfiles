@@ -1,0 +1,66 @@
+
+                                                              do-all-symbols
+
+
+    MACRO
+    do-all-symbols  -  iterate through all symbols in all packages
+
+    USAGE
+    do-all-symbols (var [result-form]) {declaration}* {tag | statement}*
+
+    DESCRIPTION
+    Allows iteration over all symbols in all packages.  The variable VAR  is
+    bound  on  each iteration to a symbol.  Symbols are processed in no par-
+    ticular order.  Since a given symbol may be accessible in more than  one
+    package,  a  single symbol may be processed more than once.  RESULT-FORM
+    must be a single form, not  an  implicit  progn.   When  RESULT-FORM  is
+    evaluated,  VAR is still bound and has the value nil.  If no RESULT-FORM
+    is present, the result of the call is nil.
+
+    The body is implicitly enclosed in a block named nil,  so  you  may  use
+    return  to exit the loop prematurely, stopping iteration over unexamined
+    symbols.  The body is also contained within a tagbody, so go may be used
+    to jump to a TAG.  (A TAG is a symbol or an integer).
+
+    Note that the effects of this call are unpredictable if the execution of
+    the body of the loop affects the state of the package system.
+
+    EXAMPLES
+    ;;  Count all the symbols, with possible duplications.
+    ;;  The result depends on the current execution environment.
+    (let ((symnum 0))
+      (do-all-symbols  (loopvar symnum)
+        (setq symnum (1+ symnum)))) => 8385
+
+    SEE ALSO
+    CLtL 11:188, block, do-external-symbols, do-symbols, go, return, tagbody
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

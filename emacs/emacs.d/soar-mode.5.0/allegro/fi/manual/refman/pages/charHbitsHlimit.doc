@@ -1,0 +1,66 @@
+
+                                                             char-bits-limit
+
+
+    CONSTANT
+    char-bits-limit  -  upper exclusive bound on character bits values
+
+    DESCRIPTION
+    Evaluates to a non-negative integer  representing  the  upper  exclusive
+    bound  on  character  bits  values returned by char-bits.  This value is
+    implementation-dependent, but must be a power of 2.  If  an  implementa-
+    tion  does  not  support  bits attributes of characters, char-bits-limit
+    will be 1.
+
+    EXAMPLES
+    ;;  This value is implementation-dependent:
+    char-bits-limit => 16
+
+    SEE ALSO
+    CLtL 13:234, char-bit, char-bits, char-code, char-control-bit, char-
+    font, char-hyper-bit, char-meta-bit, char-super-bit
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

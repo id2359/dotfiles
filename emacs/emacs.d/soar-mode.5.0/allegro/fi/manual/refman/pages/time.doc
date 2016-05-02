@@ -1,0 +1,66 @@
+
+                                                                        time
+
+
+    MACRO
+    time  -  get information about the time it takes to run a function
+
+    Usage
+    time FORM
+
+    SIDE EFFECTS
+    Timing information is written to the *trace-output* stream.
+
+    DESCRIPTION
+    Returns the result of evaluating FORM.  Also writes  timing  information
+    to  the stream that is the value of *trace-output*.  The exact nature of
+    the information is implementation-dependent but should include data such
+    as  machine  run  time,  real  time,  and storage management statistics.
+    Accuracy of time is constrained by the granularity of any clock which it
+    utilizes.  Consequently time output may not be meaningful for forms that
+    run too short a  time  (for  example,  less  than  one  second  on  some
+    machines).
+
+    EXAMPLES
+    ;;  The output from TIME looks like this in one implementation:
+
+    (defun doit (n) (time (dotimes (i n) (cons nil nil)))) => doit
+    (compile 'doit) => doit
+    (doit 100000) => nil
+      PRINTS  ; to *TRACE-OUTPUT*
+    cpu time (non-gc) 834 msec user, 16 msec system
+    cpu time (gc)     216 msec user, 0 msec system
+    cpu time (total)  1050 msec user, 16 msec system
+    real time  1120 msec
+
+    SEE ALSO
+    CLtL 25:441, get-internal-real-time, get-internal-run-time
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

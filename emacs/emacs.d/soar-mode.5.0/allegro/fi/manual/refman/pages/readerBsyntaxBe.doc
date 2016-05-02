@@ -1,0 +1,66 @@
+
+                                                             reader syntax \
+
+
+    READER SYNTAX
+    \  -  quote next character
+
+    USAGE
+    \c
+
+    DESCRIPTION
+    When  the  reader  reads  the  single-escape  character  ``\'',  it   is
+    discarded,  and  the  reader  reads  the next character as a constituent
+    alphabetic character, regardless of  the  character's  normal  syntactic
+    type  or reader macro definition.  If it is a lowercase character, it is
+    not converted to uppercase.  If the end of file is encountered following
+    ``\'', an error is signalled.
+
+    This character is not a macro character.   Processing  of  single-escape
+    characters is built into the COMMON LISP reader.
+
+    EXAMPLES
+    (read-from-string "a\\(b\\ c\\)") => |A(B C)| 9
+    (read-from-string "a\\b\\ c") => |Ab C| 6
+
+    'a\(b\ c\) => |A(B C)|
+    'a\b\ c => |Ab C|
+
+    SEE ALSO
+    CLtL 22:335, reader syntax |, about printing, about reading, set-
+    syntax-from-char
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

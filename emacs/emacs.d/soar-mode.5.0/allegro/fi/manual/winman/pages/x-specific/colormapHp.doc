@@ -1,0 +1,66 @@
+
+                                                                  colormap-p
+
+
+    FUNCTION
+    colormap-p  -  test whether an object in a colormap
+
+    Usage
+    colormap-p OBJECT
+
+    DESCRIPTION
+    Returns true if the object OBJECT,  is  a  colormap,  otherwise  returns
+    false.
+
+    A colormap is LISP is a data structure which  serves  as  the  interface
+    between  COMMON  WINDOWS  and  and  the X server.  Each LISP colormap is
+    associated with a specific server colormap.   (Server  colormaps  are  X
+    objects,  not LISP objects.) You affect server colormaps by operating on
+    the associated LISP colormap.  Colormaps are created with  the  function
+    make-colormap.
+
+    EXAMPLES
+    (colormap-p *default-colormap*) => t
+    (colormap-p (make-colormap :preallocate (list white black))) => t
+    (colormap-p 'blue) => nil
+
+    SEE ALSO
+    about colors, *color-support*, color-p, make-color
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

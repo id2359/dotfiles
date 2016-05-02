@@ -1,0 +1,66 @@
+
+                                                            reader syntax #x
+
+
+    READER SYNTAX
+    #x  -  representation of a hexadecimal rational
+
+    Usage
+    #X...
+
+    DESCRIPTION
+    Reads as a rational number expressed in hexadecimal radix.
+
+    When the reader reads the dispatch-macro  character  ``#''  followed  by
+    ``x''  or  ``X'',  these  characters are discarded and the next token is
+    read as the hexadecimal representation of a rational number.   The  only
+    valid  characters  in  such  a  representation are the digits from ``0''
+    through ``9'' and the letters, either uppercase or lowercase, from ``A''
+    through  ``F''.   The ``#x'' syntactic form reads as the rational number
+    represented by the token.
+
+    The ``#r'' syntactic form permits specification of  any  allowed  radix.
+    Floating-point numbers are always read in decimal.
+
+    Rational numbers are self-evaluating objects.  (In fact all numbers  are
+    self-evaluating.)
+
+    EXAMPLES
+    #xace => 2766
+    #x0a/f0 => 1/24
+
+    (setf *read-base* 20.)
+    #x0a/f0 => 1/24
+
+    (setf *print-base* 16.)
+    #x0a/f0 => 1/18
+    10. => a
+    10 => 14
+
+    SEE ALSO
+    CLtL 22:356, about printing, about reading, reader syntax #b, reader
+    syntax #o, reader syntax #r
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

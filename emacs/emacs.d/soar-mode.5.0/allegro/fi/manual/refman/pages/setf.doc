@@ -1,0 +1,66 @@
+
+                                                                        setf
+
+
+    MACRO
+    setf  -  update a generalized variable (destructive)
+
+    USAGE
+    setf {place value}*
+
+    SIDE EFFECTS
+    Each location specified by a generalized variable PLACE is  modified  to
+    hold VALUE.
+
+    DESCRIPTION
+    Returns the last VALUE, but this macro is used  for  its  side  effects.
+    Each  PLACE is a generalized  variable .  PLACE is not evaluated but the
+    value stored in the location specified by PLACE is changed by setf to be
+    the value of value.  The list of forms that define generalized variables
+    acceptable to setf is given in the entry  about  generalized  variables.
+    More can be defined using defsetf or define-setf-method.
+
+    When PLACE is a symbol, what is modified is the value  of  the  variable
+    named by the symbol in the context in which the setf form appears.  This
+    value may be associated with a lexical or dynamic binding or with a glo-
+    bal value.  (Thus a setf of a symbol is identical functionally to a setq
+    of a symbol.)
+
+    If more than one PLACE and VALUE pair is specified, then the  pairs  are
+    processed sequentially.
+
+    setf called with no arguments returns nil.
+
+    EXAMPLES
+    (setf lis '(a b c)) => (a b c)
+    (setf (car lis) 'z) => z
+    lis => (z b c)
+
+    (defun foo (x) (car x))
+    (foo '(a b c)) => a
+    (setf (symbol-function 'foo) #'(lambda (x) (cadr x)))
+    (foo '(a b c)) => b
+
+    (setf lis '(a b c)) => (a b c)
+    (setf (car lis) 'z
+          (cadr lis) (car lis)) => z
+    lis => (z z c)
+
+    SEE ALSO
+    CLtL 7:94, about generalized variables, define-modify-macro, define-
+    setf-method, defsetf, get-setf-method, get-setf-method-multiple-value,
+    psetf, setq
+
+
+
+
+
+
+
+
+
+
+
+
+
+

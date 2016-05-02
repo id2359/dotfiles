@@ -1,0 +1,66 @@
+
+                                                               finish-output
+
+
+    FUNCTION
+    finish-output  -  ensure that all output has reached its destination
+
+    Usage
+    finish-output [STREAM]
+
+    SIDE EFFECTS
+    Buffered characters intended for stream STREAM are output.
+
+    DESCRIPTION
+    Returns nil after buffered characters have been output to STREAM.   This
+    function  differs  from  force-output in that it attempts to ensure that
+    all output has reached  its  destination  before  returning  nil,  while
+    force-output  returns at once.  However, the behavior and effect of this
+    function is implementation-dependent.
+
+    The argument STREAM must be a stream, nil, or t.  If it is nil  (or  the
+    STREAM  argument is not supplied), the stream used is *standard-output*.
+    If it is t, the stream used is *terminal-io*.
+
+    EXAMPLES
+    (finish-output) => nil
+
+    SEE ALSO
+    CLtL 22:384, clear-output, force-output
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

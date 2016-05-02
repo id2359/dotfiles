@@ -1,0 +1,66 @@
+
+                                                                      adjoin
+
+
+    FUNCTION
+    adjoin  -  put item on a list if it is not already there
+
+    USAGE
+    adjoin item list [{:test | :test-not} pred] [:key keyfnc]
+
+    DESCRIPTION
+    Returns LIST with ITEM consed onto the front if ITEM is not eq  to  some
+    member  of  LIST, and otherwise simply returns LIST.  Although the argu-
+    ment LIST is unchanged, it is a tail of the returned list.
+
+    A test predicate other than eql may be used by specifying  PRED  as  the
+    value  of either the :test or the :test-not keyword argument.  PRED must
+    be a function which accepts two arguments (ITEM and a  member  of  LIST,
+    passed  in  that  order).   If  PRED is the value of :test, ITEM and the
+    member match if PRED returns true.  If PRED is the value  of  :test-not,
+    ITEM and the member match if PRED returns false.  It is an error to sup-
+    ply both :test and :test-not keyword arguments.
+
+    If the keyword argument :key is specified and its value  KEYFNC  is  not
+    nil,  KEYFNC  must be a function which accepts one argument.  It will be
+    applied both to ITEM and to each member of LIST before they are  tested.
+    When  unspecified  or  nil,  it  effectively  defaults  to  the function
+    identity.  Note that applying KEYFNC to ITEM is  a  deviation  from  the
+    usual  behavior of KEYFNC peculiar to adjoin and pushnew.  The following
+    identities hold:
+
+    (adjoin item list) = (if (member item list) list (cons item list))
+
+    (adjoin item list :key #'fn)
+      = (if (member (fn item) list :key #'fn) list (cons item list))
+
+    EXAMPLES
+    (adjoin 3 '(2 3 4)) => (2 3 4)
+    (adjoin 1 '(2 3 4)) => (1 2 3 4)
+    (adjoin '(a 1) '((a 2) (b 3)) :key #'car) => ((a 2) (b 3))
+
+    SEE ALSO
+    CLtL 15:276, cons, eql, :key, list, member, pushnew
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

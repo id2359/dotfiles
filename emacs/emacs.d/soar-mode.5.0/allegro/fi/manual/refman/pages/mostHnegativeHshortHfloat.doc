@@ -1,0 +1,66 @@
+
+                                                   most-negative-short-float
+
+
+    CONSTANT
+    most-negative-short-float  -  the short-float closest to negative infin-
+      ity
+
+    DESCRIPTION
+    This constant evaluates to the value of the short-float  number  nearest
+    to  (but  still  different  from)  negative infinity.  The value of this
+    constant is implementation-dependent.
+
+    EXAMPLES
+    ;;  This value is implementation-dependent.
+    most-negative-short-float => -3.4028232e+38
+
+    SEE ALSO
+    CLtL 12:231, about numeric constants
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

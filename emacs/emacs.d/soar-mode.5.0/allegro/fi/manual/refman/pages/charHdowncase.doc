@@ -1,0 +1,66 @@
+
+                                                               char-downcase
+
+
+    FUNCTION
+    char-downcase  -  convert character to lowercase equivalent
+
+    USAGE
+    char-downcase char
+
+    DESCRIPTION
+    Returns the lowercase version of CHAR  provided  one  exists,  otherwise
+    returns  CHAR  itself.   If  CHAR, the character object, has a different
+    code attribute than the returned character, then upper-case-p is true of
+    CHAR.  The font and bits attributes of CHAR may affect the action taken,
+    but will not be changed in the returned character.
+
+    EXAMPLES
+    (char-downcase #\a) => #\a
+    (char-downcase #\newline) => #\newline
+    (char-downcase #\T) => #\t
+    (lower-case-p (char-downcase #\A)) => t
+
+    SEE ALSO
+    CLtL 13:241, char-upcase, lower-case-p, upper-case-p
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

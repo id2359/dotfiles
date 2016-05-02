@@ -1,0 +1,66 @@
+
+                                                             reader syntax '
+
+
+    READER SYNTAX
+    '  -  representation of a quote form
+
+    USAGE
+    'expr
+
+    DESCRIPTION
+    Reads EXPR and then wraps a quote special form around it.  That is, 'obj
+    reads  as  (quote  obj).   The usual effect is that obj is not evaluated
+    when it otherwise would be.
+
+    EXAMPLES
+    (setf foo 10)
+    foo => 10
+    'foo => foo
+    (quote foo) => foo
+
+    SEE ALSO
+    CLtL 22:347, about printing, about reading, quote
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

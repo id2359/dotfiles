@@ -1,0 +1,66 @@
+
+                                                             reader syntax ;
+
+
+    READER SYNTAX
+    ;  -  remainder of line is read as a comment and ignored
+
+    USAGE
+    ;...
+
+    DESCRIPTION
+    When the reader reads the character ``;'',  it  is  discarded,  and  the
+    reader reads and discards all remaining characters up to and including a
+    newline (#\newline).
+
+    The ``;'' character terminates tokens.
+
+    EXAMPLES
+    (read-from-string "();nothing") => nil 2
+    (read-from-string ";nothing" nil nil) => nil 8
+    (read-from-string ";;comment
+                       t") => t 30
+
+    SEE ALSO
+    CLtL 22:347, about printing, about reading
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

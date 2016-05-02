@@ -1,0 +1,66 @@
+
+                                                                         sin
+
+
+    FUNCTION
+    sin  -  get the sine of an angle
+
+    USAGE
+    sin radians
+
+    DESCRIPTION
+    Returns the sine of RADIANS.  The argument may be any  number,  real  or
+    complex.   The  result  will be complex only if the argument is complex.
+    The value is calculated assuming the argument to be in radians.
+
+    EXAMPLES
+    (sin 0.0) => 0.0
+    (sin pi) => 0.0d0
+    (sin #c(2 2)) => #c(3.420955 -1.5093066)
+
+    SEE ALSO
+    CLtL 12:207, acos, acosh, asin, asinh, atan, atanh, cis, cos, cosh,
+    sinh, tan, tanh
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

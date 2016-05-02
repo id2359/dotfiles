@@ -1,0 +1,66 @@
+
+                                                                     lognand
+
+
+    FUNCTION
+    lognand  -  bitwise logical `nand'
+
+    USAGE
+    lognand n1 n2
+
+    DESCRIPTION
+    Returns the bitwise logical `nand' of N1 and N2, both of which  must  be
+    integers.   Arguments  and  results are interpreted as if represented in
+    two's-complement notation.  The following identity holds:
+
+    (lognand x y) = (lognot (logand x y))
+
+    EXAMPLES
+    (lognand -1 -5) => 4
+
+    (setf *print-base* 2
+          *print-radix* t)
+    ;;  (Since bitwise logical operations interpret integers as
+    ;;  half-infinite, the result is negative, which in two's-
+    ;;  complement representation has an infinite string of 1's
+    ;;  to the right, that is toward higher-order bits.  The
+    ;;  number #b-1001 would be represented in two's-complement
+    ;;  as ...111110111.)
+    (lognand #b1100 #b1010) => #b-1001
+    (ldb (byte 4 0) #b-1001) => #b111
+    (logbitp 100 #b-1001) => t
+
+    SEE ALSO
+    CLtL 12:221, boole, logand, logandc1, logandc2, logbitp, logcount,
+    logeqv, logior, lognor, lognot, logorc1, logorc2, logtest, logxor
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                              copy-readtable
+
+
+    FUNCTION
+    copy-readtable  -  make a copy of a readtable (destructive)
+
+    Usage
+    copy-readtable [SOURCE-TABLE [GOAL-TABLE]]
+
+    SIDE EFFECTS
+    When both arguments are provided and the  the  readtable  GOAL-TABLE  is
+    non-nil,  a  new  readtable  is  not created, but rather SOURCE-TABLE is
+    destructively copied onto GOAL-TABLE.
+
+    DESCRIPTION
+    Returns a copy of SOURCE-TABLE.  If SOURCE-TABLE is not specified,  then
+    a  new  copy  of  the  current  readtable  (the value of *readtable*) is
+    returned.  If SOURCE-TABLE is nil, a copy is made  of  the  COMMON  LISP
+    standard  readtable.   If  GOAL-TABLE  is not nil (its default value), a
+    copy is made onto GOAL-TABLE, GOAL-TABLE is returned, and no  new  table
+    is created.
+
+    EXAMPLES
+    (let ((my-readtable (copy-readtable)))
+      (values
+       (eq my-readtable *readtable*)
+       (eq (copy-readtable my-readtable *readtable*)
+           *readtable*))) => nil t
+
+    SEE ALSO
+    CLtL 22:361, get-dispatch-macro-character, get-macro-character, make-
+    dispatch-macro-character, readtablep, *readtable*, set-dispatch-macro-
+    character, set-macro-character, set-syntax-from-char
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

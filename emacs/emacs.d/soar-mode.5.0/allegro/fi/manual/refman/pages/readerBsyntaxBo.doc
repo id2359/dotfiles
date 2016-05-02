@@ -1,0 +1,66 @@
+
+                                                             reader syntax (
+
+
+    READER SYNTAX
+    (  -  representation of a list or cons
+
+    USAGE
+    (...)
+
+    DESCRIPTION
+    Reads as a list or cons.
+
+    When the reader reads the character ``('',  it  is  discarded,  and  the
+    reader  begins  to  accumulate  succeeding objects for a cons or a list.
+    When a token consisting of just the closing delimiter character ``)'' is
+    read,  it  is discarded and accumulation stops.  The accumulated list or
+    cons is returned.  Each object is read by recursive application  of  the
+    reader.
+
+    When a token consisting of just the character ``.'' is  read,  the  next
+    object  read  will  be  the  cdr  of the last cons of the returned list.
+    Exactly one object must be read between the ``.'' and the closing ``)''.
+    (This object may, of course, be another list or cons.)
+
+    EXAMPLES
+    (read-from-string "()") => nil 2
+    (read-from-string "(1 2 3)") => (1 2 3) 7
+    (read-from-string "( ( 1 )2 . 3)") => ((1) 2 . 3) 13
+    (read-from-string "(1 . (2 . (3)))") => (1 2 3) 15
+
+    '() => nil
+    '(1 2 3) => (1 2 3)
+    '( ( 1 )2 . 3) => ((1) 2 . 3)
+    '(1 . (2 . (3))) => (1 2 3)
+
+    SEE ALSO
+    CLtL 22:347, about printing, about reading, cons, list
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

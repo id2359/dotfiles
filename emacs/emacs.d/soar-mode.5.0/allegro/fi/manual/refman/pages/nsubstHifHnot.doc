@@ -1,0 +1,66 @@
+
+                                                               nsubst-if-not
+
+
+    FUNCTION
+    nsubst-if-not  -  change a tree by replacing items that do not satisfy a
+      test (destructive)
+
+    USAGE
+    nsubst-if-not newitem pred tree [:key keyfnc]
+
+    SIDE EFFECTS
+    The argument TREE may be changed.
+
+    DESCRIPTION
+    Returns the argument TREE after modifying it so that  every  subtree  or
+    leaf  at  all  levels  not satisfying the one-argument predicate PRED is
+    replaced by NEWITEM.  If PRED applied  to  a  subtree  or  leaf  returns
+    false,  the subtree or leaf is replaced.  If PRED returns true, the sub-
+    tree or leaf is not changed.  The argument TREE must be a tree, that  is
+    a nested structure of lists and other conses.
+
+    If the keyword argument :key is specified and its value  KEYFNC  is  not
+    nil,  KEYFNC  must  be a function that accepts one argument.  It will be
+    applied to each leaf or subtree of TREE before that leaf or  subtree  is
+    tested.   When  unspecified or nil, it effectively defaults to the func-
+    tion identity.
+
+    This function is a destructive version of subst-if-not.  (Note  that  an
+    implementation  may copy TREE and return the modified copy, leaving TREE
+    unchanged or modified but not eq to the result.)
+
+    EXAMPLES
+    (setq my-tree  '(a (3 b (5) 2)))
+    ;;  Since the argument to NSUBST-IF-NOT may not itself change,
+    ;;  you  should use SETQ, as in the following.
+    (nsubst-if-not 'x #'consp my-tree) => (x (x x (x . x) x . x) . x)
+    my-tree => (x (x x (x . x) x . x) . x)
+    (nsubst-if-not 'x #'numberp '(1 (2 3 (4) 5)))
+      => x
+
+    SEE ALSO
+    CLtL 15:274, :key, nsublis, nsubst, nsubst-if, nsubstitute, sublis,
+    subst, subst-if, subst-if-not, substitute
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,132 @@
+
+                                                                  in-package
+
+
+    FUNCTION
+    in-package  -  set the value of *package* to a new or existing package
+
+    USAGE
+    in-package package-name [:nicknames names] [:use use-list]
+
+    SIDE EFFECTS
+    Changes the value of *package* to the package specified by PACKAGE-NAME,
+    creating  a  new  package with the name PACKAGE-NAME, if no such package
+    with that name exists.  If in-package is evaluated while loading a file,
+    *package*  is  changed  for  the  duration  of  the load (or until it is
+    changed again, if that happens first).  (The function load always  binds
+    *package*,  so  the current package before the load is still the current
+    package after the load is completed.)
+
+    DESCRIPTION
+    Exactly what is returned is implementation-dependent but in any case the
+    returned  value  is  not meaningful because this function should be used
+    only at top level in a file.  The argument PACKAGE-NAME may be a  string
+    or a symbol (whose print name will be used as the string).
+
+    If no package with name PACKAGE-NAME exists, one  is  created  (as  with
+    make-package).   The  nicknames  of the new package are specified by the
+    list NAMES which is the value of the :nicknames keyword  argument.   The
+    nicknames  must  be  strings  or  symbols (whose print names are used as
+    strings).  NAMES defaults to nil.  Other packages to be used (as  if  by
+    use-package) by the new package are specified by the list USE-LIST which
+    is the value of the :use keyword argument.  This list may contain  pack-
+    ages,  or strings or symbols identifying packages.  The default value of
+    USE-LIST is the list containing the LISP package.  After the new package
+    is created, it becomes the current package (the value of *package*).
+
+    If a package denoted by PACKAGE-NAME already exists, the :nicknames  and
+    :use keyword arguments are examined to see if any new nicknames or pack-
+    ages to use  are  specified.   If  they  are,  they  are  added  to  the
+    appropriate list associated with the existing package.  (No nicknames or
+    packages to use are removed, so the arguments need  not  be  specified.)
+    As  said  above,  the value of the :nicknames keyword argument must be a
+    list of strings or symbols and defaults to nil.  The value of  the  :use
+    keyword  argument  must  be  a list of packages, strings, or symbols and
+    defaults to the list containing the LISP package.  The  current  package
+    (the  value  of *package*) is changed to the existing package denoted by
+    PACKAGE-NAME.
+
+    An in-package form should appear only at top level in a file.  When used
+    in a file, the in-package form may be thought of as being enclosed by a
+
+    (eval-when (compile eval load) ...)
+
+    form, to ensure that symbols in the file are placed in the correct pack-
+    age  whether  the  file is loaded interpreted or compiled.  It is recom-
+    mended that in-package appear near the top of a file and that it  follow
+    any  use  of  provide  and  precede any uses of shadow, export, require,
+    use-package, or import.
+
+    EXAMPLES
+    ;;  Suppose the following forms appear in a file named foo.cl:
+    (in-package :geology :nicknames '(:rocks))
+    (setq foo "In GEOLOGY package")
+    (setq lis (list (package-name *package*)
+                    (package-nicknames *package*)
+                    (map 'list #'package-name (package-use-list *package*))))
+    ;;  Now we LOAD foo.cl.  Note that the value of *PACKAGE*
+    ;;  is the same before and after the LOAD, although its value
+    ;;  was the GEOLOGY package in foo.cl after the IN-PACKAGE
+    ;;  form was evaluated.
+    (package-name *package*) => "USER"
+    (load "foo.cl") => t
+    rocks::foo => "In GEOLOGY package"
+    rocks::lis => ("GEOLOGY" ("ROCKS") ("LISP"))
+
+    SEE ALSO
+    CLtL 11:183, load, make-package, *package*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

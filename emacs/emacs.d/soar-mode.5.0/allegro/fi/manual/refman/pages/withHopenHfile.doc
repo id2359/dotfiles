@@ -1,0 +1,66 @@
+
+                                                              with-open-file
+
+
+    MACRO
+    with-open-file  -  open a stream to a file, evaluate forms, and then
+      close file
+
+    USAGE
+    with-open-file (var file {option}*) {declaration}* {form}*
+
+    SIDE EFFECTS
+    Depending on the arguments, a new file may be  created  or  an  old  one
+    destroyed.
+
+    DESCRIPTION
+    First binds the variable VAR to a stream created by opening FILE,  which
+    must  be  a  pathname,  string, or stream, then evaluates the FORMS, and
+    finally closes the stream, returning the values of the last  FORM.   The
+    OPTIONS  are evaluated and passed as keyword arguments to the open func-
+    tion. The FORMS are evaluated as an implicit progn, and may be  preceded
+    by  DECLARATIONS.   The  stream  is closed whether or not exit from this
+    macro is normal.  For this reason, it is usually preferred over open.
+
+    EXAMPLES
+    (with-open-file (out "junk" :direction :output
+                         :if-exists :supersede)
+      (prin1 "foo" out))
+      => "foo"
+    (with-open-file (in "junk" :direction :input)
+      (read in))
+      => "foo"
+
+    SEE ALSO
+    CLtL 23:422, close, :direction, :element-type, :if-does-not-exist, :if-
+    exists, open, with-input-from-string, with-open-stream, with-output-to-
+    string
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

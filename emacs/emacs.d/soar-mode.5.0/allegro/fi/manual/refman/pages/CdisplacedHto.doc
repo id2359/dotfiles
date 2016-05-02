@@ -1,0 +1,66 @@
+
+                                                               :displaced-to
+
+
+    KEYWORD ARGUMENT
+    :displaced-to  -  map accesses to one array onto another
+
+    USAGE
+    :displaced-to destination-array
+
+    DESCRIPTION
+    This keyword option may be used with either make-array or  adjust-array.
+    It  indicates  that  accesses to the array that is being created will be
+    mapped onto the array DESTINATION-ARRAY.  Usually another keyword  argu-
+    ment,  :displaced-index-offset  will  be provided, but if it is not then
+    its value defaults to 0.  Suppose that the array being created is called
+    NEW-ARRAY.   Accesses  to  NEW-ARRAY  are  computed  by enumerating both
+    NEW-ARRAY and DESTINATION-ARRAY in row-major order so that the ITH  ele-
+    ment  of NEW-ARRAY maps onto the element of DESTINATION-ARRAY indexed by
+    the sum of I and DISPLACED-INDEX-OFFSET.
+
+    When this keyword argument is used with the function  adjust-array,  the
+    original contents of the array being adjusted are lost.
+
+    EXAMPLES
+    (setq A (make-array '(2 3)
+                        :adjustable t
+                        :initial-contents '((a b c)(d e f))))
+      => #2a((a b c) (d e f))
+    (setq B (make-array '(2 3) :displaced-to A))
+    (setf (aref B 0 1) 'z) => z
+    A => #2a((a z c) (d e f))
+    B => #2a((a z c) (d e f))
+
+    SEE ALSO
+    CLtL 17:288, CLtL 17:297, adjust-array, make-array
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

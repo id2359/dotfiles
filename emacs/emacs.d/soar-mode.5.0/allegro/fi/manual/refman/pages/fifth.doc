@@ -1,0 +1,66 @@
+
+                                                                       fifth
+
+
+    FUNCTION
+    fifth  -  return the fifth element of a list
+
+    USAGE
+    fifth list
+
+    DESCRIPTION
+    Returns the fifth element of LIST, where the car of LIST  is  considered
+    to be the first element.  LIST must be a list.
+
+    Unlike the nth function, which uses zero-origin indexing, this  function
+    uses one-origin indexing.  If the list has fewer than five elements, nil
+    is returned.  setf may be used with fifth to replace the  fifth  element
+    of a list.
+
+    EXAMPLES
+    (fifth '(a b c d e f g h i j)) => e
+    (fifth '(a)) => nil
+    (setq lis '(a b c d e f g h i j)) => (a b c d e f g h i j)
+    (setf (fifth lis) 5) => 5
+    lis => (a b c d 5 f g h i j)
+
+    SEE ALSO
+    CLtL 15:266, car, eighth, elt, first, fourth, ninth, nth, second,
+    seventh, sixth, tenth, third
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

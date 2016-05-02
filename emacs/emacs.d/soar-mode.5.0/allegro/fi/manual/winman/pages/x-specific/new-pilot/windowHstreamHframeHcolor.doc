@@ -1,0 +1,66 @@
+
+                                                   window-stream-frame-color
+
+
+    FUNCTION
+    window-stream-frame-color  -  get the color of the frame of a window-
+      stream
+
+    Usage
+    window-stream-frame-color WSTREAM
+
+    DESCRIPTION
+    Returns the color of the frame of the window-stream WSTREAM.  The  frame
+    includes  the  title area and the borders.  (The background of the title
+    area will be in this color.  The title  itself  will  be  in  the  color
+    returned by window-stream-title-color.)
+
+    You can use setf and window-stream-frame-color to change the frame color
+    and thus the value this function returns.
+
+    EXAMPLES
+    ;; We create a window and some colors.
+    (setf *my-win*
+            (make-window-stream :left 100 :bottom 100
+            :width 200 :height 200
+            :activate-p t :title "Just a Window"))
+    (setf *frame-color* (make-color-rgb :red .5 :green .5 :blue .5))
+    (setf *title-color* (make-color :from-color black))
+
+    ;;  Since it was not specified in MAKE-WINDOW-STREAM, the
+    ;;  frame color is black.
+    (window-stream-frame-color *my-win*)
+      => #<color (rgb) 0.0 0.0 0.0: read-only>
+    ;;  We change the color of the frame and the color of the title.
+    (setf (window-stream-title-color *my-win*) *title-color*)
+    (setf (window-stream-frame-color *my-win*) *frame-color*)
+
+    SEE ALSO
+    window-stream-background-color, window-stream-foreground-color, window-
+    stream-mat-color, window-stream-title-color
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

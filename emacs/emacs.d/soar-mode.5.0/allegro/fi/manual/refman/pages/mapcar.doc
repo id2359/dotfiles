@@ -1,0 +1,66 @@
+
+                                                                      mapcar
+
+
+    FUNCTION
+    mapcar  -  map a function over elements of lists, saving the results in
+      a list
+
+    USAGE
+    mapcar fun {list}+
+
+    DESCRIPTION
+    Returns a list consisting of the results of applying FUN  to  successive
+    elements  of  the  lists given as arguments.  Specifically, FUN is first
+    applied to the first elements (cars) of all the  lists  given  as  argu-
+    ments,  passed  in  the  same  order  as the list arguments, then to the
+    second elements of all the  lists,  continuing  until  the  end  of  the
+    shortest  list  is  reached  (at  which point, remaining elements of any
+    longer list arguments are ignored).  The value (only the first value  if
+    multiple  values  are  returned  by  FUN) of each call to FUN is stored.
+    When the shortest list, which may be  nil,  is  exhausted,  all  of  the
+    stored  values  are made into a list with list and that list is returned
+    by mapcar.  The argument FUN must be a function  that  accepts  as  many
+    arguments as there are lists.
+
+    EXAMPLES
+    (mapcar #'list
+            '(a b c)
+            '(1 2 3)
+            '(alpha beta gamma))
+       => ((a 1 alpha)(b 2 beta)(c 3 gamma))
+    (mapcar #'list
+            '(a b c)
+            '(1 2 3)
+            '(alpha beta )) => ((a 1 alpha) (b 2 beta))
+    (mapcar #'+ '(1 2 3) '(4 5 6)) => (5 7 9)
+
+    SEE ALSO
+    CLtL 7:128, map, mapc, mapcan, mapcon, mapl, maplist
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                                      boundp
+
+
+    FUNCTION
+    boundp  -  test whether a dynamic variable has a value
+
+    USAGE
+    boundp symbol
+
+    DESCRIPTION
+    Returns true if the dynamic variable named by SYMBOL has  a  value,  and
+    otherwise false.
+
+    EXAMPLES
+    (defvar special-var '(a b c))
+    (boundp 'special-var) => t
+    (makunbound 'special-var)
+    (boundp 'special-var) => nil
+
+    SEE ALSO
+    CLtL 7:90, makunbound, set, setq, symbol-value
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

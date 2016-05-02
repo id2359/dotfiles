@@ -1,0 +1,66 @@
+
+                                                                        blue
+
+
+    FUNCTION
+    blue  -  the color blue
+
+    Usage
+    blue
+
+    DESCRIPTION
+    This is a constant, bound to the color blue.  It is an rgb color,  mean-
+    ing that it is composed of valus for red, green, and blue.  The color is
+    read-only, so that while different colormaps  may  use  it,  you  cannot
+    change the values of its fields.
+
+    EXAMPLES
+    blue => #<Color: (rgb) 0.0, 0.0, 1.0, read-only: uninitialized>
+
+    SEE ALSO
+    black, green, purple, red, turquoise, white, yellow
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

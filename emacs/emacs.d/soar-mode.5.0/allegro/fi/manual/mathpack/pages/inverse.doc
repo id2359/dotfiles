@@ -1,0 +1,666 @@
+
+                                                                math:inverse
+
+
+    FUNCTION
+    inverse  -  get the inverse of a square matrix
+
+    USAGE
+    inverse matrix [:error-if-singular eis]
+
+    DESCRIPTION
+    Returns the inverse  of  MATRIX  and  the  reciprocal  condition  number
+    (defined  below)  as  multiple  values.   MATRIX must be a square matrix
+    whose element  type  (as  returned  by  array-element-type)  is  one  of
+    single-float,  double-float,  (complex single-float) or (complex double-
+    float).  inverse will signal an error if the element type of MATRIX  (as
+    returned  by array-element-type) is other than one of those four even if
+    all the elements are in fact all of an appropriate floating-point  type,
+    An  error  is  also  signaled  if  MATRIX  is not square.  MATRIX is not
+    changed by this function and the returned inverse matrix does not  share
+    space with MATRIX.  (The function ninverse destructively replaces MATRIX
+    with its inverse.)
+
+    If MATRIX is singular to machine precision, inverse cannot calculate the
+    inverse.   To  discover whether MATRIX is singular to machine precision,
+    inverse calculates the reciprocal condition number for  the  matrix  and
+    then   tests  if  that  number  is  less  than  single-float-epsilon  or
+    double-float-epsilon (depending on the  precision  of  the  matrix  ele-
+    ments).   If  the  value  is  larger  than  the appropriate epsilon, the
+    inverse is calculated and the inverse matrix and  the  condition  number
+    are  returned  as  multiple  values.   If  the  value  is  less than the
+    appropriate  epsilon,  the  behavior  depends  on  the  value   of   the
+    :error-if-singular  keyword  argument.  If the value of this argument is
+    non-nil (the default), an error is generated if  the  matrix  cannot  be
+    inverted.   If  the  value of this argument is nil, then inverse returns
+    nil and the condition number as multiple values.  Note that nil is not a
+    matrix and thus will generate an error if it is used as the matrix argu-
+    ment to any function.
+
+    The RECIPROCAL CONDITION NUMBER is described in detail in section 1.4 of
+    the  LINPACK  USERS'  GUIDE.  Briefly, there is a way to modify the ele-
+    ments of the matrix by amounts less than the reciprocal condition number
+    so  that  the  changed matrix is singular.  Therefore, if this number is
+    smaller than the accuracy of the elements of your matrix, the result  is
+    numerically   meaningless   since   the  matrix  cannot  be  numerically
+    distinguished from a singular matrix.  If this value is  less  than  the
+    Common  Lisp  constant  single-float-epsilon, if the matrix elements are
+    single floats, or  double-float-epsilon,  if  the  elements  are  double
+    floats,  attempts  to calculate either the inverse or the eigenvalues or
+    vectors will fail.
+
+    About half the work in calculating the  inverse  of  a  matrix  is  also
+    necessary in calculating its determinant.  If you also need the value of
+    the determinant of  MATRIX,  we  suggest  that  you  call  the  function
+    determinant-and-inverse,  rather  than  this  function  and  determinant
+    individually.
+
+    EXAMPLES
+    (setq mat1 (make-matrix '((5.0 4.0) (-6.0 -5.0)) 'single-float))
+    (print-matrix mat1) PRINTS
+      5.0  4.0
+      -6.0 -5.0
+    (print-matrix (inverse mat1)) PRINTS
+      5.000002   4.0000014
+      -6.0000024 -5.000002
+    ;;  (Note the rounding errors.  The matrix is actually its
+    ;;  own inverse.)
+
+    ;;  If the element type of a matrix is not a specific single
+    ;;  or double floating point type, that matrix cannot be given
+    ;;  as an argument to INVERSE without first being coerced to an
+    ;;  appropriate floating-point type, as the following example
+    ;;  demonstrates:
+    (setq mat2 (make-matrix '((#c(1.0 1.0) #c(2.0 -3.0))
+                              (#c(3.0 2.0) #c(3.0 -8.0)))))
+    (print-matrix mat2) PRINTS
+      #c(1.0 1.0)   #c(2.0 -3.0)
+      #c(3.0 2.0)   #c(3.0 -8.0)
+    (array-element-type mat2) => t
+    (inverse mat2) => ERROR
+    ;;  The error message is:
+    ;;  Error: Attempt to invert something other than a
+    ;;  floating-point matrix
+    ;;  The following works:
+    (print-matrix (inverse (complex-single-float-matrix mat2))) PRINTS
+      #c(-2.9999964 8.000002)    #c(1.9999988 -3.0000012)
+      #c(3.0000012 1.9999988)    #c(-1.0000006 -0.99999964)
+    ;;  Again rounding errors cause variations from the actual,
+    ;;  whole number values.
+
+    ;;  Here is what happens when INVERSE is applied to
+    ;;  a singular matrix:
+    (setq mat (make-matrix '((1.0 2.0) (1.0 2.0)) 'single-float))
+      => #2a((1.0 2.0) (1.0 2.0))
+    (inverse mat) => ERROR
+    ;;  The error message is:
+    ;;  Error: Attempt to invert singular matrix
+    ;;
+    ;;  Specifying the :ERROR-IF-SINGULAR keyword argument as
+    ;;  NIL suppresses the error message.  NIL is returned as
+    ;;  the inverse matrix value:
+    (inverse mat :error-if-singular nil)
+      => nil 0.0
+
+    SEE ALSO
+    determinant, determinant-and-inverse, ndeterminant, ndeterminant-and-
+    inverse, ninverse
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

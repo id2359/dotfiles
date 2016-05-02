@@ -1,0 +1,66 @@
+
+                                                       make-broadcast-stream
+
+
+    FUNCTION
+    make-broadcast-stream  -  make an output stream that sends output to
+      several given streams
+
+    USAGE
+    make-broadcast-stream {stream}*
+
+    DESCRIPTION
+    Returns a stream that acts as a channel, so that all output sent  to  it
+    is  merely passed on to all the STREAMS associated with it.  Each STREAM
+    must be a stream.  If none are specified, the returned  stream  discards
+    any  output  written  to  it.   The  returned stream can only take those
+    operations that can be taken by ALL the given  STREAMS.   Any  operation
+    that  performed  on  the returned broadcast stream returns the result of
+    performing the operation on the last STREAM argument.
+
+    EXAMPLES
+    (setq r2 (make-string-output-stream))
+    (setq d2 (make-string-output-stream))
+    (format (make-broadcast-stream r2 d2) "Hello r2 d2") => nil
+    (get-output-stream-string r2) => "Hello r2 d2"
+    (get-output-stream-string d2) => "Hello r2 d2"
+
+    SEE ALSO
+    CLtL 21:329, get-output-stream-string, make-concatenated-stream, make-
+    echo-stream, make-string-input-stream, make-string-output-stream, make-
+    synonym-stream, make-two-way-stream, open
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

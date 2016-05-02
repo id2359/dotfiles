@@ -1,0 +1,66 @@
+
+                                       window-stream-frame-mouse-cursor-move
+
+
+    FUNCTION
+    window-stream-frame-mouse-cursor-move  -  get the list of functions
+      called by the frame-mouse-cursor-move method
+
+    Usage
+    window-stream-frame-mouse-cursor-move WSTREAM
+
+    DESCRIPTION
+    Returns the list of functions that will be called when the  frame-mouse-
+    cursor-move  method  for  the  window-stream  WSTREAM  is  called.  Move
+    methods are only called if catching of move events has been enabled with
+    control-mouse-cursor-move-events.   See the entry on frame-mouse-cursor-
+    move for information on enabling catching of move events.  In any  case,
+    this  function returns the list of function which are called if catching
+    of move events is enabled.
+
+    Initially, the list contains the single function  default-window-stream-
+    frame-mouse-cursor-move-method,  which  does  nothing except return nil.
+    You can add functions to (and remove  functions  from)  this  list  with
+    modify-window-stream-method.   You  can  replace  the list entirely with
+    this function and setf.   restore-default-window-stream-method  restores
+    the list to its initial contents.
+
+    EXAMPLES
+    ;;  We make a window.
+    (setf *my-win* (make-window-stream :left 100 :bottom 200
+                                       :width 100 :height 100
+                                       :activate-p t))
+
+    ;;  The initial list contains one function.
+    (window-stream-frame-mouse-cursor-move *my-win*)
+      => (default-window-stream-mouse-cursor-move-method)
+    ;;  We add FOO to the list (we assume it is defined elsewhere).
+    (modify-window-stream-method *my-win* :frame-mouse-cursor-move
+                                 :after 'foo)
+
+    ;;  Now the list contains two functions.
+    (window-stream-frame-mouse-cursor-move *my-win*)
+      => (default-window-stream-mouse-cursor-move-method foo)
+
+    ;;  We restore the list to its initial state.
+    (restore-default-window-stream-method *my-win*
+      :frame-mouse-cursor-move)
+    (window-stream-frame-mouse-cursor-move *my-win*)
+      => (default-window-stream-mouse-cursor-move-method)
+
+    SEE ALSO
+    control-mouse-cursor-move-events, frame-mouse-cursor-move, modify-
+    window-stream-method, restore-default-window-stream-method
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                       force-graphics-output
+
+
+    FUNCTION
+    force-graphics-output  -  force immediate sending of all buffered output
+      to the server
+
+    Usage
+    force-graphics-output
+
+    SIDE EFFECTS
+    All buffered output is sent to the server.
+
+    DESCRIPTION
+    COMMON WINDOWS maintains a buffer for graphics output, which is  emptied
+    automatically,  but  the  user  may  exert more control, if desired.  In
+    addition, it is possible (and computationally VERY efficient) to  buffer
+    up  a  series of graphics commands by enclosing them in a with-graphics-
+    batching form .
+
+    EXAMPLES
+    (force-graphics-output)
+
+    SEE ALSO
+    with-graphics-batching
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

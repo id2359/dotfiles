@@ -1,0 +1,66 @@
+
+                                                    *maximum-bits-per-pixel*
+
+
+    VARIABLE
+    *maximum-bits-per-pixel*  -  the number of bits used to represent a pix-
+      el
+
+    Usage
+    *maximum-bits-per-pixel*
+
+    DESCRIPTION
+    Bound to the number of bits used to represent a pixel.
+
+    EXAMPLES
+    *maximum-bits-per-pixel*  => 1
+
+    SEE ALSO
+    make-window-stream
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

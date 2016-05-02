@@ -1,0 +1,66 @@
+
+                                                                       ldiff
+
+
+    FUNCTION
+    ldiff  -  get that part of a list preceding a sublist
+
+    USAGE
+    ldiff list sublist
+
+    DESCRIPTION
+    Returns a new list containing only the initial elements of a given list.
+    The  SUBLIST  argument is used to prune trailing elements from the argu-
+    ment LIST.  Both arguments must be lists.  Neither argument is modified.
+
+    If SUBLIST is nil, a copy of LIST is returned (as if by copy-list).   If
+    SUBLIST  is  a  tail  of  LIST,  those  elements of LIST not in its tail
+    SUBLIST are collected into the returned list in the order they appear in
+    LIST.   Thus  the returned list is a copy of LIST less its tail SUBLIST.
+    A sublist is a tail  of  another  list  if  it  satisfies  tailp,  which
+    requires that the sublist be eq to one of the conses that form the list.
+
+    EXAMPLES
+    (setq a '(m n o p q r)) => (m n o p q r)
+    (setq b (cddr a)) => (o p q r)
+    (ldiff a b) => (m n)
+    (ldiff a '(o p q r)) => (m n o p q r)
+
+    SEE ALSO
+    CLtL 15:272, copy-list, eq, tailp
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

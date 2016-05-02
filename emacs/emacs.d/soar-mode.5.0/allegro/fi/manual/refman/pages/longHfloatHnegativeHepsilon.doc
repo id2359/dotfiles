@@ -1,0 +1,66 @@
+
+                                                 long-float-negative-epsilon
+
+
+    CONSTANT
+    long-float-negative-epsilon  -  smallest distinguishable long-float de-
+      crement
+
+    DESCRIPTION
+    Returns the value of the smallest positive long-float number that can be
+    subtracted  from  -1  to produce a value distinct from -1.  The value of
+    this constant is implementation-dependent.
+
+    EXAMPLES
+    ;;  The returned value is implementation-dependent.
+    long-float-negative-epsilon => 2.220446049250313d-16
+
+    SEE ALSO
+    CLtL 12:232, about numeric constants, double-float-epsilon, double-
+    float-negative-epsilon, long-float-epsilon, short-float-epsilon, short-
+    float-negative-epsilon, single-float-epsilon, single-float-negative-
+    epsilon
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

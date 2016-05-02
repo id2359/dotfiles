@@ -1,0 +1,66 @@
+
+                                                                      inline
+
+
+    DECLARATION SPECIFIER
+    inline  -  advise the compiler to compile functions in-line
+
+    USAGE
+    inline {fun}*
+
+    SIDE EFFECTS
+    The COMMON LISP system is advised that each FUN  should  be  open-coded,
+    which  will  probably  make  the  code  in  which the inline declaration
+    appears both faster to execute and larger.
+
+    DESCRIPTION
+    This is a declaration specifier and must appear in a declare or proclaim
+    expression.  It advises the compiler that the specified functions should
+    be expanded in-line.  Each FUN should be a  symbol  naming  a  function.
+    This  declaration  is pervasive and observes the rules of  lexical scop-
+    ing.  If FUN names a function defined in an  enclosing  flet  or  labels
+    form,  the inline declaration applies to the lexically-apparent function
+    definitions.  (Note that not all implementations may permit declarations
+    before  the body of the special forms.) The compiler is not required  to
+    obey the intent of the declarations.  If a function is expanded  in-line
+    by  the  compiler,  future  redefinition  of  the  function  will not be
+    apparent to the function within which the in-line expansion was made.
+
+    EXAMPLES
+    (defun open-floor (num)
+      (declare (inline floor))
+      (floor num))
+
+    SEE ALSO
+    CLtL 9:159, declaration, declare, notinline, proclaim
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

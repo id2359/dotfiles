@@ -1,0 +1,132 @@
+
+                                                math:determinant-and-inverse
+
+
+    FUNCTION
+    determinant-and-inverse  -  get the inverse of a matrix and calculate
+      its determinant
+
+    USAGE
+    determinant-and-inverse matrix [:error-if-singular eis]
+
+    DESCRIPTION
+    Returns three values as multiple values.  The first is a matrix that  is
+    the  inverse of MATRIX, the second is the determinant of MATRIX, and the
+    third is is the reciprocal condition number of MATRIX (described below).
+    MATRIX  must  be  a  square  matrix  whose  element-type (as returned by
+    array-element-type)  is  one  of  single-float,  double-float,  (complex
+    single-float),  or  (complex double-float).  (Generally, the type should
+    be specified when the matrix is  created,  either  with  make-matrix  or
+    make-array.   Matrices  returned  by  the functions single-float-matrix,
+    double-float-matrix,  complex-single-float-matrix,  or   complex-double-
+    float-matrix  also have element types appropriate for this function.) It
+    is an error if MATRIX is not square or does not have  its  element  type
+    listed  above.  (Note that even if all elements are in fact of a single,
+    appropriate type, this function will not work unless the element type is
+    also  correct).   This function does not change its argument in any way.
+    The related function ndeterminant-and-inverse replaces MATRIX  with  its
+    inverse.
+
+    If MATRIX is singular to machine precision, determinant-and-inverse can-
+    not  calculate  the  inverse.  To discover whether MATRIX is singular to
+    machine precision,  determinant-and-inverse  calculates  the  reciprocal
+    condition  number  for  the matrix and then tests if that number is less
+    than single-float-epsilon or double-float-epsilon (depending on the pre-
+    cision  of  the  matrix  elements).   If  the  value  is larger than the
+    appropriate epsilon, the inverse and the determinant are calculated  and
+    MATRIX  (now  inverted),  the  determinant, and the condition number are
+    returned as multiple values.  If the value is less than the  appropriate
+    epsilon,  the  behavior  depends  on the value of the :error-if-singular
+    keyword argument.  If  the  value  of  this  argument  is  non-nil  (the
+    default),  an  error  is generated if the matrix cannot be inverted.  If
+    the value of this argument is nil, then determinant-and-inverse  returns
+    nil, the determinant value, and the condition number as multiple values.
+    Note that nil is not a matrix and thus will generate an error if  it  is
+    used as the matrix argument to any function.
+
+    The RECIPROCAL CONDITION NUMBER is described in detail in section 1.4 of
+    the  LINPACK  USERS'  GUIDE.  Briefly, there is a way to modify the ele-
+    ments of the matrix by amounts less than the reciprocal condition number
+    so  that  the  changed matrix is singular.  Therefore, if this number is
+    smaller than the accuracy of the elements of your matrix, the result  is
+    numerically   meaningless   since   the  matrix  cannot  be  numerically
+    distinguished from a singular matrix.  If this value is  less  than  the
+    Common  Lisp  constant  single-float-epsilon, if the matrix elements are
+    single floats, or  double-float-epsilon,  if  the  elements  are  double
+    floats,  attempts to calculate either the inverse or the eigen values or
+    vectors will fail.  If the reciprocal condition  number  indicates  that
+    the  matrix is singular to machine precision, the determinant is assumed
+    to be zero.
+
+    EXAMPLES
+    ;;  The determinant of the example matrix is 1.0, so
+    ;;  the inverse will have integral elements (to machine
+    ;;  accuracy).
+    (setq mat (make-matrix '((7.0d0 5.0d0) (4.0d0 3.0d0)) 'double-float))
+      => #2a((7.0d0 5.0d0) (4.0d0 3.0d0))
+    (determinant-and-inverse mat) =>
+       1.0d0
+       #2a((3.0d0 -5.0d0) (-4.0d0 7.0d0))
+       0.00855855855855858d0
+    ;;  Note: the returned matrix values were rounded in the text.
+    ;;  The difference between the given value and the returned
+    ;;  value is never greater than 1.0d-13.
+
+    ;;  Note if we do not specify the element type, we
+    ;;  get an error even though all elements are in fact
+    ;;  single floats.  But applying DETERMINANT-AND-INVERSE
+    ;;  to the result of DOUBLE-FLOAT-MATRIX works.
+    (setq mat1 (make-matrix '((3.0d0 -5.0d0) (-4.0d0 7.0d0))))
+    (determinant-and-inverse mat1) => ERROR
+    ;;  The error message is:
+    ;;  Error: Attempt to invert something other
+    ;;         than a floating-point matrix
+    ;;  The solution is:
+    (determinant-and-inverse (double-float-matrix mat1)) =>
+       1.0d0
+       #2a((7.0d0 5.0d0) (4.0d0 3.0d0))
+       0.008949599623174782d0
+    ;;  Note that MAT and MAT1 are inverses (to machine accuracy).
+    ;;  The returned matrix elements are again rounded.
+
+    ;;  Let us try this function on a singular matrix:
+    (setq mats (make-matrix '((1.0 2.0) (1.0 2.0)) 'single-float))
+    (determinant-and-inverse mats) => ERROR
+    ;;  The error message is:
+    ;;  Error: Attempt to invert singular matrix
+    ;;
+    ;;  Specifying the :ERROR-IF-SINGULAR keyword argument as
+    ;;  NIL suppresses the error message.  NIL is returned as
+    ;;  the inverse matrix value:
+    (determinant-and-inverse mats :error-if-singular nil)
+      => nil 0.0 0.0
+    ;;  Note that the determinant is zero.
+
+    SEE ALSO
+    determinant, inverse, ndeterminant, ndeterminant-and-inverse, ninverse
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

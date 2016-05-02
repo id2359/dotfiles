@@ -1,0 +1,66 @@
+
+                                                              *trace-output*
+
+
+    VARIABLE
+    *trace-output*  -  trace output stream
+
+    USAGE
+    *trace-output*
+
+    DESCRIPTION
+    Bound to an output stream used by the trace macro.
+
+    EXAMPLES
+    (defun square-it (some-number)
+      (* some-number some-number)) => square-it
+    (trace square-it) => square-it
+    (+ 2 (square-it 3) 5) => 16
+
+    Evaluating the call to + causes the trace output
+
+     0: (square-it 3)
+     0: returned 9
+
+    to be written to the value of *trace-output* as a side effect.
+
+    SEE ALSO
+    CLtL 21:328, *debug-io*, *error-output*, *query-io*, *standard-input*,
+    *standard-output*, streamp, trace, *terminal-io*, untrace
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

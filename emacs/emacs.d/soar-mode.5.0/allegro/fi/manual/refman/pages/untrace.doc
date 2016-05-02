@@ -1,0 +1,66 @@
+
+                                                                     untrace
+
+
+    MACRO
+    untrace  -  turn off tracing of one or more functions
+
+    Usage
+    untrace {FUNCTION-NAME}*
+
+    DESCRIPTION
+    Return value is implementation-dependent.  Tracing  is  turned  off  for
+    each   of   the   functions   named  in  FUNCTION-NAMES.   None  of  the
+    FUNCTION-NAMES is evaluated.  If you don't specify any  function  names,
+    then  tracing  is  turned off on all currently traced functions.  If you
+    invoke untrace on an untraced function  you  might  (depending  on  your
+    implementation)  get  a  warning  message,  but  no harmful side effects
+    should occur.
+
+    Note that the format and to some extent the content of the trace  output
+    is implementation-dependent.
+
+    EXAMPLES
+    ;;  The exact format of TRACE output is implementation-dependent.
+    <cl> (defun foo (x y)
+           (+ (* 2 x) y))
+    foo
+    <cl> (trace foo)
+    (foo)
+    <cl> (foo 3 4)
+     0: (foo 3 4)
+     0: returned 10
+    10
+    <cl> (untrace foo)
+    (foo)
+    <cl> (foo 3 4)
+    10
+
+    SEE ALSO
+    CLtL 25:440, trace
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

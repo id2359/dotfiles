@@ -1,0 +1,66 @@
+
+                                                                 return-from
+
+
+    SPECIAL FORM
+    return-from  -  Return from a named block
+
+    USAGE
+    return-from name [result]
+
+    SIDE EFFECTS
+    The block that is named by NAME is returned  from  with  the  values  of
+    RESULT.
+
+    DESCRIPTION
+    Does not return anything itself, but rather causes the  specified  block
+    named  by  NAME  to  return  the values resulting from the evaluation of
+    RESULT, or nil if RESULT is unspecified.  NAME is not evaluated and must
+    be a symbol.  The scope of NAME is lexical.  If the name of the block is
+    implicitly nil, as is the case with iteration constructs like  do,  then
+    return may be used.  return is short for return-from nil.
+
+    EXAMPLES
+    ;;  If the argument to BLOCK-TEST is an atom, the result is sent
+    ;;  as the value of the OUTER block bypassing the FORMAT entirely.
+
+    (defun block-test (arg)
+      (block outer
+        (format nil "arg is a list of length ~d"
+                (block inner
+                  (if (atom arg)
+                      (return-from outer "arg is an atom")
+                      (return-from inner (length arg)))))))
+    (block-test 1.0) => "arg is an atom"
+    (block-test '(1 2 3)) => "arg is a list of length 3"
+
+    SEE ALSO
+    CLtL 7:120, block, return
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

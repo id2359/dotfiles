@@ -1,0 +1,66 @@
+
+                                               single-float-negative-epsilon
+
+
+    CONSTANT
+    single-float-negative-epsilon  -  smallest distinguishable single-float
+      decrement
+
+    DESCRIPTION
+    Evaluates to the smallest positive single-float number that can be  sub-
+    tracted  from -1 to produce a value distinct from -1.  The value of this
+    constant is implementation-dependent.
+
+    EXAMPLES
+    ;;  The returned value is implementation-dependent.
+    single-float-negative-epsilon => 1.1920929e-7
+
+    SEE ALSO
+    CLtL 12:232, about numeric constants, double-float-epsilon, double-
+    float-negative-epsilon, long-float-epsilon, long-float-negative-epsilon,
+    short-float-epsilon, short-float-negative-epsilon, single-float-epsilon
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

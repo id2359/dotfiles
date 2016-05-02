@@ -1,0 +1,66 @@
+
+                                                                     package
+
+
+    Type SPECIFIER
+    package  -  the data type package
+
+    USAGE
+    package
+
+    DESCRIPTION
+    Specifies the data type package, which consists of collections  of  sym-
+    bols.  A package may be used to keep a symbol local to a given module.
+
+    EXAMPLES
+    (typep (make-package 'foo) 'package)
+      => t
+    (typep *package* 'package)
+      => t
+
+    SEE ALSO
+    CLtL 2:31, CLtL 4:43, 'type-specifiers, typep, make-package, *package*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

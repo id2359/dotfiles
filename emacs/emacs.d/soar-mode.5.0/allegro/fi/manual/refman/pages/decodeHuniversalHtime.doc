@@ -1,0 +1,66 @@
+
+                                                       decode-universal-time
+
+
+    FUNCTION
+    decode-universal-time  -  convert universal time to decoded time
+
+    Usage
+    decode-universal UNIVERSAL-TIME [TIME-ZONE]
+
+    DESCRIPTION
+    Returns the time specified by UNIVERSAL-TIME as nine values  correspond-
+    ing  to  the  components  of  decoded-time:  SECOND, MINUTE, HOUR, DATE,
+    MONTH, YEAR, DAY-OF-WEEK, DAYLIGHT-SAVINGS-TIME-P, and TIME-ZONE.  These
+    components  take  values in the following ranges: SECOND and MINUTE 0 to
+    59; HOUR 0 to 23; DATE 1 to 31 but never more than the actual number  of
+    days  in  a  month;  MONTH  1  to 12; YEAR greater than or equal to 1900
+    representing the number of  the  year  in  the  Common  Era  (i.e.  AD);
+    DAY-OF-WEEK  0  to 6 with Monday being 0.  TIME-ZONE is in zones west of
+    Greenwich, i.e. hours less than GMT.  DAYLIGHT-SAVINGS-TIME-P  is  t  or
+    nil  as  daylight-saving-time is or is not in EFFECT (not as it is or is
+    not observed in your location).  If you  do  not  specify  the  optional
+    TIME-ZONE  argument  (as an integer indicating hours less than GMT), the
+    time-zone component of the returned decoded-time values will default  to
+    the  current  TIME-ZONE on your machine.  (If you specify the TIME-ZONE,
+    the returned value DAYLIGHT-SAVING-TIME-P  is  implementation-dependent.
+    Some  always return nil and others return the same value as if TIME-ZONE
+    had not been specified.)
+
+    EXAMPLES
+    (multiple-value-list (decode-universal-time 2398291201))
+      => (1 0 16 31 12 1975 2 nil 8)
+    ;;  That is 16:00:01 (one second after four pm) on Tuesday,
+    ;;  the 31st of December, Pacific Standard Time.
+
+    SEE ALSO
+    CLtL 25:445, encode-universal-time, get-decoded-time, get-universal-time
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                             math:ntranspose
+
+
+    FUNCTION
+    ntranspose  -  destructively transpose a square matrix
+
+    USAGE
+    ntranspose matrix
+
+    DESCRIPTION
+    Returns MATRIX after destructively transposing it.   MATRIX  must  be  a
+    square  matrix.   The I,JTH of MATRIX after this function returns is the
+    same as the J,ITH element before this function was  called.   It  is  an
+    error  if MATRIX is not a square matrix.  The related function transpose
+    works on general matrices.
+
+    The element type (as returned by array-element-type) MATRIX  after  this
+    function returns is the same as the element type before this function is
+    called.
+
+    EXAMPLES
+    (setq mat1 (make-matrix '((#c(1.0 1.0) #c(2.0 2.0))
+                              (#c(3.0 3.0) #c(4.0 4.0)))))
+    (print-matrix mat1) PRINTS
+      #c(1.0 1.0) #c(2.0 2.0)
+      #c(3.0 3.0) #c(4.0 4.0)
+    (print-matrix (ntranspose mat1)) PRINTS
+      #c(1.0 1.0) #c(3.0 3.0)
+      #c(2.0 2.0) #c(4.0 4.0)
+    ;;  MAT1 is now changed:
+    (print-matrix mat1) PRINTS
+      #c(1.0 1.0) #c(3.0 3.0)
+      #c(2.0 2.0) #c(4.0 4.0)
+    ;;  NTRANSPOSE will not work on a non-square matrix.
+    ;;  (TRANSPOSE will work, however.)
+    (ntranspose (make-matrix '((1.0 2.0)))) => ERROR
+    ;;  The error message is:
+    ;;  Error: Non-square matrix argument to ntranspose
+    (print-matrix (transpose (make-matrix '((1.0 2.0))))) PRINTS
+      1.0
+      2.0
+
+    SEE ALSO
+    conjugate, nconjugate-transpose, transpose
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

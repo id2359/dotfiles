@@ -1,0 +1,66 @@
+
+                                         *initialize-common-windows-actions*
+
+
+    VARIABLE
+    *initialize-common-windows-actions*  -  list of functions called by
+      initialize-common-windows
+
+    DESCRIPTION
+    Bound to the  list  of  functions  which  are  called,  in  order,  when
+    initialize-common-windows  is  called.  (Actually, the list contains the
+    symbols which denote the  functions,  not  the  function  objects  them-
+    selves.)   The  functions  are  called  with  the  arguments  passed  to
+    initialize-common-windows.
+
+    The initial value of this variable is the  list  containing  the  single
+    function default-initialize-common-windows.  This function does the work
+    of initializing COMMON WINDOWS so it MUST be in the  list.   You  should
+    add  other  functions  with  push or append and remove them with remove.
+    (You may replace the  entire  list,  of  course,  so  long  as  default-
+    initialize-common-windows is in the list.)
+
+    Note that COMMON WINDOWS is not  initialized  until  default-initialize-
+    common-windows  returns,  so functions earlier than that function in the
+    list cannot access the server.  (You cannot make  a  window  with  make-
+    window-stream, for example.)
+
+    EXAMPLES
+    ;;  The default value of the list:
+    *initialize-common-windows-actions* => (default-initialize-common-windows)
+    ;;  We define another function and
+    ;;  add it to the list:
+    (defun my-res (&rest args) (declare (ignore args))
+      (format t "Initializing Common Windows Now.~%"))
+    (push 'my-res *initialize-common-windows-actions*)
+    *initialize-common-windows-actions*
+      => (my-res default-initialize-common-windows)
+
+    SEE ALSO
+    initialize-common-windows, *kill-common-windows-actions*, *make-window-
+    stream-actions* *restart-common-windows-actions*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                                     logorc2
+
+
+    FUNCTION
+    logorc2  -  bitwise logical `or', complementing the second argument
+
+    USAGE
+    logorc2 n1 n2
+
+    DESCRIPTION
+    Returns the bit-wise logical `or' of N1 and the complement of N2.   Both
+    arguments must be integers.  Arguments and results are interpreted as if
+    represented in two's-complement notation.  The following identity holds:
+
+    (logorc2 x y) = (logior x (lognot y))
+
+    EXAMPLES
+    (logorc2 1 -5) => 5
+
+    (setf *print-base* 2
+          *print-radix* t)
+    ;;  (Since bitwise logical operations interpret integers as
+    ;;  half-infinite, the result is negative, which in two's-
+    ;;  complement representation has an infinite string of 1's
+    ;;  to the right, that is toward higher-order bits.  The
+    ;;  number #b-11 would be represented in two's-complement
+    ;;  as ...1111101.)
+    (logorc2 #b1100 #b1010) => #b-11
+    (ldb (byte 4 0) #b-11) => #b1101
+    (logbitp 100 #b-11) => t
+
+    SEE ALSO
+    CLtL 12:221, boole, byte, logand, logandc1, logandc2, logbitp, logcount,
+    logeqv, logior, lognand, lognor, lognot, logorc1, logtest, logxor
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

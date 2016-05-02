@@ -1,0 +1,66 @@
+
+                                                             simple-string-p
+
+
+    FUNCTION
+    simple-string-p  -  test whether an object is a simple string
+
+    USAGE
+    simple-string-p object
+
+    DESCRIPTION
+    Returns true if OBJECT is a simple string, and false otherwise.  A  sim-
+    ple  string  is  a  vector  of element type string-char that has no fill
+    pointer, is not displaced to another array, and is not adjustable.   The
+    following identities hold:
+
+    simple-string = (simple-array string-char (*))
+    (simple-string-p x) = (typep x 'simple-string)
+
+    EXAMPLES
+    (simple-string-p "hello") => t
+    (simple-string-p 'hello) => nil
+
+    (setq achar
+      (make-array '(5) :element-type 'character :initial-element #\A))
+    (setq aschar
+      (make-array '(5) :element-type 'string-char :initial-element #\B))
+    (simple-string-p achar) => nil
+    (simple-string-p aschar) => t
+    (subtypep 'simple-string 'simple-vector) => nil t
+
+    SEE ALSO
+    CLtL 6:75, about type specifiers, make-string, reader macro "
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                                       char=
+
+
+    FUNCTION
+    char=  -  test whether given characters are all the same
+
+    USAGE
+    char= {char}+
+
+    DESCRIPTION
+    Returns true if each CHAR is equal to every other  CHAR  specified,  and
+    false  otherwise.   Each  CHAR must be a character object.  To be equal,
+    characters must have the same code, bits  attributes,  and  font  attri-
+    butes.   Characters  that are char= are not necessarily eq.  Two charac-
+    ters that are eq are, however, char=.  Both eql and equal compare  char-
+    acters  with  char=; equalp uses char-equal.  The function char-equal is
+    like char= except that it ignores case, and bits and font attributes.
+
+    EXAMPLES
+    (char= #\b #\b) => t
+    (char= #\b #\c) => nil
+    (char= #\b #\B) => nil
+    (char-equal #\b #\B) => t
+    (char= #\b) => t
+    (char= #\a #\a #\a) => t
+    (char= #\a #\Control-A) => nil
+
+    SEE ALSO
+    CLtL 13:237, char/=, char-equal, char>, char>=, char<, char<=, eq, eql,
+    equal, equalp
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

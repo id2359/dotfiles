@@ -1,0 +1,66 @@
+
+                                                        math:diagonal-matrix
+
+
+    FUNCTION
+    diagonal-matrix  -  get a diagonal matrix whose diagonal elements are
+      the elements in a vector
+
+    USAGE
+    diagonal-matrix vector
+
+    DESCRIPTION
+    Returns a square matrix whose on-diagonal elements are the  elements  of
+    VECTOR and whose off diagonal elements are zero.  If the element type of
+    VECTOR is more specific than t, the off-diagonal zeroes  of  the  result
+    matrix  will  be coerced to be the same type as the vector elements.  If
+    the element type of VECTOR is t,  the  off  diagonal  elements  will  be
+    integer  zeroes.   The  order  of  the  returned matrix is the length of
+    VECTOR.  (That is, if the length of VECTOR is N, an NXN matrix  will  be
+    returned).
+
+    The element type (as  returned  by  array-element-type)  of  the  result
+    matrix is the same as the element type of the argument VECTOR.
+
+    EXAMPLES
+    (setq vec1 (make-array 3 :initial-contents '(1.0 2.0 3.0)
+                             :element-type 'single-float))
+    (print-matrix (diagonal-matrix vec1)) PRINTS
+      1.0 0.0 0.0
+      0.0 2.0 0.0
+      0.0 0.0 3.0
+
+    (setq vec2 (make-array 3 :initial-contents '(1.0 2.0d0 #c(3.0 0.0))))
+    (print-matrix (diagonal-matrix vec2)) PRINTS
+      1.0         0           0
+      0           2.0d0       0
+      0           0           #c(3.0 0.0)
+
+    SEE ALSO
+    column-matrix, diagonal-vector, make-matrix, row-matrix
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

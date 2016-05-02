@@ -1,0 +1,66 @@
+
+                                                                         dpb
+
+
+    FUNCTION
+    dpb  -  deposit a justified byte
+
+    USAGE
+    dpb newbyte bytespec n
+
+    DESCRIPTION
+    Returns a copy of the integer N with the  byte  indicated  by  the  byte
+    specifier BYTESPEC replaced by the low S bits of NEWBYTE, where S is the
+    size component of BYTESPEC.  The byte specifier is usually generated  by
+    the byte function.  The following identity holds:
+
+    (logbitp i (dpb m (byte s p) n))
+      = (if (and (>= i p) (< i (+ p s)))
+            (logbitp (- i p) m)
+            (logbitp i n))
+
+    EXAMPLES
+    (setf *print-base* 2)
+    (dpb #b1111 (byte 4 0) #b10010110) => 10011111
+    (dpb #b1111 (byte 4 4) #b10010110) => 11110110
+    (dpb #b1111 (byte 6 2) #b10010110) => 111110
+
+    SEE ALSO
+    CLtL 12:227, byte, byte-position, byte-size, mask-field
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

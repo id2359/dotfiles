@@ -1,0 +1,66 @@
+
+                                                             get-setf-method
+
+
+    FUNCTION
+    get-setf-method  -  get the setf method for a form
+
+    USAGE
+    get-setf-method form
+
+    DESCRIPTION
+    Returns the five values that make up the setf  method  for  FORM,  which
+    must  be  a generalized variable reference.  The roles played by each of
+    the five values are described briefly below.
+
+    The first two of the five values are a list of temporary variables and a
+    list  of forms to bind to those temporary variables.  The third returned
+    value is a list with one element,  the  single  variable  that  will  be
+    stored  into  the  generalized  variable. The fourth value is called the
+    STORING FORM and is code that will be used to store the new value in the
+    generalized  variable. This code may refer to any of the temporary vari-
+    ables.  The fifth value is called the ACCESSING  FORM  and  returns  the
+    value of the generalized variable.
+
+    EXAMPLES
+    ;;  We define a function TAIL and a setf-method for it.
+    ;;  Then, GET-SETF-METHOD returns five values corresponding
+    ;;  to what we defined.
+    (defun tail (lis)
+      (cdr lis))
+
+    (define-setf-method tail (lis)
+      (let* ((temp-var (gensym))            ; temp var for list
+             (store-var (gensym)))          ; temp var for new tail
+        (values
+         (list temp-var)                    ; temporary variables
+         (list lis)                         ; value forms
+         (list store-var)                   ; store variables
+         `(progn
+            (rplacd ,temp-var ,store-var)
+            ,store-var)                     ; storing form
+         `(cdr ,temp-var))))                ; accessing form
+
+    (setq my-list '(a b c)) => (a b c)
+    (tail my-list) => (b c)
+    (setf (tail my-list) '(x y z)) => (x y z)
+    my-list => (a x y z)
+
+    (get-setf-method '(tail my-list)) =>
+    (#:g13) (my-list) (#:g14)
+    (progn (rplacd #:g13 #:g14) #:g14) (cdr #:g13)
+
+    SEE ALSO
+    CLtL 7:105, define-modify-macro, define-setf-method, defsetf, get-setf-
+    method-multiple-value
+
+
+
+
+
+
+
+
+
+
+

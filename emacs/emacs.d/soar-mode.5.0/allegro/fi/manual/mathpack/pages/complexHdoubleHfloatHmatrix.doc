@@ -1,0 +1,66 @@
+
+                                            math:complex-double-float-matrix
+
+
+    FUNCTION
+    complex-double-float-matrix  -  Coerce all matrix elements to be complex
+      double-floats
+
+    USAGE
+    complex-double-float-matrix matrix
+
+    DESCRIPTION
+    Returns  a  new  matrix  whose  array  element  type  (as  returned   by
+    array-element-type) is (complex double-float) and whose elements are the
+    elements of MATRIX coerced to be complex double-floats.
+
+    Some functions,  such  as  inverse  and  determinant,  only  operate  on
+    matrices  whose array element type is one of single-float, double-float,
+    (complex single-float), or (complex double-float).  But matrices may  be
+    created  with  any  numerical  type  (or  even t) as their element type.
+    Matrices with inappropriate element type cannot be passed to  the  func-
+    tions that require the type be from the list above.  Applying this func-
+    tion to a matrix produces a matrix suitable for passing to  those  func-
+    tions.   Note  that  MATRIX  itself is unaffected by this function.  The
+    returned matrix does not share any storage with MATRIX.
+
+    It is an error if any element  of  MATRIX  cannot  be  coerced  to  type
+    (complex  double-float).   (Only some bignums cannot be so coerced among
+    numeric values.)
+
+    EXAMPLES
+    (setq mat (make-matrix '((1 1/2) (1.0 3.0d0))))
+      => #2a((1 1/2) (1.0 3.0d0))
+    (array-element-type mat) => t
+    (setq mat1 (complex-double-float-matrix mat))
+      => #2a((#c(1.0d0 0.0d0) #c(0.5d0 0.0d0))
+              (#c(1.0d0 0.0d0) #c(3.0d0 0.0d0)))
+    (array-element-type mat1) => (complex double-float)
+
+    SEE ALSO
+    complex-double-float-vector, complex-single-float-matrix, complex-
+    single-float-vector, double-float-matrix, double-float-vector, single-
+    float-matrix, single-float-vector
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                                       error
+
+
+    FUNCTION
+    error  -  signal a non-continuable error
+
+    USAGE
+    error format-string {arg}*
+
+    SIDE EFFECTS
+    An error  message  is  output  to  the  stream  that  is  the  value  of
+    *error-output*.
+
+    DESCRIPTION
+    This function does not return.  It signals an error that cannot be  con-
+    tinued  from.   The  message printed to *error-output* is constructed by
+    applying format to nil, FORMAT-STRING, and  all  ARG  arguments.   Addi-
+    tional  implementation-dependent  information is also printed, including
+    an indication  that  the  message  is  the  result  of  an  error.   The
+    FORMAT-STRING  should  not contain newlines at the beginning or end, and
+    it should not contain any initial string indicating that it is an  error
+    message (since this will be supplied by error).  Messages conventionally
+    end in a period.  No indentation  should  follow  newlines  within  long
+    error  messages.  In a typical implementation, error will throw the user
+    into the debugger.
+
+    EXAMPLES
+    ;;  The exact message is implementation-dependent:
+    (flet
+        ((test (num)
+           (when (evenp num)
+               (error "Please use an odd number.
+                      ~D is an even number." num))))
+      (test 4) ) => ERROR
+      PRINTS Error: Please use an odd number. 4 is an even number.
+
+    SEE ALSO
+    CLtL 24:429, break, ccase, cerror, ctypecase, ecase, etypecase
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

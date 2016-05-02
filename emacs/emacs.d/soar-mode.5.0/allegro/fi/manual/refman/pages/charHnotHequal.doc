@@ -1,0 +1,66 @@
+
+                                                              char-not-equal
+
+
+    FUNCTION
+    char-not-equal  -  test whether given characters are all different, ig-
+      noring case and bits
+
+    USAGE
+    char-not-equal {char}+
+
+    DESCRIPTION
+    Returns true if each CHAR is not identical to any other CHAR  specified,
+    ignoring  case  and  bits attributes and taking into account font attri-
+    butes in an implementation-dependent manner.  Returns  false  otherwise.
+    Two  characters  are  considered  identical  by  this function when they
+    differ only in case.  If two characters differ in their font attributes,
+    they  may  or may not be identical depending upon the implementation and
+    possibly upon the font  attributes.   Each  CHAR  must  be  a  character
+    object.   The function char/= is like char-not-equal except that it also
+    checks case, and bits and font attributes.
+
+    EXAMPLES
+    (char-not-equal #\b #\b) => nil
+    (char-not-equal #\b #\c) => t
+    (char-not-equal #\b #\B) => nil
+    (char/= #\b #\B) => t
+    (char-not-equal #\b) => t
+    (char-not-equal #\a #\A #\Control-A) => nil
+
+    SEE ALSO
+    CLtL 13:239, char/=, char-equal, char-greaterp, char-lessp, char-not-
+    greaterp, char-not-lessp, eql
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                                 boole-andc2
+
+
+    CONSTANT
+    boole-andc2  -  specify bitwise logical `and' operation, complementing
+      operand two
+
+    DESCRIPTION
+    Used as the first argument to boole to specify the bitwise boolean `and'
+    operation  that  complements  its  second operand (the third argument to
+    boole).
+
+    EXAMPLES
+    (setf *print-base* 2
+          *print-radix* t)
+    ;;  (The printer drops leading zeros when printing integers.
+    ;;  The printed number #b100 is equivalent to #b0100.)
+    (boole boole-andc2 #b1100 #b1010) => #b100
+
+    SEE ALSO
+    CLtL 12:222, boole, boole-1, boole-2, boole-and, boole-andc1, boole-c1,
+    boole-c2, boole-clr, boole-eqv, boole-ior, boole-nand, boole-nor,
+    boole-orc1, boole-orc2, boole-set, boole-xor
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+                                                                         ldb
+
+
+    FUNCTION
+    ldb  -  extract a byte from an integer
+
+    USAGE
+    ldb bytespec n
+
+    DESCRIPTION
+    Returns the byte of the  integer  N  specified  by  the  byte  specifier
+    BYTESPEC.   The  extracted  byte  is returned as a non-negative integer.
+    BYTESPEC must be a byte specifier such as one returned by byte.  If N is
+    given by a generalized variable acceptable to setf, then ldb can be used
+    with setf to replace the integer at N such that the specified byte  will
+    have  the  given  value  and  the  remaining  bits of the integer remain
+    unchanged.  The following identity holds:
+
+    (logbitp index (ldb (byte size position) n))
+      = (and (< index size) (logbitp (+ index position) n))
+
+    The name LDB can be traced to the  the  assembly-language  mnemonic  for
+    `load byte'.
+
+    EXAMPLES
+    (setq *print-base* 2) => 10
+    (ldb (byte 4 0) #b10010110) => 110
+    (ldb (byte 4 1) #b10010110) => 1011
+    (ldb (byte 6 2) #b10010110) => 100101
+
+    SEE ALSO
+    CLtL 12:226, byte, byte-position, byte-size, deposit-field, dpb, ldb-
+    test, mask-field
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

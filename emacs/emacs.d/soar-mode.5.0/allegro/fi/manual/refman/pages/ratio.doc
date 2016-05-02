@@ -1,0 +1,66 @@
+
+                                                                       ratio
+
+
+    Type SPECIFIER
+    ratio  -  the data type comprising the ratio of two integers
+
+    USAGE
+    ratio
+
+    DESCRIPTION
+    Specifies a data type consisting of numbers that represent  mathematical
+    ratios  of  two  integers.   there  are  two  parts  in in the canonical
+    representation of a ratio, the numerator and the  denominator,  both  of
+    which must be integers.  The largest common denominator of the numerator
+    and denominator must be 1 and the denominator must be greater than 1.
+
+    The printed representation of a ratio is the  numerator  followed  by  a
+    slash  and then by the denominator.  Even if a number is read as a ratio
+    in unreduced form, it is printed in canonical form  as  specified  above
+    unless  its  value  is  integral, in which case it is an integer, and is
+    printed accordingly.  integer and ratio are mutually exclusive  subtypes
+    of rational.
+
+    EXAMPLES
+    (setq x '(#B111/10 #O10/3 #9R10/3 3/30)) => (7/2 8/3 3 1/10)
+    (mapcar #'type-of x) => (ratio ratio fixnum ratio)
+    (typep 4/5 'ratio) => t
+    (subtypep 'ratio 'rational) => t t
+
+    SEE ALSO
+    CLtL 2:15, CLtL 4:43, about type specifiers, float, integer, rational,
+    subtypep, type-of, typep
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

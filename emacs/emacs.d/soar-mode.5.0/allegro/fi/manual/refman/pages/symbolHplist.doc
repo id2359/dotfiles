@@ -1,0 +1,66 @@
+
+                                                                symbol-plist
+
+
+    FUNCTION
+    symbol-plist  -  get the list that holds the property pairs of a symbol
+
+    USAGE
+    symbol-plist symbol
+
+    DESCRIPTION
+    Returns a list that holds  the  property  (indicator,  value)  pairs  of
+    SYMBOL.   Note  that you cannot use get on the list returned from a call
+    to symbol-plist.  You must either use getf or pass the symbol itself  to
+    get.  You may  use setf with symbol-plist to replace the entire property
+    list, although this is generally the wrong thing to do.
+
+    EXAMPLES
+    (setf (get 'bills 'water) 20) => 20
+    (setf (get 'bills 'rent) 300) => 300
+    (symbol-plist 'bills) => (water 20 rent 300)
+
+    SEE ALSO
+    CLtL 10:166, get, getf
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

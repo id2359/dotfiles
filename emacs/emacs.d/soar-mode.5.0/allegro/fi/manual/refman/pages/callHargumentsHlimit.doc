@@ -1,0 +1,66 @@
+
+                                                        call-arguments-limit
+
+
+    CONSTANT
+    call-arguments-limit  -  exclusive upper bound on the number of argu-
+      ments to a function
+
+    DESCRIPTION
+    Evaluates to a number that is one greater than  the  maximum  number  of
+    arguments   that  may  be  passed  to   any  function.   This  value  is
+    implementation-dependent but must be at least 50.
+
+    EXAMPLES
+    ;;  This value is implementation-dependent:
+    call-arguments-limit => 16384
+
+    SEE ALSO
+    CLtL 7:108, lambda-parameters-limit, multiple-values-limit
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

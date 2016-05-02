@@ -1,0 +1,66 @@
+
+                                                                hash-table-p
+
+
+    FUNCTION
+    hash-table-p  -  test whether an object is a hash table
+
+    USAGE
+    hash-table-p object
+
+    DESCRIPTION
+    Returns true if OBJECT is a hash table, and false otherwise.   The  fol-
+    lowing identity holds:
+
+    (hash-table-p x) = (typep x 'hash-table)
+
+    EXAMPLES
+    (hash-table-p
+      (setq ht (make-hash-table :size 100 :rehash-size 1.4)))
+      => t
+
+    SEE ALSO
+    CLtL 16:284, about type specifiers, make-hash-table, typep
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

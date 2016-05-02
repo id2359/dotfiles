@@ -1,0 +1,66 @@
+
+                                                                 yes-or-no-p
+
+
+    FUNCTION
+    yes-or-no-p  -  ask the user a yes-or-no question
+
+    Usage
+    yes-or-no-p [FORMAT-STRING {ARGS}*]
+
+    SIDE EFFECTS
+    The  question is output to the value of *query-io*
+
+    DESCRIPTION
+    Returns non-nil if the user's response is affirmative  and  nil  if  the
+    response  is  negative.   If  FORMAT-STRING  is  supplied,  the function
+    fresh-line is called and the format string is displayed  as  if  it  and
+    ARGS  were given to the function format. Whether or not FORMAT-STRING is
+    supplied, a response is expected from the user. (The query may have been
+    generated separately.)  The range of acceptable responses is implementa-
+    tion dependent.  However, the acceptable responses should  all  necessi-
+    tate entering more than a single character.
+
+    FORMAT-STRING must be a string.  It may  include  format  directives  as
+    specified for the format function.  If any of the format directives take
+    arguments the arguments are taken sequentially from ARGS.  FORMAT-STRING
+    should be a query that can take an affirmative or negative response. For
+    portability, the  query  itself  should  not  say  what  are  acceptable
+    responses, since they are implementation-dependent.  Implementations may
+    provide information about acceptable  responses  when  the  function  is
+    evaluated.   (For  example, the acceptable responses may be given if the
+    first response is inappropriate.)
+
+    If the possible consequences of the user's response are neither  serious
+    nor difficult to rectify, the function y-or-n-p, which has the same syn-
+    tax but can be responded to more easily, can be used.
+
+    EXAMPLES
+    ;;  The specific message as well as the details of the
+    ;;  script (the prompt, etc.) are implementation-dependent.
+    <cl> (PROGN (SETF (GET 'FRED 'STATUS) 'HIRED)
+           (IF (YES-OR-NO-P "REALLY WANT TO FIRE FRED? ")
+               (SETF (GET 'FRED 'STATUS) 'FIRED)))
+    Really want to fire fred? I GUESS SO
+    Type "yes" for yes or "no" for no.
+    Really want to fire fred? YES
+    fired
+    <cl>
+
+    SEE ALSO
+    CLtL 22:407, format, y-or-n-p
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

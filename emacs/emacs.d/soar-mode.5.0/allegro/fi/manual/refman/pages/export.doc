@@ -1,0 +1,66 @@
+
+                                                                      export
+
+
+    FUNCTION
+    export  -  make symbols available as externals in a package
+
+    USAGE
+    export symbols [package]
+
+    DESCRIPTION
+    Returns t after  making  SYMBOLS  external  symbols  in  PACKAGE,  which
+    defaults  to  the current package (the value of *package*).  The SYMBOLS
+    may be accessible in PACKAGE directly, or by inheritance.  If  a  symbol
+    is already external, no action is taken for that symbol.  If a symbol is
+    directly present in PACKAGE and it is internal, it is made external.  If
+    a  symbol is accessible as an internal symbol in PACKAGE by inheritance,
+    the symbol is first imported into package before it  is  made  external.
+    If  a  symbol  is not accessible in PACKAGE, a continuable error is sig-
+    nalled.  When such an error  is  continued  from,  the  symbol  will  be
+    imported before it is made external.
+
+    The argment SYMBOLS may be a list of symbols or  just  one  symbol.   By
+    convention,  a  call to export is usually near the top of a file to show
+    which symbols in the file are intended to be  used  by  other  programs.
+    (In  this  context,  the  use  of  export should follow uses of provide,
+    in-package, and shadow.)
+
+    EXAMPLES
+    ;;  We create the FOO package and the symbol HIDDEN in it, ensuring
+    ;;  that HIDDEN is not exported.  We use two colons to access HIDDEN
+    ;;  until we export it, at which point we use one colon.
+
+    (or (find-package :foo)
+        (make-package :foo))
+    (if (find-symbol 'foo::hidden) (unexport 'foo::hidden 'foo))
+    (setq foo::hidden 5)
+    foo::hidden => 5
+    (export 'foo::hidden (find-package 'foo))
+    foo:hidden => 5
+
+    SEE ALSO
+    CLtL 11:186, import, in-package, *package*, provide, shadow, unexport
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

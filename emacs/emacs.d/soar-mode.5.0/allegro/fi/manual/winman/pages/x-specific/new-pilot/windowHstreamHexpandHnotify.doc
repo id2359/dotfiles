@@ -1,0 +1,66 @@
+
+                                                 window-stream-expand-notify
+
+
+    FUNCTION
+    window-stream-expand-notify  -  get the list of functions called by the
+      expand-notify method
+
+    Usage
+    window-stream-expand-notify STREAM
+
+    DESCRIPTION
+    Returns the list of functions that will be called when the expand-notify
+    method for the window-stream WSTREAM is called.  expand-notify is called
+    by the system when a common window is expanded (from  an  icon)  by  the
+    window  manager,  not  by  COMMON WINDOWS itself.  You do not (normally)
+    call expand-notify directly.
+
+    By default the list contains the single function  default-window-stream-
+    expand-notify-method.   This  function  does the work of updating COMMON
+    WINDOWS about the change in the window, so you should not remove it from
+    the list.
+
+    You can change this list by using modify-window-stream-method or replace
+    it  entirely  by  using  setf.   If  you  replace the list, be sure that
+    default-window-stream-expand-notify-method is in the new list.  You  can
+    restore  the  list  to  its  initial  state with restore-default-window-
+    stream-method.
+
+    EXAMPLES
+    (setf *my-win* (make-window-stream :left 100 :bottom 100
+                                       :width 200 :height 200
+                                       :activate-p t :title "Just a Window"))
+    (defun my-after-expand-notify (w)
+      (format t "Status of window is ~S ~%" (window-stream-status w)))
+
+    ;;  The initial list returned contains one function.
+    (window-stream-expand-notify  *my-win*)
+      => (default-window-stream-expand-notify-method)
+
+    ;;  We add a new function.
+    (modify-window-stream-method *my-win* :expand-notify
+                                 :after 'my-after-expand-notify)
+    ;;  Now the list contains two functions.
+    (window-stream-expand-notify  *my-win*)
+      => (default-window-stream-expand-notify-method my-after-expand-notify)
+
+    ;;  We restore the list to its initial state.
+    (restore-window-stream-method *my-win* :expand-notify)
+    (window-stream-expand-notify  *my-win*)
+      => (default-window-stream-expand-notify-method)
+
+    SEE ALSO
+    expand, expand-notify, modify-window-stream-method, restore-window-
+    stream-method
+
+
+
+
+
+
+
+
+
+
+

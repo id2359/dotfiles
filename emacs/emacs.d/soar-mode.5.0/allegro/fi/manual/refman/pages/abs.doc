@@ -1,0 +1,66 @@
+
+                                                                         abs
+
+
+    FUNCTION
+    abs  -  get the absolute value of a number
+
+    USAGE
+    abs number
+
+    DESCRIPTION
+    Returns the absolute value of NUMBER, which must be a number.  If NUMBER
+    is  real,  the result has the same type as NUMBER.  Note that for a com-
+    plex argument, the absolute value is also called the magnitude, and  is,
+    by definition,
+
+    (abs z) = (sqrt (+ (expt (realpart z) 2) (expt (imagpart z) 2)))
+
+    EXAMPLES
+    (abs 4) => 4
+    (abs -4) => 4
+    (abs #c(3.0 -4.0)) => 5.0
+
+    SEE ALSO
+    CLtL 12:205, phase, signum
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

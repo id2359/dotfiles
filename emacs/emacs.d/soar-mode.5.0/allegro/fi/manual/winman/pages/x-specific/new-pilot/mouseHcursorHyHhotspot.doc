@@ -1,0 +1,66 @@
+
+                                                      mouse-cursor-y-hotspot
+
+
+    FUNCTION
+    mouse-cursor-y-hotspot  -  the y-coordinate of a mouse cursor viewed as
+      a single point
+
+    Usage
+    mouse-cursor-y-hotspot CURSOR
+
+    DESCRIPTION
+    Returns the vertical  component  of  the  hotspot  of  the  mouse-cursor
+    CURSOR.   The hotspot of a mouse cursor is the location, with respect to
+    the bitmap of the mouse cursor, of the cursor when viewed  as  a  single
+    point.   For  example, the hotspot might be at the tip of a mouse cursor
+    that comes to a point.
+
+    This accessor has meaning only when applied to mouse  cursors  that  are
+    bitmaps, and not the predefined mouse cursors provided by X.
+
+    EXAMPLES
+    (setq w (make-window-stream :activate-p t :title "My Window"))
+    (setq my-bitmap (make-bitmap :width 5 :height 5))
+    (dotimes (i 5) (setf (bitmap-bit my-bitma i i) 1))
+    (setf (window-stream-mouse-cursor w)
+      (make-mouse-cursor
+       :source-bitmap my-bitmap
+       :x-hotspot 5
+       :y-hotspot 5
+       ))
+
+    (mouse-cursor-y-hotspot (window-stream-mouse-cursor w))
+
+    SEE ALSO
+    active-region-mouse-cursor, flush-mouse-cursor, flushHmouseHcursor,
+    make-mouse-cursor, mouse-cursor-x-hotspot, mouse-cursor-y-hotspot
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

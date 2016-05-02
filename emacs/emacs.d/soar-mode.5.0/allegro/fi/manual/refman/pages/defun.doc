@@ -1,0 +1,132 @@
+
+                                                                       defun
+
+
+    MACRO
+    defun  -  define a named global function (destructive)
+
+    USAGE
+    defun name lambda-list {declaration | doc-string}* {form}*
+
+    SIDE EFFECTS
+    Changes or establishes the global function  definition  for  the  symbol
+    NAME as a function.
+
+    DESCRIPTION
+    Causes the global symbol NAME to be given a function  definition  within
+    the current lexical environment (usually the null lexical environment at
+    the top level), and returns the symbol NAME.   The  function  definition
+    replaces any previous macro or function definition and is represented by
+    the following lambda expression (see about lambda):
+
+    (lambda LAMBDA-LIST {DECLARATION | DOC-STRING}* (BLOCK NAME {FORM}*))
+
+    You may redefine the existing function definition for  any  function  or
+    macro symbol, whether user- or system-defined, but not for a symbol that
+    names a special form.   (Note  that  implementations  are  permitted  to
+    define special forms as macros, and vice versa.)
+
+    Argument handling is specified by  the  LAMBDA-LIST  (see  about  lambda
+    lists).   Declarations  (see  about declarations) and documentation (see
+    documentation) follow the lambda list.  If DOC-STRING  is  specified  as
+    documentation,  it  will be attached to NAME and will have documentation
+    type function.  Only one DOC-STRING can appear, and if one is specified,
+    at least one DECLARATION or FORM must follow it.
+
+    The body of the function is given by the zero or more FORMS appearing at
+    the  end.  They are executed as if enclosed in a block named NAME.  This
+    means that the body of the function normally returns the values  of  the
+    last  FORM  as  the  values  of  the  function,  but  can also contain a
+    return-from special form to exit the function prematurely with specified
+    return values.
+
+    EXAMPLES
+    Here is a function that computes powers of two using an iterative  algo-
+    rithm.
+
+    (defun power-of-two (n)
+      "Compute two raised to the exponent n,
+      where n must be a positive integer."
+      (declare (type integer n))
+      (do ((result 1 (* result 2))
+           (expon n (- expon 1)))
+          ((>= 0 expon) result)))  => power-of-two
+    (power-of-two 1) => 2
+    (power-of-two 10)  => 1024
+
+    Here is a recursive version of the same function.
+
+    (defun rpower-of-two (n)
+      (cond ((= n 0) 1)
+            (t (* 2 (rpower-of-two (- n 1))))))
+      => rpower-of-two
+    (rpower-of-two 3) => 8
+    (rpower-of-two 24) => 16777216
+
+
+
+    SEE ALSO
+    CLtL 5:67, about declarations, about forms, about lambda, about lambda
+    lists, about special forms, block, documentation, return-from, symbol-
+    function
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

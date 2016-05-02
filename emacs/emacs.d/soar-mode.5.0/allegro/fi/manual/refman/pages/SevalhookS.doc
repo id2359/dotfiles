@@ -1,0 +1,66 @@
+
+                                                                  *evalhook*
+
+
+    VARIABLE
+    *evalhook*  -  hook function to change evaluation behavior
+
+    DESCRIPTION
+    Evaluates to the hook function for eval, or nil if no hook  function  is
+    currently  active.  If there is a hook function, whenever eval is called
+    to evaluate a form (any form, even a number or a symbol), eval calls the
+    hook function, passing the form to be evaluated and the lexical environ-
+    ment as arguments.  Whatever the hook function returns  is  returned  by
+    eval as the value or values of the form.  eval itself does no evaluation
+    when *evalhook* is non-nil.  Implementing tracing, stepping and  profil-
+    ing  facilities  are  common  reasons  to use a hook function.  The hook
+    function must be a function of two arguments, a form and an environment.
+    The environment embodies the lexical environment in which the form is to
+    be evaluated when the hook function is  applied.   This  environment  is
+    suitable for passing to eval or macroexpand.
+
+    As is the case with *applyhook*, the variable *evalhook* is bound to nil
+    when the hook function is applied, so that the hook function will not be
+    called recursively on subforms.  To evaluate forms using the hook  func-
+    tion  within  the  hook function itself, the evalhook function should be
+    used.  *evalhook* is reset to nil if a non-local exit throws LISP out of
+    an evaluation.
+
+    EXAMPLES
+    ;;  This simple example shows how *EVALHOOK* is bound to nil
+    ;;  after it is first applied to an evaluation.  Contrast
+    ;;  this with a similar example in the EVALHOOK entry, where
+    ;;  a more complex example can also be found.
+    (defun eh (form &optional env)
+      (format t "hook used with ~d~%" form)
+      (eval form))
+    (let ((*evalhook* #'eh))
+      (+ (* 2 3) (/ 8 2))) => 10
+      PRINTS hook used with (+ (* 2 3) (/ 8 4))
+
+    SEE ALSO
+    CLtL 20:322, *applyhook*, apply, applyhook, &environment, eval, evalhook
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

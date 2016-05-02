@@ -1,0 +1,66 @@
+
+                                                                        oddp
+
+
+    FUNCTION
+    oddp  -  test whether an integer is odd
+
+    USAGE
+    oddp integer
+
+    DESCRIPTION
+    Returns true if INTEGER is not divisible by two and false otherwise.  It
+    is an error if INTEGER is not an integer.
+
+    EXAMPLES
+    (oddp 3) => t
+    (oddp 0) => nil
+
+    SEE ALSO
+    CLtL 12:196, evenp
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

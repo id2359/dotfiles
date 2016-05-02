@@ -1,0 +1,66 @@
+
+                                                                       listp
+
+
+    FUNCTION
+    listp  -  test whether an object is a cons or the empty list
+
+    USAGE
+    listp object
+
+    DESCRIPTION
+    Returns true if OBJECT is a cons or the empty list nil, and false other-
+    wise.   This function returns true for both true lists and dotted lists.
+    (A true list is terminated by a cons whose cdr is nil.  A dotted list is
+    terminated  by  a  cons whose cdr is a non-nil atom.) The function listp
+    differs from consp only if OBJECT is  nil.   In  this  case  listp  will
+    return true, but consp will return false.
+
+    EXAMPLES
+    (listp '(a b c)) => t
+    (listp nil) => t
+    (listp '(d . e)) => t
+    (listp 'x) => nil
+
+    SEE ALSO
+    CLtL 6:74, consp
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

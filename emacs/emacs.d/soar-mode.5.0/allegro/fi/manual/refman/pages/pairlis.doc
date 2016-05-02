@@ -1,0 +1,66 @@
+
+                                                                     pairlis
+
+
+    FUNCTION
+    pairlis  -  make an association list given separate lists of keys and
+      data
+
+    USAGE
+    pairlis keys data [a-list]
+
+    DESCRIPTION
+    Returns an association list formed by associating elements of  the  KEYS
+    list  with  corresponding  elements of the DATA list.  It is an error if
+    these lists do not have the same number of elements.   If  the  optional
+    argument  A-LIST is specified, it is taken to be an association list and
+    the newly-associated elements will be added to the  front  of  it.   The
+    order of the newly-associated elements in the resulting association list
+    is undefined.
+
+    EXAMPLES
+    (pairlis '(red blue) '(3 4))
+      => ((blue . 4) (red . 3))
+    (pairlis '(red blue) '(3 4) '((green . 5)))
+      => ((blue . 4) (red . 3) (green . 5))
+
+    SEE ALSO
+    CLtL 15:280 acons, assoc, assoc-if, assoc-if-not, rassoc, rassoc-if,
+    rassoc-if-not
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

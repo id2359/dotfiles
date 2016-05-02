@@ -1,0 +1,132 @@
+
+                                                    frame-middle-button-down
+
+
+    METHOD
+    frame-middle-button-down  -  respond to a middle-button-down event in
+      the frame
+
+    Usage
+    frame-middle-button-down WSTREAM MOUSE-STATE [TRANSITION]
+
+    DESCRIPTION
+    The system calls  this  method  whenever  the  middle  mouse  button  is
+    depressed  in  the  frame  of  WSTREAM.   The argument WSTREAM must be a
+    window-stream.  (Active-regions do not have frames so they do  not  have
+    frame  events.)   In  most windows (at least those created using default
+    settings), the mouse-cursor is different for the frame and the  interior
+    of  the  window.  When the mouse cursor is in the frame, the system will
+    run this method when the middle button is depressed.  When the cursor is
+    in the inner region of the window, the middle-button-down method will be
+    run.  (The mat of a window is not mouse sensitive.)
+
+    Note that when you have depressed a mouse button over a mouse  sensitive
+    region,  all  mouse  events will go to that region until you release the
+    button regardless of the position of the mouse.
+
+    You do not (normally) call this method directly.  Instead, you add  your
+    own  functions  to  the  list of functions called by this method.  Those
+    functions must have the same lambda list (that is, take the  same  argu-
+    ments in the same order) as the method itself.
+
+    If the right button menu  is  installed  on  WSTREAM,  this  method  has
+    already been modified to move (interactively) the window when the middle
+    button is depressed in the frame.  See below  for  more  information  on
+    this method when the right button menu is installed.
+
+    A frame-middle-button-down event can only be generated if the  mouse  is
+    over a portion of the frame that is not occluded (covered) by other win-
+    dows (active-regions cannot cover the frame).
+
+    The  argument  MOUSE-STATE  is  a  mouse-state  and  the  the   argument
+    TRANSITION  is  an  integer  representing a mouse event.  For the frame-
+    middle-button-down method, the value of the TRANSITION argument  is  the
+    value of the constant *frame-middle-button-down*.  The MOUSE-STATE argu-
+    ment records the mouse state when the button-down event  occurred.   The
+    position  component of MOUSE-STATE is the position of the mouse, in phy-
+    sical coordinates of WSTREAM, at  the  time  the  event  occurred.   The
+    button-state component tells you what mouse and special keyboard buttons
+    were down when the even occurred (obviously the middle button is  down).
+    Functions  you  add to the list of functions called by the method should
+    use the information in the arguments as necessary to achieve the desired
+    result.
+
+    When the middle button is depressed over the frame of WSTREAM, the  sys-
+    tem  calls this method, which in turn calls all the functions, in order,
+    in the list of functions returned by  window-stream-frame-middle-button-
+    down.   What  is in the list depends on whether the right button menu is
+    installed  on  WSTREAM.   (The  function  add-right-button-menu,   which
+    installs  the  right  button  menu, is in the list of functions bound to
+    *make-window-stream-actions*.  The functions in  that  list  are  called
+    when  the  window  is  created  so the right button menu is installed bt
+    default in every window.)  When the right button menu is installed,  the
+    single  function  initially in the list is cw::window-frame-middle-down.
+    This function interactively moves the window.  If the right button  menu
+    is  not installed, the single function initially in the list is default-
+    frame-middle-button-down-method.  This is  a  null  function  (its  only
+    action is to return nil).  You can add functions to and remove them from
+    the list with modify-window-stream-method.  You  can  also  replace  the
+    entire  list  by using setf and the function window-stream-frame-middle-
+    button-down.  If you replace the entire list, be  sure  to  include  the
+    function cw::window-frame-middle-down if you want the button to move the
+    window.  (You must include the package qualifier and both  colons.)  You
+    can  restore  the  list  to its initial state (with window-stream-frame-
+    middle-button-down,  NOT  cw::window-frame-middle-down)  with   restore-
+    default-window-stream-method.
+
+    The frame-middle-button-down method returns what is returned by the last
+    function  in  the  list of functions called by the method.  If this list
+    has not been changed from its  initial  value,  frame-middle-button-down
+    returns nil.
+
+    EXAMPLES
+    ;;  We make two windows, one with the right button menu
+    ;;  and one without.
+    (setf *with-rbm*
+          (make-window-stream
+           :left 100 :bottom 100
+           :width 200 :height 200
+           :title "With Right Button Menu"
+           :activate-p  t))
+    (let ((*make-window-stream-actions* nil))
+      (setf *wo-rbm*
+            (make-window-stream
+             :left 100 :bottom 100
+             :width 200 :height 200
+             :title "No Right Button Menu"
+             :activate-p  t)))
+
+    ;;  Note that the lists of functions called by this method
+    ;;  are different.
+    (window-stream-frame-middle-button-down *with-rbm*)
+      => (cw::window-frame-middle-down)
+    (window-stream-frame-middle-button-down *wo-rbm*)
+      => (default-window-stream-frame-middle-button-down-method)
+
+    ;;  We make a function for the method to call
+    ;;  when the middle button goes down in the window, the
+    ;;  mouse position will be printed to *STANDARD-OUTPUT*.
+
+    (defun my-frame-middle-button-down (wstream ms &rest args)
+      (declare (ignore  args))
+      (format *standard-output* "Mouse at x = ~D, y = ~D~%"
+              (position-x (mouse-state-position ms))
+              (position-y (mouse-state-position ms))))
+
+    ;;  And we hang the function on the method for both windows.
+    (modify-window-stream-method *with-rbm* :frame-middle-button-down
+                                 :after 'my-frame-middle-button-down)
+    (modify-window-stream-method *wo-rbm* :frame-middle-button-down
+                                 :after 'my-frame-middle-button-down)
+
+    ;;  We reexamine the lists of functions called.
+    (window-stream-frame-middle-button-down *with-rbm*)
+      => (cw::window-frame-middle-down my-frame-middle-button-down)
+    (window-stream-frame-middle-button-down *wo-rbm*)
+      => (default-window-stream-frame-middle-button-down-method,
+           my-frame-middle-button-down)
+
+    SEE ALSO
+    add-right-button-menu, frame-left-button-down, frame-left-button-up,
+    frame-middle-button-up, frame-mouse-cursor-in, frame-mouse-cursor-move,
+    frame-mouse-cursor-out, frame-right-button-down, frame-right-button-up

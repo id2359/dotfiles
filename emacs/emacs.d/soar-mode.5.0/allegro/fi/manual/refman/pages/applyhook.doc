@@ -1,0 +1,66 @@
+
+                                                                   applyhook
+
+
+    FUNCTION
+    applyhook  -  apply a function to a list of arguments binding hook func-
+      tions
+
+    USAGE
+    applyhook function  arglist evalhookfn applyhookfn [env]
+
+    DESCRIPTION
+    Returns the result  of  applying  FUNCTION  to  the  list  of  arguments
+    ARGLIST.  For the duration of this function application (but not for the
+    function call itself), the variable *evalhook* is  bound  to  EVALHOOKFN
+    and  *applyhook*  is bound to APPLYHOOKFN.  If EVALHOOKFN is not nil, it
+    replaces the normal evaluation within the function call.  (As  with  any
+    application of *evalhook*, within an evaluation where the new evaluation
+    procedure is used, *evalhook* is bound to nil.) If  APPLYHOOKFN  is  not
+    nil,  it  replaces  the normal function application procedure.  (As with
+    any application of *applyhook*, within a function where the new applica-
+    tion  procedure  is used, *applyhook* is bound to nil.) Thus, use of the
+    new hook functions is skipped for the first level evaluation (the  func-
+    tion call) and used in the second level and not in deeper levels.
+
+    The  optional  argument  ENV  specifies  the  lexical  environment,  and
+    defaults to the null lexical environment.
+
+    The function EVALHOOKFN must be a function of two arguments, a  form  to
+    be  evaluated, and an environment, which is initially ENV.  The function
+    APPLYHOOKFN must be a function of three arguments, a function, a list of
+    arguments,  and  an  environment.  It is only used when `ordinary' func-
+    tions are being applied.  It is  not  used  with  apply,  funcall,  map,
+    reduce, eval, and macroexpand.
+
+    EXAMPLES
+    (defvar *level* 0)
+    (defun my-trace (form)
+      (let ((*applyhook* 'my-apply-hook-fun))
+        (eval form)))
+    ;;  We compile MY-TRACE so that the EVAL form in the LAMBDA
+    ;;  expression is not interpreted and thus not traced.
+    (compile 'my-trace)
+    (defun my-apply-hook-fun (fun args &optional evalfn applyfn env)
+      (let (val (*level* (+ *level* 3)))
+        (format *trace-output* "~%~V@T==>~S" *level* fun)
+        (setq val
+              (applyhook fun args nil #'my-apply-hook-fun env))
+        (format *trace-output* "~%~V@T~S"  *level* val )
+        val))
+    (my-trace '(car (cadr '(a (b c) d)))) => b
+      PRINTS
+    ==>#<Function cdr @ #x3d22a9>
+       (b c)
+        ==>#<Function cadr @ #x3a5441>
+        b
+
+    SEE ALSO
+    CLtL 20:323, *applyhook*, apply, eval, *evalhook*, evalhook
+
+
+
+
+
+
+

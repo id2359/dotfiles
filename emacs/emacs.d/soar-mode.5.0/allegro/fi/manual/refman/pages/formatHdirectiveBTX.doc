@@ -1,0 +1,66 @@
+
+                                                         format directive ~X
+
+
+    FORMAT DIRECTIVE
+    ~X  -  print integer in hexadecimal radix
+
+    USAGE
+    ~mincol,padchar,commachar[:][@]X
+
+    DESCRIPTION
+    Prints the next format argument in hexadecimal (base 16)  if  it  is  an
+    integer, and in ``~A'' format with hexadecimal base (if applicable) oth-
+    erwise.  The sign is not printed unless the number is  negative  or  the
+    ``@'' modifier is given.
+
+    The prefix parameter MINCOL (default 0) specifies that enough copies  of
+    the  padding  character,  PADCHAR (default the space character `` '') be
+    added to the beginning of the output string to make it consume at  least
+    MINCOL  columns.   If  the  ``:''  modifier  is  given,  the  character,
+    COMMACHAR (default ``,'') appears between every three digits.
+
+    EXAMPLES
+    (format nil "Enter ~X now." 12) => "Enter c now."
+    (format nil "Enter ~X now." '(a b)) => "Enter (a b) now."
+    (format nil "Enter ~6X now." -15) => "Enter     -f now."
+    (format nil "Enter ~5,' X now." 4095) => "Enter   fff now."
+
+    SEE ALSO
+    CLtL 22:388, format, format directive ~A, format directive ~R
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

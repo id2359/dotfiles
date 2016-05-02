@@ -1,0 +1,132 @@
+
+                                                                    unintern
+
+
+    FUNCTION
+    unintern  -  remove a symbol from a package
+
+    USAGE
+    unintern symbol [package]
+
+    DESCRIPTION
+    Returns t if it finds SYMBOL in PACKAGE, and returns nil otherwise.   If
+    SYMBOL  is  found  in PACKAGE, it is removed from the package.  If it is
+    also found on the shadowing-symbols list of PACKAGE, it is removed  from
+    that list as well.
+
+    Note that SYMBOL may be accessible in PACKAGE  because  it  is  actually
+    interned there or because it is exported from a package used by PACKAGE.
+    Therefore, it is possible for a  symbol  uninterned  from  PACKAGE  with
+    unintern to still be accessible in PACKAGE!  For example (follow closely
+    now), suppose SYMBOL was created in and exported from package FOO, which
+    is  used  by package BAR.  And SYMBOL was exported from BAR, thus making
+    it internal in BAR.  Then SYMBOL is uninterned from BAR (with unintern).
+    It  is  still  accessable since it is still exported from FOO and FOO is
+    still used by BAR.  Even if the home package of SYMBOL is  BAR,  it  may
+    still  be accessible after it is uninterned.  Suppose BAR is used by the
+    FOO package, and SYMBOL is exported from BAR and also exported from FOO.
+    Further,  BAR  uses  FOO.  Then, SYMBOL is internal in FOO so when it is
+    uninterned from BAR, it is still internal and exported  from  FOO,  and,
+    thus, available by inheritance in BAR.  Got that?
+
+    If SYMBOL was on the shadowing-symbols list, its removal may cause other
+    symbols  (with  the same print name as SYMBOL) in other packages used by
+    PACKAGE to suddenly cause a name conflict.  If this happens, an error is
+    signalled.
+
+    unintern changes the consistency of the  package  system  and  therefore
+    should  be  used with caution.  SYMBOL must be a symbol and PACKAGE must
+    be a package object.
+
+    EXAMPLES
+    ;;  The package FOO is created with  the first command.
+    ;;  The way in which package objects are printed is
+    ;;  implementation-dependent:
+    (in-package :foo)
+      => #<The FOO package, 0 internal, 0 external>
+    (setf v-symbol "v in foo" w-symbol "w in foo") => "w in foo"
+    (export '(v-symbol w-symbol)) => t
+    (in-package :bar :use '(:lisp :foo))
+      => #<The BAR package, 0 internal, 0 external>
+    v-symbol => "v in foo"
+    w-symbol => "w in foo"
+    (export 'w-symbol) => t
+    (symbol-package 'w-symbol)
+      => #<The FOO package, 3 internal, 3 external>
+    (in-package :foo)
+      => #<The FOO package, 3 internal, 3 external>
+    (use-package :bar)
+    (unintern 'v-symbol) => t
+    (unintern 'w-symbol) => t
+    ;;  Now, a reference to V-SYMBOL causes an error
+    ;;  but a reference to W-SYMBOL is okay.
+    v-symbol => ERROR
+    w-symbol => "w in foo"
+    ;;  But W-SYMBOL has no home package.
+    (symbol-package 'w-symbol) => nil
+
+    SEE ALSO
+    CLtL 11:185, in-package, intern, make-package, *package*, package-
+    shadowing-symbols, shadow, shadowing-import
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

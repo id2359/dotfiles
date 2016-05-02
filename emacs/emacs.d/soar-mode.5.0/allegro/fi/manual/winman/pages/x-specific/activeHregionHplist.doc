@@ -1,0 +1,66 @@
+
+                                                         active-region-plist
+
+
+    FUNCTION
+    active-region-plist  -  get the property list of an active-region
+
+    Usage
+    active-region-plist AR
+
+    DESCRIPTION
+    Returns the property list associated with  the  active-region  AR.   The
+    entire property list can be replaced using setf in conjunction with this
+    function.
+
+    An active-region property list may be used to store  arbitrary  informa-
+    tion  about the active region.  It is a standard property list, consist-
+    ing of an arbitrary number of indicators and values.
+
+    EXAMPLES
+    (setf *my-active* (make-active-region))
+    (setf (active-region-get *my-active* 'owner) 'me)
+    (active-region-get *my-active* 'owner) => me
+
+    ;;  We retrieve the property list for this active-region.
+    (active-region-plist *my-active*)
+      => (owner me)
+
+    SEE ALSO
+    active-region-get, active-region-remprop
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

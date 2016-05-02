@@ -1,0 +1,66 @@
+
+                                                                      caadar
+
+
+    FUNCTION
+    caadar  -  get the CAADAR of a list
+
+    USAGE
+    caadar list
+
+    DESCRIPTION
+    This is a composition of the car and cdr functions:
+
+    (caadar lis) = (car (car (cdr (car lis))))
+
+    The argument LIST must be of type list.
+
+    EXAMPLES
+    (caadar '((a ((b) c) d) e)) => (b)
+
+    SEE ALSO
+    CLtL 15:262, car, cdr
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

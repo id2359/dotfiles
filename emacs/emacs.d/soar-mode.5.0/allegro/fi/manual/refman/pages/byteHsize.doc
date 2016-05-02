@@ -1,0 +1,66 @@
+
+                                                                   byte-size
+
+
+    FUNCTION
+    byte-size  -  get the size from a byte specifier
+
+    USAGE
+    byte-size bytespec
+
+    DESCRIPTION
+    Returns an integer representing the size component of the byte specifier
+    BYTESPEC.  The following identity holds:
+
+    (byte-size (byte s p)) = s
+
+    EXAMPLES
+    (byte-size (byte 4 1)) => 4
+    (byte-size (byte 6 2)) => 6
+
+    SEE ALSO
+    CLtL 12:226, byte, byte-position, deposit-field, dpb, ldb, ldb-test,
+    mask-field
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

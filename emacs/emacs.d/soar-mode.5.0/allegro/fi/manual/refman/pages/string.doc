@@ -1,0 +1,66 @@
+
+                                                                      string
+
+
+    Type SPECIFIER
+    string  -  the data type comrpising arrays specialized to hold string
+      characters.
+
+    Usage
+    {string | (string [SIZE])}
+
+    DESCRIPTION
+    Specifies a data type consisting of strings of length SIZE, which may be
+    explicitly  unspecified  using  *.  This type specifier is equivalent to
+    (array string-char (SIZE)).
+
+    EXAMPLES
+    (type-of "foo") => (simple-array string-char (3))
+    (typep "hello" '(string 5)) => t
+    (subtypep '(string 100) '(string *)) => t t
+
+    SEE ALSO
+    CLtL 2:40, CLtL 4:43, about type specifiers, array, simple-string,
+    subtypep, type-of, typep
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

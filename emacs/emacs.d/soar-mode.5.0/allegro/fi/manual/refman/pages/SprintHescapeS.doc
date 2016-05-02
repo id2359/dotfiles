@@ -1,0 +1,66 @@
+
+                                                              *print-escape*
+
+
+    VARIABLE
+    *print-escape*  -  controls whether printed objects can generally be
+      read back in
+
+    DESCRIPTION
+    When this variable is true, the printer attempts to print expressions in
+    such  a  way  that  the reader will read back equal expressions.  Escape
+    characters may be output as part of this process.  If this  variable  is
+    false,  then  escape characters are not output. The function princ never
+    prints escape characters and so effectively binds *print-escape* to nil,
+    while  prin1 always prints escape characters and so effectively binds it
+    to t.
+
+    The initial value of *print-escape* is t.
+
+    EXAMPLES
+    *print-escape* => t
+    (let ((*print-escape* t)) (write #\newline)) => #\newline
+      PRINTS #\newline
+    (let ((*print-escape* nil)) (write #\newline)) => #\newline
+      PRINTS
+
+    ;;  A new line is printed.
+
+    SEE ALSO
+    CLtL 22:370, about printing, *print-array*, *print-base*, *print-case*,
+    *print-circle*, *print-gensym*, *print-length*, *print-level*, *print-
+    pretty*, *print-radix*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

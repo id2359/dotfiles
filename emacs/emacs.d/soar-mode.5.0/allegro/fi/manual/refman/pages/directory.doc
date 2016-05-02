@@ -1,0 +1,66 @@
+
+                                                                   directory
+
+
+    FUNCTION
+    directory  -  get a list of pathnames matching a given pathname
+
+    USAGE
+    directory pathname
+
+    DESCRIPTION
+    Returns a list of pathnames matching PATHNAME, which may be a  pathname,
+    string,  or stream associated with a file.  The value nil is returned if
+    no files match PATHNAME.  It may be especially useful if  keywords  such
+    as  :wild  and :newest appear in PATHNAME (in which case the list of the
+    pathnames identical in all other respects is returned).   Each  pathname
+    in the returned list is the truename of a file.
+
+    EXAMPLES
+    Suppose you had four files with the same name  component  but  different
+    types on a hypothetical system.  You might observe behavior like this:
+
+    (mapcar #'file-namestring
+      (directory (make-pathname :name "prog" :type :wild)))
+      => ("prog.listing" "prog.out" "prog.fasl" "prog.cl")
+
+    SEE ALSO
+    CLtL 23:427, truename
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

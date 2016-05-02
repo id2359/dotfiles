@@ -1,0 +1,66 @@
+
+                                                               string-char-p
+
+
+    FUNCTION
+    string-char-p  -  test whether a character object can be in a string
+
+    USAGE
+    string-char-p char
+
+    DESCRIPTION
+    Returns true if CHAR, which must be  a  character  object,  is  of  type
+    string-char,  and false otherwise.  A character object may be an element
+    of a string if and only if it is  of  type  string-char.   All  standard
+    characters (objects of type standard-char) satisfy string-char-p.  Other
+    implementation-dependent characters may also satisfy string-char-p.  (In
+    general,  any  character  with zero bits and font attributes may be con-
+    tained in a string.)
+
+    EXAMPLES
+    (string-char-p #\a) => t
+    (string-char-p #\Newline) => t
+    (string-char-p #\Tab) => t
+    (string-char-p #\Control-\X) => nil
+
+    SEE ALSO
+    CLtL 13:235, about type specifiers, alphanumericp, graphic-char-p,
+    standard-char-p
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

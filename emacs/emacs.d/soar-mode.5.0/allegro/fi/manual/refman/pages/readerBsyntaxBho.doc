@@ -1,0 +1,66 @@
+
+                                                            reader syntax #(
+
+
+    READER SYNTAX
+    #(  -  representation of a simple general vector
+
+    Usage
+    #N(...)
+
+    DESCRIPTION
+    Reads as a simple general vector.
+
+    When the reader reads the  dispatch-macro  character  ``#'',  optionally
+    followed by a sequence of (unsigned) decimal digit characters, then fol-
+    lowed by ``('', these characters are discarded, and the reader begins to
+    accumulate  succeeding  objects  into  a  vector.  If a digit string was
+    given, the length of the vector will be the specified number.  When  the
+    closing delimiter ``)'' would be the next character read, it is read and
+    discarded, accumulation stops, and the  resulting  vector  is  returned.
+    Each object is read by recursive application of the reader.
+
+    When the size of the vector is specified, it is an error if more objects
+    are  read  for the vector than it can accommodate.  If fewer objects are
+    read, the remaining elements of the allocated vector will be filled with
+    the last element read.  Therefore, unless the size is specified as zero,
+    there must be at least one object given for the vector.  An empty vector
+    is  specified  by  either  #()  or  #0().  The syntactic form #1() is in
+    error.
+
+    Vectors are not self-evaluating objects, therefore  vectors  read  using
+    this  syntax  should  normally be quoted.  Some implementations do, how-
+    ever, make vectors self-evaluating.  Portable code should  not  rely  on
+    this property.
+
+    EXAMPLES
+    (vector 1 2 3) => #(1 2 3)
+    '#5(1 2 3) => #(1 2 3 3 3)
+    (car (svref (svref '#(#(1 (2 3)) 4) 0) 1)) => 2
+
+    SEE ALSO
+    CLtL 22:354, about printing, about reading, vector
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
