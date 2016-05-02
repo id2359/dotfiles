@@ -1,6 +1,10 @@
-(provide 'mysettings)
+;;; mysettings -- Summary
+;;; Commentary:
+;;; after loading packages init them
+
+;;; Code:
 (setq inhibit-startup-message t)
-(set-default 'truncate-lines t) 
+(set-default 'truncate-lines t)
 (require 'color-theme)
 (color-theme-initialize)
 ;(color-theme-calm-forest)
@@ -49,11 +53,15 @@
     (global-set-key [f8] 'neotree-toggle)
 
     ;; flycheck
-    ;;(global-flycheck-mode)
+    (global-flycheck-mode)
 
     ;; yasnippet
     (require 'yasnippet)
     (setq yas-snippet-dirs '("~/.emacs.d/snippets"))
     (yas-global-mode 1)
+    ;; paredit
+    (add-hook 'emacs-lisp-mode-hook 'evil-paredit-mode)
     ))
 
+(provide 'mysettings)
+;;; mysettings ends here

@@ -2,7 +2,6 @@
 ;; test
 ;; emacs root
 (setq emacs-root (expand-file-name "~/.emacs.d/"))
-
 (setq make-backup-files nil)
 
 (defvar load-paths '(
@@ -18,7 +17,7 @@
 
 (require 'package)
 (setq package-archives '(
-			 ("melpa" . "http://melpa.milkbox.net/packages/")
+                         ("melpa" . "https://melpa.org/packages/")
 			 ("marmalade" . "http://marmalade-repo.org/packages/")
 			 ("gnu" . "http://elpa.gnu.org/packages/")))
 
@@ -47,6 +46,10 @@
 		  gnu-apl-mode
 		  yasnippet
 		  py-autopep8
+		  evil-leader
+		  paredit
+		  evil-paredit
+		  flycheck
 		  ))
 
 (defvar all-packages-installed t)
