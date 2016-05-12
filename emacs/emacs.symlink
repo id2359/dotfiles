@@ -49,7 +49,8 @@
 		  evil-leader
 		  paredit
 		  evil-paredit
-		  flycheck
+		  slime
+		  julia-mode
 		  ))
 
 (defvar all-packages-installed t)
@@ -65,7 +66,6 @@
 
 
 ;; settings
-
 
 ;; octave
 
@@ -88,6 +88,7 @@
 (require 'go-mode)
 (require 'rebol)
 (require 'gnu-apl-mode)
+(require 'julia-shell)
 (require 'mysettings)
 (require 'myutils)
 (require 'mykeybindings)

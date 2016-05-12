@@ -42,6 +42,14 @@
     (add-hook 'python-mode-hook 'jedi:setup)
     (setq jedi:complete-on-dot t)
 
+    (require 'julia-shell)
+    (defun my-julia-mode-hooks ()
+      (require 'julia-shell))
+    (add-hook 'julia-mode-hook 'my-julia-mode-hooks)
+    (define-key julia-mode-map (kbd "C-c C-j") 'julia-shell-run-region-or-line)
+    (define-key julia-mode-map (kbd "C-c C-s") 'julia-shell-save-and-go)
+    
+
     ;; J
     (autoload 'j-mode "j-mode.el"  "Major mode for J." t)
     (autoload 'j-shell "j-mode.el" "Run J from emacs." t)
@@ -54,6 +62,10 @@
 
     ;; flycheck
     (global-flycheck-mode)
+
+    ;; slime
+    (setq inferior-lisp-program "/usr/local/bin/sbcl")
+    
 
     (add-hook 'python-mode-hook
       (lambda ()
