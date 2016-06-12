@@ -53,6 +53,7 @@
 		  evil-paredit
 		  slime
 		  julia-mode
+		  scala-mode
 		  ))
 
 (defvar all-packages-installed t)
