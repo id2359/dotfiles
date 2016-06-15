@@ -99,6 +99,7 @@
 
 (require 'evil)
 (evil-mode 1)
+(show-paren-mode)
 
 (require 'django-html-mode)
 
