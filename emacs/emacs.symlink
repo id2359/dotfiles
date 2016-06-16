@@ -22,6 +22,10 @@
 			 ("gnu" . "http://elpa.gnu.org/packages/")))
 
 
+
+			
+
+
 (setq package-enable-at-startup nil)
 (package-initialize)
 
@@ -40,6 +44,7 @@
 		  magit
 		  tramp
 		  python-pep8
+		  evil
 		  python-pylint
 		  material-theme
 		  tuareg
@@ -51,7 +56,9 @@
 		  evil-paredit
 		  slime
 		  julia-mode
+		  ensime
 		  scala-mode
+		  flycheck
 		  ))
 
 (defvar all-packages-installed t)

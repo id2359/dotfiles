@@ -95,3 +95,6 @@ set laststatus=2
 
 set t_Co=256
 colorscheme delek
+
+
+autocmd FileType javascript setlocal equalprg=js-beautify\ --stdin
