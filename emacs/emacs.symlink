@@ -59,6 +59,8 @@
 		  ensime
 		  scala-mode
 		  flycheck
+		  feature-mode
+		  helm
 		  ))
 
 (defvar all-packages-installed t)
