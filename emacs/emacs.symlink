@@ -61,6 +61,7 @@
 		  flycheck
 		  feature-mode
 		  helm
+		  slime
 		  ))
 
 (defvar all-packages-installed t)
@@ -94,6 +95,10 @@
 ;; autopep8 - not sure I want it always
 (require 'py-autopep8)
 ;;(add-hook 'python-mode-hook 'py-autopep8-enable-on-save)
+
+;; Set your lisp system and, optionally, some contribs
+(setq inferior-lisp-program "sbcl")
+(setq slime-contribs '(slime-fancy))
 
 ;; Proof General
 (require 'proof-site)
