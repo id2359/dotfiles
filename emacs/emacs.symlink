@@ -88,6 +88,9 @@
 (setq auto-mode-alist
      (cons '("\\.clp" . clips-mode) auto-mode-alist))
 
+(setq auto-mode-alist
+     (cons '("\\.newlisp" . newlisp-mode) auto-mode-alist))
+
 ;; autopep8 - not sure I want it always
 (require 'py-autopep8)
 ;;(add-hook 'python-mode-hook 'py-autopep8-enable-on-save)
