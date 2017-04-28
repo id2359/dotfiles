@@ -10,7 +10,7 @@
 		     "myutils"
 		     "themes"
 		     "work"
-		     "ProofGeneral/generic"))
+		     ))
 
 (loop for location in load-paths
       do (add-to-list 'load-path (concat emacs-root location)))
@@ -42,6 +42,7 @@
 		  jedi
 		  neotree
 		  magit
+		  base16-theme
 		  tramp
 		  python-pep8
 		  evil
@@ -92,8 +93,8 @@
 (require 'py-autopep8)
 ;;(add-hook 'python-mode-hook 'py-autopep8-enable-on-save)
 
-;; Proof General
-(require 'proof-site)
+
+
 (require 'tramp)
 (require 'go-mode)
 (require 'rebol)
@@ -102,6 +103,7 @@
 (require 'mysettings)
 (require 'myutils)
 (require 'mykeybindings)
+(require 'base16-theme)
 
 ;; install this manually
 
@@ -129,3 +131,6 @@
   (add-to-list 'load-path "/Applications/Macaulay2-1.6/share/emacs/site-lisp")
   (load "M2-init")
   (global-set-key [f12] 'M2))
+;; ## added by OPAM user-setup for emacs / base ## 56ab50dc8996d2bb95e7856a6eddb17b ## you can edit, but keep this line
+(require 'opam-user-setup "~/.emacs.d/opam-user-setup.el")
+;; ## end of OPAM user-setup addition for emacs / base ## keep this line
