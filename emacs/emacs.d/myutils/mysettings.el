@@ -11,7 +11,7 @@
 
 
 ; try material ui theme
-(load-theme 'material t)
+;(load-theme 'material t)
 
 (add-hook
  'after-init-hook
@@ -67,7 +67,11 @@
     (global-flycheck-mode)
 
     ;; slime
-    (setq inferior-lisp-program "/usr/local/bin/sbcl")
+    (setq inferior-lisp-program "/usr/bin/sbcl")
+
+    ;; base16
+    (require 'base16-theme)
+    (load-theme 'base16-oceanicnext)
 
     ;; helm
     (require 'helm)

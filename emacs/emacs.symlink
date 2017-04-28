@@ -63,6 +63,7 @@
 		  feature-mode
 		  helm
 		  slime
+		  base16-theme
 		  ))
 
 (defvar all-packages-installed t)
@@ -112,6 +113,9 @@
 (require 'myutils)
 (require 'mykeybindings)
 (require 'base16-theme)
+(require 'base16-default-dark-theme)
+(require 'django-html-mode)
+
 
 ;; install this manually
 
@@ -121,7 +125,6 @@
 (evil-mode 1)
 (show-paren-mode)
 
-(require 'django-html-mode)
 
 (when (memq window-system '(mac ns))
   (exec-path-from-shell-initialize))
@@ -142,3 +145,17 @@
 ;; ## added by OPAM user-setup for emacs / base ## 56ab50dc8996d2bb95e7856a6eddb17b ## you can edit, but keep this line
 (require 'opam-user-setup "~/.emacs.d/opam-user-setup.el")
 ;; ## end of OPAM user-setup addition for emacs / base ## keep this line
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("5a7830712d709a4fc128a7998b7fa963f37e960fd2e8aa75c76f692b36e6cf3c" "16dd114a84d0aeccc5ad6fd64752a11ea2e841e3853234f19dc02a7b91f5d661" default))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
