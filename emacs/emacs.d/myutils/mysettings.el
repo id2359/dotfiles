@@ -67,7 +67,9 @@
     (global-flycheck-mode)
 
     ;; slime
-    (setq inferior-lisp-program "/usr/bin/sbcl")
+    (cond
+     ((eq system-type 'darwin) (setq inferior-lisp-program "/usr/local/bin/sbcl"))
+     (t (setq inferior-lisp-program "/usr/bin/sbcl")))
 
     ;; base16
     (require 'base16-theme)
