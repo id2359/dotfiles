@@ -102,8 +102,6 @@
 (setq inferior-lisp-program "sbcl")
 (setq slime-contribs '(slime-fancy))
 
-
-
 (require 'tramp)
 (require 'go-mode)
 (require 'rebol)
@@ -115,7 +113,7 @@
 (require 'base16-theme)
 (require 'base16-default-dark-theme)
 (require 'django-html-mode)
-
+(require 'lsl-mode)
 
 ;; install this manually
 
