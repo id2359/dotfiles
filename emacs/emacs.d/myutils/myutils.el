@@ -46,6 +46,16 @@
       (goto-char start)
       (insert translated))))
 
+(defun wrap-region-with-gettext (start end)
+  (interactive "r")
+  (let* ((text (buffer-substring-no-properties start end))
+        (translated (concat "gettext(" text  ")")))
+  (save-excursion
+      (delete-region start end)
+      (goto-char start)
+      (insert translated))))
+
+
 (provide 'myutils)
 ;;; myutils.el ends here
 
