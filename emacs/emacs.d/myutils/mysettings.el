@@ -72,9 +72,12 @@
      (t (setq inferior-lisp-program "/usr/bin/sbcl")))
 
     ;; base16
-    (require 'base16-theme)
-    (load-theme 'base16-oceanicnext)
 
+    (if (evening)
+	(color-theme-blippblopp)
+      (progn
+	(require 'base16-theme)
+	(load-theme 'base16-oceanicnext)))
     ;; helm
     (require 'helm)
     (require 'helm-config)

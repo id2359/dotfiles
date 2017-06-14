@@ -56,6 +56,21 @@
       (insert translated))))
 
 
+(defun make-project (name)
+  (interactive "sName: ")
+  (let ((command (concat "mkproject " name)))
+    (shell-command command)))
+
+(defun evening ()
+  (interactive)
+  (let ((h (nth 2 (decode-time (current-time)))))
+    (if (>= h 18)
+	'T
+      nil)))
+
+
+
 (provide 'myutils)
 ;;; myutils.el ends here
+
 
