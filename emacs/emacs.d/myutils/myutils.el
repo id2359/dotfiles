@@ -65,7 +65,7 @@
   (interactive)
   (let ((h (nth 2 (decode-time (current-time)))))
     (if (>= h 18)
-	'T
+	t
       nil)))
 
 
