@@ -115,6 +115,7 @@
 (require 'django-html-mode)
 (require 'erlang)
 (require 'lsl-mode)
+(require 'js-beautify)
 
 ;; install this manually
 
