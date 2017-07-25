@@ -45,6 +45,7 @@
 		  base16-theme
 		  tramp
 		  python-pep8
+		  py-autopep8
 		  evil
 		  python-pylint
 		  material-theme
@@ -116,6 +117,10 @@
 (require 'erlang)
 (require 'lsl-mode)
 (require 'js-beautify)
+(require 'py-autopep8)
+
+;; pep8 options
+(setq py-autopep8-options '("--max-line-length=120"))
 
 ;; install this manually
 
