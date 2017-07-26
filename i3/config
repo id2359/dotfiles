@@ -76,7 +76,7 @@ bindsym $mod+v split v
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen
 
-# fix monitors
+# fix monitors - runs xrandr
 bindsym $mod+Shift+F11 exec "~/bin/fixmonitors"
 # change container 
 bindsym $mod+s layout stacking
@@ -208,7 +208,6 @@ exec "~/bin/startneededservices"
 
 #exec python ~/clips-i3.py
 
-# screenshots bitches (movie stylie)
 bindsym F5 exec i3-sensible-terminal -e scrot -c -d 5 -u ~/screenshot.jpg
 bindsym F6 exec i3-sensible-terminal -e recordmydesktop  
  
@@ -230,5 +229,4 @@ bindsym XF86AudioLowerVolume exec pactl set-sink-volume 1 -5%
 bindsym XF86MonBrightnessDown exec xbacklight -dec 5
 bindsym XF86MonBrightnessUp exec xbacklight -inc 5
 
-exec --no-startup-id ~/.screenlayout/3monitors.sh
 exec --no-startup-id feh --randomize --bg-fill ~/wallpaper/*
