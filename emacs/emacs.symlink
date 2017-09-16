@@ -58,6 +58,7 @@
 		  slime
 		  julia-mode
 		  ensime
+          haskell-mode
 		  scala-mode
 		  flycheck
 		  feature-mode
