@@ -19,6 +19,14 @@
   (display-buffer buf)))
 
 
+(defun search-class (classname)
+  (interactive "sClass name: ")
+  (let
+      ((search-string (concat "class " classname)))
+    (my-search search-string)))
+  
+
+
 (defun kill-buffers ()
   (interactive)
   (mapcar 'kill-buffer (buffer-list)))

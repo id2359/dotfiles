@@ -45,6 +45,7 @@
 		  base16-theme
 		  tramp
 		  python-pep8
+		  py-autopep8
 		  evil
 		  python-pylint
 		  material-theme
@@ -61,6 +62,10 @@
           haskell-mode
 		  scala-mode
 		  flycheck
+          js2-mode
+          json-mode
+          web-mode
+          exec-path-from-shell
 		  feature-mode
 		  helm
 		  slime
@@ -116,6 +121,39 @@
 (require 'django-html-mode)
 (require 'erlang)
 (require 'lsl-mode)
+;(require 'js-beautify)
+(require 'py-autopep8)
+(require 'flycheck)
+(add-hook 'after-init-hook #'global-flycheck-mode)
+
+
+(setq-default flycheck-disabled-checkers
+    (append flycheck-disabled-checkers
+        '(javascript-jshint)))
+
+(flycheck-add-mode 'javascript-eslint 'web-mode)
+
+(setq-default flycheck-temp-prefix ".flycheck")
+
+(setq-default flycheck-disabled-checkers
+    (append flycheck-disabled-checkers
+    '(json-jsonlist)))
+
+
+(autoload 'sml-poly-ml "sml-poly-ml" "Set up and run Poly/ML." t)
+
+;; in your .emacs file. If you only ever use Poly/ML then you might as
+;; well put something like
+
+(setq sml-mode-hook
+      '(lambda() "SML mode defaults to Poly/ML"
+	 (define-key  sml-mode-map "\C-cp" 'sml-poly-ml)))
+
+;; for your sml-mode-hook. The command prompts for the program name
+;; and the database to use, if any. 
+
+;; pep8 options
+(setq py-autopep8-options '("--max-line-length=120"))
 
 ;; install this manually
 
@@ -124,6 +162,7 @@
 (require 'evil)
 (evil-mode 1)
 (show-paren-mode)
+
 
 
 (when (memq window-system '(mac ns))
