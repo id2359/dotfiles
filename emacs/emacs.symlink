@@ -59,6 +59,7 @@
 		  slime
 		  julia-mode
 		  ensime
+          haskell-mode
 		  scala-mode
 		  flycheck
           js2-mode
@@ -139,7 +140,17 @@
     '(json-jsonlist)))
 
 
+(autoload 'sml-poly-ml "sml-poly-ml" "Set up and run Poly/ML." t)
 
+;; in your .emacs file. If you only ever use Poly/ML then you might as
+;; well put something like
+
+(setq sml-mode-hook
+      '(lambda() "SML mode defaults to Poly/ML"
+	 (define-key  sml-mode-map "\C-cp" 'sml-poly-ml)))
+
+;; for your sml-mode-hook. The command prompts for the program name
+;; and the database to use, if any. 
 
 ;; pep8 options
 (setq py-autopep8-options '("--max-line-length=120"))
