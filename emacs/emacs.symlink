@@ -1,6 +1,4 @@
 (require 'cl)
-;; test
-;; emacs root
 (setq emacs-root (expand-file-name "~/.emacs.d/"))
 (setq make-backup-files nil)
 
@@ -17,14 +15,12 @@
 
 (require 'package)
 (setq package-archives '(
-                         ("melpa" . "https://melpa.org/packages/")
+             ("melpa" . "https://melpa.org/packages/")
 			 ("marmalade" . "http://marmalade-repo.org/packages/")
 			 ("gnu" . "http://elpa.gnu.org/packages/")))
 
 (add-to-list 'default-frame-alist '(height . 45))
 (add-to-list 'default-frame-alist '(width . 189))
-			
-
 
 (setq package-enable-at-startup nil)
 (package-initialize)
@@ -45,6 +41,7 @@
 		  base16-theme
 		  tramp
 		  python-pep8
+		  py-autopep8
 		  evil
 		  python-pylint
 		  material-theme
@@ -58,8 +55,13 @@
 		  slime
 		  julia-mode
 		  ensime
+          haskell-mode
 		  scala-mode
 		  flycheck
+          js2-mode
+          json-mode
+          web-mode
+          exec-path-from-shell
 		  feature-mode
 		  helm
 		  slime
@@ -76,10 +78,7 @@
     (unless (package-installed-p p)
       (package-install p))))
 
-
-
 ;; settings
-
 ;; octave
 
 (autoload 'octave-mode "octave-mod" nil t)
@@ -102,8 +101,6 @@
 (setq inferior-lisp-program "sbcl")
 (setq slime-contribs '(slime-fancy))
 
-
-
 (require 'tramp)
 (require 'go-mode)
 (require 'rebol)
@@ -112,10 +109,43 @@
 (require 'mysettings)
 (require 'myutils)
 (require 'mykeybindings)
-(require 'base16-theme)
-(require 'base16-default-dark-theme)
+;(require 'base16-theme)
+;(require 'base16-default-dark-theme)
 (require 'django-html-mode)
+(require 'erlang)
+(require 'lsl-mode)
+;(require 'js-beautify)
+(require 'py-autopep8)
+(require 'flycheck)
+(add-hook 'after-init-hook #'global-flycheck-mode)
 
+(setq-default flycheck-disabled-checkers
+    (append flycheck-disabled-checkers
+        '(javascript-jshint)))
+
+(flycheck-add-mode 'javascript-eslint 'web-mode)
+
+(setq-default flycheck-temp-prefix ".flycheck")
+
+(setq-default flycheck-disabled-checkers
+    (append flycheck-disabled-checkers
+    '(json-jsonlist)))
+
+
+;; (autoload 'sml-poly-ml "sml-poly-ml" "Set up and run Poly/ML." t)
+
+;; in your .emacs file. If you only ever use Poly/ML then you might as
+;; well put something like
+
+(setq sml-mode-hook
+      '(lambda() "SML mode defaults to Poly/ML"
+	 (define-key  sml-mode-map "\C-cp" 'sml-poly-ml)))
+
+;; for your sml-mode-hook. The command prompts for the program name
+;; and the database to use, if any. 
+
+;; pep8 options
+(setq py-autopep8-options '("--max-line-length=120"))
 
 ;; install this manually
 
@@ -124,6 +154,7 @@
 (require 'evil)
 (evil-mode 1)
 (show-paren-mode)
+
 
 
 (when (memq window-system '(mac ns))
@@ -152,7 +183,10 @@
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
    (quote
-    ("04790c9929eacf32d508b84d34e80ad2ee233f13f17767190531b8b350b9ef22" "5a7830712d709a4fc128a7998b7fa963f37e960fd2e8aa75c76f692b36e6cf3c" "16dd114a84d0aeccc5ad6fd64752a11ea2e841e3853234f19dc02a7b91f5d661" default))))
+    ("5a7830712d709a4fc128a7998b7fa963f37e960fd2e8aa75c76f692b36e6cf3c" default)))
+ '(package-selected-packages
+   (quote
+    (helm feature-mode web-mode json-mode js2-mode flycheck haskell-mode ensime julia-mode slime evil-paredit paredit evil-leader yasnippet gnu-apl-mode tuareg material-theme python-pylint evil py-autopep8 python-pep8 base16-theme magit neotree jedi epc exec-path-from-shell projectile auto-complete color-theme))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

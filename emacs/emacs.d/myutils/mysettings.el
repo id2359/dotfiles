@@ -67,12 +67,32 @@
     (global-flycheck-mode)
 
     ;; slime
-    (setq inferior-lisp-program "/usr/bin/sbcl")
+    (cond
+     ((eq system-type 'darwin) (setq inferior-lisp-program "/usr/local/bin/sbcl"))
+     (t (setq inferior-lisp-program "/usr/bin/sbcl")))
+
+
+    ;; Pymacs
+    (add-to-list 'load-path (expand-file-name "Pymacs" "/usr/lib/python2.7/dist-packages"))
+    (require 'pymacs)
+    (autoload 'pymacs-apply "pymacs")
+    (autoload 'pymacs-call "pymacs")
+    (autoload 'pymacs-eval "pymacs" nil t)
+    (autoload 'pymacs-exec "pymacs" nil t)
+    (autoload 'pymacs-load "pymacs" nil t)
+    (autoload 'pymacs-autoload "pymacs")
+
+
+    ;; Rope
+    (pymacs-load "ropemacs" "rope-")
 
     ;; base16
-    (require 'base16-theme)
-    (load-theme 'base16-oceanicnext)
 
+    (if (evening)
+	(color-theme-blippblopp)
+      (progn
+	(require 'base16-theme)
+	(load-theme 'base16-oceanicnext)))
     ;; helm
     (require 'helm)
     (require 'helm-config)

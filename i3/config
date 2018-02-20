@@ -9,6 +9,7 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
+
 set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -75,7 +76,7 @@ bindsym $mod+v split v
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen
 
-# fix monitors
+# fix monitors - runs xrandr
 bindsym $mod+Shift+F11 exec "~/bin/fixmonitors"
 # change container 
 bindsym $mod+s layout stacking
@@ -105,10 +106,11 @@ bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
-bindsym $mod+F12 exec i3lock -c 232323 -i ~/Dropbox/data/TheSmile.png -t
+bindsym $mod+F12 exec i3lock -c 232323 -i ~/Pictures/sw.png -t
+
 assign [title="Google Chrome"] dev
 assign [title="Firefox"] mail
-assign [title="PyCharm"] dev
+assign [title="emacs"] dev
 assign [title="Thunderbird"] mail
 assign [title="File Manager"] fs
 
@@ -123,6 +125,7 @@ bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
+exec --no-startup-id /usr/lib64/gnome-settings-daemon/gnome-settings-daemon
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -134,24 +137,25 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 # reorient
 bindsym $mod+Shift+o exec "xrandr --output HDMI-1-0 --left-of LVDS-1-0"
 
-# pycharm
-bindsym $mod+Shift+p exec "~/bin/pycharm"
+
 bindsym $mod+Shift+w exec "google-chrome"
 bindsym $mod+Shift+f exec "thunar"
 bindsym $mod+Shift+v exec "gvim"
-bindsym $mod+Shift+m exec "emacs"
+bindsym $mod+Shift+m exec "/usr/bin/emacsclient -c"
 bindsym $mod+Shift+g exec "gedit"
+bindsym $mod+Shift+z exec "megadeath"
+bindsym $mod+Shift+t exec "killthunar"
+bindsym $mod+Shift+s exec "/home/lee/bin/wallpapers"
 bindsym $mod+m move workspace to output left
 
-# Focus PyCharm
-bindsym $mod+Control+P [title="PyCharm"] focus 
-
+# Focus Emacs
+bindsym $mod+Control+P [title="emacs"] focus 
 
 # Focus on Web
 bindsym $mod+Control+W [title="Chrome"] focus 
 
 # Focus on terminal
-bindsym $mod+Control+T [title="lee@leexps: ~/src/rdrf"] focus 
+bindsym $mod+Control+T [title="lee@lee-XPS-"] focus 
 
 
 
@@ -188,29 +192,44 @@ bindsym $mod+r mode "resize"
 
 # Sreen brightness controls
 bindsym F2 exec xbacklight -inc 20 # increase screen brightness
-bindsym F3  exec xbacklight -dec 20 # decrease screen brightness
-bindsym PrintScreen exec scrot '%Y-%m-%d-%T_$wx$h_scrot.png' -e 'mv $f ~/Pictures/Screenshots"
+bindsym F3 exec xbacklight -dec 20 # decrease screen brightness
+bindsym F4 exec scrot '%Y-%m-%d-%T_$wx$h_scrot.png' -e 'mv $f ~/Pictures/Screenshots"
 
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-        status_command i3status
+bar { 
+        status_command py3status -c ~/.i3/i3status.conf
 }
 
 exec --no-startup-id nitrogen --restore
 
 exec "~/bin/startneededservices"
-exec --no-startup-id nm-applet
-#exec "~/bin/usual"
 
+#exec python ~/clips-i3.py
 
-
-
-# screenshots bitches (movie stylie)
-bindsym F4 exec i3-sensible-terminal -e recordmydesktop  
+bindsym F5 exec i3-sensible-terminal -e scrot -c -d 5 -u ~/screenshot.jpg
+bindsym F6 exec i3-sensible-terminal -e recordmydesktop  
  
 # audio
 bindsym $mod+F10 exec pavucontrol 
-exec python ~/clips-i3.py
+exec --no-startup-id unity-settings-daemon
+#exec --no-startup-id dunst
+exec --no-startup-id volumeicon
+exec --no-startup-id nm-applet
+exec --no-startup-id blueman-applet
+#exec --no-startup-id xsetroot -solid black
+exec --no-startup-id export $(gnome-keyring-daemon)
+exec --no-startup-id export XDG_CURRENT_DESKTOP=Unity
+exec xbacklight -set 5
 
+exec --no-startup-id xset dpms 600
+exec --no-startup-id xautolock -time 10 -locker i3lock
+
+bindsym XF86AudioMute exec pactl set-sink-mute 1 toggle
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 1 +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume 1 -5%
+bindsym XF86MonBrightnessDown exec xbacklight -dec 5
+bindsym XF86MonBrightnessUp exec xbacklight -inc 5
+
+exec --no-startup-id feh --randomize --bg-fill ~/wallpaper/*
