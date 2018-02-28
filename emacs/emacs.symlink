@@ -119,6 +119,10 @@
 (require 'flycheck)
 (add-hook 'after-init-hook #'global-flycheck-mode)
 
+(autoload 'gmpl-mode "gmpl-mode" nil t)
+(setq auto-mode-alist
+     (cons '("\\.model" . gmpl-mode) auto-mode-alist))
+
 (setq-default flycheck-disabled-checkers
     (append flycheck-disabled-checkers
         '(javascript-jshint)))
