@@ -73,7 +73,11 @@
 
 
     ;; Pymacs
-    (add-to-list 'load-path (expand-file-name "Pymacs" "/usr/lib/python2.7/dist-packages"))
+    (if (eq system-type 'darwin)
+        (add-to-list 'load-path "/usr/local/lib/python2.7/site-packages/Pymacs")
+       (add-to-list 'load-path (expand-file-name "Pymacs" "/usr/lib/python2.7/dist-packages")))
+    
+    
     (require 'pymacs)
     (autoload 'pymacs-apply "pymacs")
     (autoload 'pymacs-call "pymacs")
