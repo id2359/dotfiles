@@ -1,17 +1,11 @@
 ;;; mysettings -- Summary
+
 ;;; Commentary:
 ;;; after loading packages init them
 
 ;;; Code:
 (setq inhibit-startup-message t)
 (set-default 'truncate-lines t)
-(require 'color-theme)
-(color-theme-initialize)
-;(color-theme-calm-forest)
-
-
-; try material ui theme
-;(load-theme 'material t)
 
 (add-hook
  'after-init-hook
@@ -123,6 +117,7 @@
     (helm-mode 1)
 
 
+
     ;; feature-mode
     (setq feature-default-language "en")
     (require 'feature-mode)
@@ -141,7 +136,17 @@
     (yas-global-mode 1)
     ;; paredit
     (add-hook 'emacs-lisp-mode-hook 'evil-paredit-mode)
-    ))
+
+    (require 'color-theme)
+    (color-theme-initialize)
+
+    ;(color-theme-calm-forest)
+    ;(load-theme 'material t)
+
+
+
+    )
+ )
 
 (provide 'mysettings)
 ;;; mysettings ends here
