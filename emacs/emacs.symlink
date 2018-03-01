@@ -55,17 +55,18 @@
 		  slime
 		  julia-mode
 		  ensime
-          haskell-mode
-		  scala-mode
+                  ;;haskell-mode
+		  ;;scala-mode
 		  flycheck
-          js2-mode
-          json-mode
-          web-mode
-          exec-path-from-shell
+                  js2-mode
+                  json-mode
+                  web-mode
+                  exec-path-from-shell
 		  feature-mode
 		  helm
 		  slime
 		  base16-theme
+                  traad
 		  ))
 
 (defvar all-packages-installed t)
@@ -102,6 +103,8 @@
 (setq slime-contribs '(slime-fancy))
 
 (require 'tramp)
+(require 'pymacs)
+(message "loaded pymacs")
 (require 'go-mode)
 (require 'rebol)
 (require 'gnu-apl-mode)
