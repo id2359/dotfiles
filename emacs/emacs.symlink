@@ -46,27 +46,27 @@
 		  python-pylint
 		  material-theme
 		  tuareg
-		  gnu-apl-mode
+		  ;;gnu-apl-mode
 		  yasnippet
 		  py-autopep8
 		  evil-leader
 		  paredit
 		  evil-paredit
 		  slime
-		  julia-mode
+		  ;;julia-mode
 		  ensime
-                  ;;haskell-mode
+          ;;haskell-mode
 		  ;;scala-mode
 		  flycheck
-                  js2-mode
-                  json-mode
-                  web-mode
-                  exec-path-from-shell
+          ;;js2-mode
+          json-mode
+          web-mode
+          exec-path-from-shell
 		  feature-mode
 		  helm
-		  slime
+		  ;;slime
 		  base16-theme
-                  traad
+          ;;traad
 		  ))
 
 (defvar all-packages-installed t)
@@ -104,7 +104,6 @@
 
 (require 'tramp)
 (require 'pymacs)
-(message "loaded pymacs")
 (require 'go-mode)
 (require 'rebol)
 (require 'gnu-apl-mode)
