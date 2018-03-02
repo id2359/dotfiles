@@ -46,26 +46,27 @@
 		  python-pylint
 		  material-theme
 		  tuareg
-		  gnu-apl-mode
+		  ;;gnu-apl-mode
 		  yasnippet
 		  py-autopep8
 		  evil-leader
 		  paredit
 		  evil-paredit
 		  slime
-		  julia-mode
+		  ;;julia-mode
 		  ensime
-          haskell-mode
-		  scala-mode
+          ;;haskell-mode
+		  ;;scala-mode
 		  flycheck
-          js2-mode
+          ;;js2-mode
           json-mode
           web-mode
           exec-path-from-shell
 		  feature-mode
 		  helm
-		  slime
+		  ;;slime
 		  base16-theme
+          ;;traad
 		  ))
 
 (defvar all-packages-installed t)
@@ -102,6 +103,7 @@
 (setq slime-contribs '(slime-fancy))
 
 (require 'tramp)
+(require 'pymacs)
 (require 'go-mode)
 (require 'rebol)
 (require 'gnu-apl-mode)
@@ -118,6 +120,10 @@
 (require 'py-autopep8)
 (require 'flycheck)
 (add-hook 'after-init-hook #'global-flycheck-mode)
+
+(autoload 'gmpl-mode "gmpl-mode" nil t)
+(setq auto-mode-alist
+     (cons '("\\.model" . gmpl-mode) auto-mode-alist))
 
 (setq-default flycheck-disabled-checkers
     (append flycheck-disabled-checkers

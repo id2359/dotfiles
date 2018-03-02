@@ -1,17 +1,11 @@
 ;;; mysettings -- Summary
+
 ;;; Commentary:
 ;;; after loading packages init them
 
 ;;; Code:
 (setq inhibit-startup-message t)
 (set-default 'truncate-lines t)
-(require 'color-theme)
-(color-theme-initialize)
-;(color-theme-calm-forest)
-
-
-; try material ui theme
-;(load-theme 'material t)
 
 (add-hook
  'after-init-hook
@@ -73,7 +67,11 @@
 
 
     ;; Pymacs
-    (add-to-list 'load-path (expand-file-name "Pymacs" "/usr/lib/python2.7/dist-packages"))
+    (if (eq system-type 'darwin)
+        (add-to-list 'load-path "/usr/local/lib/python2.7/site-packages/Pymacs")
+       (add-to-list 'load-path (expand-file-name "Pymacs" "/usr/lib/python2.7/dist-packages")))
+    
+    
     (require 'pymacs)
     (autoload 'pymacs-apply "pymacs")
     (autoload 'pymacs-call "pymacs")
@@ -86,13 +84,6 @@
     ;; Rope
     (pymacs-load "ropemacs" "rope-")
 
-    ;; base16
-
-    (if (evening)
-	(color-theme-blippblopp)
-      (progn
-	(require 'base16-theme)
-	(load-theme 'base16-oceanicnext)))
     ;; helm
     (require 'helm)
     (require 'helm-config)
@@ -119,6 +110,7 @@
     (helm-mode 1)
 
 
+
     ;; feature-mode
     (setq feature-default-language "en")
     (require 'feature-mode)
@@ -137,7 +129,24 @@
     (yas-global-mode 1)
     ;; paredit
     (add-hook 'emacs-lisp-mode-hook 'evil-paredit-mode)
-    ))
+
+    (require 'color-theme)
+    (color-theme-initialize)
+    ;; base16
+
+    (if (evening)
+	(color-theme-blippblopp)
+      (progn
+	(require 'base16-theme)
+	(load-theme 'base16-oceanicnext)))
+
+    ;(color-theme-calm-forest)
+    ;(load-theme 'material t)
+
+
+
+    )
+ )
 
 (provide 'mysettings)
 ;;; mysettings ends here
