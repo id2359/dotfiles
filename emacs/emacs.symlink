@@ -1,4 +1,13 @@
+(require 'package)
+(package-initialize)
+(setq package-check-signature nil)
+(setq package-archives '(
+            ("melpa" . "https://melpa.org/packages/")
+		 ("marmalade" . "http://marmalade-repo.org/packages/")
+			 ("gnu" . "http://elpa.gnu.org/packages/")))
+
 (require 'cl)
+(setq make-backup-files nil)
 (setq emacs-root (expand-file-name "~/.emacs.d/"))
 (setq make-backup-files nil)
 
@@ -13,11 +22,6 @@
 (loop for location in load-paths
       do (add-to-list 'load-path (concat emacs-root location)))
 
-(require 'package)
-(setq package-archives '(
-             ("melpa" . "https://melpa.org/packages/")
-			 ("marmalade" . "http://marmalade-repo.org/packages/")
-			 ("gnu" . "http://elpa.gnu.org/packages/")))
 
 (add-to-list 'default-frame-alist '(height . 45))
 (add-to-list 'default-frame-alist '(width . 189))
@@ -28,46 +32,48 @@
 (when (not package-archive-contents)
   (package-refresh-contents))
 
-(defvar packages '(
-                  cl
-		  color-theme
-		  auto-complete
-		  projectile
-		  exec-path-from-shell
-		  epc
-		  jedi
-		  neotree
-		  magit
-		  base16-theme
-		  tramp
-		  python-pep8
-		  py-autopep8
-		  evil
-		  python-pylint
-		  material-theme
-		  tuareg
-		  ;;gnu-apl-mode
-		  yasnippet
-		  py-autopep8
-		  evil-leader
-		  paredit
-		  evil-paredit
-		  slime
-		  ;;julia-mode
-		  ensime
-          ;;haskell-mode
-		  ;;scala-mode
-		  flycheck
-          ;;js2-mode
-          json-mode
-          web-mode
-          exec-path-from-shell
-		  feature-mode
-		  helm
-		  ;;slime
-		  base16-theme
-          ;;traad
-		  ))
+(defvar packages '(let-alist
+		   cl
+		   color-theme
+		   auto-complete
+		   virtualenvwrapper
+		   projectile
+		   exec-path-from-shell
+		   flymake-easy
+		   yapfify
+		   epc
+		   jedi
+		   neotree
+		   magit
+		   base16-theme
+		   tramp
+		   python-pep8
+		   py-autopep8
+		   evil
+		   flymake-python-pyflakes
+		   python-pylint
+		   material-theme
+		   tuareg
+		   ;;gnu-apl-mode
+		   yasnippet
+		   py-autopep8
+		   evil-leader
+		   paredit
+		   evil-paredit
+		   slime
+		   ;;julia-mode
+		   ensime
+		   ;;haskell-mode
+		   ;;scala-mode
+		   flycheck
+		   js2-mode
+		   json-mode
+		   web-mode
+		   exec-path-from-shell
+		   feature-mode
+		   helm
+		   slime
+		   base16-theme))
 
 (defvar all-packages-installed t)
 (dolist (p packages)
@@ -102,24 +108,20 @@
 (setq inferior-lisp-program "sbcl")
 (setq slime-contribs '(slime-fancy))
 
-(require 'tramp)
 (require 'pymacs)
-(require 'go-mode)
-(require 'rebol)
-(require 'gnu-apl-mode)
-(require 'julia-shell)
 (require 'mysettings)
 (require 'myutils)
 (require 'mykeybindings)
 ;(require 'base16-theme)
 ;(require 'base16-default-dark-theme)
 (require 'django-html-mode)
-(require 'erlang)
-(require 'lsl-mode)
 ;(require 'js-beautify)
-(require 'py-autopep8)
 (require 'flycheck)
 (add-hook 'after-init-hook #'global-flycheck-mode)
+
+
+(require 'flymake-python-pyflakes)
+(add-hook 'python-mode-hook 'flymake-python-pyflakes-load)
 
 (autoload 'gmpl-mode "gmpl-mode" nil t)
 (setq auto-mode-alist

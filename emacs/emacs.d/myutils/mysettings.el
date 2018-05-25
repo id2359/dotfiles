@@ -10,6 +10,16 @@
 (add-hook
  'after-init-hook
  '(lambda ()
+
+    ;; virtual envs
+    (require 'virtualenvwrapper)
+    (venv-initialize-interactive-shells) ;; if you want interactive shell support
+    (venv-initialize-eshell) ;; if you want eshell support
+    ;; note that setting `venv-location` is not necessary if you
+    ;; use the default location (`~/.virtualenvs`), or if the
+    ;; the environment variable `WORKON_HOME` points to the right place
+    (setq venv-location "/home/lee/.virtual-envs")
+    (venv-workon "emacsvenv")
     
     ;; ido mode
     (require 'ido)
@@ -35,17 +45,12 @@
 
     ;; Jedi
     (require 'jedi)
-    ;; Standard Jedi.el setting
+    ;;Standard Jedi.el setting
+    (setq jedi:environment-root "/home/lee/.virtual-envs/emacsvenv")
+    
     (add-hook 'python-mode-hook 'jedi:setup)
     (setq jedi:complete-on-dot t)
 
-    (require 'julia-shell)
-    (defun my-julia-mode-hooks ()
-      (require 'julia-shell))
-    (add-hook 'julia-mode-hook 'my-julia-mode-hooks)
-    (define-key julia-mode-map (kbd "C-c C-j") 'julia-shell-run-region-or-line)
-    (define-key julia-mode-map (kbd "C-c C-s") 'julia-shell-save-and-go)
-    
 
     ;; J
     (autoload 'j-mode "j-mode.el"  "Major mode for J." t)
@@ -82,7 +87,7 @@
 
 
     ;; Rope
-    (pymacs-load "ropemacs" "rope-")
+    ;;(pymacs-load "ropemacs" "rope-")
 
     ;; base16
 
