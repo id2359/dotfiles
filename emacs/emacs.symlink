@@ -69,6 +69,7 @@
 		   js2-mode
 		   json-mode
 		   web-mode
+		   web-beautify
 		   exec-path-from-shell
 		   feature-mode
 		   helm
