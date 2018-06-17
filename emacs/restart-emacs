@@ -1,0 +1,4 @@
+#!/bin/sh
+systemctl --user enable emacs
+systemctl --user stop emacs
+systemctl --user start emacs

@@ -1,0 +1,7 @@
+#!/bin/sh
+systemctl --user stop emacs.service
+cd ~/projects/dotfiles/emacs/emacs.d
+rm -rf elpa
+mkdir -p elpa/color-theme-20070910.1007/themes
+systemctl --user start emacs.service
+
