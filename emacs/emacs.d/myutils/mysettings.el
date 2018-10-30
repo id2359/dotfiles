@@ -120,6 +120,12 @@
     (setq feature-default-language "en")
     (require 'feature-mode)
     (add-to-list 'auto-mode-alist '("\.feature$" . feature-mode))
+
+    ;; typescript-mode
+    (require 'typescript-mode)
+    (add-to-list 'auto-mode-alist '("\.ts$" . typescript-mode))
+    (add-to-list 'auto-mode-alist '("\.tsx$" . typescript-mode))
+    
     
 
     (add-hook 'python-mode-hook
