@@ -125,6 +125,10 @@
     (require 'typescript-mode)
     (add-to-list 'auto-mode-alist '("\.ts$" . typescript-mode))
     (add-to-list 'auto-mode-alist '("\.tsx$" . typescript-mode))
+
+
+    (require 'py-autopep8)
+    (add-hook 'python-mode-hook 'py-autopep8-enable-on-save)
     
     
 
