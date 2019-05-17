@@ -34,6 +34,7 @@
 
 (defvar packages '(let-alist
 		   cl
+           elisp-format
 		   color-theme
 		   auto-complete
 		   virtualenvwrapper
