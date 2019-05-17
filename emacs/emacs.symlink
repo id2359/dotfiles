@@ -10,6 +10,7 @@
 (setq make-backup-files nil)
 (setq emacs-root (expand-file-name "~/.emacs.d/"))
 (setq make-backup-files nil)
+(global-set-key (kbd "C-a") 'mark-whole-buffer)
 
 (defvar load-paths '(
 		     "langs"
@@ -67,6 +68,7 @@
 		   ;;haskell-mode
 		   ;;scala-mode
 		   flycheck
+		   typescript-mode
 		   js2-mode
 		   json-mode
 		   web-mode
