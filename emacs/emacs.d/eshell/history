@@ -1,0 +1,9 @@
+cd ..
+ls
+source venv/bin/activate
+ls
+source venv/bin/activate
+ls
+source venv/bin/activate
+ls
+grep -i ldap settings.py
