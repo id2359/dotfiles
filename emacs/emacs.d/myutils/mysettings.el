@@ -19,7 +19,10 @@
     ;; use the default location (`~/.virtualenvs`), or if the
     ;; the environment variable `WORKON_HOME` points to the right place
     (setq venv-location "/home/lee/.virtual-envs")
-    (venv-workon "emacsvenv")
+    (if (string= (getenv "PROJECT") "PEAKPROJECT")
+	(venv-workon "peak")
+    (venv-workon "emacsvenv"))
+	
     
     ;; ido mode
     (require 'ido)

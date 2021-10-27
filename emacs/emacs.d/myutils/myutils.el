@@ -77,6 +77,17 @@
       nil)))
 
 
+(defun switch-virtual-env (name)
+  (interactive)
+  (let ((dirname
+	 (case name
+	   ("peaks" (expand-file-name "~/.virtual-envs/peak"))
+	   ("rdrf" (expand-file-name "~/.virtual-envs/emacsvenv")))))
+  (venv-active dirname)))
+  
+(defun hack-peaks ()
+  (interactive)
+  (pyvenv-activate "/home/lee/.virtual-envs/peak"))
 
 (provide 'myutils)
 ;;; myutils.el ends here

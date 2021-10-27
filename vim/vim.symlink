@@ -20,6 +20,7 @@ Plugin 'nvie/vim-flake8'
 Plugin 'bling/vim-airline'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'chriskempson/base16-vim'
+Plugin 'kalafut/vim-taskjuggler'
 
 call vundle#end()               " required
 filetype plugin indent on       "required!
