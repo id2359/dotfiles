@@ -41,6 +41,8 @@
 		   let-alist
 		   cl
 		   flycheck
+		   elisp-format
+		   yapfify
 		   auto-complete
 		   virtualenvwrapper
 		   projectile

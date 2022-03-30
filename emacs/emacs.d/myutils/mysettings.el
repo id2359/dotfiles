@@ -12,13 +12,13 @@
  '(lambda ()
 
     ;; virtual envs
-    (require 'virtualenvwrapper)
-    (venv-initialize-interactive-shells) ;; if you want interactive shell support
-    (venv-initialize-eshell) ;; if you want eshell support
+    ;;(require 'virtualenvwrapper)
+    ;;(venv-initialize-interactive-shells) ;; if you want interactive shell support
+    ;;(venv-initialize-eshell) ;; if you want eshell support
     ;; note that setting `venv-location` is not necessary if you
     ;; use the default location (`~/.virtualenvs`), or if the
     ;; the environment variable `WORKON_HOME` points to the right place
-    (setq venv-location "/home/lee/.virtual-envs")
+    ;;(setq venv-location "/home/lee/.virtual-envs")
     (if (string= (getenv "PROJECT") "PEAKPROJECT")
 	(venv-workon "peak")
     (venv-workon "emacsvenv"))
@@ -147,16 +147,6 @@
     (yas-global-mode 1)
     ;; paredit
     (add-hook 'emacs-lisp-mode-hook 'evil-paredit-mode)
-
-    (require 'color-theme)
-    (color-theme-initialize)
-    ;; base16
-
-    (if (evening)
-	(color-theme-blippblopp)
-      (progn
-	(require 'base16-theme)
-	(load-theme 'base16-oceanicnext)))
 
     ;(color-theme-calm-forest)
     ;(load-theme 'material t)
