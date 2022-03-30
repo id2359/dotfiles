@@ -1,0 +1,27 @@
+;; Object semanticdb-project-database-file
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "semanticdb-project-database-file"
+  :tables
+  (list
+    (semanticdb-table "semanticdb-table"
+      :major-mode python-mode
+      :tags 
+        '( ("django" include nil nil [1 28])
+            ("intframework.utils" include nil nil [29 76])
+            ("register" variable nil nil [78 107])
+            ("" code nil nil [126 146])
+            ("is_external" function
+               (:documentation "
+    Is the element's value being supplied by an external system?
+    "
+                :arguments 
+                  ( ("element" variable nil (reparse-symbol function_parameters) [163 170]))                  )
+                nil [147 443]))          
+      :file "is_external.py"
+      :pointmax 443
+      :fsize 442
+      :lastmodtime '(24977 48355 359509 226000)
+      :unmatched-syntax nil))
+  :file "!home!lee!src!rdrf!rdrf!rdrf!templatetags!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")
