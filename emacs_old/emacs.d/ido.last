@@ -1,0 +1,132 @@
+;;; -*- coding: utf-8 -*-
+
+;; ----- ido-last-directory-list -----
+(
+ ("/home/lee/src/rdrf/rdrf/rdrf/templates/" . "rdrf_cdes/")
+ ("/home/lee/src/rdrf/rdrf/rdrf/management/" . "commands/")
+ ("/home/lee/src/rdrf/rdrf/registry/" . "patients/")
+ ("/home/lee/src/rdrf/rdrf/rdrf/models/" . "definition/")
+ ("/home/lee/src/rdrf/rdrf/rdrf/services/rest/" . "views/")
+ ("/home/lee/src/rdrf/rdrf/rdrf/testing/" . "unit/")
+ ("/home/lee/src/rdrf/rdrf/rdrf/static/" . "js/")
+ ("/home/lee/projects/dotfiles/emacs/" . "emacs.d/")
+ ("/home/lee/projects/dotfiles/" . "emacs/")
+ ("/home/lee/projects/" . "dotfiles/")
+ ("/home/lee/src/rdrf/rdrf/rdrf/services/io/" . "actions/")
+ ("/home/lee/src/rdrf/rdrf/rdrf/services/" . "rpc/")
+ ("/home/lee/src/rdrf/rdrf/rdrf/" . "static/")
+ ("/home/lee/src/rdrf/rdrf/" . "rdrf/")
+ ("/home/lee/src/rdrf/" . "rdrf/")
+ ("/home/lee/src/" . "rdrf/")
+ ("/home/lee/" . "src/")
+)
+
+;; ----- ido-work-directory-list -----
+(
+ "/home/lee/src/rdrf/"
+ "/home/lee/src/rdrf/rdrf/rdrf/"
+ "/home/lee/src/rdrf/rdrf/rdrf/static/js/"
+ "/home/lee/src/rdrf/rdrf/rdrf/services/rpc/"
+ "/home/lee/src/rdrf/rdrf/rdrf/templates/rdrf_cdes/"
+ "/home/lee/src/rdrf/rdrf/rdrf/views/"
+ "/home/lee/src/rdrf/rdrf/"
+ "/home/lee/src/rdrf/rdrf/registry/patients/"
+ "/home/lee/src/rdrf/rdrf/rdrf/services/io/actions/"
+ "/home/lee/"
+ "/home/lee/src/rdrf/rdrf/intframework/"
+ "/home/lee/src/rdrf/rdrf/rdrf/management/commands/"
+ "/home/lee/projects/dotfiles/emacs/"
+ "/home/lee/src/rdrf/rdrf/registry/groups/"
+ "/home/lee/src/rdrf/rdrf/rdrf/models/definition/"
+ "/home/lee/src/rdrf/rdrf/rdrf/services/"
+ "/home/lee/src/rdrf/rdrf/rdrf/helpers/"
+ "/home/lee/src/rdrf/rdrf/rdrf/services/rest/views/"
+ "/home/lee/src/rdrf/rdrf/rdrf/testing/unit/"
+ "/home/lee/src/rdrf/rdrf/rdrf/services/io/defs/"
+)
+
+;; ----- ido-work-file-list -----
+(
+ ".env"
+ "docker-compose-common.yml"
+ "settings.py"
+ "timeout_warning.js"
+ "rpc_commands.py"
+ "form.html"
+ "form_view.py"
+ "timeout_warning_modal.html"
+ "base-2-cols.html"
+ "myts.ts"
+)
+
+;; ----- ido-dir-file-cache -----
+(
+ ("/home/lee/src/rdrf/" (25278 45372 54996 54000) "uwsgi/" "aloe-prod.log" "docker-compose-grdr.yml" ".gitignore" "travis-prodbuild.sh" "docker-compose-prod.yml" "docker-entrypoint.sh" "docker-entrypoint-node.sh" "docker-compose-aloe.yml" "Dockerfile-base" "Dockerfile-builder" "SAMPLE_REGISTRY.yaml" ".travis.yml" "build-dev.sh" "docs/" "docker-compose-selenium.yml" "README.rst" ".dockerignore" "users.ldif" "aloe-selenium.log" "license.txt" "Dockerfile-prod" "aloe-teststack.log" ".git/" "docker-compose.yml" "setup.cfg" "build/" "travis-lint.sh" "docker-entrypoint-build.sh" "docker-compose-common.yml" "yarn_cache/" "develop.sh" "rdrf/" "travis-build.sh" "GETTING_STARTED.txt" "grdr.yaml" "data/" "Dockerfile-node" ".mypy_cache/" ".idea/" "Dockerfile-dev" ".env" "docker-compose-build.yml" "scripts/" "docker-compose-jasper.yml" "docker-compose-teststack.yml" ".ropeproject/" "authors.txt" "TAGS" "../" "./")
+
+ ("/home/lee/src/rdrf/rdrf/rdrf/static/js/" (25278 45012 843062 766000) "toggle_disabled.js" "myts.ts" "rpc_plugin.js" "../" "custom_action.js" "dynamic_formsets_plugin.js" ".empty_dir/" "./" "calculated_field_plugin_es6.js" "gallery.js" "vendor/" "rpc_module.js" "timeout_warning.js" "jquery.bootgrid.js" "ie_select.js" "form.js" "generic_validator.js" "date_validation.js" "nv.d3.js" "d3.min.js" "lookup.js" "password.js" "calculated_field_plugin.js" "theme.js" "rdrf.js")
+
+ ("/home/lee/src/rdrf/rdrf/rdrf/services/rpc/" (25278 44058 292484 670000) "rpc_commands.py" "../" "./" "__init__.py" "actions.py" "#rpc_commands.py#" "__pycache__/")
+
+ ("/home/lee/src/rdrf/rdrf/rdrf/views/" (25278 33206 372037 786000) "verification_views.py" "clinician_view.py" "../" "import_registry_view.py" "change_password.py" "registration_rdrf.py" "test_view.py" "patients_listing.py" "./" "permission_matrix.py" "family_linkage.py" "form_view.py" "__init__.py" "decorators/" "wizard_views.py" "actions.py" "email_notification_view.py" "lookup_views.py" "context_views.py" "consent_view.py" "registry_view.py" "custom_actions.py" "__pycache__/" "review_views.py" "patient_view.py" "copyright_view.py" "report_view.py" "landing_view.py" "proms_views.py")
+
+ ("/home/lee/src/rdrf/rdrf/rdrf/templates/rdrf_cdes/" (25278 42378 390051 668000) "clinician.html" "test_page.html" "information.html" "questionnaire_handling.html" "footer.html" "patients_listing.html" "completed_questionnaire_thankyou.html" "import_registry.html" "patient_forms_popup.html" "prelude_SMA_au.html" "base_questionnaire.html" "questionnaire_config.html" "family_linkage.html" "approval.html" "rdrfcontext_launcher.html" "form_group_button_component.html" "generic_patient.html" "application_error.html" "copyright.html" "patients_requiring_verifications.html" "base-1-col.html" "rdrf_context.html" "form.html" "patient_query.html" "patient_verification.html" "form_readonly.html" "clinician_review_form.html" "external_demographics.html" "questionnaire_error.html" "landing.html" "cde.html" "report_table_view.html" "form_print.html" "timeout_warning_modal.html" "base_contexts.html" "questionnaire.html" "custom_action_polling.html" "permission_matrix.html" "custom_consent_form.html" "index.html" "base-2-cols.html" "prelude_fshd_au.html" "review_form.html" "simple_base.html" "prelude_fshd_nz.html" "form_field_history.html" "family_linkage_panel.html" "patients_listing_no_registries.html" "custom_action_input_form.html" "patient_edit.html" "consent_list_print.html" "forms_button.html" "#base-1-col.html#" "patient_info_component.html" "prelude_DM1_au.html" "splash.html" "variation.html" "prelude_DM1_nz.html" "prelude_DMD_au.html" "consent_list.html" "reports.html" "prelude_DMD_nz.html" "prelude_SMA_nz.html" "patient_context_popup.html" "migration.html" "base.html" "wizard_base.html" "test_db_page.html" "session_security_template.html" "archive_modal.html" "base_simple.html" "../" "./")
+
+ ("/home/lee/src/rdrf/rdrf/rdrf/" (25278 43769 282615 806000) "settings.py" "template_loaders/" "tasks.py" "admin.py" "static/" "urls.py" "workflows/" "middleware.py" "hooks/" "apps.py" "celery.py" "forms/" "templatetags/" "auth/" "__init__.py" "wsgi.py" "views/" "reports/" "frontend/" "account_handling/" "templates/" "initial_data/" "routing/" "custom_signals.py" "management/" "fixtures/" "db/" "models/" "testing/" "settings_test.py" "__pycache__/" "events/" "system_role.py" "inter.py" "scripts/" "migrations/" "security/" "admin_forms.py" "helpers/" "services/" "context_processors/" "../" "./")
+
+ ("/home/lee/" (25278 32440 160636 166000) "prod-dump-scripts/" "env/" "envs/" ".viminfo" ".subversion/" "lcms/" "wavvenv/" ".gnatstudio/" "focus/" "meetings/" "sharedfiles/" ".ApacheDirectoryStudio/" ".sudo_as_admin_successful" "data.json" ".hplip/" ".cpan/" ".gitconfig" ".node_repl_history" "srs.txt" ".m2/" "Desktop/" ".gimp-2.8/" ".p2/" ".slime-history.eld" ".icons/" ".viminfy.tmp" ".kube/" ".gitignore" "Pictures/" "src/" "hello" ".scala_history" "ovmost/" ".anyconnect" ".gps/" "rancher/" ".r/" "bin/" ".festival_history" "miniprolog/" "Courses/" ".clojure_history" "ANPCRprofile" "ovproblem/" ".terminusdb/" ".slime/" ".visdom/" "q/" "staging-services/" "bc-vd.txt" ".swipl-dir-history/" ".rustup/" ".pki/" "reading-plan.txt" "hss-certs/" ".minikube/" "schedule.r" "anpc-r-libraries.txt" ".gtk-recordmydesktop" "testtu.jl" ".utop-history" "cmd_client.py" "rancherbackup/" ".rstudio-desktop/" "pbwebenquiry/" "gdemo-plot.png" ".xsession-errors.old" "shell.py" ".terraform.d/" ".dub/" "HL7Docs/" ".ZAP/" ".cargo/" ".gconf/" ".q_history" ".emulator_console_auth_token" ".ansible/" ".vscode-R/" ".opam/" ".lesshst" ".jacamo/" "results.txt" "elmbook/" "hl7/" "plugintest/" "Videos/" "go/" "jobdocs/" "metabolomics/" ".cookiecutters/" ".wget-hsts" ".bash_aliases" "testc/" "workscreenshots/" ".i3blocks.conf" "libs/" ".node-gyp/" "tanzu/" "hss-ovarian/" "www.ffconsultancy.com/" "espanso.service" "tbvenv/" ".jhistory" "hss-uat-services/" ".elm/" "pycharm-community-2021.1.1/" "Downloads/" ".parallel/" "spreadsheets/" "email-ny.txt" ".travis.yml" "snakemake-demo/" ".netExtenderCerts/" ".sqlworkbench/" "angelman/" "octave-workspace" ".java/" ".texlive2019/" ".oracle_jre_usage/" "taskjuggler/" ".screenlayout/" "node_modules/" "lee_analysis1.txt" ".sts4/" ".install4j" ".i3/" "prod-services/" ".gsutil/" "robot.js" ".git-credential-cache/" ".keras/" ".docker/" ".aws/" ".emacs" ".nuget/" "testdata/" "snap/" ".selected_editor" ".swt/" "testturing.jl" "eclipse-workspace.old/" ".gforth-history" ".bashrc" ".sbcl_history" "minimalist-django/" ".dropbox-dist/" ".gradle/" "user.r" "stagingsystemd/" ".dbus/" ".bash_history" ".AndroidStudio4.0/" ".calc_history" ".thunderbird/" "hss-prod/" "signature/" ".kube_old/" ".atom/" "j902-user/" ".eclipse/" ".virtual-envs/" ".Scilab2/" ".local/" ".gnupg/" "inline-scripts/" ".jupyter/" "rethinking-2ed-julia-main/" ".dia/" "Visual_Paradigm_16.3/" "newkeys/" ".pgadmin3" "ConnectTunnel-20220624_at_153043.txt" "R/" "Documents/" ".clamtk/" "cmd_server.py" ".netExtender.log" "testdir/" ".travis.conf" ".zenmap/" ".taskjugglerrc" "normae/" "vids/" "spectra-processing/" "ldapdocs/" "testsnakemake/" ".travis/" "nmrium/" "BioinformaticsJob/" "promsserverlogs/" "logs/" "icons/" ".ICEauthority" ".irb_history" ".pylint.d/" ".Xdefaults" ".scalac/" ".cache/" ".Xauthority" "testd3/" ".ivy2/" ".appletviewer" "lc-logins" "cicshell.py" "update_rules/" "elmbooks/" ".sonicwall/" "find_theano.py" ".apl.history" "crc-vd.txt" ".puppet/" "hss-uat/" ".xscreensaver" "viabluetooth/" "nmriumstudy/" "prob/" ".mozilla/" ".jjs.history" ".xpce_emacs_server.0" "quine.db/" ".ecryptfs/" ".mmass/" ".fluxbox/" ".kde/" ".sbclrc" ".thumbnails/" ".npm/" ".config/" ".squeak/" "www.models.life.ku.dk/" ".ghc/" "mycelerytasks/" ".cookiecutter_replay/" "testtypescript/" ".pandastable/" ".sbt/" "projects/" ".ipython/" ".julia/" ".ocamlinit" ".Private/" "rdrf-docs/" "octave/" "meeting-300622.txt" "tsaproblem/" "peak/" "data/" ".psql_history" "rclonetest/" ".fr-tjATEj/" "analysis.txt" ".yarnrc" ".fehbg" "allcerts" ".pytest_cache/" "cloning.txt" ".xpce/" ".mypyls/" ".red/" "wavelets/" "hello.rs" "Android/" ".fr-flnsZi/" ".viminfo.tmp" "peakpicking/" "tidyms/" "wget-log" "hss_hih/" ".Scilab/" "prod-scripts/" "testftp/" "opt/" "ConnectTunnel-20220628_at_121645.txt" ".bash_logout" "out" ".psql_history-08632.tmp" ".scalaide/" ".mypy_cache/" ".zoom/" "oldcluster/" ".pgpass" "systemdfiles/" "mos/" ".gnome/" "Dropbox/" "__pycache__/" ".rediscli_history" "tmp/" ".tooling/" ".Rhistory" ".projectlibre/" ".yarn/" "pmp_testing/" ".lein/" ".Macaulay2/" "ms-workflow0/" "progs/" ".emacs.d/" ".gem/" "angyamls/" "testeigen.cpp" "j64-806-user/" "cic_sjog_crc_analysis_liz_090622/" ".cmake/" ".dmrc" ".conda/" ".viminfz.tmp" ".octave_packages" "lib/" "perl5/" "syssuitvenv/" "foo.r" "home/" ".cpan_history" "theanovenv/" ".olde/" "tsa/" ".vimrc" ".ocaml_history" "nginx-config/" "scripts/" ".ipynb_checkpoints/" ".virtual/" ".phenocare.log" ".mono/" ".org.eclipse.sequoyah/" ".vsts/" "newconsang/" ".vim/" ".xournal/" "yamls/" ".theano/" ".sedge/" "study/" "osta/" "testmultistage/" "hss-prod-backup/" "wifi-issues" "foo1/" "rtest/" ".xsession-errors" "testwebapp/" "ovarian/" ".pbcrc.swp" "wifftest/" ".octave_hist" ".ssh/" ".condarc" ".python_history" "multivar/" "x" "work.r" ".vs-kubernetes/" ".omnisharp/" "eclipse-workspace/" "brunton/" ".vscode/" "uat/" ".profile" "testcluster/" ".dropbox/" "hssinstall/" ".gtkrc-2.0" "wallpaper/" ".jason/" "jobstudy/" "exampleprojects/" ".dotnet/" "../" "./")
+
+ ("/home/lee/src/rdrf/rdrf/rdrf/templates/" (24951 25636 951832 937000) "../" "admin/" "./" "403.html" "two_factor/" "error/" "proms/" "404.html" "rdrf_cdes/" "registration/" "500.html")
+
+ ("/home/lee/src/rdrf/rdrf/rdrf/services/rest/views/" (25250 59343 735544 84000) "../" "./" "__init__.py" "api_views.py" "__pycache__/" "proms_api.py")
+
+ ("/home/lee/src/rdrf/rdrf/rdrf/helpers/" (25248 2902 539269 967000) "../" "migration_utils.py" "utils.py" "./" "cache_utils.py" "blackboard_utils.py" "__init__.py" "transform_cd_dict.py" "__pycache__/")
+
+ ("/home/lee/src/rdrf/rdrf/rdrf/models/definition/" (25248 2902 539269 967000) "../" "verification_models.py" "./" "models.py" "__init__.py" "__pycache__/" "review_models.py")
+
+ ("/home/lee/projects/dotfiles/emacs/" (25199 28090 225397 100000) "jsbeautifier.py" "../" "sml-poly-ml.el" "./" "init.el" "restart-emacs" "package-config.el" "emacs.d/" "resetemacs")
+
+ ("/home/lee/src/rdrf/rdrf/rdrf/management/commands/" (25166 22700 423476 146000) "check_structure.py" "load_fixture.py" "setup_proms.py" "import_registry.py" "../" "populate_redis_umrns.py" "update_metadata.py" "./" "create_surveys.py" "get_stats.py" "update_calculated_fields.py" "__init__.py" "create_field_values.py" "update_form_progress.py" "check_logins.py" "rdrf_archiver.py" "test_celery.py" "create_translation_file.py" "export.py" "update-proms-system-definition.py" "spreadsheet_command.py" "load_doctors.py" "import.py" "__pycache__/" "send_cicap.py" "set_registry_version.py" "pull_proms.py" "init.py" "detect_problem_cdes.py" "create_review.py" "doctor.py" "get_setting.py" "setup_proms_static.py")
+
+ ("/home/lee/src/rdrf/rdrf/intframework/" (25183 25315 834465 63000) "../" "utils.py" "admin.py" "urls.py" "./" "models.py" "__init__.py" "qry_a19_hl7_mapping.txt" "updater.py" "__pycache__/" "views.py" "migrations/" "hub.py")
+
+ ("/home/lee/src/rdrf/rdrf/rdrf/services/io/actions/" (25260 21709 183611 154000) "../" "deidentified_data_extract.py" "./" "patient_status_report.py" "__init__.py" "visualisaton_download.py" "__pycache__/" "patient_report.py")
+
+ ("/home/lee/src/rdrf/rdrf/" (25266 52769 22728 160000) "setup.py" "dist/" "registry/" "../" "intframework/" "django_rdrf.egg-info/" "./" "test-requirements.txt" "dev-requirements.txt" "manage.py" "build/" "explorer/" "rdrf/" "__pycache__/")
+
+ ("/home/lee/src/" (25276 4127 231740 226000) "msrium/" "ppmr/" "testovvenv/" "cic-ansible/" "dummyrepo/" "muccg/" "ansible-rdrf/" "sidecar/" "puppet-environments-muccg-rdrf/" "pwiz-wrapper/" "trrf/" "peakanalyser/" "ssl-certs/" "NormAE/" "rancher/" "django-useraudit/" "cic_scripts/" "mprophetsite/" "platinumcprodconfig/" "quine-test/" "graphdbs/" "nmrpymc3/" "jira-client/" "rrm/" "peakproject/" "cicplan2022/" "platinum-c-middleware/" "compare_pickers/" "hss-prod-services/" "awsscripts/" "covid19/" "Templates/" "pmp/" "cicap/" "lee-cloud/" "yamlhell/" "docker-bpa-ckan/" "mirthtesting/" "phenocare/" "msworkflow0/" "cickube/" "turtleweb/" "ecs-nginx-reverse-proxy-master/" "msbrowser/" "nmrium-master/" "terrapin/" "julien/" "testov/" "rdrd/" "cicpullproms/" "sentieon-google-genomics/" "pwiz/" "peakprocessing/" "docker-postgres-ssl/" "nmdregistry_webroot/" "yabi/" "cicpromsservices/" "angelman/" "rdrftestscripts/" "disease_registry/" "phenocare.tar.gz" "rrm_r/" "headlesslukeworkflow/" "elm-ms/" "docker-fhregistryinternational.com/" "docker-python-base/" "rdrf.docs/" "peakml/" "ansible-ccgdevsetup/" "docker-linter/" ".git/" "rdrf-deploy/" "skylineautomation/" "tamasapp/" "transfer_repo/" "aqdb-frontend/" "yabitools2/" "docker-ccg-composer/" "graphvisualiser/" "react-plot/" "rdrf-services/" "cicmr/" "puppet/" "xcmsrocker/" "django-translations/" "bpa-archive-ops/" "deployment-ansible-systemd-demo/" "mzXML.jl/" "staging/" "cic-hss/" "boxplot/" "puppet-ccgcloud/" "ccgcf/" "projectplanning/" "rdrf/" "hss/" "ccg-aws/" "tamascloud/" "devops/" "cic-hss-deployment/" "system-suitability/" "analysis-ui-components/" "senstive_species/" "targeted_lipid_exploreR_v2/" "react-plot-docs/" "peak/" ".fr-iyi5S8/" "theanogeometry/" "dockercompose-bpa-ckan/" "bpa-ingest/" "puppet-environments-apsoutheast2aws/" "fkrp/" "rdrt/" "nmrprob/" "anpc-automation/" "cicftp/" "rdrfinfodocs/" "bpa-metadata/" "msapp1/" "consang/" "docker-angelmanregistry.info/" "adatest/" "problets/" "foobar/" "README.md" "docker-django-sql-explorer/" "peakquality/" "metabolite-library/" "barwon/" "puppet-environments-apsoutheast2aws-crap/" "docker-puppetmaster/" "platinum-c/" "peakscores/" "mtmproblem/" "leetestrdrfdeploy/" "yabitools/" "rancher_config/" "coeliac/" "msapp0/" "mtm/" "mastr-ms/" "puppet-environments-muccg/" "lastpass-cli/" "request-master/" "peakaboo/" "docker-python-lint/" "sentieon/" "../" "./")
+
+ ("/home/lee/src/rdrf/rdrf/rdrf/management/" (23180 58133 685250 916000) "../" "commands/" "./" "__init__.py" "__pycache__/")
+
+ ("/home/lee/src/rdrf/rdrf/rdrf/services/io/defs/" (25136 5913 874068 332000) "../" "./" "__init__.py" "importer.py" "__pycache__/" "exporter.py")
+
+ ("/home/lee/src/rdrf/rdrf/registry/patients/" (25146 31534 265184 586000) "../" "admin.py" "urls.py" "./" "models.py" "__init__.py" "patient_widgets.py" "__pycache__/" "views.py" "migrations/" "admin_forms.py")
+
+ ("/home/lee/src/rdrf/rdrf/registry/groups/" (25084 54143 868548 245000) "../" "admin.py" "./" "models.py" "__init__.py" "__pycache__/" "patient_registration/" "views.py" "migrations/" "admin_forms.py" "group_permissions.py")
+
+ ("/home/lee/src/NormAE/" (24783 64185 78066 520000) "normae-env.txt" "../" "main.py" "metrics.py" "train.py" "./" "run.sh" "transfer.py" "requirements.txt" "datasets.py" "save/" ".git/" "networks.py" "imgs/" "config.py" "data/" "LICENSE" "__pycache__/" "README.md" "visual.py")
+
+ ("/home/lee/projects/dotfiles/emacs/emacs.d/" (25157 25288 342748 591000) "ido.last" "package.el" "ProofGeneral-4.2/" "elpa/" "ac-comphist.dat" "pymacs/" "themes/" "tj-parenface.el" "myutils/" "transient/" "misc/" "flycheck-mypy.el" "auto-save-list/" "projectile-bookmarks.eld" "network-security.data" "langs/" "semanticdb/" "eshell/" "snippets/" "soar-mode.5.0/" "ede-projects.el" "downloaded/" "flycheck.pdf" "idlwave/" "rebox.el" "opam-user-setup.el" "../" "./")
+
+ ("/home/lee/projects/dotfiles/" (25156 10294 127948 1000) "vim/" "linkem" "../" ".gitignore" "./" ".git/" "i3/" "emacs/" "screenlayout/" "testfile")
+
+ ("/home/lee/projects/" (25066 4800 280525 112000) "testmatch/" "peaks.gpr" "adagents/" "alnml/" "trrf/" "foo/" "2dpainting/" "3dtest/" "gocheck/" "workdotfiles.tar.gz" "qtest/" "src/" "mydtest/" "scistuff/" "scilabfunctions/" "scalaml/" "Haxl-master/" "dserver/" "minimal-django/" "gochecker/" "adabbc/" "kona/" "mattest/" "hamiltonian_monte_carlo_talk/" "erlangplay/" "dclips/" "kroc-git/" "build-3dtest-Qt_5_9_1_in_PATH_qt5-Debug/" "xcmstutorial/" "bowertest/" "build-qtest-Unnamed-Debug/" "classlib/" "dotfilesnew/" "pyclips/" "yq/" "asynctest/" "go/" "videos/" "testogre/" "cpptest/" "rdrct/" "mlton/" "pwiz/" "puzzle/" "ada/" "angelman/" "adabar/" "pygpu/" "mlpeak/" "ansible_container_lab/" "scalatest/" "gym/" "testqt2/" "sparktest/" "newemacs.zip" "quickstart/" "zero_to_deep_learning_udemy/" "graph-databases-use-cases/" "newemacs/" "webppltest/" "dash/" "adaagent/" "build-testogre-Desktop-Default/" "django_dash_example_app_installer.tar.gz" "alexa-orac/" "django_dash_example_app_installer.sh" "prob/" "jaclab/" "myskill/" "reveal.js/" "testyarn/" "django_dash_example_app_installer/" "build-testqt2-Desktop-Debug/" "testcloj/" "myada/" "tjhelper/" "dummy/" "adachecker/" "New Folder/" "jasontest/" "peakintegration/" "staging-management/" "obj/" "adatest/" "dz/" "erlab/" "testpackager/" "mldevelop/" "cool/" "erlagent/" "pauli/" "jsonreports/" "pymcstudy/" "viroids/" "dotfiles/" "adarobot/" "../" "./")
+
+ ("/home/lee/src/rdrf/rdrf/rdrf/testing/unit/" (24977 48355 367509 257000) "../" "./" "__init__.py" "mock-message.txt" "__pycache__/" "tests.py" "time_stripper_tests.py")
+
+ ("/home/lee/src/rdrf/rdrf/rdrf/services/io/" (24918 45847 739749 661000) "../" "./" "actions/" "reporting/" "__init__.py" "defs/" "notifications/" "__pycache__/" "content/")
+
+ ("/home/lee/src/rdrf/rdrf/rdrf/services/" (24987 9286 468008 996000) "../" "tasks.py" "./" "__init__.py" "rpc/" "io/" "__pycache__/" "rest/")
+
+ ("/home/lee/src/rdrf/rdrf/registry/" (24289 57562 457613 1000) "../" "utils.py" "genetic/" "urls.py" "./" "humangenome/" "__init__.py" "groups/" "__pycache__/" "patients/" "common/")
+
+ ("/home/lee/src/rdrf/rdrf/rdrf/models/" (24922 19892 160958 411000) "../" "./" "workflow_models.py" "task_models.py" "__init__.py" "definition/" "integrations/" "proms/" "__pycache__/" "verification/")
+
+ ("/home/lee/src/rdrf/rdrf/rdrf/services/rest/" (24723 21119 985994 712000) "../" "urls/" "./" "auth.py" "__init__.py" "views/" "__pycache__/" "serializers.py")
+
+ ("/home/lee/src/rdrf/rdrf/rdrf/testing/" (23245 38650 335563 901000) "../" "./" "__init__.py" "behaviour/" "unit/" "__pycache__/")
+
+ ("/home/lee/src/rdrf/rdrf/rdrf/static/" (24802 51614 122840 670000) "../" "js/" "fonts/" "bootstrap-5.0.0/" "./" "icons/" "images/" "proms/" "css/" "DataTables/")
+)
+
+;; ----- ido-unc-hosts-cache -----
+t

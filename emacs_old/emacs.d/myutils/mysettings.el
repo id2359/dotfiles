@@ -18,7 +18,7 @@
     ;; note that setting `venv-location` is not necessary if you
     ;; use the default location (`~/.virtualenvs`), or if the
     ;; the environment variable `WORKON_HOME` points to the right place
-    ;;(setq venv-location "/home/lee/.virtual-envs")
+    (setq venv-location "/home/lee/.virtual-envs")
     (if (string= (getenv "PROJECT") "PEAKPROJECT")
 	(venv-workon "peak")
     (venv-workon "emacsvenv"))

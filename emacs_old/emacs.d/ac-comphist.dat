@@ -1,0 +1,4896 @@
+((("_check_umrn" .
+   [0 0 0 0 0 0 0 0 0 0 1])
+  ("umrn_map" .
+   [3 0 0 0 0 0 0 0])
+  ("_get_umrn" .
+   [1 0 0 0 0 0 0 0 0])
+  ("new_link" .
+   [1 0 0 0 0 0 0 0])
+  ("login_url" .
+   [3 0 0 0 0 0 0 0 0])
+  ("new" .
+   [2 0 0])
+  ("patient_listing" .
+   [2 0 0 0 0 0 0 0 0 0 0 0 1 0 0])
+  ("patient_link" .
+   [0 0 0 0 0 0 0 0 0 0 1 0])
+  ("flag" .
+   [1 0 0 0])
+  ("is_current" .
+   [0 0 0 0 0 0 0 0 0 1])
+  ("see_tick" .
+   [1 0 0 0 0 0 0 0])
+  ("collection_date" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("_get_cde_data" .
+   [0 0 0 0 0 0 0 0 1 0 0 0 0])
+  ("response_type" .
+   [0 0 0 0 0 0 0 0 0 1 0 0 1])
+  ("timeout" .
+   [1 0 0 0 0 0 0])
+  ("SESSION_SECURITY_EXPIRE_AFTER" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0])
+  ("SESSION_SECURITY_WARNING" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("dyn_patient" .
+   [0 0 0 1 0 0 0 0 0 0 0])
+  ("calculate" .
+   [1 0 0 0 0 0 0 0 0])
+  ("update_calculated_fields" .
+   [0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("rule_db_value" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("_get_patient_value" .
+   [0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0])
+  ("rules_dict" .
+   [2 0 0 0 0 0 0 1 0 0])
+  ("__init__" .
+   [0 0 0 0 0 0 0 1])
+  ("patient_value" .
+   [2 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("_evaluate_conjunct" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("conjuncts" .
+   [2 0 0 0 0 0 0 0 0])
+  ("_evaluate_conjuncts" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("conjunct" .
+   [6 0 0 0 0 0 0 0])
+  ("_evaluate_stage" .
+   [0 0 0 2 0 2 0 0 0 0 0 0 0 0 0])
+  ("ge" .
+   [1 0])
+  ("get_display_value" .
+   [1 0 0 0 0 0 0 1 0 0 0 1 0 0 0 0 0])
+  ("load_data" .
+   [0 0 0 0 0 1 0 0 1])
+  ("prepare_value" .
+   [0 0 0 0 0 0 0 0 1 0 0 0 0])
+  ("to_python" .
+   [1 0 0 0 0 0 0 0 0])
+  ("strptime" .
+   [0 0 0 0 1 0 0 0])
+  ("date_object" .
+   [3 0 0 0 0 0 0 0 1 0 0])
+  ("is_cde" .
+   [1 0 0 0 0 0])
+  ("_get_display_value" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0])
+  ("preventDefault" .
+   [0 0 0 1 0 0 0 0 0 0 0 0 0 0])
+  ("hl7_mapping" .
+   [0 0 0 0 0 0 0 0 0 0 1])
+  ("hl7_field" .
+   [1 0 0 0 0 0 0 0 0])
+  ("field_expr" .
+   [1 0 0 0 0 0 0 0 0 0])
+  ("get_segment_field" .
+   [0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1])
+  ("segment" .
+   [6 0 0 0 0 0 0])
+  ("field_path" .
+   [2 0 0 0 0 0 0 0 0 0])
+  ("group" .
+   [1 0 0 0 0])
+  ("match" .
+   [1 0 0 0 0])
+  ("field_pattern" .
+   [0 0 0 0 0 0 0 0 1 0 0 0 0])
+  ("_get_path" .
+   [1 0 0 0 0 0 0 0 0])
+  ("bool" .
+   [0 0 0 1])
+  ("get_field" .
+   [4 0 0 0 0 0 0 0 0])
+  ("field_empty" .
+   [3 0 0 0 0 0 0 0 1 0 0])
+  ("failure_reason" .
+   [0 0 0 1 0 0 0 0 0 0 0 0 0 0])
+  ("update_status" .
+   [1 0 1 0 0 0 0 0 0 0 0 0 0])
+  ("Not" .
+   [1 0 0])
+  ("FieldEmpty" .
+   [1 0 0 0 0 0 2 0 0 1])
+  ("prefix" .
+   [6 0 0 0 0 2])
+  ("in_reg" .
+   [1 0 0 0 0 0])
+  ("in_wgs" .
+   [1 0 0 0 0 0])
+  ("rdrf_registry__in" .
+   [2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("pids" .
+   [2 0 0 0])
+  ("DATA_HEADER" .
+   [0 0 0 0 0 0 0 0 0 0 1])
+  ("VisDownload" .
+   [0 0 0 7 0 0 0 1 0 0 0])
+  ("pdf" .
+   [3 0 0])
+  ("patients_data_csv_filepath" .
+   [0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("data_csv_filepath" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("patients_csv_filepath" .
+   [2 0 0 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 1])
+  ("data_csv_file" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("patients_csv_file" .
+   [2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("DataField" .
+   [1 0 0 0 0 0 0 0 0])
+  ("dv" .
+   [6 0])
+  ("should_search" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("check_value" .
+   [3 0 0 0 0 0 0 0 0 0 0])
+  ("csv_path" .
+   [3 0 0 0 0 0 0 0])
+  ("safe" .
+   [3 0 0 0])
+  ("tryit" .
+   [1 0 0 0 0])
+  ("field_spec" .
+   [12 0 0 0 0 0 0 0 0 0])
+  ("_get_raw_data" .
+   [0 0 0 0 0 0 0 0 0 1 0 0 0])
+  ("display_columns" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("get_display_values" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("extra" .
+   [1 0 0 0 0])
+  ("RegistryCapabilityAdmin" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("RegistryCapability" .
+   [1 0 0 0 0 0 0 0 0 0 2 0 1 0 0 0 0 0])
+  ("sq" .
+   [2 0])
+  ("sq_dict" .
+   [2 0 0 0 0 0 0])
+  ("_get_mapping" .
+   [0 0 0 0 0 0 0 1 0 0 0 0])
+  ("warning" .
+   [3 0 0 0 0 0 0])
+  ("fallback_mapping" .
+   [0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0])
+  ("is_hidden" .
+   [1 0 0 0 0 0 0 0 0])
+  ("PatientForm" .
+   [2 0 0 0 0 0 0 0 1 0 0])
+  ("external_fields" .
+   [0 0 0 0 1 1 0 0 0 1 0 0 0 0 0])
+  ("external_badge_html" .
+   [0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("hidden_input_html" .
+   [0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("hide" .
+   [3 0 0 1])
+  ("ExternalField" .
+   [2 0 0 0 0 0 0 0 0 1 0 0 0])
+  ("ExternalWidget" .
+   [3 0 1 1 0 0 0 0 0 1 0 0 0 0])
+  ("font-weight" .
+   [0 0 0 0 0 0 0 0 1 0 0])
+  ("text-top" .
+   [0 0 0 0 0 1 0 0])
+  ("green" .
+   [1 0 0 0 0])
+  ("parts" .
+   [39 0 0 0 0])
+  ("_parse_cde_fields" .
+   [0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0])
+  ("_parse_demographics_fields" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("moniker" .
+   [2 0 0 0 0 0 0])
+  ("parse_cde_moniker" .
+   [0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0])
+  ("_is_demographics_field" .
+   [0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("_parse_cdes" .
+   [0 0 0 0 0 0 0 0 0 0 1])
+  ("APP_ID" .
+   [1 0 0 0 0 0])
+  ("app_id" .
+   [2 0 0 0 0 0])
+  ("result_event_code" .
+   [0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1])
+  ("home_phone" .
+   [2 0 0 0 0 0 0 0 0 0])
+  ("result_message" .
+   [3 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("umr" .
+   [1 0 0])
+  ("activate_subscription" .
+   [0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("_get_hub" .
+   [0 0 0 0 1 0 0 1])
+  ("hub" .
+   [6 0 0])
+  ("_send_subscription_request" .
+   [0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("MessageSearcher2" .
+   [2 0 0 0 0 0 0 1 0 0 1 0 0 0 0 0])
+  ("get_where_dict" .
+   [0 0 0 0 0 0 0 0 0 0 1 0 0 0])
+  ("NotFoundError" .
+   [0 0 0 0 2 0 0 0 0 1 0 0 2])
+  ("where_actual" .
+   [2 0 0 0 0 0 0 0 0 0 0 0])
+  ("get_component" .
+   [3 0 0 0 0 0 0 1 0 0 0 0 0])
+  ("repeat" .
+   [3 0 0 0 0 0])
+  ("full_key" .
+   [3 0 0 0 0 0 0 0])
+  ("get_value" .
+   [3 0 0 0 0 0 0 0 0])
+  ("field_mapping" .
+   [5 0 0 0 0 0 0 0 1 0 0 0 0])
+  ("lookup_map" .
+   [2 0 0 0 0 0 0 0 0 0])
+  ("Tuple" .
+   [6 0 0 0 0])
+  ("original_value" .
+   [2 0 0 0 0 0 0 0 1 0 0 0 0 0])
+  ("transform_function" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("hl7_client" .
+   [1 0 0 0 0 0 0 0 0 0])
+  ("selected_item" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("ec" .
+   [1 0])
+  ("where_component_index" .
+   [0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0])
+  ("select_component_index" .
+   [0 0 0 0 0 0 0 0 0 1 1 0 0 0 0 0 0 0 0 0 0 0])
+  ("get_reps" .
+   [0 0 0 0 1 0 0 0])
+  ("tokens" .
+   [4 0 0 0 0 0])
+  ("select_component" .
+   [0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0])
+  ("parse_results" .
+   [1 0 0 0 0 0 1 0 0 0 0 0 0])
+  ("grammar" .
+   [1 0 0 0 0 0 0])
+  ("search_expression" .
+   [2 0 0 0 0 0 1 1 0 0 0 0 0 0 0 0 1])
+  ("select_expression" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("Literal" .
+   [1 0 0 0 0 0 0])
+  ("component" .
+   [8 0 0 0 0 0 0 0 0])
+  ("keyword" .
+   [0 1 0 0 1 0 0])
+  ("pp" .
+   [9 0])
+  ("pprint" .
+   [0 0 1 0 0 0])
+  ("_make_grammar" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("si" .
+   [4 0])
+  ("component_num" .
+   [0 0 0 0 0 1 0 0 0 0 0 0 0])
+  ("where_clause" .
+   [2 0 0 0 0 0 0 0 0 0 0 0])
+  ("SearchExpressionError" .
+   [0 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("selector" .
+   [2 0 0 0 0 0 0 0])
+  ("wc" .
+   [1 0])
+  ("rep" .
+   [5 0 0])
+  ("where_component" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("selected_component" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("reps" .
+   [5 0 0 0])
+  ("rep_map" .
+   [2 0 0 0 0 0 0])
+  ("component_value" .
+   [0 0 0 0 0 1 0 0 0 0 0 0 0 0 0])
+  ("current_values" .
+   [0 0 0 0 0 0 1 0 1 0 0 0 0 0])
+  ("stopped" .
+   [7 0 0 0 0 0 0])
+  ("num_components" .
+   [4 0 0 0 2 0 0 0 0 0 0 0 0 2])
+  ("typing" .
+   [3 0 0 0 0 0])
+  ("patient_attributes" .
+   [2 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1])
+  ("Updates" .
+   [1 0 0 0 0 0 0])
+  ("target_field" .
+   [2 0 0 0 0 0 0 0 0 0 0 0])
+  ("object_field_data" .
+   [2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("transform" .
+   [3 0 0 0 0 0 0 0 0])
+  ("apply_transform" .
+   [0 0 0 1 0 0 0 0 0 0 0 0 0 0 1])
+  ("_transform_values" .
+   [0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0])
+  ("ObjectUpdate" .
+   [0 0 0 0 0 0 1 0 0 0 0 1])
+  ("_make_object_update" .
+   [0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("object_update" .
+   [3 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("object_updates" .
+   [4 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("objec" .
+   [8 0 0 0 0])
+  ("import" .
+   [0 0 0 0 0 1])
+  ("SectionInfo" .
+   [1 0 0 0 0 0 0 0 0 0 0])
+  ("saved_sections" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("FormView" .
+   [1 0 0 0 0 0 0 0])
+  ("sections_to_save" .
+   [0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0])
+  ("sections" .
+   [1 0 0 0 0 0 0 0])
+  ("clinical_data_saved_ok" .
+   [0 0 0 0 0 0 0 0 0 5 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("custom_signals" .
+   [0 0 0 0 0 0 0 0 3 0 1 0 0 0])
+  ("dispatch" .
+   [1 0 0 0 0 1 0 0])
+  ("mapping_map" .
+   [1 0 0 0 0 0 0 0 0 0 0])
+  ("CELERY_BROKER_URL" .
+   [0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("get_event_code" .
+   [0 0 0 0 1 0 0 1 0 0 0 0 0 2])
+  ("decoded_messages" .
+   [0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0])
+  ("decode" .
+   [1 0 0 0 0 0])
+  ("read_loose" .
+   [2 0 0 0 0 0 0 0 0 0])
+  ("decoded_message" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("raw_messages" .
+   [3 0 0 0 0 0 0 1 0 0 0 0])
+  ("raw_message" .
+   [3 0 0 0 0 0 0 0 0 0 1])
+  ("decoded_chunk" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("chunks" .
+   [2 0 0 0 0 0])
+  ("BytesIO" .
+   [0 0 0 0 0 1 0])
+  ("read_stream" .
+   [2 0 0 0 0 0 0 0 0 0 0])
+  ("pex" .
+   [3 0 0])
+  ("mock_message" .
+   [1 0 0 1 0 0 0 0 0 0 0 1])
+  ("parse_hl7" .
+   [0 0 0 0 0 0 1 0 0])
+  ("parse_file" .
+   [1 0 0 0 2 0 0 1 0 0])
+  ("QUERY_FILTER" .
+   [1 0 0 0 0 0 0 0 0 0 0 0])
+  ("query_id" .
+   [1 0 0 0 0 0 0 0])
+  ("Add" .
+   [0 0 1])
+  ("qrd" .
+   [9 0 0])
+  ("HL7_VERSION" .
+   [1 0 0 0 0 0 0 0 0 0 0])
+  ("PATIENT_QUERY" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("MessageType" .
+   [0 0 0 1 3 0 0 0 0 0 0])
+  ("sending" .
+   [2 0 0 0 0 0 0])
+  ("add_field" .
+   [19 0 0 0 0 0 0 0 1])
+  ("Seg" .
+   [2 0 0])
+  ("fld_sending_facility" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("msh_seg" .
+   [2 0 0 0 0 0 0])
+  ("fld_sending_app" .
+   [0 0 0 0 0 0 1 0 0 0 0 0 0 0 0])
+  ("msh" .
+   [14 0 0])
+  ("dtm" .
+   [3 0 0])
+  ("receiving_facility" .
+   [0 0 0 0 2 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("fld_receiving_app" .
+   [0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0])
+  ("receiving_app" .
+   [0 0 0 1 1 0 0 0 0 0 0 0 0])
+  ("sending_facility" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2])
+  ("sending_app" .
+   [1 0 0 0 0 0 0 0 0 0 1])
+  ("fld" .
+   [8 0 0])
+  ("components" .
+   [2 0 0 0 0 0 0 0 0 0])
+  ("Field" .
+   [2 0 0 0 0])
+  ("Segment" .
+   [0 0 0 2 0 0 0])
+  ("seg" .
+   [6 0 0])
+  ("HUB_ENDPOINT" .
+   [0 0 0 0 0 0 1 0 0 0 0 0])
+  ("Message" .
+   [2 0 0 0 0 0 2])
+  ("send_message" .
+   [1 0 0 0 0 0 0 0 0 0 0 0])
+  ("response_dict" .
+   [2 0 0 1 0 0 0 0 0 0 0 0 0])
+  ("qry_a19_message" .
+   [0 0 0 0 1 0 0 0 0 0 0 0 0 0 0])
+  ("build_qry_a19" .
+   [0 0 0 0 0 0 1 0 0 0 0 0 0])
+  ("builder" .
+   [2 0 0 0 0 0 0])
+  ("MessageBuilder" .
+   [0 0 0 1 0 0 0 0 0 0 0 0 0 0])
+  ("build_qrd" .
+   [1 0 0 0 0 0 0 0 0])
+  ("build_msh" .
+   [1 0 0 0 0 0 0 0 0])
+  ("nrows" .
+   [1 0 0 0 0])
+  ("get_dummy_samples" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("get_samples" .
+   [0 0 0 0 1 0 0 0 0 0 0])
+  ("get_template_data" .
+   [0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("samples_or_file" .
+   [0 0 0 0 0 0 0 0 1 0 0 0 0 0 1])
+  ("process" .
+   [1 0 0 1 0 0 1])
+  ("roc" .
+   [3 0 0])
+  ("setUp" .
+   [1 0 0 0 0])
+  ("BrukerRunOrderCreator" .
+   [0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("BrukerMSTestCase" .
+   [0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("current" .
+   [2 0 0 0 0 0 0])
+  ("property" .
+   [0 0 0 0 1 0 0 0])
+  ("num_wells" .
+   [0 0 0 0 1 0 0 0 0])
+  ("__iter__" .
+   [1 0 0 0 0 0 0 0])
+  ("PATTERN" .
+   [2 0 3 0 0 0 4])
+  ("get_plates" .
+   [1 0 0 0 0 0 0 0 0 0])
+  ("plates" .
+   [1 0 0 0 0 0])
+  ("plate" .
+   [5 0 0 0 0])
+  ("run_type" .
+   [2 0 0 0 0 0 0 0])
+  ("project_name" .
+   [5 0 0 0 0 0 0 0 0 0 0 1])
+  ("get_run_name" .
+   [1 0 0 0 0 0 0 1 0 0 0 0])
+  ("pipe" .
+   [10 0 0 0])
+  ("floor" .
+   [1 0 0 0 0])
+  ("apply" .
+   [3 0 0 0 0])
+  ("__doc__" .
+   [0 1 0 0 0 0 0])
+  ("assign_row_column" .
+   [0 1 0 1 0 0 0 1 0 0 0 0 0 0 0 0 1])
+  ("select" .
+   [0 0 0 0 1 1])
+  ("Plate" .
+   [3 0 0 0 0])
+  ("num_plates" .
+   [2 0 0 0 0 0 0 1 0 0])
+  ("keep_non_empty_or_qc" .
+   [0 0 0 2 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("selected_samples" .
+   [4 0 0 0 3 0 0 0 1 1 1 0 0 0 1 5])
+  ("generate_samples" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("MockItem" .
+   [1 0 0 0 0 0 0 0])
+  ("__getattribute__" .
+   [0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0])
+  ("get_template" .
+   [0 0 0 0 0 0 1 0 0 0 0 1])
+  ("template_name" .
+   [2 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("system_context" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("sample_list" .
+   [3 0 0 0 0 0 0 0 0 0 0])
+  ("SampleList" .
+   [0 0 0 1 0 1 0 0 0 1])
+  ("rrm" .
+   [1 0 2])
+  ("anpcms" .
+   [0 0 1 1 1 0])
+  ("method_value" .
+   [1 0 0 0 0 0 0 0 0 0 0 0])
+  ("dirs" .
+   [1 0 0 0])
+  ("endswith" .
+   [2 0 0 0 0 0 0 0])
+  ("walk" .
+   [1 0 0 0])
+  ("device_column" .
+   [1 0 0 1 0 0 0 0 0 0 0 0 0])
+  ("device" .
+   [4 0 0 0 0 0])
+  ("get_methods_column" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("get_device_column" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("methods_column" .
+   [1 0 0 0 0 0 0 0 2 0 0 0 0 0])
+  ("tsv" .
+   [2 0 0])
+  ("get_columns" .
+   [0 0 0 0 0 0 0 0 0 0 1])
+  ("find_cmd" .
+   [1 0 0 0 0 0 0 0])
+  ("system" .
+   [0 0 0 0 0 1])
+  ("dp" .
+   [3 0])
+  ("dps" .
+   [1 0 0])
+  ("root" .
+   [1 0 0 0])
+  ("files" .
+   [3 0 0 0 0])
+  ("subdirs" .
+   [3 0 0 0 0 0 0])
+  ("is_proms_cssfile" .
+   [0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0])
+  ("unlink" .
+   [0 0 0 1 0 1])
+  ("fp" .
+   [5 0])
+  ("isfile" .
+   [2 0 0 0 0 0])
+  ("remove_non_proms_folders" .
+   [0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("sanity_check" .
+   [0 0 0 0 0 0 0 0 0 0 0 1])
+  ("system_role" .
+   [1 0 0 0 0 0 0 0 0 0 0])
+  ("rmfol" .
+   [1 0 0 0 0])
+  ("rmtree" .
+   [2 0 1 0 0 0])
+  ("check_proms" .
+   [0 0 0 0 0 0 0 0 0 0 1])
+  ("missing" .
+   [3 0 0 0 0 0 0])
+  ("full_path" .
+   [7 0 0 0 1 0 0 0 0])
+  ("proms_dir" .
+   [2 0 0 0 0 0 0 0 0])
+  ("fol" .
+   [8 0 0])
+  ("proms_dirs" .
+   [2 0 1 0 0 1 0 0 0 0])
+  ("content_path" .
+   [1 0 0 0 0 0 0 0 0 0 0 0])
+  ("static_content" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("static_dir" .
+   [5 0 0 0 0 0 0 1 0 0])
+  ("listdir" .
+   [1 0 0 1 0 1 0])
+  ("subfolder" .
+   [1 0 0 0 0 0 0 0 0])
+  ("proms_static_dirs" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("isdir" .
+   [0 0 4 0 1])
+  ("exists" .
+   [10 0 0 0 1 0])
+  ("static_folder" .
+   [5 0 0 1 0 0 0 0 0 0 1 0 1])
+  ("staticmethod" .
+   [0 0 0 0 0 0 1 0 0 0 0 0])
+  ("handle" .
+   [1 0 0 0 0 0])
+  ("Command" .
+   [0 0 0 0 1 0 0])
+  ("PROMS_MIDDLEWARE" .
+   [0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0])
+  ("MIDDLEWARE" .
+   [0 0 0 0 0 0 1 0 0 0])
+  ("proms_site" .
+   [1 0 0 0 0 0 0 0 0 0])
+  ("OPT_X_TLS_DEMAND" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("OPT_X_TLS_NEVER" .
+   [2 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("OPT_X_TLS_NEWCTX" .
+   [0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0])
+  ("VERSION3" .
+   [0 0 2 0 0 0 0 0])
+  ("OPT_PROTOCOL_VERSION" .
+   [0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("LDAP" .
+   [1 0 0 0])
+  ("require_cert" .
+   [0 0 0 0 1 0 0 0 0 0 0 0])
+  ("multiplets_texts" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("multiplets_text" .
+   [1 0 0 0 0 1 0 0 0 0 0 0 0 0 0])
+  ("text_y" .
+   [3 0 0 0 0 0])
+  ("RDRF_AUTH_BIND_DC" .
+   [0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0])
+  ("subtree_root" .
+   [2 0 0 0 0 0 0 0 0 0 0 0])
+  ("LDAPSearch" .
+   [0 0 1 0 0 0 0 0 0 0])
+  ("ldap_config" .
+   [12 0 0 1 0 0 0 0 4 0 0])
+  ("ldap" .
+   [16 0 0 0])
+  ("LDAP_CONFIG_FILE" .
+   [0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0])
+  ("LDAPConfigLookup" .
+   [0 0 0 0 1 1 0 0 0 0 0 0 0 0 0 0])
+  ("default_value" .
+   [1 0 0 0 0 0 0 1 0 0 0 0 0])
+  ("source" .
+   [4 0 0 0 0 0])
+  ("en" .
+   [3 0])
+  ("getter" .
+   [2 0 0 0 0 0])
+  ("getter_name" .
+   [2 0 0 0 0 0 0 0 0 0 0])
+  ("parameter" .
+   [4 0 0 0 1 0 0 0 0])
+  ("jf" .
+   [1 0])
+  ("LDAP_DEBUG" .
+   [1 0 0 0 0 0 0 0 0 0])
+  ("cols" .
+   [1 0 0 0])
+  ("choice" .
+   [1 0 0 0 0 0])
+  ("get_colour" .
+   [1 0 0 0 0 0 0 0 0 0])
+  ("colour_map" .
+   [2 0 0 0 0 0 0 0 0 0])
+  ("x_values" .
+   [2 0 0 0 0 0 0 0])
+  ("color" .
+   [1 0 0 0 0])
+  ("get_color" .
+   [1 0 0 0 0 0 0 0 0])
+  ("interval_freq" .
+   [0 0 0 0 0 1 0 0 0 0 0 0 0])
+  ("_get_scalings" .
+   [0 0 0 0 0 0 0 1 0 0 0 0 0])
+  ("learnt_mulitplet_centres" .
+   [0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0])
+  ("learnt_scalings" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 2])
+  ("peaklist_file" .
+   [1 0 0 0 1 0 0 0 0 0 0 0 0])
+  ("get_estimate" .
+   [0 0 0 0 0 0 1 0 0 0 0 1])
+  ("ml_list" .
+   [2 0 0 0 0 0 0])
+  ("spectrum_1d_file" .
+   [0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0])
+  ("peaklistfile" .
+   [0 0 0 0 0 0 0 0 0 0 0 1])
+  ("multip" .
+   [1 0 0 0 0 0])
+  ("observed_1d_intensity" .
+   [0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("scaled_offset" .
+   [0 0 0 1 0 0 0 0 0 0 0 0 0])
+  ("_load_multiplets" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("multipler" .
+   [1 0 0 0 0 0 0 0 0])
+  ("scalings_dict" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("param_value" .
+   [1 0 0 0 0 0 1 0 1 0 3])
+  ("multiplet_index" .
+   [0 0 1 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("multiplet_dict" .
+   [1 0 0 0 0 0 1 0 0 0 0 0 0 0])
+  ("param_name" .
+   [5 0 0 0 0 0 0 0 0 0])
+  ("trace_csv_filename" .
+   [0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1])
+  ("pandas" .
+   [3 0 0 0 0 0])
+  ("intensity_col" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("scaling_col" .
+   [1 0 0 0 0 0 0 0 0 0 0])
+  ("offset_col" .
+   [1 0 0 0 0 0 0 0 0 0])
+  ("centre_col" .
+   [2 0 0 0 0 0 0 0 0 0])
+  ("df" .
+   [16 0])
+  ("non_sequences" .
+   [1 0 0 0 0 0 1 0 0 0 0 0 0])
+  ("sum_offsets" .
+   [1 0 0 0 0 0 0 0 0 0 0])
+  ("sum_offset" .
+   [1 0 0 0 0 0 0 0 0 0])
+  ("scan2" .
+   [1 0 0 0 0])
+  ("scan1" .
+   [1 0 0 0 0])
+  ("sequences" .
+   [2 0 0 1 0 0 0 0 0])
+  ("Peak" .
+   [3 0 0 0])
+  ("subpeaks" .
+   [7 0 0 1 0 0 0 0])
+  ("multiplet" .
+   [32 0 0 0 0 0 0 0 0])
+  ("translated_multiplets" .
+   [0 0 0 0 0 2 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0])
+  ("List" .
+   [6 0 0 0])
+  ("Multiplet" .
+   [4 0 0 1 0 3 0 0 2])
+  ("Triplet" .
+   [1 0 0 0 0 0 0])
+  ("Doublet" .
+   [1 0 0 0 0 0 0])
+  ("aligned_intensities_scaled" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("aligned_sc" .
+   [1 0 0 0 0 0 0 0 0 0])
+  ("peak_index" .
+   [4 0 0 0 0 0 0 0 0 0])
+  ("num_scans" .
+   [1 0 0 0 0 0 0 0 1])
+  ("scan_indices" .
+   [3 0 0 0 0 1 0 0 0 0 0 1])
+  ("scan_indixe" .
+   [1 0 0 0 0 0 0 0 0 0 0])
+  ("RuntimeError" .
+   [0 0 0 1 0 0 0 0 0 0 0 2])
+  ("tag" .
+   [21 0 0])
+  ("as" .
+   [2 0])
+  ("pf" .
+   [1 0])
+  ("dump" .
+   [3 0 0 0])
+  ("pickle_file_name" .
+   [0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0])
+  ("trace" .
+   [6 0 0 0 0])
+  ("twiddle_theano" .
+   [0 0 1 0 0 0 0 0 0 0 0 0 0 0])
+  ("num_points" .
+   [8 0 0 2 2 0 0 0 0 3])
+  ("plt" .
+   [3 0 0])
+  ("make_theano_expression" .
+   [2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("make_normal_func" .
+   [0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0])
+  ("make_func" .
+   [1 0 0 0 0 0 0 0 0])
+  ("to_numpy" .
+   [2 0 0 0 0 0 0 4])
+  ("use_theano" .
+   [0 0 0 0 0 0 0 0 0 1])
+  ("pi" .
+   [1 0])
+  ("sqrt" .
+   [0 0 1 0])
+  ("SQRT_2_PI" .
+   [0 0 1 0 0 0 0 0 0])
+  ("sqrt_2pi" .
+   [0 0 0 0 0 1 0 0])
+  ("divisor" .
+   [1 0 0 1 0 0 0])
+  ("_load_positive" .
+   [0 0 0 0 1 0 0 0 0 0 0 0 0 0])
+  ("csv_file" .
+   [2 0 1 0 1 0 0 0])
+  ("pd_dataframe" .
+   [1 0 0 0 0 1 0 0 0 0 0 0])
+  ("ppm" .
+   [9 0 0])
+  ("allow_negative_values" .
+   [0 0 0 0 2 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3])
+  ("pw" .
+   [2 0])
+  ("peak_scaling" .
+   [0 0 0 0 0 0 0 1 0 0 0 0])
+  ("Uniform" .
+   [5 0 0 0 0 0 0])
+  ("mean" .
+   [3 0 0 0])
+  ("make_sosg_func" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("xval" .
+   [1 0 0 0])
+  ("Deterministic" .
+   [0 0 0 0 0 1 0 0 0 0 0 0 0])
+  ("sosg" .
+   [4 0 0 0])
+  ("sum_of_scaled_gaussians" .
+   [1 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0])
+  ("sum_of_scaled_gauss" .
+   [0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("loca" .
+   [3 0 0 0])
+  ("gauss" .
+   [6 0 0 0 0])
+  ("dot" .
+   [2 0 0])
+  ("y_est" .
+   [10 0 0 0 2])
+  ("SCALE_SD" .
+   [1 0 0 1 0 0 0 2])
+  ("hz" .
+   [30 0])
+  ("z" .
+   [3])
+  ("exp_arg" .
+   [2 0 0 0 0 1 1])
+  ("exp" .
+   [5 0 0])
+  ("scalar" .
+   [7 0 0 0 0 0])
+  ("_make_gaussian_expression" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0])
+  ("gaussian" .
+   [2 0 0 0 0 0 0 2])
+  ("scale" .
+   [34 2 0 0 0])
+  ("inner" .
+   [1 0 0 0 0])
+  ("output" .
+   [8 0 0 0 0 0])
+  ("T" .
+   [39])
+  ("shape" .
+   [11 0 0 0 0])
+  ("Normal" .
+   [11 0 0 0 0 0])
+  ("locations" .
+   [34 0 1 0 0 0 0 0 1])
+  ("intensit" .
+   [0 0 0 0 0 0 0 1])
+  ("intensities" .
+   [19 0 1 0 4 1 0 0 0 0 6])
+  ("seld" .
+   [2 0 0 0])
+  ("locs" .
+   [20 0 0 0])
+  ("theano" .
+   [8 0 0 1 2 0])
+  ("function" .
+   [2 0 0 1 0 0 0 0])
+  ("peaks" .
+   [3 0 0 0 0])
+  ("update_model" .
+   [18 0 0 0 0 0 1 1 0 0 0 0])
+  ("FREQ" .
+   [3 0 0 0])
+  ("multiplet_size" .
+   [0 0 0 0 0 0 0 0 0 0 0 1 0 0])
+  ("multiprocessing" .
+   [0 0 1 0 0 0 0 0 0 0 0 0 1 0 0])
+  ("peak_width" .
+   [33 0 0 1 0 0 1 1 0 2])
+  ("loc_max" .
+   [5 0 0 0 0 0 0])
+  ("loc_min" .
+   [5 0 0 0 0 0 0])
+  ("loc" .
+   [30 0 0])
+  ("f1" .
+   [1 0])
+  ("_get_multiplet_bounds" .
+   [0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("_get_peak_width" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("_1" .
+   [6 0])
+  ("peak_loc" .
+   [11 0 0 0 0 0 0 0])
+  ("_get_peak_loc" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("_get_intensity" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("offset" .
+   [20 0 0 0 0 0])
+  ("centre" .
+   [26 0 2 0 0 0])
+  ("set_trace" .
+   [17 0 0 0 0 0 0 0 0])
+  ("multiplet_list" .
+   [6 1 1 0 0 6 0 1 0 1 0 1 0 0])
+  ("MultipletList" .
+   [0 0 2 4 1 1 0 0 0 0 1 0 0])
+  ("_parse_multiplets" .
+   [1 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("multiplet_name" .
+   [1 0 0 0 0 2 0 0 0 0 0 0 0 0])
+  ("num_params" .
+   [0 0 0 0 0 1 0 0 0 1])
+  ("peak_names" .
+   [1 0 0 0 0 1 0 0 0 0])
+  ("_make_multiplet" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("QUADRUPLET" .
+   [0 0 1 0 0 0 0 0 0 0])
+  ("TRIPLET" .
+   [0 0 0 0 0 0 1])
+  ("SINGLET" .
+   [0 0 0 0 0 0 1])
+  ("_get_sigma_value" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("_get_mean_value" .
+   [0 0 0 0 0 0 0 0 0 1 0 0 0 0 0])
+  ("sigma_value" .
+   [1 0 0 0 0 0 0 0 0 0 0])
+  ("sigma" .
+   [10 0 0 0 0])
+  ("param" .
+   [28 0 0 0 0])
+  ("mean_value" .
+   [1 0 0 0 0 0 0 0 0 0])
+  ("_make_name" .
+   [1 0 0 0 0 0 0 0 0 0])
+  ("peak_name" .
+   [5 0 0 0 0 0 0 0 0])
+  ("enumerate" .
+   [0 0 0 0 0 0 0 0 3])
+  ("DOUBLET" .
+   [0 0 0 0 0 0 2])
+  ("PeakType" .
+   [0 0 0 2 6 0 0 0])
+  ("peak_two" .
+   [1 0 0 0 0 0 0 0])
+  ("peak_one" .
+   [2 0 0 0 0 0 0 0])
+  ("myname" .
+   [1 0 0 0 0 0])
+  ("mult_set" .
+   [1 0 0 0 0 0 0 0])
+  ("assertTrue" .
+   [5 0 0 0 0 0 0 0 0 0])
+  ("msgs" .
+   [3 0 0 0])
+  ("invalid_record" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 2])
+  ("jupyter" .
+   [1 0 0 0 0 0 0])
+  ("pandastable" .
+   [0 0 0 0 0 0 1 0 0 0 0])
+  ("Table" .
+   [2 0 0 0 0])
+  ("assign_new_record_id" .
+   [0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("retrieve_existing_recordid_from_redcap" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0])
+  ("update_record" .
+   [0 0 0 0 0 0 1 0 0 0 0 0 0])
+  ("current_eligible_vaccination" .
+   [0 0 0 0 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("msg7" .
+   [1 0 0 0])
+  ("action_data" .
+   [3 0 0 0 0 0 0 0 0 0 0])
+  ("blacklist" .
+   [1 0 0 0 0 0 0 0 0])
+  ("clinical_data_record" .
+   [1 0 0 2 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("blacklisted_forms" .
+   [0 0 0 0 1 0 1 0 0 0 0 0 0 0 0 0 1])
+  ("make_dict" .
+   [1 0 0 0 0 0 0 0 0])
+  ("id_map" .
+   [1 0 0 0 0 0])
+  ("deidentify" .
+   [1 0 0 0 0 0 0 0 0 0])
+  ("srs" .
+   [1 0 0])
+  ("sr_query" .
+   [0 0 1 0 0 0 0 0])
+  ("SQL" .
+   [1 0 0])
+  ("conn_demo" .
+   [0 0 0 0 0 1 0 0 0])
+  ("_raw_sql" .
+   [0 0 0 0 0 1 0 0])
+  ("_deidentify_row" .
+   [0 0 0 1 0 0 0 0 0 0 0 0 0 0 0])
+  ("se" .
+   [1 0])
+  ("get_srs" .
+   [1 0 0 0 0 0 0])
+  ("intensity" .
+   [35 0 0 0 2 2 4 0 1])
+  ("intern" .
+   [0 0 0 0 1 0])
+  ("experiment" .
+   [2 0 0 1 1 2 0 1 0 1])
+  ("getRT" .
+   [0 0 0 1 0])
+  ("spectrum" .
+   [1 0 0 0 0 0 0 0])
+  ("mh" .
+   [6 0])
+  ("mz" .
+   [7 0])
+  ("scan" .
+   [13 0 0 0])
+  ("rt" .
+   [10 0])
+  ("_within_tolerance" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("provide" .
+   [0 0 0 0 1 0 0])
+  ("say-bye" .
+   [1 0 0 0 0 0 0])
+  ("say-hi" .
+   [1 0 0 0 0 0])
+  ("define-key" .
+   [1 0 0 0 0 0 0 0 0 1])
+  ("make-sparse-keymap" .
+   [0 0 0 0 0 0 0 1 1 0 0 0 0 0 0 0 0 0])
+  ("map" .
+   [9 0 0])
+  (":keymap" .
+   [1 0 0 0 0 0 0])
+  ("peak-mode" .
+   [2 0 0 0 0 1 0 0 1])
+  ("footnote-mode" .
+   [0 0 0 1 0 0 0 0 0 0 0 0 0])
+  ("defvar" .
+   [4 0 0 0 0 0])
+  ("make-variable-buffer-local" .
+   [0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("peak" .
+   [23 0 0 0])
+  (":lighter" .
+   [1 0 0 0 0 0 0 0])
+  ("define-minor-mode" .
+   [0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0])
+  ("getenv" .
+   [3 0 0 0 0 0])
+  ("cicap_password" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("cicap_user" .
+   [1 0 0 0 0 0 0 0 0 0])
+  ("write" .
+   [5 0 0 0 0])
+  ("stderr" .
+   [2 0 0 1 0 2])
+  ("get_setting" .
+   [1 0 0 0 0 0 1 0 0 0 2])
+  ("exit" .
+   [10 0 0 0])
+  ("create_bytes_io" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 1 1 0])
+  ("close" .
+   [3 0 0 0 0])
+  ("CICAP" .
+   [1 0 0 0 0])
+  ("cicap_address" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("FTP" .
+   [0 0 1])
+  ("ftp_conn" .
+   [2 0 0 0 0 0 0 0])
+  ("ftp" .
+   [2 0 0])
+  ("bytes_io" .
+   [2 0 0 0 0 0 0 0])
+  ("ftp_command" .
+   [1 0 0 0 0 0 0 0 0 0 0])
+  ("dde" .
+   [1 0 0])
+  ("sequence_allocation_filepath" .
+   [0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("rr" .
+   [1 0])
+  ("MESSAGE_DAYS" .
+   [0 0 0 0 1 0 0 0 0 0 0 0])
+  ("timedelta" .
+   [0 0 0 0 0 0 1 0 1])
+  ("possible_message_date" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("Possible" .
+   [0 0 0 0 0 0 0 1])
+  ("due_date" .
+   [1 0 0 0 0 0 0 0])
+  ("date_vaccine_due" .
+   [0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0])
+  ("request_dict" .
+   [1 0 0 0 0 0 0 0 0 0 0 0])
+  ("valid_randomisation_request" .
+   [0 0 0 0 0 1 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("states" .
+   [3 0 0 0 0 0])
+  ("task_status" .
+   [0 0 0 0 0 0 0 0 0 0 1])
+  ("res" .
+   [3 0 0])
+  ("Log" .
+   [1 0 0])
+  ("q3" .
+   [1 0])
+  ("q2" .
+   [1 0])
+  ("q1" .
+   [1 0])
+  ("VERSION" .
+   [1 0 0 0 0 0 1])
+  ("uuid1" .
+   [1 0 0 0 0])
+  ("guid" .
+   [2 0 0 0])
+  ("timestamp" .
+   [1 0 0 0 0 0 0 0 0])
+  ("setpassword" .
+   [0 0 0 0 0 0 0 1 0 0 0])
+  ("writestr" .
+   [1 0 0 0 0 0 0 0])
+  ("zf" .
+   [6 0])
+  ("ZipFile" .
+   [1 0 0 0 1 0 1])
+  ("json_str" .
+   [1 0 0 0 0 0 0 0])
+  ("lo" .
+   [3 0])
+  ("results" .
+   [13 0 0 0 0 0 0])
+  ("HttpResponse" .
+   [0 0 0 0 0 0 0 0 0 0 0 5])
+  ("deident" .
+   [5 0 1 0 1 1 0])
+  ("generate_deidentified_id" .
+   [0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("supports_deidentification_workflow" .
+   [0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("HiddenInput" .
+   [0 0 1 0 0 1 0 0 0 0 1])
+  ("readonly" .
+   [1 0 0 0 0 0 0 0])
+  ("hidden" .
+   [1 0 0 0 0 0])
+  ("strftime" .
+   [1 0 0 0 2 0 0 0])
+  ("sync_data" .
+   [1 0 0 0 0 0 0 0 0])
+  ("readonly_fields" .
+   [0 0 0 0 1 0 0 0 0 0 0 0 0 0 0])
+  ("runtime_delta" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("runtime" .
+   [2 0 0 0 0 0 0])
+  ("downloaded_time" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("download" .
+   [1 0 0 0 0 0 0 0])
+  ("download_filepath" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("Custom_Action_Executions" .
+   [0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("cae" .
+   [32 0 0])
+  ("CustomActionExecution" .
+   [0 0 0 0 0 0 0 2 0 0 0 0 0 2 0 0 0 0 0 0 1])
+  ("task_models" .
+   [1 0 0 0 0 0 0 0 0 0 0])
+  ("task_i" .
+   [0 0 0 0 0 1])
+  ("TASK_FILE_DIRECTORY" .
+   [0 0 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("dt" .
+   [1 0])
+  ("datetime_string" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("get_date" .
+   [1 0 0 0 0 0 0 0])
+  ("parse_iso_date" .
+   [0 0 0 0 0 1 0 0 0 0 0 0 0 0])
+  ("start_value" .
+   [1 0 0 0 0 0 2 0 0 0 1])
+  ("base_name" .
+   [1 0 0 0 0 0 0 0 0])
+  ("TaskInfoView" .
+   [0 0 0 1 0 0 0 0 0 0 0 0])
+  ("api_views" .
+   [0 0 0 0 1 0 0 0 0])
+  ("router" .
+   [1 0 0 0 0 0])
+  ("rt_spec" .
+   [1 0 0 0 0 0 0])
+  ("follow_ups" .
+   [1 0 0 0 0 0 0 0 0 0])
+  ("_get_consent_date" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0])
+  ("end_date" .
+   [2 0 0 0 0 0 0 0])
+  ("M" .
+   [2])
+  ("start_date" .
+   [4 0 0 0 0 0 0 0 0 0])
+  ("consent_date" .
+   [3 0 0 0 0 0 0 0 0 0 0 0])
+  ("_include_patient" .
+   [0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0])
+  ("async" .
+   [1 0 0 0 0])
+  ("scope" .
+   [1 0 0 0 0])
+  ("aus_date" .
+   [0 0 0 0 0 0 0 1])
+  ("american_date" .
+   [0 0 1 1 0 0 0 0 0 0 0 0 0])
+  ("day" .
+   [4 0 0])
+  ("month" .
+   [4 0 0 0 0])
+  ("year" .
+   [3 0 0 0])
+  ("format_date" .
+   [2 0 0 0 0 1 0 0 0 0 0])
+  ("method" .
+   [7 0 0 0 0 0])
+  ("login" .
+   [7 0 0 0 0])
+  ("method_decorator" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2])
+  ("num_contexts" .
+   [2 0 0 0 0 0 0 0 0 0 0 0])
+  ("exception" .
+   [1 0 0 0 0 0 0 0 0])
+  ("err" .
+   [2 0 0])
+  ("out" .
+   [1 0 0])
+  ("work_dir" .
+   [1 0 0 0 0 0 0 0])
+  ("retriever" .
+   [1 0 0 0 0 0 0 0 0])
+  ("field_location" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("column_type" .
+   [1 0 0 0 0 0 0 0 0 0 0])
+  ("_parse_column" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("column_spec" .
+   [5 0 0 0 0 0 0 0 0 0 0])
+  ("report_name" .
+   [3 0 0 0 0 0 0 0 0 0 0])
+  ("re" .
+   [2 0])
+  ("get_country" .
+   [0 0 0 0 0 0 0 0 1 0 0])
+  ("context_models" .
+   [2 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("is_default" .
+   [2 0 0 0 0 0 0 0 0 0])
+  ("context_form_groups" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("action_type" .
+   [2 0 0 0 0 0 0 0 0 0 0])
+  ("groups_allowed" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("_get_custom_actions" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0])
+  ("action_dict" .
+   [6 0 0 0 0 0 0 0 0 0 1])
+  ("custom_actions" .
+   [2 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("CustomAction" .
+   [0 0 0 0 0 0 0 1 1 0 0 1])
+  ("_get_reviews" .
+   [1 0 0 0 0 0 0 0 0 0 0 0])
+  ("floa" .
+   [1 0 0 0])
+  ("Data" .
+   [3 0 0 2])
+  ("_get_typed_value" .
+   [0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0])
+  ("stats" .
+   [1 0 0 0 0])
+  ("JsonResponse" .
+   [0 0 0 0 0 0 0 0 0 0 0 1])
+  ("todo" .
+   [1 0 0 0])
+  ("todo_tasks" .
+   [1 0 0 0 0 0 0 0 0 0])
+  ("completed_tasks" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("login_required" .
+   [0 0 0 0 0 0 1 0 0 0 0 0 0 2])
+  ("review_set" .
+   [6 0 0 0 0 0 0 0 0 0])
+  ("rsts" .
+   [2 0 0 0])
+  ("image_code_dicts" .
+   [0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0])
+  ("F" .
+   [1])
+  ("tasks" .
+   [1 0 0 0 0])
+  ("o" .
+   [3])
+  ("task__completed" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("reviewsettask_set" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("obj" .
+   [8 0 0])
+  ("filepath" .
+   [8 0 0 0 0 0 0 0])
+  ("fname" .
+   [4 0 0 0 0])
+  ("process_one_image" .
+   [1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0])
+  ("new_image" .
+   [1 0 0 0 0 0 0 0 0])
+  ("Image" .
+   [2 0 0 0 0])
+  ("STATICFILES_DIRS" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("AUTH_LDAP_GROUP_SEARCH_OBJECTCLASS" .
+   [0 0 0 0 0 0 0 0 0 1 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("review_user" .
+   [0 0 0 0 0 0 0 1 0 0 0])
+  ("num_parents" .
+   [1 0 0 0 1 0 0 0 0 0 0])
+  ("parents" .
+   [6 0 0 0 0 0 0])
+  ("get_data" .
+   [2 0 0 0 0 0 0 1])
+  ("review_item_data" .
+   [2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("description" .
+   [1 0 0 0 0 0 0 0 0 0 0])
+  ("postcode" .
+   [1 0 0 0 0 0 0 0])
+  ("address_type" .
+   [3 0 0 0 0 0 0 0 0 0 0 0])
+  ("address" .
+   [7 0 0 0 0 0 0])
+  ("for_form" .
+   [12 0 0 0 0 0 0 0])
+  ("use_field_values" .
+   [0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0])
+  ("generate_results" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0])
+  ("DATABASES" .
+   [4 0 0 0 0 0 0 0 3])
+  ("generate_func" .
+   [2 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("generate_results2" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("database_utils" .
+   [1 0 0 0 0 0 0 0 0 0 1 0 0 0])
+  ("database" .
+   [1 0 0 0 0 0 0 0])
+  ("cde_dict" .
+   [11 0 0 0 0 0 0 0])
+  ("pid" .
+   [33 0 0])
+  ("le" .
+   [4 0])
+  ("SECTION" .
+   [1 0 0 0 0 0 0])
+  ("deepcopy" .
+   [0 0 0 1 0 0 1 1])
+  ("FORM" .
+   [1 0 0 0])
+  ("form_dict" .
+   [8 0 0 0 0 0 0 0 0])
+  ("last_request" .
+   [0 0 0 0 0 0 0 0 0 0 0 1])
+  ("_send_proms_request" .
+   [0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("verification_models" .
+   [0 0 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0])
+  ("ver_key" .
+   [1 0 0 0 0 0 0])
+  ("date" .
+   [6 0 0 0])
+  ("patient_review_item" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("summary" .
+   [5 0 0 0 1 1 1])
+  ("VER_CHOICES" .
+   [0 0 0 0 0 0 0 0 0 0 1])
+  ("UNKNOWN" .
+   [0 0 1 0 0 0 0])
+  ("NOT_VERIFIED" .
+   [0 0 1 0 0 0 0 0 0 0 0 0])
+  ("ver" .
+   [1 0 0])
+  ("auto_now_add" .
+   [0 0 0 0 0 0 0 0 0 0 1 0])
+  ("DateTimeField" .
+   [0 0 1 0 1 3 0 0 0 0 0 0 2])
+  ("created_date" .
+   [1 0 0 0 0 0 0 0 0 0 0 0])
+  ("CASCADE" .
+   [0 0 0 4 0 0 3])
+  ("DE" .
+   [1 0])
+  ("on_delete" .
+   [6 0 0 0 0 0 0 0 0])
+  ("PatientReviewItem" .
+   [0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0])
+  ("review_code" .
+   [1 0 0 0 0 0 0 0 0 0 0])
+  ("IntegerField" .
+   [2 0 1 0 0 1 0 0 0 0 0 3])
+  ("Verification" .
+   [3 0 0 0 0 0 0 0 0 0 0 0])
+  ("generate_data_entry_fields" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0])
+  ("ver_field_obj" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("ver_field_name" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("cde_field_obj" .
+   [2 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("cde_field_name" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 1 0])
+  ("generate_verification_field" .
+   [0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("NameError" .
+   [0 0 0 0 10 0 0 0 0])
+  ("cde_field" .
+   [1 0 0 0 0 0 0 0 0])
+  ("create_cde_field" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("FieldTags" .
+   [1 1 0 0 0 0 0 0 0])
+  ("target" .
+   [5 0 0 0 0 0])
+  ("spec" .
+   [25 0 0 0])
+  ("is_required" .
+   [0 0 0 0 0 1 0 0 0 0 0])
+  ("required" .
+   [2 0 0 0 0 0 0 0])
+  ("initialise" .
+   [3 0 0 0 1 0 0 0 0 0])
+  ("get_token" .
+   [1 0 0 0 0 0 0 0 0])
+  ("token_value" .
+   [2 0 0 0 0 0 0 0 0 0 0])
+  ("tok" .
+   [1 0 0])
+  ("META" .
+   [2 0 0 0])
+  ("two_factor_auth_urls" .
+   [0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0])
+  ("patterns" .
+   [3 0 0 0 0 0 0 0])
+  ("cic_dev_patterns" .
+   [0 0 0 0 0 0 0 0 0 0 1 0 0 1 0 0])
+  ("pattern_names" .
+   [2 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("pattern" .
+   [31 0 1 0 0 0 0])
+  ("dev" .
+   [1 0 0])
+  ("proms_patterns" .
+   [1 0 0 0 0 0 0 0 1 0 0 0 0 1])
+  ("normalpatterns" .
+   [2 0 0 0 0 0 2 0 0 0 0 0 0 4])
+  ("CIC_DEV" .
+   [1 0 0 0 0 0 3])
+  ("multiple_working_groups_allowed" .
+   [0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("reg_code" .
+   [3 0 0 0 0 0 0 0])
+  ("get_models" .
+   [1 0 0 0 0 0 0 0 0 0])
+  ("target_dict" .
+   [9 0 0 0 0 0 0 0 0 0 0])
+  ("field_dict" .
+   [9 0 0 0 0 0 1 0 0 1])
+  ("load_metadata" .
+   [0 0 0 1 0 0 0 0 0 0 0 0 0])
+  ("multitargets" .
+   [1 0 0 0 0 0 0 0 0 0 0 0])
+  ("pairs" .
+   [3 0 0 0 0])
+  ("CdePolicy" .
+   [0 0 0 1 0 0 0 0 0])
+  ("ValueError" .
+   [0 0 0 0 0 3 0 1 0 5])
+  ("cde_models" .
+   [8 0 0 1 0 0 0 0 0 0])
+  ("check_models" .
+   [1 0 0 0 0 0 0 0 0 0 0 0])
+  ("CURRENT_STATUS_CHOICES" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0])
+  ("DISPLAY_VALUE" .
+   [0 0 0 1 0 0 0 0 0 0 0 0 0])
+  ("VALUE" .
+   [0 0 1 0 0])
+  ("Missing" .
+   [1 0 0 0 1 1 0])
+  ("raw" .
+   [26 0 0])
+  ("value_dict" .
+   [7 0 0 0 0 0 0 0 0 0])
+  ("make-vector" .
+   [0 0 0 0 0 1 0 0 0 0 0])
+  ("defstruct" .
+   [0 0 0 0 0 0 0 0 1])
+  ("start-line" .
+   [0 0 0 0 0 0 1 0 0 0])
+  ("let" .
+   [6 0 0])
+  ("next-line" .
+   [0 0 0 0 1 0 0 0 0])
+  ("go-vet" .
+   [0 0 0 0 1 0])
+  ("the" .
+   [1 0 0])
+  ("insert" .
+   [5 0 0 0 0 0])
+  ("goto-line" .
+   [0 0 0 0 0 1 0 0 1])
+  ("progn" .
+   [2 0 0 0 0])
+  ("interactive" .
+   [1 0 0 0 0 0 0 0 0 0 1])
+  ("label" .
+   [5 0 0 0 0])
+  ("subitem" .
+   [2 0 0 0 0 0 0])
+  ("patient_review" .
+   [2 0 0 0 0 0 0 0 0 0 1 0 0 0])
+  (":background" .
+   [3 0 0 0 0 1 0 0 0 0 0])
+  ("created" .
+   [5 0 0 0 0 0 0])
+  ("current_status_question_code" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("current_status" .
+   [0 0 0 0 0 0 0 1 0 0 0 0 0 0])
+  ("change_question_code" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("change_question_cde" .
+   [0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0])
+  ("rd" .
+   [1 0])
+  ("object" .
+   [2 0 0 0 0 0])
+  ("review_codes" .
+   [1 0 0 0 0 0 0 0 0 0 0 0])
+  ("items_to_delete" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("imported_item_codes" .
+   [0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0])
+  ("existing_item_codes" .
+   [0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("review_dict" .
+   [1 0 0 0 0 0 0 0 0 0 0])
+  ("exist" .
+   [1 0 0 0 0])
+  ("ri" .
+   [1 0])
+  ("review_models" .
+   [0 0 0 1 0 0 0 0 0 0 0 0 1])
+  ("category" .
+   [1 0 0 0 0 1 0 0])
+  ("goc" .
+   [1 0 0])
+  ("SET" .
+   [1 0 0])
+  ("SET_NULL" .
+   [1 0 3 3 1 1 0 1])
+  ("ReviewWizardGenerator" .
+   [0 0 0 0 0 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("wizard_views" .
+   [0 0 1 0 0 0 0 0 0 0 0 0])
+  ("views" .
+   [1 0 0 0 0])
+  ("generate_wizard_class" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("wizard_class" .
+   [2 0 0 0 0 0 0 0 0 0 0 0])
+  ("wizard" .
+   [1 0 0 0 0 0])
+  ("view_name" .
+   [1 0 0 0 0 0 0 0 0])
+  ("url_name" .
+   [1 0 0 0 0 0 0 0])
+  ("view" .
+   [4 0 0 0])
+  ("url_patterns" .
+   [1 0 0 0 0 0 2 0 0 0 0 0])
+  ("environ" .
+   [1 0 0 2 0 0 0])
+  ("cloud_key" .
+   [1 0 0 0 0 0 0 0 0])
+  ("review_item" .
+   [19 0 0 1 0 0 0 1 0 0 2])
+  ("change" .
+   [1 0 0 0 0 0])
+  ("ReviewItem" .
+   [4 0 0 2 0 0 0 0 0 0])
+  ("question_text" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("DATA_ITEM_TYPES" .
+   [0 0 0 0 1 0 0 0 0 0 0 0 0 0 0])
+  ("ReviewDataItem" .
+   [0 0 0 0 0 0 0 0 0 0 1 0 0 0])
+  ("CONDITION_CHOICES" .
+   [0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("cond" .
+   [3 0 0 0])
+  ("YNU_CHOICES" .
+   [0 0 0 1 0 0 0 0 0 0 0])
+  ("section_code" .
+   [18 0 0 1 0 0 0 0 0 0 0 0])
+  ("review_name" .
+   [1 0 0 0 0 0 0 0 0 0 0])
+  ("Review" .
+   [3 0 0 0 0 0])
+  ("review_sections" .
+   [2 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("reviews_dict" .
+   [4 0 0 0 0 0 0 0 0 0 0 0])
+  ("reviews" .
+   [3 0 0 0 0 0 0])
+  ("rev" .
+   [2 0 0])
+  ("rs" .
+   [1 0])
+  ("pos" .
+   [2 0 0])
+  ("ReviewSection" .
+   [0 0 0 0 0 0 0 0 0 1 0 0 0])
+  ("review_section" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("TextField" .
+   [2 0 0 0 1 1 0 0 9])
+  ("Text" .
+   [0 0 0 1])
+  ("STATIC_URL" .
+   [2 0 0 0 0 0 0 0 0 0])
+  ("STATIC_" .
+   [0 0 1 0 0 0 0])
+  ("STATIC_URL_OVERRIDE" .
+   [0 0 0 0 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("LOG_FILE" .
+   [0 0 0 0 0 0 0 1])
+  ("log_file" .
+   [4 0 0 0 0 0 0 0])
+  ("dry_run" .
+   [1 0 0 0 0 0 0])
+  ("ids_processed" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("warn" .
+   [1 0 0 0])
+  ("ids_skipped" .
+   [0 0 1 1 0 0 0 0 0 0 3])
+  ("is" .
+   [1 0])
+  ("Stats" .
+   [6 0 0 1 0])
+  ("section_models" .
+   [6 0 0 0 0 0 0 0 1 0 0 0 0 0])
+  ("log" .
+   [8 0 0])
+  ("m" .
+   [33])
+  ("COMM_SECTION" .
+   [0 0 0 0 1 0 0 0 0 0 0 1])
+  ("SPEECH_SECTION" .
+   [0 0 0 0 1 0 0 0 0 0 0 0 0 0])
+  ("OLD_FORM" .
+   [0 0 0 0 1 0 0 0])
+  ("NEW_FORM" .
+   [1 0 0 0 0 0 0 0])
+  ("section_codes" .
+   [3 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("form_names" .
+   [1 0 0 0 0 0 0 0 0 0])
+  ("_proms_adding_disabled" .
+   [0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("no" .
+   [10 0])
+  ("retur" .
+   [33 0 0 0 0])
+  ("all" .
+   [4 0 0])
+  ("wg" .
+   [2 1])
+  ("working_group_data" .
+   [0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0])
+  ("assert" .
+   [1 0 0 0 0 1])
+  ("TestCase" .
+   [0 0 0 1 2 0 1 1])
+  ("new_html" .
+   [0 0 0 0 2 0 0 0])
+  ("replace" .
+   [10 0 0 0 0 0 0])
+  ("_transform" .
+   [0 0 0 0 1 0 0 0 0 0])
+  ("RadioSelect" .
+   [0 0 0 1 0 0 0 0 0 0 0])
+  ("widgets" .
+   [4 0 0 0 0 0 0])
+  ("HorizontalRadioRenderer" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("widget" .
+   [12 0 0 0 0 0])
+  ("Horiz" .
+   [1 0 0 0 0])
+  ("BaseRenderer" .
+   [0 0 0 0 0 0 2 0 0 0 0 1])
+  ("renderer" .
+   [3 0 0 0 0 0 0 0])
+  ("review" .
+   [7 0 0 0 0 1])
+  ("_build_class" .
+   [0 0 0 0 0 0 0 1 0 0 0 0])
+  ("klass" .
+   [7 0 0 0 0])
+  ("build" .
+   [1 0 0 0 0])
+  ("reviewform_model" .
+   [0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0])
+  ("ReviewForm" .
+   [0 0 0 0 0 0 0 0 0 1])
+  ("ReviewFormBuilder" .
+   [0 0 0 2 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("survey_dict" .
+   [1 0 0 0 0 0 0 0 0 0 0])
+  ("is_followup" .
+   [0 0 0 1 0 0 0 0 0 0 0])
+  ("get_clinician_name" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("CaregiverReview" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("parent_model" .
+   [5 0 0 0 0 0 0 0 0 0 0 0])
+  ("EventType" .
+   [1 0 0 0 0 0 0 0 0])
+  ("naming_cde_to_use" .
+   [0 0 0 0 0 0 0 1 0 1 0 0 0 0 0 0 0])
+  ("get_site_url" .
+   [2 0 0 0 0 0 0 0 0 1 0 0])
+  ("site_model" .
+   [1 0 0 0 0 0 0 0 0 0])
+  ("get_site" .
+   [5 0 0 0 0 0 0 1])
+  ("helpers" .
+   [5 0 2 2 1 3 0])
+  ("first" .
+   [2 0 0 0 0])
+  ("Site" .
+   [2 0 0 0])
+  ("get_current_site" .
+   [0 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0])
+  ("working_groups" .
+   [2 0 0 0 0 0 0 0 4 0 0 0 0 0])
+  ("workflow" .
+   [2 0 0 0 0 0 0 0])
+  ("clinician_name" .
+   [2 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("clinican_other" .
+   [0 0 0 1 0 0 0 0 0 0 0 0 0 0])
+  ("is_clinician" .
+   [0 0 0 0 0 0 0 0 1 0 0 2])
+  ("working_group" .
+   [2 0 0 0 0 0 0 1 0 0 0 0 0])
+  ("_do_clinician_signup" .
+   [0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("clinician_signup" .
+   [0 0 1 3 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("C" .
+   [3])
+  ("work_models" .
+   [0 0 0 0 1 0 0 0 0 0 0])
+  ("token" .
+   [4 0 0 0 0])
+  ("email" .
+   [1 0 0 0 0])
+  ("clinician_email" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 1 0])
+  ("_get_template" .
+   [0 0 0 0 0 0 0 1 0 0 0 0 0])
+  ("_render" .
+   [0 0 0 0 0 0 1])
+  ("clin" .
+   [2 0 0 0])
+  ("last_name" .
+   [2 0 0 0 0 0 0 0 0])
+  ("first_name" .
+   [2 0 0 0 0 0 0 0 0 0])
+  ("oc" .
+   [2 0])
+  ("clinician_signup_request" .
+   [0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("_build_context" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("template" .
+   [4 0 0 0 0 0 0 1])
+  ("_render_context" .
+   [0 0 0 0 0 0 0 1 0 0 1 0 0 0 0])
+  ("render" .
+   [5 0 0 0 0 1])
+  ("template_data" .
+   [11 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("clinician_other" .
+   [5 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("ClinicianOther" .
+   [0 0 0 0 0 1 0 0 0 0 0 0 0 0])
+  ("Other" .
+   [1 0 0 0 0])
+  ("other_clinician" .
+   [2 0 0 0 0 0 0 0 1 0 0 0 0 0 1])
+  ("workflow_models" .
+   [0 0 0 0 1 0 0 0 0 0 0 0 0 0 0])
+  ("ClinicianSignupRequest" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0])
+  ("ClinicianSignUpRequest" .
+   [0 0 0 5 0 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0])
+  ("get_or_create" .
+   [0 0 0 0 0 1 0 0 0 0 0 0 0])
+  ("csr" .
+   [5 0 0])
+  ("getLogger" .
+   [0 0 0 0 0 2 0 0 1])
+  ("qrcode" .
+   [1 0 0 0 0 0])
+  ("SurveyRequest" .
+   [2 0 0 1 0 0 1 0 0 1 0 0 0])
+  ("PromsQRCodeImageView" .
+   [0 0 0 0 0 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("definition" .
+   [8 0 1 9 1 0 0 0 0 2])
+  ("query_parameters" .
+   [0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0])
+  ("get_calculated_value" .
+   [0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0])
+  ("raw_float" .
+   [1 0 0 0 0 0 0 0 0])
+  ("dat" .
+   [1 0 0])
+  ("_get_fvs_by_datatype" .
+   [0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("raw_integer" .
+   [1 0 0 0 0 0 0 0 0 0 0])
+  ("filter" .
+   [7 1 0 0 0 0])
+  ("fv" .
+   [16 0])
+  ("datatype" .
+   [21 0 0 0 0 2 0 3])
+  ("qry" .
+   [5 0 0])
+  ("q" .
+   [6])
+  ("api_url" .
+   [1 0 0 0 0 0 0])
+  ("RECEIVED" .
+   [0 0 1 2 1 0 0 0])
+  ("dumps" .
+   [4 0 0 0 0])
+  ("COMPLETED" .
+   [0 0 1 0 0 0 0 0 0])
+  ("SurveyRequestStates" .
+   [0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("packet" .
+   [1 0 0 0 0 0])
+  ("errors" .
+   [1 0 0 0 0 0])
+  ("ser" .
+   [1 0 0])
+  ("response" .
+   [6 0 0 0 0 0 0 0])
+  ("survey_response" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("survey_request" .
+   [13 0 0 0 0 0 0 0 0 1 0 0 0 0])
+  ("survey_data" .
+   [2 0 0 0 0 0 0 0 0 0 0])
+  ("RegistryCodeField" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("to" .
+   [2 0])
+  ("serializers" .
+   [2 0 0 0 0 0 0 0 0 0 0])
+  ("patient_id" .
+   [19 0 0 0 0 0 0 0 0 1])
+  ("defun" .
+   [10 0 0 0 0])
+  ("View" .
+   [7 0 0 0])
+  ("PromsCompletedPageView" .
+   [1 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("PromsCompleted" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("PROMS" .
+   [4 0 0 0 0])
+  ("text" .
+   [13 0 0 0])
+  ("Surveys" .
+   [2 0 0 1 0 0 0])
+  ("QuickLink" .
+   [0 0 0 0 0 0 0 0 1])
+  ("survey_id" .
+   [4 0 0 0 0 0 0 0 0])
+  ("proms_api" .
+   [1 0 0 0 0 0 0 0 0])
+  ("as_view" .
+   [4 0 0 1 0 0 0])
+  ("urlpatterns" .
+   [1 0 0 0 0 0 0 0 1 0 2])
+  ("urls" .
+   [5 0 0 0])
+  ("phone" .
+   [3 0 0 0 0])
+  ("parent_guardian" .
+   [1 0 0 0 0 0 0 0 0 0 1 0 0 0 0])
+  ("BooleanField" .
+   [0 0 0 0 1 0 0 0 0 0 0 1])
+  ("important" .
+   [3 0 0 0 0 0 0 0 0])
+  ("ug" .
+   [1 0])
+  ("condition" .
+   [4 0 0 0 0 0 0 0 0])
+  ("us" .
+   [1 0])
+  ("is_superuser" .
+   [1 0 0 0 2 0 0 0 0 0 0 5])
+  ("CustomUser" .
+   [2 0 0 5 0 1 1 0 0 0])
+  ("nice_name" .
+   [1 0 0 0 0 0 0 0 0])
+  ("form_name_for_template" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0])
+  ("current_form_name" .
+   [2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("parent" .
+   [9 0 0 0 0 0])
+  ("keys" .
+   [3 0 0 0])
+  ("package" .
+   [3 0 0 0 0 0 0])
+  ("point" .
+   [1 0 0 0 0])
+  ("location_name" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("AUS_LOCATION_MAP" .
+   [1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("ShapeFiles" .
+   [0 0 0 1 0 0 0 0 0 0])
+  ("subdir" .
+   [5 0 0 0 0 0])
+  ("aus_location" .
+   [1 0 0 0 0 0 0 0 0 0 0 0])
+  ("expressi" .
+   [0 0 0 0 0 0 0 1])
+  ("expr" .
+   [7 0 0 1])
+  ("x" .
+   [47])
+  ("expression" .
+   [2 0 0 0 0 0 0 0 0 0])
+  ("lng" .
+   [2 0 0])
+  ("lat" .
+   [2 0 0])
+  ("ingest_utils" .
+   [0 0 0 0 0 0 0 0 0 0 0 1])
+  ("ingest" .
+   [1 0 0 0 0 0])
+  ("get_clean_number" .
+   [0 0 0 0 0 0 0 0 1 0 1 0 0 0 0 0])
+  ("geometry" .
+   [1 0 0 0 0 0 0 0])
+  ("shapely" .
+   [1 0 0 0 0 0 0])
+  ("_get_rounding_expression" .
+   [0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("Rounding" .
+   [0 0 0 0 0 0 0 1])
+  ("location_file" .
+   [2 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("_parse_rounding_expression" .
+   [0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("_round" .
+   [1 0 0 0 0 0])
+  ("patients" .
+   [13 0 0 0 0 0 0 0])
+  ("current_user" .
+   [1 0 0 0 0 0 0 0 0 0 0 0])
+  ("other_clinician_model" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("other_clinican" .
+   [0 0 0 0 0 0 0 0 1 0 0 0 0 0])
+  ("other" .
+   [3 0 0 0 0])
+  ("instance" .
+   [14 0 0 0 0 1 0 0])
+  ("sheet" .
+   [2 0 0 0 0])
+  ("sheet1" .
+   [1 0 0 0 0 0])
+  ("maybe_sheet" .
+   [2 0 0 0 0 0 0 0 0 0 0])
+  ("workbook" .
+   [1 0 0 0 0 0 0 2])
+  ("clinical_table" .
+   [0 0 0 0 0 0 0 0 0 0 0 1 0 0])
+  ("code" .
+   [16 0 0 0])
+  ("unambigious_name" .
+   [0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("VerifiableCDE" .
+   [1 0 0 2 0 1 0 0 0 0 0 0 0])
+  ("verification" .
+   [1 0 0 2 0 0 0 0 0 0 0 0])
+  ("workflows" .
+   [1 0 0 0 0 0 0 0 0])
+  ("func" .
+   [22 0 0 0])
+  ("relative_value" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("indicator_cde" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("indicator_section" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("index" .
+   [28 0 0 0 0])
+  ("f" .
+   [53])
+  ("base16-oceanicnext" .
+   [0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0])
+  ("E" .
+   [2])
+  ("EmailTemplateAdminForm" .
+   [0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0])
+  ("actual_index" .
+   [1 0 0 0 0 0 0 0 0 0 0 0])
+  ("item_index" .
+   [3 0 0 0 0 0 0 0 0 0])
+  ("index_map" .
+   [1 0 0 0 0 0 0 0 0])
+  ("i" .
+   [52])
+  ("current_value" .
+   [1 0 0 0 0 0 0 0 1 0 0 0 0])
+  ("page" .
+   [1 0 0 0])
+  ("startswith" .
+   [5 0 0 0 0 0 1 2 0 1])
+  ("page_ref" .
+   [4 0 0 0 0 0 0 0])
+  ("site_url" .
+   [4 0 0 0 0 0 0 0])
+  ("url" .
+   [12 0 0])
+  ("browser" .
+   [4 0 0 0 0 0 0])
+  ("world" .
+   [5 0 0 0 0])
+  ("step" .
+   [9 0 0 0])
+  ("Section" .
+   [16 0 0 1 0 0 0])
+  ("form_name" .
+   [30 0 0 0 0 0 0 0 0])
+  ("CDE_NAME_COLUMN" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("SECTION_NAME_COLUMN" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("FORM_NAME_COLUMN" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("FIELD_NUM_COLUMN" .
+   [0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("columns" .
+   [19 0 0 0 0 0 1])
+  ("ROW_DELIMITER" .
+   [0 0 0 0 1 0 0 0 0 0 0 0 0])
+  ("DataDictionaryFile" .
+   [0 0 2 0 3 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("field_num" .
+   [2 0 0 0 0 0 0 0 0])
+  ("field" .
+   [67 0 0 0 0])
+  ("lines" .
+   [4 0 0 0 0])
+  ("context_id" .
+   [6 0 0 0 0 0 0 0 0 1])
+  ("kwargs" .
+   [11 0 0 0 0 0])
+  ("org-directory" .
+   [0 0 0 0 0 0 0 0 1 0 0 0 0])
+  ("id" .
+   [7 1])
+  ("query_field" .
+   [2 0 0 0 0 0 0 0 0 0 0])
+  ("query_fieldd" .
+   [1 0 0 0 0 0 0 0 0 0 0 0])
+  ("data_query" .
+   [1 0 0 0 0 0 0 0 0 0])
+  ("nested_data" .
+   [1 0 0 0 1 0 1 0 0 0 1])
+  ("additional_data" .
+   [0 0 0 0 0 1 0 1 0 0 0 0 0 0 4])
+  ("addition_" .
+   [1 0 0 0 0 0 0 0 0])
+  ("db" .
+   [5 0])
+  ("db_name" .
+   [2 0 0 0 0 0 0])
+  ("reg" .
+   [7 0 0])
+  ("collection_name" .
+   [2 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("query" .
+   [13 0 0 0 0])
+  ("mongo_client" .
+   [4 0 0 0 0 0 0 0 0 0 0 0])
+  ("update" .
+   [12 0 0 0 0 0])
+  ("questionnaire_response_id" .
+   [0 0 0 0 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("QuestionnaireResponse" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0])
+  ("_save_questionnaire_context" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0])
+  ("questionnnaire" .
+   [0 0 0 0 0 0 0 0 0 0 0 1 0 0])
+  ("_get_questionnaire_context" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("questionnaire_context" .
+   [6 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("PatientLookup" .
+   [0 0 0 0 0 0 0 0 0 0 1 0 0])
+  ("existing_data" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("existing_pai" .
+   [1 0 0 0 0 0 0 0 0 0 0 0])
+  ("Existing" .
+   [0 0 0 0 0 0 0 1])
+  ("e" .
+   [12])
+  ("P" .
+   [2])
+  ("ex" .
+   [29 0])
+  ("Exception" .
+   [0 0 0 0 0 0 0 0 6])
+  ("qhe" .
+   [1 0 0])
+  ("QHError" .
+   [0 0 1 0 0 0 2])
+  ("questionnaire_data" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("questionnaire" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("Question" .
+   [0 0 0 0 1 0 0 1])
+  ("qr" .
+   [1 0])
+  ("existing_patient" .
+   [0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("patient_cdes" .
+   [0 0 0 0 0 0 0 0 0 1 0 0])
+  ("DoesNotExist" .
+   [0 0 0 1 12 0 0 1 0 0 0 14])
+  ("Patient" .
+   [25 0 1 1 0 0 0])
+  ("els" .
+   [7 0 0])
+  ("eli" .
+   [1 0 0])
+  ("patient_creator" .
+   [2 0 0 0 0 0 0 0 0 0 0 1 1 0 0])
+  ("qeh" .
+   [1 0 0])
+  ("POST" .
+   [11 0 0 0])
+  ("existing_patient_id" .
+   [3 0 0 1 3 1 0 0 0 0 0 0 1 0 0 0 0 1 6])
+  ("path" .
+   [67 0 0 4])
+  ("qr_handler" .
+   [0 0 0 0 0 0 0 1 0 0])
+  ("qerr" .
+   [2 0 0 0])
+  ("messages" .
+   [9 0 0 0 0 0 0 0])
+  ("QRError" .
+   [0 0 1 1 1 0 1])
+  ("_get_label" .
+   [1 0 0 0 0 0 0 0 0 0])
+  ("_" .
+   [44])
+  ("encode" .
+   [1 0 0 0 0 0])
+  ("s" .
+   [79])
+  ("column" .
+   [35 0 0 0 0 0])
+  ("upper" .
+   [9 0 0 0 0])
+  ("get_label" .
+   [2 0 0 0 0 0 0 0 0])
+  ("column_labeller" .
+   [3 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("ColumnLabeller" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 2])
+  ("max_items" .
+   [6 0 0 0 0 0 0 0 0])
+  ("query_model" .
+   [0 0 0 0 0 2 0 0 0 1 0])
+  ("type" .
+   [1 0 0 0])
+  ("plist-get" .
+   [0 0 0 0 0 0 0 0 1])
+  ("plist" .
+   [0 0 0 0 1])
+  ("data" .
+   [165 0 0 2])
+  ("stuff" .
+   [1 0 0 0 0])
+  ("assoc" .
+   [2 0 0 0 0])
+  ("setq" .
+   [6 0 0 1])
+  ("kill-other-buffers" .
+   [0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0])
+  ("has_contexts" .
+   [3 0 0 0 0 0 0 0 0 0 0 0])
+  ("has" .
+   [6 0 0])
+  ("has_feature" .
+   [7 0 0 0 0 0 0 0 1 0 0])
+  ("reg_pk" .
+   [0 0 0 1 0 0])
+  ("context_menu" .
+   [1 0 0 0 0 0 0 0 0 0 0 0])
+  ("on" .
+   [6 0])
+  ("rdrf" .
+   [68 0 0 0])
+  ("patient_context_menu" .
+   [0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0])
+  ("patient" .
+   [78 0 0 0 0 1 2])
+  ("Non" .
+   [16 0 0])
+  ("request" .
+   [52 0 0 1 0 0 0])
+  ("PatientContextMenu" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 0 0])
+  ("t" .
+   [19])
+  ("_get_actions" .
+   [0 0 0 0 0 0 0 0 0 0 0 1])
+  ("actions" .
+   [9 0 0 0 0 0 0])
+  ("pass" .
+   [0 0 2 1])
+  ("a" .
+   [30])
+  ("object_id" .
+   [2 0 0 0 0 0 0 0 0])
+  ("ContentType" .
+   [0 0 0 0 0 0 0 0 1 0 0])
+  ("count" .
+   [2 0 0 0 0])
+  ("patient_content_type" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 0 0 0 0])
+  ("patient_context_popup" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0])
+  ("content_type" .
+   [5 0 0 0 0 0 0 0 0 0 0 0])
+  ("content" .
+   [10 0 0 0 0 0 1])
+  ("RDRFContext" .
+   [4 0 0 0 0 1 1 5 0 0 1])
+  ("context_type" .
+   [3 0 0 0 0 0 0 0 0 0 0 0])
+  ("patient_can_add" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("de" .
+   [39 0])
+  ("can" .
+   [1 0 0])
+  ("r" .
+   [75])
+  ("patient_model" .
+   [94 1 1 1 0 0 0 0 1 1 1 0 1])
+  ("get_form_links" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("utils" .
+   [16 0 2 0 3])
+  ("registry_model" .
+   [87 0 0 1 0 4 0 2 1 1 0 1 0 1])
+  ("container_model" .
+   [2 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("context_form_group_model" .
+   [2 0 0 0 0 0 0 0 0 1 0 0 2 0 0 0 0 0 0 0 0 0 0 0])
+  ("item" .
+   [43 0 0 0])
+  ("related_name" .
+   [1 0 0 0 0 0 0 0 1 0 0 1])
+  ("ContextFormGroupItem" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0])
+  ("items" .
+   [23 0 0 0 0])
+  ("can_view" .
+   [0 0 0 1 0 0 0 0])
+  ("user" .
+   [63 0 0 0])
+  ("an" .
+   [6 0])
+  ("not_generated" .
+   [0 0 0 0 0 0 0 0 1 0 0 0 0])
+  ("forms" .
+   [27 0 0 0 0])
+  ("dd" .
+   [1 0])
+  ("context_model" .
+   [37 0 0 0 0 0 0 0 0 1 0 0 0])
+  ("KeyError" .
+   [0 0 2 2 0 0 0 3])
+  ("metadata" .
+   [9 0 0 0 1 0 0 1])
+  ("form_" .
+   [2 0 0 0 0])
+  ("context" .
+   [53 0 0 0 0 0 0])
+  ("context_form_group" .
+   [2 0 0 0 0 0 0 0 0 1 0 2 3 4 0 0 0 5])
+  ("context_flag" .
+   [0 0 0 0 0 0 0 0 0 1 0 0])
+  ("context_name" .
+   [2 0 0 0 0 0 0 0 0 0 1 0])
+  ("magit-status" .
+   [0 0 0 0 0 0 0 0 0 0 1 1])
+  ("magit-stash" .
+   [0 0 0 0 0 0 0 0 0 0 1])
+  ("global-set-key" .
+   [0 0 0 0 0 0 0 0 0 1 0 0 0 2])
+  ("info" .
+   [82 0 0 0])
+  ("_set_client" .
+   [0 0 0 0 0 0 0 0 0 0 10])
+  ("construct_mongo_client" .
+   [0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("client" .
+   [2 0 0 0 0 2])
+  ("neotree" .
+   [1 0 0 0 0 0 0])
+  ("jedi" .
+   [0 0 0 1])
+  ("lambda" .
+   [0 0 0 1 0 0])
+  ("after-init-hook" .
+   [0 0 1 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("add-hook" .
+   [0 0 0 1 0 0 0 0])
+  ("projectile-global-mode" .
+   [0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("projectile" .
+   [0 0 0 0 0 0 0 0 0 1])
+  ("require" .
+   [7 0 0 0 0 0 0])
+  ("wrapper" .
+   [4 0 0 0 0 0 1])
+  ("mongo_data" .
+   [0 0 0 0 0 0 0 0 1 0])
+  ("dynamic_store" .
+   [0 0 0 0 0 0 0 0 0 0 1 0 0])
+  ("_check_dupes" .
+   [0 0 0 0 0 0 0 0 0 0 0 1])
+  ("lower" .
+   [9 0 0 0 0])
+  ("Registry" .
+   [16 0 1 8 0 6 0 0])
+  ("objects" .
+   [97 2 0 0 0 0 1])
+  ("dupes" .
+   [4 0 0 0 0])
+  ("ValidationError" .
+   [1 0 0 0 0 0 0 0 0 1 0 0 0 0 2])
+  ("names" .
+   [3 0 0 0 0])
+  ("name" .
+   [137 0 0 0])
+  ("join" .
+   [21 0 0 0])
+  ("logger" .
+   [368 0 0 0 0 0])
+  ("debug" .
+   [246 0 0 0 2])
+  ("models" .
+   [199 0 1 0 0 9])
+  ("Model" .
+   [33 1 0 0 4])
+  ("registry" .
+   [71 0 0 2 0 1 0 0])
+  ("ForeignKey" .
+   [0 0 0 1 6 0 0 0 1 12])
+  ("Regular" .
+   [0 0 1 2 0 0 0])
+  ("Context" .
+   [5 0 0 0 0 0 0])
+  ("CharField" .
+   [4 0 0 12 7 1 0 0 23])
+  ("max_length" .
+   [33 0 0 0 0 1 2 1 0 3])
+  ("default" .
+   [8 0 0 0 1 0 0])
+  ("choices" .
+   [11 0 0 0 0 1 0])
+  ("CONTEXT_TYPES" .
+   [0 0 0 1 0 3 0 0 0 0 0 0 0])
+  ("form" .
+   [38 0 0 0])
+  ("ContextFormGroup" .
+   [0 0 0 1 0 0 0 0 1 0 0 0 0 0 0 0])
+  ("registry_form" .
+   [13 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("RegistryForm" .
+   [11 0 0 1 0 1 0 0 1 5 0 2])
+  ("get" .
+   [167 0 0])
+  ("global-map" .
+   [0 0 0 0 0 0 0 1 0 0])
+  ("kbd" .
+   [5 0 0])
+  ("previous-buffer" .
+   [0 0 0 0 0 0 0 0 0 0 0 1 0 0 0])
+  ("next-buffer" .
+   [0 0 0 0 0 1 0 0 0 0 0])
+  ("button" .
+   [0 0 0 0 0 1])
+  ("button_caption" .
+   [0 0 0 0 0 0 0 0 1 0 0 0 0 0])
+  ("action" .
+   [10 0 0 0 0 0])
+  ("dest" .
+   [1 0 0 0])
+  ("spreadsheet_report" .
+   [0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("SpreadSheetReport" .
+   [0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("report" .
+   [3 0 0 0 0 0])
+  ("registry_code" .
+   [25 0 0 0 0 0 0 0 1 1 0 0 1])
+  ("cache" .
+   [9 0 0 0 0])
+  ("pk" .
+   [18 0])
+  ("field_expression" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3])
+  ("cache_key" .
+   [4 1 0 0 0 0 0 0 6])
+  ("value" .
+   [189 0 1 0 0])
+  ("gfe_cache" .
+   [0 0 0 0 0 1 0 0 0])
+  ("d" .
+   [36])
+  ("now" .
+   [18 0 0])
+  ("b" .
+   [8])
+  ("static_time" .
+   [0 0 0 0 0 0 0 0 0 0 1])
+  ("c" .
+   [23])
+  ("gen" .
+   [1 0 0])
+  ("gen_time" .
+   [1 0 0 0 0 0 0 0])
+  ("longitudinal_column_map" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0])
+  ("column_name" .
+   [27 0 0 0 0 0 0 0 0 0 0])
+  ("reverse_map" .
+   [0 0 0 0 0 0 0 1 0 0 1])
+  ("form_model" .
+   [44 0 0 0 0 0 0 0 0 0])
+  ("section_model" .
+   [56 1 0 0 0 0 0 0 0 0 0 0 0])
+  ("cde_model" .
+   [78 0 0 0 0 0 0 0 0])
+  ("section" .
+   [19 0 0 0 0 0 0])
+  ("section_index" .
+   [4 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("mongo_document" .
+   [2 0 0 0 0 0 0 0 0 2 0 0 0 1])
+  ("result" .
+   [21 0 0 0 0 0])
+  ("_get_results" .
+   [0 0 0 0 0 0 0 0 1 0 0 0])
+  ("_get_result_map" .
+   [0 0 0 0 0 0 0 0 1 0 0 0 0 0 1])
+  ("is_snapshot" .
+   [0 0 0 0 0 1 0 0 0 0 2])
+  ("record" .
+   [18 0 0 0 0 0])
+  ("mongo" .
+   [1 0 0 0 1])
+  ("snapshot_document" .
+   [0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("key" .
+   [52 0 0])
+  ("continue" .
+   [0 0 0 0 0 1 0 0])
+  ("error" .
+   [47 0 0 0 1])
+  ("rtg" .
+   [1 0 0])
+  ("form_pk" .
+   [0 0 0 0 0 1 0])
+  ("column_op" .
+   [1 0 0 0 0 0 0 0 0])
+  ("allow_multiple" .
+   [4 0 0 0 0 0 4 0 0 0 0 1 0 0])
+  ("col" .
+   [12 0 0])
+  ("l" .
+   [14])
+  ("col_map" .
+   [5 0 0 0 0 0 0])
+  ("row" .
+   [106 0 0])
+  ("flattened" .
+   [0 0 0 0 0 0 0 0 1])
+  ("nil" .
+   [1 0 0])
+  ("CommonDataElement" .
+   [1 0 1 2 13 0 11 0 0 0 0 0 0 0 0 0 2])
+  ("field_name" .
+   [2 0 0 0 0 0 0 0 0 0])
+  ("CLINCIA" .
+   [1 0 0 0 0 0 0])
+  ("CLINICAL" .
+   [1 0 0 0 0 0 0 0])
+  ("question" .
+   [6 0 0 0 0 0 0 0])
+  ("secti" .
+   [1 0 0 0 0])
+  ("cde" .
+   [44 0 0])
+  ("display" .
+   [4 0 0 0 0 1 0])
+  ("display_value" .
+   [6 0 0 0 0 0 1 0 0 0 1 0 5])
+  ("Humaniser" .
+   [0 0 0 0 2 0 0 0 0])
+  ("humaniser" .
+   [1 0 0 0 0 0 0 0 0])
+  ("display_value2" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("ChoiceField" .
+   [4 0 0 0 0 0 0 0 0 0 0])
+  ("validate" .
+   [1 0 0 0 0 0 0 0])
+  ("ChoiceFieldNonBlankValidation" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("django" .
+   [23 0 0 0 1 1])
+  ("core" .
+   [1 0 0 0])
+  ("exceptions" .
+   [2 1 0 0 0 0 0 0 0 0])
+  ("Validation" .
+   [0 0 0 0 0 0 0 0 0 1])
+  ("cde_code" .
+   [49 0 0 0 0 0 0 0])
+  ("context_definitions" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0])
+  ("tomorrow-night-bright-theme" .
+   [0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("scroll_to_element" .
+   [0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0])
+  ("section_element" .
+   [2 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("y" .
+   [1])
+  ("mover" .
+   [2 0 0 0 0])
+  ("ActionChains" .
+   [0 0 0 0 0 0 0 1 0 0 0 0])
+  ("move_to_element" .
+   [0 0 0 0 0 0 0 1 0 0 0 0 0 0 0])
+  ("add" .
+   [2 0 0])
+  ("find_element_by_xpath" .
+   [0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("xpath" .
+   [1 0 0 0 0])
+  ("div" .
+   [4 0 0])
+  ("find_elements_by_xpath" .
+   [0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("add_link_xpath" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("click" .
+   [1 0 0 0 0])
+  ("cdei" .
+   [2 0 0 0])
+  ("formset_string" .
+   [3 0 0 0 0 0 0 0 1 0 0 0 0 0])
+  ("prin" .
+   [51 0 0 0])
+  ("input_element" .
+   [6 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("get_attrib" .
+   [0 0 0 0 0 0 0 0 0 1])
+  ("input_id" .
+   [4 0 0 0 0 0 0 0])
+  ("cde_value" .
+   [6 0 0 0 0 0 0 0 0])
+  ("correct" .
+   [1 0 0 0 0 0 0])
+  ("inpu" .
+   [11 0 0 0])
+  ("get_attribute" .
+   [1 0 0 0 0 0 0 0 1 0 0 1 0])
+  ("correct_item" .
+   [1 0 0 0 0 0 0 0 0 0 0 0])
+  ("formset_number" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("input_elements" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("ie" .
+   [3 0])
+  ("seconds" .
+   [5 0 0 0 0 0 0])
+  ("sleep" .
+   [2 0 0 1 0])
+  ("n" .
+   [15])
+  ("ite" .
+   [3 0 0])
+  ("_rdrf_get_translations" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("_django_compile_translations" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("base16-theme" .
+   [1 0 0 0 0 0 1 0 0 0 0 0])
+  ("base16-default-dark" .
+   [0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("add_language_modifier" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0])
+  ("file_name" .
+   [4 0 0 0 0 0 0 0 0])
+  ("language" .
+   [3 0 0 0 0 0 0 0])
+  ("conf" .
+   [6 0 0 1])
+  ("settings" .
+   [31 0 0 0 2 0 0 0])
+  ("allowed" .
+   [1 0 0 0 0 0 0])
+  ("pair" .
+   [1 0 0 0])
+  ("LANGUAGES" .
+   [0 0 0 0 0 0 0 0 1])
+  ("allowed_languages" .
+   [0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("bad_keys" .
+   [1 0 0 0 0 0 0 0])
+  ("form_tables" .
+   [2 0 0 0 0 0 0 0 0 0 0])
+  ("multi_tables" .
+   [1 0 0 1 0 0 0 0 0 0 0 0])
+  ("_extract_snapshot_data" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0])
+  ("verifications" .
+   [4 0 0 2 0 1 0 1 1 0 0 0 0])
+  ("verification_cdes" .
+   [0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("VerificationStatus" .
+   [1 2 0 21 0 2 3 0 0 0 0 0 0 0 0 0 0 2])
+  ("UNVERIFIED" .
+   [0 0 3 0 0 0 0 0 0 1])
+  ("has_annotation" .
+   [0 0 0 0 0 0 0 1 0 0 0 0 0 0])
+  ("VERIFIED" .
+   [0 0 1 3 0 0 0 4])
+  ("status" .
+   [41 0 0 0 0 0])
+  ("append" .
+   [56 0 0 0 0 0])
+  ("option_state" .
+   [3 0 0 0 0 0 0 0 0 0 0 0])
+  ("verifiable_cdes" .
+   [0 0 0 0 0 0 0 1 0 0 0 0 0 0 0])
+  ("DISPUTED" .
+   [1 0 0 0 0 0 0 0])
+  ("options" .
+   [4 0 0 0 0 0 0])
+  ("set" .
+   [2 0 1])
+  ("jedi:environment-root" .
+   [0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("v" .
+   [14])
+  ("CORRECTED" .
+   [1 2 0 0 1 0 0 0 1])
+  ("make_verification_form" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2])
+  ("corrected" .
+   [5 0 0 0 0 0 0 0 0])
+  ("corrected_verifications" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0])
+  ("correction_form" .
+   [2 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("verified_verifications" .
+   [0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0])
+  ("k" .
+   [5])
+  ("delimited_key" .
+   [4 0 0 0 4 0 0 0 0 0 1 0 13])
+  ("models_from_mongo_key" .
+   [0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("Verifi" .
+   [0 0 0 2 1 0])
+  ("verification_map" .
+   [2 0 0 1 0 4 0 3 1 0 0 0 0 0 0 2])
+  ("mk_ver" .
+   [3 0 0 0 0 0])
+  ("comments" .
+   [6 0 0 0 0 0 0 0])
+  ("clinician" .
+   [6 0 0 0 0 0 0 0 0])
+  ("field_value" .
+   [3 0 0 0 0 0 0 0 0 0 0])
+  ("clinican" .
+   [3 0 0 0 0 0 0 0])
+  ("clinician_value" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("_get_verification_map" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("correct_verifications" .
+   [0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("values" .
+   [19 0 0 0 0 0])
+  ("annotation" .
+   [1 0 0 0 0 0 3 0 0 0])
+  ("username" .
+   [18 0 0 0 0 0 0 0])
+  ("comment" .
+   [1 0 0 0 0 0 0])
+  ("correct_value" .
+   [0 0 0 0 0 0 0 0 0 0 1 0 0])
+  ("history" .
+   [1 0 0 0 0 0 0])
+  ("snap" .
+   [1 0 0 0])
+  ("snapshot" .
+   [1 0 0 0 0 0 0 0])
+  ("post" .
+   [5 0 0 0])
+  ("position" .
+   [14 0 0 0 0 0 0 0])
+  ("check_sensitivity" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("amount_rounding" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("rounding" .
+   [5 0 0 0 0 0 0 0])
+  ("species" .
+   [1 0 0 0 0 0 0])
+  ("_get_sensitivity_filename" .
+   [0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("location" .
+   [46 0 0 1 0 0 0 0])
+  ("sensitivity_filename" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1])
+  ("sensitivity_" .
+   [0 0 0 0 0 0 0 0 0 0 0 2])
+  ("sensitivity_record" .
+   [2 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("generalisation" .
+   [1 0 0 0 1 0 0 0 0 0 0 0 0 0])
+  ("g" .
+   [2])
+  ("_get_location" .
+   [0 0 0 0 0 0 0 1 0 0 0 0 0])
+  ("_get_sensitivity_record" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("_get_rounding" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("locals" .
+   [0 0 0 1 2 0])
+  ("factor" .
+   [4 0 0 0 0 0])
+  ("rounding_expression" .
+   [3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("decimal_places" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("generaliser" .
+   [0 0 0 0 0 0 0 0 0 0 1])
+  ("SensitiveDataGeneraliser" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("GeneraliserMixin" .
+   [0 0 1 4 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("setup_generaliser" .
+   [0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 4])
+  ("OMG" .
+   [5 0 0])
+  ("Warning" .
+   [0 5 0 0 0 0 0])
+  ("display_name" .
+   [3 0 0 0 0 0 0 0 0 0 0 0])
+  ("blank" .
+   [22 0 0 0 0])
+  ("null" .
+   [28 0 0 0])
+  ("help_text" .
+   [4 0 0 1 1 0 0 0 0])
+  ("save" .
+   [43 0 0 0])
+  ("item_dict" .
+   [15 0 0 0 0 0 0 0 0])
+  ("the_form_model" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("multisection_code" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1])
+  ("multisection_items" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0])
+  ("multisection_item_list" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("media" .
+   [1 0 0 0 0])
+  ("screen" .
+   [1 0 0 0 0 0])
+  ("max-width" .
+   [0 0 0 0 0 0 0 0 1])
+  ("none" .
+   [1 0 0 0])
+  ("show" .
+   [3 0 0 0])
+  ("true" .
+   [5 0 0 0])
+  ("false" .
+   [1 0 0 0 0])
+  ("cleaned_data" .
+   [0 0 0 0 0 0 0 1 2 0 0 0])
+  ("Select" .
+   [4 0 0 0 0 0])
+  ("attrs" .
+   [2 0 0 0 0])
+  ("initial_data" .
+   [2 0 0 0 0 0 0 0 1 0 0 1])
+  ("args" .
+   [12 0 0 0])
+  ("if" .
+   [8 5])
+  ("_should_adjust_form_for_child" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("_is_parent_editing_child" .
+   [0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("TextInput" .
+   [1 0 0 0 0 0 0 0 0])
+  ("SelectMultiple" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("typescript-mode" .
+   [0 0 0 0 1 0 0 0 0 0 0 0 0 0 2])
+  ("add-to-list" .
+   [0 0 0 0 0 0 1 0 0 0 1])
+  ("auto-mode-case-fold" .
+   [0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0])
+  ("auto-mode-alist" .
+   [0 0 0 0 0 0 0 0 0 0 0 1 0 0 1])
+  ("json_file" .
+   [1 0 0 0 0 0 0 0 0])
+  ("read" .
+   [2 0 0 0])
+  ("proms" .
+   [7 0 0 0 0])
+  ("json_data" .
+   [3 0 0 0 0 0 0 0 0])
+  ("SurveyQuestion" .
+   [5 0 0 0 0 0 0 1 0 0 0 0 0 0])
+  ("Precondition" .
+   [1 0 0 0 1 0 0 0 0 0 0 1])
+  ("Survey" .
+   [8 0 0 1 1 1])
+  ("admin" .
+   [10 0 0 0 0])
+  ("ModelAdmin" .
+   [5 0 0 0 0 1 0 0 0 2])
+  ("model" .
+   [74 0 0 0 0])
+  ("list_display" .
+   [4 0 0 0 0 0 0 0 0 0 0 1])
+  ("site" .
+   [1 0 0 0])
+  ("register" .
+   [3 0 0 0 0 0 0 0])
+  ("SurveyAdmin" .
+   [1 0 0 0 0 0 0 0 0 0 0])
+  ("SurveyQuestionAdmin" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("desc" .
+   [1 0 0 0])
+  ("CDEPatientFamilyName" .
+   [0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("CDEPermittedValue" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0])
+  ("pv_group" .
+   [3 0 0 0 0 0 0 0])
+  ("order_by" .
+   [3 0 0 0 0 0 0 0])
+  ("query_string" .
+   [1 0 0 0 0 0 0 0 0 0 0 0])
+  ("patient_token" .
+   [27 0 0 0 0 0 0 0 1 0 0 0 1])
+  ("GET" .
+   [2 0 0])
+  ("survey_model" .
+   [7 0 0 1 0 0 0 0 0 0 0 0])
+  ("survey_name" .
+   [14 0 0 0 0 0 0 0 0 0 0])
+  ("get_object_or_404" .
+   [0 0 0 0 0 0 0 1 0 0 0 1 0 0 0 0 4])
+  ("Http404" .
+   [2 0 4 6 4 0 1])
+  ("_is_valid" .
+   [2 0 0 0 0 0 0 0 0])
+  ("survey_assignment" .
+   [2 0 0 0 0 0 0 0 0 0 5 0 0 0 0 0 2])
+  ("session" .
+   [4 0 0 0 0 0 0])
+  ("survey_questions" .
+   [2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("client_rep" .
+   [0 0 1 0 0 0 0 0 0 0])
+  ("_get_survey_assignment" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0])
+  ("SurveyAssignment" .
+   [0 0 0 1 0 0 0 0 0 2 0 0 0 0 0 2])
+  ("MultipleObjectsReturned" .
+   [0 2 2 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 5])
+  ("survey" .
+   [4 0 0 0 0 0])
+  ("PromsLandingPageView" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0])
+  ("oct" .
+   [0 2 0])
+  ("is_multi" .
+   [1 0 0 0 0 0 0 0])
+  ("name_map" .
+   [1 0 0 0 0 0 0 0])
+  ("reverse_column_map" .
+   [0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0])
+  ("make_new_forms_structure" .
+   [0 0 0 0 0 1 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("column_map" .
+   [10 0 0 0 0 0 0 0 0 0])
+  ("mongo_metadata" .
+   [1 0 0 0 0 0 0 0 1 0 0 0 0 0])
+  ("PROMS_SECRET_TOKEN" .
+   [0 0 0 0 0 0 0 1 1 0 0 0 1 0 0 0 0 0])
+  ("env" .
+   [18 0 0])
+  ("services" .
+   [2 0 0 0 0 0 0 0])
+  ("auth" .
+   [1 0 0 0])
+  ("PromsAuthentication" .
+   [0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("headers" .
+   [2 0 0 0 0 0 0])
+  ("rest" .
+   [1 0 0 0])
+  ("PROMS_USERNAME" .
+   [4 0 0 0 0 0 0 0 1 0 0 0 0 0])
+  ("secret_token" .
+   [1 0 0 0 0 0 0 0 0 0 0 1])
+  ("PROMS_USER" .
+   [1 0 0 0 0 0 0 0 0 0])
+  ("validated_data" .
+   [2 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("state" .
+   [29 0 0 0 0])
+  ("sa" .
+   [2 0])
+  ("is_valid" .
+   [1 0 0 0 0 0 0 0])
+  ("AllowAny" .
+   [0 0 0 0 0 2 0 0])
+  ("explorer" .
+   [0 0 0 0 1 1 0 0])
+  ("FieldValue" .
+   [0 0 0 0 0 2 0 1 0 0])
+  ("utf" .
+   [0 0 1])
+  ("create_field_values" .
+   [0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 2])
+  ("remove_existing" .
+   [0 0 0 0 1 0 0 1 0 0 0 0 0 0 1])
+  ("delete" .
+   [3 0 0 0 0 0])
+  ("rdrf_context" .
+   [2 0 0 0 0 0 0 0 0 0 0 0])
+  ("raw_value" .
+   [7 0 0 0 2 0 0 0 1])
+  ("column_name__in" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("report_columns" .
+   [2 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("registry_id" .
+   [1 0 0 0 0 0 0 0 0 0 0])
+  ("field_values_query" .
+   [0 0 0 0 0 0 0 0 2 0 0 0 1 1 0 0 0 0])
+  ("ERROR" .
+   [2 3 0 0 0])
+  ("full_name" .
+   [1 0 0 0 0 0 0 0 0])
+  ("patient_name" .
+   [2 0 0 0 0 0 0 0 0 0 0 0])
+  ("ParentGuardian" .
+   [0 0 0 0 2 1 1 1 0 0 0 0 0 0])
+  ("part" .
+   [8 0 0 0])
+  ("last" .
+   [1 0 0 0])
+  ("participant_name" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("except" .
+   [0 0 0 0 0 1])
+  ("RdrfEmailException" .
+   [0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("pl" .
+   [1 0])
+  ("pref_lang" .
+   [1 0 0 0 0 0 0 0 0])
+  ("use_other" .
+   [1 0 0 0 0 0 0 0 0])
+  ("_get_participant" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("get_trials" .
+   [1 0 0 0 0 0 0 0 0 0])
+  ("get_medical_problems" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("loads" .
+   [11 0 0 0 0])
+  ("elements" .
+   [1 0 0 0 0 0 0 0])
+  ("it" .
+   [3 0])
+  ("LookupError" .
+   [4 5 0 0 0 0 0 0 0 0 1])
+  ("elements_json" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("clean" .
+   [1 0 0 0 0])
+  ("css" .
+   [2 0 0])
+  ("isinstance" .
+   [0 0 0 0 1 0 0 0 0 2])
+  ("form_data" .
+   [5 0 0 0 0 0 0 0 0])
+  ("_update_original_section" .
+   [0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("_update_original_cde" .
+   [0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("me" .
+   [2 0])
+  ("get_original_filename" .
+   [0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("patient_consent" .
+   [2 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("PatientConsent" .
+   [0 0 0 0 0 0 0 0 0 0 1 0 0 0])
+  ("filename" .
+   [16 0 0 0 0 0 0 0])
+  ("__str__" .
+   [4 0 0 0 0 0 0])
+  ("ValueHolder" .
+   [0 0 0 0 0 0 0 0 0 0 1])
+  ("vh" .
+   [2 0])
+  ("ValueAdapter" .
+   [1 0 0 0 0 0 0 0 0 0 0 0])
+  ("va" .
+   [1 0])
+  ("ValueWrapper" .
+   [1 0 0 0 0 0 0 0 0 0 0 0])
+  ("create" .
+   [1 0 0 0 0 0])
+  ("wrap" .
+   [1 0 0 0])
+  ("TabularInline" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("re_path" .
+   [3 0 0 0 0 0 1])
+  ("include" .
+   [3 0 0 0 0 0 0])
+  ("default_context" .
+   [0 0 0 0 0 0 0 0 2 0 0 0 0 0 2])
+  ("SYSTEM_ROLE" .
+   [0 0 1 3 1 1 0 0 0 0 2])
+  ("SystemRoles" .
+   [0 0 0 0 1 3 3 2 0 0 0])
+  ("CIC_PROMS" .
+   [0 0 0 1 0 0 0 0 1])
+  ("--http-socket" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("Exceptio" .
+   [3 0 0 0 0 0 0 1])
+  ("None" .
+   [0 0 1 0])
+  ("NoData" .
+   [0 0 0 0 0 1])
+  ("p" .
+   [6])
+  ("total_processed" .
+   [0 0 0 0 0 0 0 0 1 0 0 0 0 0 0])
+  ("total_skipped" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("nd" .
+   [1 0])
+  ("form_class" .
+   [4 0 0 0 0 0 0 0 0 0])
+  ("form_class_name" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("NotImplemented" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("NotImplementedError" .
+   [0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("base_class" .
+   [1 0 0 0 0 0 0 0 0 0])
+  ("form_class_dict" .
+   [3 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("BaseForm" .
+   [1 0 0 0 1 0 0 0])
+  ("fields" .
+   [32 0 0 0 0 0])
+  ("fields_map" .
+   [1 0 0 0 0 0 0 0 0 0])
+  ("media_class" .
+   [1 0 0 0 0 0 0 0 0 0 0])
+  ("get_field_map" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("get_media_class" .
+   [0 0 0 0 0 0 0 0 0 1 0 0 0 0 0])
+  ("Media" .
+   [2 0 0 0 0])
+  ("ReviewFormGenerator" .
+   [0 0 0 0 0 0 0 1 0 0 0 2 0 0 0 0 0 0 2])
+  ("REVIEW_ITEM_TYPES" .
+   [0 0 7 1 0 0 0 0 1 0 0 0 0 0 0 0 0])
+  ("CONSENT_FIELD" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("ConsentReviewFormGenerator" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("DEMOGRAPHICS_FIELD" .
+   [0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("DemographicsReviewFormGenerator" .
+   [0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("SECTION_CHANGE" .
+   [0 0 2 0 0 0 0 0 0 0 0 0 0 0])
+  ("SectionMonitorReviewFormGenerator" .
+   [0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("MULTISECTION_ITEM" .
+   [0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("MultisectionAddReviewFormGenerator" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("MULTISECTION_UPDATE" .
+   [0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("VERIFICATION" .
+   [1 0 2 1 1 0 0 0 0 0 0 2])
+  ("VerificationReviewFormGenerator" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("GENERATOR_MAP" .
+   [0 0 0 0 1 0 0 0 0 0 0 0 0])
+  ("review_model" .
+   [20 0 0 0 0 0 0 0 0 0 0 1])
+  ("item_type" .
+   [5 0 0 0 0 1 0 0 0])
+  ("generator" .
+   [5 0 0 0 0 0 0 0 0])
+  ("generator_class" .
+   [2 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("create_form_class" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("review_form_class" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("target_code" .
+   [1 0 0 0 0 0 0 0 0 0 0])
+  ("consent_cde_code" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("consent_cde_model" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("create_review_forms" .
+   [0 0 0 0 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0])
+  ("_review_links" .
+   [0 0 0 0 0 0 0 0 1 0 0 0 0])
+  ("Links" .
+   [1 0 0 0 0])
+  ("_per_registry_links" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("REVIEWS" .
+   [0 0 0 1 0 0 0])
+  ("car" .
+   [1 0 0])
+  ("second" .
+   [1 0 0 0 0 0])
+  ("case" .
+   [1 0 0 0])
+  ("head" .
+   [1 0 0 0])
+  ("thing" .
+   [2 0 0 0 0])
+  ("interp" .
+   [11 0 0 0 0 0])
+  ("goo" .
+   [1 0 0])
+  ("dbl" .
+   [2 0 0])
+  ("succ" .
+   [3 0 0 0])
+  ("num" .
+   [7 0 0])
+  ("message" .
+   [58 0 0 3 1 0 7])
+  ("num-func" .
+   [1 0 0 0 0 1 0 0])
+  ("MULTI_TARGET" .
+   [0 0 1 0 0 0 0 0 0 0 0 1])
+  ("MultiTargetReviewFormGenerator" .
+   [0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("BaseCommand" .
+   [0 0 0 0 1 0 0 0 0 0 1])
+  ("PermissionDenied" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("groups" .
+   [3 0 0 0 0 0])
+  ("make_mongo_key" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("mongo_key_from_models" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 0 0 0 0 2])
+  ("DummyFormClass" .
+   [0 0 0 0 0 0 0 0 0 1 0 0 0 0])
+  ("DummyForm" .
+   [0 0 0 0 0 0 0 0 1])
+  ("PseudoForm" .
+   [0 0 1 0 0 0 0 0 0 0])
+  ("patient_address" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("country" .
+   [1 0 0 0 0 0 0])
+  ("_get_cdes" .
+   [2 0 0 0 0 0 0 0 0])
+  ("codes" .
+   [3 0 0 0 0])
+  ("strip" .
+   [5 0 0 0 0])
+  ("cde_codes_csv" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("split" .
+   [22 0 0 0 0])
+  ("cde_codes" .
+   [3 0 0 0 0 0 0 0 0])
+  ("target_metadata" .
+   [1 0 0 0 0 0 1 0 0 0 0 0 0 0 0])
+  ("_ad_hoc_data_entry_fields" .
+   [0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("review_item_code" .
+   [1 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0])
+  ("review_item_model" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("_trans" .
+   [4 0 0 0 0 0])
+  ("request_user" .
+   [2 0 0 0 0 0 0 0 0 0 0 0])
+  ("is_admin" .
+   [1 0 0 0 0 0 0 0])
+  ("is_parent" .
+   [1 0 0 0 0 0 0 0 0])
+  ("send" .
+   [2 0 0 0])
+  ("ang" .
+   [3 0 0])
+  ("cd" .
+   [19 0])
+  ("ClinicalData" .
+   [1 0 0 4 1 3 0 0 3 0 0 1])
+  ("collection" .
+   [3 0 0 0 0 0 0 0 0 0])
+  ("django_model" .
+   [5 0 0 0 0 0 0 0 0 0 0 0])
+  ("django_id" .
+   [8 0 0 0 0 0 0 0 0])
+  ("Clinician" .
+   [0 0 0 2 0 0 0 0 0])
+  ("has_cd" .
+   [0 0 0 0 1 0])
+  ("content_object" .
+   [2 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("get_context" .
+   [1 0 0 0 0 0 0 0 0 0 1])
+  ("DRY_RUN" .
+   [0 0 0 1 0 0 0])
+  ("RDRF" .
+   [3 0 0 0])
+  ("make_context" .
+   [0 0 0 0 0 0 0 0 0 0 0 1])
+  ("get_form_initial_method" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("initial_dict" .
+   [1 0 0 0 0 0 0 0 0 0 0 0])
+  ("myself" .
+   [2 0 0 0 0 0])
+  ("mongo_key" .
+   [2 0 0 0 0 0 0 0 0])
+  ("jpg_handler" .
+   [1 0 0 0 0 0 0 0 0 0 0])
+  ("annotate_form_with_verifications" .
+   [0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("regs" .
+   [1 0 0 0])
+  ("section_form" .
+   [3 0 0 0 0 0 0 0 0 0 0 0])
+  ("verification_status" .
+   [4 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("Verified" .
+   [0 0 0 1 0 0 0 0])
+  ("verification_model" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("get_code" .
+   [2 0 0 0 0 0 0 0])
+  ("get_cde_model" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("django_field" .
+   [2 0 0 0 0 0 0 0 0 0 0 0])
+  ("title" .
+   [2 0 0 0 0])
+  ("last_verification" .
+   [1 0 0 0 0 0 0 0 3 0 0 0 0 0 0 0 1])
+  ("verified_value" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("do" .
+   [1 0])
+  ("Robot" .
+   [1 0 0 0 0])
+  ("static" .
+   [2 0 0 0 0 0])
+  ("document_root" .
+   [0 0 0 0 0 0 0 0 0 1 0 0 0])
+  ("STATIC_ROOT" .
+   [1 0 0 1 1 0 0 0 0 0 0])
+  ("rows" .
+   [5 0 0 0])
+  ("error_messages" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 3])
+  ("num_errors" .
+   [0 0 0 0 0 0 0 0 0 2])
+  ("error_msg" .
+   [1 0 0 0 0 0 1 0 0])
+  ("error_message" .
+   [6 1 0 0 0 0 1 0 0 0 0 0 2])
+  ("_get_result_messages_dict" .
+   [0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("review_set_tasks" .
+   [0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0])
+  ("rst" .
+   [1 0 0])
+  ("image" .
+   [7 0 0 0 0])
+  ("order" .
+   [3 0 0 0 0])
+  ("review_set_task" .
+   [2 0 0 1 0 0 0 0 0 0 4 0 0 0 0])
+  ("task" .
+   [12 0 0 0])
+  ("interpretation" .
+   [3 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("completed" .
+   [3 0 0 0 0 0 0 0 0])
+  ("FILM_QUALITY_CHOICES" .
+   [0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0])
+  ("film_quality_adequate" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0])
+  ("pec_left" .
+   [1 0 0 0 0 0 0 0])
+  ("pec_right" .
+   [1 0 0 0 0 0 0 0 0])
+  ("oci_left" .
+   [0 0 0 0 0 0 0 1])
+  ("oci_right" .
+   [1 0 0 0 0 0 0 0 0])
+  ("pf_left" .
+   [1 0 0 0 0 0 0])
+  ("pf_right" .
+   [1 0 0 0 0 0 0 0])
+  ("registry_urls" .
+   [2 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("quote" .
+   [2 0 0 0 0])
+  ("number" .
+   [1 0 0 0 0 0])
+  ("nums" .
+   [4 0 0 0])
+  ("Word" .
+   [4 0 0 0])
+  ("precondition" .
+   [0 0 0 2 0 0 0 0 0 0 0 0])
+  ("cond_block" .
+   [2 0 0 0 0 1 0 0 0 1])
+  ("Template" .
+   [2 0 0 0 0 0 1 0])
+  ("report_spec" .
+   [3 0 0 0 0 0 0 0 0 0 0])
+  ("make" .
+   [5 0 0 0])
+  ("template_context" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("markdown" .
+   [1 0 0 0 0 0 0 0])
+  ("markdown_template" .
+   [2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("node" .
+   [6 0 0 0])
+  ("VariableNode" .
+   [0 0 0 1 0 0 0 0 0 0 0 1])
+  ("filter_expression" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("template_object" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("nodelist" .
+   [1 0 0 0 0 0 0 0])
+  ("__class__" .
+   [3 0 0 0 0 0 0 0 1])
+  ("variables" .
+   [2 0 0 0 0 0 0 0 0])
+  ("variable" .
+   [6 0 0 1 0 0 0 0])
+  ("_get_variable_value" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("DEMOGRAPHICS_VARIABLES" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("_get_variable_names" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("form_value" .
+   [1 0 0 0 0 0 0 0 0 0])
+  ("human_value" .
+   [1 0 0 0 0 0 0 0 0 0 0])
+  ("is_list" .
+   [3 0 0 1 0 0 0])
+  ("cleanup" .
+   [3 0 0 0 0 0 0])
+  ("range_dict" .
+   [10 0 0 0 0 0 0 0 0 0])
+  ("display_values" .
+   [3 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("make_table" .
+   [1 0 0 0 0 0 0 0 0 0])
+  ("raw_values" .
+   [7 0 0 0 0 0 0 0 0 0])
+  ("header" .
+   [2 0 0 0 0 0])
+  ("u" .
+   [3])
+  ("get_cde_value" .
+   [0 0 0 0 0 0 0 1 0 0 0 0 0])
+  ("dump_csv" .
+   [1 0 0 0 0 0 0 0])
+  ("stream" .
+   [3 0 0 0 0 0])
+  ("sex" .
+   [4 0 0])
+  ("birthdate" .
+   [1 0 0 0 0 0 0 0 0])
+  ("go" .
+   [1 0])
+  ("eq" .
+   [1 0])
+  ("where" .
+   [11 0 0 0 0])
+  ("expand-file-name" .
+   [0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 2])
+  ("image_code" .
+   [1 0 0 0 0 0 0 0 0 0])
+  ("image_id" .
+   [1 0 0 0 0 0 0 0])
+  ("patient_" .
+   [0 0 0 0 0 0 0 1])
+  ("mod" .
+   [2 0 0])
+  ("first_seenlc" .
+   [0 0 0 0 0 0 0 0 1 0 0 0])
+  ("parse_iso_datetime" .
+   [0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 2 0 0])
+  ("app" .
+   [4 0 0])
+  ("randint" .
+   [4 0 0 0 1 0 0])
+  ("subject_template_name" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("verr" .
+   [3 0 0 0])
+  ("_get_data" .
+   [3 0 0 0 0 0 0 1 0])
+  ("config" .
+   [23 0 0 0 0 0])
+  ("inputs" .
+   [6 0 0 0 0 0])
+  ("requires_input" .
+   [1 0 0 0 0 0 0 0 0 1 0 0 0 0])
+  ("we" .
+   [1 0])
+  ("_generate_input_form" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0])
+  ("Form" .
+   [2 0 0 0])
+  ("from_db" .
+   [0 1 0 0 0 0 0])
+  ("input_spec" .
+   [11 0 0 0 0 0 0 0 0 0])
+  ("create_field" .
+   [2 0 0 0 0 0 0 0 0 0 0 0])
+  ("field_label" .
+   [2 0 0 0 0 0 0 0 0 0 0])
+  ("field_type" .
+   [1 0 0 0 0 0 0 0 0 0])
+  ("behaviour" .
+   [5 0 0 0 0 0 0 0 0])
+  ("patient_field" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("behaviours" .
+   [1 0 0 0 0 0 0 0 0 0])
+  ("action_id" .
+   [2 0 0 0 0 0 0 0 0])
+  ("custom_action" .
+   [12 0 1 0 1 0 2 1 1 0 0 0 1])
+  ("task_id" .
+   [5 0 0 0 0 0 0])
+  ("input_form" .
+   [1 0 0 0 0 0 0 0 0 0])
+  ("_get_input_form" .
+   [0 0 0 0 0 0 0 0 0 0 1 0 0 0 0])
+  ("run_async" .
+   [0 0 0 0 0 1 0 0 0])
+  ("input_data" .
+   [8 0 0 0 0 0 0 0 0 0])
+  ("execute" .
+   [5 0 0 0 0 0 1])
+  ("followup_cds" .
+   [0 0 0 0 0 0 1 0 0 0 0 0])
+  ("context_ids" .
+   [1 0 0 0 0 0 0 0 0 0 0])
+  ("context_form_group_name" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("a_datetime" .
+   [0 0 0 0 1 0 0 0 0 0])
+  ("setup" .
+   [2 0 0 0 0])
+  ("TESTOV_ROOT" .
+   [0 0 0 0 1 0 0 0 0 0 0])
+  ("testov" .
+   [1 0 0 0 0 0])
+  ("xray" .
+   [1 0 0 0])
+  ("ReviewSetTask" .
+   [0 0 0 0 0 0 0 0 0 0 1 0 0])
+  ("generate_token" .
+   [2 0 0 0 0 1 0 0 0 0 0 0 0 1])
+  ("shared_task" .
+   [0 0 0 0 0 0 2 0 0 0 0])
+  ("user_id" .
+   [3 0 0 0 0 0 0])
+  ("execute_by_id" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("task_result" .
+   [2 0 0 0 1 1 0 0 0 0 1])
+  ("download_url" .
+   [0 0 0 0 0 0 0 0 0 0 0 1])
+  ("dynamic" .
+   [6 0 0 0 0 0 1])
+  ("field_lookup" .
+   [0 0 0 0 0 0 0 0 0 0 0 1])
+  ("IsoDateField" .
+   [0 0 2 0 0 0 0 0 0 0 0 0])
+  ("input_formats" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("cic_id" .
+   [4 0 0 0 0 0])
+  ("escape_uri_path" .
+   [0 0 0 1 0 0 0 0 0 0 1 0 0 0 0])
+  ("full_url" .
+   [2 0 0 0 0 1 0 0])
+  ("security_check" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("extract_data" .
+   [1 0 0 0 0 0 0 0 0 0 0 0])
+  ("connections" .
+   [1 0 0 0 0 0 0 0 0 0 0])
+  ("clinical_db" .
+   [1 0 0 0 0 0 0 0 0 0 0])
+  ("conn" .
+   [2 0 0 0])
+  ("cursor" .
+   [2 0 0 0 0 0])
+  ("sql_query" .
+   [1 0 0 0 0 0 0 0 0])
+  ("pipeline" .
+   [2 0 0 0 0 0 0 0])
+  ("PipeLine" .
+   [0 0 0 0 2 0 0 0])
+  ("doctest" .
+   [0 0 1 0 0 0 0])
+  ("DEIDENTIFIED_SITE_ID" .
+   [0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("json_name" .
+   [1 0 0 0 0 0 0 0 0])
+  ("zip_name" .
+   [3 0 0 0 0 0 0 0])
+  ("SUCCESS" .
+   [1 0 0 0 0 0 0])
+  ("FAILURE" .
+   [1 0 0 0 0 0 0])
+  ("succeeded" .
+   [1 0 0 0 0 0 0 0 0])
+  ("DEFAULT_LOG_HANDLER" .
+   [0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("DEBUG" .
+   [2 0 0 0 0])
+  ("keras" .
+   [2 0 0 0 0])
+  ("get_category" .
+   [0 0 0 0 0 0 1 0 0 0 0 0])
+  ("pd" .
+   [41 0])
+  ("create_zip_file" .
+   [0 0 0 0 0 0 1 3 0 0 0 0 0 0 1])
+  ("file_obj" .
+   [3 0 0 0 0 0 0 0])
+  ("CICAP_ADDRESS" .
+   [0 0 0 0 1 0 0 0 0 0 0 0 0])
+  ("CICAP_USER" .
+   [0 0 0 1 0 0 0 0 0 0])
+  ("CICAPP_PASSWORD" .
+   [0 0 0 0 1 0 0 0 0 0 0 0 0 0 0])
+  ("cached" .
+   [2 0 0 0 0 0])
+  ("slow" .
+   [1 0 0 0])
+  ("peak-mode-map" .
+   [1 0 0 0 1 0 0 1 0 0 1 0 0])
+  ("xl_file" .
+   [5 0 0 0 0 0 0])
+  ("parser" .
+   [0 0 0 0 0 1])
+  ("parse_bruker_spreadsheet" .
+   [0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("bruker" .
+   [2 0 0 0 0 0])
+  ("metadata_spreadsheet" .
+   [0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("analyte" .
+   [1 0 0 0 0 1 1])
+  ("analytes" .
+   [3 0 0 0 0 0 0 0])
+  ("class_name" .
+   [1 0 0 0 0 0 0 0 0 0])
+  ("challenge" .
+   [2 0 0 0 0 0 0 0 0])
+  ("mzml_base_directory" .
+   [0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0])
+  ("mzml" .
+   [1 0 0 0])
+  ("mzml_processor" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("coeffs" .
+   [1 0 0 0 0 0])
+  ("mzml_file" .
+   [1 0 0 0 0 0 0 0 1])
+  ("MSExperiment" .
+   [0 0 1 0 0 0 0 0 0 0 0 0])
+  ("MzMLFile" .
+   [0 0 0 0 0 0 0 1])
+  ("load" .
+   [6 0 0 0])
+  ("xl_data" .
+   [2 0 0 0 0 0 0])
+  ("DataProcessor" .
+   [0 0 0 0 0 1 0 0 0 0 0 0 0])
+  ("__" .
+   [1 0])
+  ("get_extracted_ion_chromatogram" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("chromatogram" .
+   [0 0 0 0 0 1 0 0 0 0 0 0])
+  ("pyopenms" .
+   [2 0 0 0 0 0 2 0])
+  ("pydoc" .
+   [0 0 2 0 0])
+  ("record_id" .
+   [3 0 0 0 0 0 0 0 0])
+  ("sr" .
+   [1 0])
+  ("countdown" .
+   [1 0 0 0 0 2 0 0 0])
+  ("existing_record" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("rt_in" .
+   [1 0 0 0 0])
+  ("val_errors" .
+   [0 0 0 1 0 0 0 0 0 1])
+  ("HttpResponseError" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("HttpResponseServerError" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0])
+  ("LoginRequiredMixin" .
+   [0 0 0 0 0 2 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("DATABASE" .
+   [0 0 0 0 0 0 0 2])
+  ("config_file" .
+   [10 0 0 0 0 0 0 1 1 0 1])
+  ("_load_config" .
+   [0 0 0 0 0 0 0 0 0 2 0 0])
+  ("argv" .
+   [8 0 0 0])
+  ("Problet" .
+   [1 0 0 0 1 0 1])
+  ("problet" .
+   [10 0 0 0 0 0 0])
+  ("run" .
+   [2 0 0])
+  ("pm" .
+   [42 0])
+  ("create_model" .
+   [2 0 0 0 0 0 0 0 0 0 0 1])
+  ("_configure_model" .
+   [0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0])
+  ("config_data" .
+   [1 0 0 0 0 0 0 0 0 0 0])
+  ("feature" .
+   [19 0 0 0 1 0 2])
+  ("features" .
+   [5 0 0 0 0 0 0 0])
+  ("peak_list_file" .
+   [3 0 1 0 3 4 5 3 0 0 0 0 0 5])
+  ("read_csv" .
+   [2 0 0 0 0 2 0 1])
+  ("itertuples" .
+   [6 0 0 0 0 0 0 0 0 0])
+  ("_load_feature_map" .
+   [0 0 0 0 0 0 0 0 0 1 1 0 0 0 0 0 1])
+  ("dataframe" .
+   [16 0 0 0 1 0 0 1 0])
+  ("feature_map" .
+   [8 0 0 0 3 0 0 0 0 0 1])
+  ("_parse_features" .
+   [0 0 0 0 0 0 1 0 0 0 0 0 0 0 0])
+  ("mult" .
+   [22 0 0 0])
+  ("mults" .
+   [5 0 0 0 0])
+  ("ParseError" .
+   [0 0 0 0 1 0 0 0 0 0])
+  ("_make_singlet" .
+   [0 0 0 0 0 0 0 1 0 0 0 0 0])
+  ("_make_doublet" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("params" .
+   [23 0 0 0 0 0])
+  ("_make_triplet" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("_make_quadruplet" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("problets" .
+   [4 0 0 0 0 0 0 0])
+  ("_parse_problets" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("ConfigError" .
+   [1 0 0 0 0 0 0 0 0 0 3])
+  ("ProbletList" .
+   [1 0 0 0 1 0 0 0 0 0 0])
+  ("problet_list" .
+   [2 0 0 0 0 0 0 0 0 0 0 0])
+  ("load_features" .
+   [0 0 0 0 0 2 0 0 0 0 0 0 1])
+  ("features_file" .
+   [1 0 0 0 1 0 0 0 0 0 0 0 0])
+  ("np" .
+   [27 0])
+  ("sd" .
+   [16 0])
+  ("vector" .
+   [5 0 0 0 0 0])
+  ("scales" .
+   [21 0 0 0 0 0])
+  ("means" .
+   [6 0 0 0 0])
+  ("gaussians" .
+   [1 0 0 0 0 0 0 0 0])
+  ("scaled" .
+   [14 0 1 0 0 0])
+  ("scaled_gaussian_sum" .
+   [1 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0])
+  ("_get_signal_function" .
+   [0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 2])
+  ("signal_file" .
+   [8 0 0 2 2 0 0 0 0 0 2])
+  ("signal" .
+   [0 0 1 1 0 1])
+  ("load_signal" .
+   [1 0 0 0 0 0 0 0 0 0 0])
+  ("SD_GUESS" .
+   [0 0 2 0 0 0 0 0])
+  ("INTENSITY_SD" .
+   [0 0 0 0 0 0 0 0 0 0 0 1])
+  ("PEAK_WIDTH" .
+   [1 0 0 0 1 0 0 0 0 0])
+  ("fix_test_value" .
+   [0 0 0 1 0 0 0 0 0 0 0 0 0 0])
+  ("dont_require_test_values" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0])
+  ("scaled_scale" .
+   [1 0 0 0 0 0 0 0 0 0 0 0])
+  ("scaled_scales" .
+   [2 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("_apply_scaling" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("scale_scale_factor" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0])
+  ("_get_scale_factor" .
+   [0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0])
+  ("ma" .
+   [6 0])
+  ("scale_factor" .
+   [5 0 0 0 0 0 0 0 0 0 0 0])
+  ("val" .
+   [4 0 0])
+  ("window_size" .
+   [2 0 0 0 0 0 0 0 0 0 0])
+  ("window" .
+   [2 0 0 0 0 0])
+  ("attr" .
+   [6 0 0 0])
+  ("metric" .
+   [3 0 0 0 0 0])
+  ("metric_value" .
+   [1 0 0 0 0 0 0 0 0 0 0 0])
+  ("numpy_func" .
+   [0 0 0 1 0 0 0 0 0 0])
+  ("describe" .
+   [3 0 0 0 1 0 0 0])
+  ("describe_assumptions" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("build_model" .
+   [2 0 0 0 0 0 0 0 0 0 0])
+  ("sc" .
+   [5 0])
+  ("scaling" .
+   [21 0 0 0 0 0 0])
+  ("describe_run" .
+   [0 0 0 1 1 0 0 0 0 0 0 0])
+  ("run_model" .
+   [1 0 0 0 0 0 0 0 0])
+  ("scaled_hz" .
+   [8 1 1 2 0 0 0 0 2])
+  ("scaled_" .
+   [1 0 0 0 0 0 0])
+  ("gauss_non_theano" .
+   [0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0])
+  ("sum" .
+   [1 0 0])
+  ("sum_scaled_gaussians" .
+   [0 0 0 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("basename" .
+   [2 0 0 0 1 0 0 0])
+  ("output_file" .
+   [2 0 0 0 0 0 0 0 0 0 0])
+  ("csv_file_name" .
+   [2 0 0 0 1 0 0 0 0 0 0 0 0])
+  ("window_start" .
+   [2 0 0 0 0 0 0 0 0 0 0 0])
+  ("window_end" .
+   [1 0 0 0 0 0 0 0 0 0])
+  ("window_start_hz" .
+   [3 0 0 0 0 0 0 1 0 0 0 0 0 0 0])
+  ("window_end_hz" .
+   [1 0 0 0 0 0 0 0 0 0 1 0 0])
+  ("is_windowed" .
+   [0 0 0 0 2 0 0 0 0 0 1])
+  ("translate_features" .
+   [0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0])
+  ("start" .
+   [2 0 0 0 0])
+  ("find_peaks_to_scan" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0])
+  ("max_intensity" .
+   [8 0 0 1 0 1 3 0 2 0 0 0 1])
+  ("max_intensity_wiggle_room" .
+   [0 0 0 1 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("find_peaks" .
+   [1 0 0 0 0 0 0 0 0 0])
+  ("max_low" .
+   [1 0 0 0 0 0 0])
+  ("max_high" .
+   [1 0 0 0 0 0 0 0])
+  ("scan_locs" .
+   [1 0 0 0 0 0 0 0 0])
+  ("align" .
+   [2 0 0 0 0])
+  ("run_scans" .
+   [0 0 0 1 0 0 0 0 0])
+  ("run_scan" .
+   [1 0 0 0 0 0 0 0])
+  ("largest" .
+   [1 0 0 0 0 0 0])
+  ("peak_hz" .
+   [4 0 0 0 0 0 0])
+  ("align_subpeaks" .
+   [2 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("largest_subpeak_index" .
+   [0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0])
+  ("largest_subpeak_hz" .
+   [1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("hz_delta" .
+   [3 0 0 0 0 0 0 1])
+  ("translated_locs" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("largest_subpeak_loc" .
+   [0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("max_loc" .
+   [1 0 0 0 0 0 0])
+  ("translated" .
+   [1 0 0 0 0 0 0 0 0 0])
+  ("translated_locs_hz" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0])
+  ("subpeak_locs_hz" .
+   [0 0 0 1 0 0 0 0 0 0 0 0 0 0 0])
+  ("subpeak_locs" .
+   [1 0 0 2 0 0 0 0 0 0 0 0])
+  ("scaled_locs" .
+   [1 0 0 0 0 0 0 0 0 0 0])
+  ("locs_array" .
+   [1 0 0 0 0 0 0 0 0 0])
+  ("subpeak" .
+   [7 0 0 0 0 0 0])
+  ("sample" .
+   [1 0 0 0 0 0])
+  ("save_trace" .
+   [1 0 1 0 0 0 0 0 0 0])
+  ("model_file_name" .
+   [0 0 0 0 0 0 0 0 0 0 1 0 0 0 2])
+  ("save_model" .
+   [1 0 0 0 1 0 0 0 0 0])
+  ("subpeak_names" .
+   [3 0 1 2 0 1 0 1 1 0 0 0 0])
+  ("subp" .
+   [1 0 0 0])
+  ("size" .
+   [5 0 0 0])
+  ("sel" .
+   [14 0 0])
+  ("multiplets" .
+   [24 0 1 3 1 2 0 0 0 0])
+  ("load_multiplets" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("clone" .
+   [2 0 0 0 0])
+  ("translation" .
+   [3 0 0 0 0 0 0 0 0 0 0])
+  ("multiple" .
+   [3 0 0 0 0 0 0 0])
+  ("max_peak" .
+   [5 0 0 1 0 0 0 0])
+  ("peak_h" .
+   [1 0 0 0 0 0])
+  ("translated_multiplet" .
+   [0 0 0 3 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("max_multiplet" .
+   [1 0 0 0 0 0 1 0 0 0 0 0 0])
+  ("mi" .
+   [2 0])
+  ("tallest_subpeak" .
+   [0 0 0 0 0 0 0 0 0 0 0 1 0 0 0])
+  ("trac" .
+   [11 0 0 0])
+  ("traces" .
+   [3 0 0 0 0 0])
+  ("trace_map" .
+   [4 0 0 0 0 0 0 0 0])
+  ("get_best_trace" .
+   [0 0 0 0 0 0 0 0 1 0 0 0 0 0])
+  ("mu" .
+   [13 0])
+  ("extend" .
+   [2 0 0 0 0 0])
+  ("multiplet_locations" .
+   [2 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0])
+  ("multiplet_intensities" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0])
+  (".git/" .
+   [1 0 0 0 0])
+  ("NUM_POINTS" .
+   [0 0 0 0 1 0 0 0 0 0])
+  ("sum_of_gaussians" .
+   [0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0])
+  ("sog" .
+   [7 0 0])
+  ("make_sum_of_gaussians" .
+   [0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("sublist_name" .
+   [1 0 0 0 0 0 0 0 0 0 0 0])
+  ("multiplet_locatoio" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("element" .
+   [6 0 0 0 0 0 1])
+  ("sublist" .
+   [1 0 0 0 0 0 0])
+  ("flatten" .
+   [2 0 0 0 0 0 0])
+  ("intensi" .
+   [1 0 0 0 0 0 0])
+  ("make_model" .
+   [0 0 0 1 0 0 0 0 0 0])
+  ("ml" .
+   [26 0])
+  ("scaled_s" .
+   [3 0 0 0 0 0 0 1])
+  ("scaled_value" .
+   [3 0 0 0 0 0 0 0 1 0 0 0])
+  ("scale_func_hz" .
+   [0 0 1 2 0 1 1 0 0 0 0 0 1])
+  ("unscaled_value" .
+   [1 0 0 3 0 0 0 0 0 0 0 0 0 1])
+  ("scale_func_s" .
+   [1 0 0 1 0 0 3 0 0 0 0 0])
+  ("freq" .
+   [13 0 0 1])
+  ("multiplet_centre" .
+   [0 0 0 0 1 0 0 0 1 0 0 1 0 0 0 0])
+  ("_get_multiplet_centre" .
+   [0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("_scale_hz_value" .
+   [0 0 0 0 0 1 0 0 0 0 0 0 1 0 3])
+  ("_scale_intensity_value" .
+   [0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("location_uncertainty" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("_get_peak_offset" .
+   [0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0])
+  ("offsets" .
+   [14 0 0 1 0 0 1])
+  ("od" .
+   [1 0])
+  ("likelihood" .
+   [0 0 0 0 0 0 1 0 0 0])
+  ("observed" .
+   [1 0 0 0 0 0 0 0])
+  ("multiplet_centres" .
+   [5 2 0 0 1 1 0 0 0 0 0 0 0 0 0 0 0])
+  ("total" .
+   [2 0 0 0 0])
+  ("gaussian_peak_value" .
+   [0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("num_subpeaks" .
+   [0 0 0 0 1 0 0 0 0 0 0 0])
+  ("j" .
+   [2])
+  ("scalings" .
+   [8 0 0 0 0 0 0 0])
+  ("intensiti" .
+   [1 0 0 0 0 0 0 0 0])
+  ("peak_width_half_height" .
+   [0 0 0 0 1 1 2 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("pw2" .
+   [5 0 0])
+  ("d2" .
+   [1 0])
+  ("lorentzian" .
+   [0 0 1 2 0 0 0 0 0 1])
+  ("p2" .
+   [8 0])
+  ("save_trace_pickle" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("pickle_filename" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("save_pickle" .
+   [0 0 0 0 0 1 0 0 0 0 1])
+  ("save_trace_csv" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("term" .
+   [1 0 0 0])
+  ("centres" .
+   [6 0 0 0 0 0 0])
+  ("multipletlist" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("make_scaling_transforms" .
+   [0 0 0 0 1 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("unscale" .
+   [3 0 0 0 0 0 0])
+  ("scaled_freq" .
+   [1 0 0 0 0 0 0 0 0 0 0])
+  ("trace_results" .
+   [7 0 0 1 0 0 3 0 0 5 0 0 2])
+  ("model_params" .
+   [0 0 0 0 0 0 0 0 0 0 1 0])
+  ("_load" .
+   [2 0 0 0 0])
+  ("spectrum_data" .
+   [1 0 0 0 2 0 1 0 0 0 0 1 2])
+  ("scale_int" .
+   [1 0 0 0 0 0 0 0 0])
+  ("scale_freq" .
+   [1 0 0 0 0 0 0 0 0 0])
+  ("estimate" .
+   [2 0 0 0 0 0 0 1])
+  ("numpy" .
+   [2 0 0 0 0])
+  ("spectrum_hz" .
+   [1 0 0 0 0 0 0 0 0 0 0])
+  ("unscale_func_s" .
+   [1 0 0 1 1 0 0 0 0 0 0 0 0 1])
+  ("unscale_func_hz" .
+   [1 0 1 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("func_name" .
+   [1 0 0 0 0 0 0 0 0])
+  ("unscale_params" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("summary_dataframe" .
+   [2 0 0 0 1 0 0 0 0 0 1 0 1 0 0 0 0])
+  ("filtered_features" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("rules" .
+   [6 0 0 0 0])
+  ("Index" .
+   [0 0 0 0 1])
+  ("IndexError" .
+   [0 0 0 0 0 1 0 0 0 3])
+  ("rules_csv_path" .
+   [0 0 0 0 0 0 0 0 0 3 1 0 1 1])
+  ("Optional" .
+   [2 0 0 0 0 0 1 1])
+  ("rules_csv" .
+   [2 0 0 0 0 0 0 0 0])
+  ("features_dataframe" .
+   [0 0 0 0 1 0 0 0 0 1 0 0 0 0 0 0 0 2])
+  ("inside_rt_tolerance" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0])
+  ("roi_dict" .
+   [2 0 0 0 0 0 0 0])
+  ("roi_params" .
+   [2 0 0 0 0 0 0 0 0 0])
+  ("tolerance" .
+   [4 0 0 0 1 0 0 0 0])
+  ("CliniciansHyperlink" .
+   [0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("Menu" .
+   [0 0 0 1])
+  ("menu_dict" .
+   [0 0 0 1 0 0 0 0 0])
+  ("_filter_window" .
+   [0 0 0 0 0 0 0 1 0 0 0 0 0 0])
+  ("filter_1d_window" .
+   [0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0])
+  ("start_hz" .
+   [5 0 0 0 0 0 0 0])
+  ("end_hz" .
+   [4 0 0 0 0 1])
+  ("interval_indices" .
+   [0 0 0 0 1 1 0 0 0 0 0 0 0 0 0 0])
+  ("num_multiplets" .
+   [0 0 0 1 0 0 0 0 0 0 0 0 0 0])
+  ("w" .
+   [3])
+  ("WIDTH" .
+   [3 0 0 0 0])
+  ("background" .
+   [2 0 0 0 0 0 0 0 0 0])
+  ("red" .
+   [1 0 0])
+  ("cm" .
+   [1 0])
+  ("LDAP_ENABLED" .
+   [0 0 1 0 0 0 0 0 0 0 0 0])
+  ("SECURE_LDAP_REQUIRED" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("best" .
+   [5 0 0 0])
+  ("found_multiplets" .
+   [0 0 0 0 0 1 4 0 0 0 0 0 0 0 0 1])
+  ("EnvConfig" .
+   [0 0 0 0 1 0 0 0 0])
+  ("LDAPSearchUnion" .
+   [0 0 0 0 0 0 0 0 0 0 0 1 0 0 0])
+  ("RDRF_" .
+   [9 0 0 0 0])
+  ("Integration" .
+   [1 0 0 0 0 0 0 0 0 0 0])
+  ("questions" .
+   [2 0 0 0 0 0 0 0 0])
+  ("survey_endpoint" .
+   [1 0 0 0 0 1 0 0 0 0 0 0 0 0 0])
+  ("completed_page" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 1 0])
+  ("DesiredCapabilities" .
+   [0 0 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("TEST_BROWSER" .
+   [0 0 0 0 0 0 1 0 0 0 0 0])
+  ("desired_capabilities" .
+   [0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0])
+  ("Device" .
+   [1 0 1 0 0 0])
+  ("RunRequest" .
+   [1 0 0 2 0 1 0 0 0 6])
+  ("related_name=" .
+   [0 0 0 1 0 0 0 0 0 0 0 0 0])
+  ("auto_now_add=" .
+   [0 0 0 1 1 0 0 0 0 1 0 0 0])
+  ("RunRequestItem" .
+   [0 0 0 0 0 0 0 0 0 0 0 1 0 0])
+  ("on_delete=" .
+   [0 0 0 0 0 0 0 1 0 0])
+  ("Sample" .
+   [1 0 0 1 0 0])
+  ("RunRequestNMR400" .
+   [0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0])
+  ("RunRequestNMR600" .
+   [1 0 0 0 0 0 0 0 0 0 0 1 0 0 1 0])
+  ("Matrix" .
+   [0 0 0 1 0 0])
+  ("Method" .
+   [0 0 0 0 1 0])
+  ("SAMPLE_TYPES" .
+   [0 0 0 0 0 0 1 0 0 0 0 0])
+  ("and" .
+   [0 0 1])
+  ("BrukerMSRunOrder" .
+   [0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0])
+  ("SciexMSRunOrder" .
+   [0 0 0 0 0 0 0 0 0 0 1 0 0 0 0])
+  ("Sciex" .
+   [1 0 0 0 0])
+  ("verbose_name" .
+   [11 0 0 0 0 0 0 0 0 0 0 1])
+  ("sample_id" .
+   [1 0 0 0 0 0 0 0 0])
+  ("TYPES" .
+   [3 0 0 0 0])
+  ("S" .
+   [1])
+  ("FloatField" .
+   [0 0 0 1 0 0 0 0 0 0])
+  ("test" .
+   [0 0 1 0])
+  ("runordercreation" .
+   [0 0 0 1 1 0 0 0 0 0 0 0 0 0 0 1])
+  ("RunOrderCreator" .
+   [1 0 1 1 1 0 0 0 0 0 0 0 0 0 0])
+  ("sample_list_file" .
+   [2 0 0 1 0 0 0 0 0 0 0 1 0 1 0 0])
+  ("get_items" .
+   [1 0 0 0 0 0 0 0 0])
+  ("template_dir" .
+   [1 0 0 0 0 0 0 0 0 0 0 0])
+  ("samples" .
+   [10 0 0 0 0 0 0])
+  ("file_path" .
+   [1 0 0 0 0 0 0 0 0])
+  ("num_rows" .
+   [9 0 0 0 0 0 0 1])
+  ("num_columns" .
+   [3 0 0 1 0 1 0 2 0 0 1])
+  ("assertEquals" .
+   [0 0 0 0 0 0 0 0 1 0 0 0])
+  ("reset" .
+   [1 0 0 0 0])
+  ("self" .
+   [2 0 0 0])
+  ("advance" .
+   [1 0 0 0 0 0 1])
+  ("in_bounds" .
+   [1 0 0 0 0 0 0 0 0])
+  ("recalc_client_rep" .
+   [0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("response_data" .
+   [4 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("dr" .
+   [26 0])
+  ("DataRequest" .
+   [0 0 0 0 3 0 1 1 0 0 3])
+  ("http" .
+   [1 0 0 0])
+  ("HttpResponseBadRequest" .
+   [0 0 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("diex" .
+   [0 0 0 1])
+  ("json_response" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("umrn" .
+   [32 0 0 1])
+  ("body" .
+   [1 0 0 0])
+  ("hl7_data" .
+   [1 0 0 0 0 0 0 0])
+  ("external" .
+   [3 0 0 0 0 1 0 0])
+  ("external_data" .
+   [5 0 1 0 0 1 0 0 0 0 0 0 1])
+  ("external_data_json" .
+   [3 0 0 0 0 4 0 0 0 0 0 0 0 0 0 0 0 2])
+  ("ds" .
+   [1 0])
+  ("dsi" .
+   [3 0 0])
+  ("DATAREQUEST_STATES" .
+   [0 0 0 0 3 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("REQUESTED" .
+   [0 0 2 0 0 0 0 0 1])
+  ("DataRequestState" .
+   [0 0 0 0 2 1 0 2 0 0 0 0 2 0 0 0])
+  ("APPLIED" .
+   [0 1 0 0 0 0 0])
+  ("updated" .
+   [1 0 0 0 0 0 0])
+  ("auto_now" .
+   [0 0 0 0 0 0 0 1])
+  ("translated_data_json" .
+   [0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1])
+  ("tracemalloc" .
+   [0 0 0 1 0 0 0 0 0 0 0])
+  ("raw_cic_data" .
+   [1 0 0 0 0 0 0 0 0 0 0 1])
+  ("translate" .
+   [1 0 0 0 0 0 0 0 0])
+  ("cic_data" .
+   [2 0 0 0 0 0 0 0])
+  ("process_data" .
+   [2 0 0 0 0 0 0 0 0 0 0 0])
+  ("error_detail" .
+   [0 0 0 0 0 0 1 0 0 0 0 0])
+  ("section_dict" .
+   [8 0 0 0 0 0 0 0 0 0 0 0])
+  ("_get_sensible_value_from_cde" .
+   [0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("cde_values" .
+   [2 0 0 0 0 0 0 0 0 0])
+  ("cde_data" .
+   [9 0 0 0 0 0 0 0])
+  ("hl7" .
+   [30 0 3])
+  ("intframework" .
+   [0 0 0 0 0 0 7 0 2 0 0 1])
+  ("HL7Message" .
+   [1 0 4 2 1 0 1 2 0 2])
+  ("HL7" .
+   [4 0 0])
+  ("JSONField" .
+   [0 1 0 0 0 0 0 0 0])
+  ("mappings_json" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("mappings" .
+   [4 0 0 0 0 0 0 0])
+  ("mapping" .
+   [11 0 0 0 0 0 1])
+  ("hl7_message" .
+   [4 0 0 0 0 1 0 1 2 0 3])
+  ("event_code" .
+   [12 0 0 0 0 0 0 0 0 1])
+  ("message_map" .
+   [0 0 0 0 0 0 0 0 0 0 2])
+  ("mapping_data" .
+   [25 0 0 0 4 0 0 0 0 0 0 0])
+  ("hl7_path" .
+   [6 0 1 1 0 1 1 0])
+  ("transform_function_name" .
+   [0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("hl7_value" .
+   [15 0 0 0 1 0 2 0 1])
+  ("value_map" .
+   [6 0 0 0 0 0 0 0 0])
+  ("field_moniker" .
+   [6 0 0 0 0 0 0 0 0 3 0 0 2])
+  ("rdrf_value" .
+   [11 0 0 0 0 0 0 0 0 0])
+  ("event" .
+   [2 0 0 0 0])
+  ("event_" .
+   [1 0 0 0 0 0])
+  ("event_map" .
+   [1 0 0 0 0 0 0 0 0])
+  ("_get_hl7_value" .
+   [0 0 0 0 0 0 0 0 1 0 0 0 0 1])
+  ("_apply_transform" .
+   [0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0])
+  ("transform_name" .
+   [4 0 0 0 1 2 0 0 0 0 0 0 0 0])
+  ("callable" .
+   [0 0 0 0 0 1 0 2])
+  ("TransformFunctionError" .
+   [0 0 0 1 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2])
+  ("parse" .
+   [8 0 1 0 0])
+  ("msg" .
+   [17 0 0])
+  ("ParseException" .
+   [1 1 1 0 0 0 0 0 0 0 0 0 0 2])
+  ("_get_event_code" .
+   [0 0 0 0 0 0 1 0 0 0 0 0 0 0 0])
+  ("parse_message" .
+   [2 0 0 0 0 0 0 1 0 0 0 0 0])
+  ("see" .
+   [6 0 0])
+  ("parsed_message" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("MESSAGE_TYPE" .
+   [0 0 0 0 0 0 0 0 1 0 0 0])
+  ("MESSAGE_TYPE_PATH" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("seps" .
+   [1 0 0 0])
+  ("DTM" .
+   [1 0 0])
+  ("security" .
+   [1 0 0 0 0 0 0 0])
+  ("message_control_id" .
+   [1 0 0 0 1 0 0 0 0 0 0 0 0 0 0 2 0 1])
+  ("message_model" .
+   [27 0 0 0 1 0 0 0 0 0 0 0 0])
+  ("_create_message_model" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2])
+  ("user_model" .
+   [10 0 0 0 0 0 0 0 0 0])
+  ("MESSAGE_STATES" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("com" .
+   [1 0 0])
+  ("H" .
+   [2])
+  ("HL7_HUB_ENDPOINT" .
+   [0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0])
+  ("HL7_HUB_PORT" .
+   [0 0 0 0 0 0 0 1 0 0 0 0])
+  ("get_api_hostname" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("binary_data" .
+   [1 0 0 0 1 0 0 0 0 0 0])
+  ("bytes_data" .
+   [1 0 0 0 0 0 0 0 0 0])
+  ("HL7Mapping" .
+   [0 0 2 1 0 2 0 1 0 0])
+  ("post_save" .
+   [0 0 0 0 0 2 0 0 0])
+  ("receiver" .
+   [0 0 0 0 1 0 0 0])
+  ("sender" .
+   [3 0 0 0 0 0])
+  ("blackboard_utils" .
+   [0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("setup_message_router_subscription" .
+   [0 0 0 0 0 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("CIC_CLINICAL" .
+   [0 0 0 0 1 0 0 0 0 0 0 0])
+  ("MessageSearcher" .
+   [0 0 0 0 0 0 0 0 1 1 0 0 0 0 1])
+  ("search" .
+   [2 0 0 0 0 0])
+  ("message_searcher" .
+   [1 0 0 0 0 0 0 0 0 1 1 0 0 0 0 0])
+  ("select_matching_items" .
+   [0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("search_results" .
+   [1 0 0 0 1 0 0 0 0 0 0 0 0 0])
+  ("_get_transform" .
+   [1 0 0 0 0 0 0 0 1 0 0 0 0 0])
+  ("function_name" .
+   [4 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("handler" .
+   [2 0 0 0 0 0 0])
+  ("handler_name" .
+   [2 0 0 0 0 0 0 0 0 0 0 0])
+  ("patient_not_found" .
+   [0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("response_message" .
+   [0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("hl7messa" .
+   [0 0 0 1 0 0 0 1])
+  ("result_model" .
+   [10 0 0 0 0 0 0 0 0 0 0 0])
+  ("Q" .
+   [2])
+  ("search_term" .
+   [1 0 0 0 0 0 0 0 0 0 0])
+  ("q4" .
+   [1 0])
+  ("parse_cde_triple" .
+   [0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1])
+  ("parse_result" .
+   [0 0 0 0 0 0 1 0 0 1 0 0])
+  ("externaldemographics" .
+   [0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0])
+  ("patient_view" .
+   [1 0 0 0 0 0 0 0 0 0 0 0])
+  ("patient_subscribed" .
+   [0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0])
+  ("mock" .
+   [1 0 0 0])
+  ("mock_message_path" .
+   [0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0])
+  ("patient_found" .
+   [2 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("get_umrn" .
+   [2 0 0 0 0 0 0 1])
+  ("hl7message" .
+   [1 0 1 0 0 0 0 0 0 0])
+  ("one_month" .
+   [1 0 0 0 0 0 0 0 0])
+  ("RegistryCapabilities" .
+   [0 0 0 2 0 0 0 0 0 0 2 1 1 0 0 0 0 0 0 1])
+  ("capability" .
+   [3 0 0 0 0 0 0 0 0 0])
+  ("reg_caps" .
+   [1 0 0 0 0 0 0 0])
+  ("capabilities" .
+   [1 0 0 0 0 0 0 0 0 0 0 0])
+  ("cap" .
+   [2 0 0])
+  ("RegistryCapabilitiesAdmin" .
+   [0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("StackedInline" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("DataFrame" .
+   [0 0 1 0 0 0 0 0 0])
+  ("NA" .
+   [2 1])
+  ("_get_cde" .
+   [1 0 0 0 0 0 0 0])
+  ("_get_field_specs" .
+   [0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0])
+  ("custom_action_model" .
+   [0 0 1 2 1 0 0 2 1 1 0 0 0 0 0 0 0 0 1])
+  ("visualisaton_download" .
+   [0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("vd" .
+   [1 0])
+  ("VisualisationDownloader" .
+   [0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("vdlr" .
+   [0 0 0 1])
+  ("extract" .
+   [0 0 0 0 0 1 0])
+  ("_generate_column_map" .
+   [0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("_get_spec" .
+   [2 0 0 0 0 0 0 0 0])
+  ("field_specs" .
+   [3 0 0 0 0 0 0 0 0 0 0])
+  ("labels" .
+   [1 0 0 0 0 0])
+  ("_get_patient_model" .
+   [0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0])
+  ("cfg" .
+   [1 0 0])
+  ("extract_long" .
+   [1 0 0 0 0 0 0 0 0 0 0 0])
+  ("yield_cdes" .
+   [0 0 0 0 1 0 0 0 0 0])
+  ("line" .
+   [15 0 0 0])
+  ("aus_date_string" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("patients_data" .
+   [0 0 1 0 0 0 0 0 0 0 0 0 0])
+  ("PATIENTS_HEADER" .
+   [0 0 1 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("emit_patient_line" .
+   [0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("given_names" .
+   [0 0 0 0 0 0 1 0 0 0 0])
+  ("family_name" .
+   [1 0 0 1 0 0 0 0 0 0 0])
+  ("date_of_birth" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("address_map" .
+   [5 0 0 2 0 0 0 0 0 0 1])
+  ("address_dict" .
+   [1 0 0 0 0 0 0 0 0 0 0 0])
+  ("_get_address_field" .
+   [0 0 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 1])
+  ("_check_address" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("maxsize" .
+   [0 0 0 0 0 0 1])
+  ("is_address_field" .
+   [0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0])
+  ("POSTCODE" .
+   [1 0 0 0 0 0 0 0])
+  ("_update_address" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("STREET_FIELD" .
+   [0 0 0 0 0 0 0 1 0 0 0 0])
+  ("SUBURB_FIELD" .
+   [0 0 0 1 0 0 0 0 0 0 0 0])
+  ("POSTCODE_FIELD" .
+   [0 0 0 0 1 0 0 0 0 0 0 0 0 0])
+  ("ADDRESS" .
+   [1 0 0 0 0 0 0])
+  ("ADDRESS_FIELD" .
+   [0 1 0 0 0 0 0 0 0 0 0 0 0])
+  ("date_string" .
+   [0 0 0 0 0 0 0 0 0 0 1])
+  ("tmpdir" .
+   [1 0 0 0 0 0])
+  ("_parse_fields" .
+   [0 0 0 0 0 0 0 0 1 0 0 0 0])
+  ("not_match_pattern" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("not_in_fields" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("_match" .
+   [1 0 0 0 0 0])
+  ("DELIMITER" .
+   [0 0 1 2 0 1 0 0 0])
+  ("_get_config" .
+   [1 0 0 0 0 0 0 0 0 0 0])
+  ("delimiter" .
+   [1 0 0 0 0 0 0 0 0])
+  ("_create_zip_name" .
+   [0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0])
+  ("_create_zip_object" .
+   [0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0])
+  ("zip_object" .
+   [1 0 0 0 0 0 0 0 0 0])
+  ("mkdir" .
+   [0 0 1 0 0])
+  ("zip_file" .
+   [0 0 0 0 0 0 0 1])
+  ("zip_filepath" .
+   [1 0 0 0 0 0 0 0 0 0 0 0])
+  ("task_dir" .
+   [3 0 0 0 0 0 0 0])
+  ("zip_filename" .
+   [2 0 0 0 0 0 0 0 0 0 0 0])
+  ("rmdir" .
+   [1 0 0 0 0])
+  ("task_subfolder_name" .
+   [0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0])
+  ("AttributeError" .
+   [0 0 0 0 2 0 0 0 0 0 0 0 0 0])
+  ("table_name" .
+   [2 0 0 0 0 2 0 0 0 1])
+  ("CODE_TABLES" .
+   [0 0 0 0 1 0 0 0 0 0 2])
+  ("N" .
+   [1])
+  ("mapping_dat" .
+   [0 0 0 0 0 0 0 0 0 0 1])
+  ("get_code_table_value" .
+   [0 0 0 0 0 0 0 0 1 0 0 1 0 0 0 0 0 0 0 0])
+  ("table" .
+   [2 0 0 0 0])
+  ("pcase-dolist" .
+   [0 0 0 0 0 0 0 0 1 0 0 0])
+  ("get-buffer-create" .
+   [0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0])
+  ("set-buffer" .
+   [0 0 0 0 0 0 0 0 0 1])
+  ("buf" .
+   [2 0 0])
+  ("age" .
+   [1 0 0])
+  ("newline" .
+   [1 0 0 0 0 0 0])
+  ("format" .
+   [1 0 0 0 0 0])
+  ("convert_to_rdrf" .
+   [0 0 0 0 0 0 0 1 0 0 0 0 0 0 0])
+  ("update_patients" .
+   [0 0 0 0 0 0 1 0 0 1 0 0 0 0 0])
+  ("convert_dates" .
+   [2 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("convert_ranges" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("validate_data" .
+   [0 0 0 0 0 0 1 0 0 0 0 0 0])
+  ("update_columns" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("iterrows" .
+   [0 0 0 0 1 0 0 0])
+  ("get_column_map" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("update_func" .
+   [2 0 1 0 0 0 0 0 0 0 0])
+  ("clinical_data" .
+   [4 0 0 1 0 0 1 0 0 0 0 0 1])
+  ("UpdateFunction" .
+   [2 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("update_patient" .
+   [2 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("save_patient_data" .
+   [0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0])
+  ("_update_value" .
+   [0 0 0 0 0 0 0 0 1 0 0 0 0])
+  ("get_rdrf_column" .
+   [2 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("column_name_map" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("datasource" .
+   [10 0 0 0 0 0 0 1 0 0])
+  ("datasource_name" .
+   [0 0 0 0 1 0 0 0 0 0 0 0 0 0 0])
+  ("get_datasource" .
+   [0 0 0 0 0 0 0 0 1 0 0 0 0 0])
+  ("CRCCANCERSTAGE" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("stage_name" .
+   [5 0 0 0 0 0 0 0 0 0])
+  ("current_stage" .
+   [2 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("eq_sym" .
+   [1 0 0 0 0 0])
+  ("clauses" .
+   [7 0 0 0 0 0 0])
+  ("clause" .
+   [1 0 0 0 0 0])
+  ("rule_dict" .
+   [1 0 0 0 0 0 0 0 0])
+  ("stage" .
+   [3 0 0 0 0])
+  ("stage_cde" .
+   [1 0 0 0 0 0 0 0 0])
+  ("current_list" .
+   [2 0 0 0 0 0 0 0 0 0 0 0])
+  ("dist/" .
+   [2 0 0 0 0])
+  ("last_index" .
+   [1 0 0 0 0 0 0 0 0 0])
+  ("_get_condition" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("conditions" .
+   [2 0 0 0 0 0 0 0 0 0])
+  ("CancerStageEvaluator" .
+   [0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("crc_cancer_stage_spec" .
+   [0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("evaluator" .
+   [0 0 0 1 0 0 0 0 0])
+  ("evaluate" .
+   [0 0 0 1 0 0 0 0])
+  ("as_dict" .
+   [1 0 0 0 0 0 0])
+  ("stage_value" .
+   [0 0 0 0 0 0 0 0 1 0 0])
+  ("timeout_warning_widget" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0])
+  ("const" .
+   [2 0 0 0 0])
+  ("modal" .
+   [8 0 0 0 0])
+  ("setInterval" .
+   [0 0 0 0 1 0 0 0 0 0 0])
+  ("update_timeout_message" .
+   [0 0 0 0 0 0 0 1 0 0 0 1 0 0 0 0 0 0 0 0 0 0])
+  ("clearTimeout" .
+   [0 0 0 0 0 1 0 0 0 0 0 0])
+  ("clearInterval" .
+   [0 0 0 0 0 0 0 1 0 0 0 0 0])
+  ("messageUpdate" .
+   [2 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("timeLeft" .
+   [4 0 0 0 0 1 0 0])
+  ("console" .
+   [4 0 0 0 0 0 0])
+  ("getModal" .
+   [1 0 0 0 0 1 0 0])
+  ("widget_name" .
+   [0 0 0 0 0 0 0 0 0 0 1])
+  ("widget_config" .
+   [1 0 0 0 0 0 0 0 0 0 0 2 0])
+  ("stored_value" .
+   [2 0 0 0 0 0 0 1 0 0 0 0])
+  ("_get_display_value_datasource" .
+   [0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("DataSourceSelect" .
+   [0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0])
+  ("DropdownLookup" .
+   [0 0 0 0 1 0 1 0 0 0 0 0 0 1])
+  ("get_full_link" .
+   [0 0 0 0 0 1 0 0 0 0 0 0 1])
+  ("login_link=" .
+   [0 0 0 0 0 0 1 0 0 0 0])
+  ("loginUrl" .
+   [4 0 0 0 0 0 0 0])
+  ("reverse" .
+   [2 0 0 0 0 0 0])
+  ("logout" .
+   [3 0 0 0 0 0])
+  ("patients_listing" .
+   [4 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("UMRN_FIELD" .
+   [0 0 1 0 0 0 0 0 0 0])
+  ("_get_sex" .
+   [3 0 0 0 0 0 0 0])
+  ("sex_choices" .
+   [1 0 0 0 0 0 0 0 0 0 0])
+  ("gender" .
+   [1 0 0 0 0 0])
+  ("_get_deident" .
+   [0 0 0 0 0 1 0 0 0 0 0 0])
+  ("_get_field" .
+   [1 0 0 0 0 0 0 0 0 0])
+  ("_get_dob" .
+   [1 0 0 0 0 0 0 0])
+  ("dob" .
+   [2 0 0])
+  ("_get_sex_value" .
+   [2 0 0 0 0 0 0 0 0 0 0 0 0 0])))

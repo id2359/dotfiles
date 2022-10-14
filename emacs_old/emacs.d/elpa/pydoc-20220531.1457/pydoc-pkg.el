@@ -1,0 +1,2 @@
+;;; Generated package description from pydoc-20220531.1457/pydoc.el  -*- no-byte-compile: t -*-
+(define-package "pydoc" "20220531.1457" "functional, syntax highlighted pydoc navigation" 'nil :commit "c8b667e17bfe3e63221f822c5c4d58c8fb4fea90" :authors '(("John Kitchin" . "jkitchin@andrew.cmu.edu")) :maintainer '("Brian J. Lopes" . "statmobile@gmail.com") :keywords '("pydoc" "python") :url "https://github.com/statmobile/pydoc")
