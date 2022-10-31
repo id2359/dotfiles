@@ -5,7 +5,7 @@
 (require 'frug-packages)
 (require 'frug-editing)
 (require 'frug-python)
-;;(require 'frug-j)
+(require 'frug-typescript)
 (require 'frug-git)
 
 
