@@ -6,7 +6,9 @@
 (require 'frug-editing)
 (require 'frug-python)
 (require 'frug-typescript)
+(require 'frug-guile)
 (require 'frug-git)
+(require 'linum)
 
 
 
