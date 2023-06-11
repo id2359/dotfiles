@@ -8,4 +8,7 @@ emacs/emacs.d/ede-projects.el
 emacs/emacs.d/elpa
 emacs/emacs.d/evil
 emacs/emacs.d/.python-environments
+emacs/emacs.d/.cache
+emacs/emacs.d/.lsp-session-v1
+
 
